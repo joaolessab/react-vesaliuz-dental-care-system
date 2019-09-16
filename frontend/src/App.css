@@ -1,0 +1,20 @@
+/* CSS Global */
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root{
+  height: 100%;
+}
+
+body{
+  background: #f5f5f5;
+}
+
+/* Por padrão, o Input e o Button não herdam a fonte do corpo do HTML */
+body, input, button{
+  font-family: Arial, Helvetica, sans-serif;
+}
