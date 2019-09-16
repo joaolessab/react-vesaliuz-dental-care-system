@@ -1,9 +1,13 @@
 import React from 'react';
+//Arquivos CSS e Imagens devem ser importados aqui
 import './App.css';
+
+//Importando componentes
+import Login from './pages/Login';
 
 function App() {
   return (
-    <h1>Vesalius</h1>
+    <Login />
   );
 }
 
