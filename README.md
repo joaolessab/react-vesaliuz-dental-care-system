@@ -1,4 +1,4 @@
-# Vesalius
+# Vesaliuz
  
 # FRONTEND - WEB:
 - Primeiro, é necessário entrar dentro do diretório do backend e rodar o projeto: `yarn dev`;
