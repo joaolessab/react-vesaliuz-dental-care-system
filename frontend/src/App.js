@@ -1,13 +1,14 @@
 import React from 'react';
+
 //Arquivos CSS e Imagens devem ser importados aqui
 import './App.css';
 
 //Importando componentes
-import Login from './pages/Login';
+import Routes from './routes';
 
 function App() {
   return (
-    <Login />
+    <Routes />
   );
 }
 
