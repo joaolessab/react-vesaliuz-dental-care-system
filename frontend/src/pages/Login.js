@@ -5,6 +5,18 @@ import logo from '../assets/logo.svg';
 
 export default function Login(){
     return (
-        <img src={logo} alt = "Vesalius" />
+        <div className="login-container">
+            <form>
+                <img src={logo} alt= "Vesalius"/>
+                <input 
+                    placeholder="Digite seu usuario"
+                />
+                <input 
+                    type="password"
+                    placeholder="Digite seu usuario"
+                />
+                <button>Enviar</button>
+            </form>
+        </div>
     );
 }
