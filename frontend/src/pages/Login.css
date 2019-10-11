@@ -1,22 +1,33 @@
-img{
-    height: 200px;
-}
-.login-container{
-    height: 100%;
+.form-container{
+    flex: 2;
+    background: #F5F6FA;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
 }
 
-.login-container form{
+.draw-container{
+    flex: 1;
+    background: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2685FC;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+/*.form-container form{
     width: 100%;
     max-width: 300px;
     display: flex;
-    flex-direction: column; /* Cada elemento desse form, estará um abaixo do outro */
+    flex-direction: column; /* Cada elemento desse form, estará um abaixo do outro *//*
     background-color: red;
 }
 
-.login-container form input{
+.form-container form input{
     margin-top: 20px;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -26,11 +37,11 @@ img{
     color: #666;
 }
 
-.login-container form input ::placeholder{
+.form-container form input ::placeholder{
     color: #999;
 }
 
-.login-container  form button {
+.form-container  form button {
     margin-top: 10px;
     border: 0px;
     border-radius: 4px;
@@ -39,4 +50,4 @@ img{
     background-color: navy;
     color: white;
     cursor: pointer;
-}
+}*/

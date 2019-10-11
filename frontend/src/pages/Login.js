@@ -17,21 +17,30 @@ export default function Login({ history }){ // React herdou a propriedade histor
         history.push('/main');
     }
 
+    // Retorno básico do HTML
     return (
-        <div className="login-container">
-            <form onSubmit = { handleSubmit }>
-                <img src={logo} alt= "Vesalius"/>
-                <input 
-                    placeholder="Digite seu usuario"
-                    value = {username}
-                    onChange = { e => setUsername(e.target.value) } /* Chamando useState para armazenar valor no username */
-                />
-                <input 
-                    type="password"
-                    placeholder="Digite seu usuario"
-                />
-                <button>Enviar</button>
-            </form>
+        <div className="father-container">
+            <div className="blackboard-container">
+                <div className="form-container">
+                    <form onSubmit = { handleSubmit }>
+                        <img src={logo} alt= "Vesalius"/>
+                        <h1>Faça login para usar o Vesalius</h1>
+                        <input 
+                            placeholder="Digite seu usuario"
+                            value = {username}
+                            onChange = { e => setUsername(e.target.value) } /* Chamando useState para armazenar valor no username */
+                        />
+                        <input 
+                            type="password"
+                            placeholder="Digite seu usuario"
+                        />
+                        <button>Enviar</button>
+                    </form>
+                </div>
+                <div className="draw-container">
+                    <p>Testando</p>
+                </div>
+            </div>
         </div>
     );
 }
