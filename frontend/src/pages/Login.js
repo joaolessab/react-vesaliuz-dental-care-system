@@ -37,8 +37,16 @@ export default function Login({ history }){ // React herdou a propriedade histor
                         <button>Enviar</button>
                     </form>
                 </div>
-                <div className="draw-container">
-                    <p>Testando</p>
+                <div className="draw-container">                    
+                    <div className="left--darkblue">
+                        <div className="top--points"></div>
+                        <div className="brush--teth"></div>
+                        <div className="happy--teeth"></div>
+                        <div className="cloud--centered"></div>
+                        <div className="cloud--bottom"></div>
+                        <div className="bottom--points"></div>
+                    </div>
+                    <div className="right--lightblue"></div>
                 </div>
             </div>
         </div>

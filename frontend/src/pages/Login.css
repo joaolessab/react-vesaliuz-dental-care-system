@@ -19,6 +19,83 @@
     border-bottom-right-radius: 15px;
 }
 
+.left--darkblue{
+    height: 100%;
+    background: url("../assets/draw-container--left--darkblue.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 0px 0px;
+    flex-basis: calc(100% - 80px);
+}
+
+.right--lightblue{
+    height: 100%;
+    flex-basis: 80px;
+    background-color: #49A0FC;    
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.brush--teth{
+    background: url("../assets/brush--teeth.svg");
+    height: 70px;
+    width: 70px;
+    background-repeat: no-repeat;
+    background-size: 80px;
+    position: absolute;
+    margin-top: 150px;
+    right: 140px;
+}
+.happy--teeth{
+    background: url("../assets/happy--teeth.svg");
+    height: 161px;
+    width: 90px;
+    background-repeat: no-repeat;
+    background-size: 90px;
+    position: absolute;
+    right: 190px;
+    bottom: 100px;
+}
+.cloud--centered{
+    background: url("../assets/cloud--centered.svg");
+    height: 325px;
+    width: 215px;
+    background-repeat: no-repeat;
+    background-size: 215px;
+    position: absolute;
+    margin-left: -49px;
+    margin-top: 144px;
+}
+.cloud--bottom{
+    background: url("../assets/cloud--bottom.svg");
+    height: 71px;
+    width: 140px;
+    background-repeat: no-repeat;
+    background-size: 140px;
+    position: absolute;
+    bottom: 39px;
+    margin-left: 178px;
+}
+.top--points{
+    background: url("../assets/top--points.svg");
+    height: 40px;
+    width: 40px;
+    background-repeat: no-repeat;
+    background-size: 40px;
+    position: absolute;
+    top: 42px;
+    margin-left: 2px;
+}
+.bottom--points{
+    background: url("../assets/bottom--points.svg");
+    height: 40px;
+    width: 40px;
+    background-repeat: no-repeat;
+    background-size: 40px;
+    position: absolute;
+    bottom: 42px;
+    right: 123px;
+}
 /*.form-container form{
     width: 100%;
     max-width: 300px;

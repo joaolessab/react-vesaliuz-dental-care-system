@@ -28,7 +28,7 @@ body, input, button{
   justify-content: center;
   flex-direction: row;
   flex-wrap: nowrap;
-  padding: 20px;
+  padding: 30px;
 }
 
 .blackboard-container{
