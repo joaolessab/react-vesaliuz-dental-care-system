@@ -172,6 +172,7 @@
 
 .form-container form .form-container--action{
     display: flex;
+    margin-top: 20px;
 }
 
 .form-container form .form-container--action .form-container--action--leftSplitter{
