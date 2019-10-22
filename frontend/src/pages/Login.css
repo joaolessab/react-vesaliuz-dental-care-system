@@ -34,7 +34,6 @@
 .form-container .form-container--middle{
     flex-basis: 60%;
     width: 100%;
-    background-color: green;
     align-items: center;
     justify-content: center;
     align-content: center;
@@ -61,7 +60,6 @@
 
 .draw-container{
     flex: 1;
-    background: green;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -151,6 +149,42 @@
 .form-container form{
     display: flex;
     flex-direction: column;
+}
+
+.form-container form .confirm--button{
+    height: 45px;
+    border: 0px;
+    border-radius: 6px;
+    background-color: #2584FE;
+    color: white;
+    width: 200px;
+}
+.form-container form .forgot-pass--button{
+    font-family: 'Averta Semibold';
+    flex-basis: 150px;
+    border: 0px;
+    height: 45px;
+    background-color: transparent;
+}
+.form-container form input{
+    margin-top: 20px;
+}
+
+.form-container form .form-container--action{
+    display: flex;
+}
+
+.form-container form .form-container--action .form-container--action--leftSplitter{
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.form-container form .form-container--action .form-container--action--rightSplitter{
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 /*.form-container form{

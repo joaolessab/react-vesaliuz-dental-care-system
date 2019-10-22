@@ -27,18 +27,25 @@ export default function Login({ history }){ // React herdou a propriedade histor
                     </div>
                     <div className="form-container--middle">
                         <form onSubmit = { handleSubmit }>
-                            <img src={logo} alt= "Vesalius"/>
-                            <h1>Faça login para usar o Vesalius</h1>
+                            {/* <img src={logo} alt= "Vesalius"/> */}
+                            <h1>Faça login para usar o Vesaliuz</h1>
                             <input
-                                placeholder="Digite seu usuario"
+                                placeholder="Email"
                                 value = {username}
                                 onChange = { e => setUsername(e.target.value) } /* Chamando useState para armazenar valor no username */
                             />
                             <input 
                                 type="password"
-                                placeholder="Digite seu usuario"
+                                placeholder="Senha"
                             />
-                            <button>Enviar</button>
+                            <div className="form-container--action">
+                                <div className="form-container--action--leftSplitter">
+                                    <button className="forgot-pass--button">Esqueceu sua senha?</button>
+                                </div>
+                                <div className="form-container--action--rightSplitter">
+                                    <button className="confirm--button">Enviar</button>
+                                </div>
+                            </div>
                         </form>
                     </div>
                     <div className="form-container--bottom">
