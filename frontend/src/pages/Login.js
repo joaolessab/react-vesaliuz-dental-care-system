@@ -22,20 +22,31 @@ export default function Login({ history }){ // React herdou a propriedade histor
         <div className="father-container">
             <div className="blackboard-container">
                 <div className="form-container">
-                    <form onSubmit = { handleSubmit }>
-                        <img src={logo} alt= "Vesalius"/>
-                        <h1>Faça login para usar o Vesalius</h1>
-                        <input 
-                            placeholder="Digite seu usuario"
-                            value = {username}
-                            onChange = { e => setUsername(e.target.value) } /* Chamando useState para armazenar valor no username */
-                        />
-                        <input 
-                            type="password"
-                            placeholder="Digite seu usuario"
-                        />
-                        <button>Enviar</button>
-                    </form>
+                    <div className="form-container--top">
+                        <button>Cadastre-se</button>
+                    </div>
+                    <div className="form-container--middle">
+                        <form onSubmit = { handleSubmit }>
+                            <img src={logo} alt= "Vesalius"/>
+                            <h1>Faça login para usar o Vesalius</h1>
+                            <input
+                                placeholder="Digite seu usuario"
+                                value = {username}
+                                onChange = { e => setUsername(e.target.value) } /* Chamando useState para armazenar valor no username */
+                            />
+                            <input 
+                                type="password"
+                                placeholder="Digite seu usuario"
+                            />
+                            <button>Enviar</button>
+                        </form>
+                    </div>
+                    <div className="form-container--bottom">
+                        <button>Nubibuz 2019</button>
+                        <button>Termos e Condições</button>
+                        <button>Privacidade</button>
+                        <button>Precisa de ajuda?</button>
+                    </div>
                 </div>
                 <div className="draw-container">                    
                     <div className="left--darkblue">

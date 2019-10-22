@@ -14,9 +14,21 @@ body{
   background: #f5f6fa;
 }
 
+/* Font-Face */
+@font-face {
+  font-family: 'Averta';
+  font-style: normal;
+  src: url('./assets/Averta.otf');
+}
+@font-face {
+  font-family: 'Averta Semibold';
+  font-style: normal;
+  src: url('./assets/AvertaSemibold.otf');
+}
+
 /* Por padrão, o Input e o Button não herdam a fonte do corpo do HTML */
 body, input, button{
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Averta';
 }
 
 /* Container Padrões */
