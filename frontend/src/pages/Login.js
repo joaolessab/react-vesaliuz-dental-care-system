@@ -23,12 +23,12 @@ export default function Login({ history }){ // React herdou a propriedade histor
             <div className="blackboard-container">
                 <div className="form-container">
                     <div className="form-container--top">
-                        <button>Cadastre-se</button>
+                        <button className="secondary-button--rectangle">Cadastre-se</button>
                     </div>
                     <div className="form-container--middle">
                         <form onSubmit = { handleSubmit }>
                             {/* <img src={logo} alt= "Vesalius"/> */}
-                            <h1>Faça login para usar o Vesaliuz</h1>
+                            <h1>Olá! Vamos começar? Faça o login</h1>
                             <input
                                 placeholder="Email"
                                 value = {username}
@@ -43,7 +43,7 @@ export default function Login({ history }){ // React herdou a propriedade histor
                                     <button className="forgot-pass--button">Esqueceu sua senha?</button>
                                 </div>
                                 <div className="form-container--action--rightSplitter">
-                                    <button className="confirm--button">Enviar</button>
+                                    <button className="primary-button--rectangle">Enviar</button>
                                 </div>
                             </div>
                         </form>

@@ -47,7 +47,7 @@ input, select, textarea{
   justify-content: center;
   flex-direction: row;
   flex-wrap: nowrap;
-  padding: 30px;
+  padding: 40px;
 }
 
 .blackboard-container{
@@ -59,4 +59,47 @@ input, select, textarea{
   background-color: white;
   padding: 10px;
   border-radius: 15px;
+}
+
+/* // Principal Buttons // */
+.primary-button--rectangle{
+  height: 45px;
+  border: 0px;
+  border-radius: 6px;
+  background-color: #2584FE;
+  color: white;
+  width: 200px;
+  cursor: pointer;
+}
+.primary-button--rectangle:hover{
+  height: 45px;
+  border-radius: 6px;
+  background-color: #f5f6fa;
+  color: #62696f;
+  border: 1px solid #62696f;
+  width: 200px;
+  cursor: pointer;
+  font-family: 'Averta Semibold';
+}
+
+.secondary-button--rectangle{
+  height: 45px;
+  border-radius: 6px;
+  background-color: #f5f6fa;
+  color: #62696f;
+  border: 1px solid #62696f;
+  width: 200px;
+  cursor: pointer;
+  font-family: 'Averta Semibold';
+}
+.secondary-button--rectangle:hover{
+  height: 45px;
+  border-radius: 6px;
+  background-color: #f5f6fa;
+  color: #62696f;
+  border: 1px solid #62696f;
+  width: 200px;
+  cursor: pointer;
+  font-family: 'Averta Semibold';
+  box-shadow: 1px 6px 3px 0px #969696;
 }
