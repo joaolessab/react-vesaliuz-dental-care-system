@@ -33,17 +33,6 @@
     justify-content: flex-start;
     padding: 20px;
 }
-.form-container .form-container--bottom button{
-    font-family: 'Averta Semibold';
-    flex-basis: 150px;
-    border: 0px;
-    height: 45px;
-    background-color: transparent;
-}
-.form-container .form-container--bottom button:hover{
-    cursor: pointer;
-}
-
 .draw-container{
     flex: 1;
     display: flex;
@@ -137,13 +126,6 @@
     flex-direction: column;
 }
 
-.form-container form .forgot-pass--button{
-    font-family: 'Averta Semibold';
-    flex-basis: 150px;
-    border: 0px;
-    height: 45px;
-    background-color: transparent;
-}
 .form-container form input{
     margin-top: 20px;
 }

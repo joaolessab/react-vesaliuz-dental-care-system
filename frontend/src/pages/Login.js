@@ -40,7 +40,7 @@ export default function Login({ history }){ // React herdou a propriedade histor
                             />
                             <div className="form-container--action">
                                 <div className="form-container--action--leftSplitter">
-                                    <button className="forgot-pass--button">Esqueceu sua senha?</button>
+                                    <button className="labelType-button">Esqueceu sua senha?</button>
                                 </div>
                                 <div className="form-container--action--rightSplitter">
                                     <button className="primary-button--rectangle">Enviar</button>
@@ -49,10 +49,10 @@ export default function Login({ history }){ // React herdou a propriedade histor
                         </form>
                     </div>
                     <div className="form-container--bottom">
-                        <button>Nubibuz 2019</button>
-                        <button>Termos e Condições</button>
-                        <button>Privacidade</button>
-                        <button>Precisa de ajuda?</button>
+                        <button className="labelType-button">Nubibuz 2019</button>
+                        <button className="labelType-button">Termos e Condições</button>
+                        <button className="labelType-button">Privacidade</button>
+                        <button className="labelType-button">Precisa de ajuda?</button>
                     </div>
                 </div>
                 <div className="draw-container">                    
