@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 //Arquivos CSS e Imagens devem ser importados aqui
 import './Login.css';
-import logo from '../assets/logo.svg';
 
 export default function Login({ history }){ // React herdou a propriedade history dos routes
     // Iniciando useStates
@@ -27,7 +26,6 @@ export default function Login({ history }){ // React herdou a propriedade histor
                     </div>
                     <div className="form-container--middle">
                         <form onSubmit = { handleSubmit }>
-                            {/* <img src={logo} alt= "Vesalius"/> */}
                             <h1>Olá! Vamos começar? Faça o login</h1>
                             <input
                                 placeholder="Email"

@@ -1,0 +1,46 @@
+.main-container--content{
+    flex: 1;
+    background-color: green;
+}
+.main-navbar--top{
+    height: 80px;
+    display: flex;
+}
+.main-navbar--top .left-side{
+    flex-basis: 60%;
+    display: flex;
+    align-items: center;
+}
+.main-navbar--top .left-side .logo{
+    height: 50px;
+    width: 50px;
+    background-color: blue;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.main-navbar--top .right-side{
+    flex-basis: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main-navbar--top .right-side .alert{
+    height: 20px;
+    width: 20px;
+    margin-right: 20px;
+    background-image: url("../assets/alarm-icon--black.svg");
+}
+.main-navbar--top .right-side .photo{
+    height: 50px;
+    width: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-image: url("../assets/profile_pic.jpg");
+    background-size: 50px;
+    border-radius: 10px;
+}
+.main-navbar--top .right-side .project-button{
+    height: 50px;
+    width: 50px;
+    background-color: blue;
+}

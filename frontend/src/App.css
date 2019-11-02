@@ -52,7 +52,6 @@ input:focus, select:focus, textarea:focus{
   flex-wrap: nowrap;
   padding: 40px;
 }
-
 .blackboard-container{
   flex: 1;
   height: 100%;
@@ -63,8 +62,29 @@ input:focus, select:focus, textarea:focus{
   padding: 10px;
   border-radius: 15px;
 }
+.blackboard-container--columnar{
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  background-color: #fefeff;
+  padding: 10px;
+  border-radius: 15px;
+}
+.labelType-button{
+  font-family: 'Averta Semibold';
+  flex-basis: 150px;
+  border: 0px;
+  height: 45px;
+  background-color: transparent;
+}
+.labelType-button:hover{
+  color: #B4B7BD;
+  cursor: pointer;
+}
 
-/* // Principal Buttons // */
+/* // Principal Normal Buttons // */
 .primary-button--rectangle{
   height: 45px;
   border: 0px;
@@ -84,7 +104,6 @@ input:focus, select:focus, textarea:focus{
   cursor: pointer;
   font-family: 'Averta Semibold';
 }
-
 .secondary-button--rectangle{
   height: 45px;
   border-radius: 6px;
@@ -106,14 +125,58 @@ input:focus, select:focus, textarea:focus{
   font-family: 'Averta Semibold';
   box-shadow: 1px 6px 3px 0px #969696;
 }
-.labelType-button{
-  font-family: 'Averta Semibold';
-  flex-basis: 150px;
-  border: 0px;
+
+/* // Principal Middle Buttons // */
+.primary-button--rectangle--middle---size{
   height: 45px;
-  background-color: transparent;
-}
-.labelType-button:hover{
-  color: #B4B7BD;
+  border: 0px;
+  border-radius: 6px;
+  background-color: #2584FE;
+  color: white;
+  width: 150px;
   cursor: pointer;
+}
+.primary-button--rectangle--middle---size:hover{
+  height: 45px;
+  border-radius: 6px;
+  background-color: #f5f6fa;
+  color: #62696f;
+  border: 1px solid #62696f;
+  width: 150px;
+  cursor: pointer;
+  font-family: 'Averta Semibold';
+}
+
+.secondary-button--rectangle--middle---size{
+  height: 45px;
+  border-radius: 6px;
+  background-color: #f5f6fa;
+  color: #62696f;
+  border: 1px solid #62696f;
+  width: 150px;
+  cursor: pointer;
+  font-family: 'Averta Semibold';
+}
+.secondary-button--rectangle--middle---size:hover{
+  height: 45px;
+  border-radius: 6px;
+  background-color: #f5f6fa;
+  color: #62696f;
+  border: 1px solid #62696f;
+  width: 150px;
+  cursor: pointer;
+  font-family: 'Averta Semibold';
+  box-shadow: 1px 6px 3px 0px #969696;
+}
+.lrbuton{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lrbuton i{
+  height: 20px;
+  width: 20px;
+  background-size: 20px;
+  background-repeat: no-repeat;
+  margin-left: 10px;
 }
