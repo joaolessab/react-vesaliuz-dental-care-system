@@ -26,9 +26,25 @@ export default function Main(){
                         </button>
                     </div>
                 </div>
-                                         
+                
+                <div className="main-container--header">
+                    
+                </div>
+                
                 <div className="main-container--content">
+                    <div className="sidebar-container">
+                        <div className="sidebar">
+                            <button className="home-icon--black"></button>
+                            <button className="agendamentos"></button>
+                            <button className="pacientes"></button>
+                            <button className="financas"></button>
+                            <button className="exames"></button>
+                        </div>
+                    </div>
 
+                    <div className="miolo-container">
+
+                    </div>
                 </div>
             </div>
         </div>

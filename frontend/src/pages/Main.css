@@ -1,7 +1,3 @@
-.main-container--content{
-    flex: 1;
-    background-color: green;
-}
 .main-navbar--top{
     height: 80px;
     display: flex;
@@ -43,4 +39,56 @@
     height: 50px;
     width: 50px;
     background-color: blue;
+}
+.main-container--header{
+    background-color: yellow;
+    flex-basis: 100px;
+}
+.main-container--content{
+    flex: 1 1;
+    flex-direction: row;
+    display: flex;
+    background-color: #f5f6fa;
+}
+.main-container--content .sidebar-container{
+    flex-basis: 150px;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+.main-container--content .miolo-container{
+    flex: 1;
+    height: 100%;
+}
+.main-container--content .sidebar-container .sidebar{
+    height: 80%;
+    width: 80px;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
+.main-container--content .sidebar-container .sidebar button{
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+    background-color: white;
+    border: 0px;
+    margin: 5px;
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: 16px;
+}
+.main-container--content .sidebar-container .sidebar button:hover{
+    width: 150px;
+    margin-left: 100px;
+    cursor: pointer;
+    -webkit-animation-duration: 4s;
+    animation-duration: 4s;
+    background-color: #2386fd;
 }
