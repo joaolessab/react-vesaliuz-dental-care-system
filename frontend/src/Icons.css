@@ -1,3 +1,20 @@
-.ic-plus{
-    background-image: url("./assets/plus-icon-grey.svg");
-}
+.icon-plus{background-image: url("./assets/plus-icon-grey.svg");}
+
+.icon-home{background: url("./assets/home-icon--black.svg");}
+.icon-home:hover{background: url("./assets/home-icon--white.svg");}
+
+.icon-agendamentos{background: url("./assets/calendar-icon--black.svg");}
+.icon-agendamentos:hover{background: url("./assets/calendar-icon--white.svg");}
+
+.icon-pacientes{background: url("./assets/patient-icon--black.svg");}
+.icon-pacientes:hover{background: url("./assets/patient-icon--white.svg");}
+
+.icon-financas{background: url("./assets/finances-icon--black.svg");}
+.icon-financas:hover{background: url("./assets/finances-icon--white.svg");}
+
+.icon-exams{background: url("./assets/exams-icon--black.svg");}
+.icon-exams:hover{background: url("./assets/exams-icon--white.svg");}
+
+.icon-arrowup{background: url("./assets/arrowup-icon--black.svg");}
+
+.icon-arrowdown{background: url("./assets/arrowdown-icon--black.svg");}

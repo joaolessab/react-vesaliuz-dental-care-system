@@ -21,8 +21,8 @@ export default function Main(){
                         <p>Bem-vindo, João</p>
                         <div className="photo"></div>
                         <button className="secondary-button--rectangle--middle---size lrbuton">
-                            <p>Novo Projeto</p>
-                            <i className="ic-plus"></i>
+                            <p>Novo Paciente</p>
+                            <i className="icon-plus"></i>
                         </button>
                     </div>
                 </div>

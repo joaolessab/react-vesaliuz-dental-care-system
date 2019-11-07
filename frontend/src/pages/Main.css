@@ -9,11 +9,13 @@
     justify-content: flex-start;
 }
 .main-navbar--top .left-side .logo{
-    height: 50px;
-    width: 50px;
-    background-color: blue;
-    margin-left: 50px;
-    margin-right: 50px;
+    height: 42px;
+    width: 75px;
+    margin-left: 40px;
+    margin-right: 40px;
+    background-size: 75px;
+    background: url("../assets/nubibuz-logotipo---blue.svg");    
+    background-repeat: no-repeat;
 }
 .main-navbar--top .right-side{
     flex-basis: 40%;
