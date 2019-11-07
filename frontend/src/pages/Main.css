@@ -6,6 +6,7 @@
     flex-basis: 60%;
     display: flex;
     align-items: center;
+    justify-content: flex-start;
 }
 .main-navbar--top .left-side .logo{
     height: 50px;
@@ -18,7 +19,8 @@
     flex-basis: 40%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
+    padding-right: 50px;
 }
 .main-navbar--top .right-side .alert{
     height: 20px;
@@ -40,10 +42,6 @@
     width: 50px;
     background-color: blue;
 }
-.main-container--header{
-    background-color: yellow;
-    flex-basis: 100px;
-}
 .main-container--content{
     flex: 1 1;
     flex-direction: row;
@@ -63,7 +61,7 @@
     height: 100%;
 }
 .main-container--content .sidebar-container .sidebar{
-    height: 90%;
+    height: 75%;
     width: 80px;
     background-color: white;
     border-radius: 10px;
@@ -74,7 +72,7 @@
     justify-items: center;
 }
 .main-container--content .sidebar-container .sidebar .icons{
-    height: 80%;
+    height: 75%;
     display: flex;
     flex-direction: column;
     justify-content: center;

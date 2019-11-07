@@ -27,10 +27,6 @@ export default function Main(){
                     </div>
                 </div>
                 
-                <div className="main-container--header">
-                    
-                </div>
-                
                 <div className="main-container--content">
                     <div className="sidebar-container">
                         <div className="sidebar">
