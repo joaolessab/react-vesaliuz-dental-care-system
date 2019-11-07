@@ -34,11 +34,25 @@ export default function Main(){
                 <div className="main-container--content">
                     <div className="sidebar-container">
                         <div className="sidebar">
-                            <button className="home-icon--black"></button>
-                            <button className="agendamentos"></button>
-                            <button className="pacientes"></button>
-                            <button className="financas"></button>
-                            <button className="exames"></button>
+                            <button className="arrows icon-arrowup"></button>
+                            <div className="icons">
+                                <button className="icon-home">
+                                    <p>Início</p>
+                                </button>
+                                <button className="icon-agendamentos">
+                                    <p>Agendamentos</p>
+                                </button>
+                                <button className="icon-pacientes">
+                                    <p>Pacientes</p>
+                                </button>
+                                <button className="icon-financas">
+                                    <p>Finanças</p>
+                                </button>
+                                <button className="icon-exams">
+                                    <p>Exames</p>
+                                </button>
+                            </div>
+                            <button button className="arrows icon-arrowdown"></button>
                         </div>
                     </div>
 
