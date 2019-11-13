@@ -47,6 +47,30 @@ export default function Main(){
                                 <button className="icon-exams">
                                     <p>Exames</p>
                                 </button>
+                                <button className="icon-exams">
+                                    <p>Exames</p>
+                                </button>
+                                <button className="icon-exams">
+                                    <p>Exames</p>
+                                </button>
+                                <button className="icon-exams">
+                                    <p>Exames</p>
+                                </button>
+                                <button className="icon-exams">
+                                    <p>Exames</p>
+                                </button>
+                                <button className="icon-exams">
+                                    <p>Exames</p>
+                                </button>
+                                <button className="icon-exams">
+                                    <p>Exames</p>
+                                </button>
+                                <button className="icon-exams">
+                                    <p>Exames</p>
+                                </button>
+                                <button className="icon-exams">
+                                    <p>Exames</p>
+                                </button>
                             </div>
                             <button button className="arrows icon-arrowdown"></button>
                         </div>
