@@ -13,16 +13,15 @@ export default function Main(){
 
                     <div className="left-side">
                         <div className="logo"></div>
-                        <p>Clínica: Dente Brilhoso</p>
+                        <p>Clínica Dente Brilhoso</p>
                     </div>
                     
                     <div className="right-side">
                         <i className="alert"></i>
                         <p>Bem-vindo, João</p>
                         <div className="photo"></div>
-                        <button className="secondary-button--rectangle--middle---size lrbuton">
-                            <p>Novo Paciente</p>
-                            <i className="icon-plus"></i>
+                        <button className="secondary-button--rectangle--middle---size lrbuton icon-exit--white">
+                            <p>Sair</p>
                         </button>
                     </div>
                 </div>
