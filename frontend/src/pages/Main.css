@@ -100,7 +100,14 @@
     animation-duration: 4s;
     background-color: #2386fd;
     background-position: 15px;
+
+    position: absolute;
 }
+
+.main-container--content .sidebar-container .sidebar .icons button:hover + button{
+    margin-top: 55px;
+}
+
 .main-container--content .sidebar-container .sidebar .icons button p{
     display: none;
 }
