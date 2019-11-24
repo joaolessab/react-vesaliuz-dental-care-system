@@ -72,10 +72,12 @@
     justify-content: center;
     align-items: center;
     justify-items: center;
+    padding-right: 5px;
+    padding-left: 5px;
 }
 .main-container--content .sidebar-container .sidebar .icons{
     height: calc(100% - 70px);
-    width: 100%;
+    width: calc(100% + 25px);
     overflow-x: hidden;
     overflow-y: auto;
     margin-top: 5px;
@@ -83,32 +85,22 @@
 }
 .main-container--content .sidebar-container .sidebar .icons button{
     height: 50px;
-    width: 50px;
+    width: 51px;
     border-radius: 10px;
-    background-color: red;
     border: 0px;
     margin-bottom: 5px;
-    margin-left: 20px;
+    margin-left: 27px;
     background-size: 20px;
     background-repeat: no-repeat;
     background-position: 15px;
-    display: block;
 }
-.main-container--content .sidebar-container .sidebar .icons button:hover{
-    width: auto;
+.main-container--content .sidebar-container .sidebar .icons button:hover, .main-container--content .sidebar-container .sidebar .icons .selected{
     cursor: pointer;
     animation-duration: 4s;
     background-color: #2386fd;
     background-position: 15px;
-
-    position: absolute;
 }
-
-.main-container--content .sidebar-container .sidebar .icons button:hover + button{
-    margin-top: 55px;
-}
-
-.main-container--content .sidebar-container .sidebar .icons button p{
+/*.main-container--content .sidebar-container .sidebar .icons button p{
     display: none;
 }
 .main-container--content .sidebar-container .sidebar .icons button:hover p{
@@ -118,7 +110,7 @@
     margin-left: 7px;
     padding-right: 25px;
     padding-left: 45px;
-}
+}*/
 .main-container--content .sidebar-container .sidebar .arrows{
     height: 20px;
     width: 45px;

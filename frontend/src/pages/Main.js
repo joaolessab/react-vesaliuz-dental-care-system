@@ -31,45 +31,18 @@ export default function Main(){
                         <div className="sidebar">
                             <button className="arrows icon-arrowup"></button>
                             <div className="icons">
-                                <button className="icon-home">
-                                    <p>Início</p>
-                                </button>
-                                <button className="icon-agendamentos">
-                                    <p>Agendamentos</p>
-                                </button>
-                                <button className="icon-pacientes">
-                                    <p>Pacientes</p>
-                                </button>
-                                <button className="icon-financas">
-                                    <p>Finanças</p>
-                                </button>
-                                <button className="icon-exams">
-                                    <p>Exames</p>
-                                </button>
-                                <button className="icon-exams">
-                                    <p>Exames</p>
-                                </button>
-                                <button className="icon-exams">
-                                    <p>Exames</p>
-                                </button>
-                                <button className="icon-exams">
-                                    <p>Exames</p>
-                                </button>
-                                <button className="icon-exams">
-                                    <p>Exames</p>
-                                </button>
-                                <button className="icon-exams">
-                                    <p>Exames</p>
-                                </button>
-                                <button className="icon-exams">
-                                    <p>Exames</p>
-                                </button>
-                                <button className="icon-exams">
-                                    <p>Exames</p>
-                                </button>
-                                <button className="icon-exams">
-                                    <p>Exames</p>
-                                </button>
+                                <button className="icon-home--white selected"></button>
+                                <button className="icon-agendamentos"></button>
+                                <button className="icon-pacientes"></button>
+                                <button className="icon-financas"></button>
+                                <button className="icon-exams"></button>
+                                <button className="icon-exams"></button>
+                                <button className="icon-exams"></button>
+                                <button className="icon-exams"></button>
+                                <button className="icon-exams"></button>
+                                <button className="icon-exams"></button>
+                                <button className="icon-exams"></button>
+                                <button className="icon-exams"></button>
                             </div>
                             <button button className="arrows icon-arrowdown"></button>
                         </div>

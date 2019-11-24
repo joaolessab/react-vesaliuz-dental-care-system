@@ -1,7 +1,7 @@
 .icon-plus{background-image: url("./assets/plus-icon-grey.svg");}
 
 .icon-home{background-image: url("./assets/home-icon--black.svg");}
-.icon-home:hover{background-image: url("./assets/home-icon--white.svg");}
+.icon-home--white, .icon-home:hover{background-image: url("./assets/home-icon--white.svg");}
 
 .icon-agendamentos{background-image: url("./assets/calendar-icon--black.svg");}
 .icon-agendamentos:hover{background-image: url("./assets/calendar-icon--white.svg");}
