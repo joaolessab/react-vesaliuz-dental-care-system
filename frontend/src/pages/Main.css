@@ -10,12 +10,17 @@
 }
 .main-navbar--top .left-side .logo{
     height: 42px;
-    width: 75px;
+    width: 68px;
     margin-left: 40px;
     margin-right: 40px;
     background-size: 75px;
     background: url("../assets/nubibuz-logotipo---blue.svg");    
     background-repeat: no-repeat;
+}
+.main-navbar--top em{
+    color: #2386fd;
+    text-decoration: none;
+    font-style: normal;
 }
 .main-navbar--top .right-side{
     flex-basis: 40%;
@@ -42,19 +47,47 @@
 .main-navbar--top .right-side .project-button{
     height: 50px;
     width: 50px;
-    background-color: blue;
 }
+.main-header--content{
+    height: 70px;
+    display: flex;
+    background-color: #f5f6fa;
+    flex-direction: row;
+}
+.main-header--content .begin--spaced{
+    flex-basis: 150px;
+}
+.main-header--content .middle--spaced{
+    flex: 2;
+    align-items: flex-end;
+    justify-content: left;
+    justify-items: center;
+    display: flex;
+}
+.main-header--content .middle--spaced h1{
+    font-family: 'Averta Extra Bold';
+    font-size: 25px;
+}
+
+.main-header--content .end--spaced{
+    flex: 1;
+    align-items: flex-end;
+    justify-content: flex-end;
+    justify-items: center;
+    display: flex;
+}
+
 .main-container--content{
     flex: 1 1;
     flex-direction: row;
     display: flex;
     background-color: #f5f6fa;
+    padding-top: 20px;
 }
 .main-container--content .sidebar-container{
     flex-basis: 150px;
     display: flex;
     height: 100%;
-    align-items: center;
     justify-content: center;
     align-content: center;
 }

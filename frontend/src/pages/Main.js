@@ -13,7 +13,7 @@ export default function Main(){
 
                     <div className="left-side">
                         <div className="logo"></div>
-                        <p>Clínica Dente Brilhoso</p>
+                        <p>Clínica <em>Dente Brilhoso</em></p>
                     </div>
                     
                     <div className="right-side">
@@ -26,7 +26,24 @@ export default function Main(){
                     </div>
                 </div>
                 
+                <div className="main-header--content">
+                    <div className="begin--spaced"></div>
+
+                    <div className="middle--spaced">
+                        <h1>Página Inicial</h1>
+                    </div>
+
+                    <div className="end--spaced">
+                        <button>Dia</button>
+                        <button>Semana</button>
+                        <button>Mês</button>
+                        <button>Ano</button>
+                    </div>
+                </div>
+
+                {/* MAIN CONTENT */}
                 <div className="main-container--content">
+                    {/* SIDEBAR */}
                     <div className="sidebar-container">
                         <div className="sidebar">
                             <button className="arrows icon-arrowup"></button>
@@ -47,9 +64,8 @@ export default function Main(){
                             <button button className="arrows icon-arrowdown"></button>
                         </div>
                     </div>
-
+                    {/* MIOLO */}
                     <div className="miolo-container">
-
                     </div>
                 </div>
             </div>

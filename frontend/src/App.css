@@ -25,6 +25,16 @@ body{
   font-style: normal;
   src: url('./assets/AvertaSemibold.otf');
 }
+@font-face {
+  font-family: 'Averta Bold';
+  font-style: normal;
+  src: url('./assets/AvertaBold.otf');
+}
+@font-face {
+  font-family: 'Averta Extra Bold';
+  font-style: normal;
+  src: url('./assets/AvertaExtraBold.otf');
+}
 
 /* Por padrão, o Input e o Button não herdam a fonte do corpo do HTML */
 body, input, button{
