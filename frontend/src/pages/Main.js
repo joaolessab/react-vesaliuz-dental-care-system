@@ -33,8 +33,8 @@ export default function Main(){
                         <h1>Página Inicial</h1>
                     </div>
 
-                    <div className="end--spaced">
-                        <button>Dia</button>
+                    <div className="end--spaced days-groupButton">
+                        <button className="selected">Dia</button>
                         <button>Semana</button>
                         <button>Mês</button>
                         <button>Ano</button>

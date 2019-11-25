@@ -49,13 +49,14 @@
     width: 50px;
 }
 .main-header--content{
-    height: 70px;
+    height: auto;
     display: flex;
     background-color: #f5f6fa;
     flex-direction: row;
+    padding: 30px;
 }
 .main-header--content .begin--spaced{
-    flex-basis: 150px;
+    flex-basis: 120px;
 }
 .main-header--content .middle--spaced{
     flex: 2;
@@ -76,19 +77,32 @@
     justify-items: center;
     display: flex;
 }
+.main-header--content .days-groupButton button{
+    border: 0px;
+    border-bottom: 1px solid black;
+    background-color: transparent;
+    width: 100px;
+    height: 40px;
+}
+.main-header--content .days-groupButton button:hover, .main-header--content .days-groupButton .selected{
+    cursor: pointer;
+    border-bottom: 3px solid #2386fd;
+    font-family: 'Averta Bold';
+}
 
 .main-container--content{
     flex: 1 1;
     flex-direction: row;
     display: flex;
     background-color: #f5f6fa;
-    padding-top: 20px;
+    padding: 30px;
+    padding-top: 0px;
 }
 .main-container--content .sidebar-container{
-    flex-basis: 150px;
+    flex-basis: 120px;
     display: flex;
     height: 100%;
-    justify-content: center;
+    justify-content: flex-start;
     align-content: center;
 }
 .main-container--content .miolo-container{
