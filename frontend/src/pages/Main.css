@@ -1,21 +1,23 @@
 .main-navbar--top{
-    height: 80px;
+    height: auto;
     display: flex;
+    padding: 30px;
+    padding-bottom: 20px;
+    padding-top: 20px;
 }
 .main-navbar--top .left-side{
-    flex-basis: 60%;
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: flex-start;
 }
 .main-navbar--top .left-side .logo{
     height: 42px;
-    width: 68px;
-    margin-left: 40px;
-    margin-right: 40px;
+    width: 120px;
     background-size: 75px;
-    background: url("../assets/nubibuz-logotipo---blue.svg");    
     background-repeat: no-repeat;
+    background-image: url("../assets/nubibuz-logotipo---blue.svg");
+    background-position: 8px; 
 }
 .main-navbar--top em{
     color: #2386fd;
@@ -23,11 +25,10 @@
     font-style: normal;
 }
 .main-navbar--top .right-side{
-    flex-basis: 40%;
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding-right: 50px;
 }
 .main-navbar--top .right-side .alert{
     height: 20px;
