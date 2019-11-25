@@ -79,13 +79,15 @@
 }
 .main-header--content .days-groupButton button{
     border: 0px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #b2b2b2;
     background-color: transparent;
     width: 100px;
     height: 40px;
+    color: #b2b2b2;
 }
 .main-header--content .days-groupButton button:hover, .main-header--content .days-groupButton .selected{
     cursor: pointer;
+    color: black;
     border-bottom: 3px solid #2386fd;
     font-family: 'Averta Bold';
 }
