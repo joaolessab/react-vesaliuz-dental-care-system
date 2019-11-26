@@ -66,6 +66,7 @@ export default function Main(){
                     </div>
                     {/* MIOLO */}
                     <div className="miolo-container">
+                        <div>pokdsakodsap</div>
                     </div>
                 </div>
             </div>
