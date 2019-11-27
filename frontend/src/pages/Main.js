@@ -9,8 +9,8 @@ export default function Main(){
     return (
         <div className="father-container">
             <div className="blackboard-container--columnar">                               
+                {/* MAIN NAVBAR */}
                 <div className="main-navbar--top">
-
                     <div className="left-side">
                         <div className="logo"></div>
                         <p>Clínica <em>Dente Brilhoso</em></p>
@@ -25,22 +25,7 @@ export default function Main(){
                         </button>
                     </div>
                 </div>
-                
-                <div className="main-header--content">
-                    <div className="begin--spaced"></div>
-
-                    <div className="middle--spaced">
-                        <h1>Página Inicial</h1>
-                    </div>
-
-                    <div className="end--spaced days-groupButton">
-                        <button className="selected">Dia</button>
-                        <button>Semana</button>
-                        <button>Mês</button>
-                        <button>Ano</button>
-                    </div>
-                </div>
-
+             
                 {/* MAIN CONTENT */}
                 <div className="main-container--content">
                     {/* SIDEBAR */}
@@ -66,9 +51,31 @@ export default function Main(){
                     </div>
                     {/* MIOLO */}
                     <div className="miolo-container">
-                        <div>pokdsakodsap</div>
+                        <div className="title-div">
+                            <h1>Página Inicial</h1>
+                        </div>
+                        <div className="search-div">
+                            <input type="text" />
+                        </div>
+                        <div className="info-div">
+
+                        </div>
+                        <div className="chart-div">
+                            <div className="revenue"></div>
+                            <div className="expense"></div>
+                        </div>
+                    </div>
+
+                    <div className="auxiliar-container">
+                        <div className="days-groupButton main-top--scorer">
+                            <button className="selected">Dia</button>
+                            <button>Semana</button>
+                            <button>Mês</button>
+                            <button>Ano</button>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
     );
