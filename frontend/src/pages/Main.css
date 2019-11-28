@@ -53,20 +53,7 @@
     font-family: 'Averta Extra Bold';
     font-size: 25px;
 }
-.auxiliar-container .days-groupButton button{
-    border: 0px;
-    border-bottom: 1px solid #b2b2b2;
-    background-color: transparent;
-    width: 100px;
-    height: 40px;
-    color: #b2b2b2;
-}
-.auxiliar-container .days-groupButton button:hover, .auxiliar-container .days-groupButton .selected{
-    cursor: pointer;
-    color: black;
-    border-bottom: 3px solid #2386fd;
-    font-family: 'Averta Bold';
-}
+
 .main-container--content{
     flex: 1 1;
     flex-direction: row;
@@ -91,10 +78,12 @@
     flex-direction: column;
 }
 .main-container--content .auxiliar-container{
-    flex: 1;
+    flex: 1 1;
     height: 100%;
     display: flex;
     justify-content: flex-end;
+    flex-direction: column;
+    padding-left: 20px;
 }
 .main-container--content .sidebar-container .sidebar{
     height: 400px;
@@ -174,6 +163,7 @@
 .miolo-container .search-div input{
     flex: 1;
     padding-right: 60px;
+    background-image: url("../assets/search-icon--blue.svg");
 }
 
 .miolo-container .info-div{
@@ -202,4 +192,47 @@
     border-radius: 10px;
     background-color: green;
     margin-left: 2.5px;
+}
+.auxiliar-container .topbuttons-div{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    flex-basis: 40px;
+}
+.auxiliar-container .topbuttons-div button{
+    border: 0px;
+    border-bottom: 1px solid #b2b2b2;
+    background-color: transparent;
+    width: 100px;
+    height: 40px;
+    color: #b2b2b2;
+}
+.auxiliar-container .topbuttons-div button:hover, .auxiliar-container .topbuttons-div .selected{
+    cursor: pointer;
+    color: black;
+    border-bottom: 3px solid #2386fd;
+    font-family: 'Averta Bold';
+}
+.auxiliar-container .line-div{
+    display: flex;
+    flex-basis: 40%;
+    background-color: burlywood;
+    border-radius: 10px;
+    margin-bottom: 2.5px;
+    margin-top: 5px;
+}
+.auxiliar-container .pizza-div{
+    display: flex;
+    flex: 1 1;
+    background-color: cornflowerblue;
+    margin-top: 2.5px;
+    margin-bottom: 2.5px;
+    border-radius: 10px;
+}
+.auxiliar-container .bar-div{
+    display: flex;
+    flex: 1 1;
+    border-radius: 10px;
+    background-color: coral;
+    margin-top: 2.5px;
 }

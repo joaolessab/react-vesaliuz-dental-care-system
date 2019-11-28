@@ -67,12 +67,15 @@ export default function Main(){
                     </div>
 
                     <div className="auxiliar-container">
-                        <div className="days-groupButton main-top--scorer">
+                        <div className="topbuttons-div">
                             <button className="selected">Dia</button>
                             <button>Semana</button>
                             <button>Mês</button>
                             <button>Ano</button>
                         </div>
+                        <div className="line-div"></div>
+                        <div className="pizza-div"></div>
+                        <div className="bar-div"></div>
                     </div>
                 </div>
 
