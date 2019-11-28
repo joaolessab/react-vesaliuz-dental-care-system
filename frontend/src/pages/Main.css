@@ -63,6 +63,10 @@
     padding-top: 20px;
     padding-bottom: 20px;
 }
+.main-container--content p, .main-container--content button{
+    font-size: 14px;
+}
+
 .main-container--content .sidebar-container{
     flex-basis: 120px;
     display: flex;
@@ -157,13 +161,34 @@
 .miolo-container .search-div{
     display: flex;
     border-radius: 10px;
-    background-color: navy;
+    background-color: white;
     flex-basis: 40px;
+    align-items: center;
 }
 .miolo-container .search-div input{
     flex: 1;
-    padding-right: 60px;
-    background-image: url("../assets/search-icon--blue.svg");
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.miolo-container .search-div input:focus{
+    box-shadow: 0px 0px 0px 0px;
+}
+
+.miolo-container .search-div button{
+    background-image: url("../assets/search-icon--blue.svg");    
+    background-size: 35px;
+    background-position: 7px;
+    background-repeat: no-repeat;
+    height: 35px;
+    width: 35px;
+    border: 0px;
+    border-radius: 10px;
+    margin-right: 10px;
+    margin-top: -3px;
+}
+.miolo-container .search-div button:hover{    
+    background-color: #f5f6fa;
+    cursor: pointer;
 }
 
 .miolo-container .info-div{

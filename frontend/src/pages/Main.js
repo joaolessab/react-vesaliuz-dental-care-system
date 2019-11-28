@@ -55,7 +55,9 @@ export default function Main(){
                             <h1>Página Inicial</h1>
                         </div>
                         <div className="search-div">
-                            <input type="text" />
+                            <input type="text" placeholder="Quer encontrar alguma coisa? Eu te ajudo..." />
+                            <button id="search-button"></button>
+                            <button id="search-button"></button>
                         </div>
                         <div className="info-div">
 
