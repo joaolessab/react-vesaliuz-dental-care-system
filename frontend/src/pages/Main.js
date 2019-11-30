@@ -56,8 +56,8 @@ export default function Main(){
                         </div>
                         <div className="search-div">
                             <input type="text" placeholder="Quer encontrar alguma coisa? Eu te ajudo..." />
-                            <button id="search-button"></button>
-                            <button id="search-button"></button>
+                            <button id="limpa"></button>
+                            <button id="lupa"></button>
                         </div>
                         <div className="info-div">
 

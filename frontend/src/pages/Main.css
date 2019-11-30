@@ -174,21 +174,35 @@
     box-shadow: 0px 0px 0px 0px;
 }
 
-.miolo-container .search-div button{
-    background-image: url("../assets/search-icon--blue.svg");    
-    background-size: 35px;
-    background-position: 7px;
+.miolo-container .search-div button{   
     background-repeat: no-repeat;
     height: 35px;
     width: 35px;
     border: 0px;
     border-radius: 10px;
     margin-right: 10px;
-    margin-top: -3px;
+    background-color: white;
 }
 .miolo-container .search-div button:hover{    
     background-color: #f5f6fa;
     cursor: pointer;
+}
+.miolo-container .search-div #limpa{
+    background-image: url("../assets/x-icon--black.svg");
+    background-size: 17px;
+    background-position: 9px 9px; 
+}
+.miolo-container .search-div #limpa:hover{
+    background-image: url("../assets/x-icon--blue.svg"); 
+}
+
+.miolo-container .search-div #lupa{
+    background-image: url("../assets/search-icon--black.svg");
+    background-size: 23px;
+    background-position: 6px 5px; 
+}
+.miolo-container .search-div #lupa:hover{
+    background-image: url("../assets/search-icon--blue.svg"); 
 }
 
 .miolo-container .info-div{
