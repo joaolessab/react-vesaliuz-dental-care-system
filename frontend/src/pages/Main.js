@@ -1,10 +1,11 @@
 import React from 'react';
+import { render } from 'react-dom';
+import  { Line } from 'react-chartjs-2';
 
 //Arquivos CSS e Imagens devem ser importados aqui
 import './Main.css';
 
 export default function Main(){
-
     // Retorno básico do HTML
     return (
         <div className="father-container">
@@ -76,11 +77,21 @@ export default function Main(){
                             <button>Ano</button>
                         </div>
                         <div className="line-div"></div>
-                        <div className="pizza-div"></div>
-                        <div className="bar-div"></div>
+                        <div className="chart-div--bottom">
+                            <div className="bar-div--left">
+                                <div>
+                                    <Line
+                                        options =  {{
+                                            responsive: true
+                                        }}
+                                        data = {this.state.data}
+                                    />
+                                </div>
+                            </div>
+                            <div className="bar-div--right"></div>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
     );

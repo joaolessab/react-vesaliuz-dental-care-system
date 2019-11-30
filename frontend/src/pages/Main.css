@@ -260,18 +260,29 @@
     margin-bottom: 2.5px;
     margin-top: 5px;
 }
-.auxiliar-container .pizza-div{
+.auxiliar-container .chart-div--bottom{
     display: flex;
     flex: 1 1;
-    background-color: cornflowerblue;
     margin-top: 2.5px;
     margin-bottom: 2.5px;
     border-radius: 10px;
 }
-.auxiliar-container .bar-div{
+.auxiliar-container .bar-div--left{
     display: flex;
     flex: 1 1;
     border-radius: 10px;
     background-color: coral;
-    margin-top: 2.5px;
+    margin-right: 2.5px;
+}
+.auxiliar-container .bar-div--left div{
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+.auxiliar-container .bar-div--right{
+    display: flex;
+    flex: 1 1;
+    border-radius: 10px;
+    background-color: red;
+    margin-left: 2.5px;
 }
