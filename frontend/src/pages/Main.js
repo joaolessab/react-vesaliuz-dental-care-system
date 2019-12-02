@@ -6,6 +6,46 @@ import  { Line } from 'react-chartjs-2';
 import './Main.css';
 
 export default function Main(){
+    const state = {
+        data: {
+            labels: ["Jan", "Fev", "Mar", "Abr", "Mai"],
+            options: {
+                legend: {
+                    labels: {
+                        defaultFontFamily: 'Averta'
+                    }
+                }
+            },
+            datasets: [
+                {
+                    label: "Limpezas",
+                    backgroundColor: "rgba(255, 0, 255, 0.75)",
+                    borderColor: "white",
+                    borderWidth: 2,
+                    data: [4, 5, 11, 10, 32]
+                },
+                {
+                    label: "Extrações",
+                    backgroundColor: "rgba(0, 255, 0, 0.75)",
+                    borderColor: "white",
+                    borderWidth: 2,
+                    data: [14, 15, 1, 20, 20]
+                },
+                {
+                    label: "Clareamentos",
+                    backgroundColor: "rgba(0, 255, 255, 0.75)",
+                    borderColor: "white",
+                    borderWidth: 2, 
+                    data: [24, 25, 1, 10, 40]
+                }
+            ]
+        }
+    };
+
+    function teste(e){
+        debugger
+    };
+
     // Retorno básico do HTML
     return (
         <div className="father-container">
@@ -47,7 +87,7 @@ export default function Main(){
                                 <button className="icon-exams"></button>
                                 <button className="icon-exams"></button>
                             </div>
-                            <button button className="arrows icon-arrowdown"></button>
+                            <button className="arrows icon-arrowdown"></button>
                         </div>
                     </div>
                     {/* MIOLO */}
@@ -76,19 +116,31 @@ export default function Main(){
                             <button>Mês</button>
                             <button>Ano</button>
                         </div>
-                        <div className="line-div"></div>
-                        <div className="chart-div--bottom">
-                            <div className="bar-div--left">
-                                <div>
-                                    <Line
-                                        options =  {{
-                                            responsive: true
-                                        }}
-                                        data = {this.state.data}
-                                    />
-                                </div>
+                        {/* BIGGER CHART */}
+                        <div className="line-div">
+                            <div className="title-for-divs">
+                                <p>Tratamentos</p>
                             </div>
-                            <div className="bar-div--right"></div>
+                            <div className="final-chart">
+                                <Line
+                                    options =  {{
+                                        responsive: true
+                                    }}
+                                    data = {state.data}
+                                />
+                            </div>
+                            <div className="details-for-divs">
+                                <p>Detalhes</p>
+                                <button></button>
+                            </div>
+                        </div>
+                        <div className="chart-div--bottom">
+                            <div className="bar-div--left">          
+
+                            </div>
+                            <div className="bar-div--right">
+
+                            </div>
                         </div>
                     </div>
                 </div>

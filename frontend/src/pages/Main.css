@@ -189,8 +189,8 @@
 }
 .miolo-container .search-div #limpa{
     background-image: url("../assets/x-icon--black.svg");
-    background-size: 17px;
-    background-position: 9px 9px; 
+    background-size: 14px;
+    background-position: 10px 11px;
 }
 .miolo-container .search-div #limpa:hover{
     background-image: url("../assets/x-icon--blue.svg"); 
@@ -198,8 +198,8 @@
 
 .miolo-container .search-div #lupa{
     background-image: url("../assets/search-icon--black.svg");
-    background-size: 23px;
-    background-position: 6px 5px; 
+    background-size: 18px;
+    background-position: 9px 7px;
 }
 .miolo-container .search-div #lupa:hover{
     background-image: url("../assets/search-icon--blue.svg"); 
@@ -254,11 +254,62 @@
 }
 .auxiliar-container .line-div{
     display: flex;
+    flex-direction: column;
     flex-basis: 40%;
-    background-color: burlywood;
+    background-color: white;
     border-radius: 10px;
     margin-bottom: 2.5px;
     margin-top: 5px;
+}
+.title-for-divs, .details-for-divs{
+    flex-basis: 40px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.title-for-divs{
+    margin-top: 10px;
+}
+.title-for-divs p{
+    font-size: 12px;
+    margin-right: 10px;
+    color: #b2b2b2;
+}
+.details-for-divs{
+    justify-content: flex-end;
+    justify-items: flex-end;
+    margin-bottom: 10px;
+}
+.details-for-divs button{
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    animation-duration: 4s;
+    background-color: #ffffff;
+    box-shadow: 1px 9px 12px -8px #4e4e4e;
+    border: 0px;
+    border-radius: 5px;
+    background-position: 8px;
+    background-size: 15px;
+    background-repeat: no-repeat;
+    background-image: url("../assets/right-arrow--blue.svg"); 
+}
+.details-for-divs button:hover{
+    background-color: #2386fd;
+    background-image: url("../assets/right-arrow--white.svg"); 
+}
+
+.details-for-divs p{
+    font-size: 12px;
+    margin-right: 10px;
+    color: #b2b2b2;
+}
+
+.final-chart{
+    flex: 1 1;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .auxiliar-container .chart-div--bottom{
     display: flex;
@@ -273,11 +324,6 @@
     border-radius: 10px;
     background-color: coral;
     margin-right: 2.5px;
-}
-.auxiliar-container .bar-div--left div{
-    position: relative;
-    width: 300px;
-    height: 300px;
 }
 .auxiliar-container .bar-div--right{
     display: flex;
