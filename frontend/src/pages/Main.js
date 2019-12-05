@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { defaults } from 'react-chartjs-2';
 import  { Line } from 'react-chartjs-2';
 import { Pie } from 'react-chartjs-2'; 
+import { Radar } from 'react-chartjs-2';
 
 //Arquivos CSS e Imagens devem ser importados aqui
 import './Main.css';
@@ -48,6 +49,30 @@ export default function Main(){
     };
 
     const pieChartData = {
+        data: {
+            labels: ["Jan", "Fev", "Mar", "Abr", "Mai"],
+            datasets: [
+                {
+                    backgroundColor: [
+                        "#f43004",
+                        "#decf3f",
+                        "#FFA500",
+                        "#9b59b6",
+                    ],
+                    borderColor: "white",
+                    borderWidth: 2,
+                    data: [14, 15, 4, 20]
+                }
+            ]
+        },
+        options: {
+            legend: {display: false},
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    };
+
+    const radarChartData = {
         data: {
             labels: ["Jan", "Fev", "Mar", "Abr", "Mai"],
             datasets: [
@@ -185,11 +210,11 @@ export default function Main(){
                                     <p>Tratamentos</p>
                                 </div>
                                 <div className="final-chart">   
-                                    <Pie 
+                                    <Radar 
                                         width = {80}
                                         height = {80}
-                                        options = {pieChartData.options}
-                                        data = {pieChartData.data}
+                                        options = {radarChartData.options}
+                                        data = {radarChartData.data}
                                     />
                                 </div>
                                 <div className="details-for-divs">
