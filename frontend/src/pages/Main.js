@@ -1,21 +1,19 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { defaults } from 'react-chartjs-2';
 import  { Line } from 'react-chartjs-2';
+import { Pie } from 'react-chartjs-2'; 
 
 //Arquivos CSS e Imagens devem ser importados aqui
 import './Main.css';
 
 export default function Main(){
-    const state = {
+    defaults.global.defaultFontFamily = 'Averta';
+
+    /* CHART DATA */
+    const lineChartData = {
         data: {
             labels: ["Jan", "Fev", "Mar", "Abr", "Mai"],
-            options: {
-                legend: {
-                    labels: {
-                        defaultFontFamily: 'Averta'
-                    }
-                }
-            },
             datasets: [
                 {
                     label: "Limpezas",
@@ -39,6 +37,37 @@ export default function Main(){
                     data: [24, 25, 1, 10, 40]
                 }
             ]
+        },
+        options: {
+            legend: {
+                display: true,
+                labels: {fontFamily: 'Averta'}
+            },
+            responsive: true
+        }
+    };
+
+    const pieChartData = {
+        data: {
+            labels: ["Jan", "Fev", "Mar", "Abr", "Mai"],
+            datasets: [
+                {
+                    backgroundColor: [
+                        "#f43004",
+                        "#decf3f",
+                        "#FFA500",
+                        "#9b59b6",
+                    ],
+                    borderColor: "white",
+                    borderWidth: 2,
+                    data: [14, 15, 4, 20]
+                }
+            ]
+        },
+        options: {
+            legend: {display: false},
+            responsive: true,
+            maintainAspectRatio: false
         }
     };
 
@@ -90,6 +119,7 @@ export default function Main(){
                             <button className="arrows icon-arrowdown"></button>
                         </div>
                     </div>
+                    
                     {/* MIOLO */}
                     <div className="miolo-container">
                         <div className="title-div">
@@ -123,10 +153,8 @@ export default function Main(){
                             </div>
                             <div className="final-chart">
                                 <Line
-                                    options =  {{
-                                        responsive: true
-                                    }}
-                                    data = {state.data}
+                                    options = {lineChartData.options}
+                                    data = {lineChartData.data}
                                 />
                             </div>
                             <div className="details-for-divs">
@@ -135,11 +163,39 @@ export default function Main(){
                             </div>
                         </div>
                         <div className="chart-div--bottom">
-                            <div className="bar-div--left">          
-
+                            <div className="bar-div--left">       
+                                <div className="title-for-divs">
+                                    <p>Tratamentos</p>
+                                </div>
+                                <div className="final-chart">   
+                                    <Pie 
+                                        width = {80}
+                                        height = {80}
+                                        options = {pieChartData.options}
+                                        data = {pieChartData.data}
+                                    />
+                                </div>
+                                <div className="details-for-divs">
+                                    <p>Detalhes</p>
+                                    <button></button>
+                                </div>
                             </div>
                             <div className="bar-div--right">
-
+                                <div className="title-for-divs">
+                                    <p>Tratamentos</p>
+                                </div>
+                                <div className="final-chart">   
+                                    <Pie 
+                                        width = {80}
+                                        height = {80}
+                                        options = {pieChartData.options}
+                                        data = {pieChartData.data}
+                                    />
+                                </div>
+                                <div className="details-for-divs">
+                                    <p>Detalhes</p>
+                                    <button></button>
+                                </div>
                             </div>
                         </div>
                     </div>
