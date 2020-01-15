@@ -1,6 +1,11 @@
-# Vesaliuz
+# VESALIUZ
+
+# INSTALAÇÕES:
+## Frontend
+## Backend
  
-# FRONTEND - WEB:
+# MANUAL
+## FRONTEND - WEB:
 - Primeiro, é necessário entrar dentro do diretório do backend e rodar o projeto: `yarn dev`;
 - Agora, para criarmos o projeto frontend: `yarn create react-app frontend` OU `npx create react-app frontend`;
 - Acesse a pasta "frontend" e digite: `yarn start`;
