@@ -1,4 +1,4 @@
-# VESALIUZ - Clareando o tempo do seu negócio
+# VESALIUZ - Clareando seu tempo e brilhando seus serviços
 
 # INSTALAÇÕES:
 
