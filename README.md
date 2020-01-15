@@ -1,4 +1,4 @@
-# VESALIUZ
+# VESALIUZ - Clareando o tempo do seu negócio
 
 # INSTALAÇÕES:
 ## Frontend
