@@ -3,11 +3,11 @@
 ## TECNOLOGIAS:
 - Node, React, ReactNative;
 - Motivo: Hoje é possível dominar front, back, aplicações nativas via JavaScript;
-
+***
 ## INSTALAÇÕES:
 - [(BackEnd) - Manual de Instalação](https://www.google.com.br);
 - [(FrontEnd) - Manual de Instalação](https://www.google.com.br);
-
+***
 ## ANOTAÇÕES RELEVANTES:
 
 ### Como o React embutiu o código dentro da div "root"?
