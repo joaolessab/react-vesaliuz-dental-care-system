@@ -5,8 +5,8 @@
 - Motivo: Hoje é possível dominar front, back, aplicações nativas via JavaScript;
 ***
 ## INSTALAÇÕES:
-- [(BackEnd) - Manual de Instalação](https://www.google.com.br);
-- [(FrontEnd) - Manual de Instalação](https://www.google.com.br);
+- [(BackEnd) - Manual de Instalação](https://github.com/jvlessa/Vesaliuz/wiki/(BackEnd)-Manual-de-Instala%C3%A7%C3%A3o);
+- [(FrontEnd) - Manual de Instalação](https://github.com/jvlessa/Vesaliuz/wiki/(FrontEnd)-Manual-de-Instala%C3%A7%C3%A3o);
 ***
 ## ANOTAÇÕES RELEVANTES:
 
