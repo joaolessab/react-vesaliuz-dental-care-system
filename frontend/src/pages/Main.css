@@ -1,5 +1,5 @@
 .main-navbar--top{
-    height: auto;
+    flex-basis: 75px;
     display: flex;
     padding: 30px;
     padding-bottom: 20px;
@@ -13,11 +13,12 @@
 }
 .main-navbar--top .left-side .logo{
     height: 42px;
-    width: 120px;
+    width: 135px;
     background-size: 75px;
     background-repeat: no-repeat;
+    background-position: 8px;
+    margin-left: -19px;    
     background-image: url("../assets/nubibuz-logotipo---blue.svg");
-    background-position: 8px; 
 }
 .main-navbar--top em{
     color: #2386fd;
@@ -54,25 +55,25 @@
     font-size: 25px;
 }
 .main-container--content{
-    flex: 1 1;
+    height: calc(100% - 80px);
     flex-direction: row;
     display: flex;
-    background-color: #f5f6fa;
     padding: 30px;
     padding-top: 20px;
     padding-bottom: 20px;
+    background-color: #f5f6fa;
 }
 .main-container--content p, .main-container--content button{
     font-size: 14px;
 }
 
 .main-container--content .sidebar-container{
-    flex-basis: 120px;
+    flex-basis: 115px;
     display: flex;
-    height: 100%;
-    justify-content: flex-start;
-    align-content: center;
-    padding-top: 40px;
+    margin-left: -30px;
+    margin-top: -20px;
+    margin-right: 30px;
+    background-color: white;
 }
 .miolo-container{
     flex: 2 1;
@@ -89,39 +90,26 @@
     padding-left: 20px;
 }
 .main-container--content .sidebar-container .sidebar{
-    height: 400px;
-    width: 90px;
-    background-color: white;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    justify-items: center;
-    padding-right: 5px;
-    padding-left: 5px;
-    position: fixed;
+    flex: 1 1;
+    overflow: auto;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 5px;
 }
-.main-container--content .sidebar-container .sidebar .icons{
-    height: calc(100% - 70px);
-    width: calc(100% + 25px);
-    overflow-x: hidden;
-    overflow-y: auto;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-.main-container--content .sidebar-container .sidebar .icons button{
+.main-container--content .sidebar-container .sidebar button{
     height: 50px;
-    width: 51px;
+    width: 50px;
+    display: list-item;
+    margin: 0 auto;
     border-radius: 10px;
     border: 0px;
-    margin-bottom: 15px;
-    margin-left: 27px;
+    margin-bottom: 10px;
     background-size: 20px;
     background-repeat: no-repeat;
     background-position: 15px;
 }
-.main-container--content .sidebar-container .sidebar .icons button:hover, .main-container--content .sidebar-container .sidebar .icons .selected{
+.main-container--content .sidebar-container .sidebar button:hover, .main-container--content .sidebar-container .sidebar .selected{
     cursor: pointer;
     animation-duration: 4s;
     background-color: #2386fd;
@@ -139,19 +127,6 @@
     padding-right: 25px;
     padding-left: 45px;
 }*/
-.main-container--content .sidebar-container .sidebar .arrows{
-    height: 20px;
-    width: 45px;
-    border: 0px;
-    background-size: 16px;
-    background-repeat: no-repeat;
-    background-position: 15px;
-    border-radius: 4px;
-}
-.main-container--content .sidebar-container .sidebar .arrows:hover{
-    background-color: #ececec;
-    cursor: pointer;
-}
 .miolo-container .title-div{
     flex-basis: 40px;
     display: flex;
