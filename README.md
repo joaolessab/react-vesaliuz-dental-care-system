@@ -1,19 +1,20 @@
-# Vesaliuz
- 
-# FRONTEND - WEB:
-- Primeiro, é necessário entrar dentro do diretório do backend e rodar o projeto: `yarn dev`;
-- Agora, para criarmos o projeto frontend: `yarn create react-app frontend` OU `npx create react-app frontend`;
-- Acesse a pasta "frontend" e digite: `yarn start`;
-- Todo o código ficará dentro da pasta "src";
-- A coisa mais importante do "index.html" é a div "root";
+# VESALIUZ - Clareando seu tempo e brilhando seus serviços
 
-## Como o React embutiu o código dentro da div "root"?
-- Dentro do arquivo "src/index.js" é possível observar que o React referenciou a div "root";
-- App.js é um componente;
-- React recomendo utilizar atributo "className" ao invés de "class" nos componentes do DOM;
+## TECNOLOGIAS:
+- Node, React, ReactNative;
+- Motivo: Hoje é possível dominar front, back, aplicações nativas via JavaScript;
+***
+## INSTALAÇÕES:
+- [(BackEnd) - Manual de Instalação](https://github.com/jvlessa/Vesaliuz/wiki/(BackEnd)-Manual-de-Instala%C3%A7%C3%A3o);
+- [(Construindo API Rest) - Manual](https://github.com/jvlessa/Vesaliuz/wiki/Construindo-API-Rest);
+- [(Banco de Dados MongoDB) - Manual de Instalação
+](https://github.com/jvlessa/Vesaliuz/wiki/(Banco-de-Dados---MongoDB)--Manual-de-Instala%C3%A7%C3%A3o);
+- [(React Nativa) - Manual de Instalação](https://github.com/jvlessa/Vesaliuz/wiki/(React-Native)-Manual-de-Instala%C3%A7%C3%A3o);
+- [(FrontEnd) - Manual de Instalação](https://github.com/jvlessa/Vesaliuz/wiki/(FrontEnd)-Manual-de-Instala%C3%A7%C3%A3o);
+***
+## ANOTAÇÕES RELEVANTES:
 
-## Biblioteca para rotas do React
-- `yarn add react-router-dom`;
-- Adicionando Axios dentro do projeto do frontend: `yarn add axios`;
-
-- Acessar frontend: "http://localhost:3000/"
+### Node
+- Node não é uma linguagem, o Node é uma plataforma que foi construída em cima da linguagem JavaScript;
+- Foi lançado via Google Chrome. Quando o Google Chrome foi lançado um motor v8 (engine) - que é capaz de ler código JavaScript e converter em um resultado;
+- Node pegou o v8, tirou de dentro do Chrome, fez funcionar fora StandAlone e fez um script para rodar fora do browser;
