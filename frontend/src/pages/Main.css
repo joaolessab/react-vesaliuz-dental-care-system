@@ -1,17 +1,17 @@
-.main-navbar--top{
+.navbar-main--top{
     flex-basis: 75px;
     display: flex;
     padding: 30px;
     padding-bottom: 20px;
     padding-top: 20px;
 }
-.main-navbar--top .left-side{
+.navbar-main--top .left--side{
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: flex-start;
 }
-.main-navbar--top .left-side .logo{
+.navbar-main--top .left--side .logo{
     height: 42px;
     width: 135px;
     background-size: 75px;
@@ -20,24 +20,24 @@
     margin-left: -19px;    
     background-image: url("../assets/nubibuz-logotipo---blue.svg");
 }
-.main-navbar--top em{
+.navbar-main--top em{
     color: #2386fd;
     text-decoration: none;
     font-style: normal;
 }
-.main-navbar--top .right-side{
+.navbar-main--top .right--side{
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: flex-end;
 }
-.main-navbar--top .right-side .alert{
+.navbar-main--top .right--side .alert{
     height: 20px;
     width: 20px;
     margin-right: 20px;
     background-image: url("../assets/alarm-icon--black.svg");
 }
-.main-navbar--top .right-side .photo{
+.navbar-main--top .right--side .photo{
     height: 50px;
     width: 50px;
     margin-left: 20px;
@@ -46,15 +46,15 @@
     background-size: 50px;
     border-radius: 10px;
 }
-.main-navbar--top .right-side .project-button{
+.navbar-main--top .right--side .button-project{
     height: 50px;
     width: 50px;
 }
-.miolo-container h1{
+.container--miolo h1{
     font-family: 'Averta Extra Bold';
     font-size: 25px;
 }
-.main-container--content{
+.container--main-content{
     height: calc(100% - 80px);
     flex-direction: row;
     display: flex;
@@ -63,11 +63,10 @@
     padding-bottom: 20px;
     background-color: #f5f6fa;
 }
-.main-container--content p, .main-container--content button{
+.container--main-content p, .container--main-content button{
     font-size: 14px;
 }
-
-.main-container--content .sidebar-container{
+.container--main-content .container--sidebar{
     flex-basis: 115px;
     display: flex;
     margin-left: -30px;
@@ -75,13 +74,13 @@
     margin-right: 30px;
     background-color: white;
 }
-.miolo-container{
+.container--miolo{
     flex: 2 1;
     height: 100%;
     display: flex;
     flex-direction: column;
 }
-.main-container--content .auxiliar-container{
+.container--main-content .container--auxiliar{
     flex: 1 1;
     height: 100%;
     display: flex;
@@ -89,7 +88,7 @@
     flex-direction: column;
     padding-left: 20px;
 }
-.main-container--content .sidebar-container .sidebar{
+.container--main-content .container--sidebar .sidebar{
     flex: 1 1;
     overflow: auto;
     text-align: center;
@@ -97,7 +96,7 @@
     margin-bottom: 10px;
     margin-right: 5px;
 }
-.main-container--content .sidebar-container .sidebar button{
+.container--main-content .container--sidebar .sidebar button{
     height: 50px;
     width: 50px;
     display: list-item;
@@ -109,17 +108,17 @@
     background-repeat: no-repeat;
     background-position: 15px;
 }
-.main-container--content .sidebar-container .sidebar button:hover, .main-container--content .sidebar-container .sidebar .selected{
+.container--main-content .container--sidebar .sidebar button:hover, .container--main-content .container--sidebar .sidebar .selected{
     cursor: pointer;
     animation-duration: 4s;
     background-color: #2386fd;
     background-position: 15px;
     box-shadow: 1px 9px 12px -8px #4e4e4e;
 }
-/*.main-container--content .sidebar-container .sidebar .icons button p{
+/*.container--main-content .container--sidebar .sidebar .icons button p{
     display: none;
 }
-.main-container--content .sidebar-container .sidebar .icons button:hover p{
+.container--main-content .container--sidebar .sidebar .icons button:hover p{
     color: white;
     display: block;
     font-size: 16px;
@@ -127,29 +126,28 @@
     padding-right: 25px;
     padding-left: 45px;
 }*/
-.miolo-container .title-div{
+.container--miolo .div--title{
     flex-basis: 40px;
     display: flex;
     align-items: end;
 }
 
-.miolo-container .search-div{
+.container--miolo .div--search{
     display: flex;
     border-radius: 10px;
     background-color: white;
     flex-basis: 40px;
     align-items: center;
 }
-.miolo-container .search-div input{
+.container--miolo .div--search input{
     flex: 1;
     padding-left: 20px;
     padding-right: 20px;
 }
-.miolo-container .search-div input:focus{
+.container--miolo .div--search input:focus{
     box-shadow: 0px 0px 0px 0px;
 }
-
-.miolo-container .search-div button{   
+.container--miolo .div--search button{   
     background-repeat: no-repeat;
     height: 35px;
     width: 35px;
@@ -158,29 +156,27 @@
     margin-right: 10px;
     background-color: white;
 }
-.miolo-container .search-div button:hover{    
+.container--miolo .div--search button:hover{    
     background-color: #f5f6fa;
     cursor: pointer;
 }
-.miolo-container .search-div #limpa{
+.container--miolo .div--search #limpa{
     background-image: url("../assets/x-icon--black.svg");
     background-size: 14px;
     background-position: 10px 11px;
 }
-.miolo-container .search-div #limpa:hover{
+.container--miolo .div--search #limpa:hover{
     background-image: url("../assets/x-icon--blue.svg"); 
 }
-
-.miolo-container .search-div #lupa{
+.container--miolo .div--search #lupa{
     background-image: url("../assets/search-icon--black.svg");
     background-size: 18px;
     background-position: 9px 7px;
 }
-.miolo-container .search-div #lupa:hover{
+.container--miolo .div--search #lupa:hover{
     background-image: url("../assets/search-icon--blue.svg"); 
 }
-
-.miolo-container .info-div{
+.container--miolo .div--info{
     display: flex;
     flex: 1 1;
     border-radius: 10px;
@@ -188,32 +184,31 @@
     margin-bottom: 5px;
     background-color: red;
 }
-
-.miolo-container .chart-div{
+.container--miolo .div--chart{
     display: flex;
     flex: 1 1;
 }
-.miolo-container .chart-div .revenue{
+.container--miolo .div--chart .revenue{
     display: flex;
     flex: 1 1;
     border-radius: 10px;
     background-color: navy;
     margin-right: 2.5px;
 }
-.miolo-container .chart-div .expense{
+.container--miolo .div--chart .expense{
     display: flex;
     flex: 1 1;
     border-radius: 10px;
     background-color: green;
     margin-left: 2.5px;
 }
-.auxiliar-container .topbuttons-div{
+.container--auxiliar .div--topbuttons{
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
     flex-basis: 40px;
 }
-.auxiliar-container .topbuttons-div button{
+.container--auxiliar .div--topbuttons button{
     border: 0px;
     border-bottom: 1px solid #b2b2b2;
     background-color: transparent;
@@ -221,13 +216,13 @@
     height: 40px;
     color: #b2b2b2;
 }
-.auxiliar-container .topbuttons-div button:hover, .auxiliar-container .topbuttons-div .selected{
+.container--auxiliar .div--topbuttons button:hover, .container--auxiliar .div--topbuttons .selected{
     cursor: pointer;
     color: black;
     border-bottom: 3px solid #2386fd;
     font-family: 'Averta Bold';
 }
-.auxiliar-container .line-div{
+.container--auxiliar .div--line{
     display: flex;
     flex-direction: column;
     flex-basis: 40%;
@@ -236,27 +231,27 @@
     margin-bottom: 2.5px;
     margin-top: 5px;
 }
-.title-for-divs, .details-for-divs{
+.div--titles, .div--details{
     flex-basis: 40px;
     display: flex;
     align-items: center;
     padding-left: 20px;
     padding-right: 20px;
 }
-.title-for-divs{
+.div--titles{
     margin-top: 10px;
 }
-.title-for-divs p{
+.div--titles p{
     font-size: 12px;
     margin-right: 10px;
     color: #b2b2b2;
 }
-.details-for-divs{
+.div--details{
     justify-content: flex-end;
     justify-items: flex-end;
     margin-bottom: 10px;
 }
-.details-for-divs button{
+.div--details button{
     height: 30px;
     width: 30px;
     cursor: pointer;
@@ -270,30 +265,28 @@
     background-repeat: no-repeat;
     background-image: url("../assets/right-arrow--blue.svg"); 
 }
-.details-for-divs button:hover{
+.div--details button:hover{
     background-color: #2386fd;
     background-image: url("../assets/right-arrow--white.svg"); 
 }
-
-.details-for-divs p{
+.div--details p{
     font-size: 12px;
     margin-right: 10px;
     color: #b2b2b2;
 }
-
-.final-chart{
+.div--chart-final{
     flex: 1 1;
     padding-left: 10px;
     padding-right: 10px;
 }
-.auxiliar-container .chart-div--bottom{
+.container--auxiliar .div--chart-bottom{
     display: flex;
     flex: 1 1;
     margin-top: 2.5px;
     margin-bottom: 2.5px;
     border-radius: 10px;
 }
-.auxiliar-container .bar-div--left{
+.container--auxiliar .div--bar-left{
     display: flex;
     flex: 1 1;
     border-radius: 10px;
@@ -301,7 +294,7 @@
     margin-right: 2.5px;
     flex-direction: column;
 }
-.auxiliar-container .bar-div--right{
+.container--auxiliar .div--bar-right{
     display: flex;
     flex: 1 1;
     border-radius: 10px;

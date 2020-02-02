@@ -105,13 +105,13 @@ export default function Main(){
         <div className="container--father">
             <div className="container--blackboard-columnar">                               
                 {/* MAIN NAVBAR */}
-                <div className="main-navbar--top">
-                    <div className="left-side">
+                <div className="navbar-main--top">
+                    <div className="left--side">
                         <div className="logo"></div>
                         <p>Clínica <em>Dente Brilhoso</em></p>
                     </div>
                     
-                    <div className="right-side">
+                    <div className="right--side">
                         <i className="alert"></i>
                         <p>Bem-vindo, João</p>
                         <div className="photo"></div>
@@ -122,9 +122,9 @@ export default function Main(){
                 </div>
              
                 {/* MAIN CONTENT */}
-                <div className="main-container--content">
+                <div className="container--main-content">
                     {/* SIDEBAR */}
-                    <div className="sidebar-container">
+                    <div className="container--sidebar">
                         <div className="sidebar">
                             <button className="icon--home-white selected"></button>
                             <button className="icon--agendamentos"></button>
@@ -142,53 +142,53 @@ export default function Main(){
                     </div>
                     
                     {/* MIOLO */}
-                    <div className="miolo-container">
-                        <div className="title-div">
+                    <div className="container--miolo">
+                        <div className="div--title">
                             <h1>Página Inicial</h1>
                         </div>
-                        <div className="search-div">
+                        <div className="div--search">
                             <input type="text" placeholder="Quer encontrar alguma coisa? Eu te ajudo..." />
                             <button id="limpa"></button>
                             <button id="lupa"></button>
                         </div>
-                        <div className="info-div">
+                        <div className="div--info">
 
                         </div>
-                        <div className="chart-div">
+                        <div className="div--chart">
                             <div className="revenue"></div>
                             <div className="expense"></div>
                         </div>
                     </div>
 
-                    <div className="auxiliar-container">
-                        <div className="topbuttons-div">
+                    <div className="container--auxiliar">
+                        <div className="div--topbuttons">
                             <button className="selected">Dia</button>
                             <button>Semana</button>
                             <button>Mês</button>
                             <button>Ano</button>
                         </div>
                         {/* BIGGER CHART */}
-                        <div className="line-div">
-                            <div className="title-for-divs">
+                        <div className="div--line">
+                            <div className="div--titles">
                                 <p>Tratamentos</p>
                             </div>
-                            <div className="final-chart">
+                            <div className="div--chart-final">
                                 <Line
                                     options = {lineChartData.options}
                                     data = {lineChartData.data}
                                 />
                             </div>
-                            <div className="details-for-divs">
+                            <div className="div--details">
                                 <p>Detalhes</p>
                                 <button></button>
                             </div>
                         </div>
-                        <div className="chart-div--bottom">
-                            <div className="bar-div--left">       
-                                <div className="title-for-divs">
+                        <div className="div--chart-bottom">
+                            <div className="div--bar-left">       
+                                <div className="div--titles">
                                     <p>Tratamentos</p>
                                 </div>
-                                <div className="final-chart">   
+                                <div className="div--chart-final">   
                                     <Pie 
                                         width = {80}
                                         height = {80}
@@ -196,16 +196,16 @@ export default function Main(){
                                         data = {pieChartData.data}
                                     />
                                 </div>
-                                <div className="details-for-divs">
+                                <div className="div--details">
                                     <p>Detalhes</p>
                                     <button></button>
                                 </div>
                             </div>
-                            <div className="bar-div--right">
-                                <div className="title-for-divs">
+                            <div className="div--bar-right">
+                                <div className="div--titles">
                                     <p>Tratamentos</p>
                                 </div>
-                                <div className="final-chart">   
+                                <div className="div--chart-final">   
                                     <Radar 
                                         width = {80}
                                         height = {80}
@@ -213,7 +213,7 @@ export default function Main(){
                                         data = {radarChartData.data}
                                     />
                                 </div>
-                                <div className="details-for-divs">
+                                <div className="div--details">
                                     <p>Detalhes</p>
                                     <button></button>
                                 </div>
