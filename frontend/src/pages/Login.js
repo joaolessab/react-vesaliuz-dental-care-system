@@ -20,11 +20,11 @@ export default function Login({ history }){ // React herdou a propriedade histor
     return (
         <div className="container--father">
             <div className="container--blackboard">
-                <div className="form-container">
-                    <div className="form-container--top">
+                <div className="container--form">
+                    <div className="container--form-top">
                         <button className="button--rectangle-secondary">Cadastre-se</button>
                     </div>
-                    <div className="form-container--middle">
+                    <div className="container--form-middle">
                         <form onSubmit = { handleSubmit }>
                             <h1>Olá! Vamos começar? Faça o login</h1>
                             <input
@@ -36,33 +36,33 @@ export default function Login({ history }){ // React herdou a propriedade histor
                                 type="password"
                                 placeholder="Senha"
                             />
-                            <div className="form-container--action">
-                                <div className="form-container--action--leftSplitter">
+                            <div className="div--container-formAction">
+                                <div className="div--container-formAction--leftSplitter">
                                     <button className="button--labelType">Esqueceu sua senha?</button>
                                 </div>
-                                <div className="form-container--action--rightSplitter">
+                                <div className="div--container-formAction--rightSplitter">
                                     <button className="button--rectangle-primary">Enviar</button>
                                 </div>
                             </div>
                         </form>
                     </div>
-                    <div className="form-container--bottom">
+                    <div className="container--form-bottom">
                         <button className="button--labelType">Nubibuz 2019</button>
                         <button className="button--labelType">Termos e Condições</button>
                         <button className="button--labelType">Privacidade</button>
                         <button className="button--labelType">Precisa de ajuda?</button>
                     </div>
                 </div>
-                <div className="draw-container">                    
-                    <div className="left--darkblue">
-                        <div className="top--points"></div>
-                        <div className="brush--teth"></div>
-                        <div className="happy--teeth"></div>
-                        <div className="cloud--centered"></div>
-                        <div className="cloud--bottom"></div>
-                        <div className="bottom--points"></div>
+                <div className="container--draw">                    
+                    <div className="div--darkblue-left">
+                        <div className="div--points-top"></div>
+                        <div className="div--brushTeth"></div>
+                        <div className="div--happyTeeth"></div>
+                        <div className="div--cloud-centered"></div>
+                        <div className="div--cloud-bottom"></div>
+                        <div className="div--points-bottom"></div>
                     </div>
-                    <div className="right--lightblue"></div>
+                    <div className="div--lightblue-right"></div>
                 </div>
             </div>
         </div>
