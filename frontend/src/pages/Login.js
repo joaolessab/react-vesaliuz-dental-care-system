@@ -18,11 +18,11 @@ export default function Login({ history }){ // React herdou a propriedade histor
 
     // Retorno básico do HTML
     return (
-        <div className="father-container">
-            <div className="blackboard-container">
+        <div className="container--father">
+            <div className="container--blackboard">
                 <div className="form-container">
                     <div className="form-container--top">
-                        <button className="secondary-button--rectangle">Cadastre-se</button>
+                        <button className="button--rectangle-secondary">Cadastre-se</button>
                     </div>
                     <div className="form-container--middle">
                         <form onSubmit = { handleSubmit }>
@@ -38,19 +38,19 @@ export default function Login({ history }){ // React herdou a propriedade histor
                             />
                             <div className="form-container--action">
                                 <div className="form-container--action--leftSplitter">
-                                    <button className="labelType-button">Esqueceu sua senha?</button>
+                                    <button className="button--labelType">Esqueceu sua senha?</button>
                                 </div>
                                 <div className="form-container--action--rightSplitter">
-                                    <button className="primary-button--rectangle">Enviar</button>
+                                    <button className="button--rectangle-primary">Enviar</button>
                                 </div>
                             </div>
                         </form>
                     </div>
                     <div className="form-container--bottom">
-                        <button className="labelType-button">Nubibuz 2019</button>
-                        <button className="labelType-button">Termos e Condições</button>
-                        <button className="labelType-button">Privacidade</button>
-                        <button className="labelType-button">Precisa de ajuda?</button>
+                        <button className="button--labelType">Nubibuz 2019</button>
+                        <button className="button--labelType">Termos e Condições</button>
+                        <button className="button--labelType">Privacidade</button>
+                        <button className="button--labelType">Precisa de ajuda?</button>
                     </div>
                 </div>
                 <div className="draw-container">                    

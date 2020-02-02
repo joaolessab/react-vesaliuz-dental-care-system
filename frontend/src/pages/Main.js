@@ -102,8 +102,8 @@ export default function Main(){
 
     // Retorno básico do HTML
     return (
-        <div className="father-container">
-            <div className="blackboard-container--columnar">                               
+        <div className="container--father">
+            <div className="container--blackboard-columnar">                               
                 {/* MAIN NAVBAR */}
                 <div className="main-navbar--top">
                     <div className="left-side">
@@ -115,7 +115,7 @@ export default function Main(){
                         <i className="alert"></i>
                         <p>Bem-vindo, João</p>
                         <div className="photo"></div>
-                        <button className="secondary-button--rectangle--middle---size lrbuton icon-exit--white">
+                        <button className="button--rectangle-secondary-middle-size lrbuton icon-exit--white">
                             <p>Sair</p>
                         </button>
                     </div>
