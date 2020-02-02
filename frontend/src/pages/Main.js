@@ -126,18 +126,18 @@ export default function Main(){
                     {/* SIDEBAR */}
                     <div className="sidebar-container">
                         <div className="sidebar">
-                            <button className="icon-home--white selected"></button>
-                            <button className="icon-agendamentos"></button>
-                            <button className="icon-pacientes"></button>
-                            <button className="icon-financas"></button>
-                            <button className="icon-exams"></button>
-                            <button className="icon-exams"></button>
-                            <button className="icon-exams"></button>
-                            <button className="icon-exams"></button>
-                            <button className="icon-exams"></button>
-                            <button className="icon-exams"></button>
-                            <button className="icon-exams"></button>
-                            <button className="icon-exams"></button>
+                            <button className="icon--home-white selected"></button>
+                            <button className="icon--agendamentos"></button>
+                            <button className="icon--pacientes"></button>
+                            <button className="icon--financas"></button>
+                            <button className="icon--exams"></button>
+                            <button className="icon--exams"></button>
+                            <button className="icon--exams"></button>
+                            <button className="icon--exams"></button>
+                            <button className="icon--exams"></button>
+                            <button className="icon--exams"></button>
+                            <button className="icon--exams"></button>
+                            <button className="icon--exams"></button>
                         </div>
                     </div>
                     

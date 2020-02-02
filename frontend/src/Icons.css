@@ -1,33 +1,32 @@
-.icon-plus{background-image: url("./assets/plus-icon-grey.svg");}
+.icon--plus{background-image: url("./assets/plus-icon-grey.svg");}
 
-.icon-home{background-image: url("./assets/home-icon--black.svg");}
-.icon-home--white, .icon-home:hover{background-image: url("./assets/home-icon--white.svg");}
+.icon--home{background-image: url("./assets/home-icon--black.svg");}
+.icon--home-white, .icon--home:hover{background-image: url("./assets/home-icon--white.svg");}
 
-.icon-agendamentos{background-image: url("./assets/calendar-icon--black.svg");}
-.icon-agendamentos:hover{background-image: url("./assets/calendar-icon--white.svg");}
+.icon--agendamentos{background-image: url("./assets/calendar-icon--black.svg");}
+.icon--agendamentos:hover{background-image: url("./assets/calendar-icon--white.svg");}
 
-.icon-pacientes{background-image: url("./assets/patient-icon--black.svg");}
-.icon-pacientes:hover{background-image: url("./assets/patient-icon--white.svg");}
+.icon--pacientes{background-image: url("./assets/patient-icon--black.svg");}
+.icon--pacientes:hover{background-image: url("./assets/patient-icon--white.svg");}
 
-.icon-financas{background-image: url("./assets/finances-icon--black.svg");}
-.icon-financas:hover{background-image: url("./assets/finances-icon--white.svg");}
+.icon--financas{background-image: url("./assets/finances-icon--black.svg");}
+.icon--financas:hover{background-image: url("./assets/finances-icon--white.svg");}
 
-.icon-exams{background-image: url("./assets/exams-icon--black.svg");}
-.icon-exams:hover{background-image: url("./assets/exams-icon--white.svg");}
+.icon--exams{background-image: url("./assets/exams-icon--black.svg");}
+.icon--exams:hover{background-image: url("./assets/exams-icon--white.svg");}
 
-.icon-arrowup{background-image: url("./assets/arrowup-icon--black.svg");}
+.icon--arrowup{background-image: url("./assets/arrowup-icon--black.svg");}
 
-.icon-arrowdown{background-image: url("./assets/arrowdown-icon--black.svg");}
+.icon--arrowdown{background-image: url("./assets/arrowdown-icon--black.svg");}
 
-.icon-exit{background-image: url("./assets/exit-icon--black.svg");}
-
-.icon-exit--white:hover{
+.icon--exit{background-image: url("./assets/exit-icon--black.svg");}
+.icon--exit-white:hover{
     background-image: url("./assets/exit-icon--white.svg");
     background-image: url(/static/media/exit-icon--white.3a1071f5.svg);
     background-size: 25px;
     background-repeat: no-repeat;
     background-position: 12px;
 }
-.icon-exit--white:hover p{
+.icon--exit-white:hover p{
     display: none;
 }
