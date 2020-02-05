@@ -123,6 +123,7 @@ export default function Main(){
              
                 {/* MAIN CONTENT */}
                 <div className="container--main-content">
+                    
                     {/* SIDEBAR */}
                     <div className="container--sidebar">
                         <div className="sidebar">
@@ -139,6 +140,7 @@ export default function Main(){
                             <button className="icon--exams"></button>
                             <button className="icon--exams"></button>
                         </div>
+                        <button id="button--sidebar-action" className="button--sidebar-retract"></button>
                     </div>
                     
                     {/* MIOLO */}

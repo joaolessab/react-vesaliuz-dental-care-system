@@ -302,3 +302,24 @@
     margin-left: 2.5px;    
     flex-direction: column;
 }
+.button--sidebar-retract{
+    height: 30px;
+    position: fixed;
+    margin-left: 115px;
+    width: 22px;
+    margin-top: 68px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border: 0px;
+    background-color: white;    
+    background-image: url("../assets/arrowleft-icon--black.svg");
+    background-size: 15px;
+    background-position: 2px;
+    background-repeat: no-repeat;
+}
+.button--sidebar-retract:hover{
+    background-image: url("../assets/arrowleft-icon--white.svg");
+    cursor: pointer;
+    background-color: #2386fd;
+    background-position: 2px;
+}
