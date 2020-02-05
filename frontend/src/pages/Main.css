@@ -50,7 +50,7 @@
     height: 50px;
     width: 50px;
 }
-.container--miolo h1{
+.container--content h1{
     font-family: 'Averta Extra Bold';
     font-size: 25px;
 }
@@ -66,6 +66,11 @@
 .container--main-content p, .container--main-content button{
     font-size: 14px;
 }
+.container--miolo{
+    flex: 1;
+    display: flex;
+}
+
 .container--main-content .container--sidebar{
     flex-basis: 115px;
     display: flex;
@@ -74,7 +79,7 @@
     margin-right: 30px;
     background-color: white;
 }
-.container--miolo{
+.container--content{
     flex: 2 1;
     height: 100%;
     display: flex;
@@ -126,28 +131,28 @@
     padding-right: 25px;
     padding-left: 45px;
 }*/
-.container--miolo .div--title{
+.container--content .div--title{
     flex-basis: 40px;
     display: flex;
     align-items: end;
 }
 
-.container--miolo .div--search{
+.container--content .div--search{
     display: flex;
     border-radius: 10px;
     background-color: white;
     flex-basis: 40px;
     align-items: center;
 }
-.container--miolo .div--search input{
+.container--content .div--search input{
     flex: 1;
     padding-left: 20px;
     padding-right: 20px;
 }
-.container--miolo .div--search input:focus{
+.container--content .div--search input:focus{
     box-shadow: 0px 0px 0px 0px;
 }
-.container--miolo .div--search button{   
+.container--content .div--search button{   
     background-repeat: no-repeat;
     height: 35px;
     width: 35px;
@@ -156,27 +161,27 @@
     margin-right: 10px;
     background-color: white;
 }
-.container--miolo .div--search button:hover{    
+.container--content .div--search button:hover{    
     background-color: #f5f6fa;
     cursor: pointer;
 }
-.container--miolo .div--search #limpa{
+.container--content .div--search #limpa{
     background-image: url("../assets/x-icon--black.svg");
     background-size: 14px;
     background-position: 10px 11px;
 }
-.container--miolo .div--search #limpa:hover{
+.container--content .div--search #limpa:hover{
     background-image: url("../assets/x-icon--blue.svg"); 
 }
-.container--miolo .div--search #lupa{
+.container--content .div--search #lupa{
     background-image: url("../assets/search-icon--black.svg");
     background-size: 18px;
     background-position: 9px 7px;
 }
-.container--miolo .div--search #lupa:hover{
+.container--content .div--search #lupa:hover{
     background-image: url("../assets/search-icon--blue.svg"); 
 }
-.container--miolo .div--info{
+.container--content .div--info{
     display: flex;
     flex: 1 1;
     border-radius: 10px;
@@ -184,18 +189,18 @@
     margin-bottom: 5px;
     background-color: red;
 }
-.container--miolo .div--chart{
+.container--content .div--chart{
     display: flex;
     flex: 1 1;
 }
-.container--miolo .div--chart .revenue{
+.container--content .div--chart .revenue{
     display: flex;
     flex: 1 1;
     border-radius: 10px;
     background-color: navy;
     margin-right: 2.5px;
 }
-.container--miolo .div--chart .expense{
+.container--content .div--chart .expense{
     display: flex;
     flex: 1 1;
     border-radius: 10px;
