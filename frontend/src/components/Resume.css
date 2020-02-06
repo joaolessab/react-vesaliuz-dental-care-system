@@ -1,0 +1,142 @@
+.container--content{
+    flex: 2 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.container--auxiliar{
+    flex: 1 1;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    padding-left: 20px;
+}
+.container--content .div--title{
+    flex-basis: 40px;
+    display: flex;
+    align-items: end;
+}
+
+.container--content .div--search{
+    display: flex;
+    border-radius: 10px;
+    background-color: white;
+    flex-basis: 40px;
+    align-items: center;
+}
+.container--content .div--search input{
+    flex: 1;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.container--content .div--search input:focus{
+    box-shadow: 0px 0px 0px 0px;
+}
+.container--content .div--search button{   
+    background-repeat: no-repeat;
+    height: 35px;
+    width: 35px;
+    border: 0px;
+    border-radius: 10px;
+    margin-right: 10px;
+    background-color: white;
+}
+.container--content .div--search button:hover{    
+    background-color: #f5f6fa;
+    cursor: pointer;
+}
+.container--content .div--search #limpa{
+    background-image: url("../assets/x-icon--black.svg");
+    background-size: 14px;
+    background-position: 10px 11px;
+}
+.container--content .div--search #limpa:hover{
+    background-image: url("../assets/x-icon--blue.svg"); 
+}
+.container--content .div--search #lupa{
+    background-image: url("../assets/search-icon--black.svg");
+    background-size: 18px;
+    background-position: 9px 7px;
+}
+.container--content .div--search #lupa:hover{
+    background-image: url("../assets/search-icon--blue.svg"); 
+}
+.container--content .div--info{
+    display: flex;
+    flex: 1 1;
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: red;
+}
+.container--content .div--chart{
+    display: flex;
+    flex: 1 1;
+}
+.container--content .div--chart .revenue{
+    display: flex;
+    flex: 1 1;
+    border-radius: 10px;
+    background-color: navy;
+    margin-right: 2.5px;
+}
+.container--content .div--chart .expense{
+    display: flex;
+    flex: 1 1;
+    border-radius: 10px;
+    background-color: green;
+    margin-left: 2.5px;
+}
+.container--auxiliar .div--topbuttons{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    flex-basis: 40px;
+}
+.container--auxiliar .div--topbuttons button{
+    border: 0px;
+    border-bottom: 1px solid #b2b2b2;
+    background-color: transparent;
+    width: 100px;
+    height: 40px;
+    color: #b2b2b2;
+}
+.container--auxiliar .div--topbuttons button:hover, .container--auxiliar .div--topbuttons .selected{
+    cursor: pointer;
+    color: black;
+    border-bottom: 3px solid #2386fd;
+    font-family: 'Averta Bold';
+}
+.container--auxiliar .div--line{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 40%;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 2.5px;
+    margin-top: 5px;
+}
+.container--auxiliar .div--chart-bottom{
+    display: flex;
+    flex: 1 1;
+    margin-top: 2.5px;
+    margin-bottom: 2.5px;
+    border-radius: 10px;
+}
+.container--auxiliar .div--bar-left{
+    display: flex;
+    flex: 1 1;
+    border-radius: 10px;
+    background-color: white;
+    margin-right: 2.5px;
+    flex-direction: column;
+}
+.container--auxiliar .div--bar-right{
+    display: flex;
+    flex: 1 1;
+    border-radius: 10px;
+    background-color: white;
+    margin-left: 2.5px;    
+    flex-direction: column;
+}
