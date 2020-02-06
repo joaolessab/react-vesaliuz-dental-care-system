@@ -5,8 +5,24 @@ import './Main.css';
 import Resume from '../components/Resume';
 
 export default function Main(){
-    function teste(e){
-        debugger
+
+    function manipulateSidebar(e){
+        //Retract
+        if (e.target.classList.contains("button--sidebar-retract")){
+            //Changing CSS
+            e.target.classList.remove("button--sidebar-retract");
+            e.target.classList.add("button--sidebar-expand");
+            e.target.style.marginLeft = "-30px";
+            document.getElementsByClassName("container--sidebar")[0].style.display = "none";
+
+        }
+        else{
+            //Changing CSS
+            e.target.classList.remove("button--sidebar-expand"); 
+            e.target.classList.add("button--sidebar-retract");            
+            e.target.style.marginLeft = "85px";
+            document.getElementsByClassName("container--sidebar")[0].style.display = "flex";
+        }
     };
 
     // Retorno básico do HTML
@@ -50,8 +66,14 @@ export default function Main(){
                             <button className="icon--exams"></button>
                             <button className="icon--exams"></button>
                         </div>
-                        <button id="button--sidebar-action" className="button--sidebar-retract"></button>
-                    </div>
+                    </div>        
+
+                    <button 
+                        className="button--sidebar-retract" 
+                        onClick={manipulateSidebar}
+                    >
+                    </button>
+                    
                                         
                     {/* DYNAMIC CONTENT - MIOLO*/}
                     <Resume />
