@@ -7,10 +7,9 @@
 .container--auxiliar{
     flex: 1 1;
     height: 100%;
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
     padding-left: 20px;
+    padding-right: 20px;
+    overflow: auto;
 }
 .container--content .div--title{
     flex-basis: 40px;
@@ -64,11 +63,40 @@
 }
 .container--content .div--info{
     display: flex;
-    flex: 1 1;
+    flex: 1;
     border-radius: 10px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    background-color: red;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+}
+.container--content .div--info:hover{
+    background-color: #2386fd;
+    cursor: pointer;
+}
+.container--content .div--info:hover h1, .container--content .div--info:hover p{
+    color: white;
+}
+.container--content .div--info-icon{
+    display: flex;
+    flex: 1;
+    background-image: url("../assets/pessoas-trabalhando.svg");
+    background-size: 130px;
+    background-position: 43px;
+    background-repeat: no-repeat;
+}
+.container--content .div--info-text{
+    display: flex;
+    flex: 2 1;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 70px;
+}
+.container--content .div--info-text p{
+    text-align: justify;
+}
+.container--content .div--info-text h1{
+    font-size: 23px;
+    margin-bottom: 20px;
 }
 .container--content .div--chart{
     display: flex;
@@ -78,15 +106,15 @@
     display: flex;
     flex: 1 1;
     border-radius: 10px;
-    background-color: navy;
-    margin-right: 2.5px;
+    background-color: white;
+    margin-right: 10px;
 }
 .container--content .div--chart .expense{
     display: flex;
     flex: 1 1;
     border-radius: 10px;
-    background-color: green;
-    margin-left: 2.5px;
+    background-color: white;
+    margin-left: 10px;
 }
 .container--auxiliar .div--topbuttons{
     display: flex;

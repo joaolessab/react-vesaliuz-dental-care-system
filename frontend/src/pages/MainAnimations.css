@@ -1,0 +1,19 @@
+.sidebar--hidden-left{
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+    flex-basis: 0px !important;
+    width: 0px !important;
+}
+
+.sidebar--visible-left{
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+    flex-basis: 115px !important;
+    width: 115px !important;
+}

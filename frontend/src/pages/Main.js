@@ -2,26 +2,26 @@ import React from 'react';
 
 //Arquivos CSS e Imagens devem ser importados aqui
 import './Main.css';
+import './MainAnimations.css';
 import Resume from '../components/Resume';
 
 export default function Main(){
 
-    function manipulateSidebar(e){
+    function animateSidebar(e){
         //Retract
         if (e.target.classList.contains("button--sidebar-retract")){
-            //Changing CSS
+            //Changing CSS            
+            document.getElementsByClassName("container--sidebar")[0].classList.remove("sidebar--visible-left");
+            document.getElementsByClassName("container--sidebar")[0].classList.add("sidebar--hidden-left");
             e.target.classList.remove("button--sidebar-retract");
             e.target.classList.add("button--sidebar-expand");
-            e.target.style.marginLeft = "-30px";
-            document.getElementsByClassName("container--sidebar")[0].style.display = "none";
-
         }
         else{
             //Changing CSS
-            e.target.classList.remove("button--sidebar-expand"); 
+            document.getElementsByClassName("container--sidebar")[0].classList.remove("sidebar--hidden-left");
+            document.getElementsByClassName("container--sidebar")[0].classList.add("sidebar--visible-left");
+            e.target.classList.remove("button--sidebar-expand");
             e.target.classList.add("button--sidebar-retract");            
-            e.target.style.marginLeft = "85px";
-            document.getElementsByClassName("container--sidebar")[0].style.display = "flex";
         }
     };
 
@@ -52,7 +52,7 @@ export default function Main(){
                     
                     {/* SIDEBAR */}
                     <div className="container--sidebar">
-                        <div className="sidebar">
+                        <div className="sidebar" id="box">
                             <button className="icon--home-white selected"></button>
                             <button className="icon--agendamentos"></button>
                             <button className="icon--pacientes"></button>
@@ -70,7 +70,7 @@ export default function Main(){
 
                     <button 
                         className="button--sidebar-retract" 
-                        onClick={manipulateSidebar}
+                        onClick={animateSidebar}
                     >
                     </button>
                     

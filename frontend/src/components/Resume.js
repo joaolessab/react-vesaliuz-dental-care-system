@@ -115,8 +115,16 @@ export default function Resume(){
                     <button id="limpa"></button>
                     <button id="lupa"></button>
                 </div>
+
                 <div className="div--info">
+                    <div className="div--info-icon">
+                    </div>
+                    <div className="div--info-text">
+                        <h1>Aprenda como organizar sua agenda</h1>
+                        <p>Seus rendimentos dependem do seu tempo disponível. Quanto mais você escalar o seu negócio, mais resultados irá obter. Esse artigo aborda exatamente o passo a passo para...</p>
+                    </div>
                 </div>
+
                 <div className="div--chart">
                     <div className="revenue"></div>
                     <div className="expense"></div>
