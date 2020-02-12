@@ -126,8 +126,14 @@ export default function Resume(){
                 </div>
 
                 <div className="div--chart">
-                    <div className="revenue"></div>
-                    <div className="expense"></div>
+                    <div className="revenue">
+                        <h1>R$ 2.730,50</h1>
+                        <p>Opa, lucrou? Confira sua receita</p>
+                    </div>
+                    <div className="expense">
+                        <h1>R$ 1.302,26</h1>
+                        <p>Gastou, né? Confira suas despesas</p>
+                    </div>
                 </div>
             </div>
 
