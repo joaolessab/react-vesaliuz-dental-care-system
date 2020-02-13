@@ -112,10 +112,15 @@
     align-items: center;
     padding: 20px;
     justify-content: center;
+    background-image: url("../assets/profit--background-green2.svg");
+    background-repeat: no-repeat;
+    background-size: 15em;
+    background-position: -10px 7px;
 }
 .container--content .div--chart .revenue:hover{
     cursor: pointer;
     background-color: #2386fd;
+    background-image: url("../assets/profit--background-white2.svg");
 }
 .container--content .div--chart .revenue:hover h1{
     color: white;
@@ -153,10 +158,15 @@
     align-items: center;
     padding: 20px;
     justify-content: center;
+    background-image: url("../assets/expense--background-pink2.svg");
+    background-repeat: no-repeat;
+    background-size: 15em;
+    background-position: 0px -50px;
 }
 .container--content .div--chart .expense:hover{
     cursor: pointer;
     background-color: #2386fd;
+    background-image: url("../assets/expense--background-white2.svg");
 }
 .container--content .div--chart .expense:hover h1{
     color: white;
