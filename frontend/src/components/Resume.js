@@ -99,19 +99,23 @@ export default function Resume(){
         }
     };
 
+    /* FUNÇÕES JAVASCRIPT */
     function teste(e){
         debugger
     };
 
-    // Retorno básico do HTML
+    /* RETORNO BÁSICO DO HTML */
     return (
         <div className="container--miolo">
             <div className="container--content">
                 <div className="div--title">
                     <h1>Página Inicial</h1>
                 </div>
+
+                {/* AUTO COMPLETE */}
                 <div className="div--search">
                     <input type="text" placeholder="Quer encontrar alguma coisa? Eu te ajudo..." />
+                                        
                     <button id="limpa"></button>
                     <button id="lupa"></button>
                 </div>
