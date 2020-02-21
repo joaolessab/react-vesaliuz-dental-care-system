@@ -53,18 +53,53 @@ export default function Main(){
                     {/* SIDEBAR */}
                     <div className="container--sidebar">
                         <div className="sidebar" id="box">
-                            <button className="icon--home-white selected"></button>
-                            <button className="icon--agendamentos"></button>
-                            <button className="icon--pacientes"></button>
-                            <button className="icon--financas"></button>
-                            <button className="icon--exams"></button>
-                            <button className="icon--exams"></button>
-                            <button className="icon--exams"></button>
-                            <button className="icon--exams"></button>
-                            <button className="icon--exams"></button>
-                            <button className="icon--exams"></button>
-                            <button className="icon--exams"></button>
-                            <button className="icon--exams"></button>
+                            <button className="icon--home-white selected">
+                                <span>Início</span>
+                            </button>
+
+                            <button className="icon--agendamentos">
+                                <span>Agenda</span>
+                            </button>
+
+                            <button className="icon--pacientes">
+                                <span>Pacientes</span>
+                            </button>
+                            
+                            <button className="icon--financas">
+                                <span>Financeiro</span>
+                            </button>
+                            
+                            <button className="icon--exams">
+                                <span>Exames</span>
+                            </button>
+                            
+                            <button className="icon--exams">
+                                <span>Laboratório</span>
+                            </button>
+                            
+                            <button className="icon--exams">
+                                <span>Início</span>
+                            </button>
+                            
+                            <button className="icon--exams">
+                                <span>Início</span>
+                            </button>
+                            
+                            <button className="icon--exams">
+                                <span>Início</span>
+                            </button>
+                            
+                            <button className="icon--exams">
+                                <span>Início</span>
+                            </button>
+                            
+                            <button className="icon--exams">
+                                <span>Início</span>
+                            </button>
+                            
+                            <button className="icon--exams">
+                                <span>Início</span>
+                            </button>                            
                         </div>
                     </div>        
 
