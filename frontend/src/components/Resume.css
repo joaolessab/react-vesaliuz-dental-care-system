@@ -220,14 +220,14 @@
     flex-basis: 40%;
     background-color: white;
     border-radius: 10px;
-    margin-bottom: 2.5px;
     margin-top: 5px;
+    margin-bottom: 25px;
 }
 .container--auxiliar .div--chart-bottom{
     display: flex;
     flex: 1 1;
-    margin-top: 2.5px;
-    margin-bottom: 2.5px;
+    margin-top: 20px;
+    margin-bottom: 10px;
     border-radius: 10px;
 }
 .container--auxiliar .div--bar-left{
@@ -235,7 +235,7 @@
     flex: 1 1;
     border-radius: 10px;
     background-color: white;
-    margin-right: 2.5px;
+    margin-right: 10px;
     flex-direction: column;
 }
 .container--auxiliar .div--bar-right{
@@ -243,6 +243,6 @@
     flex: 1 1;
     border-radius: 10px;
     background-color: white;
-    margin-left: 2.5px;    
+    margin-left: 10px;    
     flex-direction: column;
 }

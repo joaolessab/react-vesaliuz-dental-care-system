@@ -25,6 +25,10 @@ export default function Main(){
         }
     };
 
+    function accessPage(page){
+        alert(page);
+    };
+
     // Retorno básico do HTML
     return (
         <div className="container--father">
@@ -53,53 +57,75 @@ export default function Main(){
                     {/* SIDEBAR */}
                     <div className="container--sidebar">
                         <div className="sidebar" id="box">
-                            <button className="icon--home-white selected">
+                            <button 
+                                className="icon--home-white selected"                                
+                                onClick={() => accessPage("home")}
+                            >
                                 <span>Início</span>
                             </button>
 
-                            <button className="icon--agendamentos">
+                            <button 
+                                className="icon--agendamentos"
+                                onClick={() => accessPage("agenda")}
+                            >
                                 <span>Agenda</span>
                             </button>
 
-                            <button className="icon--pacientes">
+                            <button 
+                                className="icon--pacientes"
+                                onClick={() => accessPage("pacientes")}
+                            >
                                 <span>Pacientes</span>
                             </button>
                             
-                            <button className="icon--financas">
+                            <button 
+                                className="icon--financas"
+                                onClick={() => accessPage("financas")}
+                            >
                                 <span>Financeiro</span>
                             </button>
                             
-                            <button className="icon--exams">
+                            <button 
+                                className="icon--exams"
+                                onClick={() => accessPage("exams")}
+                            >
                                 <span>Exames</span>
                             </button>
+
+                            <button 
+                                className="icon--procedure"
+                                onClick={() => accessPage("tratamentos")}
+                            >       
+                                <span>Tratamentos</span>
+                            </button>
                             
-                            <button className="icon--exams">
+                            <button 
+                                className="icon--laboratory"
+                                onClick={() => accessPage("laboratorio")}
+                            >
                                 <span>Laboratório</span>
                             </button>
                             
-                            <button className="icon--exams">
-                                <span>Início</span>
-                            </button>
-                            
-                            <button className="icon--exams">
-                                <span>Início</span>
-                            </button>
-                            
-                            <button className="icon--exams">
-                                <span>Início</span>
-                            </button>
-                            
-                            <button className="icon--exams">
-                                <span>Início</span>
-                            </button>
-                            
-                            <button className="icon--exams">
-                                <span>Início</span>
-                            </button>
-                            
-                            <button className="icon--exams">
-                                <span>Início</span>
+                            <button 
+                                className="icon--news"
+                                onClick={() => accessPage("noticias")}
+                            >
+                                <span>Notícias</span>
                             </button>                            
+
+                            <button 
+                                className="icon--help"
+                                onClick={() => accessPage("ajuda")}
+                            >
+                                <span>Ajuda</span>
+                            </button>
+                            
+                            <button 
+                                className="icon--nubibuz"
+                                onClick={() => accessPage("nubibuz")}
+                            >
+                                <span>Sobre Nós</span>
+                            </button>                   
                         </div>
                     </div>        
 

@@ -15,6 +15,26 @@
 .icon--exams{background-image: url("./assets/exams-icon--black.svg");}
 .icon--exams:hover{background-image: url("./assets/exams-icon--white.svg");}
 
+.icon--procedure{background-image: url("./assets/procedure-icon--black.svg");}
+.icon--procedure:hover{background-image: url("./assets/procedure-icon--white.svg");}
+
+.icon--laboratory{background-image: url("./assets/laboratory-icon--black.svg");}
+.icon--laboratory:hover{background-image: url("./assets/laboratory-icon--white.svg");}
+
+.icon--news{background-image: url("./assets/news-icon--black.svg"); background-position: 13px !important;}
+.icon--news:hover{background-image: url("./assets/news-icon--white.svg");}
+
+.icon--help{background-image: url("./assets/help-icon--black.svg");}
+.icon--help:hover{background-image: url("./assets/help-icon--white.svg");}
+
+.icon--contact{background-image: url("./assets/contact-icon--black.svg");}
+.icon--contact:hover{background-image: url("./assets/contact-icon--white.svg");}
+
+.icon--nubibuz{background-image: url("./assets/nubibuz-icon--black.svg"); background-size: 42px !important;
+    background-position: 4px !important;}
+.icon--nubibuz:hover{background-image: url("./assets/nubibuz-icon--white.svg"); background-size: 42px !important;
+    background-position: 4px !important;}
+
 .icon--arrowup{background-image: url("./assets/arrowup-icon--black.svg");}
 
 .icon--arrowdown{background-image: url("./assets/arrowdown-icon--black.svg");}

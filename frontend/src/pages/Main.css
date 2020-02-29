@@ -98,9 +98,9 @@
     border-radius: 10px;
     border: 0px;
     margin-bottom: 10px;
-    background-size: 20px;
+    background-size: 24px;
     background-repeat: no-repeat;
-    background-position: 15px;
+    background-position: 13.5px;
 }
 .container--main-content .container--sidebar .sidebar button span{
     display: none;
@@ -114,7 +114,12 @@
     animation-duration: 4s;
     background-color: #2386fd;
     background-position: 15px;
-    box-shadow: 1px 9px 12px -8px #4e4e4e;
+    box-shadow: 0px 1px 2px 0px #2386fd4d;
+    transition: 0.5s;
+    width: 95px !important;
+    color: white;
+    background-image: none;
+    border: 1.5px solid #ffffffbf;
 
     /* Animation */
     -webkit-transition: 0.5s;

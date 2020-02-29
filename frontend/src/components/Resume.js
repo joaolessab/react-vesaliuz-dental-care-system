@@ -21,14 +21,14 @@ export default function Resume(){
             datasets: [
                 {
                     label: "Limpezas",
-                    backgroundColor: "rgba(255, 0, 255, 0.75)",
+                    backgroundColor: "#007BFF",
                     borderColor: "white",
                     borderWidth: 2,
                     data: [4, 5, 11, 10, 32]
                 },
                 {
                     label: "Extrações",
-                    backgroundColor: "rgba(0, 255, 0, 0.75)",
+                    backgroundColor: "#32cc77",
                     borderColor: "white",
                     borderWidth: 2,
                     data: [14, 15, 1, 20, 20]
@@ -57,9 +57,9 @@ export default function Resume(){
             datasets: [
                 {
                     backgroundColor: [
-                        "#f43004",
-                        "#decf3f",
-                        "#FFA500",
+                        "#007BFF",
+                        "#32cc77",
+                        "#e47474",
                         "#9b59b6",
                     ],
                     borderColor: "white",
@@ -167,7 +167,7 @@ export default function Resume(){
                 <div className="div--chart-bottom">
                     <div className="div--bar-left">
                         <div className="div--titles">
-                            <p>Tratamentos</p>
+                            <p>Tratamentos por mês</p>
                         </div>
                         <div className="div--chart-final">
                             <Pie 
