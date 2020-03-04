@@ -3,145 +3,192 @@ import React from 'react';
 //Arquivos CSS e Imagens devem ser importados aqui
 import './Main.css';
 import './MainAnimations.css';
+import './AutoSuggest.css';
+
 import Resume from '../components/Resume';
+import Autosuggest from 'react-autosuggest';
 
-export default function Main(){
-
-    function animateSidebar(e){
-        //Retract
-        if (e.target.classList.contains("button--sidebar-retract")){
-            //Changing CSS            
-            document.getElementsByClassName("container--sidebar")[0].classList.remove("sidebar--visible-left");
-            document.getElementsByClassName("container--sidebar")[0].classList.add("sidebar--hidden-left");
-            e.target.classList.remove("button--sidebar-retract");
-            e.target.classList.add("button--sidebar-expand");
+const languages = [
+    {
+        title: '1970s',
+        languages: [
+            {
+                name: 'C',
+                year: 1972
+            }
+        ]
+    },
+    {
+        title: '1980s',
+        languages: [
+            {
+                name: 'C++',
+                year: 1983
+            },
+            {
+                name: 'Perl',
+                year: 1987
+            }
+        ]
+    },
+    {
+      title: '1990s',
+      languages: [
+        {
+          name: 'Haskell',
+          year: 1990
+        },
+        {
+          name: 'Python',
+          year: 1991
+        },
+        {
+          name: 'Java',
+          year: 1995
+        },
+        {
+          name: 'Javascript',
+          year: 1995
+        },
+        {
+          name: 'PHP',
+          year: 1995
+        },
+        {
+          name: 'Ruby',
+          year: 1995
         }
-        else{
-            //Changing CSS
-            document.getElementsByClassName("container--sidebar")[0].classList.remove("sidebar--hidden-left");
-            document.getElementsByClassName("container--sidebar")[0].classList.add("sidebar--visible-left");
-            e.target.classList.remove("button--sidebar-expand");
-            e.target.classList.add("button--sidebar-retract");            
+      ]
+    },
+    {
+      title: '2000s',
+      languages: [
+        {
+          name: 'C#',
+          year: 2000
+        },
+        {
+          name: 'Ccala',
+          year: 2003
+        },
+        {
+          name: 'Clojure',
+          year: 2007
+        },
+        {
+          name: 'Co',
+          year: 2009
         }
-    };
-
-    function accessPage(page){
-        alert(page);
-    };
-
-    // Retorno básico do HTML
+      ]
+    },
+    {
+      title: '2010s',
+      languages: [
+        {
+          name: 'Elm',
+          year: 2012
+        }
+      ]
+    }
+];
+  
+  // https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions#Using_Special_Characters
+  function escapeRegexCharacters(str) {
+    return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+  
+  function getSuggestions(value) {
+    const escapedValue = escapeRegexCharacters(value.trim());
+    
+    if (escapedValue === '') {
+      return [];
+    }
+  
+    const regex = new RegExp('^' + escapedValue, 'i');
+  
+    return languages
+      .map(section => {
+        return {
+          title: section.title,
+          languages: section.languages.filter(language => regex.test(language.name))
+        };
+      })
+      .filter(section => section.languages.length > 0);
+  }
+  
+  function getSuggestionValue(suggestion) {
+    return suggestion.name;
+  }
+  
+  function renderSuggestion(suggestion) {
     return (
-        <div className="container--father">
-            <div className="container--blackboard-columnar">                               
-                
-                {/* MAIN NAVBAR */}
-                <div className="navbar-main--top">
-                    <div className="left--side">
-                        <div className="logo"></div>
-                        <p>Clínica <em>Dente Brilhoso</em></p>
-                    </div>
-                    
-                    <div className="right--side">
-                        <i className="alert"></i>
-                        <p>Bem-vindo, João</p>
-                        <div className="photo"></div>
-                        <button className="button--rectangle-secondary-middle-size lrbuton icon-exit--white">
-                            <p>Sair</p>
-                        </button>
-                    </div>
-                </div>
-             
-                {/* MAIN CONTENT */}
-                <div className="container--main-content">
-                    
-                    {/* SIDEBAR */}
-                    <div className="container--sidebar">
-                        <div className="sidebar" id="box">
-                            <button 
-                                className="icon--home-white selected"                                
-                                onClick={() => accessPage("home")}
-                            >
-                                <span>Início</span>
-                            </button>
-
-                            <button 
-                                className="icon--agendamentos"
-                                onClick={() => accessPage("agenda")}
-                            >
-                                <span>Agenda</span>
-                            </button>
-
-                            <button 
-                                className="icon--pacientes"
-                                onClick={() => accessPage("pacientes")}
-                            >
-                                <span>Pacientes</span>
-                            </button>
-                            
-                            <button 
-                                className="icon--financas"
-                                onClick={() => accessPage("financas")}
-                            >
-                                <span>Financeiro</span>
-                            </button>
-                            
-                            <button 
-                                className="icon--exams"
-                                onClick={() => accessPage("exams")}
-                            >
-                                <span>Exames</span>
-                            </button>
-
-                            <button 
-                                className="icon--procedure"
-                                onClick={() => accessPage("tratamentos")}
-                            >       
-                                <span>Tratamentos</span>
-                            </button>
-                            
-                            <button 
-                                className="icon--laboratory"
-                                onClick={() => accessPage("laboratorio")}
-                            >
-                                <span>Laboratório</span>
-                            </button>
-                            
-                            <button 
-                                className="icon--news"
-                                onClick={() => accessPage("noticias")}
-                            >
-                                <span>Notícias</span>
-                            </button>                            
-
-                            <button 
-                                className="icon--help"
-                                onClick={() => accessPage("ajuda")}
-                            >
-                                <span>Ajuda</span>
-                            </button>
-                            
-                            <button 
-                                className="icon--nubibuz"
-                                onClick={() => accessPage("nubibuz")}
-                            >
-                                <span>Sobre Nós</span>
-                            </button>                   
-                        </div>
-                    </div>        
-
-                    <button 
-                        className="button--sidebar-retract" 
-                        onClick={animateSidebar}
-                    >
-                    </button>
-                    
-                                        
-                    {/* DYNAMIC CONTENT - MIOLO*/}
-                    <Resume />
-
-                </div>
-
-            </div>
-        </div>
+      <span>{suggestion.name}</span>
     );
+  }
+  
+  function renderSectionTitle(section) {
+    return (
+      <strong>{section.title}</strong>
+    );
+  }
+  
+  function getSectionSuggestions(section) {
+    return section.languages;
+  }
+
+class Main extends React.Component{
+    // Substituindo o construtor do componente (são inputs do componente)
+    constructor() {
+        super();
+    
+        this.state = {
+            value: '',
+            suggestions: []
+        };    
+    }
+    
+    onChange = (event, { newValue, method }) => {
+        this.setState({
+            value: newValue
+        });
+    };
+      
+    onSuggestionsFetchRequested = ({ value }) => {
+        this.setState({
+            suggestions: getSuggestions(value)
+        });
+    };
+    
+    onSuggestionsClearRequested = () => {
+        this.setState({
+            suggestions: []
+        });
+    };
+
+    // Visualização de Todo o conteúdo do HTML
+    render(){
+        const { value, suggestions } = this.state;
+
+        const inputProps = {
+            placeholder: "Type 'c'",
+            value,
+            onChange: this.onChange
+        };
+
+        return (
+            <Autosuggest 
+                multiSection = {true}
+                suggestions = {suggestions}
+                onSuggestionsFetchRequested = {this.onSuggestionsFetchRequested}
+                onSuggestionsClearRequested = {this.onSuggestionsClearRequested}
+                getSuggestionValue = {getSuggestionValue}
+                renderSuggestion = {renderSuggestion}
+                renderSectionTitle = {renderSectionTitle}
+                getSectionSuggestions = {getSectionSuggestions}
+                inputProps = {inputProps} 
+            />
+        );
+    }
 }
+
+export default Main;
