@@ -9,6 +9,8 @@ import { Radar } from 'react-chartjs-2';
 import '../App.css';
 import './Resume.css';
 
+import AutoCompleteSuggest from './AutoCompleteSuggest';
+
 export default function Resume(){
     defaults.global.defaultFontFamily = 'Averta';
 
@@ -110,13 +112,8 @@ export default function Resume(){
                     <h1>Página Inicial</h1>
                 </div>
 
-                {/* Auto Complete */}
-                <div className="div--search">
-                    <input type="text" placeholder="Quer encontrar alguma coisa? Eu te ajudo..." />
-                                        
-                    <button id="limpa"></button>
-                    <button id="lupa"></button>
-                </div>
+                {/* Auto Suggest */}
+                < AutoCompleteSuggest />
 
                 <div className="div--info">
                     <div className="div--info-icon">

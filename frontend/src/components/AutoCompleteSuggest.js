@@ -1,91 +1,74 @@
 import React from 'react';
-
-// ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
-import './Main.css';
-import './MainAnimations.css';
-import './AutoSuggest.css';
-
-import Resume from '../components/Resume';
 import Autosuggest from 'react-autosuggest';
 
-const languages = [
+// ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
+import './AutoCompleteSuggest.css';
+
+const itemsSuggest = [
     {
-        title: '1970s',
-        languages: [
+        title: 'Pacientes',
+        itemsSuggest: [
             {
-                name: 'C',
-                year: 1972
-            }
-        ]
-    },
-    {
-        title: '1980s',
-        languages: [
-            {
-                name: 'C++',
-                year: 1983
+              name: 'César',
+              year: 1972
             },
             {
-                name: 'Perl',
-                year: 1987
+              name: 'Cíntia',
+              year: 1972
+            },
+            {
+              name: 'Cristiano',
+              year: 1972
             }
         ]
     },
     {
-      title: '1990s',
-      languages: [
+      title: 'Exames',
+      itemsSuggest: [
         {
-          name: 'Haskell',
-          year: 1990
+          name: 'Raio-X',
+          year: 1983
         },
         {
-          name: 'Python',
-          year: 1991
-        },
-        {
-          name: 'Java',
-          year: 1995
-        },
-        {
-          name: 'Javascript',
-          year: 1995
-        },
-        {
-          name: 'PHP',
-          year: 1995
-        },
-        {
-          name: 'Ruby',
-          year: 1995
+          name: 'Intra',
+          year: 1987
         }
       ]
     },
     {
-      title: '2000s',
-      languages: [
+      title: 'Tratamentos',
+      itemsSuggest: [
         {
-          name: 'C#',
+          name: 'Limpeza',
           year: 2000
         },
         {
-          name: 'Ccala',
+          name: 'Implantação de porcelana',
           year: 2003
         },
         {
-          name: 'Clojure',
+          name: 'Clareamento',
           year: 2007
-        },
-        {
-          name: 'Co',
-          year: 2009
         }
       ]
     },
     {
-      title: '2010s',
-      languages: [
+      title: 'Laboratório',
+      itemsSuggest: [
         {
-          name: 'Elm',
+          name: 'Cento e Vinte - Dentes',
+          year: 2012
+        },
+        {
+          name: 'Consultório da Avenida',
+          year: 2012
+        },
+        {
+          name: 'Consultório da Praça',
+          year: 2012
+        },
+        {
+          name: 'Consultório da Esquina',
           year: 2012
         }
       ]
@@ -105,14 +88,14 @@ function getSuggestions(value) {
   
   const regex = new RegExp('^' + escapedValue, 'i');
   
-  return languages
+  return itemsSuggest
     .map(section => {
       return {
         title: section.title,
-        languages: section.languages.filter(language => regex.test(language.name))
+        itemsSuggest: section.itemsSuggest.filter(language => regex.test(language.name))
       };
     })
-    .filter(section => section.languages.length > 0);
+    .filter(section => section.itemsSuggest.length > 0);
 }
   
 function getSuggestionValue(suggestion) {
@@ -132,10 +115,10 @@ function renderSectionTitle(section) {
 }
   
 function getSectionSuggestions(section) {
-  return section.languages;
+  return section.itemsSuggest;
 }
 
-class Main extends React.Component{
+class AutoCompleteSuggest extends React.Component{
     // Substituindo o construtor do componente (são inputs do componente)
     constructor() {
         super();
@@ -164,17 +147,24 @@ class Main extends React.Component{
         });
     };
 
+    clearSuggest = () =>{
+      this.setState({
+        value: ''
+      });
+    };
+
     // Visualização de Todo o conteúdo do HTML
     render(){
         const { value, suggestions } = this.state;
 
         const inputProps = {
-            placeholder: "Type 'c'",
+            placeholder: "Quer encontrar alguma coisa? Digite aqui...",
             value,
             onChange: this.onChange
         };
 
         return (
+          <div className="div--search">
             <Autosuggest 
                 multiSection = {true}
                 suggestions = {suggestions}
@@ -186,8 +176,17 @@ class Main extends React.Component{
                 getSectionSuggestions = {getSectionSuggestions}
                 inputProps = {inputProps} 
             />
+
+            <button 
+              id="limpa" 
+              onClick={() => this.clearSuggest()}
+            >
+            </button>
+            
+            <button id="lupa"></button>
+          </div>
         );
     }
 }
 
-export default Main;
+export default AutoCompleteSuggest;

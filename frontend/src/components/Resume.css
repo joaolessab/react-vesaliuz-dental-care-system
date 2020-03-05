@@ -16,51 +16,6 @@
     display: flex;
     align-items: end;
 }
-
-.container--content .div--search{
-    display: flex;
-    border-radius: 10px;
-    background-color: white;
-    flex-basis: 40px;
-    align-items: center;
-}
-.container--content .div--search input{
-    flex: 1;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-.container--content .div--search input:focus{
-    box-shadow: 0px 0px 0px 0px;
-}
-.container--content .div--search button{   
-    background-repeat: no-repeat;
-    height: 35px;
-    width: 35px;
-    border: 0px;
-    border-radius: 10px;
-    margin-right: 10px;
-    background-color: white;
-}
-.container--content .div--search button:hover{    
-    background-color: #f5f6fa;
-    cursor: pointer;
-}
-.container--content .div--search #limpa{
-    background-image: url("../assets/x-icon--black.svg");
-    background-size: 14px;
-    background-position: 10px 11px;
-}
-.container--content .div--search #limpa:hover{
-    background-image: url("../assets/x-icon--blue.svg"); 
-}
-.container--content .div--search #lupa{
-    background-image: url("../assets/search-icon--black.svg");
-    background-size: 18px;
-    background-position: 9px 7px;
-}
-.container--content .div--search #lupa:hover{
-    background-image: url("../assets/search-icon--blue.svg"); 
-}
 .container--content .div--info{
     display: flex;
     flex: 1;

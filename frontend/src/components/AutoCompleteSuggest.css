@@ -1,0 +1,118 @@
+body {font-family: 'Averta';}
+
+.div--search{
+  display: flex;
+  border-radius: 10px;
+  background-color: white;
+  flex-basis: 40px;
+  align-items: center;
+}
+.div--search input:focus{
+  box-shadow: 0px 0px 0px 0px;
+}
+.div--search button{   
+  background-repeat: no-repeat;
+  height: 35px;
+  width: 35px;
+  border: 0px;
+  border-radius: 10px;
+  margin-right: 10px;
+  background-color: white;
+}
+.div--search button:hover{    
+  background-color: #f5f6fa;
+  cursor: pointer;
+}
+.div--search #limpa{
+  background-image: url("../assets/x-icon--black.svg");
+  background-size: 14px;
+  background-position: 10px 11px;
+}
+.div--search #limpa:hover{
+  background-image: url("../assets/x-icon--blue.svg"); 
+}
+.div--search #lupa{
+  background-image: url("../assets/search-icon--black.svg");
+  background-size: 18px;
+  background-position: 9px 7px;
+}
+.div--search #lupa:hover{
+  background-image: url("../assets/search-icon--blue.svg"); 
+}
+
+.react-autosuggest__container {
+  position: relative;
+  flex: 1;
+}
+  
+.react-autosuggest__input {
+  width: 100%;
+  height: 45px;
+  padding: 10px 20px;
+  font-family: 'Averta';
+  font-weight: 300;
+  border: 0px;
+  border-radius: 4px;
+  font-size: 13.3px;
+  flex: 1 1;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+  
+.react-autosuggest__input--focused {
+  outline: none;
+}
+  
+.react-autosuggest__input--open {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+  
+.react-autosuggest__suggestions-container {
+  display: none;
+}
+  
+.react-autosuggest__suggestions-container--open {
+  display: block;
+  position: absolute;
+  top: 47px;
+  width: 100%;
+  border: 0px;
+  background-color: #fff;
+  font-family: 'Averta';
+  font-weight: 300;
+  font-size: 13.3px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  z-index: 2;
+  box-shadow: 0px 3px 2px 1px #ececec;
+}
+  
+.react-autosuggest__suggestions-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+  
+.react-autosuggest__suggestion {
+  cursor: pointer;
+  padding: 10px 20px;
+}
+  
+.react-autosuggest__suggestion--highlighted {
+  background-color: #ddd;
+}
+  
+.react-autosuggest__section-container {
+  border-top: 1px dashed #ccc;
+}
+  
+.react-autosuggest__section-container--first {
+  border-top: 0;
+}
+  
+.react-autosuggest__section-title {
+  padding: 10px 0 0 10px;
+  font-size: 12px;
+  color: #777;
+}  
