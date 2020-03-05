@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-//Arquivos CSS e Imagens devem ser importados aqui
+// ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import './Login.css';
 
-export default function Login({ history }){ // React herdou a propriedade history dos routes
-    // Iniciando useStates
+export default function Login({ history }){
+    // FUNCOES DO JAVASCRIPT
     const [username, setUsername] = useState('');
 
     // Declarando uma função básica de preenchimento automático
@@ -16,7 +16,7 @@ export default function Login({ history }){ // React herdou a propriedade histor
         history.push('/main');
     }
 
-    // Retorno básico do HTML
+    // RETORNO BÁSICO DO HTML
     return (
         <div className="container--father">
             <div className="container--blackboard">

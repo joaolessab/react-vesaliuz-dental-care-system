@@ -5,16 +5,14 @@ import  { Line } from 'react-chartjs-2';
 import { Pie } from 'react-chartjs-2'; 
 import { Radar } from 'react-chartjs-2';
 
-//Arquivos CSS e Imagens devem ser importados aqui
+// ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import '../App.css';
 import './Resume.css';
-
-//Importando componentes
 
 export default function Resume(){
     defaults.global.defaultFontFamily = 'Averta';
 
-    /* CHART DATA */
+    // CHART DATA 
     const lineChartData = {
         data: {
             labels: ["Jan", "Fev", "Mar", "Abr", "Mai"],
@@ -99,12 +97,12 @@ export default function Resume(){
         }
     };
 
-    /* FUNÇÕES JAVASCRIPT */
+    // FUNCOES DO JAVASCRIPT
     function teste(e){
         debugger
     };
 
-    /* RETORNO BÁSICO DO HTML */
+    // RETORNO BÁSICO DO HTML
     return (
         <div className="container--miolo">
             <div className="container--content">
@@ -112,7 +110,7 @@ export default function Resume(){
                     <h1>Página Inicial</h1>
                 </div>
 
-                {/* AUTO COMPLETE */}
+                {/* Auto Complete */}
                 <div className="div--search">
                     <input type="text" placeholder="Quer encontrar alguma coisa? Eu te ajudo..." />
                                         
@@ -148,7 +146,8 @@ export default function Resume(){
                     <button>Mês</button>
                     <button>Ano</button>
                 </div>
-                {/* BIGGER CHART */}
+                
+                {/* Bigger Chart */}
                 <div className="div--line">
                     <div className="div--titles">
                         <p>Tratamentos</p>
