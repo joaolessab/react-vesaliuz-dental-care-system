@@ -35,6 +35,11 @@ body{
   font-style: normal;
   src: url('./assets/AvertaExtraBold.otf');
 }
+@font-face {
+  font-family: 'ConfettiStream';
+  font-style: normal;
+  src: url('./assets/ConfettiStream.ttf');
+}
 
 /* Por padrão, o Input e o Button não herdam a fonte do corpo do HTML */
 body, input, button, h1, h2, h3, h4, h5, h6{
@@ -56,12 +61,12 @@ input:focus, select:focus, textarea:focus{
 .container--father{
   display: flex;
   height: 100%;
-  background-color: #007BFF;
+  background-color: #2679d3;
   align-items: center;
   justify-content: center;
   flex-direction: row;
   flex-wrap: nowrap;
-  padding: 40px;
+  padding: 35px;
 }
 .container--blackboard{
   flex: 1;

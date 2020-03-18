@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { defaults } from 'react-chartjs-2';
 import  { Line } from 'react-chartjs-2';
 import { Pie } from 'react-chartjs-2'; 
-import { Radar } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import '../App.css';
@@ -21,21 +21,21 @@ export default function Resume(){
             datasets: [
                 {
                     label: "Limpezas",
-                    backgroundColor: "#007BFF",
+                    backgroundColor: "#55BCC9",
                     borderColor: "white",
                     borderWidth: 2,
                     data: [4, 5, 11, 10, 32]
                 },
                 {
                     label: "Extrações",
-                    backgroundColor: "#32cc77",
+                    backgroundColor: "#97CAEF",
                     borderColor: "white",
                     borderWidth: 2,
                     data: [14, 15, 1, 20, 20]
                 },
                 {
                     label: "Clareamentos",
-                    backgroundColor: "rgba(0, 255, 255, 0.75)",
+                    backgroundColor: "#557A95",
                     borderColor: "white",
                     borderWidth: 2, 
                     data: [24, 25, 1, 10, 40]
@@ -53,49 +53,52 @@ export default function Resume(){
 
     const pieChartData = {
         data: {
-            labels: ["Jan", "Fev", "Mar", "Abr", "Mai"],
+            labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio"],
             datasets: [
                 {
                     backgroundColor: [
-                        "#007BFF",
-                        "#32cc77",
-                        "#e47474",
-                        "#9b59b6",
+                        "#5D001E",
+                        "#E3E2DF",
+                        "#E3AFBC",
+                        "#9A1750",
+                        "#EE4C7C"
                     ],
                     borderColor: "white",
                     borderWidth: 2,
-                    data: [14, 15, 4, 20]
+                    data: [14, 15, 4, 20, 8]
                 }
             ]
         },
         options: {
             legend: {display: false},
             responsive: true,
-            maintainAspectRatio: false
+            // Se setar para false, ele respeitará o tamanho customizado definido por você
+            maintainAspectRatio: true
         }
     };
 
-    const radarChartData = {
+    const barChartData = {
         data: {
             labels: ["Jan", "Fev", "Mar", "Abr", "Mai"],
             datasets: [
                 {
                     backgroundColor: [
-                        "#f43004",
-                        "#decf3f",
-                        "#FFA500",
-                        "#9b59b6",
+                        "#2C3531",
+                        "#116466",
+                        "#D9B08C",
+                        "#FFCB9A",
+                        "#D1E8E2"
                     ],
                     borderColor: "white",
                     borderWidth: 2,
-                    data: [14, 15, 4, 20]
+                    data: [14, 15, 10, 20, 12]
                 }
             ]
         },
         options: {
             legend: {display: false},
             responsive: true,
-            maintainAspectRatio: false
+            maintainAspectRatio: true
         }
     };
 
@@ -153,7 +156,7 @@ export default function Resume(){
                         <Line
                             options = {lineChartData.options}
                             data = {lineChartData.data}
-                            />
+                        />
                     </div>
                     <div className="div--details">
                         <p>Detalhes</p>
@@ -167,10 +170,8 @@ export default function Resume(){
                         </div>
                         <div className="div--chart-final">
                             <Pie 
-                            width = {80}
-                            height = {80}
-                            options = {pieChartData.options}
-                            data = {pieChartData.data}
+                                options = {pieChartData.options}
+                                data = {pieChartData.data}
                             />
                         </div>
                         <div className="div--details">
@@ -183,11 +184,9 @@ export default function Resume(){
                             <p>Tratamentos</p>
                         </div>
                         <div className="div--chart-final">
-                            <Radar 
-                            width = {80}
-                            height = {80}
-                            options = {radarChartData.options}
-                            data = {radarChartData.data}
+                            <Bar
+                                options = {barChartData.options}
+                                data = {barChartData.data}
                             />
                         </div>
                         <div className="div--details">

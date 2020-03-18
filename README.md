@@ -18,3 +18,10 @@
 - Node não é uma linguagem, o Node é uma plataforma que foi construída em cima da linguagem JavaScript;
 - Foi lançado via Google Chrome. Quando o Google Chrome foi lançado um motor v8 (engine) - que é capaz de ler código JavaScript e converter em um resultado;
 - Node pegou o v8, tirou de dentro do Chrome, fez funcionar fora StandAlone e fez um script para rodar fora do browser;
+
+### Resoluções responsivas
+- Largura mínima: 320px
+- Largura máxima: 2400px
+
+- Altura Mínima: 600px
+- Altura Máxima: 1200px

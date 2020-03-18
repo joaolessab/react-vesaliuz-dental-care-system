@@ -50,7 +50,7 @@
     text-align: justify;
 }
 .container--content .div--info-text h1{
-    font-size: 23px;
+    font-size: 20px;
     margin-bottom: 20px;
 }
 .container--content .div--chart{
@@ -151,9 +151,10 @@
 }
 .container--auxiliar .div--topbuttons{
     display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: center;
     flex-basis: 40px;
+    margin-bottom: 25px;
 }
 .container--auxiliar .div--topbuttons button{
     border: 0px;
@@ -180,6 +181,7 @@
 }
 .container--auxiliar .div--chart-bottom{
     display: flex;
+    flex-direction: column;
     flex: 1 1;
     margin-top: 20px;
     margin-bottom: 10px;
@@ -190,14 +192,13 @@
     flex: 1 1;
     border-radius: 10px;
     background-color: white;
-    margin-right: 10px;
     flex-direction: column;
 }
 .container--auxiliar .div--bar-right{
     display: flex;
-    flex: 1 1;
+    flex: 0;
     border-radius: 10px;
     background-color: white;
-    margin-left: 10px;    
     flex-direction: column;
+    margin-top: 20px;
 }

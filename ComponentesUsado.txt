@@ -1,4 +1,0 @@
-Componentes:
-== Auto Suggest ==
-https://github.com/moroshko/react-autosuggest#installation
-https://codepen.io/moroshko/pen/XRgbxR

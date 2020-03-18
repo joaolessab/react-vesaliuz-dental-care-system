@@ -38,7 +38,7 @@ export default function Main(){
                 <div className="navbar-main--top">
                     <div className="left--side">
                         <div className="logo"></div>
-                        <p>Clínica <em>Dente Brilhoso</em></p>
+                        <p>Vesaliuz</p>
                     </div>
                     
                     <div className="right--side">
