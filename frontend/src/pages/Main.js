@@ -2,7 +2,8 @@ import React from 'react';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import './Main.css';
-import './MainAnimations.css';
+import './extraStyles/Main--Animations.css';
+
 import Resume from '../components/Resume';
 
 export default function Main(){

@@ -1,0 +1,38 @@
+/* 
+    Width: 320px until 2880px
+    Height: 240px until 1800px 
+*/
+
+@media only screen and (max-width: 1252px) {
+    .container--content {
+        flex: 1;
+    }
+}
+
+@media only screen and (max-width: 1206px) {
+    .container--miolo {
+        flex-direction: column;
+    }
+
+    .container--content .div--info {
+        min-height: 220px;
+    }
+
+    .container--auxiliar {
+        overflow: visible;
+    }
+
+    .container--miolo {
+        overflow: auto;
+        padding-right: 15px;
+    }
+
+    .container--auxiliar {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .container--main-content {
+        padding-right: 15px;
+    }
+}

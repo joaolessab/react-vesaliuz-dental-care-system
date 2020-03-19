@@ -35,8 +35,8 @@
     display: flex;
     flex: 1;
     background-image: url("../assets/pessoas-trabalhando.svg");
-    background-size: 130px;
-    background-position: 43px;
+    background-size: 50%;
+    background-position: 50%;
     background-repeat: no-repeat;
 }
 .container--content .div--info-text{
