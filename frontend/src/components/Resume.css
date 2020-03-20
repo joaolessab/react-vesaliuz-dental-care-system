@@ -149,6 +149,11 @@
     display: flex;    
     color: #e47474;
 }
+.container--auxiliar h1 {
+    font-family: 'Averta Extra Bold';
+    font-size: 20px;
+    display: none;
+}
 .container--auxiliar .div--topbuttons{
     display: flex;
     align-items: center;
