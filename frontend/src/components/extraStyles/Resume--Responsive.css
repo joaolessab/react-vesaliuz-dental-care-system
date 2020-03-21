@@ -64,6 +64,9 @@
     .navbar-main--top .right--side p{
         display: none;
     }
+    .navbar-main--top .right--side button p{
+        display: block;
+    }
 }
 
 @media only screen and (max-width: 686px) {
@@ -73,7 +76,7 @@
         height: calc(100% - 180px);
     }
     .button--sidebar-retract {
-        margin-left: 81px !important;
+        margin-left: 83px !important;
         z-index: 1;
     }
     .button--sidebar-expand {
@@ -82,5 +85,17 @@
     .container--miolo {
         padding-right: 15px;
         padding-left: 10px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .navbar-main--top .right--side .photo{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 490px) {
+    .navbar-main--top .right--side .photo{
+        display: none;
     }
 }
