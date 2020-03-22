@@ -102,10 +102,17 @@ export default function Resume(){
             maintainAspectRatio: true
         }
     };
-
+    
     // FUNCOES DO JAVASCRIPT
     function teste(e){
         debugger
+    };
+
+    window.addEventListener('resize', handleResize);
+    function handleResize(){
+        if (window.outerWidth > 490){
+            //debugger
+        }
     };
 
     // RETORNO BÁSICO DO HTML
