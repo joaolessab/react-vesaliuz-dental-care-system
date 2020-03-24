@@ -1,0 +1,118 @@
+@media only screen and (max-width: 1466px) {
+    .div--points-bottom{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1338px) {
+    .div--happyTeeth{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1088px) {
+    .div--brushTeth{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1083px) {
+    .div--cloud-bottom{
+        margin-left: 0px;
+        right: 50px;
+    }
+}
+
+@media only screen and (max-width: 1033px) {
+    .container--draw{
+        display: none;
+    }
+    .container--form-top .div--brushTeth{
+        display: block !important;
+    }
+    .button--rectangle-secondary {
+        border: 0px;
+    }
+    .container--form .container--form-top {
+        background-color: #2584fe;
+        padding: 0px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .container--form .container--form-top div {
+        flex-basis: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .container--form form {
+        margin-top: 30px;
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .container--form-middle h1 {
+        font-size: 26px;
+    }
+}
+@media only screen and (max-width: 613px) {
+    .container--form-middle h1 {
+        font-size: 26px;
+    }
+    .container--father {
+        padding: 5px;
+    }
+    .container--form-middle .text--higher {
+        display: none;
+    }
+    .container--form-middle .text--lower {
+        display: block;
+    }
+}
+@media only screen and (max-width: 474px) {
+    .container--father {
+        padding: 0px;
+        height: auto;
+    }
+    .container--blackboard {
+        border-radius: 0px;
+    }
+    .container--form form .div--container-formAction {
+        flex-direction: column-reverse;
+    }
+    .button--rectangle-primary {
+        flex: 1;
+    }
+    .container--form .container--form-bottom {
+        flex-direction: column;
+        background-color: white;
+        margin-top: 40px;
+    }
+    .button--labelType {
+        flex-basis: 40px;
+    }
+    .div--container-formAction--leftSplitter .button--labelType {
+        flex-basis: 100%;
+        margin-top: 20px;
+    }
+    .container--form {
+        overflow: auto;
+    }
+    .container--form form {
+        margin-top: 35px;        
+        margin-bottom: -20px;
+    }
+    .container--form .container--form-top {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}
+@media only screen and (max-width: 348px) {
+    .container--form-middle .text--lower {
+        display: block;
+        font-size: 20px;
+    }
+}

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import './Login.css';
+import './extraStyles/Login--Responsive.css';
 
 export default function Login({ history }){
     // FUNCOES DO JAVASCRIPT
@@ -22,11 +23,15 @@ export default function Login({ history }){
             <div className="container--blackboard">
                 <div className="container--form">
                     <div className="container--form-top">
-                        <button className="button--rectangle-secondary">Cadastre-se</button>
+                        <div>
+                            <div class="div--brushTeth"></div>
+                            <button className="button--rectangle-secondary">Cadastre-se</button>
+                        </div>
                     </div>
                     <div className="container--form-middle">
                         <form onSubmit = { handleSubmit }>
-                            <h1>Olá! Vamos começar? Faça o login</h1>
+                            <h1 className="text--higher">Olá! Vamos começar? Faça o login</h1>
+                            <h1 className="text--lower">Olá! Vamos começar?<br/>Faça o login</h1>
                             <input
                                 placeholder="Email"
                                 value = {username}
@@ -41,7 +46,7 @@ export default function Login({ history }){
                                     <button className="button--labelType">Esqueceu sua senha?</button>
                                 </div>
                                 <div className="div--container-formAction--rightSplitter">
-                                    <button className="button--rectangle-primary">Enviar</button>
+                                    <button className="button--rectangle-primary">Entrar</button>
                                 </div>
                             </div>
                         </form>
