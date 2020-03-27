@@ -9,25 +9,41 @@ import Resume from '../components/Resume';
 export default function Main(){
     // FUNCOES DO JAVASCRIPT
     function animateSidebar(e){
-        //Retracao
-        if (e.target.classList.contains("button--sidebar-retract")){
-            //Alterando CSS            
+        if (e == "expanded"){
+            //Alterando CSS
             document.getElementsByClassName("container--sidebar")[0].classList.remove("sidebar--visible-left");
-            document.getElementsByClassName("container--sidebar")[0].classList.add("sidebar--hidden-left");
-            e.target.classList.remove("button--sidebar-retract");
-            e.target.classList.add("button--sidebar-expand");
+            document.getElementsByClassName("container--sidebar")[0].classList.add("sidebar--hidden-left");            
+            document.getElementsByClassName("button--sidebar-retract")[0].classList.add("button--sidebar-expand");
+            document.getElementsByClassName("button--sidebar-retract")[0].classList.remove("button--sidebar-retract");
         }
         else{
-            //Alterando CSS
-            document.getElementsByClassName("container--sidebar")[0].classList.remove("sidebar--hidden-left");
-            document.getElementsByClassName("container--sidebar")[0].classList.add("sidebar--visible-left");
-            e.target.classList.remove("button--sidebar-expand");
-            e.target.classList.add("button--sidebar-retract");            
+            //Retracao
+            if (e.target.classList.contains("button--sidebar-retract")){
+                //Alterando CSS            
+                document.getElementsByClassName("container--sidebar")[0].classList.remove("sidebar--visible-left");
+                document.getElementsByClassName("container--sidebar")[0].classList.add("sidebar--hidden-left");
+                e.target.classList.remove("button--sidebar-retract");
+                e.target.classList.add("button--sidebar-expand");
+            }
+            else{
+                //Alterando CSS
+                document.getElementsByClassName("container--sidebar")[0].classList.remove("sidebar--hidden-left");
+                document.getElementsByClassName("container--sidebar")[0].classList.add("sidebar--visible-left");
+                e.target.classList.remove("button--sidebar-expand");
+                e.target.classList.add("button--sidebar-retract");            
+            }
         }
     };
 
     function accessPage(page){
         alert(page);
+    };
+
+    window.addEventListener('load', handleResize);
+    function handleResize(){
+        if (window.outerWidth < 490){
+            animateSidebar("expanded");
+        }
     };
 
     // RETORNO BÁSICO DO HTML

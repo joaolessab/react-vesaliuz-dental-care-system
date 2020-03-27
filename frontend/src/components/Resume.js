@@ -106,14 +106,7 @@ export default function Resume(){
     // FUNCOES DO JAVASCRIPT
     function teste(e){
         debugger
-    };
-
-    window.addEventListener('resize', handleResize);
-    function handleResize(){
-        if (window.outerWidth > 490){
-            //debugger
-        }
-    };
+    };    
 
     // RETORNO BÁSICO DO HTML
     return (
