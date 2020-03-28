@@ -5,6 +5,7 @@ import './Main.css';
 import './extraStyles/Main--Animations.css';
 
 import Resume from '../components/Resume';
+import Help from '../components/Help';
 
 export default function Main(){
     // FUNCOES DO JAVASCRIPT

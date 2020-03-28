@@ -1,0 +1,209 @@
+.container--content{
+    flex: 2 1;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+.container--auxiliar{
+    flex: 1 1;
+    height: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow: auto;
+}
+.container--content .div--title{
+    flex-basis: 40px;
+    display: flex;
+    align-items: end;
+}
+.container--content .div--info{
+    display: flex;
+    flex: 1;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+}
+.container--content .div--info:hover{
+    background-color: #2386fd;
+    cursor: pointer;
+}
+.container--content .div--info:hover h1, .container--content .div--info:hover p{
+    color: white;
+}
+.container--content .div--info-icon{
+    display: flex;
+    flex: 1;
+    background-image: url("../assets/pessoas-trabalhando.svg");
+    background-size: 50%;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+.container--content .div--info-text{
+    display: flex;
+    flex: 2 1;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 70px;
+}
+.container--content .div--info-text p{
+    text-align: justify;
+}
+.container--content .div--info-text h1{
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.container--content .div--chart{
+    display: flex;
+    flex: 1 1;
+}
+.container--content .div--chart .revenue{
+    display: flex;
+    flex: 1 1;
+    border-radius: 10px;
+    background-color: white;
+    margin-right: 10px;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    justify-content: center;
+    background-image: url("../assets/profit--background-green2.svg");
+    background-repeat: no-repeat;
+    background-size: 15em;
+    background-position: -10px 7px;
+}
+.container--content .div--chart .revenue:hover{
+    cursor: pointer;
+    background-color: #2386fd;
+    background-image: url("../assets/profit--background-white2.svg");
+}
+.container--content .div--chart .revenue:hover h1{
+    color: white;
+}
+.container--content .div--chart .revenue:hover p{
+    border: 1px solid white;
+    color: white;
+}
+.container--content .div--chart .revenue .icon{
+    flex: 1;
+}
+.container--content .div--chart .revenue h1{
+    font-size: 35px;
+    color: #32cc77;
+}
+.container--content .div--chart .revenue p{
+    margin-top: 10px;
+    font-size: 12px;
+    border: 1px solid #32cc77;
+    height: 35px;
+    width: 235px;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: #32cc77;
+}
+.container--content .div--chart .expense{
+    display: flex;
+    flex: 1 1;
+    border-radius: 10px;
+    background-color: white;
+    margin-left: 10px;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    justify-content: center;
+    background-image: url("../assets/expense--background-pink2.svg");
+    background-repeat: no-repeat;
+    background-size: 15em;
+    background-position: 0px -50px;
+}
+.container--content .div--chart .expense:hover{
+    cursor: pointer;
+    background-color: #2386fd;
+    background-image: url("../assets/expense--background-white2.svg");
+}
+.container--content .div--chart .expense:hover h1{
+    color: white;
+}
+.container--content .div--chart .expense:hover p{
+    border: 1px solid white;
+    color: white;
+}
+.container--content .div--chart .expense .icon{
+    flex: 1;
+}
+.container--content .div--chart .expense h1{
+    font-size: 35px;
+    color: #e47474;
+}
+.container--content .div--chart .expense p{
+    margin-top: 10px;
+    font-size: 12px;
+    border: 1px solid #e47474;
+    height: 35px;
+    width: 235px;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    display: flex;    
+    color: #e47474;
+}
+.container--auxiliar h1 {
+    font-family: 'Averta Extra Bold';
+    font-size: 20px;
+    display: none;
+}
+.container--auxiliar .div--topbuttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 40px;
+    margin-bottom: 25px;
+}
+.container--auxiliar .div--topbuttons button{
+    border: 0px;
+    border-bottom: 1px solid #b2b2b2;
+    background-color: transparent;
+    width: 100px;
+    height: 40px;
+    color: #b2b2b2;
+}
+.container--auxiliar .div--topbuttons button:hover, .container--auxiliar .div--topbuttons .selected{
+    cursor: pointer;
+    color: black;
+    border-bottom: 3px solid #2386fd;
+    font-family: 'Averta Bold';
+}
+.container--auxiliar .div--line{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 40%;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-bottom: 25px;
+}
+.container--auxiliar .div--chart-bottom{
+    display: flex;
+    flex-direction: column;
+    flex: 1 1;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+.container--auxiliar .div--bar-left{
+    display: flex;
+    flex: 1 1;
+    border-radius: 10px;
+    background-color: white;
+    flex-direction: column;
+}
+.container--auxiliar .div--bar-right{
+    display: flex;
+    flex: 0;
+    border-radius: 10px;
+    background-color: white;
+    flex-direction: column;
+    margin-top: 20px;
+}
