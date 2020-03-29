@@ -10,7 +10,7 @@ import Help from '../components/Help';
 
 // FUNCOES DO JAVASCRIPT
 function animateSidebar(e){
-    if (e == "expanded"){
+    if (e === "expanded"){
         //Alterando CSS
         document.getElementsByClassName("container--sidebar")[0].classList.remove("sidebar--visible-left");
         document.getElementsByClassName("container--sidebar")[0].classList.add("sidebar--hidden-left");            
@@ -61,10 +61,10 @@ class Main extends React.Component{
         this.accessPage = function accessPage (page){
             this.switchButtonSelected(page);
 
-            if (page == "Resume")
+            if (page === "Resume")
                 this.setState({child: Resume});
 
-            if (page == "Help")
+            if (page === "Help")
                 this.setState({child: Help});
 
             this.forceUpdate();
@@ -78,7 +78,7 @@ class Main extends React.Component{
 
 
             // Adding Blue
-            if (page == "Resume")
+            if (page === "Resume")
                 document.getElementsByClassName("icon--home")[0].classList.add("selected");
             if(page === "Help")
                 document.getElementsByClassName("icon--help")[0].classList.add("selected");
