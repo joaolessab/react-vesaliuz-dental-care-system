@@ -36,11 +36,9 @@ function animateSidebar(e){
     }
 };
 
-function accessPage(page){
-    debugger
+function accessPagex(page){
     alert(page);
     var container = document.getElementById("dynamicContent");
-    debugger
     ReactDOM.unmountComponentAtNode(container);
 };
 
@@ -59,12 +57,31 @@ class Main extends React.Component{
             child: Resume
         };
 
-        this.testeStr = "oi"
+        // Funcao para acessar componentes dinamicos
+        this.accessPage = function accessPage (page){
+            this.switchButtonSelected(page);
 
-        this.teste = function joao (oi){
-            this.testeStr = "tchau";
-            this.setState({child: Help});
+            if (page == "Resume")
+                this.setState({child: Resume});
+
+            if (page == "Help")
+                this.setState({child: Help});
+
             this.forceUpdate();
+        };
+
+        // Funcao para limpar selecao de botoes
+        this.switchButtonSelected = function switchButtonSelected(page){
+            var sidebar = document.getElementsByClassName("sidebar")[0];
+            var botaoSelecionado = sidebar.getElementsByClassName("selected")[0];
+            botaoSelecionado.classList.remove("selected");
+
+
+            // Adding Blue
+            if (page == "Resume")
+                document.getElementsByClassName("icon--home")[0].classList.add("selected");
+            if(page === "Help")
+                document.getElementsByClassName("icon--help")[0].classList.add("selected");
         };
     }
     
@@ -98,71 +115,71 @@ class Main extends React.Component{
                         <div className="container--sidebar">
                             <div className="sidebar" id="box">
                                 <button 
-                                    className="icon--home-white selected"                                
-                                    onClick={() => accessPage("home")}
+                                    className="icon--home selected"                                
+                                    onClick={() => this.accessPage("Resume")}
                                 >
                                     <span>Início</span>
                                 </button>
 
                                 <button 
                                     className="icon--agendamentos"
-                                    onClick={() => accessPage("agenda")}
+                                    onClick={() => this.accessPage("Agenda")}
                                 >
                                     <span>Agenda</span>
                                 </button>
 
                                 <button 
                                     className="icon--pacientes"
-                                    onClick={() => accessPage("pacientes")}
+                                    onClick={() => this.accessPage("Patients")}
                                 >
                                     <span>Pacientes</span>
                                 </button>
                                 
                                 <button 
                                     className="icon--financas"
-                                    onClick={() => accessPage("financas")}
+                                    onClick={() => this.accessPage("Finances")}
                                 >
                                     <span>Financeiro</span>
                                 </button>
                                 
                                 <button 
                                     className="icon--exams"
-                                    onClick={() => accessPage("exams")}
+                                    onClick={() => this.accessPage("Exams")}
                                 >
                                     <span>Exames</span>
                                 </button>
 
                                 <button 
                                     className="icon--procedure"
-                                    onClick={() => accessPage("tratamentos")}
+                                    onClick={() => this.accessPage("Treatments")}
                                 >       
                                     <span>Tratamentos</span>
                                 </button>
                                 
                                 <button 
                                     className="icon--laboratory"
-                                    onClick={() => accessPage("laboratorio")}
+                                    onClick={() => this.accessPage("Laboratory")}
                                 >
                                     <span>Laboratório</span>
                                 </button>
                                 
                                 <button 
                                     className="icon--news"
-                                    onClick={() => accessPage("noticias")}
+                                    onClick={() => this.accessPage("News")}
                                 >
                                     <span>Notícias</span>
                                 </button>                            
 
                                 <button 
                                     className="icon--help"
-                                    onClick={() => this.teste("ajuda")}
+                                    onClick={() => this.accessPage("Help")}
                                 >
                                     <span>Ajuda</span>
                                 </button>
                                 
-                                <button 
+                                <button
                                     className="icon--nubibuz"
-                                    onClick={() => accessPage("nubibuz")}
+                                    onClick={() => this.accessPage("Nubibuz")}
                                 >
                                     <span>Sobre Nós</span>
                                 </button>                   
@@ -174,13 +191,8 @@ class Main extends React.Component{
                             onClick={animateSidebar}
                         >
                         </button>
-
-                        <p>{this.testeStr}</p>
-
                         {/* Dynamic Content - Miolo */}
-                        <div id="dynamicContent">
-                            { React.createElement(this.state.child) }
-                        </div>
+                        { React.createElement(this.state.child) }
                     </div>
                 </div>
             </div>
