@@ -106,7 +106,7 @@ export default function Resume(){
     // FUNCOES DO JAVASCRIPT
     function teste(e){
         debugger
-    };    
+    };
 
     // RETORNO BÁSICO DO HTML
     return (

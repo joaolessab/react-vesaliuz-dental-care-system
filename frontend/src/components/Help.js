@@ -21,23 +21,28 @@ export default function Help(){
                     <h1>Como nós podemos te ajudar?</h1>
                 </div>
 
-                <div className="div--info">
-                    <div className="div--info-icon">
+                <div className="div--help-main">
+                    <div>
+                        <div className="cleiton"></div>
                     </div>
-                    <div className="div--info-text">
-                        <h1>Aprenda como organizar sua agenda</h1>
-                        <p>Seus rendimentos dependem do seu tempo disponível. Quanto mais você escalar o seu negócio, mais resultados irá obter. Esse artigo aborda exatamente o passo a passo para...</p>
-                    </div>
-                </div>
+                    <div className="container--help-form">
+                        <p>Conte-nos o seu problema</p>
+                        <form>
+                            <label for="name">Seu nome:</label>
+                            <input type="text" id="name" placeholder="Digite o seu nome" />
 
-                <div className="div--chart">
-                    <div className="revenue">
-                        <h1>R$ 2.730,50</h1>
-                        <p>Opa, lucrou? Confira sua receita</p>
-                    </div>
-                    <div className="expense">
-                        <h1>R$ 1.302,26</h1>
-                        <p>Gastou, né? Confira suas despesas</p>
+                            <label for="email">Seu e-mail:</label>
+                            <input type="email" id="email" placeholder="Digite seu melhor e-mail" />
+
+                            <label for="telephone">Seu telefone:</label>
+                            <input type="text" id="telephone" placeholder="Digite o seu melhor telefone" />
+
+                            <label for="situation">Seu problema:</label>
+                            <textarea id="situation" placeholder="Digite o seu relato">
+                            </textarea>
+
+                            <input type="submit" value="Enviar"></input>
+                        </form>
                     </div>
                 </div>
             </div>

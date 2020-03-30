@@ -14,10 +14,6 @@
         flex-direction: column;
     }
 
-    .container--content .div--info {
-        min-height: 220px;
-    }
-
     .container--auxiliar {
         overflow: visible;
     }
@@ -33,34 +29,14 @@
         margin-top: 30px;
     }
 
-    .container--main-content {
-        padding-right: 15px;
-    }
-
     .container--content h1 {
         text-align: center;
         width: 100%;    
         margin-bottom: 20px;
     }
-
-    .container--auxiliar .div--bar-right {
-        margin-top: 25px;
-    }
 }
 
 @media only screen and (max-width: 838px) {
-    .container--content .div--chart {
-        flex-direction: column;
-    }
-
-    .container--content .div--chart .revenue {
-        margin-right: 0px;
-        margin-bottom: 20px;
-    }
-
-    .container--content .div--chart .expense {
-        margin-left: 0px;
-    }
     .navbar-main--top .right--side p{
         display: none;
     }
@@ -101,16 +77,6 @@
 @media only screen and (max-width: 490px) {
     .navbar-main--top .right--side .photo{
         display: none;
-    }
-    .container--content .div--info-text {
-        padding-right: 20px;
-        padding-left: 20px;
-    }
-    .container--content .div--info-icon {
-        display: none;
-    }
-    .container--auxiliar .div--topbuttons button {
-        width: 65px;
     }
     .navbar-main--top .left--side .logo {
         width: 100px;
