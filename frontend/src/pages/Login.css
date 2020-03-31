@@ -48,7 +48,7 @@
 }
 .div--darkblue-left{
     height: 100%;
-    background: url("../assets/draw-container--left--darkblue.svg");
+    background: url("../assets/icons/draw-container--left--darkblue.svg");
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: 0px 0px;
@@ -62,7 +62,7 @@
     border-bottom-right-radius: 15px;
 }
 .div--darkblue-left .div--brushTeth{
-    background: url("../assets/brush--teeth.svg");
+    background: url("../assets/icons/brush--teeth.svg");
     height: 70px;
     width: 70px;
     background-repeat: no-repeat;
@@ -72,7 +72,7 @@
     right: 140px;
 }
 .div--happyTeeth{
-    background: url("../assets/happy--teeth.svg");
+    background: url("../assets/icons/happy--teeth.svg");
     height: 161px;
     width: 90px;
     background-repeat: no-repeat;
@@ -82,7 +82,7 @@
     bottom: 100px;
 }
 .div--cloud-centered{
-    background: url("../assets/cloud--centered.svg");
+    background: url("../assets/icons/cloud--centered.svg");
     height: 325px;
     width: 215px;
     background-repeat: no-repeat;
@@ -92,7 +92,7 @@
     margin-top: 144px;
 }
 .div--cloud-bottom{
-    background: url("../assets/cloud--bottom.svg");
+    background: url("../assets/icons/cloud--bottom.svg");
     height: 71px;
     width: 140px;
     background-repeat: no-repeat;
@@ -102,7 +102,7 @@
     margin-left: 178px;
 }
 .div--points-top{
-    background: url("../assets/top--points.svg");
+    background: url("../assets/icons/top--points.svg");
     height: 40px;
     width: 40px;
     background-repeat: no-repeat;
@@ -112,7 +112,7 @@
     margin-left: 2px;
 }
 .div--points-bottom{
-    background: url("../assets/bottom--points.svg");
+    background: url("../assets/icons/bottom--points.svg");
     height: 40px;
     width: 40px;
     background-repeat: no-repeat;
@@ -150,7 +150,7 @@
     display: none;
 }
 .container--form-top .div--brushTeth{
-    background: url("../assets/brush--teeth.svg");
+    background: url("../assets/icons/brush--teeth.svg");
     height: 70px;
     width: 70px;
     background-repeat: no-repeat;

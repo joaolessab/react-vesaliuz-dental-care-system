@@ -24,20 +24,20 @@ body {font-family: 'Averta';}
   cursor: pointer;
 }
 .div--search #limpa{
-  background-image: url("../assets/x-icon--black.svg");
+  background-image: url("../assets/icons/x-icon--black.svg");
   background-size: 14px;
   background-position: 10px 11px;
 }
 .div--search #limpa:hover{
-  background-image: url("../assets/x-icon--blue.svg"); 
+  background-image: url("../assets/icons/x-icon--blue.svg"); 
 }
 .div--search #lupa{
-  background-image: url("../assets/search-icon--black.svg");
+  background-image: url("../assets/icons/search-icon--black.svg");
   background-size: 18px;
   background-position: 9px 7px;
 }
 .div--search #lupa:hover{
-  background-image: url("../assets/search-icon--blue.svg"); 
+  background-image: url("../assets/icons/search-icon--blue.svg"); 
 }
 
 .react-autosuggest__container {
