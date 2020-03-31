@@ -14,33 +14,6 @@ body{
   background: #f5f6fa;
 }
 
-/* Font-Face */
-@font-face {
-  font-family: 'Averta';
-  font-style: normal;
-  src: url('./assets/Averta.otf');
-}
-@font-face {
-  font-family: 'Averta Semibold';
-  font-style: normal;
-  src: url('./assets/AvertaSemibold.otf');
-}
-@font-face {
-  font-family: 'Averta Bold';
-  font-style: normal;
-  src: url('./assets/AvertaBold.otf');
-}
-@font-face {
-  font-family: 'Averta Extra Bold';
-  font-style: normal;
-  src: url('./assets/AvertaExtraBold.otf');
-}
-@font-face {
-  font-family: 'ConfettiStream';
-  font-style: normal;
-  src: url('./assets/ConfettiStream.ttf');
-}
-
 /* Por padrão, o Input e o Button não herdam a fonte do corpo do HTML */
 body, input, button, h1, h2, h3, h4, h5, h6{
   font-family: 'Averta';

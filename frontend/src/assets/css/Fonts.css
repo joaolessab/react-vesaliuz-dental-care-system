@@ -1,0 +1,26 @@
+/* Font-Face */
+@font-face {
+    font-family: 'Averta';
+    font-style: normal;
+    src: url('../fonts/Averta.otf');
+}
+@font-face {
+    font-family: 'Averta Semibold';
+    font-style: normal;
+    src: url('../fonts/AvertaSemibold.otf');
+}
+@font-face {
+    font-family: 'Averta Bold';
+    font-style: normal;
+    src: url('../fonts/AvertaBold.otf');
+}
+@font-face {
+    font-family: 'Averta Extra Bold';
+    font-style: normal;
+    src: url('../fonts/AvertaExtraBold.otf');
+}
+@font-face {
+    font-family: 'ConfettiStream';
+    font-style: normal;
+    src: url('../fonts/ConfettiStream.ttf');
+}
