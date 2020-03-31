@@ -24,7 +24,7 @@ export default function Login({ history }){
                 <div className="container--form">
                     <div className="container--form-top">
                         <div>
-                            <div class="div--brushTeth"></div>
+                            <div className="div--brushTeth"></div>
                             <button className="button--rectangle-secondary">Cadastre-se</button>
                         </div>
                     </div>
