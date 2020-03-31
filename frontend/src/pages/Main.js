@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
-import './Main.css';
+import '../assets/css/Main.css';
 import '../assets/css/Animations/Main--Animations.css';
 
 import Resume from '../components/Resume';
