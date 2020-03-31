@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import './Login.css';
-import './extraStyles/Login--Responsive.css';
+import '../assets/css/Responsive/Login--Responsive.css';
 
 export default function Login({ history }){
     // FUNCOES DO JAVASCRIPT

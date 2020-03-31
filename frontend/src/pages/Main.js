@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import './Main.css';
-import './extraStyles/Main--Animations.css';
+import '../assets/css/Animations/Main--Animations.css';
 
 import Resume from '../components/Resume';
 import Help from '../components/Help';

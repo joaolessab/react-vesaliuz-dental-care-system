@@ -4,7 +4,7 @@ import { render } from 'react-dom';
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import '../assets/css/App.css';
 import './Help.css';
-import './extraStyles/Help--Responsive.css';
+import '../assets/css/Responsive/Help--Responsive.css';
 
 export default function Help(){
    
