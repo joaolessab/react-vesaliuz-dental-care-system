@@ -2,7 +2,7 @@ import React from 'react';
 import Autosuggest from 'react-autosuggest';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
-import './AutoCompleteSuggest.css';
+import '../assets/css/AutoCompleteSuggest.css';
 
 const itemsSuggest = [
     {

@@ -7,7 +7,7 @@ import { Bar } from 'react-chartjs-2';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import '../assets/css/App.css';
-import './Resume.css';
+import '../assets/css/Resume.css';
 import '../assets/css/Responsive/Resume--Responsive.css';
 
 import AutoCompleteSuggest from './AutoCompleteSuggest';
