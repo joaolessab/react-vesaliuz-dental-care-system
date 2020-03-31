@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import '../assets/css/Main.css';
@@ -34,12 +33,6 @@ function animateSidebar(e){
             e.target.classList.add("button--sidebar-retract");            
         }
     }
-};
-
-function accessPagex(page){
-    alert(page);
-    var container = document.getElementById("dynamicContent");
-    ReactDOM.unmountComponentAtNode(container);
 };
 
 window.addEventListener('load', handleResize);

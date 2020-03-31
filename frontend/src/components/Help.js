@@ -1,17 +1,15 @@
 import React from 'react';
-import { render } from 'react-dom';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
-import '../assets/css/App.css';
 import '../assets/css/Help.css';
 import '../assets/css/Responsive/Help--Responsive.css';
 
 export default function Help(){
    
     // FUNCOES DO JAVASCRIPT
-    function teste(e){
+    /*function teste(e){
         debugger
-    };    
+    };*/   
 
     // RETORNO BÁSICO DO HTML
     return (

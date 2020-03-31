@@ -1,12 +1,10 @@
 import React from 'react';
-import { render } from 'react-dom';
 import { defaults } from 'react-chartjs-2';
 import  { Line } from 'react-chartjs-2';
 import { Pie } from 'react-chartjs-2'; 
 import { Bar } from 'react-chartjs-2';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
-import '../assets/css/App.css';
 import '../assets/css/Resume.css';
 import '../assets/css/Responsive/Resume--Responsive.css';
 
@@ -104,9 +102,9 @@ export default function Resume(){
     };
     
     // FUNCOES DO JAVASCRIPT
-    function teste(e){
+    /*function teste(e){
         debugger
-    };
+    };*/
 
     // RETORNO BÁSICO DO HTML
     return (
