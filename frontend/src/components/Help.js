@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
-import '../App.css';
+import '../assets/css/App.css';
 import './Help.css';
 import './extraStyles/Help--Responsive.css';
 

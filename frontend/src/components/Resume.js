@@ -6,7 +6,7 @@ import { Pie } from 'react-chartjs-2';
 import { Bar } from 'react-chartjs-2';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
-import '../App.css';
+import '../assets/css/App.css';
 import './Resume.css';
 import './extraStyles/Resume--Responsive.css';
 
