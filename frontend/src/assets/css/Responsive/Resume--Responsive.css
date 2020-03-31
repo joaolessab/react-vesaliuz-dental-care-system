@@ -164,7 +164,7 @@
     .container--father {
         padding: 0px !important;
     }
-    .container--blackboard-columnar {
+    .container--blackboard-main {
         border-radius: 0px !important;
     }
     .navbar-main--top {
@@ -180,7 +180,7 @@
 }
 
 @media only screen and (max-width: 344px) {
-    .container--blackboard-columnar {
+    .container--blackboard-main {
         padding: 0px !important;
     }
     .container--main-content {

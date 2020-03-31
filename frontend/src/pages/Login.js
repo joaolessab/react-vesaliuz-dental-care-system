@@ -20,7 +20,9 @@ export default function Login({ history }){
     // RETORNO BÁSICO DO HTML
     return (
         <div className="container--father">
-            <div className="container--blackboard">
+
+            {/* INICIO DO LOGIN */}
+            <div className="container--blackboard-login">                
                 <div className="container--form">
                     <div className="container--form-top">
                         <div>
@@ -70,6 +72,8 @@ export default function Login({ history }){
                     <div className="div--lightblue-right"></div>
                 </div>
             </div>
+            {/* FINAL DO LOGIN   */}
+
         </div>
     );
 }

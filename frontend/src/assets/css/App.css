@@ -30,6 +30,23 @@ input:focus, select:focus, textarea:focus{
   box-shadow: 0px 5px 7px 0px #dedede;
 }
 
+/* Scrollbar */
+div::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+div::-webkit-scrollbar
+{
+	width: 4px;
+  background-color: #fefeff;
+}
+div::-webkit-scrollbar-thumb
+{
+	border-radius: 5px;
+  -webkit-box-shadow: inset 0 0 6px rgba(73, 73, 73, 0.3);
+}
+
 /* Container Padrões */
 .container--father{
   display: flex;
@@ -41,7 +58,7 @@ input:focus, select:focus, textarea:focus{
   flex-wrap: nowrap;
   padding: 35px;
 }
-.container--blackboard{
+.container--blackboard-login{
   flex: 1;
   height: 100%;
   display: flex;
@@ -51,7 +68,7 @@ input:focus, select:focus, textarea:focus{
   padding: 10px;
   border-radius: 15px;
 }
-.container--blackboard-columnar{
+.container--blackboard-main{
   flex: 1;
   height: 100%;
   display: flex;
@@ -167,20 +184,4 @@ input:focus, select:focus, textarea:focus{
   background-size: 20px;
   background-repeat: no-repeat;
   margin-left: 10px;
-}
-
-div::-webkit-scrollbar-track
-{
-  -webkit-box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.3);
-  border-radius: 10px;
-}
-div::-webkit-scrollbar
-{
-	width: 4px;
-  background-color: #fefeff;
-}
-div::-webkit-scrollbar-thumb
-{
-	border-radius: 5px;
-  -webkit-box-shadow: inset 0 0 6px rgba(73, 73, 73, 0.3);
 }

@@ -82,8 +82,9 @@ class Main extends React.Component{
     render(){
         return (
             <div className="container--father">
-                <div className="container--blackboard-columnar">                               
-                    
+                
+                {/* INICIO DO MAIN */}
+                <div className="container--blackboard-main">                                  
                     {/* Main Navbar */}
                     <div className="navbar-main--top">
                         <div className="left--side">
@@ -188,6 +189,8 @@ class Main extends React.Component{
                         { React.createElement(this.state.child) }
                     </div>
                 </div>
+                {/* FINAL DO MAIN */}
+                
             </div>
         );
     }
