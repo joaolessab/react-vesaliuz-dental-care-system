@@ -42,24 +42,16 @@
     .container--content .div--chart {
         flex-direction: column;
     }
-
     .container--content .div--chart .revenue {
         margin-right: 0px;
         margin-bottom: 20px;
     }
-
     .container--content .div--chart .expense {
         margin-left: 0px;
-    }
-    .button--sidebar-expand {
-        margin-top: 0px !important;
     }
 }
 
 @media only screen and (max-width: 686px) {
-    .button--sidebar-expand {
-        z-index: 1;
-    }
     .container--miolo {
         padding-right: 15px;
         padding-left: 10px;
@@ -83,17 +75,9 @@
     .div--search button {
         margin-right: 0px !important;
     }
-    .button--sidebar-expand {
-        margin-left: -16px !important;
-    }
     .container--miolo {
         padding-right: 10px;
         padding-left: 10px;
-    }
-}
-@media only screen and (max-width: 376px) {
-    .button--sidebar-expand {
-        margin-left: 0px !important;
     }
 }
 @media only screen and (max-width: 344px) {

@@ -177,7 +177,7 @@
     background-color: #2386fd;
     background-position: 2px;
 }
-.button--sidebar-expand{
+.container--blackboard-main .button--sidebar-expand{
     height: 30px;
     position: fixed;
     margin-left: 85px;
@@ -200,7 +200,7 @@
     transition: 1s;
     margin-left: -20px !important;
 }
-.button--sidebar-expand:hover{
+.container--blackboard-main .button--sidebar-expand:hover{
     background-image: url("../icons/arrowright-icon--white.svg");
     cursor: pointer;
     background-color: #2386fd;
