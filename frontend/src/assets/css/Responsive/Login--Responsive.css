@@ -1,39 +1,39 @@
 @media only screen and (max-width: 1466px) {
-    .div--points-bottom{
+    .container--blackboard-login .div--points-bottom{
         display: none;
     }
 }
 
 @media only screen and (max-width: 1338px) {
-    .div--happyTeeth{
+    .container--blackboard-login .div--happyTeeth{
         display: none;
     }
 }
 
 @media only screen and (max-width: 1088px) {
-    .div--brushTeth{
+    .container--blackboard-login .div--brushTeth{
         display: none;
     }
 }
 
 @media only screen and (max-width: 1083px) {
-    .div--cloud-bottom{
+    .container--blackboard-login .div--cloud-bottom{
         margin-left: 0px;
         right: 50px;
     }
 }
 
 @media only screen and (max-width: 1033px) {
-    .container--draw{
+    .container--blackboard-login .container--draw{
         display: none;
     }
-    .container--form-top .div--brushTeth{
+    .container--blackboard-login .container--form-top .div--brushTeth{
         display: block !important;
     }
-    .button--rectangle-secondary {
+    .container--blackboard-login .button--rectangle-secondary {
         border: 0px;
     }
-    .container--form .container--form-top {
+    .container--blackboard-login .container--form .container--form-top {
         background-color: #2584fe;
         padding: 0px;
         border-top-left-radius: 10px;
@@ -42,81 +42,81 @@
         justify-content: center;
         align-items: center;
     }
-    .container--form .container--form-top div {
+    .container--blackboard-login .container--form .container--form-top div {
         flex-basis: 80%;
         display: flex;
         justify-content: center;
         align-items: center;
     }
-    .container--form form {
+    .container--blackboard-login .container--form form {
         margin-top: 30px;
     }
 }
 
 @media only screen and (max-width: 734px) {
-    .container--form-middle h1 {
+    .container--blackboard-login .container--form-middle h1 {
         font-size: 26px;
     }
 }
 
 /* MOBILE */
 @media only screen and (max-width: 613px) {
-    .container--main-content .container--sidebar {
+    .container--blackboard-login .container--main-content .container--sidebar {
         height: calc(100% - 115px) !important;
     }
 
-    .container--form-middle h1 {
+    .container--blackboard-login .container--form-middle h1 {
         font-size: 26px;
     }
-    .container--form-middle .text--higher {
+    .container--blackboard-login .container--form-middle .text--higher {
         display: none;
     }
-    .container--form-middle .text--lower {
+    .container--blackboard-login .container--form-middle .text--lower {
         display: block;
     }
 }
 @media only screen and (max-width: 474px) {
-    .container--main-content .container--sidebar {
+    .container--blackboard-login .container--main-content .container--sidebar {
         position: fixed !important;
         height: auto !important;
         border-bottom-right-radius: 10px;
         border-top-right-radius: 10px;
     }
-    .container--blackboard-login {
+    .container--blackboard-login .container--blackboard-login {
         border-radius: 0px;
     }
-    .container--form form .div--container-formAction {
+    .container--blackboard-login .container--form form .div--container-formAction {
         flex-direction: column-reverse;
     }
-    .button--rectangle-primary {
+    .container--blackboard-login .button--rectangle-primary {
         flex: 1;
     }
-    .container--form .container--form-bottom {
+    .container--blackboard-login .container--form .container--form-bottom {
         flex-direction: column;
         background-color: white;
         margin-top: 40px;
     }
-    .button--labelType {
+    .container--blackboard-login .button--labelType {
         flex-basis: 40px;
     }
-    .div--container-formAction--leftSplitter .button--labelType {
+    .container--blackboard-login .div--container-formAction--leftSplitter .button--labelType {
         flex-basis: 100%;
         margin-top: 20px;
     }
-    .container--form {
+    .container--blackboard-login .container--form {
         overflow: auto;
     }
-    .container--form form {
+    .container--blackboard-login .container--form form {
         margin-top: 35px;        
         margin-bottom: -20px;
     }
-    .container--form .container--form-top {
+    .container--blackboard-login .container--form .container--form-top {
         padding-top: 10px;
         padding-bottom: 10px;
     }
 }
 @media only screen and (max-width: 348px) {
-    .container--form-middle .text--lower {
+    .container--blackboard-login .container--form-middle .text--lower {
         display: block;
         font-size: 20px;
     }

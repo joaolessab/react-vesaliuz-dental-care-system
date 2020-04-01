@@ -8,8 +8,7 @@
     padding: 10px;
     border-radius: 15px;
 }
-
-.container--form{
+.container--blackboard-login .container--form{
     flex: 2;
     background: #F5F6FA;
     display: flex;
@@ -20,20 +19,20 @@
     border-bottom-left-radius: 15px;
 }
 
-.container--form .container--form-top{
+.container--blackboard-login .container--form .container--form-top{
     flex-basis: 20%;
     width: 100%;
     display: flex;
     justify-content: center;
     padding-top: 20px;
 }
-.container--form .container--form-top div{
+.container--blackboard-login .container--form .container--form-top div{
     flex-basis: 80%;
     justify-content: flex-end;
     display: flex;
 }
 
-.container--form .container--form-middle{
+.container--blackboard-login .container--form .container--form-middle{
     flex-basis: 60%;
     width: 100%;
     align-items: center;
@@ -41,14 +40,14 @@
     align-content: center;
     display: flex;
 }
-.container--form .container--form-bottom{
+.container--blackboard-login .container--form .container--form-bottom{
     flex-basis: 20%;
     width: 100%;
     display: flex;
     justify-content: center;
     padding: 20px;
 }
-.container--draw{
+.container--blackboard-login .container--draw{
     flex: 1;
     display: flex;
     justify-content: center;
@@ -57,7 +56,7 @@
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
 }
-.div--darkblue-left{
+.container--blackboard-login .div--darkblue-left{
     height: 100%;
     background: url("../icons/draw-container--left--darkblue.svg");
     background-repeat: no-repeat;
@@ -65,14 +64,14 @@
     background-position: 0px 0px;
     flex-basis: calc(100% - 80px);
 }
-.div--lightblue-right{
+.container--blackboard-login .div--lightblue-right{
     height: 100%;
     flex-basis: 80px;
     background-color: #49A0FC;    
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
 }
-.div--darkblue-left .div--brushTeth{
+.container--blackboard-login .div--darkblue-left .div--brushTeth{
     background: url("../icons/brush--teeth.svg");
     height: 70px;
     width: 70px;
@@ -82,7 +81,7 @@
     margin-top: 150px;
     right: 140px;
 }
-.div--happyTeeth{
+.container--blackboard-login .div--happyTeeth{
     background: url("../icons/happy--teeth.svg");
     height: 161px;
     width: 90px;
@@ -92,7 +91,7 @@
     right: 190px;
     bottom: 100px;
 }
-.div--cloud-centered{
+.container--blackboard-login .div--cloud-centered{
     background: url("../icons/cloud--centered.svg");
     height: 325px;
     width: 215px;
@@ -102,7 +101,7 @@
     margin-left: -49px;
     margin-top: 144px;
 }
-.div--cloud-bottom{
+.container--blackboard-login .div--cloud-bottom{
     background: url("../icons/cloud--bottom.svg");
     height: 71px;
     width: 140px;
@@ -112,7 +111,7 @@
     bottom: 49px;
     margin-left: 178px;
 }
-.div--points-top{
+.container--blackboard-login .div--points-top{
     background: url("../icons/top--points.svg");
     height: 40px;
     width: 40px;
@@ -122,7 +121,7 @@
     top: 52px;
     margin-left: 2px;
 }
-.div--points-bottom{
+.container--blackboard-login .div--points-bottom{
     background: url("../icons/bottom--points.svg");
     height: 40px;
     width: 40px;
@@ -132,35 +131,34 @@
     bottom: 52px;
     right: 133px;
 }
-.container--form form{
+.container--blackboard-login .container--form form{
     display: flex;
     flex-direction: column;
     flex-basis: 80%;
 }
-.container--form form input{
+.container--blackboard-login .container--form form input{
     margin-top: 20px;
 }
-.container--form form .div--container-formAction{
+.container--blackboard-login .container--form form .div--container-formAction{
     display: flex;
     margin-top: 20px;
 }
-
-.container--form form .div--container-formAction .div--container-formAction--leftSplitter{
+.container--blackboard-login .container--form form .div--container-formAction .div--container-formAction--leftSplitter{
     flex: 1;
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
-.container--form form .div--container-formAction .div--container-formAction--rightSplitter{
+.container--blackboard-login .container--form form .div--container-formAction .div--container-formAction--rightSplitter{
     flex: 1;
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
-.container--form-middle .text--lower{
+.container--blackboard-login .container--form-middle .text--lower{
     display: none;
 }
-.container--form-top .div--brushTeth{
+.container--blackboard-login .container--form-top .div--brushTeth{
     background: url("../icons/brush--teeth.svg");
     height: 70px;
     width: 70px;

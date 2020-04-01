@@ -60,6 +60,7 @@ export default function Login({ history }){
                         <button className="button--labelType">Precisa de ajuda?</button>
                     </div>
                 </div>
+                
                 <div className="container--draw">                    
                     <div className="div--darkblue-left">
                         <div className="div--points-top"></div>
