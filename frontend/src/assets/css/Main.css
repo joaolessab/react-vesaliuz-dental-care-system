@@ -8,20 +8,20 @@
     padding: 10px;
     border-radius: 15px;
 }
-.navbar-main--top{
+.container--blackboard-main .navbar-main--top{
     flex-basis: 75px;
     display: flex;
     padding: 25px;
     padding-bottom: 18px;
     padding-top: 18px;
 }
-.navbar-main--top .left--side{
+.container--blackboard-main .navbar-main--top .left--side{
     flex: 1 1;
     display: flex;
     align-items: center;
     justify-content: flex-start;
 }
-.navbar-main--top .left--side .logo{
+.container--blackboard-main .navbar-main--top .left--side .logo{
     height: 55px;
     width: 135px;
     background-size: 43px;
@@ -30,30 +30,30 @@
     margin-left: 0px;
     background-image: url("../icons/vesaliuz-logotipo---blue.svg");
 }
-.navbar-main--top .left--side p{
+.container--blackboard-main .navbar-main--top .left--side p{
     font-family: 'ConfettiStream';
     font-size: 40px;
     margin-left: -10px;
     color: #339dd1;
 }
-.navbar-main--top em{
+.container--blackboard-main .navbar-main--top em{
     color: #2386fd;
     text-decoration: none;
     font-style: normal;
 }
-.navbar-main--top .right--side{
+.container--blackboard-main .navbar-main--top .right--side{
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: flex-end;
 }
-.navbar-main--top .right--side .alert{
+.container--blackboard-main .navbar-main--top .right--side .alert{
     height: 20px;
     width: 20px;
     margin-right: 20px;
     background-image: url("../icons/alarm-icon--black.svg");
 }
-.navbar-main--top .right--side .photo{
+.container--blackboard-main .navbar-main--top .right--side .photo{
     height: 50px;
     width: 50px;
     margin-left: 20px;
@@ -62,10 +62,13 @@
     background-size: 50px;
     border-radius: 10px;
 }
-.navbar-main--top .right--side .button-project{
+.container--blackboard-main .navbar-main--top .right--side .button-project{
     height: 50px;
     width: 50px;
 }
+
+/*===================*/
+
 .container--content h1{
     font-family: 'Averta Extra Bold';
     font-size: 20px;

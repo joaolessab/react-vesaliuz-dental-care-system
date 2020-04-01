@@ -2,6 +2,7 @@ import React from 'react';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import '../assets/css/Main.css';
+import '../assets/css/Responsive/Main--Responsive.css';
 import '../assets/css/Animations/Main--Animations.css';
 
 import Resume from '../components/Resume';
@@ -84,7 +85,7 @@ class Main extends React.Component{
             <div className="container--app-father">
                 
                 {/* INICIO DO MAIN */}
-                <div className="container--blackboard-main">                                  
+                <div className="container--blackboard-main">                   
                     {/* Main Navbar */}
                     <div className="navbar-main--top">
                         <div className="left--side">

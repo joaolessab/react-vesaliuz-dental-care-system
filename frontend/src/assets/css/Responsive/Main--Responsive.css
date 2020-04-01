@@ -1,0 +1,46 @@
+@media only screen and (max-width: 838px) {
+    .container--blackboard-main .navbar-main--top .right--side p{
+        display: none;
+    }
+    .container--blackboard-main .navbar-main--top .right--side button p{
+        display: block;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .container--blackboard-main .navbar-main--top .right--side .photo{
+        display: none;
+    }
+}
+@media only screen and (max-width: 490px) {
+    .container--blackboard-main .navbar-main--top .right--side .photo{
+        display: none;
+    }
+    .container--blackboard-main .navbar-main--top .left--side .logo {
+        width: 100px;
+    }
+}
+@media only screen and (max-width: 410px) {
+    .container--blackboard-main .navbar-main--top .left--side .logo {
+        display: none;
+    }
+}
+@media only screen and (max-width: 366px) {
+    .container--blackboard-main .navbar-main--top {
+        padding: 0px !important;
+    }
+    .container--blackboard-main .navbar-main--top .left--side p {
+        margin-left: 10px !important;
+    }
+}
+@media only screen and (max-width: 344px) {
+    .container--blackboard-main .navbar-main--top {
+        padding: 5px !important;
+    }
+    .container--blackboard-main .navbar-main--top .left--side p {
+        margin-left: 5px;
+        margin-top: 5px;
+    }
+    .container--blackboard-main .navbar-main--top .right--side {
+        margin-right: 10px;
+    }
+}
