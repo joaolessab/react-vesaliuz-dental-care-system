@@ -61,10 +61,6 @@
 
 /* MOBILE */
 @media only screen and (max-width: 613px) {
-    .container--blackboard-login .container--content-main .container--sidebar {
-        height: calc(100% - 115px) !important;
-    }
-
     .container--blackboard-login .container--form-middle h1 {
         font-size: 26px;
     }
@@ -76,12 +72,6 @@
     }
 }
 @media only screen and (max-width: 474px) {
-    .container--blackboard-login .container--content-main .container--sidebar {
-        position: fixed !important;
-        height: auto !important;
-        border-bottom-right-radius: 10px;
-        border-top-right-radius: 10px;
-    }
     .container--blackboard-login .container--blackboard-login {
         border-radius: 0px;
     }

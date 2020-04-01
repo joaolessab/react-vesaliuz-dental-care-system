@@ -1,3 +1,8 @@
+@media only screen and (max-width: 1206px) {
+    .container--blackboard-main .container--content-main {
+        padding-right: 15px;
+    }
+}
 @media only screen and (max-width: 838px) {
     .container--blackboard-main .navbar-main--top .right--side p{
         display: none;
@@ -6,9 +11,21 @@
         display: block;
     }
 }
+@media only screen and (max-width: 686px) {
+    .container--blackboard-main .container--content-main .container--sidebar {
+        position: absolute;
+        z-index: 1;
+        height: calc(100% - 180px);
+    }
+}
 @media only screen and (max-width: 600px) {
     .container--blackboard-main .navbar-main--top .right--side .photo{
         display: none;
+    }
+}
+@media only screen and (max-width: 613px) {
+    .container--blackboard-main .container--content-main .container--sidebar {
+        height: calc(100% - 115px) !important;
     }
 }
 @media only screen and (max-width: 490px) {
@@ -19,20 +36,52 @@
         width: 100px;
     }
 }
+@media only screen and (max-width: 474px) {
+    .container--blackboard-main .container--content-main .container--sidebar {
+        position: fixed !important;
+        height: auto !important;
+        border-bottom-right-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+}
 @media only screen and (max-width: 410px) {
     .container--blackboard-main .navbar-main--top .left--side .logo {
         display: none;
     }
+    .container--blackboard-main .container--content-main {
+        padding-right: 0px;
+        padding-left: 0px;
+        border-radius: 0px;
+    }
+    .container--blackboard-main .container--content-main .container--sidebar {
+        margin-left: 0px;
+    }
+}
+@media only screen and (max-width: 376px) {
+    .container--content-main .container--sidebar {
+        height: calc(100% - 110px) !important;
+        border-bottom-left-radius: 10px;
+    }
 }
 @media only screen and (max-width: 366px) {
+    .container--blackboard-main {
+        border-radius: 0px !important;
+    }
     .container--blackboard-main .navbar-main--top {
         padding: 0px !important;
     }
     .container--blackboard-main .navbar-main--top .left--side p {
         margin-left: 10px !important;
+    }    
+    .container--blackboard-main .container--content-main .container--sidebar {
+        height: calc(100% - 110px) !important;
+        border-bottom-left-radius: 0px;
     }
 }
 @media only screen and (max-width: 344px) {
+    .container--blackboard-main {
+        padding: 0px !important;
+    }
     .container--blackboard-main .navbar-main--top {
         padding: 5px !important;
     }
@@ -42,5 +91,8 @@
     }
     .container--blackboard-main .navbar-main--top .right--side {
         margin-right: 10px;
+    }    
+    .container--blackboard-main .container--content-main {
+        height: calc(100% - 5px) !important;
     }
 }

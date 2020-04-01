@@ -13,35 +13,25 @@
     .container--miolo {
         flex-direction: column;
     }
-
     .container--auxiliar {
         overflow: visible;
     }
-
     .container--miolo {
         overflow: auto;
         padding-right: 15px;
     }
-
     .container--auxiliar {
         padding-left: 0px;
         padding-right: 0px;
         margin-top: 30px;
     }
-
     .container--content h1 {
         text-align: center;
         width: 100%;    
         margin-bottom: 20px;
     }
 }
-
 @media only screen and (max-width: 686px) {
-    .container--content-main .container--sidebar {
-        position: absolute;
-        z-index: 1;
-        height: calc(100% - 180px);
-    }
     .button--sidebar-retract {
         margin-left: 94px !important;
         z-index: 1;
@@ -55,16 +45,7 @@
         padding-left: 10px;
     }
 }
-
 @media only screen and (max-width: 410px) {
-    .container--content-main {
-        padding-right: 0px;
-        padding-left: 0px;
-        border-radius: 0px;
-    }
-    .container--content-main .container--sidebar {
-        margin-left: 0px;
-    }
     .button--sidebar-retract {
         margin-left: 113px !important;
     }
@@ -79,7 +60,6 @@
         padding-left: 10px;
     }
 }
-
 @media only screen and (max-width: 376px) {
     .button--sidebar-expand {
         margin-left: 0px !important;
@@ -87,29 +67,8 @@
     .button--sidebar-retract {
         margin-top: 0px !important;
     }
-    .container--content-main .container--sidebar {
-        height: calc(100% - 110px) !important;
-        border-bottom-left-radius: 10px;
-    }
 }
-
-@media only screen and (max-width: 366px) {
-    .container--blackboard-main {
-        border-radius: 0px !important;
-    }
-    .container--content-main .container--sidebar {
-        height: calc(100% - 110px) !important;
-        border-bottom-left-radius: 0px;
-    }
-}
-
 @media only screen and (max-width: 344px) {
-    .container--blackboard-main {
-        padding: 0px !important;
-    }
-    .container--content-main {
-        height: calc(100% - 5px) !important;
-    }
     .container--miolo {
         padding-right: 0px !important;
         padding-left: 0px !important;
