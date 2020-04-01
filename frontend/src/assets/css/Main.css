@@ -150,7 +150,7 @@
     color: white;
     background-image: none;
 }
-.button--sidebar-retract{
+.container--blackboard-main .button--sidebar-retract{
     height: 30px;
     position: fixed;
     width: 22px;
@@ -171,7 +171,7 @@
     transition: 1s;
     margin-left: 95px !important;
 }
-.button--sidebar-retract:hover{
+.container--blackboard-main .button--sidebar-retract:hover{
     background-image: url("../icons/arrowleft-icon--white.svg");
     cursor: pointer;
     background-color: #2386fd;

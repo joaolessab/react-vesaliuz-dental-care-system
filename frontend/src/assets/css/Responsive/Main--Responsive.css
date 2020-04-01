@@ -17,6 +17,11 @@
         z-index: 1;
         height: calc(100% - 180px);
     }
+    .container--blackboard-main .button--sidebar-retract {
+        margin-left: 94px !important;
+        z-index: 1;
+        margin-top: 0px !important;
+    }
 }
 @media only screen and (max-width: 600px) {
     .container--blackboard-main .navbar-main--top .right--side .photo{
@@ -45,6 +50,9 @@
     }
 }
 @media only screen and (max-width: 410px) {
+    .container--blackboard-main .button--sidebar-retract {
+        margin-left: 113px !important;
+    }
     .container--blackboard-main .navbar-main--top .left--side .logo {
         display: none;
     }
@@ -61,6 +69,9 @@
     .container--blackboard-main .container--content-main .container--sidebar {
         height: calc(100% - 110px) !important;
         border-bottom-left-radius: 10px;
+    }
+    .container--blackboard-main .button--sidebar-retract {
+        margin-top: 0px !important;
     }
 }
 @media only screen and (max-width: 366px) {

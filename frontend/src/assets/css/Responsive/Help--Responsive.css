@@ -32,11 +32,6 @@
     }
 }
 @media only screen and (max-width: 686px) {
-    .button--sidebar-retract {
-        margin-left: 94px !important;
-        z-index: 1;
-        margin-top: 0px !important;
-    }
     .button--sidebar-expand {
         z-index: 1;
     }
@@ -46,9 +41,6 @@
     }
 }
 @media only screen and (max-width: 410px) {
-    .button--sidebar-retract {
-        margin-left: 113px !important;
-    }
     .div--search button {
         margin-right: 0px !important;
     }
@@ -63,9 +55,6 @@
 @media only screen and (max-width: 376px) {
     .button--sidebar-expand {
         margin-left: 0px !important;
-    }
-    .button--sidebar-retract {
-        margin-top: 0px !important;
     }
 }
 @media only screen and (max-width: 344px) {
