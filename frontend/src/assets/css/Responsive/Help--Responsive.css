@@ -37,7 +37,7 @@
 }
 
 @media only screen and (max-width: 686px) {
-    .container--main-content .container--sidebar {
+    .container--content-main .container--sidebar {
         position: absolute;
         z-index: 1;
         height: calc(100% - 180px);
@@ -57,12 +57,12 @@
 }
 
 @media only screen and (max-width: 410px) {
-    .container--main-content {
+    .container--content-main {
         padding-right: 0px;
         padding-left: 0px;
         border-radius: 0px;
     }
-    .container--main-content .container--sidebar {
+    .container--content-main .container--sidebar {
         margin-left: 0px;
     }
     .button--sidebar-retract {
@@ -87,7 +87,7 @@
     .button--sidebar-retract {
         margin-top: 0px !important;
     }
-    .container--main-content .container--sidebar {
+    .container--content-main .container--sidebar {
         height: calc(100% - 110px) !important;
         border-bottom-left-radius: 10px;
     }
@@ -97,7 +97,7 @@
     .container--blackboard-main {
         border-radius: 0px !important;
     }
-    .container--main-content .container--sidebar {
+    .container--content-main .container--sidebar {
         height: calc(100% - 110px) !important;
         border-bottom-left-radius: 0px;
     }
@@ -107,7 +107,7 @@
     .container--blackboard-main {
         padding: 0px !important;
     }
-    .container--main-content {
+    .container--content-main {
         height: calc(100% - 5px) !important;
     }
     .container--miolo {

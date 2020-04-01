@@ -73,7 +73,7 @@
     font-family: 'Averta Extra Bold';
     font-size: 20px;
 }
-.container--main-content{
+.container--content-main{
     height: calc(100% - 90px);
     flex-direction: row;
     display: flex;
@@ -84,7 +84,7 @@
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
 }
-.container--main-content p, .container--main-content button{
+.container--content-main p, .container--content-main button{
     font-size: 14px;
 }
 .container--miolo{
@@ -93,7 +93,7 @@
     padding-bottom: 20px;
 }
 
-.container--main-content .container--sidebar{
+.container--content-main .container--sidebar{
     flex-basis: 115px;
     width: 115px;
     display: flex;
@@ -102,7 +102,7 @@
     margin-right: 30px;
     background-color: white;
 }
-.container--main-content .container--sidebar .sidebar{
+.container--content-main .container--sidebar .sidebar{
     flex: 1 1;
     overflow: auto;
     text-align: center;
@@ -110,7 +110,7 @@
     margin-bottom: 10px;
     margin-right: 5px;
 }
-.container--main-content .container--sidebar .sidebar button{
+.container--content-main .container--sidebar .sidebar button{
     height: 50px;
     width: 50px;
     display: list-item;
@@ -122,13 +122,13 @@
     background-repeat: no-repeat;
     background-position: 13.5px;
 }
-.container--main-content .container--sidebar .sidebar button span{
+.container--content-main .container--sidebar .sidebar button span{
     display: none;
 }
-.container--main-content .container--sidebar .sidebar .selected span, .container--main-content .container--sidebar .sidebar button:hover span{
+.container--content-main .container--sidebar .sidebar .selected span, .container--content-main .container--sidebar .sidebar button:hover span{
     display: block;
 }
-.container--main-content .container--sidebar .sidebar button:hover, .container--main-content .container--sidebar .sidebar .selected{
+.container--content-main .container--sidebar .sidebar button:hover, .container--content-main .container--sidebar .sidebar .selected{
     cursor: pointer;
     animation-duration: 1s;
     background-color: #2386fd;

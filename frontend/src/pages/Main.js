@@ -104,7 +104,7 @@ class Main extends React.Component{
                     </div>
                 
                     {/* Main Content */}
-                    <div className="container--main-content">
+                    <div className="container--content-main">
                         
                         {/* Sidebar */}
                         <div className="container--sidebar">

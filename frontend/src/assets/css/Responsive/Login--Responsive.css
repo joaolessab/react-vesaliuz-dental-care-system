@@ -61,7 +61,7 @@
 
 /* MOBILE */
 @media only screen and (max-width: 613px) {
-    .container--blackboard-login .container--main-content .container--sidebar {
+    .container--blackboard-login .container--content-main .container--sidebar {
         height: calc(100% - 115px) !important;
     }
 
@@ -76,7 +76,7 @@
     }
 }
 @media only screen and (max-width: 474px) {
-    .container--blackboard-login .container--main-content .container--sidebar {
+    .container--blackboard-login .container--content-main .container--sidebar {
         position: fixed !important;
         height: auto !important;
         border-bottom-right-radius: 10px;
