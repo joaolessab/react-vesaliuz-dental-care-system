@@ -58,7 +58,7 @@
     }
 }
 @media only screen and (max-width: 376px) {
-    .container--content-main .container--sidebar {
+    .container--blackboard-main .container--content-main .container--sidebar {
         height: calc(100% - 110px) !important;
         border-bottom-left-radius: 10px;
     }
