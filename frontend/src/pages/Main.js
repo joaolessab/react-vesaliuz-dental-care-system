@@ -81,7 +81,7 @@ class Main extends React.Component{
     // RETORNO BÁSICO DO HTML
     render(){
         return (
-            <div className="container--father">
+            <div className="container--app-father">
                 
                 {/* INICIO DO MAIN */}
                 <div className="container--blackboard-main">                                  

@@ -1,0 +1,22 @@
+/* MOBILE */
+@media only screen and (max-width: 613px) {
+    .container--app-father {
+        padding: 5px;
+    }
+}
+@media only screen and (max-width: 474px) {
+    .container--app-father {
+        padding: 0px;
+        height: auto;
+    }
+}
+@media only screen and (max-width: 376px) {
+    .container--app-father {
+        padding: 2px !important;
+    }
+}
+@media only screen and (max-width: 366px) {
+    .container--app-father {
+        padding: 0px !important;
+    }
+}

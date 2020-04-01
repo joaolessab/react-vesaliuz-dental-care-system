@@ -19,7 +19,7 @@ export default function Login({ history }){
 
     // RETORNO BÁSICO DO HTML
     return (
-        <div className="container--father">
+        <div className="container--app-father">
 
             {/* INICIO DO LOGIN */}
             <div className="container--blackboard-login">                

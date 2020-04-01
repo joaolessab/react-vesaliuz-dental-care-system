@@ -1,3 +1,13 @@
+.container--blackboard-main{
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    background-color: #fefeff;
+    padding: 10px;
+    border-radius: 15px;
+}
 .navbar-main--top{
     flex-basis: 75px;
     display: flex;
@@ -115,7 +125,6 @@
 .container--main-content .container--sidebar .sidebar .selected span, .container--main-content .container--sidebar .sidebar button:hover span{
     display: block;
 }
-
 .container--main-content .container--sidebar .sidebar button:hover, .container--main-content .container--sidebar .sidebar .selected{
     cursor: pointer;
     animation-duration: 1s;
@@ -138,7 +147,6 @@
     color: white;
     background-image: none;
 }
-
 .button--sidebar-retract{
     height: 30px;
     position: fixed;
