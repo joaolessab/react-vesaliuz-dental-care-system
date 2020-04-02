@@ -4,12 +4,12 @@
 */
 
 @media only screen and (max-width: 1252px) {
-    .container--subcontent-main {
+    .container--content-resume {
         flex: 1;
     }
 }
 @media only screen and (max-width: 1206px) {
-    .container--subcontent-main .div--info {
+    .container--content-resume .div--info {
         min-height: 220px;
     }
     .container--auxiliar {
@@ -20,7 +20,7 @@
         padding-right: 0px;
         margin-top: 30px;
     }
-    .container--subcontent-main h1 {
+    .container--content-resume h1 {
         text-align: center;
         width: 100%;    
         margin-bottom: 20px;
@@ -30,24 +30,24 @@
     }
 }
 @media only screen and (max-width: 838px) {
-    .container--subcontent-main .div--chart {
+    .container--content-resume .div--chart {
         flex-direction: column;
     }
-    .container--subcontent-main .div--chart .revenue {
+    .container--content-resume .div--chart .revenue {
         margin-right: 0px;
         margin-bottom: 20px;
     }
-    .container--subcontent-main .div--chart .expense {
+    .container--content-resume .div--chart .expense {
         margin-left: 0px;
     }
 }
 
 @media only screen and (max-width: 490px) {
-    .container--subcontent-main .div--info-text {
+    .container--content-resume .div--info-text {
         padding-right: 20px;
         padding-left: 20px;
     }
-    .container--subcontent-main .div--info-icon {
+    .container--content-resume .div--info-icon {
         display: none;
     }
     .container--auxiliar .div--topbuttons button {

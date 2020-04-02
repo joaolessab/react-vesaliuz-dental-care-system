@@ -1,4 +1,4 @@
-.container--subcontent-main{
+.container--content-resume{
     flex: 2 1;
     height: auto;
     display: flex;
@@ -11,11 +11,11 @@
     padding-right: 20px;
     overflow: auto;
 }
-.container--subcontent-main .div--title{
+.container--content-resume .div--title{
     flex-basis: 40px;
     display: flex;
 }
-.container--subcontent-main .div--info{
+.container--content-resume .div--info{
     display: flex;
     flex: 1;
     border-radius: 10px;
@@ -23,14 +23,14 @@
     margin-bottom: 20px;
     background-color: white;
 }
-.container--subcontent-main .div--info:hover{
+.container--content-resume .div--info:hover{
     background-color: #2386fd;
     cursor: pointer;
 }
-.container--subcontent-main .div--info:hover h1, .container--subcontent-main .div--info:hover p{
+.container--content-resume .div--info:hover h1, .container--content-resume .div--info:hover p{
     color: white;
 }
-.container--subcontent-main .div--info-icon{
+.container--content-resume .div--info-icon{
     display: flex;
     flex: 1;
     background-image: url("../icons/pessoas-trabalhando.svg");
@@ -38,25 +38,25 @@
     background-position: 50%;
     background-repeat: no-repeat;
 }
-.container--subcontent-main .div--info-text{
+.container--content-resume .div--info-text{
     display: flex;
     flex: 2 1;
     flex-direction: column;
     justify-content: center;
     padding-right: 70px;
 }
-.container--subcontent-main .div--info-text p{
+.container--content-resume .div--info-text p{
     text-align: justify;
 }
-.container--subcontent-main .div--info-text h1{
+.container--content-resume .div--info-text h1{
     font-size: 20px;
     margin-bottom: 20px;
 }
-.container--subcontent-main .div--chart{
+.container--content-resume .div--chart{
     display: flex;
     flex: 1 1;
 }
-.container--subcontent-main .div--chart .revenue{
+.container--content-resume .div--chart .revenue{
     display: flex;
     flex: 1 1;
     border-radius: 10px;
@@ -71,26 +71,26 @@
     background-size: 15em;
     background-position: -10px 7px;
 }
-.container--subcontent-main .div--chart .revenue:hover{
+.container--content-resume .div--chart .revenue:hover{
     cursor: pointer;
     background-color: #2386fd;
     background-image: url("../icons/profit--background-white2.svg");
 }
-.container--subcontent-main .div--chart .revenue:hover h1{
+.container--content-resume .div--chart .revenue:hover h1{
     color: white;
 }
-.container--subcontent-main .div--chart .revenue:hover p{
+.container--content-resume .div--chart .revenue:hover p{
     border: 1px solid white;
     color: white;
 }
-.container--subcontent-main .div--chart .revenue .icon{
+.container--content-resume .div--chart .revenue .icon{
     flex: 1;
 }
-.container--subcontent-main .div--chart .revenue h1{
+.container--content-resume .div--chart .revenue h1{
     font-size: 35px;
     color: #32cc77;
 }
-.container--subcontent-main .div--chart .revenue p{
+.container--content-resume .div--chart .revenue p{
     margin-top: 10px;
     font-size: 12px;
     border: 1px solid #32cc77;
@@ -102,7 +102,7 @@
     display: flex;
     color: #32cc77;
 }
-.container--subcontent-main .div--chart .expense{
+.container--content-resume .div--chart .expense{
     display: flex;
     flex: 1 1;
     border-radius: 10px;
@@ -117,26 +117,26 @@
     background-size: 15em;
     background-position: 0px -50px;
 }
-.container--subcontent-main .div--chart .expense:hover{
+.container--content-resume .div--chart .expense:hover{
     cursor: pointer;
     background-color: #2386fd;
     background-image: url("../icons/expense--background-white2.svg");
 }
-.container--subcontent-main .div--chart .expense:hover h1{
+.container--content-resume .div--chart .expense:hover h1{
     color: white;
 }
-.container--subcontent-main .div--chart .expense:hover p{
+.container--content-resume .div--chart .expense:hover p{
     border: 1px solid white;
     color: white;
 }
-.container--subcontent-main .div--chart .expense .icon{
+.container--content-resume .div--chart .expense .icon{
     flex: 1;
 }
-.container--subcontent-main .div--chart .expense h1{
+.container--content-resume .div--chart .expense h1{
     font-size: 35px;
     color: #e47474;
 }
-.container--subcontent-main .div--chart .expense p{
+.container--content-resume .div--chart .expense p{
     margin-top: 10px;
     font-size: 12px;
     border: 1px solid #e47474;
@@ -205,4 +205,8 @@
     background-color: white;
     flex-direction: column;
     margin-top: 20px;
+}
+.container--content-resume h1{
+    font-family: 'Averta Extra Bold';
+    font-size: 20px;
 }

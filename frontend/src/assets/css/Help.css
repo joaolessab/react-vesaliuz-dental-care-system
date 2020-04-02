@@ -1,4 +1,4 @@
-.container--subcontent-main{
+.container--content-help{
     flex: 2 1;
     height: auto;
     display: flex;
@@ -18,20 +18,24 @@
     background-color: white;
     height: 100%;
 }
-.container--subcontent-main .div--help-main {
+.container--content-help h1{
+    font-family: 'Averta Extra Bold';
+    font-size: 20px;
+}
+.container--content-help .div--help-main {
     display: flex;
     flex: 1 1;
     border-radius: 10px;
     background-color: white;
 }
-.container--subcontent-main .div--help-main div{
+.container--content-help .div--help-main div{
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 30px;
 }
-.container--subcontent-main .div--help-main div .cleiton{    
+.container--content-help .div--help-main div .cleiton{    
     background-image: url("../images/photo-cleiton.png");
     height: 300px;
     width: 300px;
@@ -40,7 +44,7 @@
     background-repeat: no-repeat;
     border: 0px;
 }
-.container--subcontent-main .container--help-form{
+.container--content-help .container--help-form{
     flex: 1 1;
     display: flex;
     justify-content: center;
@@ -51,19 +55,19 @@
     color: white;
 }
 
-.container--subcontent-main .container--help-form form{
+.container--content-help .container--help-form form{
     display: flex;
     flex-direction: column;
     flex: 1;
     width: 100%;
 }
 
-.container--subcontent-main .container--help-form p{
+.container--content-help .container--help-form p{
     font-size: 16px;
     margin-bottom: 10px;
 }
 
-.container--subcontent-main .container--help-form form input{
+.container--content-help .container--help-form form input{
     border-radius: 6px;
     border: 0px;
     padding: 10px 20px;
@@ -72,19 +76,19 @@
     background-color: white;
 }
 
-.container--subcontent-main .container--help-form form label{
+.container--content-help .container--help-form form label{
     font-size: 14px;
     margin-top: 10px;
     margin-bottom: 3px;
 }
 
-.container--subcontent-main .container--help-form form textarea{
+.container--content-help .container--help-form form textarea{
     flex: 1;
     margin-bottom: 20px;
     font-family: 'Averta';
 }
 
-.container--subcontent-main .container--help-form form input[type=submit]:hover{
+.container--content-help .container--help-form form input[type=submit]:hover{
     background-color: #f5f6fa;
     color: #62696f;
     border: 1px solid #62696f;
