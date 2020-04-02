@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
 }
-.container--auxiliar{
+.container--auxiliar-resume{
     flex: 1 1;
     height: 100%;
     padding-left: 20px;
@@ -144,19 +144,19 @@
     display: flex;    
     color: #e47474;
 }
-.container--auxiliar h1 {
+.container--auxiliar-resume h1 {
     font-family: 'Averta Extra Bold';
     font-size: 20px;
     display: none;
 }
-.container--auxiliar .div--topbuttons{
+.container--auxiliar-resume .div--topbuttons{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-basis: 40px;
     margin-bottom: 25px;
 }
-.container--auxiliar .div--topbuttons button{
+.container--auxiliar-resume .div--topbuttons button{
     border: 0px;
     border-bottom: 1px solid #b2b2b2;
     background-color: transparent;
@@ -164,13 +164,13 @@
     height: 40px;
     color: #b2b2b2;
 }
-.container--auxiliar .div--topbuttons button:hover, .container--auxiliar .div--topbuttons .selected{
+.container--auxiliar-resume .div--topbuttons button:hover, .container--auxiliar-resume .div--topbuttons .selected{
     cursor: pointer;
     color: black;
     border-bottom: 3px solid #2386fd;
     font-family: 'Averta Bold';
 }
-.container--auxiliar .div--line{
+.container--auxiliar-resume .div--line{
     display: flex;
     flex-direction: column;
     flex-basis: 40%;
@@ -179,7 +179,7 @@
     margin-top: 5px;
     margin-bottom: 25px;
 }
-.container--auxiliar .div--chart-bottom{
+.container--auxiliar-resume .div--chart-bottom{
     display: flex;
     flex-direction: column;
     flex: 1 1;
@@ -187,14 +187,14 @@
     margin-bottom: 10px;
     border-radius: 10px;
 }
-.container--auxiliar .div--bar-left{
+.container--auxiliar-resume .div--bar-left{
     display: flex;
     flex: 1 1;
     border-radius: 10px;
     background-color: white;
     flex-direction: column;
 }
-.container--auxiliar .div--bar-right{
+.container--auxiliar-resume .div--bar-right{
     display: flex;
     flex: 0;
     border-radius: 10px;
@@ -205,4 +205,53 @@
 .container--content-resume h1{
     font-family: 'Averta Extra Bold';
     font-size: 20px;
+}
+.container--auxiliar-resume .div--chart-title, .container--auxiliar-resume .div--details{
+    flex-basis: 40px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.container--auxiliar-resume .div--chart-title{
+    margin-top: 10px;
+}
+.container--auxiliar-resume .div--chart-title p{
+    font-size: 12px;
+    margin-right: 10px;
+    color: #b2b2b2;
+}
+.container--auxiliar-resume .div--chart-final{
+    flex: 1 1;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.container--auxiliar-resume .div--details{
+    justify-content: flex-end;
+    justify-items: flex-end;
+    margin-bottom: 10px;
+}
+.container--auxiliar-resume .div--details button{
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    animation-duration: 1s;
+    background-color: #ffffff;
+    box-shadow: 1px 9px 12px -8px #4e4e4e;
+    border: 0px;
+    border-radius: 5px;
+    background-position: 8px;
+    background-size: 15px;
+    background-repeat: no-repeat;
+    background-image: url("../icons/right-arrow--blue.svg"); 
+}
+.container--auxiliar-resume .div--details button:hover{
+    background-color: #2386fd;
+    background-image: url("../icons/right-arrow--white.svg");
+}
+.container--auxiliar-resume .div--details p{
+    font-size: 12px;
+    margin-right: 10px;
+    color: #b2b2b2;
 }

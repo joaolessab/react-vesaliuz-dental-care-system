@@ -10,10 +10,10 @@
 }
 
 @media only screen and (max-width: 1206px) {
-    .container--auxiliar {
+    .container--auxiliar-resume {
         overflow: visible;
     }
-    .container--auxiliar {
+    .container--auxiliar-resume {
         padding-left: 0px;
         padding-right: 0px;
         margin-top: 30px;

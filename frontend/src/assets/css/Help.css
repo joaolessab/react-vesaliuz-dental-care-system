@@ -4,14 +4,14 @@
     display: flex;
     flex-direction: column;
 }
-.container--auxiliar{
+.container--auxiliar-help{
     flex: 1 1;
     height: 100%;
     padding-left: 30px;
     padding-right: 10px;
     overflow: auto;
 }
-.container--auxiliar .div--help-main {
+.container--auxiliar-help .div--help-main {
     display: flex;
     flex: 1 1;
     border-radius: 10px;

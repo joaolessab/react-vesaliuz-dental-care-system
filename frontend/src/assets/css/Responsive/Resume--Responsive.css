@@ -12,10 +12,10 @@
     .container--content-resume .div--info {
         min-height: 220px;
     }
-    .container--auxiliar {
+    .container--auxiliar-resume {
         overflow: visible;
     }
-    .container--auxiliar {
+    .container--auxiliar-resume {
         padding-left: 0px;
         padding-right: 0px;
         margin-top: 30px;
@@ -25,7 +25,7 @@
         width: 100%;    
         margin-bottom: 20px;
     }
-    .container--auxiliar .div--bar-right {
+    .container--auxiliar-resume .div--bar-right {
         margin-top: 25px;
     }
 }
@@ -50,7 +50,7 @@
     .container--content-resume .div--info-icon {
         display: none;
     }
-    .container--auxiliar .div--topbuttons button {
+    .container--auxiliar-resume .div--topbuttons button {
         width: 65px;
     }
 }

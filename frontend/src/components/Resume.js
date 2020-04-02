@@ -138,7 +138,7 @@ export default function Resume(){
                 </div>
             </div>
 
-            <div className="container--auxiliar">
+            <div className="container--auxiliar-resume">
                 <div className="div--topbuttons">
                     <button className="selected">Dia</button>
                     <button>Semana</button>
@@ -148,7 +148,7 @@ export default function Resume(){
                 
                 {/* Bigger Chart */}
                 <div className="div--line">
-                    <div className="div--titles">
+                    <div className="div--chart-title">
                         <p>Tratamentos</p>
                     </div>
                     <div className="div--chart-final">
@@ -164,7 +164,7 @@ export default function Resume(){
                 </div>
                 <div className="div--chart-bottom">
                     <div className="div--bar-left">
-                        <div className="div--titles">
+                        <div className="div--chart-title">
                             <p>Tratamentos por mês</p>
                         </div>
                         <div className="div--chart-final">
@@ -179,7 +179,7 @@ export default function Resume(){
                         </div>
                     </div>
                     <div className="div--bar-right">
-                        <div className="div--titles">
+                        <div className="div--chart-title">
                             <p>Tratamentos</p>
                         </div>
                         <div className="div--chart-final">

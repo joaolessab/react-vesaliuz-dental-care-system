@@ -45,7 +45,7 @@ export default function Help(){
                 </div>
             </div>
 
-            <div className="container--auxiliar">
+            <div className="container--auxiliar-help">
                 <div className="div--help-main"></div>
             </div>
         </div>
