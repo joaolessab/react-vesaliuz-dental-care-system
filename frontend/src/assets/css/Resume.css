@@ -1,4 +1,4 @@
-.container--content{
+.container--subcontent-main{
     flex: 2 1;
     height: auto;
     display: flex;
@@ -11,11 +11,11 @@
     padding-right: 20px;
     overflow: auto;
 }
-.container--content .div--title{
+.container--subcontent-main .div--title{
     flex-basis: 40px;
     display: flex;
 }
-.container--content .div--info{
+.container--subcontent-main .div--info{
     display: flex;
     flex: 1;
     border-radius: 10px;
@@ -23,14 +23,14 @@
     margin-bottom: 20px;
     background-color: white;
 }
-.container--content .div--info:hover{
+.container--subcontent-main .div--info:hover{
     background-color: #2386fd;
     cursor: pointer;
 }
-.container--content .div--info:hover h1, .container--content .div--info:hover p{
+.container--subcontent-main .div--info:hover h1, .container--subcontent-main .div--info:hover p{
     color: white;
 }
-.container--content .div--info-icon{
+.container--subcontent-main .div--info-icon{
     display: flex;
     flex: 1;
     background-image: url("../icons/pessoas-trabalhando.svg");
@@ -38,25 +38,25 @@
     background-position: 50%;
     background-repeat: no-repeat;
 }
-.container--content .div--info-text{
+.container--subcontent-main .div--info-text{
     display: flex;
     flex: 2 1;
     flex-direction: column;
     justify-content: center;
     padding-right: 70px;
 }
-.container--content .div--info-text p{
+.container--subcontent-main .div--info-text p{
     text-align: justify;
 }
-.container--content .div--info-text h1{
+.container--subcontent-main .div--info-text h1{
     font-size: 20px;
     margin-bottom: 20px;
 }
-.container--content .div--chart{
+.container--subcontent-main .div--chart{
     display: flex;
     flex: 1 1;
 }
-.container--content .div--chart .revenue{
+.container--subcontent-main .div--chart .revenue{
     display: flex;
     flex: 1 1;
     border-radius: 10px;
@@ -71,26 +71,26 @@
     background-size: 15em;
     background-position: -10px 7px;
 }
-.container--content .div--chart .revenue:hover{
+.container--subcontent-main .div--chart .revenue:hover{
     cursor: pointer;
     background-color: #2386fd;
     background-image: url("../icons/profit--background-white2.svg");
 }
-.container--content .div--chart .revenue:hover h1{
+.container--subcontent-main .div--chart .revenue:hover h1{
     color: white;
 }
-.container--content .div--chart .revenue:hover p{
+.container--subcontent-main .div--chart .revenue:hover p{
     border: 1px solid white;
     color: white;
 }
-.container--content .div--chart .revenue .icon{
+.container--subcontent-main .div--chart .revenue .icon{
     flex: 1;
 }
-.container--content .div--chart .revenue h1{
+.container--subcontent-main .div--chart .revenue h1{
     font-size: 35px;
     color: #32cc77;
 }
-.container--content .div--chart .revenue p{
+.container--subcontent-main .div--chart .revenue p{
     margin-top: 10px;
     font-size: 12px;
     border: 1px solid #32cc77;
@@ -102,7 +102,7 @@
     display: flex;
     color: #32cc77;
 }
-.container--content .div--chart .expense{
+.container--subcontent-main .div--chart .expense{
     display: flex;
     flex: 1 1;
     border-radius: 10px;
@@ -117,26 +117,26 @@
     background-size: 15em;
     background-position: 0px -50px;
 }
-.container--content .div--chart .expense:hover{
+.container--subcontent-main .div--chart .expense:hover{
     cursor: pointer;
     background-color: #2386fd;
     background-image: url("../icons/expense--background-white2.svg");
 }
-.container--content .div--chart .expense:hover h1{
+.container--subcontent-main .div--chart .expense:hover h1{
     color: white;
 }
-.container--content .div--chart .expense:hover p{
+.container--subcontent-main .div--chart .expense:hover p{
     border: 1px solid white;
     color: white;
 }
-.container--content .div--chart .expense .icon{
+.container--subcontent-main .div--chart .expense .icon{
     flex: 1;
 }
-.container--content .div--chart .expense h1{
+.container--subcontent-main .div--chart .expense h1{
     font-size: 35px;
     color: #e47474;
 }
-.container--content .div--chart .expense p{
+.container--subcontent-main .div--chart .expense p{
     margin-top: 10px;
     font-size: 12px;
     border: 1px solid #e47474;

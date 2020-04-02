@@ -67,9 +67,7 @@
     width: 50px;
 }
 
-/*===================*/
-
-.container--content h1{
+.container--subcontent-main h1{
     font-family: 'Averta Extra Bold';
     font-size: 20px;
 }

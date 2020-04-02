@@ -109,7 +109,7 @@ export default function Resume(){
     // RETORNO BÁSICO DO HTML
     return (
         <div className="container--miolo-main">
-            <div className="container--content">
+            <div className="container--subcontent-main">
                 <div className="div--title">
                     <h1>Página Inicial</h1>
                 </div>

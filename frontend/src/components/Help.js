@@ -14,7 +14,7 @@ export default function Help(){
     // RETORNO BÁSICO DO HTML
     return (
         <div className="container--miolo-main">
-            <div className="container--content">
+            <div className="container--subcontent-main">
                 <div className="div--title">
                     <h1>Como nós podemos te ajudar?</h1>
                 </div>

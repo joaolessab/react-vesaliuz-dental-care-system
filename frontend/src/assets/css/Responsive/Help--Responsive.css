@@ -4,7 +4,7 @@
 */
 
 @media only screen and (max-width: 1252px) {
-    .container--content {
+    .container--subcontent-main {
         flex: 1;
     }
 }
@@ -18,7 +18,7 @@
         padding-right: 0px;
         margin-top: 30px;
     }
-    .container--content h1 {
+    .container--subcontent-main h1 {
         text-align: center;
         width: 100%;    
         margin-bottom: 20px;
