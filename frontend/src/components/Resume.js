@@ -110,7 +110,7 @@ export default function Resume(){
     return (
         <div className="container--miolo-main">
             <div className="container--content-resume">
-                <div className="div--title">
+                <div className="div--content-title">
                     <h1>Página Inicial</h1>
                 </div>
 

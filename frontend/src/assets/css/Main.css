@@ -198,6 +198,10 @@
     background-color: #2386fd;
     background-position: 2px;    
 }
+.container--blackboard-main .div--content-title{
+    flex-basis: 40px;
+    display: flex;
+}
 .div--titles, .div--details{
     flex-basis: 40px;
     display: flex;

@@ -11,10 +11,6 @@
     padding-right: 20px;
     overflow: auto;
 }
-.container--content-resume .div--title{
-    flex-basis: 40px;
-    display: flex;
-}
 .container--content-resume .div--info{
     display: flex;
     flex: 1;

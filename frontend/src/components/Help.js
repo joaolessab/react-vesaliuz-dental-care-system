@@ -15,7 +15,7 @@ export default function Help(){
     return (
         <div className="container--miolo-main">
             <div className="container--content-help">
-                <div className="div--title">
+                <div className="div--content-title">
                     <h1>Como nós podemos te ajudar?</h1>
                 </div>
 
