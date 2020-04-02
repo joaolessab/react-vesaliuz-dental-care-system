@@ -10,15 +10,8 @@
 }
 
 @media only screen and (max-width: 1206px) {
-    .container--miolo {
-        flex-direction: column;
-    }
     .container--auxiliar {
         overflow: visible;
-    }
-    .container--miolo {
-        overflow: auto;
-        padding-right: 15px;
     }
     .container--auxiliar {
         padding-left: 0px;
@@ -31,24 +24,8 @@
         margin-bottom: 20px;
     }
 }
-@media only screen and (max-width: 686px) {
-    .container--miolo {
-        padding-right: 15px;
-        padding-left: 10px;
-    }
-}
 @media only screen and (max-width: 410px) {
     .div--search button {
         margin-right: 0px !important;
-    }
-    .container--miolo {
-        padding-right: 10px;
-        padding-left: 10px;
-    }
-}
-@media only screen and (max-width: 344px) {
-    .container--miolo {
-        padding-right: 0px !important;
-        padding-left: 0px !important;
     }
 }

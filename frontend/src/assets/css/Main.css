@@ -87,12 +87,11 @@
 .container--blackboard-main .container--content-main p, .container--blackboard-main .container--content-main button{
     font-size: 14px;
 }
-.container--miolo{
+.container--miolo-main{
     flex: 1;
     display: flex;
     padding-bottom: 20px;
 }
-
 .container--blackboard-main .container--content-main .container--sidebar{
     flex-basis: 115px;
     width: 115px;

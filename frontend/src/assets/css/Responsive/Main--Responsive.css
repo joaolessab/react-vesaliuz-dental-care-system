@@ -2,6 +2,11 @@
     .container--blackboard-main .container--content-main {
         padding-right: 15px;
     }
+    .container--miolo-main {
+        overflow: auto;
+        padding-right: 15px;
+        flex-direction: column;
+    }
 }
 @media only screen and (max-width: 838px) {
     .container--blackboard-main .navbar-main--top .right--side p{
@@ -27,6 +32,10 @@
     }
     .container--blackboard-main .button--sidebar-expand {
         z-index: 1;
+    }
+    .container--miolo-main {
+        padding-right: 15px;
+        padding-left: 10px;
     }
 }
 @media only screen and (max-width: 600px) {
@@ -73,6 +82,10 @@
     .container--blackboard-main .container--content-main .container--sidebar {
         margin-left: 0px;
     }
+    .container--miolo-main {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
 }
 @media only screen and (max-width: 376px) {
     .container--blackboard-main .button--sidebar-expand {
@@ -117,5 +130,9 @@
     }    
     .container--blackboard-main .container--content-main {
         height: calc(100% - 5px) !important;
+    }
+    .container--miolo-main {
+        padding-right: 0px !important;
+        padding-left: 0px !important;
     }
 }
