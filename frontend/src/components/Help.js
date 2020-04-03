@@ -4,6 +4,8 @@ import React from 'react';
 import '../assets/css/Help.css';
 import '../assets/css/Responsive/Help--Responsive.css';
 
+import Accordion from './Accordion';
+
 export default function Help(){
    
     // FUNCOES DO JAVASCRIPT
@@ -46,7 +48,14 @@ export default function Help(){
             </div>
 
             <div className="container--auxiliar-help">
-                <div className="div--help-main"></div>
+                <div className="div--help-main">
+                    <p>Dúvidas Frequentes</p>
+                    <br/>
+                    <Accordion
+                        question = {"Questão"}
+                        answer = {"Resposta"}
+                    />
+                </div>
             </div>
         </div>
     );
