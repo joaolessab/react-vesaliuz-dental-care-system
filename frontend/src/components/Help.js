@@ -52,8 +52,23 @@ export default function Help(){
                     <p>Dúvidas Frequentes</p>
                     <br/>
                     <Accordion
-                        question = {"Questão"}
-                        answer = {"Resposta"}
+                        question = {"Como faço para vincular um paciente com um exame?"}
+                        answer = {'Basta acessar a aba de pacientes e clicar no botão: "Vincular Exame".'}
+                    />
+
+                    <Accordion
+                        question = {"Como faço para lançar despesas?"}
+                        answer = {'Basta clicar no botão "Inserir despesa" na aba Despesas.'}
+                    />
+
+                    <Accordion
+                        question = {"Como faço para vincular um paciente com um exame?"}
+                        answer = {'Basta acessar a aba de pacientes e clicar no botão: "Vincular Exame".'}
+                    />
+
+                    <Accordion
+                        question = {"Como faço para lançar despesas?"}
+                        answer = {'Basta clicar no botão "Inserir despesa" na aba Despesas.'}
                     />
                 </div>
             </div>
