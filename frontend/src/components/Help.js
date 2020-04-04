@@ -41,7 +41,7 @@ export default function Help(){
                             <textarea id="situation" placeholder="Digite o seu relato" className="input--white-context-wth-shadow">
                             </textarea>
 
-                            <input type="submit" value="Enviar" className="button--white-context"></input>
+                            <input type="submit" value="Enviar" className="button--white-context"></input>                            
                         </form>
                     </div>
                 </div>
@@ -71,6 +71,8 @@ export default function Help(){
                         answer = {'Basta nos enviar uma mensagem no WhatsApp ou por e-mail solicitando o agendamento.'}
                     />
                     <button className="button--white-context">Clique aqui para visualizar mais perguntas</button>
+                    <button className="button-chat" alt="Clique aqui para abrir o chat online"></button>
+                    <div>Clique aqui para nos chamar via WhatsApp <div></div></div>
                 </div>
             </div>
         </div>

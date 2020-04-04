@@ -94,8 +94,8 @@ div::-webkit-scrollbar-thumb
   border: 0px;
   border-radius: 4px;
   font-size: 13.7px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .button--white-context{
   height: 45px;
