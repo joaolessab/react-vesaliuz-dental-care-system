@@ -88,7 +88,6 @@
 }
 .container--content-resume .div--chart .revenue p{
     margin-top: 10px;
-    font-size: 12px;
     border: 1px solid #32cc77;
     height: 35px;
     width: 235px;
@@ -134,7 +133,6 @@
 }
 .container--content-resume .div--chart .expense p{
     margin-top: 10px;
-    font-size: 12px;
     border: 1px solid #e47474;
     height: 35px;
     width: 235px;
@@ -217,7 +215,6 @@
     margin-top: 10px;
 }
 .container--auxiliar-resume .div--chart-title p{
-    font-size: 12px;
     margin-right: 10px;
     color: #b2b2b2;
 }
@@ -251,7 +248,6 @@
     background-image: url("../icons/right-arrow--white.svg");
 }
 .container--auxiliar-resume .div--details p{
-    font-size: 12px;
     margin-right: 10px;
     color: #b2b2b2;
 }

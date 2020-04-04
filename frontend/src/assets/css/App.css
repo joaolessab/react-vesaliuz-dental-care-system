@@ -19,6 +19,10 @@ body, input, button, h1, h2, h3, h4, h5, h6{
   font-family: 'Averta';
 }
 
+body, input, button{
+  font-size: 13.7px;
+}
+
 input, select, textarea{
   height: 45px;
   border-radius: 6px;
@@ -59,82 +63,8 @@ div::-webkit-scrollbar-thumb
   padding: 35px;
 }
 
-/* Botões */
-.button--labelType{
-  font-family: 'Averta Semibold';
-  flex-basis: 150px;
-  border: 0px;
-  height: 45px;
-  background-color: transparent;
-}
-.button--labelType:hover{
-  color: #B4B7BD;
-  cursor: pointer;
-}
-
-/* // Principal Normal Buttons // */
-.button--rectangle-primary{
-  height: 45px;
-  border: 0px;
-  border-radius: 6px;
-  background-color: #2584FE;
-  color: white;
-  width: 200px;
-  cursor: pointer;
-}
-.button--rectangle-primary:hover{
-  height: 45px;
-  border-radius: 6px;
-  background-color: #f5f6fa;
-  color: #62696f;
-  border: 1px solid #62696f;
-  width: 200px;
-  cursor: pointer;
-  font-family: 'Averta Semibold';
-}
-.button--rectangle-secondary{
-  height: 45px;
-  border-radius: 6px;
-  background-color: #f5f6fa;
-  color: #62696f;
-  border: 1px solid #62696f;
-  width: 200px;
-  cursor: pointer;
-  font-family: 'Averta Semibold';
-}
-.button--rectangle-secondary:hover{
-  height: 45px;
-  border-radius: 6px;
-  background-color: #f5f6fa;
-  color: #62696f;
-  border: 1px solid #62696f;
-  width: 200px;
-  cursor: pointer;
-  font-family: 'Averta Semibold';
-  box-shadow: 1px 6px 3px 0px #969696;
-}
-
-/* // Principal Middle Buttons // */
-.button--rectangle-primary-middle-size{
-  height: 45px;
-  border: 0px;
-  border-radius: 6px;
-  background-color: #2584FE;
-  color: white;
-  width: 150px;
-  cursor: pointer;
-}
-.button--rectangle-primary-middle-size:hover{
-  height: 45px;
-  border-radius: 6px;
-  background-color: #f5f6fa;
-  color: #62696f;
-  border: 1px solid #62696f;
-  width: 150px;
-  cursor: pointer;
-  font-family: 'Averta Semibold';
-}
-.button--rectangle-secondary-middle-size{
+/* BOTÕES NORMALIZADOS */
+.button--white-square{
   border-radius: 10px;
   background-color: #f5f6fa;
   color: #62696f;
@@ -144,7 +74,7 @@ div::-webkit-scrollbar-thumb
   cursor: pointer;
   font-family: 'Averta Semibold';
 }
-.button--rectangle-secondary-middle-size:hover{
+.button--white-square:hover{
   border-radius: 10px;
   background-color: #007BFF;
   color: white;
@@ -153,4 +83,71 @@ div::-webkit-scrollbar-thumb
   width: 50px;
   cursor: pointer;
   font-family: 'Averta Semibold';
+}
+.input--white-context-wth-shadow{
+  background-color: white;
+  width: 100%;
+  height: 45px;
+  padding: 10px 20px;
+  font-family: 'Averta';
+  font-weight: 300;
+  border: 0px;
+  border-radius: 4px;
+  font-size: 13.3px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.button--black-label{
+  font-family: 'Averta Semibold';
+  flex-basis: 150px;
+  border: 0px;
+  height: 45px;
+  background-color: transparent;
+}
+.button--black-labe:hover{
+  color: #B4B7BD;
+  cursor: pointer;
+}
+.button--white-context{
+  height: 45px;
+  border-radius: 6px;
+  background-color: #f5f6fa;
+  color: #62696f;
+  border: 1px solid #b5b5b5;
+  cursor: pointer;
+  font-family: 'Averta Semibold';
+  font-size: 13.7px;
+}
+.button--white-context:hover{
+  height: 45px;
+  border-radius: 6px;
+  background-color: #f5f6fa;
+  color: #62696f;
+  border: 1px solid #62696f;
+  cursor: pointer;
+  font-family: 'Averta Semibold';
+  box-shadow: 1px 6px 3px 0px #969696;
+  font-size: 14px;
+}
+.p--subtitle{
+  font-size: 16px;
+}
+.button--blue-context{
+  height: 45px;
+  border: 0px;
+  border-radius: 6px;
+  background-color: #2584FE;
+  color: white;
+  cursor: pointer;
+}
+.button--blue-context:hover{
+  height: 45px;
+  border-radius: 6px;
+  background-color: #f5f6fa;
+  color: #62696f;
+  border: 1px solid #62696f;
+  cursor: pointer;
+  font-family: 'Averta Semibold';
+  box-shadow: 1px 6px 3px 0px #969696;
+  font-size: 14px;
 }

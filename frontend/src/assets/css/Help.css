@@ -64,38 +64,24 @@
     flex: 1;
     width: 100%;
 }
-
 .container--content-help .container--help-form p{
-    font-size: 16px;
     margin-bottom: 10px;
 }
-
-.container--content-help .container--help-form form input{
-    border-radius: 6px;
-    border: 0px;
-    padding: 10px 20px;
-    flex-basis: 45px;
-    font-family: 'Averta';
-    background-color: white;
-}
-
 .container--content-help .container--help-form form label{
     font-size: 14px;
     margin-top: 10px;
     margin-bottom: 3px;
 }
-
 .container--content-help .container--help-form form textarea{
     flex: 1;
     margin-bottom: 20px;
     font-family: 'Averta';
 }
-
-.container--content-help .container--help-form form input[type=submit]:hover{
-    background-color: #f5f6fa;
-    color: #62696f;
-    border: 1px solid #62696f;
-    cursor: pointer;
-    font-family: 'Averta Semibold';
-    box-shadow: 1px 6px 3px 0px #969696;
+.container--auxiliar-help .button--white-context{
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.container--content-help .container--help-form .button--white-context:hover{
+    width: 100%;
 }

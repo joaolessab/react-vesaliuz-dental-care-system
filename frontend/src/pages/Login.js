@@ -27,7 +27,7 @@ export default function Login({ history }){
                     <div className="container--form-top">
                         <div>
                             <div className="div--brushTeth"></div>
-                            <button className="button--rectangle-secondary">Cadastre-se</button>
+                            <button className="button--white-context">Cadastre-se</button>
                         </div>
                     </div>
                     <div className="container--form-middle">
@@ -45,19 +45,19 @@ export default function Login({ history }){
                             />
                             <div className="div--container-formAction">
                                 <div className="div--container-formAction--leftSplitter">
-                                    <button className="button--labelType">Esqueceu sua senha?</button>
+                                    <button className="button--black-label">Esqueceu sua senha?</button>
                                 </div>
                                 <div className="div--container-formAction--rightSplitter">
-                                    <button className="button--rectangle-primary">Entrar</button>
+                                    <button className="button--blue-context">Entrar</button>
                                 </div>
                             </div>
                         </form>
                     </div>
                     <div className="container--form-bottom">
-                        <button className="button--labelType">Nubibuz 2019</button>
-                        <button className="button--labelType">Termos e Condições</button>
-                        <button className="button--labelType">Privacidade</button>
-                        <button className="button--labelType">Precisa de ajuda?</button>
+                        <button className="button--black-label">Nubibuz 2019</button>
+                        <button className="button--black-label">Termos e Condições</button>
+                        <button className="button--black-label">Privacidade</button>
+                        <button className="button--black-label">Precisa de ajuda?</button>
                     </div>
                 </div>
                 

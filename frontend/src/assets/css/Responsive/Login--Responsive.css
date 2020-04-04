@@ -30,7 +30,7 @@
     .container--blackboard-login .container--form-top .div--brushTeth{
         display: block !important;
     }
-    .container--blackboard-login .button--rectangle-secondary {
+    .container--blackboard-login .button--white-context{
         border: 0px;
     }
     .container--blackboard-login .container--form .container--form-top {
@@ -78,7 +78,7 @@
     .container--blackboard-login .container--form form .div--container-formAction {
         flex-direction: column-reverse;
     }
-    .container--blackboard-login .button--rectangle-primary {
+    .container--blackboard-login .button--blue-context {
         flex: 1;
     }
     .container--blackboard-login .container--form .container--form-bottom {
@@ -86,10 +86,10 @@
         background-color: white;
         margin-top: 40px;
     }
-    .container--blackboard-login .button--labelType {
+    .container--blackboard-login .button--black-label {
         flex-basis: 40px;
     }
-    .container--blackboard-login .div--container-formAction--leftSplitter .button--labelType {
+    .container--blackboard-login .div--container-formAction--leftSplitter .button--black-label {
         flex-basis: 100%;
         margin-top: 20px;
     }

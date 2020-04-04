@@ -6,7 +6,7 @@ import '../assets/css/AutoCompleteSuggest.css';
 
 const itemsSuggest = [
     {
-        title: 'Pacientes',
+        title: 'Clientes',
         itemsSuggest: [
             {
               name: 'César',

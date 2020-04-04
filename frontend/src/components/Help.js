@@ -26,22 +26,22 @@ export default function Help(){
                         <div className="cleiton"></div>
                     </div>
                     <div className="container--help-form">
-                        <p>Conte-nos o seu problema</p>
+                        <p className="p--subtitle">Conte-nos o seu problema</p>
                         <form>
                             <label for="name">Seu nome:</label>
-                            <input type="text" id="name" placeholder="Digite o seu nome" />
+                            <input type="text" id="name" placeholder="Digite o seu nome" className="input--white-context-wth-shadow"/>
 
                             <label for="email">Seu e-mail:</label>
-                            <input type="email" id="email" placeholder="Digite seu melhor e-mail" />
+                            <input type="email" id="email" placeholder="Digite seu melhor e-mail" className="input--white-context-wth-shadow"/>
 
                             <label for="telephone">Seu telefone:</label>
-                            <input type="text" id="telephone" placeholder="Digite o seu melhor telefone" />
+                            <input type="text" id="telephone" placeholder="Digite o seu melhor telefone" className="input--white-context-wth-shadow"/>
 
                             <label for="situation">Seu problema:</label>
-                            <textarea id="situation" placeholder="Digite o seu relato">
+                            <textarea id="situation" placeholder="Digite o seu relato" className="input--white-context-wth-shadow">
                             </textarea>
 
-                            <input type="submit" value="Enviar"></input>
+                            <input type="submit" value="Enviar" className="button--white-context"></input>
                         </form>
                     </div>
                 </div>
@@ -49,11 +49,11 @@ export default function Help(){
 
             <div className="container--auxiliar-help">
                 <div className="div--help-main">
-                    <p>Dúvidas Frequentes</p>
+                    <p className="p--subtitle">Dúvidas Frequentes</p>
                     <br/>
                     <Accordion
-                        question = {"Como faço para vincular um paciente com um exame?"}
-                        answer = {'Basta acessar a aba de pacientes e clicar no botão: "Vincular Exame".'}
+                        question = {"Como faço para registrar reembolso?"}
+                        answer = {'Basta acessar a aba de clientes e clicar no botão: "Vincular Exame".'}
                     />
 
                     <Accordion
@@ -62,14 +62,15 @@ export default function Help(){
                     />
 
                     <Accordion
-                        question = {"Como faço para vincular um paciente com um exame?"}
-                        answer = {'Basta acessar a aba de pacientes e clicar no botão: "Vincular Exame".'}
+                        question = {"Como faço para lançar receitas?"}
+                        answer = {'Basta clicar no botão "Inserir receita" na aba Receitas.'}
                     />
 
                     <Accordion
-                        question = {"Como faço para lançar despesas?"}
-                        answer = {'Basta clicar no botão "Inserir despesa" na aba Despesas.'}
+                        question = {"Como faço para pedir suporte agendado?"}
+                        answer = {'Basta nos enviar uma mensagem no WhatsApp ou por e-mail solicitando o agendamento.'}
                     />
+                    <button className="button--white-context">Clique aqui para visualizar mais perguntas</button>
                 </div>
             </div>
         </div>

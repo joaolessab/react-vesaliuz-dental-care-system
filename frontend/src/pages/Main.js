@@ -97,7 +97,7 @@ class Main extends React.Component{
                             <i className="alert"></i>
                             <p>Bem-vindo, João</p>
                             <div className="photo"></div>
-                            <button className="button--rectangle-secondary-middle-size lrbuton icon-exit--white">
+                            <button className="button--white-square">
                                 <p>Sair</p>
                             </button>
                         </div>
@@ -124,10 +124,10 @@ class Main extends React.Component{
                                 </button>
 
                                 <button 
-                                    className="icon--pacientes"
-                                    onClick={() => this.accessPage("Patients")}
+                                    className="icon--clientes"
+                                    onClick={() => this.accessPage("Clients")}
                                 >
-                                    <span>Pacientes</span>
+                                    <span>Clientes</span>
                                 </button>
                                 
                                 <button 

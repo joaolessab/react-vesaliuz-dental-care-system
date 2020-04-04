@@ -77,9 +77,6 @@
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
 }
-.container--blackboard-main .container--content-main p, .container--blackboard-main .container--content-main button{
-    font-size: 14px;
-}
 .container--miolo-main{
     flex: 1;
     display: flex;
