@@ -140,10 +140,10 @@ export default function Resume(){
 
             <div className="container--auxiliar-resume">
                 <div className="div--topbuttons">
-                    <button className="selected">Dia</button>
-                    <button>Semana</button>
-                    <button>Mês</button>
-                    <button>Ano</button>
+                    <button className="button--grey-label_underlined selected">Dia</button>
+                    <button className="button--grey-label_underlined">Semana</button>
+                    <button className="button--grey-label_underlined">Mês</button>
+                    <button className="button--grey-label_underlined">Ano</button>
                 </div>
                 
                 {/* Bigger Chart */}

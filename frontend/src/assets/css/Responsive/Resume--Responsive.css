@@ -50,7 +50,7 @@
     .container--content-resume .div--info-icon {
         display: none;
     }
-    .container--auxiliar-resume .div--topbuttons button {
+    .container--auxiliar-resume .button--grey-label_underlined {
         width: 65px;
     }
 }

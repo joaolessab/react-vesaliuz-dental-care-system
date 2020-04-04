@@ -93,20 +93,9 @@ div::-webkit-scrollbar-thumb
   font-weight: 300;
   border: 0px;
   border-radius: 4px;
-  font-size: 13.3px;
+  font-size: 13.7px;
   padding-left: 20px;
   padding-right: 20px;
-}
-.button--black-label{
-  font-family: 'Averta Semibold';
-  flex-basis: 150px;
-  border: 0px;
-  height: 45px;
-  background-color: transparent;
-}
-.button--black-labe:hover{
-  color: #B4B7BD;
-  cursor: pointer;
 }
 .button--white-context{
   height: 45px;
@@ -150,4 +139,28 @@ div::-webkit-scrollbar-thumb
   font-family: 'Averta Semibold';
   box-shadow: 1px 6px 3px 0px #969696;
   font-size: 14px;
+}
+
+.button--grey-label_underlined {
+  border: 0px;
+  border-bottom: 1px solid #b2b2b2;
+  background-color: transparent;
+  width: 100px;
+  height: 40px;
+  color: #b2b2b2;
+}
+
+.button--grey-label_underlined:hover, .button--black-label:hover {
+  cursor: pointer;
+  color: black;
+  border-bottom: 3px solid #2386fd;
+  font-family: 'Averta Bold';
+}
+
+.button--black-label{
+  font-family: 'Averta Semibold';
+  flex-basis: 150px;
+  border: 0px;
+  height: 45px;
+  background-color: transparent;
 }
