@@ -21,6 +21,15 @@
     align-items: center;
     padding: 20px;
 }
+.container--auxiliar-help .div--help-main .div--accordion-list{
+    margin-top: 20px;
+    width: calc(100% + 5px);
+    height: 188px;
+    overflow: auto;
+    margin-right: -5px;
+    padding-right: 5px;
+}
+
 .container--content-help h1{
     font-family: 'Averta Extra Bold';
     font-size: 20px;
@@ -81,23 +90,26 @@
 }
 .container--auxiliar-help .button--white-context{
     width: 100%;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    min-height: 45px;
 }
 .container--content-help .container--help-form .button--white-context:hover{
     width: 100%;
 }
 .container--auxiliar-help .button-chat{
-    height: 100px;
-    width: 100px;
-    border-radius: 100px;
+    background-image: url("../images/chatBot.png");
+    width: 300px;
     border: 0px;
+    background-size: 209px;
+    background-repeat: no-repeat;
+    background-position: 62px 0px;
+    background-color: transparent;
+    height: 196px;
+    position: fixed;
+    bottom: 55px;
 }
-.container--auxiliar-help .button-chat:hover{
-    height: 100px;
-    width: 100px;
-    border-radius: 100px;
-    border: 0px;
-    box-shadow: 0px 0px 7px 5px #2386fd;
+.container--auxiliar-help .button-chat:hover{    
+    background-image: url("../images/chatBot--hover.png");
     cursor: pointer;
 }

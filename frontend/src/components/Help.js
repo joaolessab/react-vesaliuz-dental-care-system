@@ -50,29 +50,25 @@ export default function Help(){
             <div className="container--auxiliar-help">
                 <div className="div--help-main">
                     <p className="p--subtitle">Dúvidas Frequentes</p>
-                    <br/>
-                    <Accordion
-                        question = {"Como faço para registrar reembolso?"}
-                        answer = {'Basta acessar a aba de clientes e clicar no botão: "Vincular Exame".'}
-                    />
+                    <div className="div--accordion-list">
+                        <Accordion
+                            question = {"Como faço para registrar reembolso?"}
+                            answer = {'Basta acessar a aba de clientes e clicar no botão: "Vincular Exame".'}
+                        />
 
-                    <Accordion
-                        question = {"Como faço para lançar despesas?"}
-                        answer = {'Basta clicar no botão "Inserir despesa" na aba Despesas.'}
-                    />
+                        <Accordion
+                            question = {"Como faço para lançar receitas?"}
+                            answer = {'Basta clicar no botão "Inserir receita" na aba Receitas.'}
+                        />
 
-                    <Accordion
-                        question = {"Como faço para lançar receitas?"}
-                        answer = {'Basta clicar no botão "Inserir receita" na aba Receitas.'}
-                    />
-
-                    <Accordion
-                        question = {"Como faço para pedir suporte agendado?"}
-                        answer = {'Basta nos enviar uma mensagem no WhatsApp ou por e-mail solicitando o agendamento.'}
-                    />
-                    <button className="button--white-context">Clique aqui para visualizar mais perguntas</button>
+                        <Accordion
+                            question = {"Como faço para pedir suporte agendado?"}
+                            answer = {'Basta nos enviar uma mensagem no WhatsApp ou por e-mail solicitando o agendamento.'}
+                        />                        
+                    </div>
+                    <button className="button--white-context">Clique aqui para visualizar mais perguntas</button>                    
+                    <button className="button--white-context">Clique aqui para nos chamar via WhatsApp</button>
                     <button className="button-chat" alt="Clique aqui para abrir o chat online"></button>
-                    <div>Clique aqui para nos chamar via WhatsApp <div></div></div>
                 </div>
             </div>
         </div>

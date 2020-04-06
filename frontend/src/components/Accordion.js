@@ -23,7 +23,7 @@ class Accordion extends React.Component{
             panel.style.maxHeight = null;
         } 
         else {
-            panel.style.maxHeight = panel.scrollHeight + "px";
+            panel.style.maxHeight = panel.scrollHeight + 20 + "px";
         }
     };
 
