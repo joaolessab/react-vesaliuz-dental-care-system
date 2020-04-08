@@ -15,14 +15,15 @@ export default function Help(){
 
     // RETORNO BÁSICO DO HTML
     return (
-        <div className="container--miolo-main">
+        <div className="container--miolo-main container--miolo-help">
+            <h1 className="p--subtitle-help-hidden">Como nós podemos te ajudar?</h1>
             <div className="container--content-help">
                 <div className="div--content-title">
                     <h1>Como nós podemos te ajudar?</h1>
                 </div>
 
                 <div className="div--help-main">
-                    <div>
+                    <div className="div--professional-banner">
                         <div className="cleiton"></div>
                     </div>
                     <div className="container--help-form">

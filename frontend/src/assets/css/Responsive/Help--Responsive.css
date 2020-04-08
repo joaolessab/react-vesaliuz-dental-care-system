@@ -1,31 +1,96 @@
-/* 
+/*****
     Width: 320px until 2880px
     Height: 240px until 1800px 
-*/
+******/
 
-@media only screen and (max-width: 1252px) {
-    .container--content-help {
-        flex: 1;
+/*****
+WIDTH
+******/
+@media only screen and (max-width: 1270px) {
+    .container--content-help .div--help-main div .cleiton {
+        height: 250px;
+        width: 250px;
+        background-size: 250px;
     }
 }
-
-@media only screen and (max-width: 1206px) {
-    .container--auxiliar-resume {
-        overflow: visible;
+@media only screen and (max-width: 1208px) {
+    .container--content-help .div--help-main {
+        flex-direction: column;
     }
-    .container--auxiliar-resume {
-        padding-left: 0px;
-        padding-right: 0px;
-        margin-top: 30px;
+    .div--professional-banner{
+        display: none !important;
+    }
+    .container--miolo-help {
+        flex-direction: row !important;
+        padding-right: 0px !important;
+        padding-top: 50px;
     }
     .container--content-help h1 {
         text-align: center;
-        width: 100%;    
+        width: 100%;
         margin-bottom: 20px;
     }
+    .container--content-help, .container--auxiliar-help {
+        flex: 2;
+    }
+    .container--content-help h1 {
+        display: none;
+    }
+    .p--subtitle-help-hidden{
+        display: block;
+        position: absolute;
+        margin: 0 auto;
+        right: 0;
+        left: 0;
+        top: 160px;
+        text-align: center;
+        font-family: 'Averta Extra Bold';
+        font-size: 20px;
+    }
 }
-@media only screen and (max-width: 410px) {
-    .div--search button {
-        margin-right: 0px !important;
+@media only screen and (max-width: 830px) {
+    .container--content-help, .container--auxiliar-help {
+        flex: 1 !important;
+    }
+    .container--content-help .div--help-main div {
+        margin-top: 0px;
+    }
+    .container--content-help h1 {
+        display: block !important;
+    }
+    .container--miolo-help {
+        flex-direction: column !important;
+        padding-right: 15px !important;
+        padding-top: 0px !important;
+    }
+    .p--subtitle-help-hidden {
+        display: none !important;
+    }
+    .container--auxiliar-help {
+        margin-top: 20px;
+        padding-left: 0px;
+        padding-right: 0px;
+        overflow: initial;
+    }
+}
+@media only screen and (max-width: 408px){
+    .container--miolo-help {
+        padding-right: 10px !important;
+        padding-right: 10px !important;
+        padding-left: 10px;
+    }
+    .button-chat{
+        width: 270px !important;
+        background-size: 214px !important; 
+        background-position: 47px 9px !important;
+        height: 196px;
+    }
+}
+/*****
+HEIGHT
+******/
+@media only screen and (max-height: 756px) {
+    .button-chat{
+        background-color: red !important;
     }
 }
