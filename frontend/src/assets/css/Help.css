@@ -13,11 +13,13 @@
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    height: calc(100% + 60px);
+    overflow: auto;
 }
 .container--help-questions .div--accordion-list{
     margin-top: 20px;
     width: calc(100% + 5px);
-    flex-basis: 188px;
+    flex-basis: calc(100% + 60px);
     overflow: auto;
     margin-right: -5px;
     padding-right: 5px;
@@ -33,7 +35,7 @@
     background-color: white;
     margin-top: 20px;
 }
-.container--content-help .div--help-main .container--help-banner, .container--content-help .div--help-main .container--help-form, .container--content-help .div--help-main .container--help-questions{
+.container--content-help .div--help-main .container--help-banner, .container--content-help .div--help-main .container--help-form{
     flex: 1;
     display: flex;
     justify-content: center;
@@ -93,7 +95,7 @@
 .container--content-help .container--help-form .button--white-context:hover{
     width: 100%;
 }
-.container--help-questions .button-chat{
+.button-chat{
     background-image: url("../images/chatBot.png");
     width: 300px;
     border: 0px;
@@ -103,16 +105,7 @@
     background-color: transparent;
     flex: 1;
 }
-.container--help-questions .button-chat:hover{    
+.button-chat:hover{    
     background-image: url("../images/chatBot--hover.png");
     cursor: pointer;
-}
-.container--content-help .div--help-main .container--help-questions{
-    display: flex;    
-    height: calc(100% + 60px);
-}
-.container--content-help .div--help-main .container--help-questions .div--button-list{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
 }

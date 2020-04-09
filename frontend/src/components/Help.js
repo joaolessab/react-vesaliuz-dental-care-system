@@ -24,6 +24,9 @@ export default function Help(){
                 <div className="div--help-main">
 
                     <div className="container--help-banner">
+                        <button className="button--white-context">Clique aqui para visualizar mais perguntas</button>                    
+                        <button className="button--white-context">Clique aqui para nos chamar via WhatsApp</button>
+                        <button className="button-chat" alt="Clique aqui para abrir o chat online"></button>
                         <div className="cleiton"></div>
                     </div>
                     
@@ -43,7 +46,7 @@ export default function Help(){
                             <textarea id="situation" placeholder="Digite o seu relato" className="input--white-context-wth-shadow">
                             </textarea>
 
-                            <input type="submit" value="Enviar" className="button--white-context"></input>                            
+                            <input type="submit" value="Enviar e-mail" className="button--white-context"></input>                            
                         </form>
                     </div>
                 
@@ -61,12 +64,31 @@ export default function Help(){
                             <Accordion
                                 question = {"Como faço para pedir suporte agendado?"}
                                 answer = {'Basta nos enviar uma mensagem no WhatsApp ou por e-mail solicitando o agendamento.'}
-                            />                        
-                        </div>
-                        <div className="div--button-list">
-                            <button className="button--white-context">Clique aqui para visualizar mais perguntas</button>                    
-                            <button className="button--white-context">Clique aqui para nos chamar via WhatsApp</button>
-                            <button className="button-chat" alt="Clique aqui para abrir o chat online"></button>
+                            />
+                            <Accordion
+                                question = {"Como faço para registrar reembolso?"}
+                                answer = {'Basta acessar a aba de clientes e clicar no botão: "Vincular Exame".'}
+                            />
+                            <Accordion
+                                question = {"Como faço para lançar receitas?"}
+                                answer = {'Basta clicar no botão "Inserir receita" na aba Receitas.'}
+                            />
+                            <Accordion
+                                question = {"Como faço para pedir suporte agendado?"}
+                                answer = {'Basta nos enviar uma mensagem no WhatsApp ou por e-mail solicitando o agendamento.'}
+                            />
+                            <Accordion
+                                question = {"Como faço para registrar reembolso?"}
+                                answer = {'Basta acessar a aba de clientes e clicar no botão: "Vincular Exame".'}
+                            />
+                            <Accordion
+                                question = {"Como faço para lançar receitas?"}
+                                answer = {'Basta clicar no botão "Inserir receita" na aba Receitas.'}
+                            />
+                            <Accordion
+                                question = {"Como faço para pedir suporte agendado?"}
+                                answer = {'Basta nos enviar uma mensagem no WhatsApp ou por e-mail solicitando o agendamento.'}
+                            />                         
                         </div>
                     </div>                
                 </div>
