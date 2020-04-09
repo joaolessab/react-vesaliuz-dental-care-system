@@ -132,45 +132,7 @@
     font-size: 20px;
     display: none;
 }
-.container-questions--help .div--topbuttons{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-basis: 40px;
-    margin-bottom: 25px;
-}
-.container-questions--help .div--topbuttons .selected{
-    cursor: pointer;
-    color: black;
-    border-bottom: 3px solid #2386fd;
-    font-family: 'Averta Bold';
-}
 .container--content-help h1{
     font-family: 'Averta Extra Bold';
     font-size: 20px;
-}
-.container-questions--help .div--chart-title, .container-questions--help .div--details{
-    flex-basis: 40px;
-    display: flex;
-    align-items: center;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-.container-questions--help .div--details button{
-    height: 30px;
-    width: 30px;
-    cursor: pointer;
-    animation-duration: 1s;
-    background-color: #ffffff;
-    box-shadow: 1px 9px 12px -8px #4e4e4e;
-    border: 0px;
-    border-radius: 5px;
-    background-position: 8px;
-    background-size: 15px;
-    background-repeat: no-repeat;
-    background-image: url("../icons/right-arrow--blue.svg"); 
-}
-.container-questions--help .div--details p{
-    margin-right: 10px;
-    color: #b2b2b2;
 }

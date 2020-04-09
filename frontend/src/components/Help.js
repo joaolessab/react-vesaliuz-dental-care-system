@@ -5,6 +5,8 @@ import { defaults } from 'react-chartjs-2';
 import '../assets/css/Help.css';
 import '../assets/css/Responsive/Help--Responsive.css';
 
+import Accordion from './Accordion';
+
 export default function Help(){
     defaults.global.defaultFontFamily = 'Averta';
 
@@ -56,10 +58,42 @@ export default function Help(){
 
             <div className="container-questions--help">
                 <div className="div--topbuttons">
-                    <button className="button--grey-label_underlined selected">Dia</button>
-                    <button className="button--grey-label_underlined">Semana</button>
-                    <button className="button--grey-label_underlined">Mês</button>
-                    <button className="button--grey-label_underlined">Ano</button>
+                    <p className="p--subtitle">Dúvidas Frequentes</p>
+
+                    <div className="div--accordion-list">
+                        <Accordion
+                            question = {"Como faço para registrar reembolso?"}
+                            answer = {'Basta acessar a aba de clientes e clicar no botão: "Vincular Exame".'}
+                            />
+                        <Accordion
+                            question = {"Como faço para lançar receitas?"}
+                            answer = {'Basta clicar no botão "Inserir receita" na aba Receitas.'}
+                        />
+                        <Accordion
+                            question = {"Como faço para registrar reembolso?"}
+                            answer = {'Basta acessar a aba de clientes e clicar no botão: "Vincular Exame".'}
+                            />
+                        <Accordion
+                            question = {"Como faço para lançar receitas?"}
+                            answer = {'Basta clicar no botão "Inserir receita" na aba Receitas.'}
+                        />
+                        <Accordion
+                            question = {"Como faço para registrar reembolso?"}
+                            answer = {'Basta acessar a aba de clientes e clicar no botão: "Vincular Exame".'}
+                            />
+                        <Accordion
+                            question = {"Como faço para lançar receitas?"}
+                            answer = {'Basta clicar no botão "Inserir receita" na aba Receitas.'}
+                        />
+                        <Accordion
+                            question = {"Como faço para registrar reembolso?"}
+                            answer = {'Basta acessar a aba de clientes e clicar no botão: "Vincular Exame".'}
+                            />
+                        <Accordion
+                            question = {"Como faço para lançar receitas?"}
+                            answer = {'Basta clicar no botão "Inserir receita" na aba Receitas.'}
+                        />                  
+                    </div>
                 </div>
             </div>
         </div>
