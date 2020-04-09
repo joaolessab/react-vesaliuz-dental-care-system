@@ -1,52 +1,17 @@
-.container--content-help{
-    flex: 1;
+.container--content-modelo{
+    flex: 2 1;
     height: auto;
     display: flex;
     flex-direction: column;
 }
-.container--form-help{
+.container--auxiliar-resume{
     flex: 1 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: #2386fd;
-    border-radius: 10px;
-    color: white;
-    padding: 20px;
-}
-.container--form-help form{
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    width: 100%;
-}
-.container--form-help p{
-    margin-bottom: 10px;
-}
-.container--form-help form label{
-    font-size: 14px;
-    margin-left: 10px;
-    margin-bottom: 8px;
-    margin-top: 10px;
-}
-.container--form-help form textarea{
-    flex: 1;
-    margin-bottom: 20px;
-    font-family: 'Averta';
-}
-.container-questions--help{
-    display: flex;
-    flex: 1 1;
-    border-radius: 10px;
-    background-color: white;
     height: 100%;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
     overflow: auto;
 }
-.container--content-help .div--info{
+.container--content-modelo .div--info{
     display: flex;
     flex: 1;
     border-radius: 10px;
@@ -54,14 +19,14 @@
     margin-bottom: 20px;
     background-color: white;
 }
-.container--content-help .div--info:hover{
+.container--content-modelo .div--info:hover{
     background-color: #2386fd;
     cursor: pointer;
 }
-.container--content-help .div--info:hover h1, .container--content-help .div--info:hover p{
+.container--content-modelo .div--info:hover h1, .container--content-modelo .div--info:hover p{
     color: white;
 }
-.container--content-help .div--info-icon{
+.container--content-modelo .div--info-icon{
     display: flex;
     flex: 1;
     background-image: url("../icons/pessoas-trabalhando.svg");
@@ -69,25 +34,25 @@
     background-position: 50%;
     background-repeat: no-repeat;
 }
-.container--content-help .div--info-text{
+.container--content-modelo .div--info-text{
     display: flex;
     flex: 2 1;
     flex-direction: column;
     justify-content: center;
     padding-right: 70px;
 }
-.container--content-help .div--info-text p{
+.container--content-modelo .div--info-text p{
     text-align: justify;
 }
-.container--content-help .div--info-text h1{
+.container--content-modelo .div--info-text h1{
     font-size: 20px;
     margin-bottom: 20px;
 }
-.container--content-help .div--chart{
+.container--content-modelo .div--chart{
     display: flex;
     flex: 1 1;
 }
-.container--content-help .div--chart .revenue{
+.container--content-modelo .div--chart .revenue{
     display: flex;
     flex: 1 1;
     border-radius: 10px;
@@ -102,12 +67,12 @@
     background-size: 15em;
     background-position: -10px 7px;
 }
-.container--content-help .div--chart .revenue:hover{
+.container--content-modelo .div--chart .revenue:hover{
     cursor: pointer;
     background-color: #2386fd;
     background-image: url("../icons/profit--background-white2.svg");
 }
-.container--content-help .div--chart .expense{
+.container--content-modelo .div--chart .expense{
     display: flex;
     flex: 1 1;
     border-radius: 10px;
@@ -122,41 +87,41 @@
     background-size: 15em;
     background-position: 0px -50px;
 }
-.container--content-help .div--chart .expense:hover{
+.container--content-modelo .div--chart .expense:hover{
     cursor: pointer;
     background-color: #2386fd;
     background-image: url("../icons/expense--background-white2.svg");
 }
-.container-questions--help h1 {
+.container--auxiliar-resume h1 {
     font-family: 'Averta Extra Bold';
     font-size: 20px;
     display: none;
 }
-.container-questions--help .div--topbuttons{
+.container--auxiliar-resume .div--topbuttons{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-basis: 40px;
     margin-bottom: 25px;
 }
-.container-questions--help .div--topbuttons .selected{
+.container--auxiliar-resume .div--topbuttons .selected{
     cursor: pointer;
     color: black;
     border-bottom: 3px solid #2386fd;
     font-family: 'Averta Bold';
 }
-.container--content-help h1{
+.container--content-modelo h1{
     font-family: 'Averta Extra Bold';
     font-size: 20px;
 }
-.container-questions--help .div--chart-title, .container-questions--help .div--details{
+.container--auxiliar-resume .div--chart-title, .container--auxiliar-resume .div--details{
     flex-basis: 40px;
     display: flex;
     align-items: center;
     padding-left: 20px;
     padding-right: 20px;
 }
-.container-questions--help .div--details button{
+.container--auxiliar-resume .div--details button{
     height: 30px;
     width: 30px;
     cursor: pointer;
@@ -170,7 +135,7 @@
     background-repeat: no-repeat;
     background-image: url("../icons/right-arrow--blue.svg"); 
 }
-.container-questions--help .div--details p{
+.container--auxiliar-resume .div--details p{
     margin-right: 10px;
     color: #b2b2b2;
 }
