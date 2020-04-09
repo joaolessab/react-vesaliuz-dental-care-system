@@ -38,7 +38,7 @@ function animateSidebar(e){
 
 window.addEventListener('load', handleResize);
 function handleResize(){
-    if (window.location == "/"){
+    if (window.location === "/"){
         if (window.outerWidth < 490){
             animateSidebar("expanded");
         }

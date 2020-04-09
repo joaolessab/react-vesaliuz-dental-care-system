@@ -16,16 +16,17 @@ export default function Help(){
     // RETORNO BÁSICO DO HTML
     return (
         <div className="container--miolo-main container--miolo-help">
-            <h1 className="p--subtitle-help-hidden">Como nós podemos te ajudar?</h1>
             <div className="container--content-help">
                 <div className="div--content-title">
                     <h1>Como nós podemos te ajudar?</h1>
                 </div>
 
                 <div className="div--help-main">
-                    <div className="div--professional-banner">
+
+                    <div className="container--help-banner">
                         <div className="cleiton"></div>
                     </div>
+                    
                     <div className="container--help-form">
                         <p className="p--subtitle">Conte-nos o seu problema</p>
                         <form>
@@ -45,31 +46,29 @@ export default function Help(){
                             <input type="submit" value="Enviar" className="button--white-context"></input>                            
                         </form>
                     </div>
-                </div>
-            </div>
-
-            <div className="container--auxiliar-help">
-                <div className="div--help-main">
-                    <p className="p--subtitle">Dúvidas Frequentes</p>
-                    <div className="div--accordion-list">
-                        <Accordion
-                            question = {"Como faço para registrar reembolso?"}
-                            answer = {'Basta acessar a aba de clientes e clicar no botão: "Vincular Exame".'}
-                        />
-
-                        <Accordion
-                            question = {"Como faço para lançar receitas?"}
-                            answer = {'Basta clicar no botão "Inserir receita" na aba Receitas.'}
-                        />
-
-                        <Accordion
-                            question = {"Como faço para pedir suporte agendado?"}
-                            answer = {'Basta nos enviar uma mensagem no WhatsApp ou por e-mail solicitando o agendamento.'}
-                        />                        
-                    </div>
-                    <button className="button--white-context">Clique aqui para visualizar mais perguntas</button>                    
-                    <button className="button--white-context">Clique aqui para nos chamar via WhatsApp</button>
-                    <button className="button-chat" alt="Clique aqui para abrir o chat online"></button>
+                
+                    <div className="container--help-questions">
+                        <p className="p--subtitle">Dúvidas Frequentes</p>
+                        <div className="div--accordion-list">
+                            <Accordion
+                                question = {"Como faço para registrar reembolso?"}
+                                answer = {'Basta acessar a aba de clientes e clicar no botão: "Vincular Exame".'}
+                            />
+                            <Accordion
+                                question = {"Como faço para lançar receitas?"}
+                                answer = {'Basta clicar no botão "Inserir receita" na aba Receitas.'}
+                            />
+                            <Accordion
+                                question = {"Como faço para pedir suporte agendado?"}
+                                answer = {'Basta nos enviar uma mensagem no WhatsApp ou por e-mail solicitando o agendamento.'}
+                            />                        
+                        </div>
+                        <div className="div--button-list">
+                            <button className="button--white-context">Clique aqui para visualizar mais perguntas</button>                    
+                            <button className="button--white-context">Clique aqui para nos chamar via WhatsApp</button>
+                            <button className="button-chat" alt="Clique aqui para abrir o chat online"></button>
+                        </div>
+                    </div>                
                 </div>
             </div>
         </div>
