@@ -1,3 +1,11 @@
+/*****
+    Width: 320px until 2880px
+    Height: 240px until 1800px 
+******/
+
+/*****
+WIDTH
+******/
 @media only screen and (max-width: 1206px) {
     .container--blackboard-main .container--content-main {
         padding-right: 15px;

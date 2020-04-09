@@ -94,3 +94,11 @@ HEIGHT
         background-color: red !important;
     }
 }
+@media (max-height: 680px) and (min-width: 1208px){
+    .container--miolo-help{
+        overflow: auto !important;
+    }
+    .container--content-help .div--help-main div {
+        margin-top: 0px !important;
+    }
+}

@@ -89,7 +89,7 @@
 .container--content-resume .div--chart .revenue p{
     margin-top: 10px;
     border: 1px solid #32cc77;
-    height: 35px;
+    min-height: 45px;
     width: 235px;
     border-radius: 10px;
     align-items: center;
@@ -134,7 +134,7 @@
 .container--content-resume .div--chart .expense p{
     margin-top: 10px;
     border: 1px solid #e47474;
-    height: 35px;
+    min-height: 45px;
     width: 235px;
     border-radius: 10px;
     align-items: center;

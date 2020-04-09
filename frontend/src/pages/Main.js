@@ -38,8 +38,10 @@ function animateSidebar(e){
 
 window.addEventListener('load', handleResize);
 function handleResize(){
-    if (window.outerWidth < 490){
-        animateSidebar("expanded");
+    if (window.location == "/"){
+        if (window.outerWidth < 490){
+            animateSidebar("expanded");
+        }
     }
 };
 

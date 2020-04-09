@@ -1,4 +1,11 @@
-/* MOBILE */
+/*****
+    Width: 320px until 2880px
+    Height: 240px until 1800px 
+******/
+
+/*****
+WIDTH
+******/
 @media only screen and (max-width: 613px) {
     .container--app-father {
         padding: 5px;
