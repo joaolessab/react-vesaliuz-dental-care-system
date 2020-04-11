@@ -91,7 +91,7 @@
 .container--content-help .div--chats .onlinechat:hover{
     cursor: pointer;
     background-color: #2386fd;
-    background-image: url("../icons/profit--background-white2.svg");
+    background-image: url("../images/chatBot-hover.png");
 }
 .container--content-help .div--chats .whatsapp{
     display: flex;
@@ -111,7 +111,7 @@
 .container--content-help .div--chats .whatsapp:hover{
     cursor: pointer;
     background-color: #2386fd;
-    background-image: url("../icons/expense--background-white2.svg");
+    background-image: url("../images/whatsApp-hover.png");
 }
 .container-questions--help h1 {
     font-family: 'Averta Extra Bold';
