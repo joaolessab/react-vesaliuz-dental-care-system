@@ -16,22 +16,16 @@ export default function Help(){
             <div className="container--content-help">
                 <div className="div--content-title">
                     <h1>Como nós podemos te ajudar?</h1>
+                </div>               
+                
+                <div className="div--cleiton">
                 </div>
 
-                <div className="div--chart">
-                    <div className="revenue">
+                <div className="div--chats">
+                    <div className="onlinechat">
                     </div>
                     
-                    <div className="expense">
-                    </div>
-                </div>
-                
-                <div className="div--info">
-                    <div className="div--info-icon">
-                    </div>
-                    <div className="div--info-text">
-                        <h1>Aprenda como organizar sua agenda</h1>
-                        <p>Seus rendimentos dependem do seu tempo disponível. Quanto mais você escalar o seu negócio, mais resultados irá obter. Esse artigo aborda exatamente o passo a passo para...</p>
+                    <div className="whatsapp">
                     </div>
                 </div>
             </div>
@@ -57,43 +51,56 @@ export default function Help(){
             </div>
 
             <div className="container-questions--help">
-                <div className="div--topbuttons">
-                    <p className="p--subtitle">Dúvidas Frequentes</p>
-
-                    <div className="div--accordion-list">
-                        <Accordion
-                            question = {"Como faço para registrar reembolso?"}
-                            answer = {'Basta acessar a aba de clientes e clicar no botão: "Vincular Exame".'}
-                            />
-                        <Accordion
-                            question = {"Como faço para lançar receitas?"}
-                            answer = {'Basta clicar no botão "Inserir receita" na aba Receitas.'}
-                        />
-                        <Accordion
-                            question = {"Como faço para registrar reembolso?"}
-                            answer = {'Basta acessar a aba de clientes e clicar no botão: "Vincular Exame".'}
-                            />
-                        <Accordion
-                            question = {"Como faço para lançar receitas?"}
-                            answer = {'Basta clicar no botão "Inserir receita" na aba Receitas.'}
-                        />
-                        <Accordion
-                            question = {"Como faço para registrar reembolso?"}
-                            answer = {'Basta acessar a aba de clientes e clicar no botão: "Vincular Exame".'}
-                            />
-                        <Accordion
-                            question = {"Como faço para lançar receitas?"}
-                            answer = {'Basta clicar no botão "Inserir receita" na aba Receitas.'}
-                        />
-                        <Accordion
-                            question = {"Como faço para registrar reembolso?"}
-                            answer = {'Basta acessar a aba de clientes e clicar no botão: "Vincular Exame".'}
-                            />
-                        <Accordion
-                            question = {"Como faço para lançar receitas?"}
-                            answer = {'Basta clicar no botão "Inserir receita" na aba Receitas.'}
-                        />                  
-                    </div>
+                <p className="p--subtitle">Dúvidas Frequentes</p>
+                <div className="div--accordion-list">
+                <Accordion
+                        question = {"Como faço para registrar reembolso?"}
+                        answer = {'Basta acessar a aba de clientes e clicar no botão: "Vincular Exame".'}
+                    />
+                    <Accordion
+                        question = {"Como faço para lançar receitas?"}
+                        answer = {'Basta clicar no botão "Inserir receita" na aba Receitas.'}
+                    />
+                    <Accordion
+                        question = {"Como faço para registrar reembolso?"}
+                        answer = {'Basta acessar a aba de clientes e clicar no botão: "Vincular Exame".'}
+                    />
+                    <Accordion
+                        question = {"Como faço para registrar reembolso?"}
+                        answer = {'Basta acessar a aba de clientes e clicar no botão: "Vincular Exame".'}
+                    />
+                    <Accordion
+                        question = {"Como faço para lançar receitas?"}
+                        answer = {'Basta clicar no botão "Inserir receita" na aba Receitas.'}
+                    />
+                    <Accordion
+                        question = {"Como faço para registrar reembolso?"}
+                        answer = {'Basta acessar a aba de clientes e clicar no botão: "Vincular Exame".'}
+                    />
+                    <Accordion
+                        question = {"Como faço para registrar reembolso?"}
+                        answer = {'Basta acessar a aba de clientes e clicar no botão: "Vincular Exame".'}
+                    />
+                    <Accordion
+                        question = {"Como faço para lançar receitas?"}
+                        answer = {'Basta clicar no botão "Inserir receita" na aba Receitas.'}
+                    />
+                    <Accordion
+                        question = {"Como faço para registrar reembolso?"}
+                        answer = {'Basta acessar a aba de clientes e clicar no botão: "Vincular Exame".'}
+                    />
+                    <Accordion
+                        question = {"Como faço para registrar reembolso?"}
+                        answer = {'Basta acessar a aba de clientes e clicar no botão: "Vincular Exame".'}
+                    />
+                    <Accordion
+                        question = {"Como faço para lançar receitas?"}
+                        answer = {'Basta clicar no botão "Inserir receita" na aba Receitas.'}
+                    />
+                    <Accordion
+                        question = {"Como faço para registrar reembolso?"}
+                        answer = {'Basta acessar a aba de clientes e clicar no botão: "Vincular Exame".'}
+                    />
                 </div>
             </div>
         </div>

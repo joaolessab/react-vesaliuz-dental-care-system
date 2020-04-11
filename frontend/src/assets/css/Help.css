@@ -3,6 +3,7 @@
     height: auto;
     display: flex;
     flex-direction: column;
+    margin-right: 10px;
 }
 .container--form-help{
     flex: 1 1;
@@ -14,6 +15,8 @@
     border-radius: 10px;
     color: white;
     padding: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 .container--form-help form{
     display: flex;
@@ -35,6 +38,14 @@
     margin-bottom: 20px;
     font-family: 'Averta';
 }
+.container-questions--help .div--accordion-list{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    overflow: auto;
+    flex: 1 1;
+    padding-right: 9px;
+    margin-right: -12px;
+}
 .container-questions--help{
     display: flex;
     flex: 1 1;
@@ -44,50 +55,25 @@
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    overflow: auto;
+    margin-left: 10px;
 }
-.container--content-help .div--info{
+.container--content-help .div--cleiton{
+    background-image: url("../images/photo-cleiton.png");
     display: flex;
-    flex: 1;
+    flex: 1 1;
     border-radius: 10px;
     margin-top: 20px;
     margin-bottom: 20px;
     background-color: white;
-}
-.container--content-help .div--info:hover{
-    background-color: #2386fd;
-    cursor: pointer;
-}
-.container--content-help .div--info:hover h1, .container--content-help .div--info:hover p{
-    color: white;
-}
-.container--content-help .div--info-icon{
-    display: flex;
-    flex: 1;
-    background-image: url("../icons/pessoas-trabalhando.svg");
-    background-size: 50%;
-    background-position: 50%;
     background-repeat: no-repeat;
+    background-size: 85%;
+    background-position: 50%;
 }
-.container--content-help .div--info-text{
-    display: flex;
-    flex: 2 1;
-    flex-direction: column;
-    justify-content: center;
-    padding-right: 70px;
-}
-.container--content-help .div--info-text p{
-    text-align: justify;
-}
-.container--content-help .div--info-text h1{
-    font-size: 20px;
-    margin-bottom: 20px;
-}
-.container--content-help .div--chart{
+.container--content-help .div--chats{
     display: flex;
     flex: 1 1;
 }
-.container--content-help .div--chart .revenue{
+.container--content-help .div--chats .onlinechat{
     display: flex;
     flex: 1 1;
     border-radius: 10px;
@@ -97,32 +83,32 @@
     align-items: center;
     padding: 20px;
     justify-content: center;
-    background-image: url("../icons/profit--background-green2.svg");
+    background-image: url("../images/chatBot.png");
     background-repeat: no-repeat;
-    background-size: 15em;
-    background-position: -10px 7px;
+    background-size: 85%;
+    background-position: 50%;
 }
-.container--content-help .div--chart .revenue:hover{
+.container--content-help .div--chats .onlinechat:hover{
     cursor: pointer;
     background-color: #2386fd;
     background-image: url("../icons/profit--background-white2.svg");
 }
-.container--content-help .div--chart .expense{
+.container--content-help .div--chats .whatsapp{
     display: flex;
     flex: 1 1;
     border-radius: 10px;
     background-color: white;
-    margin-left: 10px;
+    margin-right: 10px;
     flex-direction: column;
     align-items: center;
     padding: 20px;
     justify-content: center;
-    background-image: url("../icons/expense--background-pink2.svg");
+    background-image: url("../images/whatsApp.png");
     background-repeat: no-repeat;
-    background-size: 15em;
-    background-position: 0px -50px;
+    background-size: 85%;
+    background-position: 50%;
 }
-.container--content-help .div--chart .expense:hover{
+.container--content-help .div--chats .whatsapp:hover{
     cursor: pointer;
     background-color: #2386fd;
     background-image: url("../icons/expense--background-white2.svg");
