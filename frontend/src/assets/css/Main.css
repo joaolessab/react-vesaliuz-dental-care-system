@@ -12,29 +12,33 @@
     flex-basis: 75px;
     display: flex;
     padding: 25px;
-    padding-bottom: 18px;
-    padding-top: 18px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    padding-left: 0px;
 }
 .container--blackboard-main .navbar-main--top .left--side{
     flex: 1 1;
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    margin-left: -10px;
+    margin-top: -10px;
 }
 .container--blackboard-main .navbar-main--top .left--side .logo{
-    height: 55px;
-    width: 135px;
-    background-size: 43px;
+    height: 102px;
+    width: 167px;
+    background-position: 21px 9px;
+    background-size: 75px;
     background-repeat: no-repeat;
-    background-position: 8px;
     margin-left: 0px;
-    background-image: url("../icons/vesaliuz-logotipo---blue.svg");
+    background-image: url("../images/logo--vesaliuz-nostring.svg");
 }
 .container--blackboard-main .navbar-main--top .left--side p{
     font-family: 'ConfettiStream';
     font-size: 40px;
     margin-left: -10px;
-    color: #339dd1;
+    color: #000000;
+    margin-top: 17px;
 }
 .container--blackboard-main .navbar-main--top em{
     color: #2386fd;
