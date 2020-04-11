@@ -121,7 +121,7 @@ export default function Resume(){
                     <div className="div--info-icon">
                     </div>
                     <div className="div--info-text">
-                        <h1>Aprenda como organizar sua agenda</h1>
+                        <h1>Dica do dia: Aprenda como organizar sua agenda</h1>
                         <p>Seus rendimentos dependem do seu tempo disponível. Quanto mais você escalar o seu negócio, mais resultados irá obter. Esse artigo aborda exatamente o passo a passo para...</p>
                     </div>
                 </div>

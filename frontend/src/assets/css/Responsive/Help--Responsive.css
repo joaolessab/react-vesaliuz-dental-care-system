@@ -1,7 +1,54 @@
 /*****
 WIDTH: 320px until 2880px
 ******/
-@media only screen and (max-width: 1270px) {
+@media only screen and (max-width: 1208px) {
+    .container-questions--help .div--accordion-list {
+        width: 100%;
+        padding-right: 13px;
+    }
+    .container-questions--help{
+        margin-left: 0px;
+        margin-top: 20px;
+    }
+    .container--form-help{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .container--content-help {
+        margin-bottom: 20px;
+        margin-right: 0px;
+    }
+    .container--content-help .div--chats .onlinechat, .container--content-help .div--chats .whatsapp{
+        height: 400px;
+    }
+    .container--content-help .div--chats .onlinechat{
+        margin-right: 10px;
+        margin-left: 0px;
+    }
+    .container--content-help .div--chats .whatsapp{
+        margin-right: 0px;
+        margin-left: 10px;
+    }
+    .container--content-help .div--cleiton {
+        flex: auto;
+        height: 400px;
+    }
+}
+@media only screen and (max-width: 720px) {
+    .container--content-help .div--chats .onlinechat, .container--content-help .div--chats .whatsapp{
+        height: 300px;
+    }
+    .container--content-help .div--cleiton {
+        height: 300px;
+    }
+}
+@media only screen and (max-width: 550px) {
+    .container--content-help .div--chats .onlinechat, .container--content-help .div--chats .whatsapp{
+        height: 200px;
+    }
+    .container--content-help .div--cleiton {
+        height: 200px;
+    }
 }
 
 /*****
