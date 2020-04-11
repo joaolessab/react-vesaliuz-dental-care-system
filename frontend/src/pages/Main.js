@@ -6,6 +6,7 @@ import '../assets/css/Responsive/Main--Responsive.css';
 import '../assets/css/Animations/Main--Animations.css';
 
 import Resume from '../components/Resume';
+import News from '../components/News';
 import Help from '../components/Help';
 
 // FUNCOES DO JAVASCRIPT
@@ -63,6 +64,9 @@ class Main extends React.Component{
             if (page === "Help")
                 this.setState({child: Help});
 
+            if (page === "News")
+                this.setState({child: News});
+
             this.forceUpdate();
         };
 
@@ -72,10 +76,11 @@ class Main extends React.Component{
             var botaoSelecionado = sidebar.getElementsByClassName("selected")[0];
             botaoSelecionado.classList.remove("selected");
 
-
             // Adding Blue
             if (page === "Resume")
                 document.getElementsByClassName("icon--home")[0].classList.add("selected");
+            if(page === "News")
+                document.getElementsByClassName("icon--news")[0].classList.add("selected");
             if(page === "Help")
                 document.getElementsByClassName("icon--help")[0].classList.add("selected");
         };
