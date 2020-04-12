@@ -23,7 +23,7 @@
     cursor: pointer;
 }
 .container--content-news .div--item-news:hover h1, .container--content-news .div--item-news:hover p{
-    color: white;
+    color: white !important;
 }
 .container--content-news .div--item-news-icon{
     display: flex;
@@ -40,15 +40,31 @@
     padding: 15px;
     width: 15em;
 }
-.container--content-news .div--item-news-text div{
+.container--content-news .div--item-news-text .div--details{
     display: flex;
     justify-content: flex-end;
+    align-items: center;
 }
-.container--content-news .div--item-news-text div button{
-    width: 160px;
+.container--content-news .div--item-news-text .div--details p{
+    color: black;
+    text-align: right;
+    margin-right: 12px;
+    margin-top: 9px;
+    font-size: 12px;
+}
+.container--content-news .div--item-news-text .div--details button{
     height: 35px;
-    border-radius: 6px;
+    width: 35px;
+    cursor: pointer;
+    animation-duration: 1s;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 19px 4px #e9e9e9;
     border: 0px;
+    border-radius: 5px;
+    background-position: 10px;
+    background-size: 15px;
+    background-repeat: no-repeat;
+    background-image: url("../icons/right-arrow--blue.svg"); 
 }
 .container--content-news .div--item-news-text p{
     text-align: justify;
