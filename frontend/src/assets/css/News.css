@@ -1,141 +1,85 @@
-.container--content-modelo{
-    flex: 2 1;
+.container--miolo-main{
+    margin-right: 10px;
+}
+
+.container--content-news{
+    flex: 1;
     height: auto;
     display: flex;
     flex-direction: column;
 }
-.container--auxiliar-resume{
-    flex: 1 1;
-    height: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
-    overflow: auto;
-}
-.container--content-modelo .div--info{
+.container--content-news .div--item-news{
     display: flex;
-    flex: 1;
+    flex: 1 1;
     border-radius: 10px;
-    margin-top: 20px;
     margin-bottom: 20px;
     background-color: white;
+    min-height: 130px;
+    max-height: 130px;
+    overflow: hidden;
 }
-.container--content-modelo .div--info:hover{
+.container--content-news .div--item-news:hover{
     background-color: #2386fd;
     cursor: pointer;
 }
-.container--content-modelo .div--info:hover h1, .container--content-modelo .div--info:hover p{
+.container--content-news .div--item-news:hover h1, .container--content-news .div--item-news:hover p{
     color: white;
 }
-.container--content-modelo .div--info-icon{
+.container--content-news .div--item-news-icon{
     display: flex;
-    flex: 1;
-    background-image: url("../icons/pessoas-trabalhando.svg");
-    background-size: 50%;
+    flex-basis: 150px;
+    background-size: 80%;
     background-position: 50%;
     background-repeat: no-repeat;
 }
-.container--content-modelo .div--info-text{
-    display: flex;
-    flex: 2 1;
-    flex-direction: column;
-    justify-content: center;
-    padding-right: 70px;
-}
-.container--content-modelo .div--info-text p{
-    text-align: justify;
-}
-.container--content-modelo .div--info-text h1{
-    font-size: 20px;
-    margin-bottom: 20px;
-}
-.container--content-modelo .div--chart{
+.container--content-news .div--item-news-text{
     display: flex;
     flex: 1 1;
-}
-.container--content-modelo .div--chart .revenue{
-    display: flex;
-    flex: 1 1;
-    border-radius: 10px;
-    background-color: white;
-    margin-right: 10px;
     flex-direction: column;
-    align-items: center;
-    padding: 20px;
     justify-content: center;
-    background-image: url("../icons/profit--background-green2.svg");
-    background-repeat: no-repeat;
-    background-size: 15em;
-    background-position: -10px 7px;
+    padding: 15px;
+    width: 15em;
 }
-.container--content-modelo .div--chart .revenue:hover{
-    cursor: pointer;
-    background-color: #2386fd;
-    background-image: url("../icons/profit--background-white2.svg");
-}
-.container--content-modelo .div--chart .expense{
+.container--content-news .div--item-news-text div{
     display: flex;
-    flex: 1 1;
-    border-radius: 10px;
-    background-color: white;
-    margin-left: 10px;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    justify-content: center;
-    background-image: url("../icons/expense--background-pink2.svg");
-    background-repeat: no-repeat;
-    background-size: 15em;
-    background-position: 0px -50px;
+    justify-content: flex-end;
 }
-.container--content-modelo .div--chart .expense:hover{
-    cursor: pointer;
-    background-color: #2386fd;
-    background-image: url("../icons/expense--background-white2.svg");
-}
-.container--auxiliar-resume h1 {
-    font-family: 'Averta Extra Bold';
-    font-size: 20px;
-    display: none;
-}
-.container--auxiliar-resume .div--topbuttons{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-basis: 40px;
-    margin-bottom: 25px;
-}
-.container--auxiliar-resume .div--topbuttons .selected{
-    cursor: pointer;
-    color: black;
-    border-bottom: 3px solid #2386fd;
-    font-family: 'Averta Bold';
-}
-.container--content-modelo h1{
-    font-family: 'Averta Extra Bold';
-    font-size: 20px;
-}
-.container--auxiliar-resume .div--chart-title, .container--auxiliar-resume .div--details{
-    flex-basis: 40px;
-    display: flex;
-    align-items: center;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-.container--auxiliar-resume .div--details button{
-    height: 30px;
-    width: 30px;
-    cursor: pointer;
-    animation-duration: 1s;
-    background-color: #ffffff;
-    box-shadow: 1px 9px 12px -8px #4e4e4e;
+.container--content-news .div--item-news-text div button{
+    width: 160px;
+    height: 35px;
+    border-radius: 6px;
     border: 0px;
-    border-radius: 5px;
-    background-position: 8px;
-    background-size: 15px;
-    background-repeat: no-repeat;
-    background-image: url("../icons/right-arrow--blue.svg"); 
 }
-.container--auxiliar-resume .div--details p{
-    margin-right: 10px;
-    color: #b2b2b2;
+.container--content-news .div--item-news-text p{
+    text-align: justify;
+    flex: 1 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-bottom: 10px;
+}
+.container--content-news .div--item-news-text h1{
+    font-size: 20px;
+    margin-bottom: 10px;
+    flex-basis: 10px;
+}
+.container--content-news h1{
+    font-family: 'Averta Extra Bold';
+    font-size: 20px;
+}
+
+.container--content-news .div--filter-news{
+    flex-basis: 45px;
+    background-color: white;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+}
+.container--content-news .div--list-news{
+    flex: 1 1;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    padding-right: 30px;
+    margin-top: 20px;
 }

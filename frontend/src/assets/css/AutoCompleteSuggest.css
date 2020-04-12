@@ -114,5 +114,7 @@ body {font-family: 'Averta';}
 .react-autosuggest__section-title {
   padding: 10px 0 0 10px;
   font-size: 13.7px;
-  color: #777;
-}  
+  color: #000;
+  background-color: #ececec63;
+  padding-bottom: 9px;
+}
