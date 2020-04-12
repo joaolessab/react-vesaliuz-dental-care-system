@@ -18,16 +18,15 @@ export default function News(){
                 </div>
 
                 <div className="div--filter-news">
-                    <button>Novidades</button>
-                    <button>Novidades</button>
-                    <button>Novidades</button>
-                    <button>Novidades</button>
-                    <button>Novidades</button>
-                    <button>Novidades</button>
-                    <button>Novidades</button>
-                    <button>Novidades</button>
-                    <button>Novidades</button>
-                    <button>Novidades</button>
+                    <button className="selected">Todos</button>
+                    <button>Saúde</button>
+                    <button>Equipamentos</button>
+                    <button>Investimentos</button>
+                    <button>Tecnologia</button>
+                    <button>Atualidade</button>
+                    <button>Política</button>
+                    <button>Tratamentos</button>
+                    <button>Remédios</button>
                 </div>
                 
                 <div className="div--list-news">

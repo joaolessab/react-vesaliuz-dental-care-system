@@ -70,10 +70,10 @@
 
 .container--content-news .div--filter-news{
     flex-basis: 45px;
-    background-color: white;
     border-radius: 6px;
     display: flex;
     justify-content: space-between;
+    margin-right: 34px;
 }
 .container--content-news .div--list-news{
     flex: 1 1;
@@ -82,4 +82,24 @@
     flex-direction: column;
     padding-right: 30px;
     margin-top: 20px;
+}
+.container--content-news .div--filter-news button{
+    border: 0px;
+    text-align: center;
+    min-width: 110px;
+    max-width: 110px;
+    background-color: white;
+    color: #b2b2b2;
+    border-radius: 6px;
+}
+.container--content-news .div--filter-news button:hover, .container--content-news .div--filter-news .selected{
+    cursor: pointer;
+    animation-duration: 1s;
+    background-color: #2386fd;
+    box-shadow: 0px 1px 2px 0px #2386fd4d;
+    transition: 0.5s;
+    color: white;
+    border: 1.5px solid #ffffffbf;
+    transition: 0.2s;
+    color: white;
 }
