@@ -1,3 +1,7 @@
+.react-responsive-modal-modalCenter {
+    margin: auto;
+    overflow: hidden;
+}
 .react-responsive-modal-modal{
     border-radius: 10px;
 }
@@ -10,13 +14,15 @@
 .react-responsive-modal-modal .div--modalBody {
     overflow: auto;
     text-align: center;
+    height: 500px;
+    padding-right: 18px;
+    margin-left: 18px;
 }
 .react-responsive-modal-modal .div--modalBody p{
     text-align: justify !important;
 }
 .react-responsive-modal-modal .div--modalBody img{
-    width: 99%;
-    height: 87%;
+    width: 100%;
     margin-top: 20px;
     margin-bottom: 20px;
     border-radius: 6px;
