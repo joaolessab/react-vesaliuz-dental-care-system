@@ -7,11 +7,6 @@ class Accordion extends React.Component{
     // Substituindo o construtor do componente (são inputs do componente)
     constructor(props) {
         super(props);
-    
-        this.state = {
-            value: '',
-            suggestions: []
-        };    
     }
     
     addAccordionMover(e) {
