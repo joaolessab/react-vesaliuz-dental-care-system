@@ -135,7 +135,7 @@ class News extends React.Component{
             
                 <Modal open={ modalVisibility } onClose={ this.onCloseModal } center>
                     <h1>{ this.modalTitle }</h1>
-                    <div dangerouslySetInnerHTML={{ __html: this.modalBody }} />
+                    <div className="div--modalBody" dangerouslySetInnerHTML={{ __html: this.modalBody }} />
                 </Modal>
             </div>
         );

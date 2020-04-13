@@ -4,6 +4,7 @@ import React from 'react';
 import '../assets/css/Main.css';
 import '../assets/css/Responsive/Main--Responsive.css';
 import '../assets/css/Animations/Main--Animations.css';
+import '../assets/css/Modal.css';
 
 import Resume from '../components/Resume';
 import News from '../components/News';
