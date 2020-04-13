@@ -1,12 +1,29 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import 'react-responsive-modal/styles.css';
+import { Modal } from 'react-responsive-modal';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import '../assets/css/News.css';
 import '../assets/css/News--Icons.css';
 
-class News extends React.Component{    
+class News extends React.Component{
+    state = {
+        open: false,
+    };
+    onOpenModal = (newsId) => {
+        debugger
+        this.setState({ open: true });
+    };
+    
+      onCloseModal = () => {
+        this.setState({ open: false });
+    };
+
     // Visualização de Todo o conteúdo do HTML
     render(){
+        const { open } = this.state;
+
         // RETORNO BÁSICO DO HTML
         return (
             <div className="container--miolo-main">
@@ -31,7 +48,7 @@ class News extends React.Component{
                     <div className="div--list-news">
                         
                         {/* Item de notícia */}
-                        <div className="div--item-news">
+                        <div className="div--item-news" onClick={() => this.onOpenModal("covid19")}>
                             {/* Icone */}
                             <div className="div--item-news-icon corona--girl">
                             </div>
@@ -47,7 +64,7 @@ class News extends React.Component{
                         </div>
 
                         {/* Item de notícia */}
-                        <div className="div--item-news">
+                        <div className="div--item-news" onClick={() => this.onOpenModal("chair20")}>
                             {/* Icone */}
                             <div className="div--item-news-icon dentist--chair">
                             </div>
@@ -63,7 +80,7 @@ class News extends React.Component{
                         </div>
 
                         {/* Item de notícia */}
-                        <div className="div--item-news">
+                        <div className="div--item-news" onClick={() => this.onOpenModal("economy21")}>
                             {/* Icone */}
                             <div className="div--item-news-icon economy--pork">
                             </div>
@@ -80,6 +97,11 @@ class News extends React.Component{
                         
                     </div>
                 </div>
+            
+                <Modal open={ open } onClose={ this.onCloseModal } center>
+                    <h1>COVID-19: Você já se preparou para combater o prejuízo do seu consultório?</h1>
+                    <p>Tempos difíceis chegaram. Estamos enfrentando uma crise sem previsão de terminar. Não há estabilidade nesse cenário, porém, você está preparado para enfrentar? Ou está sentado esperando tudo acontecer? Confira aqui nossas dicas.</p>
+                </Modal>
             </div>
         );
     }
