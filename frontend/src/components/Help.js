@@ -1,4 +1,6 @@
 import React from 'react';
+import 'react-responsive-modal/styles.css';
+import { Modal } from 'react-responsive-modal';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import '../assets/css/Help.css';
@@ -7,8 +9,27 @@ import '../assets/css/Responsive/Help--Responsive.css';
 import Accordion from './Accordion';
 
 class Help extends React.Component{    
+    constructor(props){
+        super(props);
+
+        /* VARIABLES */
+        this.state = {
+            modalVisibility: false   
+        };
+    }
+
+    onOpenModal = () => {
+        this.setState({ modalVisibility: true });
+    };
+    
+    onCloseModal = () => {
+        this.setState({ modalVisibility: false });
+    };
+
     // Visualização de Todo o conteúdo do HTML
     render(){
+        const { modalVisibility } = this.state;
+
         return (
             <div className="container--miolo-main">
                 <div className="container--content-help">
@@ -20,7 +41,7 @@ class Help extends React.Component{
                     </div>
     
                     <div className="div--chats">
-                        <div className="onlinechat">
+                        <div className="onlinechat" onClick={() => this.onOpenModal()}>
                         </div>
                         
                         <div className="whatsapp">
@@ -101,6 +122,13 @@ class Help extends React.Component{
                         />
                     </div>
                 </div>
+
+                <Modal open={ modalVisibility } onClose={ this.onCloseModal } center>
+                    <h1>Bem-vindo ao nosso Chat Online!</h1>
+                    <div className="div--modalBody">
+                        <p>É com muita satisfação que recebemos você aqui. Vamos fazer de tudo para resolver o seu problema!</p>
+                    </div>
+                </Modal>
             </div>
         );
     }

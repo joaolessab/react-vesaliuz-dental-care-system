@@ -189,7 +189,7 @@ class Main extends React.Component{
                             </div>
                         </div>        
 
-                        <button 
+                        <button
                             className="button--sidebar-retract" 
                             onClick={animateSidebar}
                         >
