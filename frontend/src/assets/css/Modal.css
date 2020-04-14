@@ -208,8 +208,8 @@
     border-radius: 6px;
     background-repeat: no-repeat;
     background-size: 36px;
-    background-position: -3px;
-    background-image: url("../images/avatarBot.png");
+    background-position: -5px;
+    background-image: url("../images/profile_pic.jpg");
 }
 .div--chatline-customer .chat-message{
     margin-right: 10px;

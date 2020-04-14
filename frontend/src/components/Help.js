@@ -179,10 +179,10 @@ class Help extends React.Component{
                                 <div className="div--chatline-robot">
                                     <div className="chat-avatar"></div>
                                     <div className="chat-message">
-                                        <p>Em nosso menu lateral, clique em <strong>Pacientes</strong>.<br/>
-                                        Em seguida, selecione o paciente desejado.<br/>
-                                        O próximo passo é apenas clicar no botão <strong>Emitir Nota fiscal e aguardar alguns segundos.</strong><br/>
-                                        Pronto! Sua nota fiscal irá começar o download automaticamente.</p>
+                                        <p>1. Em nosso menu lateral, clique em <strong>Pacientes</strong>.<br/><br/>
+                                        2. Em seguida, selecione o paciente desejado.<br/><br/>
+                                        3. O próximo passo é apenas clicar no botão: <strong>"Emitir Nota fiscal"</strong> e aguardar alguns segundos.<br/><br/>
+                                        4. Pronto! Sua nota fiscal irá começar o download automaticamente.</p>
                                     </div>
                                 </div>
 
