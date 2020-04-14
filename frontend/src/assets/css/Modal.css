@@ -11,17 +11,17 @@
     text-align: center;
     margin-bottom: 20px;
 }
-.react-responsive-modal-modal .div--modalBody {
+.react-responsive-modal-modal .div--modalBody-default {
     overflow: auto;
     text-align: center;
     height: 500px;
     padding-right: 18px;
     margin-left: 18px;
 }
-.react-responsive-modal-modal .div--modalBody p{
+.react-responsive-modal-modal .div--modalBody-default p{
     text-align: justify !important;
 }
-.react-responsive-modal-modal .div--modalBody img{
+.react-responsive-modal-modal .div--modalBody-default img{
     width: 100%;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -58,4 +58,87 @@
 }
 .react-responsive-modal-closeButton svg{
     display: none !important;
+}
+.react-responsive-modal-modal .div--modalBody-chatBot{
+    overflow: hidden;
+    margin-left: -20px;
+    width: calc(100% + 40px);
+    margin-bottom: -20px;
+    margin-top: 20px;
+    height: 500px;
+    background-color: #dbdbdb;
+    display: flex;
+    flex-direction: column;
+}
+.react-responsive-modal-modal .div--modalBody-chatBot .div--chatBox{
+    flex: 1 1;
+    padding: 20px;
+    box-shadow: inset 0px 10px 17px 4px #cecece26;
+}
+.react-responsive-modal-modal .div--modalBody-chatBot .div--typerBox{
+    display: flex;
+    flex-basis: 65px;
+    justify-content: space-between;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: white;
+}
+.react-responsive-modal-modal .div--modalBody-chatBot .div--typerBox .button--letter, .react-responsive-modal-modal .div--modalBody-chatBot .div--typerBox .button--attach, .react-responsive-modal-modal .div--modalBody-chatBot .div--typerBox .button--send{
+    height: 45px;
+    width: 45px;
+    border: 0px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border-radius: 6px;
+}
+.react-responsive-modal-modal .div--modalBody-chatBot .div--typerBox input{
+    flex: 1;
+    background-color: transparent;
+    color: black;
+}
+.react-responsive-modal-modal .div--modalBody-chatBot .div--typerBox .button--letter{
+    background-image: url("../icons/font-icon--black.svg");
+    background-size: 18px;
+    background-position: 15px;
+}
+.react-responsive-modal-modal .div--modalBody-chatBot .div--typerBox .button--letter:hover{
+    background-image: url("../icons/font-icon--white.svg");
+    background-position: 12px;
+    background-color: #2386fd;
+    box-shadow: 0px 1px 2px 0px #2386fd4d;
+    color: white;
+    border: 1.5px solid #ffffffbf;
+    cursor: pointer;
+}
+.react-responsive-modal-modal .div--modalBody-chatBot .div--typerBox .button--attach{
+    background-image: url("../icons/paperclip-icon--black.svg");
+    background-size: 18px;
+    background-position: 15px;
+}
+.react-responsive-modal-modal .div--modalBody-chatBot .div--typerBox .button--attach:hover{
+    background-image: url("../icons/paperclip-icon--white.svg");
+    background-position: 12px;
+    background-color: #2386fd;
+    box-shadow: 0px 1px 2px 0px #2386fd4d;
+    color: white;
+    border: 1.5px solid #ffffffbf;
+    cursor: pointer;
+}
+.react-responsive-modal-modal .div--modalBody-chatBot .div--typerBox .button--send{
+    background-image: url("../icons/paperplane-icon--white.svg");
+    background-size: 18px;
+    background-position: 11px;
+    background-color: #2386fd;
+    box-shadow: 0px 1px 2px 0px #2386fd4d;
+    color: white;
+    border: 1.5px solid #ffffffbf;
+}
+.react-responsive-modal-modal .div--modalBody-chatBot .div--typerBox .button--send:hover{
+    background-image: url("../icons/paperplane-icon--black.svg");
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid #4b4b4b;
 }

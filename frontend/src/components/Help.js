@@ -125,8 +125,19 @@ class Help extends React.Component{
 
                 <Modal open={ modalVisibility } onClose={ this.onCloseModal } center>
                     <h1>Bem-vindo ao nosso Chat Online!</h1>
-                    <div className="div--modalBody">
-                        <p>É com muita satisfação que recebemos você aqui. Vamos fazer de tudo para resolver o seu problema!</p>
+                    <div className="div--modalBody-chatBot">
+                        <div className="div--chatBox">
+                            <div className="div--chatBox-line">
+                                <div className="">
+                                </div>
+                            </div>
+                        </div>
+                        <div className="div--typerBox">
+                            <button className="button--letter"></button>
+                            <input type="text" placeholder="Digite aqui sua mensagem..."/>
+                            <button className="button--attach"></button>
+                            <button className="button--send"></button>
+                        </div>
                     </div>
                 </Modal>
             </div>
