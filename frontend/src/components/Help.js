@@ -124,12 +124,68 @@ class Help extends React.Component{
                 </div>
 
                 <Modal open={ modalVisibility } onClose={ this.onCloseModal } center>
-                    <h1>Bem-vindo ao nosso Chat Online!</h1>
+                    <div className="div--header-chatBot">
+                        <div className="div--robotBig-chatBot"></div>
+                        <div className="div--robotTalk-chatBot">
+                            <p>Olá! Eu sou o Robustinho<br/>
+                                <em>Estou aqui para te ajudar!</em>
+                            </p>
+                        </div>
+                    </div>
                     <div className="div--modalBody-chatBot">
                         <div className="div--chatBox">
                             <div className="div--chatBox-line">
-                                <div className="">
+                                { /* Robot */ }
+                                <div className="div--chatline-robot">
+                                    <div className="chat-avatar"></div>
+                                    <div className="chat-message">
+                                        <p>Olá Maria, tudo bem? Como posso te ajudar?</p>
+                                    </div>
                                 </div>
+
+                                { /* Customer */ }
+                                <div className="div--chatline-customer">
+                                    <div className="chat-avatar"></div>
+                                    <div className="chat-message">
+                                        <p>Gostaria de saber como faço para emitir notas fiscais</p>
+                                    </div>
+                                </div>
+
+                                { /* Customer */ }
+                                <div className="div--chatline-customer">
+                                    <div className="chat-avatar"></div>
+                                    <div className="chat-message">
+                                        <p>Sou um usuário assíduo do sistema e tenho muitos pacientes, porém, minha vida está um pouco corrida</p>
+                                    </div>
+                                </div>
+
+                                { /* Customer */ }
+                                <div className="div--chatline-customer">
+                                    <div className="chat-avatar"></div>
+                                    <div className="chat-message">
+                                        <p>Será que podem me auxiliar?</p>
+                                    </div>
+                                </div>
+
+                                { /* Robot */ }
+                                <div className="div--chatline-robot">
+                                    <div className="chat-avatar"></div>
+                                    <div className="chat-message">
+                                        <p>Com certeza, Maria! Vamos lá:</p>
+                                    </div>
+                                </div>
+
+                                { /* Robot */ }
+                                <div className="div--chatline-robot">
+                                    <div className="chat-avatar"></div>
+                                    <div className="chat-message">
+                                        <p>Em nosso menu lateral, clique em <strong>Pacientes</strong>.<br/>
+                                        Em seguida, selecione o paciente desejado.<br/>
+                                        O próximo passo é apenas clicar no botão <strong>Emitir Nota fiscal e aguardar alguns segundos.</strong><br/>
+                                        Pronto! Sua nota fiscal irá começar o download automaticamente.</p>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                         <div className="div--typerBox">
