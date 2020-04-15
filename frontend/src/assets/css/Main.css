@@ -27,7 +27,7 @@
 .container--blackboard-main .navbar-main--top .left--side .logo{
     height: 102px;
     width: 167px;
-    background-position: 37px 22px;
+    background-position: 43px 22px;
     background-size: 53px;
     background-repeat: no-repeat;
     margin-left: 0px;
@@ -36,7 +36,7 @@
 .container--blackboard-main .navbar-main--top .left--side p{
     font-family: 'ConfettiStream';
     font-size: 40px;
-    margin-left: -10px;
+    margin-left: 0px;
     color: #000000;
     margin-top: 17px;
 }
