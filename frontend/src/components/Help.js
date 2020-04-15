@@ -3,6 +3,7 @@ import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
+import Button from '@material-ui/core/Button';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import '../assets/css/Help.css';
@@ -67,7 +68,7 @@ class Help extends React.Component{
                         <textarea id="situation" placeholder="Digite o seu relato" className="input--white-context-wth-shadow">
                         </textarea>
     
-                        <input type="submit" value="Enviar e-mail" className="button--white-context"></input>                            
+                        <Button type="submit" className="button--white-context">Enviar e-mail</Button>                            
                     </form>
                 </div>
     
