@@ -1,6 +1,7 @@
 import React from 'react';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
+import Button from '@material-ui/core/Button';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import '../assets/css/News.css';
@@ -68,15 +69,15 @@ class News extends React.Component{
                     </div>
 
                     <div className="div--filter-news">
-                        <button className="selected">Todos</button>
-                        <button>Saúde</button>
-                        <button>Equipamentos</button>
-                        <button>Investimentos</button>
-                        <button>Tecnologia</button>
-                        <button>Atualidade</button>
-                        <button>Política</button>
-                        <button>Tratamentos</button>
-                        <button>Remédios</button>
+                        <Button className="selected">Todos</Button>
+                        <Button>Saúde</Button>
+                        <Button>Equipamentos</Button>
+                        <Button>Investimentos</Button>
+                        <Button>Tecnologia</Button>
+                        <Button>Atualidade</Button>
+                        <Button>Política</Button>
+                        <Button>Tratamentos</Button>
+                        <Button>Remédios</Button>
                     </div>
                     
                     <div className="div--list-news">
