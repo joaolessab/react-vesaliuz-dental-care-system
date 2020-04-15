@@ -31,7 +31,7 @@
         display: block !important;
     }
     .container--blackboard-login .button--white-context{
-        border: 0px;
+        border: 0px !important;
     }
     .container--blackboard-login .container--form .container--form-top {
         background-color: #2584fe;
@@ -79,7 +79,7 @@
         flex-direction: column-reverse;
     }
     .container--blackboard-login .button--blue-context {
-        flex: 1;
+        flex: 1 !important;
     }
     .container--blackboard-login .container--form .container--form-bottom {
         flex-direction: column;

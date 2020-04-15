@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Button from '@material-ui/core/Button';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import '../assets/css/Login.css';
@@ -27,7 +28,7 @@ export default function Login({ history }){
                     <div className="container--form-top">
                         <div>
                             <div className="div--brushTeth"></div>
-                            <button className="button--white-context">Cadastre-se</button>
+                            <Button variant="contained" className="button--white-context">Cadastre-se</Button>
                         </div>
                     </div>
                     <div className="container--form-middle">
@@ -48,7 +49,7 @@ export default function Login({ history }){
                                     <button className="button--black-label">Esqueceu sua senha?</button>
                                 </div>
                                 <div className="div--container-formAction--rightSplitter">
-                                    <button className="button--blue-context">Entrar</button>
+                                    <Button variant="contained" className="button--blue-context">Entrar</Button>
                                 </div>
                             </div>
                         </form>
