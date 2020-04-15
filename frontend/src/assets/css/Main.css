@@ -87,7 +87,7 @@
     padding-bottom: 20px;
 }
 .container--blackboard-main .container--content-main .container--sidebar{
-    flex-basis: 115px;
+    flex-basis: 125px;
     width: 115px;
     display: flex;
     margin-left: -20px;
@@ -105,44 +105,46 @@
     margin-right: 5px;
 }
 .container--blackboard-main .container--content-main .container--sidebar .sidebar button{
-    height: 50px;
-    width: 50px;
-    display: list-item;
-    margin: 0 auto;
-    border-radius: 10px;
-    border: 0px;
-    margin-bottom: 10px;
-    background-size: 24px;
-    background-repeat: no-repeat;
-    background-position: 13.5px;
+    height: 50px !important;
+    width: 50px !important;
+    display: list-item !important;
+    margin: 0 auto !important;
+    border-radius: 10px !important;
+    border: 0px !important;
+    margin-bottom: 10px !important;
+    background-size: 24px !important;
+    background-repeat: no-repeat !important;
+    background-position: 13.5px !important;
+    text-transform: none !important;
+    background-color: #f0f0f0 !important;
+    min-width: unset !important;
 }
 .container--blackboard-main .container--content-main .container--sidebar .sidebar button span{
-    display: none;
+    display: none !important;
 }
 .container--blackboard-main .container--content-main .container--sidebar .sidebar .selected span, .container--blackboard-main .container--content-main .container--sidebar .sidebar button:hover span{
-    display: block;
+    display: block !important;
 }
 .container--blackboard-main .container--content-main .container--sidebar .sidebar button:hover, .container--blackboard-main .container--content-main .container--sidebar .sidebar .selected{
-    cursor: pointer;
-    animation-duration: 1s;
-    background-color: #2386fd;
-    background-position: 15px;
-    box-shadow: 0px 1px 2px 0px #2386fd4d;
-    transition: 0.5s;
-    width: 95px !important;
-    color: white;
-    background-image: none;
-    border: 1.5px solid #ffffffbf;
+    cursor: pointer !important;
+    animation-duration: 1s !important;
+    background-color: #2386fd !important;
+    background-position: 15px !important;
+    box-shadow: 0px 1px 2px 0px #2386fd4d !important;
+    color: white !important;
+    background-image: none !important;
+    border: 1.5px solid #ffffffbf !important;
 
     /* Animation */
-    -webkit-transition: 0.2s;
-    -moz-transition: 0.2s;
-    -ms-transition: 0.2s;
-    -o-transition: 0.2s;
-    transition: 0.2s;
-    width: 95px !important;
-    color: white;
-    background-image: none;
+    -webkit-transition: 0.2s !important;
+    -moz-transition: 0.2s !important;
+    -ms-transition: 0.2s !important;
+    -o-transition: 0.2s !important;
+    transition: 0.2s !important;
+    width: 105px !important;
+    color: white !important;
+    background-image: none !important;
+    font-family: 'Averta' !important;
 }
 .container--blackboard-main .button--sidebar-retract{
     height: 30px;

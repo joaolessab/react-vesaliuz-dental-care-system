@@ -90,8 +90,8 @@
     background-color: white;
 }
 .react-responsive-modal-modal .div--modalBody-chatBot .div--typerBox .button--letter, .react-responsive-modal-modal .div--modalBody-chatBot .div--typerBox .button--attach, .react-responsive-modal-modal .div--modalBody-chatBot .div--typerBox .button--send{
-    height: 45px;
-    width: 45px;
+    min-height: 45px;
+    min-width: 45px;
     border: 0px;
     background-color: transparent;
     background-repeat: no-repeat;

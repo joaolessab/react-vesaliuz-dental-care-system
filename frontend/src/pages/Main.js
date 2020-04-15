@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '@material-ui/core/Button';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import '../assets/css/Main.css';
@@ -117,75 +118,75 @@ class Main extends React.Component{
                         {/* Sidebar */}
                         <div className="container--sidebar">
                             <div className="sidebar" id="box">
-                                <button 
+                                <Button 
                                     className="icon--home selected"                                
                                     onClick={() => this.accessPage("Resume")}
                                 >
                                     <span>Início</span>
-                                </button>
+                                </Button>
 
-                                <button 
+                                <Button 
                                     className="icon--agendamentos"
                                     onClick={() => this.accessPage("Agenda")}
                                 >
                                     <span>Agenda</span>
-                                </button>
+                                </Button>
 
-                                <button 
+                                <Button 
                                     className="icon--clientes"
                                     onClick={() => this.accessPage("Clients")}
                                 >
                                     <span>Clientes</span>
-                                </button>
+                                </Button>
                                 
-                                <button 
+                                <Button 
                                     className="icon--financas"
                                     onClick={() => this.accessPage("Finances")}
                                 >
                                     <span>Financeiro</span>
-                                </button>
+                                </Button>
                                 
-                                <button 
+                                <Button 
                                     className="icon--exams"
                                     onClick={() => this.accessPage("Exams")}
                                 >
                                     <span>Exames</span>
-                                </button>
+                                </Button>
 
-                                <button 
+                                <Button 
                                     className="icon--procedure"
                                     onClick={() => this.accessPage("Treatments")}
                                 >       
                                     <span>Tratamentos</span>
-                                </button>
+                                </Button>
                                 
-                                <button 
+                                <Button 
                                     className="icon--laboratory"
                                     onClick={() => this.accessPage("Laboratory")}
                                 >
                                     <span>Laboratório</span>
-                                </button>
+                                </Button>
                                 
-                                <button 
+                                <Button 
                                     className="icon--news"
                                     onClick={() => this.accessPage("News")}
                                 >
                                     <span>Notícias</span>
-                                </button>                            
+                                </Button>                            
 
-                                <button 
+                                <Button 
                                     className="icon--help"
                                     onClick={() => this.accessPage("Help")}
                                 >
                                     <span>Ajuda</span>
-                                </button>
+                                </Button>
                                 
-                                <button
+                                <Button
                                     className="icon--nubibuz"
                                     onClick={() => this.accessPage("Nubibuz")}
                                 >
                                     <span>Sobre Nós</span>
-                                </button>                   
+                                </Button>                   
                             </div>
                         </div>        
 
