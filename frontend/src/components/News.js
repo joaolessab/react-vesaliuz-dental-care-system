@@ -2,6 +2,9 @@ import React from 'react';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import Button from '@material-ui/core/Button';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import '../assets/css/News.css';
@@ -15,7 +18,7 @@ class News extends React.Component{
         /* VARIABLES */
         this.state = {
             modalVisibility: false,
-            dialogVisibility: false
+            newsFilter: 10
         };
         
         this.modalTitle = "";
@@ -56,6 +59,12 @@ class News extends React.Component{
         this.setState({ modalVisibility: false });
     };
 
+    handleChange = (e) =>{        
+        var newValue = e.target.value;
+        this.setState({ newsFilter: newValue });
+        alert(newValue.toString());
+    };
+
     // Visualização de Todo o conteúdo do HTML
     render(){
 
@@ -80,9 +89,24 @@ class News extends React.Component{
                         <Button>Remédios</Button>                        
                     </div>
 
-                    <Button variant="outlined" color="primary" onClick={() => this.onOpenDialog()}>
-                        Open alert dialog
-                    </Button>
+                    <FormControl variant="outlined">
+                        <InputLabel htmlFor="outlined-age-native-simple">Age</InputLabel>
+                        <Select
+                            native
+                            value={ this.state.newsFilter }
+                            onChange={ this.handleChange }
+                            label="Age"
+                            inputProps={{
+                                name: 'age',
+                                id: 'outlined-age-native-simple',
+                            }}
+                        >
+                            <option aria-label="None" value="" />
+                            <option value={10}>Ten</option>
+                            <option value={20}>Twenty</option>
+                            <option value={30}>Thirty</option>
+                        </Select>
+                    </FormControl>
                     
                     <div className="div--list-news">
                         
