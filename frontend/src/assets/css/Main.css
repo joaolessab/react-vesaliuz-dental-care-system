@@ -87,8 +87,8 @@
     padding-bottom: 20px;
 }
 .container--blackboard-main .container--content-main .container--sidebar{
-    flex-basis: 125px;
-    width: 115px;
+    flex-basis: 125px !important;
+    width: 125px !important;
     display: flex;
     margin-left: -20px;
     margin-top: -20px;
