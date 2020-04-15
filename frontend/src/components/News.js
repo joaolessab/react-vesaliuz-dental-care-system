@@ -2,9 +2,13 @@ import React from 'react';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import Button from '@material-ui/core/Button';
+import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
+import ListItemText from '@material-ui/core/ListItemText';
 import Select from '@material-ui/core/Select';
+import Checkbox from '@material-ui/core/Checkbox';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import '../assets/css/News.css';
@@ -18,8 +22,21 @@ class News extends React.Component{
         /* VARIABLES */
         this.state = {
             modalVisibility: false,
-            newsFilter: 10
+            newsFilter: 10,
+            selectedNames: []
         };
+        this.names = [
+            'Oliver Hansen',
+            'Van Henry',
+            'April Tucker',
+            'Ralph Hubbard',
+            'Omar Alexander',
+            'Carlos Abbott',
+            'Miriam Wagner',
+            'Bradley Wilkerson',
+            'Virginia Andrews',
+            'Kelly Snyder'
+        ]
         
         this.modalTitle = "";
         this.modalBody = "";
@@ -59,10 +76,9 @@ class News extends React.Component{
         this.setState({ modalVisibility: false });
     };
 
-    handleChange = (e) =>{        
-        var newValue = e.target.value;
-        this.setState({ newsFilter: newValue });
-        alert(newValue.toString());
+    handleChangeMultiple = (event) =>{
+        var values = event.target.value;
+        this.setState({ selectedNames: values });
     };
 
     // Visualização de Todo o conteúdo do HTML
@@ -90,21 +106,22 @@ class News extends React.Component{
                     </div>
 
                     <FormControl variant="outlined">
-                        <InputLabel htmlFor="outlined-age-native-simple">Age</InputLabel>
+                        <InputLabel htmlFor="demo-mutiple-checkbox-label">Tag</InputLabel>
                         <Select
-                            native
-                            value={ this.state.newsFilter }
-                            onChange={ this.handleChange }
-                            label="Age"
-                            inputProps={{
-                                name: 'age',
-                                id: 'outlined-age-native-simple',
-                            }}
-                        >
-                            <option aria-label="None" value="" />
-                            <option value={10}>Ten</option>
-                            <option value={20}>Twenty</option>
-                            <option value={30}>Thirty</option>
+                            labelId="demo-mutiple-checkbox-label"
+                            id="demo-mutiple-checkbox"
+                            multiple
+                            value={this.state.selectedNames}
+                            onChange={ this.handleChangeMultiple }
+                            input={<Input />}
+                            renderValue={(selected) => selected.join(', ')}
+                            >
+                            {this.names.map((name) => (
+                                <MenuItem key={name} value={name}>
+                                <Checkbox checked={this.state.selectedNames.indexOf(name) > -1} />
+                                <ListItemText primary={name} />
+                                </MenuItem>
+                            ))}
                         </Select>
                     </FormControl>
                     
