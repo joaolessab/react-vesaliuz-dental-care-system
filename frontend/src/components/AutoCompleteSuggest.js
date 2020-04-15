@@ -1,5 +1,7 @@
 import React from 'react';
 import Autosuggest from 'react-autosuggest';
+import Tooltip from '@material-ui/core/Tooltip';
+import Zoom from '@material-ui/core/Zoom';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import '../assets/css/AutoCompleteSuggest.css';
@@ -177,13 +179,17 @@ class AutoCompleteSuggest extends React.Component{
                 inputProps = {inputProps} 
             />
 
-            <button 
-              id="limpa" 
-              onClick={() => this.clearSuggest()}
-            >
-            </button>
+            <Tooltip TransitionComponent={Zoom} placement="top" title="Limpar pesquisa">
+              <button 
+                id="limpa" 
+                onClick={() => this.clearSuggest()}
+              >
+              </button>
+            </Tooltip>
             
-            <button id="lupa"></button>
+            <Tooltip TransitionComponent={Zoom} placement="top" title="Pesquisar">
+              <button id="lupa"></button>
+            </Tooltip>
           </div>
         );
     }
