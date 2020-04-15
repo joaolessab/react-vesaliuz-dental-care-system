@@ -166,8 +166,8 @@
     display: none !important;
 }
 .container--blackboard-login .button--white-context{
-    width: 200px !important;
+    width: 200px;
 }
 .container--blackboard-login .button--blue-context {
-    width: 200px !important;
+    width: 200px;
 }

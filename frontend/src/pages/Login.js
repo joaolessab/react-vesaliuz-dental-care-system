@@ -32,7 +32,7 @@ export default function Login({ history }){
                         </div>
                     </div>
                     <div className="container--form-middle">
-                        <form onSubmit = { handleSubmit }>
+                        <form>
                             <h1 className="text--higher">Olá! Vamos começar? Faça o login</h1>
                             <h1 className="text--lower">Olá! Vamos começar?<br/>Faça o login</h1>
                             <input
@@ -49,7 +49,7 @@ export default function Login({ history }){
                                     <button className="button--black-label">Esqueceu sua senha?</button>
                                 </div>
                                 <div className="div--container-formAction--rightSplitter">
-                                    <Button variant="contained" className="button--blue-context">Entrar</Button>
+                                    <Button variant="contained" className="button--blue-context" onClick = { handleSubmit }>Entrar</Button>
                                 </div>
                             </div>
                         </form>

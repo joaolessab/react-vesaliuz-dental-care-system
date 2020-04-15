@@ -5,9 +5,6 @@ import '../assets/css/Accordion.css';
 
 class Accordion extends React.Component{
     // Substituindo o construtor do componente (são inputs do componente)
-    constructor(props) {
-        super(props);
-    }
     
     addAccordionMover(e) {
         var clickedButton = e.target;

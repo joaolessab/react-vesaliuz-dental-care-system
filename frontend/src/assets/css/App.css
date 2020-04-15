@@ -133,15 +133,15 @@ div::-webkit-scrollbar-thumb
   font-family: 'Averta Semibold' !important;
 }
 .button--blue-context:hover{
-  height: 45px;
-  border-radius: 6px;
-  background-color: #f5f6fa;
-  color: #62696f;
-  border: 1px solid #62696f;
-  cursor: pointer;
-  font-family: 'Averta Semibold';
-  box-shadow: 1px 6px 3px 0px #969696;
-  font-size: 14px;
+  height: 45px !important;
+  border-radius: 6px !important;
+  background-color: #f5f6fa !important;
+  color: #62696f !important;
+  border: 1px solid #62696f !important;
+  cursor: pointer !important;
+  font-family: 'Averta Semibold' !important;
+  box-shadow: 1px 6px 3px 0px #969696 !important;
+  font-size: 14px !important;
 }
 
 .button--grey-label_underlined {
