@@ -1,6 +1,8 @@
 import React from 'react';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
+import Tooltip from '@material-ui/core/Tooltip';
+import Zoom from '@material-ui/core/Zoom';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import '../assets/css/Help.css';
@@ -189,10 +191,19 @@ class Help extends React.Component{
                             </div>
                         </div>
                         <div className="div--typerBox">
-                            <button className="button--letter"></button>
+                            <Tooltip TransitionComponent={Zoom} placement="top" title="Trocar fonte">
+                                <button className="button--letter"></button>
+                            </Tooltip>
+                            
                             <input type="text" placeholder="Digite aqui sua mensagem..."/>
-                            <button className="button--attach"></button>
-                            <button className="button--send"></button>
+                                                        
+                            <Tooltip TransitionComponent={Zoom} placement="top" title="Anexar arquivo ou imagem">
+                                <button className="button--attach"></button>
+                            </Tooltip>
+
+                            <Tooltip TransitionComponent={Zoom} placement="top" title="Enviar mensagem">
+                                <button className="button--send"></button>
+                            </Tooltip>
                         </div>
                     </div>
                 </Modal>
