@@ -2,11 +2,6 @@ import React from 'react';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import '../assets/css/News.css';
@@ -61,18 +56,8 @@ class News extends React.Component{
         this.setState({ modalVisibility: false });
     };
 
-    onOpenDialog = () => {
-        this.setState({ dialogVisibility: true });
-    };
-
-    onCloseDialog = () => {
-        this.setState({ dialogVisibility: false });
-    };
-
     // Visualização de Todo o conteúdo do HTML
     render(){
-        const { modalVisibility } = this.state.modalVisibility;
-        const { dialogVisibility } = this.state.dialogVisibility;
 
         // RETORNO BÁSICO DO HTML
         return (
@@ -157,29 +142,6 @@ class News extends React.Component{
                     <h1>{ this.modalTitle }</h1>
                     <div className="div--modalBody-default" dangerouslySetInnerHTML={{ __html: this.modalBody }} />
                 </Modal>
-
-                {/* Dialog de Filtros de notícias */}
-                <Dialog
-                    open={ this.state.dialogVisibility }
-                    onClose={ this.onCloseDialog }
-                    aria-labelledby="alert-dialog-title"
-                    aria-describedby="alert-dialog-description"
-                >
-                    <DialogTitle id="alert-dialog-title">{"Filtro de Notícias"}</DialogTitle>
-                    <DialogContent>
-                    <DialogContentText id="alert-dialog-description">
-                        Selecione abaixo os tipos de notícia que deseja visualizar
-                    </DialogContentText>
-                    </DialogContent>
-                    <DialogActions>
-                    <Button onClick={ this.onCloseDialog } color="primary">
-                        Disagree
-                    </Button>
-                    <Button onClick={ this.onCloseDialog } color="primary" autoFocus>
-                        Agree
-                    </Button>
-                    </DialogActions>
-                </Dialog>
             </div>
         );
     }
