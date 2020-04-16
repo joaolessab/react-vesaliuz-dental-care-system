@@ -87,8 +87,8 @@
     padding-bottom: 20px;
 }
 .container--blackboard-main .container--content-main .container--sidebar{
-    flex-basis: 125px !important;
-    width: 125px !important;
+    flex-basis: 125px;
+    width: 125px;
     display: flex;
     margin-left: -20px;
     margin-top: -20px;
@@ -165,7 +165,7 @@
     -ms-transition: 1s;
     -o-transition: 1s;
     transition: 1s;
-    margin-left: 95px !important;
+    margin-left: 105px !important;
 }
 .container--blackboard-main .button--sidebar-retract:hover{
     background-image: url("../icons/arrowleft-icon--white.svg");

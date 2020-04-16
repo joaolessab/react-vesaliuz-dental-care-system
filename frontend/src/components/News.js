@@ -44,7 +44,7 @@ class News extends React.Component{
     }
 
     onOpenModal = (newsId) => {
-        if (newsId == "covid19"){
+        if (newsId === "covid19"){
             this.modalTitle = "COVID-19: Você já se preparou para combater o prejuízo do seu consultório?";
             this.modalBody =    "<p>Tempos difíceis chegaram. Estamos enfrentando uma crise sem previsão de término.</p>" +
                                 "<p>Não há estabilidade nesse cenário, porém, você está preparado para enfrentar? Ou está sentado esperando tudo acontecer?" +
@@ -52,7 +52,7 @@ class News extends React.Component{
                                 "<img src='https://cdn.portalcbncampinas.com.br/wp-content/uploads/2020/01/portalcbncampinas.com.br-corona-virus-e-febre-hemorragica-coronavirus.jpg'>" +
                                 "<p className='footer-news'>Revista Super Interessante, 2020.</p>";
         }
-        else if (newsId == "chair20"){
+        else if (newsId === "chair20"){
             this.modalTitle = "Novas cadeiras disponíveis no mercado";
             this.modalBody =    "<p>As novas cadeiras com suspensão a ar e flexibilidade rotativa estão dando o que falar no mercado odontológico!" +
                                 "<p>A mais nova inovação foi criada e patenteada pela empresa Sony e seus preços já estão disponíveis no mercado em torno de R$ 5.000,00.</p>" +
@@ -60,7 +60,7 @@ class News extends React.Component{
                                 "<img src='https://mundirepresentacoes.com.br/images/produtos/linha-odontologica/consultorios/Cadeira-Frente.png'>"; 
         }
 
-        else if (newsId == "economy21"){
+        else if (newsId === "economy21"){
             this.modalTitle = "Investimentos: agora é hora de reeinvestir no seu negócio?";
             this.modalBody =    "<p>A resposta é simples e direta: você possui caixa?</p>" + 
                                 "<p>Se preparou para momentos difíceis e de instabilidade?</p>" + 

@@ -34,7 +34,7 @@ WIDTH
         height: calc(100% - 180px);
     }
     .container--blackboard-main .button--sidebar-retract {
-        margin-left: 94px !important;
+        margin-left: 104px !important;
         z-index: 1;
         margin-top: 0px !important;
     }
@@ -77,7 +77,7 @@ WIDTH
         margin-left: -16px !important;
     }
     .container--blackboard-main .button--sidebar-retract {
-        margin-left: 113px !important;
+        margin-left: 123px !important;
     }
     .container--blackboard-main .navbar-main--top .left--side .logo {
         display: none;
