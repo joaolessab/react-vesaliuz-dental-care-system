@@ -55,16 +55,16 @@ class Help extends React.Component{
                 <div className="container--form-help">
                     <p className="p--subtitle">Conte-nos o seu problema</p>
                     <form>
-                        <label for="name">Seu nome:</label>
+                        <label htmlFor="name">Seu nome:</label>
                         <input type="text" id="name" placeholder="Digite o seu nome" className="input--white-context-wth-shadow"/>
     
-                        <label for="email">Seu e-mail:</label>
+                        <label htmlFor="email">Seu e-mail:</label>
                         <input type="email" id="email" placeholder="Digite seu melhor e-mail" className="input--white-context-wth-shadow"/>
     
-                        <label for="telephone">Seu telefone:</label>
+                        <label htmlFor="telephone">Seu telefone:</label>
                         <input type="text" id="telephone" placeholder="Digite o seu melhor telefone" className="input--white-context-wth-shadow"/>
     
-                        <label for="situation">Seu problema:</label>
+                        <label htmlFor="situation">Seu problema:</label>
                         <textarea id="situation" placeholder="Digite o seu relato" className="input--white-context-wth-shadow">
                         </textarea>
     

@@ -6,6 +6,7 @@ body {font-family: 'Averta';}
   background-color: white;
   flex-basis: 40px;
   align-items: center;
+  box-shadow: 0px 0px 15px 0px #efefef;
 }
 .div--search input:focus{
   box-shadow: 0px 0px 0px 0px;
@@ -52,10 +53,10 @@ body {font-family: 'Averta';}
   font-family: 'Averta';
   font-weight: 300;
   border: 0px;
-  border-radius: 4px;
-  font-size: 13.px;
+  border-radius: 10px;
+  font-size: 13.7px;
   flex: 1 1;
-  padding-left: 10px;
+  padding-left: 20px;
   padding-right: 10px;
 }
   

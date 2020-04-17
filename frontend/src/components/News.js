@@ -9,6 +9,8 @@ import FormControl from '@material-ui/core/FormControl';
 import ListItemText from '@material-ui/core/ListItemText';
 import Select from '@material-ui/core/Select';
 import Checkbox from '@material-ui/core/Checkbox';
+import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import '../assets/css/News.css';
@@ -26,16 +28,15 @@ class News extends React.Component{
             selectedNames: []
         };
         this.names = [
-            'Oliver Hansen',
-            'Van Henry',
-            'April Tucker',
-            'Ralph Hubbard',
-            'Omar Alexander',
-            'Carlos Abbott',
-            'Miriam Wagner',
-            'Bradley Wilkerson',
-            'Virginia Andrews',
-            'Kelly Snyder'
+            'Todos',
+            'Saúde',
+            'Equipamentos',
+            'Investimentos',
+            'Tecnologia',
+            'Atualidade',
+            'Política',
+            'Tratamentos',
+            'Remédios'
         ]
         
         this.modalTitle = "";
@@ -118,8 +119,12 @@ class News extends React.Component{
                             >
                             {this.names.map((name) => (
                                 <MenuItem key={name} value={name}>
-                                <Checkbox checked={this.state.selectedNames.indexOf(name) > -1} />
-                                <ListItemText primary={name} />
+                                    <Checkbox 
+                                        checked={this.state.selectedNames.indexOf(name) > -1} 
+                                        icon={<RadioButtonUncheckedIcon />}
+                                        checkedIcon={< CheckCircleIcon />}
+                                    />
+                                    <ListItemText primary={name} />
                                 </MenuItem>
                             ))}
                         </Select>

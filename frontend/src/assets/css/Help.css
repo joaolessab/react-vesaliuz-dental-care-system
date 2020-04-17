@@ -17,6 +17,7 @@
     padding: 20px;
     margin-right: 10px;
     margin-left: 10px;
+    box-shadow: 0px 0px 15px 0px #efefef;
 }
 .container--form-help form{
     display: flex;
@@ -29,8 +30,8 @@
 }
 .container--form-help form label{
     font-size: 14px;
-    margin-left: 10px;
-    margin-bottom: 8px;
+    margin-left: 1px;
+    margin-bottom: 4px;
     margin-top: 10px;
 }
 .container--form-help form textarea{
@@ -56,6 +57,7 @@
     align-items: center;
     padding: 20px;
     margin-left: 10px;
+    box-shadow: 0px 0px 15px 0px #efefef;
 }
 .container--content-help .div--cleiton{
     background-image: url("../images/photo-cleiton.png");
@@ -68,6 +70,7 @@
     background-repeat: no-repeat;
     background-size: 85%;
     background-position: 50%;
+    box-shadow: 0px 0px 15px 0px #efefef;
 }
 .container--content-help .div--chats{
     display: flex;
@@ -87,6 +90,7 @@
     background-repeat: no-repeat;
     background-size: 85%;
     background-position: 50%;
+    box-shadow: 0px 0px 15px 0px #efefef;
 }
 .container--content-help .div--chats .onlinechat:hover{
     cursor: pointer;
@@ -107,6 +111,7 @@
     background-repeat: no-repeat;
     background-size: 85%;
     background-position: 50%;
+    box-shadow: 0px 0px 15px 0px #efefef;
 }
 .container--content-help .div--chats .whatsapp:hover{
     cursor: pointer;

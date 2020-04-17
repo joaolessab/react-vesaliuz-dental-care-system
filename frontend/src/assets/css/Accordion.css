@@ -8,7 +8,7 @@
     text-align: left;
     outline: none;
     transition: 0.4s;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 .container--accordion .accordion--button:after {
     content: '\002B';

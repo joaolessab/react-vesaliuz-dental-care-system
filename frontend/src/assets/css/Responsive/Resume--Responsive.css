@@ -39,9 +39,11 @@ WIDTH
     .container--content-resume .div--chart .revenue {
         margin-right: 0px;
         margin-bottom: 20px;
+        box-shadow: 0px 0px 15px 0px #efefef;
     }
     .container--content-resume .div--chart .expense {
         margin-left: 0px;
+        box-shadow: 0px 0px 15px 0px #efefef;
     }
 }
 
