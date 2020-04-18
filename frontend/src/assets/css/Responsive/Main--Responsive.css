@@ -30,7 +30,7 @@ WIDTH
 @media only screen and (max-width: 686px) {
     .container--blackboard-main .container--content-main .container--sidebar {
         position: absolute;
-        z-index: 1;
+        z-index: 1000;
         height: calc(100% - 180px);
     }
     .container--blackboard-main .button--sidebar-retract {

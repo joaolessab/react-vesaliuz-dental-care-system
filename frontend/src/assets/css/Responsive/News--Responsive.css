@@ -21,8 +21,18 @@ WIDTH
         margin-bottom: 20px;
     }
 }
-@media only screen and (max-width: 1207px) {
-    .container--miolo-main {
+@media only screen and (max-width: 1206px){
+    .container--content-news .div--filter-news {
+        margin-right: 0px;
+    }
+    .container--blackboard-main .div--content-title {
+        margin-right: 0px;
+    }
+    .container--content-news .div--list-news{
+        margin-right: 0px;
         padding-right: 0px;
+    }
+    .container-questions--help {
+        margin-right: 0px;
     }
 }

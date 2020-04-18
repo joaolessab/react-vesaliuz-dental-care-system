@@ -5,10 +5,13 @@ WIDTH: 320px until 2880px
     .container-questions--help .div--accordion-list {
         width: 100%;
         padding-right: 13px;
+        overflow: auto;
     }
     .container-questions--help{
         margin-left: 0px;
         margin-top: 20px;
+        margin-right: 0px;
+        height: auto;
     }
     .container--form-help{
         margin-left: 0px;

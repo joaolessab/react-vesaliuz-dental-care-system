@@ -76,7 +76,7 @@
     display: flex;
     padding-top: 20px;
     padding-left: 20px;
-    padding-right: 20px;
+    padding-right: 0px;
     background-color: #ececec;
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
@@ -85,7 +85,6 @@
     flex: 1;
     display: flex;
     padding-bottom: 20px;
-    padding-right: 5px;
 }
 .container--blackboard-main .container--content-main .container--sidebar{
     flex-basis: 125px;
@@ -104,6 +103,7 @@
     margin-top: 10px;
     margin-bottom: 10px;
     margin-right: 5px;
+    overflow-x: hidden;
 }
 .container--blackboard-main .container--content-main .container--sidebar .sidebar button{
     height: 50px !important;
@@ -206,4 +206,5 @@
 .container--blackboard-main .div--content-title{
     flex-basis: 40px;
     display: flex;
+    margin-right: 25px;
 }
