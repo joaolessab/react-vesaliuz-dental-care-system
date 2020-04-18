@@ -1,7 +1,3 @@
-.container--miolo-main{
-    margin-right: 10px;
-}
-
 .container--content-news{
     flex: 1;
     height: auto;
@@ -77,8 +73,12 @@
 }
 .container--content-news .div--item-news-text h1{
     font-size: 20px;
+    flex-basis: 25px;
+    max-height: 25px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     margin-bottom: 10px;
-    flex-basis: 10px;
 }
 .container--content-news h1{
     font-family: 'Averta Extra Bold';
@@ -90,7 +90,6 @@
     border-radius: 6px;
     display: flex;
     justify-content: space-between;
-    margin-right: 34px;
 }
 .container--content-news .div--filter-news .formcontrol--tag-news{
     background-color: white;
@@ -114,7 +113,6 @@
     overflow: auto;
     display: flex;
     flex-direction: column;
-    padding-right: 30px;
     margin-top: 20px;
 }
 .container--content-news .div--filter-news button{

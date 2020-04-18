@@ -16,6 +16,10 @@ WIDTH
     .container--content-news .div--filter-news {
         justify-content: center;
     }
+    .container--blackboard-main .div--content-title {
+        justify-content: center;
+        margin-bottom: 20px;
+    }
 }
 @media only screen and (max-width: 1207px) {
     .container--miolo-main {
