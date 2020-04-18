@@ -1,0 +1,24 @@
+    /*****
+    Width: 320px until 2880px
+    Height: 240px until 1800px 
+******/
+
+/*****
+WIDTH
+******/
+@media only screen and (max-width: 1320px) {
+    .container--content-news .div--filter-news .formcontrol--tag-news{
+        display: block;
+    }
+    .container--content-news .div--filter-news .button--tag{
+        display: none;
+    }
+    .container--content-news .div--filter-news {
+        justify-content: center;
+    }
+}
+@media only screen and (max-width: 1207px) {
+    .container--miolo-main {
+        padding-right: 0px;
+    }
+}

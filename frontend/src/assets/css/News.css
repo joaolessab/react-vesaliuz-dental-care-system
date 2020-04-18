@@ -92,6 +92,23 @@
     justify-content: space-between;
     margin-right: 34px;
 }
+.container--content-news .div--filter-news .formcontrol--tag-news{
+    background-color: white;
+    border-radius: 6px;
+    width: 332px;
+    padding-left: 20px;
+    padding-right: 0px;
+    height: 45px;
+    display: none;
+}
+.MuiSelect-outlined.MuiSelect-outlined{
+    font-family: 'Averta' !important;
+    font-size: 13.7px !important;
+    margin-top: -9px;
+    color: #b2b2b2 !important;
+    background-color: white !important;
+    width: 280px !important
+}
 .container--content-news .div--list-news{
     flex: 1 1;
     overflow: auto;

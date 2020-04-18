@@ -15,6 +15,7 @@ import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import '../assets/css/News.css';
 import '../assets/css/News--Icons.css';
+import '../assets/css/Responsive/News--Responsive.css';
 
 class News extends React.Component{
 
@@ -95,41 +96,42 @@ class News extends React.Component{
                     </div>
 
                     <div className="div--filter-news">
-                        <Button className="selected">Todos</Button>
-                        <Button>Saúde</Button>
-                        <Button>Equipamentos</Button>
-                        <Button>Investimentos</Button>
-                        <Button>Tecnologia</Button>
-                        <Button>Atualidade</Button>
-                        <Button>Política</Button>
-                        <Button>Tratamentos</Button>
-                        <Button>Remédios</Button>                        
-                    </div>
-
-                    <FormControl variant="outlined">
-                        <InputLabel htmlFor="demo-mutiple-checkbox-label">Tag</InputLabel>
-                        <Select
-                            labelId="demo-mutiple-checkbox-label"
-                            id="demo-mutiple-checkbox"
-                            multiple
-                            value={this.state.selectedNames}
-                            onChange={ this.handleChangeMultiple }
-                            input={<Input />}
-                            renderValue={(selected) => selected.join(', ')}
-                            >
-                            {this.names.map((name) => (
-                                <MenuItem key={name} value={name}>
-                                    <Checkbox 
-                                        checked={this.state.selectedNames.indexOf(name) > -1} 
-                                        icon={<RadioButtonUncheckedIcon />}
-                                        checkedIcon={< CheckCircleIcon />}
-                                    />
-                                    <ListItemText primary={name} />
-                                </MenuItem>
-                            ))}
-                        </Select>
-                    </FormControl>
+                        <Button className="button--tag selected">Todos</Button>
+                        <Button className="button--tag">Saúde</Button>
+                        <Button className="button--tag">Equipamentos</Button>
+                        <Button className="button--tag">Investimentos</Button>
+                        <Button className="button--tag">Tecnologia</Button>
+                        <Button className="button--tag">Atualidade</Button>
+                        <Button className="button--tag">Política</Button>
+                        <Button className="button--tag">Tratamentos</Button>
+                        <Button className="button--tag">Remédios</Button>                        
                     
+                        {/* Seletor multiplo */}
+                        <FormControl variant="outlined" className="formcontrol--tag-news">
+                            <InputLabel htmlFor="demo-mutiple-checkbox-label">Categoria</InputLabel>
+                            <Select
+                                labelId="demo-mutiple-checkbox-label"
+                                id="demo-mutiple-checkbox"
+                                multiple
+                                value={this.state.selectedNames}
+                                onChange={ this.handleChangeMultiple }
+                                input={<Input />}
+                                renderValue={(selected) => selected.join(', ')}
+                                >
+                                {this.names.map((name) => (
+                                    <MenuItem key={name} value={name}>
+                                        <Checkbox 
+                                            checked={this.state.selectedNames.indexOf(name) > -1} 
+                                            icon={<RadioButtonUncheckedIcon />}
+                                            checkedIcon={< CheckCircleIcon />}
+                                        />
+                                        <ListItemText primary={name} />
+                                    </MenuItem>
+                                ))}
+                            </Select>
+                        </FormControl>
+                    </div>
+                                            
                     <div className="div--list-news">
                         
                         {/* Item de notícia */}
