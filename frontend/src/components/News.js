@@ -26,7 +26,7 @@ class News extends React.Component{
         this.state = {
             modalVisibility: false,
             newsFilter: 10,
-            selectedNames: []
+            selectedTags: ["Todos"]
         };
         this.names = [
             'Todos',
@@ -80,7 +80,90 @@ class News extends React.Component{
 
     handleChangeMultiple = (event) =>{
         var values = event.target.value;
-        this.setState({ selectedNames: values });
+        this.setState({ selectedTags: values });
+        this.filterTag(event, values);
+    };
+
+    setButtonSelectedValues = (buttonNodeItens, type) =>{
+        if (type === "button"){
+            if (buttonNodeItens.classList.contains("selected") === true){
+                buttonNodeItens.classList.remove("selected");
+            }
+            else{
+                buttonNodeItens.classList.add("selected");
+            }
+        }
+        else{
+            var buttonsHtmlNodes = document.getElementsByClassName("button--tag");
+            for (var i = 0; i < buttonsHtmlNodes.length; i++){
+                var buttonHtmlNodeText = buttonsHtmlNodes[i].children[0].innerText;
+                if (buttonNodeItens.includes(buttonHtmlNodeText)){
+                    buttonsHtmlNodes[i].classList.add("selected");
+                }
+                else{
+                    buttonsHtmlNodes[i].classList.remove("selected");
+                }
+            }
+        }
+    };
+
+    showNewsItem = (tags) =>{
+        var newsNodes = document.getElementsByClassName("div--item-news");
+        if (tags.includes("Todos") == true){
+            for (var i = 0; i < newsNodes.length; i++){
+                newsNodes[i].style.display = "flex";
+            }
+        }
+        else{
+            // Normalizando tags
+            var tagsNormalized = [];
+            for (var b = 0; b < tags.length; b++){                
+                tagsNormalized.push(tags[b].toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""));
+            }
+
+            //Verificando itens
+            for (var i = 0; i < newsNodes.length; i++){
+                var tagExistent = false;
+                var itemTags = newsNodes[i].getAttribute("tagnews").split("-");
+                
+                // Pegando tags do item selecionado
+                for (var j = 0; j < itemTags.length; j++){
+                    if (tagsNormalized.includes(itemTags[j]) == true){
+                        tagExistent = true;
+                    }
+                }
+                
+                // Final da manipulacao
+                if (tagExistent){
+                    newsNodes[i].style.display = "flex";
+                }
+                else{
+                    newsNodes[i].style.display = "none";
+                }
+            }
+        }
+    };
+
+    filterTag = (event, tag) =>{
+        // Para ListBox
+        if (event.target.parentElement === undefined){
+            this.setState({ selectedTags: event.target.value });
+            this.setButtonSelectedValues(event.target.value, "checkBox");
+            this.showNewsItem(event.target.value);
+        }
+        // Para botões físicos
+        else{
+            this.setButtonSelectedValues(event.target.parentElement, "button");
+            var buttonsHtmlNodes = document.getElementsByClassName("button--tag");
+            var selectedTagsFromNode = [];
+            for (var i = 0; i < buttonsHtmlNodes.length; i++){
+                if (buttonsHtmlNodes[i].classList.contains("selected") == true){
+                    selectedTagsFromNode.push(buttonsHtmlNodes[i].children[0].innerText);
+                }
+            }    
+            this.setState({ selectedTags: selectedTagsFromNode });
+            this.showNewsItem(selectedTagsFromNode);
+        }               
     };
 
     // Visualização de Todo o conteúdo do HTML
@@ -96,15 +179,15 @@ class News extends React.Component{
                     </div>
 
                     <div className="div--filter-news">
-                        <Button className="button--tag selected">Todos</Button>
-                        <Button className="button--tag">Saúde</Button>
-                        <Button className="button--tag">Equipamentos</Button>
-                        <Button className="button--tag">Investimentos</Button>
-                        <Button className="button--tag">Tecnologia</Button>
-                        <Button className="button--tag">Atualidade</Button>
-                        <Button className="button--tag">Política</Button>
-                        <Button className="button--tag">Tratamentos</Button>
-                        <Button className="button--tag">Remédios</Button>                        
+                        <Button className="button--tag selected" onClick={(e) => this.filterTag(e, "todos")}>Todos</Button>
+                        <Button className="button--tag" onClick={(e) => this.filterTag(e, "saude")}>Saúde</Button>
+                        <Button className="button--tag" onClick={(e) => this.filterTag(e, "equipamentos")}>Equipamentos</Button>
+                        <Button className="button--tag" onClick={(e) => this.filterTag(e, "investimentos")}>Investimentos</Button>
+                        <Button className="button--tag" onClick={(e) => this.filterTag(e, "tecnologia")}>Tecnologia</Button>
+                        <Button className="button--tag" onClick={(e) => this.filterTag(e, "atualidade")}>Atualidade</Button>
+                        <Button className="button--tag" onClick={(e) => this.filterTag(e, "politica")}>Política</Button>
+                        <Button className="button--tag" onClick={(e) => this.filterTag(e, "tratamentos")}>Tratamentos</Button>
+                        <Button className="button--tag" onClick={(e) => this.filterTag(e, "remedios")}>Remédios</Button>                     
                     
                         {/* Seletor multiplo */}
                         <FormControl variant="outlined" className="formcontrol--tag-news">
@@ -113,15 +196,15 @@ class News extends React.Component{
                                 labelId="demo-mutiple-checkbox-label"
                                 id="demo-mutiple-checkbox"
                                 multiple
-                                value={this.state.selectedNames}
-                                onChange={ this.handleChangeMultiple }
+                                value={this.state.selectedTags}
+                                onChange={ this.filterTag }
                                 input={<Input />}
                                 renderValue={(selected) => selected.join(', ')}
                                 >
                                 {this.names.map((name) => (
                                     <MenuItem key={name} value={name}>
                                         <Checkbox 
-                                            checked={this.state.selectedNames.indexOf(name) > -1} 
+                                            checked={this.state.selectedTags.indexOf(name) > -1} 
                                             icon={<RadioButtonUncheckedIcon />}
                                             checkedIcon={< CheckCircleIcon />}
                                         />
@@ -135,7 +218,7 @@ class News extends React.Component{
                     <div className="div--list-news">
                         
                         {/* Item de notícia */}
-                        <div className="div--item-news" onClick={() => this.onOpenModal("covid19")}>
+                        <div className="div--item-news" onClick={() => this.onOpenModal("covid19")} tagnews="saude">
                             {/* Icone */}
                             <div className="div--item-news-icon corona--girl">
                             </div>
@@ -151,7 +234,7 @@ class News extends React.Component{
                         </div>
 
                         {/* Item de notícia */}
-                        <div className="div--item-news" onClick={() => this.onOpenModal("chair20")}>
+                        <div className="div--item-news" onClick={() => this.onOpenModal("chair20")} tagnews="equipamentos-tecnologia">
                             {/* Icone */}
                             <div className="div--item-news-icon dentist--chair">
                             </div>
@@ -167,7 +250,7 @@ class News extends React.Component{
                         </div>
 
                         {/* Item de notícia */}
-                        <div className="div--item-news" onClick={() => this.onOpenModal("economy21")}>
+                        <div className="div--item-news" onClick={() => this.onOpenModal("economy21")} tagnews="investimentos">
                             {/* Icone */}
                             <div className="div--item-news-icon economy--pork">
                             </div>
