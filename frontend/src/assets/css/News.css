@@ -19,6 +19,29 @@
     background-color: #2386fd;
     cursor: pointer;
 }
+.container--content-news .div--item-news-empty{
+    display: none;
+    background-color: transparent;
+    border: 1px solid #6d6d6d;
+    border-style: dotted;
+    text-align: center;
+    height: auto !important;
+    justify-content: center;
+    min-height: 130px;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+    border-radius: 10px;
+}
+.container--content-news .div--item-news-empty:hover{
+    background-color: transparent !important;
+    cursor: not-allowed;
+}
+.container--content-news .div--item-news-empty:hover h1, .container--content-news .div--item-news-empty:hover p{
+    color: black !important;
+}
+
 .container--content-news .div--item-news:hover h1, .container--content-news .div--item-news:hover p{
     color: white !important;
 }

@@ -78,12 +78,6 @@ class News extends React.Component{
         this.setState({ modalVisibility: false });
     };
 
-    handleChangeMultiple = (event) =>{
-        var values = event.target.value;
-        this.setState({ selectedTags: values });
-        this.filterTag(event, values);
-    };
-
     setButtonSelectedValues = (buttonNodeItens, type) =>{
         if (type === "button"){
             if (buttonNodeItens.classList.contains("selected") === true){
@@ -108,43 +102,57 @@ class News extends React.Component{
     };
 
     showNewsItem = (tags) =>{
-        var newsNodes = document.getElementsByClassName("div--item-news");
-        if (tags.includes("Todos") == true){
-            for (var i = 0; i < newsNodes.length; i++){
-                newsNodes[i].style.display = "flex";
+        if (tags.length === 0){
+            var emptyNews = document.getElementsByClassName("div--item-news-empty")[0];
+            emptyNews.style.display = "flex";
+
+            var newsNodes = document.getElementsByClassName("div--item-news");
+            for (var k = 0; k < newsNodes.length; k++){
+                newsNodes[k].style.display = "none";
             }
         }
         else{
-            // Normalizando tags
-            var tagsNormalized = [];
-            for (var b = 0; b < tags.length; b++){                
-                tagsNormalized.push(tags[b].toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""));
-            }
-
-            //Verificando itens
-            for (var i = 0; i < newsNodes.length; i++){
-                var tagExistent = false;
-                var itemTags = newsNodes[i].getAttribute("tagnews").split("-");
-                
-                // Pegando tags do item selecionado
-                for (var j = 0; j < itemTags.length; j++){
-                    if (tagsNormalized.includes(itemTags[j]) == true){
-                        tagExistent = true;
-                    }
-                }
-                
-                // Final da manipulacao
-                if (tagExistent){
+            var newsNodes = document.getElementsByClassName("div--item-news");
+            if (tags.includes("Todos") == true){
+                for (var i = 0; i < newsNodes.length; i++){
                     newsNodes[i].style.display = "flex";
                 }
-                else{
-                    newsNodes[i].style.display = "none";
+            }
+            else{
+                var emptyNews = document.getElementsByClassName("div--item-news-empty")[0];
+                emptyNews.style.display = "none";
+
+                // Normalizando tags
+                var tagsNormalized = [];
+                for (var b = 0; b < tags.length; b++){                
+                    tagsNormalized.push(tags[b].toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""));
+                }
+
+                //Verificando itens
+                for (var i = 0; i < newsNodes.length; i++){
+                    var tagExistent = false;
+                    var itemTags = newsNodes[i].getAttribute("tagnews").split("-");
+                    
+                    // Pegando tags do item selecionado
+                    for (var j = 0; j < itemTags.length; j++){
+                        if (tagsNormalized.includes(itemTags[j]) == true){
+                            tagExistent = true;
+                        }
+                    }
+                    
+                    // Final da manipulacao
+                    if (tagExistent){
+                        newsNodes[i].style.display = "flex";
+                    }
+                    else{
+                        newsNodes[i].style.display = "none";
+                    }
                 }
             }
         }
     };
 
-    filterTag = (event, tag) =>{
+    filterTag = (event) =>{
         // Para ListBox
         if (event.target.parentElement === undefined){
             this.setState({ selectedTags: event.target.value });
@@ -179,15 +187,15 @@ class News extends React.Component{
                     </div>
 
                     <div className="div--filter-news">
-                        <Button className="button--tag selected" onClick={(e) => this.filterTag(e, "todos")}>Todos</Button>
-                        <Button className="button--tag" onClick={(e) => this.filterTag(e, "saude")}>Saúde</Button>
-                        <Button className="button--tag" onClick={(e) => this.filterTag(e, "equipamentos")}>Equipamentos</Button>
-                        <Button className="button--tag" onClick={(e) => this.filterTag(e, "investimentos")}>Investimentos</Button>
-                        <Button className="button--tag" onClick={(e) => this.filterTag(e, "tecnologia")}>Tecnologia</Button>
-                        <Button className="button--tag" onClick={(e) => this.filterTag(e, "atualidade")}>Atualidade</Button>
-                        <Button className="button--tag" onClick={(e) => this.filterTag(e, "politica")}>Política</Button>
-                        <Button className="button--tag" onClick={(e) => this.filterTag(e, "tratamentos")}>Tratamentos</Button>
-                        <Button className="button--tag" onClick={(e) => this.filterTag(e, "remedios")}>Remédios</Button>                     
+                        <Button className="button--tag selected" onClick={(e) => this.filterTag(e)}>Todos</Button>
+                        <Button className="button--tag" onClick={(e) => this.filterTag(e)}>Saúde</Button>
+                        <Button className="button--tag" onClick={(e) => this.filterTag(e)}>Equipamentos</Button>
+                        <Button className="button--tag" onClick={(e) => this.filterTag(e)}>Investimentos</Button>
+                        <Button className="button--tag" onClick={(e) => this.filterTag(e)}>Tecnologia</Button>
+                        <Button className="button--tag" onClick={(e) => this.filterTag(e)}>Atualidade</Button>
+                        <Button className="button--tag" onClick={(e) => this.filterTag(e)}>Política</Button>
+                        <Button className="button--tag" onClick={(e) => this.filterTag(e)}>Tratamentos</Button>
+                        <Button className="button--tag" onClick={(e) => this.filterTag(e)}>Remédios</Button>                     
                     
                         {/* Seletor multiplo */}
                         <FormControl variant="outlined" className="formcontrol--tag-news">
@@ -264,7 +272,13 @@ class News extends React.Component{
                                 </div>
                             </div>
                         </div>
-                        
+
+                        {/* Item de notícia - Em branco */}
+                        <div className="div--item-news-empty" tagnews="nenhum">
+                            {/* Resumo */}
+                            <h1>Parece que não existem notícias a serem exibidas</h1>
+                            <p>Selecione alguma categoria nos botões acima para realizar um filtro.</p>
+                        </div>                        
                     </div>
                 </div>
 
