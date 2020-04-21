@@ -1,10 +1,10 @@
-.container--content-appointment{
+.container--content-agenda{
     flex: 1;
     height: auto;
     display: flex;
     flex-direction: column;
 }
-.container--content-appointment h1{
+.container--content-agenda h1{
     font-family: 'Averta Extra Bold';
     font-size: 20px;
 }
