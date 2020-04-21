@@ -3,5 +3,4 @@ https://material-ui.com/getting-started/installation/
 
 
 = CALENDARS =
-https://github.com/wix/react-native-calendars
-https://github.com/brillout/awesome-react-components
+https://devexpress.github.io/devextreme-reactive/react/scheduler/docs/guides/getting-started/
