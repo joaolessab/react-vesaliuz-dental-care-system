@@ -1,7 +1,6 @@
 {
   "dependencies": {
     "@material-ui/core": "^4.9.10",
-    "@material-ui/icons": "^4.9.1",
-    "react-native-calendars": "^1.265.0"
+    "@material-ui/icons": "^4.9.1"
   }
 }
