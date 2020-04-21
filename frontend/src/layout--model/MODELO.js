@@ -15,6 +15,7 @@ import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import '../assets/css/News.css';
 import '../assets/css/News--Icons.css';
+import '../assets/css/Responsive/News--Responsive.css';
 
 class News extends React.Component{
 
@@ -101,24 +102,23 @@ class News extends React.Component{
     };
 
     showNewsItem = (tags) =>{
+        var newsNodes = document.getElementsByClassName("div--item-news");
+        var emptyNews = document.getElementsByClassName("div--item-news-empty")[0];
+        
         if (tags.length === 0){
-            var emptyNews = document.getElementsByClassName("div--item-news-empty")[0];
             emptyNews.style.display = "flex";
 
-            var newsNodes = document.getElementsByClassName("div--item-news");
             for (var k = 0; k < newsNodes.length; k++){
                 newsNodes[k].style.display = "none";
             }
         }
         else{
-            var newsNodes = document.getElementsByClassName("div--item-news");
-            if (tags.includes("Todos") == true){
+            if (tags.includes("Todos") === true){
                 for (var i = 0; i < newsNodes.length; i++){
                     newsNodes[i].style.display = "flex";
                 }
             }
             else{
-                var emptyNews = document.getElementsByClassName("div--item-news-empty")[0];
                 emptyNews.style.display = "none";
 
                 // Normalizando tags
@@ -128,23 +128,23 @@ class News extends React.Component{
                 }
 
                 //Verificando itens
-                for (var i = 0; i < newsNodes.length; i++){
+                for (var p = 0; p < newsNodes.length; p++){
                     var tagExistent = false;
-                    var itemTags = newsNodes[i].getAttribute("tagnews").split("-");
+                    var itemTags = newsNodes[p].getAttribute("tagnews").split("-");
                     
                     // Pegando tags do item selecionado
                     for (var j = 0; j < itemTags.length; j++){
-                        if (tagsNormalized.includes(itemTags[j]) == true){
+                        if (tagsNormalized.includes(itemTags[j]) === true){
                             tagExistent = true;
                         }
                     }
                     
                     // Final da manipulacao
                     if (tagExistent){
-                        newsNodes[i].style.display = "flex";
+                        newsNodes[p].style.display = "flex";
                     }
                     else{
-                        newsNodes[i].style.display = "none";
+                        newsNodes[p].style.display = "none";
                     }
                 }
             }
@@ -164,7 +164,7 @@ class News extends React.Component{
             var buttonsHtmlNodes = document.getElementsByClassName("button--tag");
             var selectedTagsFromNode = [];
             for (var i = 0; i < buttonsHtmlNodes.length; i++){
-                if (buttonsHtmlNodes[i].classList.contains("selected") == true){
+                if (buttonsHtmlNodes[i].classList.contains("selected") === true){
                     selectedTagsFromNode.push(buttonsHtmlNodes[i].children[0].innerText);
                 }
             }    
