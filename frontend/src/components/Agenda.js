@@ -1,6 +1,7 @@
 import React from 'react';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
+import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import '../assets/css/Agenda.css';
@@ -33,7 +34,9 @@ class Agenda extends React.Component{
                         <h1>Agenda</h1>
                     </div>
 
-                    <p>Testando</p>
+                    <div className="div--content-agenda">
+
+                    </div>
                 </div>
 
                 {/* Modal de notícia */}
