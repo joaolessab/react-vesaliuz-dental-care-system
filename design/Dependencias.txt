@@ -1,7 +1,0 @@
-= MATERIAL DESIGN FOR REACT =
-https://material-ui.com/getting-started/installation/
-
-
-= CALENDARS =
-https://github.com/wix/react-native-calendars
-https://github.com/brillout/awesome-react-components

@@ -6,7 +6,7 @@ import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import '../assets/css/Agenda.css';
 
-class Agenda extends React.Component{
+class Appointment extends React.Component{
 
     constructor(props){
         super(props);
@@ -29,12 +29,12 @@ class Agenda extends React.Component{
         // RETORNO BÁSICO DO HTML
         return (
             <div className="container--miolo-main">
-                <div className="container--content-agenda">                    
+                <div className="container--content-appointment">                    
                     <div className="div--content-title">
                         <h1>Agenda</h1>
                     </div>
 
-                    <div className="div--content-agenda">
+                    <div className="div--content-appointment">
 
                     </div>
                 </div>
@@ -49,4 +49,4 @@ class Agenda extends React.Component{
     }
 }
 
-export default Agenda;
+export default Appointment;

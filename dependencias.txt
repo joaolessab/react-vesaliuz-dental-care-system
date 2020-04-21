@@ -1,0 +1,10 @@
+= MATERIAL DESIGN FOR REACT =
+https://material-ui.com/getting-started/installation/
+
+
+= CALENDARS =
+https://github.com/wix/react-native-calendars
+https://github.com/brillout/awesome-react-components
+
+$ npm install --save react-native-calendars
+yarn add @babel/plugin-proposal-class-properties --dev

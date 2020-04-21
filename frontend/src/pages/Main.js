@@ -8,7 +8,7 @@ import '../assets/css/Animations/Main--Animations.css';
 import '../assets/css/Modal.css';
 
 import Resume from '../components/Resume';
-import Agenda from '../components/Agenda';
+import Appointment from '../components/Appointment';
 import News from '../components/News';
 import Help from '../components/Help';
 
@@ -64,8 +64,8 @@ class Main extends React.Component{
             if (page === "Resume")
                 this.setState({child: Resume});
 
-            if (page === "Agenda")
-                this.setState({child: Agenda});
+            if (page === "Appointment")
+                this.setState({child: Appointment});
 
             if (page === "Help")
                 this.setState({child: Help});
@@ -85,7 +85,7 @@ class Main extends React.Component{
             // Adding Blue
             if (page === "Resume")
                 document.getElementsByClassName("icon--home")[0].classList.add("selected");
-            if (page === "Agenda")
+            if (page === "Appointment")
                 document.getElementsByClassName("icon--agendamentos")[0].classList.add("selected");
             if(page === "News")
                 document.getElementsByClassName("icon--news")[0].classList.add("selected");
@@ -133,7 +133,7 @@ class Main extends React.Component{
 
                                 <Button 
                                     className="icon--agendamentos"
-                                    onClick={() => this.accessPage("Agenda")}
+                                    onClick={() => this.accessPage("Appointment")}
                                 >
                                     <span>Agenda</span>
                                 </Button>
