@@ -4,20 +4,76 @@ import { Modal } from 'react-responsive-modal';
 import Paper from '@material-ui/core/Paper';
 import { ViewState, EditingState } from '@devexpress/dx-react-scheduler';
 import {
+  AllDayPanel,
   Scheduler,
   Resources,
   MonthView,
+  DayView,
+  WeekView,
+  DragDropProvider,
+  DateNavigator,
+  Toolbar,
+  TodayButton,
   Appointments,
   AppointmentTooltip,
   AppointmentForm,
   EditRecurrenceMenu,
-  DragDropProvider,
+  ViewSwitcher
 } from '@devexpress/dx-react-scheduler-material-ui';
 import { owners } from "../mock--API/agenda/tasks";
 import { appointments, resourcesData } from "../mock--API/agenda/resources";
+import MenuItem from '@material-ui/core/MenuItem';
+import { withStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import '../assets/css/Agenda.css';
+
+const allDayLocalizationMessages = {
+    'fr-FR': {
+      allDay: 'Temps plein',
+    },
+    'de-GR': {
+      allDay: 'Ganztägig',
+    },
+    'en-US': {
+      allDay: 'All Day',
+    },
+};
+
+const getAllDayMessages = locale => allDayLocalizationMessages[locale];
+
+const styles = theme => ({
+    container: {
+        display: 'flex',
+        marginBottom: theme.spacing(2),
+        justifyContent: 'flex-end',
+    },
+    text: {
+        ...theme.typography.h6,
+        marginRight: theme.spacing(2),
+    },
+});
+
+const LocaleSwitcher = withStyles(styles, { name: 'LocaleSwitcher' })(
+    ({ onLocaleChange, currentLocale, classes }) => (
+        <div className={classes.container}>
+            <div className={classes.text}>
+                Locale:
+            </div>
+            <TextField
+                select
+                value={currentLocale}
+                onChange={onLocaleChange}
+            >
+                <MenuItem value="fr-FR">Le français (French)</MenuItem>
+                <MenuItem value="de-GR">Deutsch (German)</MenuItem>
+                <MenuItem value="en-US">English (United States)</MenuItem>
+                <MenuItem value="pt-BR">Portuguese (Brazil)</MenuItem>
+            </TextField>
+        </div>
+    ),
+);
 
 class Agenda extends React.Component{
 
@@ -40,6 +96,7 @@ class Agenda extends React.Component{
                     allowMultiple: true,
                 },
             ],
+            locale: 'fr-FR'
         };
         
         this.modalTitle = "";
@@ -67,9 +124,11 @@ class Agenda extends React.Component{
         });
     };
 
+    changeLocale = event => this.setState({ locale: event.target.value });
+
     // Visualização de Todo o conteúdo do HTML
     render(){
-        const { data, resources } = this.state;
+        const { data, resources, locale, currentDate } = this.state;
 
         // RETORNO BÁSICO DO HTML
         return (
@@ -80,22 +139,43 @@ class Agenda extends React.Component{
                     </div>
 
                     <div className="div--content-agenda">
+                        <LocaleSwitcher
+                            currentLocale={ locale }
+                            onLocaleChange={ this.changeLocale }
+                        />
                         <Paper>
                             <Scheduler
-                            data={ data }
+                                data={ data }
+                                locale={ locale }
                             >
                             <ViewState
                                 defaultCurrentDate="2017-05-25"
                             />
+                            {/* 
+                            <ViewState
+                                defaultCurrentDate={currentDate}
+                            />
+                            */}
                             <EditingState
                                 onCommitChanges={ this.commitChanges }
                             />
                             <EditRecurrenceMenu />
 
-                            <MonthView />
+                            <WeekView startDayHour={10} endDayHour={19}/>
+                            <WeekView
+                                name="work-week"
+                                displayName="Work Week"
+                                excludedDays={[0, 6]}
+                                startDayHour={9}
+                                endDayHour={19}
+                            />
+                            <MonthView/>
+                            <DayView/>
+
                             <Appointments />
                             <AppointmentTooltip
-                                showOpenButton
+                                showOpenButton                                
+                                showDeleteButton
                             />
                             <AppointmentForm />
 
@@ -103,7 +183,14 @@ class Agenda extends React.Component{
                                 data={ resources }
                                 mainResourceName="roomId"
                             />
+                            <Toolbar />
+                            <ViewSwitcher />
+                            <DateNavigator />
+                            <AllDayPanel
+                                messages={getAllDayMessages(locale)}
+                            />                            
                             <DragDropProvider />
+                            <TodayButton />
                             </Scheduler>
                         </Paper>
                     </div>
