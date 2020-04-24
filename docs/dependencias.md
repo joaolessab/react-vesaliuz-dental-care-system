@@ -6,3 +6,6 @@ https://devexpress.github.io/devextreme-reactive/react/scheduler/docs/guides/get
 
 ### Agenda escolhida:
 https://devexpress.github.io/devextreme-reactive/react/scheduler/docs/guides/resources/
+
+## Segunda opção da agenda:
+http://jquense.github.io/react-big-calendar/examples/index.html#selectable

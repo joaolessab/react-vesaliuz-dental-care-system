@@ -39,6 +39,9 @@ const allDayLocalizationMessages = {
     'en-US': {
       allDay: 'All Day',
     },
+    'pt-BR': {
+        allDay: 'Dia todo'
+    }
 };
 
 const getAllDayMessages = locale => allDayLocalizationMessages[locale];
@@ -161,12 +164,12 @@ class Agenda extends React.Component{
                             />
                             <EditRecurrenceMenu />
 
-                            <WeekView startDayHour={10} endDayHour={19}/>
+                            <WeekView startDayHour={7} endDayHour={20}/>
                             <WeekView
                                 name="work-week"
                                 displayName="Work Week"
                                 excludedDays={[0, 6]}
-                                startDayHour={9}
+                                startDayHour={8}
                                 endDayHour={19}
                             />
                             <MonthView/>
@@ -187,7 +190,7 @@ class Agenda extends React.Component{
                             <ViewSwitcher />
                             <DateNavigator />
                             <AllDayPanel
-                                messages={getAllDayMessages(locale)}
+                                messages={ getAllDayMessages(locale) }
                             />                            
                             <DragDropProvider />
                             <TodayButton />
