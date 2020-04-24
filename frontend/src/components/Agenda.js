@@ -29,7 +29,7 @@ import TextField from '@material-ui/core/TextField';
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import '../assets/css/Agenda.css';
 
-const allDayLocalizationMessages = {
+const allLocalizationMessages = {
     'fr-FR': {
       allDay: 'Temps plein',
     },
@@ -38,13 +38,47 @@ const allDayLocalizationMessages = {
     },
     'en-US': {
       allDay: 'All Day',
+      today: 'Today'
     },
     'pt-BR': {
-        allDay: 'Dia todo'
+        allDay: 'Dia todo',
+        today: 'Hoje',
+
+        /*AppointmentForm*/
+        detailsLabel : 'Detalhes',
+        allDayLabel : 'O dia todo',
+        titleLabel : 'Título',
+        commitCommand : 'Salvar',
+        moreInformationLabel : 'Mais informações',
+        repeatLabel : 'Repetir',
+        notesLabel : 'Escreva aqui mais detalhes',
+        never : 'Nunca',
+        daily : 'Diariamente',
+        weekly : 'Semanalmente',
+        monthly : 'Mensalmente',
+        yearly : 'Anualmente',
+        repeatEveryLabel : 'Repetir a cada',
+        daysLabel : 'dia(s)',
+        endRepeatLabel : 'Parar repetição',
+        onLabel : 'Em',
+        afterLabel : 'Depois de',
+        occurrencesLabel : 'ocorrência(s)',
+        weeksOnLabel : 'semana(s)',
+        monthsLabel : 'mês(es)',
+        ofEveryMonthLabel : 'de todos mês',
+        theLabel : 'O',
+        firstLabel : 'Primeiro',
+        secondLabel : 'Segundo',
+        thirdLabel : 'Terceiro',
+        fourthLabel : 'Quarto',
+        lastLabel : 'Quinto',
+        yearsLabel : 'ano(s)',
+        ofLabel : '',
+        everyLabel : 'Em'
     }
 };
 
-const getAllDayMessages = locale => allDayLocalizationMessages[locale];
+const getLocalizationMessages = locale => allLocalizationMessages[locale];
 
 const styles = theme => ({
     container: {
@@ -89,17 +123,17 @@ class Agenda extends React.Component{
             resources: [
                 {
                     fieldName: 'roomId',
-                    title: 'Room',
+                    title: 'Sala',
                     instances: resourcesData,
                 },
                 {
                     fieldName: 'members',
-                    title: 'Members',
+                    title: 'Membros',
                     instances: owners,
                     allowMultiple: true,
                 },
             ],
-            locale: 'fr-FR'
+            locale: 'pt-BR'
         };
         
         this.modalTitle = "";
@@ -110,6 +144,7 @@ class Agenda extends React.Component{
     }
 
     commitChanges = ({ added, changed, deleted }) => {
+        debugger
         this.setState((state) => {
           let { data } = state;
           if (added) {
@@ -180,7 +215,9 @@ class Agenda extends React.Component{
                                 showOpenButton                                
                                 showDeleteButton
                             />
-                            <AppointmentForm />
+                            <AppointmentForm
+                                messages={ getLocalizationMessages(locale) }
+                            />
 
                             <Resources
                                 data={ resources }
@@ -190,10 +227,12 @@ class Agenda extends React.Component{
                             <ViewSwitcher />
                             <DateNavigator />
                             <AllDayPanel
-                                messages={ getAllDayMessages(locale) }
+                                messages={ getLocalizationMessages(locale) }
                             />                            
                             <DragDropProvider />
-                            <TodayButton />
+                            <TodayButton
+                                messages={ getLocalizationMessages(locale) }
+                            />
                             </Scheduler>
                         </Paper>
                     </div>
