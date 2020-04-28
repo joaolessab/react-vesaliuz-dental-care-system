@@ -13,6 +13,12 @@
     overflow: auto;
     padding-right: 25px;
 }
-.OverlayContainer-container-145 .OverlayBase-absolutePosition-147 {
+
+/*.OverlayContainer-container-N*/
+
+/*.MuiPaper-rounded > div > div:nth-last-child(3), .MuiPaper-rounded div div div:nth-last-child(2){
     position: fixed !important;
-}
+}*/
+/*.MuiBackdrop-root, .MuiDrawer-paperAnchorLeft {
+    position: fixed !important;
+}*/

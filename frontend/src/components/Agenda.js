@@ -22,9 +22,9 @@ import {
 } from '@devexpress/dx-react-scheduler-material-ui';
 import { owners } from "../mock--API/agenda/tasks";
 import { appointments, resourcesData } from "../mock--API/agenda/resources";
-import MenuItem from '@material-ui/core/MenuItem';
+/*import MenuItem from '@material-ui/core/MenuItem';
 import { withStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
+import TextField from '@material-ui/core/TextField';*/
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import '../assets/css/Agenda.css';
@@ -80,7 +80,7 @@ const allLocalizationMessages = {
 
 const getLocalizationMessages = locale => allLocalizationMessages[locale];
 
-const styles = theme => ({
+/*const styles = theme => ({
     container: {
         display: 'flex',
         marginBottom: theme.spacing(2),
@@ -90,9 +90,9 @@ const styles = theme => ({
         ...theme.typography.h6,
         marginRight: theme.spacing(2),
     },
-});
+});*/
 
-const LocaleSwitcher = withStyles(styles, { name: 'LocaleSwitcher' })(
+/*const LocaleSwitcher = withStyles(styles, { name: 'LocaleSwitcher' })(
     ({ onLocaleChange, currentLocale, classes }) => (
         <div className={classes.container}>
             <div className={classes.text}>
@@ -110,7 +110,7 @@ const LocaleSwitcher = withStyles(styles, { name: 'LocaleSwitcher' })(
             </TextField>
         </div>
     ),
-);
+);*/
 
 class Agenda extends React.Component{
 
@@ -139,9 +139,14 @@ class Agenda extends React.Component{
         this.modalTitle = "";
         this.modalBody = "";
         this.modalPicture = "";
-
+        
+        this.openEdit = true;
         this.commitChanges = this.commitChanges.bind(this);
     }
+
+    teste = (event) => {
+        debugger
+    };
 
     commitChanges = ({ added, changed, deleted }) => {
         debugger
@@ -177,10 +182,12 @@ class Agenda extends React.Component{
                     </div>
 
                     <div className="div--content-agenda">
+                        {/* 
                         <LocaleSwitcher
                             currentLocale={ locale }
                             onLocaleChange={ this.changeLocale }
                         />
+                        */}
                         <Paper>
                             <Scheduler
                                 data={ data }
@@ -199,22 +206,33 @@ class Agenda extends React.Component{
                             />
                             <EditRecurrenceMenu />
 
-                            <WeekView startDayHour={7} endDayHour={20}/>
+                            <WeekView
+                                startDayHour={8}
+                                endDayHour={20}
+                                displayName="Semana"
+                            />
                             <WeekView
                                 name="work-week"
-                                displayName="Work Week"
+                                displayName="Semana (Dias Úteis)"
                                 excludedDays={[0, 6]}
                                 startDayHour={8}
-                                endDayHour={19}
+                                endDayHour={20}
                             />
-                            <MonthView/>
-                            <DayView/>
+                            <MonthView
+                                displayName="Mês"
+                            />
+                            <DayView
+                                displayName="Dia"
+                                startDayHour={8}
+                                endDayHour={20}
+                            />
 
                             <Appointments />
                             <AppointmentTooltip
                                 showOpenButton                                
                                 showDeleteButton
                             />
+
                             <AppointmentForm
                                 messages={ getLocalizationMessages(locale) }
                             />
