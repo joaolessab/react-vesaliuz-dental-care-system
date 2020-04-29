@@ -4,10 +4,12 @@ import { Modal } from 'react-responsive-modal';
 
 import { Calendar, momentLocalizer } from 'react-big-calendar'
 import moment from 'moment';
+import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import '../assets/css/Agenda.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
+import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
 
 class Agenda extends React.Component{
 
@@ -15,18 +17,40 @@ class Agenda extends React.Component{
         super(props);
 
         /* VARIABLES */
-        this.state = { };
+        this.state = {
+            events: [
+                {
+                    start: moment().toDate(),
+                    end: moment().add(1, "days").toDate(),
+                    title: "Teste do João"
+                }
+            ]
+         };
         
         this.modalTitle = "";
         this.modalBody = "";
         this.modalPicture = "";        
     }
 
+    onEventResize = (type, { event, start, end, allDay }) => {
+        debugger
+        this.setState(state => {
+            debugger
+            state.events[0].start = start;
+            state.events[0].end = end;
+            return { events: state.events };
+        });
+    };
+
+    onEventDrop = ({ event, start, end, allDay }) => {
+        debugger
+        console.log(start);
+    };
+
     // Visualização de Todo o conteúdo do HTML
     render(){
         const localizer = momentLocalizer(moment);
-
-        const myEventsList = [];
+        const DnDCalendar = withDragAndDrop(Calendar);
 
         // RETORNO BÁSICO DO HTML
         return (
@@ -37,13 +61,19 @@ class Agenda extends React.Component{
                     </div>
 
                     <div className="div--content-agenda">
-                    <Calendar
-                        localizer={ localizer }
-                        events={ myEventsList }
-                        startAccessor="start"
-                        endAccessor="end"
-                        style={{ height: 500 }}
-                    />
+                        <DnDCalendar
+                            defaultDate={moment().toDate()}
+                            defaultView="month"
+                            localizer={ localizer }
+                            startAccessor="start"
+                            endAccessor="end"
+                            style={{ height: 500 }}
+                            
+                            events={ this.state.events }
+                            onEventDrop={ this.onEventDrop }
+                            onEventResize={ this.onEventResize }
+                            resizable
+                        />
                     </div>
                 </div>
 
