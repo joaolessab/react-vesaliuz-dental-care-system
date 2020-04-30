@@ -15,27 +15,69 @@
 }
 
 /* Agenda Component */
+.div--content-agenda .rbc-toolbar button:hover{
+    cursor: pointer;
+}
 .div--content-agenda .rbc-toolbar button{
-    text-indent: -9999px;
-    line-height: 0;
     height: 50px;
     border-radius: 10px;
     border: 0px;
     background-color: #fefeff;
 }
-.div--content-agenda .rbc-toolbar button:hover{
-    cursor: pointer;
-}
-.div--content-agenda .rbc-toolbar button:after {
-    content: "New text";
-    text-indent: 0;
-    display: block;
-    line-height: initial;
-}
 .rbc-month-view {
     border: 1px solid #fefeff !important;
     background-color: #fefeff;
 }
+
+/* Agenda Button Languages */
+.rbc-toolbar > .rbc-btn-group > button{
+    text-indent: -9999px;
+    line-height: 0;
+}
+.rbc-toolbar > .rbc-btn-group:nth-child(1) > button:nth-child(1):after {
+    content: "Hoje";
+    text-indent: 0;
+    display: block;
+    line-height: initial;
+}
+.rbc-toolbar > .rbc-btn-group:nth-child(1) > button:nth-child(2):after {
+    content: "Anterior";
+    text-indent: 0;
+    display: block;
+    line-height: initial;
+}
+.rbc-toolbar > .rbc-btn-group:nth-child(1) > button:nth-child(3):after {
+    content: "Próximo";
+    text-indent: 0;
+    display: block;
+    line-height: initial;
+}
+
+.rbc-toolbar > .rbc-btn-group:nth-child(3) > button:nth-child(1):after {
+    content: "Mês";
+    text-indent: 0;
+    display: block;
+    line-height: initial;
+}
+.rbc-toolbar > .rbc-btn-group:nth-child(3) > button:nth-child(2):after {
+    content: "Semana";
+    text-indent: 0;
+    display: block;
+    line-height: initial;
+}
+.rbc-toolbar > .rbc-btn-group:nth-child(3) > button:nth-child(3):after {
+    content: "Dia";
+    text-indent: 0;
+    display: block;
+    line-height: initial;
+}
+.rbc-toolbar > .rbc-btn-group:nth-child(3) > button:nth-child(4):after {
+    content: "Agenda";
+    text-indent: 0;
+    display: block;
+    line-height: initial;
+}
+
 .rbc-agenda-table > thead > tr > th:nth-child(1){
     text-indent: -9999px;
     line-height: 0;
