@@ -14,11 +14,55 @@
     padding-right: 25px;
 }
 
-/*.OverlayContainer-container-N*/
-
-/*.MuiPaper-rounded > div > div:nth-last-child(3), .MuiPaper-rounded div div div:nth-last-child(2){
-    position: fixed !important;
-}*/
-/*.MuiBackdrop-root, .MuiDrawer-paperAnchorLeft {
-    position: fixed !important;
-}*/
+/* Agenda Component */
+.div--content-agenda .rbc-toolbar button{
+    text-indent: -9999px;
+    line-height: 0;
+    height: 50px;
+    border-radius: 10px;
+    border: 0px;
+    background-color: #fefeff;
+}
+.div--content-agenda .rbc-toolbar button:hover{
+    cursor: pointer;
+}
+.div--content-agenda .rbc-toolbar button:after {
+    content: "New text";
+    text-indent: 0;
+    display: block;
+    line-height: initial;
+}
+.rbc-month-view {
+    border: 1px solid #fefeff !important;
+    background-color: #fefeff;
+}
+.rbc-agenda-table > thead > tr > th:nth-child(1){
+    text-indent: -9999px;
+    line-height: 0;
+}
+.rbc-agenda-table > thead > tr > th:nth-child(1):after {
+    content: "Data";
+    text-indent: 0;
+    display: block;
+    line-height: initial;
+}
+.rbc-agenda-table > thead > tr > th:nth-child(2){
+    text-indent: -9999px;
+    line-height: 0;
+}
+.rbc-agenda-table > thead > tr > th:nth-child(2):after {
+    content: "Horário";
+    text-indent: 0;
+    display: block;
+    line-height: initial;
+}
+.rbc-agenda-table > thead > tr > th:nth-child(3){
+    text-indent: -9999px;
+    line-height: 0;
+}
+.rbc-agenda-table > thead > tr > th:nth-child(3):after {
+    content: "Evento";
+    text-indent: 0;
+    display: block;
+    line-height: initial;
+}

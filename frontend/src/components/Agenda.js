@@ -3,13 +3,17 @@ import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 
 import { Calendar, momentLocalizer } from 'react-big-calendar'
-import moment from 'moment';
+import moment from 'moment'
+import 'moment/locale/pt-br';
+
 import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import '../assets/css/Agenda.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
+
+moment.locale('pt-br');
 
 class Agenda extends React.Component{
 
@@ -29,7 +33,7 @@ class Agenda extends React.Component{
         
         this.modalTitle = "";
         this.modalBody = "";
-        this.modalPicture = "";        
+        this.modalPicture = "";
     }
 
     onEventResize = (type, { event, start, end, allDay }) => {
@@ -45,6 +49,23 @@ class Agenda extends React.Component{
     onEventDrop = ({ event, start, end, allDay }) => {
         debugger
         console.log(start);
+    };
+
+    handleSelect = ({ start, end }) => {
+        debugger
+        const title = window.prompt('New Event name');
+        if (title)
+            this.setState({
+                events: [
+                    ...this.state.events,
+                    {
+                        start,
+                        end,
+                        title,
+                    },
+                ],
+                culture: 'es'
+            })
     };
 
     // Visualização de Todo o conteúdo do HTML
@@ -72,8 +93,22 @@ class Agenda extends React.Component{
                             events={ this.state.events }
                             onEventDrop={ this.onEventDrop }
                             onEventResize={ this.onEventResize }
+                            onSelectEvent={ event => alert(event.title) }
+                            onSelectSlot={ this.handleSelect }
                             resizable
+                            onLoad = {this.teste}
                         />
+                        {/* <Calendar
+                            defaultDate={moment().toDate()}
+                            selectable
+                            localizer={ localizer }
+                            style={{ height: 500 }}
+                        
+                            events={ this.state.events }
+                            defaultView="month"
+                            onSelectEvent={event => alert(event.title)}
+                            onSelectSlot={this.handleSelect}
+                        /> */}
                     </div>
                 </div>
 
