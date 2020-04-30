@@ -20,11 +20,23 @@
 }
 .div--content-agenda .rbc-toolbar button{
     height: 50px;
+    width: 85px;
     border-radius: 10px;
     border: 0px;
     background-color: #fefeff;
 }
-.rbc-month-view {
+.div--content-agenda .rbc-toolbar button:hover, .rbc-toolbar button:active, .rbc-toolbar button.rbc-active, .rbc-toolbar button:focus{
+    cursor: pointer !important;
+    animation-duration: 1s !important;
+    background-color: #2386fd !important;
+    background-position: 15px !important;
+    box-shadow: 0px 1px 2px 0px #2386fd4d !important;
+    border: 1.5px solid #ffffffbf !important;
+    transition: 0.2s !important;
+    color: white !important;
+}
+
+.rbc-month-view, .rbc-time-view, .rbc-agenda-table, .rbc-agenda-content{
     border: 1px solid #fefeff !important;
     background-color: #fefeff;
 }
@@ -81,6 +93,7 @@
 .rbc-agenda-table > thead > tr > th:nth-child(1){
     text-indent: -9999px;
     line-height: 0;
+    width: 91.4px !important;
 }
 .rbc-agenda-table > thead > tr > th:nth-child(1):after {
     content: "Data";
@@ -107,4 +120,14 @@
     text-indent: 0;
     display: block;
     line-height: initial;
+}
+.rbc-off-range-bg {
+    background: #ececec !important;
+}
+.rbc-today {
+    background-color: #a0cbff;
+}
+.rbc-event{
+    background-color: #2386fd !important;
+    border: 1px solid white !important;
 }
