@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createElement } from 'react';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 
@@ -16,7 +16,6 @@ import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
 moment.locale('pt-br');
 
 class Agenda extends React.Component{
-
     constructor(props){
         super(props);
 
@@ -35,6 +34,25 @@ class Agenda extends React.Component{
         this.modalBody = "";
         this.modalPicture = "";
     }
+
+    componentDidMount(){
+        this.load()
+    }
+
+    load = () => {
+        this.insertScrollAgendaDiv();
+    }
+
+    insertScrollAgendaDiv = () => {
+        // Adicionando DIV de Scroll antes do calendário
+        var agendaNode = document.getElementsByClassName("rbc-month-view")[0];
+        if (agendaNode.parentElement.className != "div--agenda-scroller"){
+            var divAgendaScroller = document.createElement("div");
+            divAgendaScroller.setAttribute("class", "teste");
+            agendaNode.parentElement.insertBefore(divAgendaScroller, agendaNode);
+            divAgendaScroller.appendChild(agendaNode);
+        }
+    };
 
     onEventResize = (type, { event, start, end, allDay }) => {
         debugger
@@ -96,7 +114,6 @@ class Agenda extends React.Component{
                             onSelectEvent={ event => alert(event.title) }
                             onSelectSlot={ this.handleSelect }
                             resizable
-                            onLoad = {this.teste}
                         />
                         {/* <Calendar
                             defaultDate={moment().toDate()}

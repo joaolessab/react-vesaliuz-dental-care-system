@@ -10,11 +10,25 @@
 }
 .div--content-agenda{
     margin-right: 25px;
-    overflow: auto;
+    overflow: hidden;
     padding-right: 25px;
 }
 
 /* Agenda Component */
+.rbc-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+.teste{
+    flex: 1;
+    overflow: scroll;
+    padding-right: 10px;
+}
+
 .div--content-agenda .rbc-toolbar button:hover{
     cursor: pointer;
 }
@@ -130,4 +144,7 @@
 .rbc-event{
     background-color: #2386fd !important;
     border: 1px solid white !important;
+}
+.rbc-toolbar .rbc-toolbar-label{
+    font-family: 'Averta Semibold';
 }
