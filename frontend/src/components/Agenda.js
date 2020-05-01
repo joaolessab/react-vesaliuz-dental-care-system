@@ -28,30 +28,27 @@ class Agenda extends React.Component{
                     title: "Teste do João"
                 }
             ]
-         };
+        };
+         
+        this.viewType = "month";
         
         this.modalTitle = "";
         this.modalBody = "";
         this.modalPicture = "";
     }
 
-    componentDidMount(){
+    // On load
+    /*componentDidMount(){
         this.load()
     }
 
     load = () => {
         this.insertScrollAgendaDiv();
-    }
+    }*/
 
-    insertScrollAgendaDiv = () => {
-        // Adicionando DIV de Scroll antes do calendário
-        var agendaNode = document.getElementsByClassName("rbc-month-view")[0];
-        if (agendaNode.parentElement.className != "div--agenda-scroller"){
-            var divAgendaScroller = document.createElement("div");
-            divAgendaScroller.setAttribute("class", "teste");
-            agendaNode.parentElement.insertBefore(divAgendaScroller, agendaNode);
-            divAgendaScroller.appendChild(agendaNode);
-        }
+    changeAgendaType = (newView) => {
+        this.viewType = newView;
+        this.forceUpdate();
     };
 
     onEventResize = (type, { event, start, end, allDay }) => {
@@ -83,7 +80,7 @@ class Agenda extends React.Component{
                     },
                 ],
                 culture: 'es'
-            })
+            });
     };
 
     // Visualização de Todo o conteúdo do HTML
@@ -100,9 +97,25 @@ class Agenda extends React.Component{
                     </div>
 
                     <div className="div--content-agenda">
+                        <div className="bigcalendar--toolbar-custom">
+                            <div className="div--days">
+                                <button>Anterior</button>
+                                <button>Hoje</button>
+                                <button>Próximo</button>
+                            </div>
+                            <div className="text--date">
+                                <p>Maio de 2020</p>
+                            </div>
+                            <div className="div--view">
+                                <button onClick={() => this.changeAgendaType("month")}>Mês</button>
+                                <button onClick={() => this.changeAgendaType("week")}>Semana</button>
+                                <button onClick={() => this.changeAgendaType("day")}>Dia</button>
+                                <button onClick={() => this.changeAgendaType("agenda")}>Agenda</button>
+                            </div>
+                        </div>
                         <DnDCalendar
                             defaultDate={moment().toDate()}
-                            defaultView="month"
+                            defaultView= { this.viewType }
                             localizer={ localizer }
                             startAccessor="start"
                             endAccessor="end"
