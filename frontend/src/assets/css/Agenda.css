@@ -95,7 +95,7 @@
 
 
 .rbc-toolbar {
-    display: flex !important;
+    display: none !important;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;

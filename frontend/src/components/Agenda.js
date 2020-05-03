@@ -54,6 +54,7 @@ class Agenda extends React.Component{
     }*/
 
     changeAgendaType = (newType) => {
+        //this.changeButtonViewSelection();
         this.findLiteralDate(newType);
         this.viewType = newType;
         this.forceUpdate();
@@ -61,49 +62,64 @@ class Agenda extends React.Component{
 
     findLiteralDate = (newType) => {
         if (newType == "day"){
-            var oi = this.state.dateChosen.day();
-            
-            debugger
-            var day = this.state.dateChosen.getDate();
-            var month = this.findMonthString(this.state.dateChosen.getMonth().toString());
-            var year = this.state.dateChosen.getFullYear();
+            var day = moment(this.state.dateChosen).format('DD');
+            var month = moment(this.state.dateChosen).format('MM');
+            month = this.findMonthString(month);            
+            var year = moment(this.state.dateChosen).format('YYYY');
 
             this.state.title = day + " de " + month + " de " + year;
         }
         else if (newType == "week"){
-            debugger
-        } 
+            var initialDayWeek = moment(this.state.dateChosen).startOf('week').format('DD');
+            var initialMonthWeek = moment(this.state.dateChosen).startOf('week').format('MM');
+            initialMonthWeek = this.findMonthString(initialMonthWeek);
+
+            var finalDayWeek = moment(this.state.dateChosen).endOf('week').format('DD');
+            var finalMonthWeek = moment(this.state.dateChosen).endOf('week').format('MM');
+            finalMonthWeek = this.findMonthString(finalMonthWeek);
+            
+            this.state.title = initialDayWeek + " de " + initialMonthWeek + " à " + finalDayWeek + " de " + finalMonthWeek
+        }
         else if (newType == "month"){
-            debugger
-            var month = this.findMonthString(this.state.dateChosen.getMonth().toString()).toLocaleLowerCase();
-            var year = this.state.dateChosen.getFullYear();
+            var month = moment(this.state.dateChosen).format('MM');
+            month = this.findMonthString(month);            
+            var year = moment(this.state.dateChosen).format('YYYY');
 
             this.state.title = month + " de " + year;
         }        
         else if (newType == "agenda"){
-            this.state.title = "Inicio e Fim dos eventos";
+            var initialDay = moment(this.state.events[0].start).format('DD');
+            var initialMonth = moment(this.state.events[0].start).format('MM');
+            var initialYear = moment(this.state.events[0].start).format('YYYY');
+
+            var lastCount = this.state.events.length - 1;
+            var finalDay = moment(this.state.events[lastCount].end).format('DD');
+            var finalMonth = moment(this.state.events[lastCount].end).format('MM');
+            var finalYear = moment(this.state.events[lastCount].end).format('YYYY');
+
+            this.state.title = initialDay + "/" + initialMonth + "/" + initialYear + " à " + finalDay + "/" + finalMonth + "/" + finalYear;
         }
     };
 
     findMonthString = (month) => {
         switch(month) {
-            case "1":
+            case "01":
                 return "Janeiro";
-            case "2":
+            case "02":
                 return "Fevereiro";
-            case "3":
+            case "03":
                 return "Março";
-            case "4":
+            case "04":
                 return "Abril";
-            case "5":
+            case "05":
                 return "Maio";
-            case "6":
+            case "06":
                 return "Junho";
-            case "7":
+            case "07":
                 return "Julho";
-            case "8":
+            case "08":
                 return "Agosto";
-            case "9":
+            case "09":
                 return "Setembro";
             case "10":
                 return "Outubro";
