@@ -3,6 +3,8 @@ import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import Button from '@material-ui/core/Button';
 import AddBoxIcon from '@material-ui/icons/AddBox';
+import SearchIcon from '@material-ui/icons/Search';
+import SyncIcon from '@material-ui/icons/Sync';
 import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
 
@@ -170,19 +172,32 @@ class Agenda extends React.Component{
             <div className="container--miolo-main">
                 <div className="container--content-agenda">                    
                     <div className="div--content-title">
-                        <h1>Agenda</h1>
+                        <div>
+                            <h1>Agenda</h1>
+                        </div>
+                        <div className="dateTitle">
+                            <p>{ this.state.title }</p>
+                        </div>
+                        <div>
+                        </div>
                     </div>
-
                     <div className="div--content-agenda">
                         <div className="bigcalendar--toolbar-custom">
                             <div className="div--days">
                                 <Button>Anterior</Button>
                                 <Button>Hoje</Button>
                                 <Button>Próximo</Button>
-                                <Button>Novo</Button>
                             </div>
-                            <div className="text--date">
-                                <p>{ this.state.title }</p>
+                            <div className="div--manipulators">
+                                <Tooltip TransitionComponent={Zoom} placement="bottom" title="Pesquisar eventos">
+                                    <Button><SearchIcon/></Button>
+                                </Tooltip>
+                                <Tooltip TransitionComponent={Zoom} placement="bottom" title="Adicionar evento">
+                                    <Button><AddBoxIcon/></Button>
+                                </Tooltip>
+                                <Tooltip TransitionComponent={Zoom} placement="bottom" title="Sincronizar calendário">
+                                    <Button><SyncIcon/></Button>
+                                </Tooltip>
                             </div>
                             <div className="div--view">
                                 <Button 

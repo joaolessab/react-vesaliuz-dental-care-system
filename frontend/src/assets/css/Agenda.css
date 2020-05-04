@@ -8,6 +8,17 @@
     font-family: 'Averta Extra Bold';
     font-size: 20px;
 }
+.container--content-agenda .div--content-title div{
+    flex: 1;
+}
+.container--content-agenda .div--content-title .dateTitle{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: 18px;
+    font-family: "Averta Semibold";
+    background-color: red;
+}
 .div--content-agenda{
     margin-right: 25px;
     overflow: hidden;
@@ -56,7 +67,7 @@
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
 }
-.bigcalendar--toolbar-custom .div--view button:nth-child(4), .bigcalendar--toolbar-custom .div--days button:nth-child(4){
+.bigcalendar--toolbar-custom .div--view button:nth-child(4), .bigcalendar--toolbar-custom .div--days button:nth-child(3){
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
@@ -72,6 +83,26 @@
 }
 .rbc-toolbar {
     display: none !important;
+}
+.bigcalendar--toolbar-custom .div--manipulators Button{
+    height: 50px !important;
+    width: 50px !important;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 10px !important;
+    border: 0px !important;
+    text-transform: none !important;
+    background-color: white !important;
+}
+.bigcalendar--toolbar-custom .div--manipulators Button:hover, .bigcalendar--toolbar-custom .div--manipulators .selected{
+    cursor: pointer !important;
+    animation-duration: 1s !important;
+    background-color: #2386fd !important;
+    background-position: 15px !important;
+    box-shadow: 0px 1px 2px 0px #2386fd4d !important;
+    border: 1.5px solid #ffffffbf !important;
+    transition: 0.2s !important;
+    color: white !important;
 }
 
 
@@ -195,7 +226,7 @@
     background-color: #a0cbff;
 }
 .rbc-event{
-    background-color: #2386fd !important;
+    background-color: #881ac0 !important;
     border: 1px solid white !important;
 }
 .rbc-toolbar .rbc-toolbar-label{
