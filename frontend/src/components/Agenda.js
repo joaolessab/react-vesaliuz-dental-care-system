@@ -9,7 +9,8 @@ import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
 
 import { Calendar, momentLocalizer } from 'react-big-calendar'
-import moment from 'moment';
+import moment from 'moment'
+import 'moment/locale/pt-br';
 import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
