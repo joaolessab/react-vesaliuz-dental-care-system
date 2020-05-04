@@ -2,9 +2,6 @@ import React, { createElement } from 'react';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import Button from '@material-ui/core/Button';
-import NavigateNextIcon from '@material-ui/icons/NavigateNext';
-import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
-import TodayIcon from '@material-ui/icons/Today';
 import AddBoxIcon from '@material-ui/icons/AddBox';
 import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
@@ -54,7 +51,6 @@ class Agenda extends React.Component{
     }*/
 
     changeAgendaType = (newType) => {
-        //this.changeButtonViewSelection();
         this.findLiteralDate(newType);
         this.viewType = newType;
         this.forceUpdate();
@@ -180,27 +176,39 @@ class Agenda extends React.Component{
                     <div className="div--content-agenda">
                         <div className="bigcalendar--toolbar-custom">
                             <div className="div--days">
-                                <Tooltip TransitionComponent={Zoom} placement="bottom" title="Anterior">
-                                    <Button><NavigateBeforeIcon/></Button>
-                                </Tooltip>
-                                <Tooltip TransitionComponent={Zoom} placement="bottom" title="Hoje">
-                                    <Button><TodayIcon/></Button>
-                                </Tooltip>
-                                <Tooltip TransitionComponent={Zoom} placement="bottom" title="Próximo">
-                                    <Button><NavigateNextIcon/></Button>
-                                </Tooltip>
-                                <Tooltip TransitionComponent={Zoom} placement="bottom" title="Novo evento">
-                                    <Button><AddBoxIcon/></Button>
-                                </Tooltip>
+                                <Button>Anterior</Button>
+                                <Button>Hoje</Button>
+                                <Button>Próximo</Button>
+                                <Button>Novo</Button>
                             </div>
                             <div className="text--date">
                                 <p>{ this.state.title }</p>
                             </div>
                             <div className="div--view">
-                                <button onClick={() => this.changeAgendaType("day")}>Dia</button>
-                                <button onClick={() => this.changeAgendaType("week")}>Semana</button>
-                                <button onClick={() => this.changeAgendaType("month")} className="selected">Mês</button>
-                                <button onClick={() => this.changeAgendaType("agenda")}>Agenda</button>
+                                <Button 
+                                    onClick={() => this.changeAgendaType("day")} 
+                                    className={ this.viewType == "day" ? "selected" : ""}
+                                >
+                                    Dia
+                                </Button>
+                                <Button 
+                                    onClick={() => this.changeAgendaType("week")} 
+                                    className={ this.viewType == "week" ? "selected" : ""}
+                                >
+                                    Semana
+                                </Button>
+                                <Button 
+                                    onClick={() => this.changeAgendaType("month")} 
+                                    className={ this.viewType == "month" ? "selected" : ""}
+                                >
+                                    Mês
+                                </Button>
+                                <Button 
+                                    onClick={() => this.changeAgendaType("agenda")} 
+                                    className={ this.viewType == "agenda" ? "selected" : ""}
+                                >
+                                    Agenda
+                                </Button>
                             </div>
                         </div>
                         <DnDCalendar

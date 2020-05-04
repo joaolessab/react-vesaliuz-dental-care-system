@@ -38,70 +38,49 @@
 .bigcalendar--toolbar-custom .div--days{
     justify-content: flex-start;
 }
-.bigcalendar--toolbar-custom .div--days button{
-    height: 50px !important;
-    width: 50px !important;
-    border-radius: 10px !important;
-    border: 0px !important;
-    background-size: 24px !important;
-    text-transform: none !important;
-    background-color: #ffffff !important;
-    margin-right: 10px;
-    padding: 0px;
-    min-width: 50px;
+.bigcalendar--toolbar-custom .div--view{
+    justify-content: flex-end;
 }
-.bigcalendar--toolbar-custom .div--days button:hover{
+.bigcalendar--toolbar-custom .div--view button, .bigcalendar--toolbar-custom .div--days button{
+    margin: 0;
+    height: 50px;
+    width: 85px;
+    border: 0px;
+    background-color: #fefeff;
+    text-transform: none !important;
+    font-size: 13.7px !important;
+    font-family: 'Averta' !important;
+    border-radius: 0px;
+}
+.bigcalendar--toolbar-custom .div--view button:nth-child(1), .bigcalendar--toolbar-custom .div--days button:nth-child(1){
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.bigcalendar--toolbar-custom .div--view button:nth-child(4), .bigcalendar--toolbar-custom .div--days button:nth-child(4){
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.bigcalendar--toolbar-custom .div--view button:hover, .bigcalendar--toolbar-custom .div--days button:hover, .bigcalendar--toolbar-custom .div--view .selected{
     cursor: pointer !important;
     animation-duration: 1s !important;
     background-color: #2386fd !important;
     background-position: 15px !important;
     box-shadow: 0px 1px 2px 0px #2386fd4d !important;
-    color: white !important;
     border: 1.5px solid #ffffffbf !important;
     transition: 0.2s !important;
     color: white !important;
-    font-family: 'Averta' !important;
 }
-.bigcalendar--toolbar-custom .div--view{
-    justify-content: flex-end;
-}
-.bigcalendar--toolbar-custom .div--view button{
-    background-color: transparent;
-    width: 100px;
-    height: 40px;
-    border: 0px;
-    border-bottom: 1px solid #b2b2b2;
-    background-color: transparent;
-    width: 100px;
-    height: 40px;
-    color: #b2b2b2;
-}
-.bigcalendar--toolbar-custom .div--view button:hover, .bigcalendar--toolbar-custom .div--view .selected{
-    cursor: pointer;
-    color: black;
-    border-bottom: 3px solid #2386fd;
-    font-family: 'Averta Bold';
-}
-
-
-
-
-
-
-
-
-
-
-
-
 .rbc-toolbar {
     display: none !important;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
-    font-size: 16px;
 }
+
+
+
+
+
+
+
+
 
 .div--content-agenda .rbc-toolbar button:hover{
     cursor: pointer;
