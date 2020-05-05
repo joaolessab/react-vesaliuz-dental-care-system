@@ -32,6 +32,16 @@ class Agenda extends React.Component{
                     start: moment().toDate(),
                     end: moment().add(1, "days").toDate(),
                     title: "Teste do João"
+                },
+                {
+                    start: moment().add(1, "weeks").toDate(),
+                    end: moment().add(1, "weeks").toDate(),
+                    title: "Teste do Jones"
+                },
+                {
+                    start: moment().add(1, "months").toDate(),
+                    end: moment().add(1, "months").toDate(),
+                    title: "Teste do Lessa"
                 }
             ],
             title: "Maio de 2020"
@@ -90,7 +100,14 @@ class Agenda extends React.Component{
         }
         //Agenda
         else if (this.viewType == "agenda"){
-            console.log("Não há opção para alterar agenda");
+            if (whatDate == "next")
+                this.state.dateChosen = moment(this.state.dateChosen).add(1, 'months').toDate();
+            if (whatDate == "today")
+                this.state.dateChosen = moment().toDate();
+            if (whatDate == "previous")
+                this.state.dateChosen = moment(this.state.dateChosen).subtract(1, 'months').toDate();
+            
+            this.findLiteralDate("agenda");
         }
     
         this.whatDate = whatDate;
@@ -120,8 +137,9 @@ class Agenda extends React.Component{
             var finalDayWeek = moment(this.state.dateChosen).endOf('week').format('DD');
             var finalMonthWeek = moment(this.state.dateChosen).endOf('week').format('MM');
             finalMonthWeek = this.findMonthString(finalMonthWeek);
+            var finalYearWeek = moment(this.state.dateChosen).endOf('year').format('YYYY');
             
-            this.state.title = initialDayWeek + " de " + initialMonthWeek + " à " + finalDayWeek + " de " + finalMonthWeek
+            this.state.title = initialDayWeek + " de " + initialMonthWeek + " à " + finalDayWeek + " de " + finalMonthWeek + " - " + finalYearWeek;
         }
         else if (newType == "month"){
             var month = moment(this.state.dateChosen).format('MM');
@@ -131,16 +149,16 @@ class Agenda extends React.Component{
             this.state.title = month + " de " + year;
         }        
         else if (newType == "agenda"){
-            var initialDay = moment(this.state.events[0].start).format('DD');
-            var initialMonth = moment(this.state.events[0].start).format('MM');
-            var initialYear = moment(this.state.events[0].start).format('YYYY');
+            var initialDay = moment(this.state.dateChosen).format('DD');
+            var initialMonth = moment(this.state.dateChosen).format('MM');
+            initialMonth = this.findMonthString(initialMonth);
 
-            var lastCount = this.state.events.length - 1;
-            var finalDay = moment(this.state.events[lastCount].end).format('DD');
-            var finalMonth = moment(this.state.events[lastCount].end).format('MM');
-            var finalYear = moment(this.state.events[lastCount].end).format('YYYY');
+            var finalDay = moment(this.state.dateChosen).add(1, 'months').format('DD');
+            var finalMonth = moment(this.state.dateChosen).add(1, 'months').format('MM');
+            finalMonth = this.findMonthString(finalMonth);
+            var finalYear = moment(this.state.dateChosen).add(1, 'months').format('YYYY');
 
-            this.state.title = initialDay + "/" + initialMonth + "/" + initialYear + " à " + finalDay + "/" + finalMonth + "/" + finalYear;
+            this.state.title = initialDay + " de " + initialMonth + " à " + finalDay + " de " + finalMonth + " - " + finalYear;
         }
     };
 
