@@ -63,22 +63,38 @@ class Agenda extends React.Component{
                 this.state.dateChosen = moment().toDate();
             if (whatDate == "previous")
                 this.state.dateChosen = moment(this.state.dateChosen).subtract(1, 'days').toDate();
-
-            this.forceUpdate();
+            
             this.findLiteralDate("day");
         }
         //Week
         else if (this.viewType == "week"){
-            debugger
+            if (whatDate == "next")
+                this.state.dateChosen = moment(this.state.dateChosen).add(1, 'weeks').toDate();
+            if (whatDate == "today")
+                this.state.dateChosen = moment().toDate();
+            if (whatDate == "previous")
+                this.state.dateChosen = moment(this.state.dateChosen).subtract(1, 'weeks').toDate();
+            
+            this.findLiteralDate("week");
         }
         //Month
         else if (this.viewType == "month"){
-            debugger
+            if (whatDate == "next")
+                this.state.dateChosen = moment(this.state.dateChosen).add(1, 'months').toDate();
+            if (whatDate == "today")
+                this.state.dateChosen = moment().toDate();
+            if (whatDate == "previous")
+                this.state.dateChosen = moment(this.state.dateChosen).subtract(1, 'months').toDate();
+
+            this.findLiteralDate("month");
         }
         //Agenda
         else if (this.viewType == "agenda"){
-            debugger
+            console.log("Não há opção para alterar agenda");
         }
+    
+        this.whatDate = whatDate;
+        this.forceUpdate();
     };
 
     changeViewType = (newType) => {
@@ -215,7 +231,6 @@ class Agenda extends React.Component{
                             <div className="div--days">
                                 <Button
                                     onClick={() => this.changeWhatDate("previous")}
-                                    className={ this.whatDate == "previous" ? "selected" : ""}
                                 >
                                     Anterior
                                 </Button>
@@ -227,7 +242,6 @@ class Agenda extends React.Component{
                                 </Button>
                                 <Button
                                     onClick={() => this.changeWhatDate("next")}
-                                    className={ this.whatDate == "next" ? "selected" : ""}
                                 >
                                     Próximo
                                 </Button>
