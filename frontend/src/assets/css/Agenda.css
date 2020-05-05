@@ -12,12 +12,12 @@
     flex: 1;
 }
 .container--content-agenda .div--content-title .dateTitle{
-    align-items: center;
     justify-content: center;
     display: flex;
     font-size: 18px;
     font-family: "Averta Semibold";
-    background-color: red;
+    /* background-color: red; */
+    margin-left: -20px;
 }
 .div--content-agenda{
     margin-right: 25px;
@@ -71,7 +71,7 @@
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
-.bigcalendar--toolbar-custom .div--view button:hover, .bigcalendar--toolbar-custom .div--days button:hover, .bigcalendar--toolbar-custom .div--view .selected{
+.bigcalendar--toolbar-custom .div--view button:hover, .bigcalendar--toolbar-custom .div--view .selected, .bigcalendar--toolbar-custom .div--days button:hover, .bigcalendar--toolbar-custom .div--days .selected{
     cursor: pointer !important;
     animation-duration: 1s !important;
     background-color: #2386fd !important;

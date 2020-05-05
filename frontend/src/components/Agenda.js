@@ -36,7 +36,8 @@ class Agenda extends React.Component{
             ],
             title: "Maio de 2020"
         };
-         
+        
+        this.whatDate = "today";
         this.viewType = "month";
         
         this.modalTitle = "";
@@ -53,7 +54,34 @@ class Agenda extends React.Component{
         this.insertScrollAgendaDiv();
     }*/
 
-    changeAgendaType = (newType) => {
+    changeWhatDate = (whatDate) => {
+        //Day
+        if (this.viewType == "day"){
+            if (whatDate == "next")
+                this.state.dateChosen = moment(this.state.dateChosen).add(1, 'days').toDate();
+            if (whatDate == "today")
+                this.state.dateChosen = moment().toDate();
+            if (whatDate == "previous")
+                this.state.dateChosen = moment(this.state.dateChosen).subtract(1, 'days').toDate();
+
+            this.forceUpdate();
+            this.findLiteralDate("day");
+        }
+        //Week
+        else if (this.viewType == "week"){
+            debugger
+        }
+        //Month
+        else if (this.viewType == "month"){
+            debugger
+        }
+        //Agenda
+        else if (this.viewType == "agenda"){
+            debugger
+        }
+    };
+
+    changeViewType = (newType) => {
         this.findLiteralDate(newType);
         this.viewType = newType;
         this.forceUpdate();
@@ -185,9 +213,24 @@ class Agenda extends React.Component{
                     <div className="div--content-agenda">
                         <div className="bigcalendar--toolbar-custom">
                             <div className="div--days">
-                                <Button>Anterior</Button>
-                                <Button>Hoje</Button>
-                                <Button>Próximo</Button>
+                                <Button
+                                    onClick={() => this.changeWhatDate("previous")}
+                                    className={ this.whatDate == "previous" ? "selected" : ""}
+                                >
+                                    Anterior
+                                </Button>
+                                <Button
+                                    onClick={() => this.changeWhatDate("today")}
+                                    className={ this.whatDate == "today" ? "selected" : ""}
+                                >
+                                    Hoje
+                                </Button>
+                                <Button
+                                    onClick={() => this.changeWhatDate("next")}
+                                    className={ this.whatDate == "next" ? "selected" : ""}
+                                >
+                                    Próximo
+                                </Button>
                             </div>
                             <div className="div--manipulators">
                                 <Tooltip TransitionComponent={Zoom} placement="bottom" title="Pesquisar eventos">
@@ -202,25 +245,25 @@ class Agenda extends React.Component{
                             </div>
                             <div className="div--view">
                                 <Button 
-                                    onClick={() => this.changeAgendaType("day")} 
+                                    onClick={() => this.changeViewType("day")} 
                                     className={ this.viewType == "day" ? "selected" : ""}
                                 >
                                     Dia
                                 </Button>
                                 <Button 
-                                    onClick={() => this.changeAgendaType("week")} 
+                                    onClick={() => this.changeViewType("week")} 
                                     className={ this.viewType == "week" ? "selected" : ""}
                                 >
                                     Semana
                                 </Button>
                                 <Button 
-                                    onClick={() => this.changeAgendaType("month")} 
+                                    onClick={() => this.changeViewType("month")} 
                                     className={ this.viewType == "month" ? "selected" : ""}
                                 >
                                     Mês
                                 </Button>
                                 <Button 
-                                    onClick={() => this.changeAgendaType("agenda")} 
+                                    onClick={() => this.changeViewType("agenda")} 
                                     className={ this.viewType == "agenda" ? "selected" : ""}
                                 >
                                     Agenda
