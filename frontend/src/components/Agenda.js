@@ -61,7 +61,6 @@ class Agenda extends React.Component{
     }
 
     load = () => {
-        this.insertScrollAgendaDiv();
     }*/
 
     changeWhatDate = (whatDate) => {

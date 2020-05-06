@@ -22,7 +22,6 @@
 .div--content-agenda{
     margin-right: 25px;
     overflow: hidden;
-    padding-right: 25px;
     flex: 1 1;
     flex-direction: column;
     display: flex;
@@ -42,9 +41,15 @@
     font-size: 18px;
 }
 .rbc-addons-dnd.rbc-calendar{
-    overflow: scroll;
-    padding-right: 15px;
-    flex: 1;
+    overflow-y: auto;
+    flex: 1 1;
+    height: unset !important;
+    border-radius: 10px;
+    background-color: white;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-top: 20px;
+    padding-right: 10px;
 }
 .bigcalendar--toolbar-custom .div--days{
     justify-content: flex-start;
@@ -104,15 +109,6 @@
     transition: 0.2s !important;
     color: white !important;
 }
-
-
-
-
-
-
-
-
-
 .div--content-agenda .rbc-toolbar button:hover{
     cursor: pointer;
 }
@@ -133,91 +129,9 @@
     transition: 0.2s !important;
     color: white !important;
 }
-
 .rbc-month-view, .rbc-time-view, .rbc-agenda-table, .rbc-agenda-content{
     border: 1px solid #fefeff !important;
     background-color: #fefeff;
-}
-
-/* Agenda Button Languages */
-.rbc-toolbar > .rbc-btn-group > button{
-    text-indent: -9999px;
-    line-height: 0;
-}
-.rbc-toolbar > .rbc-btn-group:nth-child(1) > button:nth-child(1):after {
-    content: "Hoje";
-    text-indent: 0;
-    display: block;
-    line-height: initial;
-}
-.rbc-toolbar > .rbc-btn-group:nth-child(1) > button:nth-child(2):after {
-    content: "Anterior";
-    text-indent: 0;
-    display: block;
-    line-height: initial;
-}
-.rbc-toolbar > .rbc-btn-group:nth-child(1) > button:nth-child(3):after {
-    content: "Próximo";
-    text-indent: 0;
-    display: block;
-    line-height: initial;
-}
-
-.rbc-toolbar > .rbc-btn-group:nth-child(3) > button:nth-child(1):after {
-    content: "Mês";
-    text-indent: 0;
-    display: block;
-    line-height: initial;
-}
-.rbc-toolbar > .rbc-btn-group:nth-child(3) > button:nth-child(2):after {
-    content: "Semana";
-    text-indent: 0;
-    display: block;
-    line-height: initial;
-}
-.rbc-toolbar > .rbc-btn-group:nth-child(3) > button:nth-child(3):after {
-    content: "Dia";
-    text-indent: 0;
-    display: block;
-    line-height: initial;
-}
-.rbc-toolbar > .rbc-btn-group:nth-child(3) > button:nth-child(4):after {
-    content: "Agenda";
-    text-indent: 0;
-    display: block;
-    line-height: initial;
-}
-
-.rbc-agenda-table > thead > tr > th:nth-child(1){
-    text-indent: -9999px;
-    line-height: 0;
-    width: 91.4px !important;
-}
-.rbc-agenda-table > thead > tr > th:nth-child(1):after {
-    content: "Data";
-    text-indent: 0;
-    display: block;
-    line-height: initial;
-}
-.rbc-agenda-table > thead > tr > th:nth-child(2){
-    text-indent: -9999px;
-    line-height: 0;
-}
-.rbc-agenda-table > thead > tr > th:nth-child(2):after {
-    content: "Horário";
-    text-indent: 0;
-    display: block;
-    line-height: initial;
-}
-.rbc-agenda-table > thead > tr > th:nth-child(3){
-    text-indent: -9999px;
-    line-height: 0;
-}
-.rbc-agenda-table > thead > tr > th:nth-child(3):after {
-    content: "Evento";
-    text-indent: 0;
-    display: block;
-    line-height: initial;
 }
 .rbc-off-range-bg {
     background: #ececec !important;
@@ -229,6 +143,12 @@
     background-color: #881ac0 !important;
     border: 1px solid white !important;
 }
-.rbc-toolbar .rbc-toolbar-label{
-    font-family: 'Averta Semibold';
+/* Scroller Day */
+.rbc-time-header.rbc-overflowing{
+    margin-right: 14px !important;
+    border-bottom: 2px solid #ddd !important;
+}
+.rbc-time-content{
+    border-top: 0px !important;
+    padding-right: 10px;
 }
