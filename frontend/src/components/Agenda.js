@@ -18,9 +18,23 @@ import '../assets/css/Agenda.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
 
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+
 moment.locale('pt-br');
 
-class Agenda extends React.Component{
+const useStyles = makeStyles((theme) => ({
+    root: {
+        '& > *': {
+            margin: theme.spacing(1),
+            width: '25ch',
+        },
+    },
+}));
+
+const classes = useStyles();
+  
+class Agenda extends React.Component{    
     constructor(props){
         super(props);
 
@@ -44,20 +58,20 @@ class Agenda extends React.Component{
                     title: "Teste do Lessa"
                 }
             ],
-            title: "Maio de 2020"
+            dateStringTitle: "Maio de 2020",
+            crudModalVisibility: false
         };
         
         this.whatDate = "today";
         this.viewType = "month";
         
-        this.modalTitle = "";
-        this.modalBody = "";
-        this.modalPicture = "";
+        this.crudModalTitle = "Testando";
+        this.crudModalBody = "Teste do Testando";
     }
 
     // On load
     /*componentDidMount(){
-        this.load()
+        this.load();
     }
 
     load = () => {
@@ -126,7 +140,7 @@ class Agenda extends React.Component{
             month = this.findMonthString(month);            
             var year = moment(this.state.dateChosen).format('YYYY');
 
-            this.state.title = day + " de " + month + " de " + year;
+            this.state.dateStringTitle = day + " de " + month + " de " + year;
         }
         else if (newType == "week"){
             var initialDayWeek = moment(this.state.dateChosen).startOf('week').format('DD');
@@ -138,14 +152,14 @@ class Agenda extends React.Component{
             finalMonthWeek = this.findMonthString(finalMonthWeek);
             var finalYearWeek = moment(this.state.dateChosen).endOf('year').format('YYYY');
             
-            this.state.title = initialDayWeek + " de " + initialMonthWeek + " à " + finalDayWeek + " de " + finalMonthWeek + " - " + finalYearWeek;
+            this.state.dateStringTitle = initialDayWeek + " de " + initialMonthWeek + " à " + finalDayWeek + " de " + finalMonthWeek + " - " + finalYearWeek;
         }
         else if (newType == "month"){
             var month = moment(this.state.dateChosen).format('MM');
             month = this.findMonthString(month);            
             var year = moment(this.state.dateChosen).format('YYYY');
 
-            this.state.title = month + " de " + year;
+            this.state.dateStringTitle = month + " de " + year;
         }        
         else if (newType == "agenda"){
             var initialDay = moment(this.state.dateChosen).format('DD');
@@ -157,7 +171,7 @@ class Agenda extends React.Component{
             finalMonth = this.findMonthString(finalMonth);
             var finalYear = moment(this.state.dateChosen).add(1, 'months').format('YYYY');
 
-            this.state.title = initialDay + " de " + initialMonth + " à " + finalDay + " de " + finalMonth + " - " + finalYear;
+            this.state.dateStringTitle = initialDay + " de " + initialMonth + " à " + finalDay + " de " + finalMonth + " - " + finalYear;
         }
     };
 
@@ -192,6 +206,7 @@ class Agenda extends React.Component{
         }
     };
 
+    /* Agenda behavior events */
     onEventResize = (type, { event, start, end, allDay }) => {
         debugger
         this.setState(state => {
@@ -207,25 +222,24 @@ class Agenda extends React.Component{
         console.log(start);
     };
 
-    handleSelect = ({ start, end }) => {
-        debugger
-        const title = window.prompt('New Event name');
-        if (title)
-            this.setState({
-                events: [
-                    ...this.state.events,
-                    {
-                        start,
-                        end,
-                        title,
-                    },
-                ],
-                culture: 'es'
-            });
+    handleEventSelected = (event) => {
+        this.openCrudModal(event.title, event.start, event.end)
+    };
+
+    handleSlotSelected = ({ start, end }) => {
+        this.openCrudModal(null, start, end);
+    };
+
+    openCrudModal = (event, start, end) => {
+        this.setState({ crudModalVisibility: true });
+    };
+    
+    closeCrudModal = () => {
+        this.setState({ crudModalVisibility: false });
     };
 
     // Visualização de Todo o conteúdo do HTML
-    render(){
+    render(){       
         const localizer = momentLocalizer(moment);
         const DnDCalendar = withDragAndDrop(Calendar);
 
@@ -238,7 +252,7 @@ class Agenda extends React.Component{
                             <h1>Agenda</h1>
                         </div>
                         <div className="dateTitle">
-                            <p>{ this.state.title }</p>
+                            <p>{ this.state.dateStringTitle }</p>
                         </div>
                         <div>
                         </div>
@@ -268,7 +282,7 @@ class Agenda extends React.Component{
                                     <Button><SearchIcon/></Button>
                                 </Tooltip>
                                 <Tooltip TransitionComponent={Zoom} placement="bottom" title="Adicionar evento">
-                                    <Button><AddBoxIcon/></Button>
+                                    <Button onClick={() => this.openCrudModal()}><AddBoxIcon/></Button>
                                 </Tooltip>
                                 <Tooltip TransitionComponent={Zoom} placement="bottom" title="Sincronizar calendário">
                                     <Button><SyncIcon/></Button>
@@ -302,38 +316,38 @@ class Agenda extends React.Component{
                             </div>
                         </div>
                         <DnDCalendar
+                            selectable
+                            resizable
+
                             defaultDate={ this.state.dateChosen }
                             defaultView= { this.viewType }
+
                             localizer={ localizer }
+                            style={{ height: 500 }}
+
                             startAccessor="start"
                             endAccessor="end"
-                            style={{ height: 500 }}
-                            
+                                                        
                             events={ this.state.events }
                             onEventDrop={ this.onEventDrop }
                             onEventResize={ this.onEventResize }
-                            onSelectEvent={ event => alert(event.title) }
-                            onSelectSlot={ this.handleSelect }
-                            resizable
+                            onSelectEvent={ event => this.handleEventSelected(event) }
+                            onSelectSlot={ this.handleSlotSelected }
                         />
-                        {/* <Calendar
-                            defaultDate={moment().toDate()}
-                            selectable
-                            localizer={ localizer }
-                            style={{ height: 500 }}
-                        
-                            events={ this.state.events }
-                            defaultView="month"
-                            onSelectEvent={event => alert(event.title)}
-                            onSelectSlot={this.handleSelect}
-                        /> */}
                     </div>
                 </div>
 
                 {/* Modal de notícia */}
-                <Modal open={ this.state.modalVisibility } onClose={ this.onCloseModal } center>
-                    <h1>{ this.modalTitle }</h1>
-                    <div className="div--modalBody-default" dangerouslySetInnerHTML={ { __html: this.modalBody } } />
+                <Modal open={ this.state.crudModalVisibility } onClose={ this.closeCrudModal } center>
+                    <div>
+                        <form className={classes.root} noValidate autoComplete="off">
+                            <TextField id="standard-basic" label="Standard" />
+                            <TextField id="filled-basic" label="Filled" variant="filled" />
+                            <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+                        </form>
+                        <h1>{ this.crudModalTitle }</h1>
+                        <div className="div--crudModalBody-default" dangerouslySetInnerHTML={ { __html: this.crudModalBody } } />
+                    </div>
                 </Modal>
             </div>
         );
