@@ -169,3 +169,13 @@
 .rbc-month-row, .rbc-time-view{
     cursor: pointer;
 }
+
+/* Div dentro do modal de eventos */
+.div-agenda--appointment{
+    display: flex;
+    flex-direction: column;
+}
+.div-agenda--appointment form{
+    flex-direction: column;
+    display: flex;
+}

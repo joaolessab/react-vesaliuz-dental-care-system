@@ -75,7 +75,7 @@ class Help extends React.Component{
                 <div className="container-questions--help">
                     <p className="p--subtitle">Dúvidas Frequentes</p>
                     <div className="div--accordion-list">
-                    <Accordion
+                        <Accordion
                             question = {"Como faço para registrar reembolso?"}
                             answer = {'Basta acessar a aba de clientes e clicar no botão: "Vincular Exame".'}
                         />

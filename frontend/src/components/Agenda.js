@@ -1,5 +1,12 @@
 import React, { createElement } from 'react';
 import 'react-responsive-modal/styles.css';
+
+import { Calendar, momentLocalizer } from 'react-big-calendar'
+import moment from 'moment';
+import MomentUtils from "@date-io/moment";
+import 'moment/locale/pt-br';
+import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop';
+
 import { Modal } from 'react-responsive-modal';
 import Button from '@material-ui/core/Button';
 import AddBoxIcon from '@material-ui/icons/AddBox';
@@ -7,35 +14,41 @@ import SearchIcon from '@material-ui/icons/Search';
 import SyncIcon from '@material-ui/icons/Sync';
 import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
-
-import { Calendar, momentLocalizer } from 'react-big-calendar'
-import moment from 'moment'
-import 'moment/locale/pt-br';
-import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop';
+import Grid from '@material-ui/core/Grid';
+import { MuiPickersUtilsProvider, KeyboardTimePicker, KeyboardDatePicker } from '@material-ui/pickers';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import Input from '@material-ui/core/Input';
+import ListItemText from '@material-ui/core/ListItemText';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import '../assets/css/Agenda.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
 
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 
-moment.locale('pt-br');
+const momentLocale = moment.locale('pt-br');
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = theme => ({
     root: {
         '& > *': {
             margin: theme.spacing(1),
             width: '25ch',
         },
     },
-}));
-
-const classes = useStyles();
+});
   
 class Agenda extends React.Component{    
+
     constructor(props){
+         
         super(props);
 
         /* VARIABLES */
@@ -59,14 +72,119 @@ class Agenda extends React.Component{
                 }
             ],
             dateStringTitle: "Maio de 2020",
-            crudModalVisibility: false
+            crudModalVisibility: false,
+            selectedDate : moment().toDate()
         };
         
         this.whatDate = "today";
-        this.viewType = "month";
-        
+        this.viewType = "month";        
+
+        /* Propriedades do Modal */
         this.crudModalTitle = "Testando";
-        this.crudModalBody = "Teste do Testando";
+        this.crudModalBody = "Teste do Testando";   
+        this.timePickerValues = [
+            "00:00",
+            "00:15",
+            "00:30",
+            "00:45",
+            "01:00",
+            "01:15",
+            "01:30",
+            "01:45",
+            "02:00",
+            "02:15",
+            "02:30",
+            "02:45",
+            "03:00",
+            "03:15",
+            "03:30",
+            "03:45",
+            "04:00",
+            "04:15",
+            "04:30",
+            "04:45",
+            "05:00",
+            "05:15",
+            "05:30",
+            "05:45",
+            "06:00",
+            "06:15",
+            "06:30",
+            "06:45",
+            "07:00",
+            "07:15",
+            "07:30",
+            "07:45",
+            "08:00",
+            "08:15",
+            "08:30",
+            "08:45",
+            "09:00",
+            "09:15",
+            "09:30",
+            "09:45",
+            "10:00",
+            "10:15",
+            "10:30",
+            "10:45",
+            "11:00",
+            "11:15",
+            "11:30",
+            "11:45",
+            "12:00",
+            "12:15",
+            "12:30",
+            "12:45",
+            "13:00",
+            "13:15",
+            "13:30",
+            "13:45",
+            "14:00",
+            "14:15",
+            "14:30",
+            "14:45",
+            "15:00",
+            "15:15",
+            "15:30",
+            "15:45",            
+            "16:00",
+            "16:15",
+            "16:30",
+            "16:45",            
+            "17:00",
+            "17:15",
+            "17:30",
+            "17:45",            
+            "18:00",
+            "18:15",
+            "18:30",
+            "18:45",
+            "19:00",
+            "19:15",
+            "19:30",
+            "19:45",
+            "20:00",
+            "20:15",
+            "20:30",
+            "20:45",
+            "21:00",
+            "21:15",
+            "21:30",
+            "21:45",
+            "22:00",
+            "22:15",
+            "22:30",
+            "22:45",
+            "23:00",
+            "23:15",
+            "23:30",
+            "23:45"
+        ];
+
+        this.initialTime = this.timePickerValues[0];
+        this.finalTime = this.timePickerValues[0];
+        this.allDayEvent = false;
+        this.repeatEvent = false;
     }
 
     // On load
@@ -238,11 +356,41 @@ class Agenda extends React.Component{
         this.setState({ crudModalVisibility: false });
     };
 
+    changeInitialDate = (date) => {
+        this.setState({ setSelectedDate: date });
+    };
+
+    changeFinalDate = (date) => {
+        this.setState({ setSelectedDate: date });
+    };
+
+    changeInitialTime = (event) => {
+        this.initialTime = event.target.value;
+        this.forceUpdate();
+    };
+
+    changeFinalTime = (event) => {
+        this.finalTime = event.target.value;
+        this.forceUpdate();
+    };
+
+    checkAllDayEvent = (event) => {
+        this.allDayEvent = event.target.checked;
+        alert("mudar as datas para ambas no mesmo dia");
+        this.forceUpdate();
+    };
+
+    checkRepeatEvent = (event) => {
+        this.repeatEvent = event.target.checked;
+        this.forceUpdate();
+    };
+
     // Visualização de Todo o conteúdo do HTML
-    render(){       
+    render(){
+        const { classes } = this.props;
         const localizer = momentLocalizer(moment);
         const DnDCalendar = withDragAndDrop(Calendar);
-
+        
         // RETORNO BÁSICO DO HTML
         return (
             <div className="container--miolo-main">
@@ -285,7 +433,7 @@ class Agenda extends React.Component{
                                     <Button onClick={() => this.openCrudModal()}><AddBoxIcon/></Button>
                                 </Tooltip>
                                 <Tooltip TransitionComponent={Zoom} placement="bottom" title="Sincronizar calendário">
-                                    <Button><SyncIcon/></Button>
+                                    <Button disabled><SyncIcon/></Button>
                                 </Tooltip>
                             </div>
                             <div className="div--view">
@@ -339,11 +487,94 @@ class Agenda extends React.Component{
 
                 {/* Modal de notícia */}
                 <Modal open={ this.state.crudModalVisibility } onClose={ this.closeCrudModal } center>
-                    <div>
+                    <div className="div-agenda--appointment">
                         <form className={classes.root} noValidate autoComplete="off">
-                            <TextField id="standard-basic" label="Standard" />
-                            <TextField id="filled-basic" label="Filled" variant="filled" />
-                            <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+                            <TextField id="standard-basic" label="Nome do seu evento" />
+                            <MuiPickersUtilsProvider libInstance={ moment } utils={ MomentUtils } locale={ momentLocale }>
+                                <Grid container justify="space-around">
+                                        <KeyboardDatePicker
+                                            disableToolbar
+                                            variant="inline"
+                                            format="DD/MM/YYYY"
+                                            margin="normal"
+                                            id="date-picker-inline"
+                                            label="Data inicial"
+                                            value={ this.state.selectedDate }
+                                            onChange={ this.changeInitialDate }
+                                            KeyboardButtonProps={{
+                                                'aria-label': 'change date',
+                                            }}
+                                        />
+                                        <KeyboardDatePicker
+                                            disableToolbar
+                                            variant="inline"
+                                            format="DD/MM/YYYY"
+                                            margin="normal"
+                                            id="date-picker-inline"
+                                            label="Data inicial"
+                                            value={ this.state.selectedDate }
+                                            onChange={ this.changeFinalDate }
+                                            KeyboardButtonProps={{
+                                                'aria-label': 'change date',
+                                            }}
+                                        />
+                                        <Select
+                                            labelId="checkbox--initial-time"
+                                            id="checkbox--initial-time"
+                                            value={ this.initialTime }
+                                            onChange={ this.changeInitialTime }
+                                            input={<Input />}
+                                        >
+                                            {this.timePickerValues.map((timeItem) => (
+                                                <MenuItem key={timeItem} value={timeItem}>
+                                                    <ListItemText primary={timeItem} />
+                                                </MenuItem>
+                                            ))}
+                                        </Select>
+                                        <Select
+                                            labelId="checkbox--final-time"
+                                            id="checkbox--final-time"
+                                            value={ this.finalTime }
+                                            onChange={ this.changeFinalTime }
+                                            input={<Input />}
+                                        >
+                                            {this.timePickerValues.map((timeItem) => (
+                                                <MenuItem key={timeItem} value={timeItem}>
+                                                    <ListItemText primary={timeItem} />
+                                                </MenuItem>
+                                            ))}
+                                        </Select>
+
+                                        <FormControlLabel
+                                            value="end"
+                                            control={
+                                                <Checkbox
+                                                    checked={ this.allDayEvent } 
+                                                    icon={<RadioButtonUncheckedIcon />}
+                                                    checkedIcon={< CheckCircleIcon />}
+                                                    onChange={ this.checkAllDayEvent }
+                                                />
+                                            }
+                                            label="Dia todo"
+                                            labelPlacement="end"
+                                        />
+
+                                        <FormControlLabel
+                                            value="end"
+                                            control={
+                                                <Checkbox
+                                                    checked={ this.repeatEvent } 
+                                                    icon={<RadioButtonUncheckedIcon />}
+                                                    checkedIcon={< CheckCircleIcon />}
+                                                    onChange={ this.checkRepeatEvent }
+                                                />
+                                            }
+                                            label="Repetir"
+                                            labelPlacement="end"
+                                        />
+                                        <TextareaAutosize label="Testando" aria-label="minimum height" rowsMin={3} placeholder="Escreva detalhes do seu evento ou compromisso" />                                
+                                </Grid>
+                            </MuiPickersUtilsProvider>
                         </form>
                         <h1>{ this.crudModalTitle }</h1>
                         <div className="div--crudModalBody-default" dangerouslySetInnerHTML={ { __html: this.crudModalBody } } />
@@ -354,4 +585,4 @@ class Agenda extends React.Component{
     }
 }
 
-export default Agenda;
+export default withStyles(useStyles)(Agenda);
