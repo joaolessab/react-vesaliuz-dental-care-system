@@ -1,4 +1,4 @@
-import React, { createElement } from 'react';
+import React from 'react';
 import 'react-responsive-modal/styles.css';
 
 import { Calendar, momentLocalizer } from 'react-big-calendar'
@@ -14,8 +14,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import SyncIcon from '@material-ui/icons/Sync';
 import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
-import Grid from '@material-ui/core/Grid';
-import { MuiPickersUtilsProvider, KeyboardTimePicker, KeyboardDatePicker } from '@material-ui/pickers';
+import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import Input from '@material-ui/core/Input';
@@ -31,7 +30,7 @@ import '../assets/css/Agenda.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
 
-import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 
 const momentLocale = moment.locale('pt-br');
@@ -197,45 +196,45 @@ class Agenda extends React.Component{
 
     changeWhatDate = (whatDate) => {
         //Day
-        if (this.viewType == "day"){
-            if (whatDate == "next")
+        if (this.viewType === "day"){
+            if (whatDate === "next")
                 this.state.dateChosen = moment(this.state.dateChosen).add(1, 'days').toDate();
-            if (whatDate == "today")
+            if (whatDate === "today")
                 this.state.dateChosen = moment().toDate();
-            if (whatDate == "previous")
+            if (whatDate === "previous")
                 this.state.dateChosen = moment(this.state.dateChosen).subtract(1, 'days').toDate();
             
             this.findLiteralDate("day");
         }
         //Week
-        else if (this.viewType == "week"){
-            if (whatDate == "next")
+        else if (this.viewType === "week"){
+            if (whatDate === "next")
                 this.state.dateChosen = moment(this.state.dateChosen).add(1, 'weeks').toDate();
-            if (whatDate == "today")
+            if (whatDate === "today")
                 this.state.dateChosen = moment().toDate();
-            if (whatDate == "previous")
+            if (whatDate === "previous")
                 this.state.dateChosen = moment(this.state.dateChosen).subtract(1, 'weeks').toDate();
             
             this.findLiteralDate("week");
         }
         //Month
-        else if (this.viewType == "month"){
-            if (whatDate == "next")
+        else if (this.viewType === "month"){
+            if (whatDate === "next")
                 this.state.dateChosen = moment(this.state.dateChosen).add(1, 'months').toDate();
-            if (whatDate == "today")
+            if (whatDate === "today")
                 this.state.dateChosen = moment().toDate();
-            if (whatDate == "previous")
+            if (whatDate === "previous")
                 this.state.dateChosen = moment(this.state.dateChosen).subtract(1, 'months').toDate();
 
             this.findLiteralDate("month");
         }
         //Agenda
-        else if (this.viewType == "agenda"){
-            if (whatDate == "next")
+        else if (this.viewType === "agenda"){
+            if (whatDate === "next")
                 this.state.dateChosen = moment(this.state.dateChosen).add(1, 'months').toDate();
-            if (whatDate == "today")
+            if (whatDate === "today")
                 this.state.dateChosen = moment().toDate();
-            if (whatDate == "previous")
+            if (whatDate === "previous")
                 this.state.dateChosen = moment(this.state.dateChosen).subtract(1, 'months').toDate();
             
             this.findLiteralDate("agenda");
@@ -252,7 +251,7 @@ class Agenda extends React.Component{
     };
 
     findLiteralDate = (newType) => {
-        if (newType == "day"){
+        if (newType === "day"){
             var day = moment(this.state.dateChosen).format('DD');
             var month = moment(this.state.dateChosen).format('MM');
             month = this.findMonthString(month);            
@@ -260,7 +259,7 @@ class Agenda extends React.Component{
 
             this.state.dateStringTitle = day + " de " + month + " de " + year;
         }
-        else if (newType == "week"){
+        else if (newType === "week"){
             var initialDayWeek = moment(this.state.dateChosen).startOf('week').format('DD');
             var initialMonthWeek = moment(this.state.dateChosen).startOf('week').format('MM');
             initialMonthWeek = this.findMonthString(initialMonthWeek);
@@ -272,14 +271,14 @@ class Agenda extends React.Component{
             
             this.state.dateStringTitle = initialDayWeek + " de " + initialMonthWeek + " à " + finalDayWeek + " de " + finalMonthWeek + " - " + finalYearWeek;
         }
-        else if (newType == "month"){
+        else if (newType === "month"){
             var month = moment(this.state.dateChosen).format('MM');
             month = this.findMonthString(month);            
             var year = moment(this.state.dateChosen).format('YYYY');
 
             this.state.dateStringTitle = month + " de " + year;
         }        
-        else if (newType == "agenda"){
+        else if (newType === "agenda"){
             var initialDay = moment(this.state.dateChosen).format('DD');
             var initialMonth = moment(this.state.dateChosen).format('MM');
             initialMonth = this.findMonthString(initialMonth);
@@ -415,7 +414,7 @@ class Agenda extends React.Component{
                                 </Button>
                                 <Button
                                     onClick={() => this.changeWhatDate("today")}
-                                    className={ this.whatDate == "today" ? "selected" : ""}
+                                    className={ this.whatDate === "today" ? "selected" : ""}
                                 >
                                     Hoje
                                 </Button>
@@ -439,25 +438,25 @@ class Agenda extends React.Component{
                             <div className="div--view">
                                 <Button 
                                     onClick={() => this.changeViewType("day")} 
-                                    className={ this.viewType == "day" ? "selected" : ""}
+                                    className={ this.viewType === "day" ? "selected" : ""}
                                 >
                                     Dia
                                 </Button>
                                 <Button 
                                     onClick={() => this.changeViewType("week")} 
-                                    className={ this.viewType == "week" ? "selected" : ""}
+                                    className={ this.viewType === "week" ? "selected" : ""}
                                 >
                                     Semana
                                 </Button>
                                 <Button 
                                     onClick={() => this.changeViewType("month")} 
-                                    className={ this.viewType == "month" ? "selected" : ""}
+                                    className={ this.viewType === "month" ? "selected" : ""}
                                 >
                                     Mês
                                 </Button>
                                 <Button 
                                     onClick={() => this.changeViewType("agenda")} 
-                                    className={ this.viewType == "agenda" ? "selected" : ""}
+                                    className={ this.viewType === "agenda" ? "selected" : ""}
                                 >
                                     Agenda
                                 </Button>
@@ -489,91 +488,96 @@ class Agenda extends React.Component{
                 <Modal open={ this.state.crudModalVisibility } onClose={ this.closeCrudModal } center>
                     <div className="div-agenda--appointment">
                         <form className={classes.root} noValidate autoComplete="off">
-                            <TextField id="standard-basic" label="Nome do seu evento" />
-                            <MuiPickersUtilsProvider libInstance={ moment } utils={ MomentUtils } locale={ momentLocale }>
-                                <Grid container justify="space-around">
-                                        <KeyboardDatePicker
-                                            disableToolbar
-                                            variant="inline"
-                                            format="DD/MM/YYYY"
-                                            margin="normal"
-                                            id="date-picker-inline"
-                                            label="Data inicial"
-                                            value={ this.state.selectedDate }
-                                            onChange={ this.changeInitialDate }
-                                            KeyboardButtonProps={{
-                                                'aria-label': 'change date',
-                                            }}
-                                        />
-                                        <KeyboardDatePicker
-                                            disableToolbar
-                                            variant="inline"
-                                            format="DD/MM/YYYY"
-                                            margin="normal"
-                                            id="date-picker-inline"
-                                            label="Data inicial"
-                                            value={ this.state.selectedDate }
-                                            onChange={ this.changeFinalDate }
-                                            KeyboardButtonProps={{
-                                                'aria-label': 'change date',
-                                            }}
-                                        />
-                                        <Select
-                                            labelId="checkbox--initial-time"
-                                            id="checkbox--initial-time"
-                                            value={ this.initialTime }
-                                            onChange={ this.changeInitialTime }
-                                            input={<Input />}
-                                        >
-                                            {this.timePickerValues.map((timeItem) => (
-                                                <MenuItem key={timeItem} value={timeItem}>
-                                                    <ListItemText primary={timeItem} />
-                                                </MenuItem>
-                                            ))}
-                                        </Select>
-                                        <Select
-                                            labelId="checkbox--final-time"
-                                            id="checkbox--final-time"
-                                            value={ this.finalTime }
-                                            onChange={ this.changeFinalTime }
-                                            input={<Input />}
-                                        >
-                                            {this.timePickerValues.map((timeItem) => (
-                                                <MenuItem key={timeItem} value={timeItem}>
-                                                    <ListItemText primary={timeItem} />
-                                                </MenuItem>
-                                            ))}
-                                        </Select>
+                            <MuiPickersUtilsProvider libInstance={ moment } utils={ MomentUtils } locale={ momentLocale }>                                
+                                {/* Titulo */}
+                                <TextField id="standard-basic" label="Nome do seu evento" />
+                                
+                                {/* Datas e horários */}
+                                <div className="div--agendaForm-dateTime">
+                                    <KeyboardDatePicker
+                                        disableToolbar
+                                        variant="inline"
+                                        format="DD/MM/YYYY"
+                                        margin="normal"
+                                        id="date-picker-inline"
+                                        label="Data inicial"
+                                        value={ this.state.selectedDate }
+                                        onChange={ this.changeInitialDate }
+                                        KeyboardButtonProps={{
+                                            'aria-label': 'change date',
+                                        }}
+                                    />
+                                    
+                                    <KeyboardDatePicker
+                                        disableToolbar
+                                        variant="inline"
+                                        format="DD/MM/YYYY"
+                                        margin="normal"
+                                        id="date-picker-inline"
+                                        label="Data inicial"
+                                        value={ this.state.selectedDate }
+                                        onChange={ this.changeFinalDate }
+                                        KeyboardButtonProps={{
+                                        'aria-label': 'change date',
+                                        }}
+                                    />
+                                    <Select
+                                        labelId="checkbox--initial-time"
+                                        id="checkbox--initial-time"
+                                        value={ this.initialTime }
+                                        onChange={ this.changeInitialTime }
+                                        input={<Input />}
+                                    >
+                                        {this.timePickerValues.map((timeItem) => (
+                                        <MenuItem key={timeItem} value={timeItem}>
+                                            <ListItemText primary={timeItem} />
+                                        </MenuItem>
+                                        ))}
+                                    </Select>
+                                    <Select
+                                        labelId="checkbox--final-time"
+                                        id="checkbox--final-time"
+                                        value={ this.finalTime }
+                                        onChange={ this.changeFinalTime }
+                                        input={<Input />}
+                                    >
+                                        {this.timePickerValues.map((timeItem) => (
+                                        <MenuItem key={timeItem} value={timeItem}>
+                                            <ListItemText primary={timeItem} />
+                                        </MenuItem>
+                                        ))}
+                                    </Select>
+                                </div>
+                                <div className="div--agendaForm-moreOptions">
+                                    <FormControlLabel
+                                        value="end"
+                                        control={
+                                            <Checkbox
+                                                checked={ this.allDayEvent } 
+                                                icon={<RadioButtonUncheckedIcon />}
+                                                checkedIcon={< CheckCircleIcon />}
+                                                onChange={ this.checkAllDayEvent }
+                                            />
+                                        }
+                                        label="Dia todo"
+                                        labelPlacement="end"
+                                    />
 
-                                        <FormControlLabel
-                                            value="end"
-                                            control={
-                                                <Checkbox
-                                                    checked={ this.allDayEvent } 
-                                                    icon={<RadioButtonUncheckedIcon />}
-                                                    checkedIcon={< CheckCircleIcon />}
-                                                    onChange={ this.checkAllDayEvent }
-                                                />
-                                            }
-                                            label="Dia todo"
-                                            labelPlacement="end"
-                                        />
-
-                                        <FormControlLabel
-                                            value="end"
-                                            control={
-                                                <Checkbox
-                                                    checked={ this.repeatEvent } 
-                                                    icon={<RadioButtonUncheckedIcon />}
-                                                    checkedIcon={< CheckCircleIcon />}
-                                                    onChange={ this.checkRepeatEvent }
-                                                />
-                                            }
-                                            label="Repetir"
-                                            labelPlacement="end"
-                                        />
-                                        <TextareaAutosize label="Testando" aria-label="minimum height" rowsMin={3} placeholder="Escreva detalhes do seu evento ou compromisso" />                                
-                                </Grid>
+                                    <FormControlLabel
+                                        value="end"
+                                        control={
+                                            <Checkbox
+                                                checked={ this.repeatEvent } 
+                                                icon={<RadioButtonUncheckedIcon />}
+                                                checkedIcon={< CheckCircleIcon />}
+                                                onChange={ this.checkRepeatEvent }
+                                            />
+                                        }
+                                        label="Repetir"
+                                        labelPlacement="end"
+                                    />
+                                </div>
+                                <TextareaAutosize label="Testando" aria-label="minimum height" rowsMin={3} placeholder="Escreva detalhes do seu evento ou compromisso" />                                
                             </MuiPickersUtilsProvider>
                         </form>
                         <h1>{ this.crudModalTitle }</h1>
