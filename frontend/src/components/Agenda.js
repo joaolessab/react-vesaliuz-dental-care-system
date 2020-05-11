@@ -79,8 +79,6 @@ class Agenda extends React.Component{
         this.viewType = "month";        
 
         /* Propriedades do Modal */
-        this.crudModalTitle = "Testando";
-        this.crudModalBody = "Teste do Testando";   
         this.timePickerValues = [
             "00:00",
             "00:15",
@@ -184,6 +182,15 @@ class Agenda extends React.Component{
         this.finalTime = this.timePickerValues[0];
         this.allDayEvent = false;
         this.repeatEvent = false;
+
+        this.clientList = [
+            "João Carlos Nunes",
+            "Regina Lessa",
+            "Travis Scott",
+            "Cristiano Ronaldo",
+            "Napoleon Hill"
+        ];
+        this.clientListSelected = this.clientList[2];
     }
 
     // On load
@@ -490,17 +497,19 @@ class Agenda extends React.Component{
                         <form className={classes.root} noValidate autoComplete="off">
                             <MuiPickersUtilsProvider libInstance={ moment } utils={ MomentUtils } locale={ momentLocale }>                                
                                 {/* Titulo */}
-                                <TextField id="standard-basic" label="Nome do seu evento" />
-                                
+                                <div className="div--agendaForm-title agenda--component">
+                                    <TextField id="standard-basic" label="Nome do seu evento" />
+                                </div>
+
                                 {/* Datas e horários */}
-                                <div className="div--agendaForm-dateTime">
+                                <div className="div--agendaForm-dates agenda--component">
                                     <KeyboardDatePicker
                                         disableToolbar
                                         variant="inline"
                                         format="DD/MM/YYYY"
                                         margin="normal"
                                         id="date-picker-inline"
-                                        label="Data inicial"
+                                        label="Inicia em"
                                         value={ this.state.selectedDate }
                                         onChange={ this.changeInitialDate }
                                         KeyboardButtonProps={{
@@ -514,13 +523,15 @@ class Agenda extends React.Component{
                                         format="DD/MM/YYYY"
                                         margin="normal"
                                         id="date-picker-inline"
-                                        label="Data inicial"
+                                        label="Encerra em"
                                         value={ this.state.selectedDate }
                                         onChange={ this.changeFinalDate }
                                         KeyboardButtonProps={{
                                         'aria-label': 'change date',
                                         }}
                                     />
+                                </div>
+                                <div className="div--agendaForm-times agenda--component">
                                     <Select
                                         labelId="checkbox--initial-time"
                                         id="checkbox--initial-time"
@@ -548,7 +559,7 @@ class Agenda extends React.Component{
                                         ))}
                                     </Select>
                                 </div>
-                                <div className="div--agendaForm-moreOptions">
+                                <div className="div--agendaForm-repeatOptions agenda--component">
                                     <FormControlLabel
                                         value="end"
                                         control={
@@ -562,26 +573,44 @@ class Agenda extends React.Component{
                                         label="Dia todo"
                                         labelPlacement="end"
                                     />
-
                                     <FormControlLabel
-                                        value="end"
-                                        control={
-                                            <Checkbox
-                                                checked={ this.repeatEvent } 
-                                                icon={<RadioButtonUncheckedIcon />}
-                                                checkedIcon={< CheckCircleIcon />}
-                                                onChange={ this.checkRepeatEvent }
-                                            />
-                                        }
-                                        label="Repetir"
-                                        labelPlacement="end"
-                                    />
+                                            value="end"
+                                            control={
+                                                <Checkbox
+                                                    checked={ this.repeatEvent } 
+                                                    icon={<RadioButtonUncheckedIcon />}
+                                                    checkedIcon={< CheckCircleIcon />}
+                                                    onChange={ this.checkRepeatEvent }
+                                                />
+                                            }
+                                            label="Repetir"
+                                            labelPlacement="end"
+                                        />
                                 </div>
-                                <TextareaAutosize label="Testando" aria-label="minimum height" rowsMin={3} placeholder="Escreva detalhes do seu evento ou compromisso" />                                
+                                <div className="div--agendaForm-client agenda--component">
+                                    <Select
+                                        labelId="checkbox--agenda-client"
+                                        id="checkbox--agenda-client"
+                                        value={ this.clientListSelected }
+                                        onChange={ this.changeFinalTime }
+                                        input={<Input />}
+                                    >
+                                        {this.clientList.map((clientItem) => (
+                                        <MenuItem key={clientItem} value={clientItem}>
+                                            <ListItemText primary={clientItem} />
+                                        </MenuItem>
+                                        ))}
+                                    </Select>
+                                </div>
+                                <div className="div--agendaForm-observation agenda--component">
+                                    <TextareaAutosize label="Testando" aria-label="minimum height" rowsMin={3} placeholder="Escreva detalhes do seu evento ou compromisso" />
+                                </div>
+                                <div className="div--agendaForm-buttonsBar agenda--component">
+                                    <Button>Opções</Button>
+                                    <Button>Salvar</Button>
+                                </div>
                             </MuiPickersUtilsProvider>
                         </form>
-                        <h1>{ this.crudModalTitle }</h1>
-                        <div className="div--crudModalBody-default" dangerouslySetInnerHTML={ { __html: this.crudModalBody } } />
                     </div>
                 </Modal>
             </div>

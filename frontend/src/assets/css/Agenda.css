@@ -174,8 +174,44 @@
 .div-agenda--appointment{
     display: flex;
     flex-direction: column;
+    min-width: 320px;
+    margin: 30px;
 }
 .div-agenda--appointment form{
     flex-direction: column;
     display: flex;
+}
+.div-agenda--appointment .agenda--component{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 100% !important;
+    margin: 0 !important;
+}
+.div--agendaForm-times, .div--agendaForm-dates, .div--agendaForm-repeatOptions{
+    flex-direction: row !important;
+    justify-content: space-between;
+}
+.div--agendaForm-buttonsBar{
+    flex-direction: row !important;
+    justify-content: flex-end;
+}
+.div--agendaForm-times, .div--agendaForm-repeatOptions{
+    justify-content: start;
+}
+.div--agendaForm-times .MuiInput-root:nth-child(2){
+    margin-left: 92px;
+}
+.div-agenda--appointment .MuiFormControl-marginNormal {
+    width: 140px !important;
+}
+.div-agenda--appointment .div--agendaForm-times .MuiSelect-select.MuiSelect-select{
+    width: 65px !important;
+}
+.MuiInputBase-input, .MuiPickersSlideTransition-transitionContainer > *, .rbc-header, .rbc-header + .rbc-header, .MuiInputLabel-root, .MuiTypography-root{
+    font-size: 13.7px !important;
+    font-family: 'Averta' !important;
+}
+.div-agenda--appointment .agenda--component .MuiFormControlLabel-root:nth-child(2){
+    margin-left: 66px;
 }
