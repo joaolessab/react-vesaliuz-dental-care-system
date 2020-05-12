@@ -611,7 +611,8 @@ class Agenda extends React.Component{
                                     </Select>
                                 </div>
                                 <div className="div--agendaForm-observation agenda--component">
-                                    <TextareaAutosize label="Testando" aria-label="minimum height" rowsMin={3} placeholder="Escreva detalhes do seu evento ou compromisso" />
+                                    <InputLabel htmlFor="textarea-observation">Observações</InputLabel>
+                                    <TextareaAutosize id="textarea-observation" label="Testando" aria-label="minimum height" rowsMin={3} placeholder="Escreva detalhes do seu evento ou compromisso" />
                                 </div>
                                 <div className="div--agendaForm-buttonsBar agenda--component">
                                     <Button>Opções</Button>

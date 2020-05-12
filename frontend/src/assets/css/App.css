@@ -190,8 +190,8 @@ div::-webkit-scrollbar-thumb
 .MuiSelect-select.MuiSelect-select{
   margin-top: 4px;
 }
-.MuiSelect-select:focus, input:focus, select:focus, textarea:focus {
-  background-color: rgba(0, 0, 0, 0.05) !important;
+.div-agenda--appointment .MuiSelect-select:focus, .div-agenda--appointment input:focus, .div-agenda--appointment select:focus, .div-agenda--appointment textarea:focus {
+  background-color: white !important;
   border-radius: 4px !important;
   box-shadow: none;
 }
