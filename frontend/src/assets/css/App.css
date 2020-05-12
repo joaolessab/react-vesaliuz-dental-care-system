@@ -20,7 +20,7 @@ body, input, button, h1, h2, h3, h4, h5, h6{
 }
 
 body, input, button{
-  font-size: 13.7px;
+  font-size: 14px;
 }
 
 input, select, textarea{
@@ -96,7 +96,7 @@ div::-webkit-scrollbar-thumb
   font-weight: 300;
   border: 0px;
   border-radius: 10px;
-  font-size: 13.7px;
+  font-size: 14px;
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -108,7 +108,7 @@ div::-webkit-scrollbar-thumb
   border: 1px solid #b5b5b5 !important;
   cursor: pointer !important;
   font-family: 'Averta Semibold' !important;
-  font-size: 13.7px !important;
+  font-size: 14px !important;
   text-transform: none !important;
 }
 .button--white-context:hover{
@@ -170,6 +170,28 @@ div::-webkit-scrollbar-thumb
   height: 45px;
   background-color: transparent;
 }
-.MuiCheckbox-colorSecondary.Mui-checked {
+
+/* Componentes de Input */
+.MuiInputBase-input{
+  height: 35px !important;
+}
+.MuiCheckbox-colorSecondary.Mui-checked, .MuiInputLabel-root.Mui-focused{
   color: #2386fd !important;
+}
+.MuiInput-underline:after{
+  border-bottom: 2px solid #2386fd !important;
+}
+.MuiPickersDay-daySelected {
+  background-color: #2386fd !important;
+}
+.MuiPickersDay-current {
+  color: #2386fd;
+}
+.MuiSelect-select.MuiSelect-select{
+  margin-top: 4px;
+}
+.MuiSelect-select:focus, input:focus, select:focus, textarea:focus {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  border-radius: 4px !important;
+  box-shadow: none;
 }

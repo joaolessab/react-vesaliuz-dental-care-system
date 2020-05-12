@@ -499,7 +499,7 @@ class Agenda extends React.Component{
                             <MuiPickersUtilsProvider libInstance={ moment } utils={ MomentUtils } locale={ momentLocale }>                                
                                 {/* Titulo */}
                                 <div className="div--agendaForm-title agenda--component">
-                                    <TextField id="standard-basic" label="Nome do seu evento" />
+                                    <TextField id="standard-basic" label="Título do seu evento" />
                                 </div>
 
                                 {/* Datas e horários */}
@@ -509,7 +509,7 @@ class Agenda extends React.Component{
                                         variant="inline"
                                         format="DD/MM/YYYY"
                                         margin="normal"
-                                        id="date-picker-inline"
+                                        id="date-picker-initial"
                                         label="Inicia em"
                                         value={ this.state.selectedDate }
                                         onChange={ this.changeInitialDate }
@@ -523,7 +523,7 @@ class Agenda extends React.Component{
                                         variant="inline"
                                         format="DD/MM/YYYY"
                                         margin="normal"
-                                        id="date-picker-inline"
+                                        id="date-picker-final"
                                         label="Encerra em"
                                         value={ this.state.selectedDate }
                                         onChange={ this.changeFinalDate }
@@ -534,7 +534,7 @@ class Agenda extends React.Component{
                                 </div>
                                 <div className="div--agendaForm-times agenda--component">
                                     <div>
-                                        <InputLabel htmlFor="checkbox--initial-time" className="appLabel--default">Hora de início</InputLabel>
+                                        <InputLabel htmlFor="checkbox--initial-time">Hora de início</InputLabel>
                                         <Select
                                             labelId="checkbox--initial-time"
                                             id="checkbox--initial-time"
@@ -549,8 +549,8 @@ class Agenda extends React.Component{
                                             ))}
                                         </Select>
                                     </div>
-                                    <div className="div--agendaForm-times div--hours-finish">
-                                        <InputLabel htmlFor="checkbox--initial-time" className="appLabel--default">Hora do término</InputLabel>
+                                    <div className="div--hours-finish">
+                                        <InputLabel htmlFor="checkbox--initial-time">Hora do término</InputLabel>
                                         <Select
                                             labelId="checkbox--final-time"
                                             id="checkbox--final-time"
@@ -595,6 +595,7 @@ class Agenda extends React.Component{
                                         />
                                 </div>
                                 <div className="div--agendaForm-client agenda--component">
+                                    <InputLabel htmlFor="checkbox--agenda-client">Cliente</InputLabel>
                                     <Select
                                         labelId="checkbox--agenda-client"
                                         id="checkbox--agenda-client"

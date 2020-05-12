@@ -64,7 +64,7 @@
     border: 0px;
     background-color: #fefeff;
     text-transform: none !important;
-    font-size: 13.7px !important;
+    font-size: 14px !important;
     font-family: 'Averta' !important;
     border-radius: 0px;
 }
@@ -153,7 +153,7 @@
     padding-right: 10px;
 }
 .rbc-agenda-view table.rbc-agenda-table thead > tr > th:nth-child(1){
-    width: 93.1px !important;
+    width: 96.1px !important;
 }
 .rbc-agenda-empty{
     text-align: center;
@@ -176,6 +176,8 @@
     flex-direction: column;
     min-width: 320px;
     margin: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .div-agenda--appointment form{
     flex-direction: column;
@@ -186,7 +188,8 @@
     flex-direction: column;
     flex: 1;
     width: 100% !important;
-    margin: 0 !important;
+    margin: 0;
+    margin-top: 5px;
 }
 .div--agendaForm-times, .div--agendaForm-dates, .div--agendaForm-repeatOptions{
     flex-direction: row !important;
@@ -203,14 +206,25 @@
     width: 140px !important;
 }
 .div-agenda--appointment .div--agendaForm-times .MuiSelect-select.MuiSelect-select{
-    width: 65px !important;
+    width: 115px !important;
 }
 .MuiInputBase-input, .MuiPickersSlideTransition-transitionContainer > *, .rbc-header, .rbc-header + .rbc-header, .MuiInputLabel-root, .MuiTypography-root{
     font-family: 'Averta' !important;
+    font-size: 14px !important;
 }
 .div-agenda--appointment .agenda--component .MuiFormControlLabel-root:nth-child(2){
-    margin-left: 66px;
+    margin-left: 65px;
 }
 .div--agendaForm-times .div--hours-finish{
-    margin-left: 92px;
+    margin-left: 40px;
+}
+.div--agendaForm-times{
+    margin-top: 10px !important;
+}
+.MuiInputLabel-shrink{
+    transform: translate(0, -2.5px) scale(1) !important;
+}
+.div--agendaForm-repeatOptions{
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
 }
