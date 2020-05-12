@@ -24,6 +24,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
+import InputLabel from "@material-ui/core/InputLabel";
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import '../assets/css/Agenda.css';
@@ -532,32 +533,38 @@ class Agenda extends React.Component{
                                     />
                                 </div>
                                 <div className="div--agendaForm-times agenda--component">
-                                    <Select
-                                        labelId="checkbox--initial-time"
-                                        id="checkbox--initial-time"
-                                        value={ this.initialTime }
-                                        onChange={ this.changeInitialTime }
-                                        input={<Input />}
-                                    >
-                                        {this.timePickerValues.map((timeItem) => (
-                                        <MenuItem key={timeItem} value={timeItem}>
-                                            <ListItemText primary={timeItem} />
-                                        </MenuItem>
-                                        ))}
-                                    </Select>
-                                    <Select
-                                        labelId="checkbox--final-time"
-                                        id="checkbox--final-time"
-                                        value={ this.finalTime }
-                                        onChange={ this.changeFinalTime }
-                                        input={<Input />}
-                                    >
-                                        {this.timePickerValues.map((timeItem) => (
-                                        <MenuItem key={timeItem} value={timeItem}>
-                                            <ListItemText primary={timeItem} />
-                                        </MenuItem>
-                                        ))}
-                                    </Select>
+                                    <div>
+                                        <InputLabel htmlFor="checkbox--initial-time" className="appLabel--default">Hora de início</InputLabel>
+                                        <Select
+                                            labelId="checkbox--initial-time"
+                                            id="checkbox--initial-time"
+                                            value={ this.initialTime }
+                                            onChange={ this.changeInitialTime }
+                                            input={<Input />}
+                                        >
+                                            {this.timePickerValues.map((timeItem) => (
+                                            <MenuItem key={timeItem} value={timeItem}>
+                                                <ListItemText primary={timeItem} />
+                                            </MenuItem>
+                                            ))}
+                                        </Select>
+                                    </div>
+                                    <div className="div--agendaForm-times div--hours-finish">
+                                        <InputLabel htmlFor="checkbox--initial-time" className="appLabel--default">Hora do término</InputLabel>
+                                        <Select
+                                            labelId="checkbox--final-time"
+                                            id="checkbox--final-time"
+                                            value={ this.finalTime }
+                                            onChange={ this.changeFinalTime }
+                                            input={<Input />}
+                                        >
+                                            {this.timePickerValues.map((timeItem) => (
+                                            <MenuItem key={timeItem} value={timeItem}>
+                                                <ListItemText primary={timeItem} />
+                                            </MenuItem>
+                                            ))}
+                                        </Select>
+                                    </div>
                                 </div>
                                 <div className="div--agendaForm-repeatOptions agenda--component">
                                     <FormControlLabel

@@ -199,9 +199,6 @@
 .div--agendaForm-times, .div--agendaForm-repeatOptions{
     justify-content: start;
 }
-.div--agendaForm-times .MuiInput-root:nth-child(2){
-    margin-left: 92px;
-}
 .div-agenda--appointment .MuiFormControl-marginNormal {
     width: 140px !important;
 }
@@ -209,9 +206,11 @@
     width: 65px !important;
 }
 .MuiInputBase-input, .MuiPickersSlideTransition-transitionContainer > *, .rbc-header, .rbc-header + .rbc-header, .MuiInputLabel-root, .MuiTypography-root{
-    font-size: 13.7px !important;
     font-family: 'Averta' !important;
 }
 .div-agenda--appointment .agenda--component .MuiFormControlLabel-root:nth-child(2){
     margin-left: 66px;
+}
+.div--agendaForm-times .div--hours-finish{
+    margin-left: 92px;
 }
