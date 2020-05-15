@@ -439,9 +439,9 @@ class Agenda extends React.Component{
                                 <Tooltip TransitionComponent={Zoom} placement="bottom" title="Adicionar evento">
                                     <Button onClick={() => this.openCrudModal()}><AddBoxIcon/></Button>
                                 </Tooltip>
-                                <Tooltip TransitionComponent={Zoom} placement="bottom" title="Sincronizar calendário">
+                                {/* <Tooltip TransitionComponent={Zoom} placement="bottom" title="Sincronizar calendário"> */}
                                     <Button disabled><SyncIcon/></Button>
-                                </Tooltip>
+                                {/* </Tooltip> */}
                             </div>
                             <div className="div--view">
                                 <Button 
@@ -615,8 +615,8 @@ class Agenda extends React.Component{
                                     <TextareaAutosize id="textarea-observation" label="Testando" aria-label="minimum height" rowsMin={3} placeholder="Escreva detalhes do seu evento ou compromisso" />
                                 </div>
                                 <div className="div--agendaForm-buttonsBar agenda--component">
-                                    <Button>Opções</Button>
-                                    <Button>Salvar</Button>
+                                    <Button id="optionEventButton">Opções</Button>
+                                    <Button id="saveEventButton">Salvar</Button>
                                 </div>
                             </MuiPickersUtilsProvider>
                         </form>

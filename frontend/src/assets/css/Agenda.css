@@ -228,3 +228,66 @@
     margin-top: 10px !important;
     margin-bottom: 10px !important;
 }
+.div--agendaForm-observation{
+    margin-top: 20px;
+}
+.div-agenda--appointment .MuiSelect-select:focus, .div-agenda--appointment input:focus, .div-agenda--appointment select:focus, .div-agenda--appointment textarea:focus {
+    background-color: white !important;
+    border-radius: 4px !important;
+    box-shadow: none;
+}
+.div--agendaForm-observation{
+    margin-top: 20px !important;
+}
+.div--agendaForm-observation textarea{
+    height: 70px !important;
+    max-height: 70px !important;
+    overflow: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    resize: none;
+    border: 1.3px solid #cdcdcd;
+    border-radius: 6px;
+    padding: 10px;
+}
+.div--agendaForm-observation textarea:hover{
+    border: 1.3px solid black;
+}
+.div--agendaForm-observation textarea:focus{
+    border: 1.3px solid #2386fd;
+}
+#saveEventButton{
+    cursor: pointer !important;
+    animation-duration: 1s !important;
+    background-color: #2386fd !important;
+    box-shadow: 0px 1px 2px 0px #2386fd4d !important;
+    border: 1.5px solid #ffffffbf !important;
+    transition: 0.2s !important;
+    width: 105px !important;
+    color: white !important;
+    font-family: 'Averta' !important;
+    text-transform: none;
+    border-radius: 10px;
+    height: 45px;
+}
+#optionEventButton:hover, #saveEventButton:hover{
+    background-color: white !important;
+    color: #62696f !important;
+    border: 1px solid #b5b5b5 !important;
+    box-shadow: 1px 6px 3px 0px #969696 !important;
+}
+#optionEventButton{
+    cursor: pointer !important;
+    animation-duration: 1s !important;
+    box-shadow: 0px 1px 2px 0px #2386fd4d !important;
+    transition: 0.2s !important;
+    width: 105px !important;
+    font-family: 'Averta' !important;
+    text-transform: none;
+    border-radius: 10px;
+    height: 45px;
+    background-color: white !important;
+    color: #62696f !important;
+    border: 1px solid #b5b5b5 !important;
+    margin-right: 20px;
+}

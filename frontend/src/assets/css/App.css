@@ -15,11 +15,11 @@ body{
 }
 
 /* Por padrão, o Input e o Button não herdam a fonte do corpo do HTML */
-body, input, button, h1, h2, h3, h4, h5, h6{
+body, input, button, h1, h2, h3, h4, h5, h6, textarea{
   font-family: 'Averta';
 }
 
-body, input, button{
+body, input, button, textarea{
   font-size: 14px;
 }
 
@@ -38,17 +38,17 @@ input:focus, select:focus, textarea:focus{
 }
 
 /* Scrollbar */
-div::-webkit-scrollbar-track
+::-webkit-scrollbar-track
 {
   -webkit-box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.3);
   border-radius: 10px;
 }
-div::-webkit-scrollbar
+::-webkit-scrollbar
 {
 	width: 4px;
   background-color: #fefeff;
 }
-div::-webkit-scrollbar-thumb
+::-webkit-scrollbar-thumb
 {
 	border-radius: 5px;
   -webkit-box-shadow: inset 0 0 6px rgba(73, 73, 73, 0.3);
@@ -189,9 +189,4 @@ div::-webkit-scrollbar-thumb
 }
 .MuiSelect-select.MuiSelect-select{
   margin-top: 4px;
-}
-.div-agenda--appointment .MuiSelect-select:focus, .div-agenda--appointment input:focus, .div-agenda--appointment select:focus, .div-agenda--appointment textarea:focus {
-  background-color: white !important;
-  border-radius: 4px !important;
-  box-shadow: none;
 }
