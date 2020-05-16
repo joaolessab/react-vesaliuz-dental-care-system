@@ -192,6 +192,14 @@ class Agenda extends React.Component{
             "Napoleon Hill"
         ];
         this.clientListSelected = this.clientList[2];
+
+        this.repeatList = [
+            "Diariamente",
+            "Semanalmente",
+            "Mensalmente",
+            "Anualmente"
+        ];
+        this.repeatListSelected = this.repeatList[0];
     }
 
     // On load
@@ -381,6 +389,11 @@ class Agenda extends React.Component{
         this.forceUpdate();
     };
 
+    changeRepeatMode = (event) => {
+        this.clientListSelected = event.target.value;
+        this.forceUpdate();
+    };
+
     checkAllDayEvent = (event) => {
         this.allDayEvent = event.target.checked;
         alert("mudar as datas para ambas no mesmo dia");
@@ -494,132 +507,166 @@ class Agenda extends React.Component{
 
                 {/* Modal de notícia */}
                 <Modal open={ this.state.crudModalVisibility } onClose={ this.closeCrudModal } center>
-                    <div className="div-agenda--appointment">
-                        <form className={classes.root} noValidate autoComplete="off">
-                            <MuiPickersUtilsProvider libInstance={ moment } utils={ MomentUtils } locale={ momentLocale }>                                
-                                {/* Titulo */}
-                                <div className="div--agendaForm-title agenda--component">
-                                    <TextField id="standard-basic" label="Título do seu evento" />
-                                </div>
+                    <div className="div--modalAgenda-body">
+                        <div className="div--agenda-appointment-body">
+                            <div className="div--agenda-appointment">
+                                <form className={classes.root} noValidate autoComplete="off">
+                                    <MuiPickersUtilsProvider libInstance={ moment } utils={ MomentUtils } locale={ momentLocale }>                                
+                                        {/* Titulo */}
+                                        <div className="div--agendaForm-title agenda--component">
+                                            <TextField id="title-event" label="Título do seu evento:" />
+                                        </div>
 
-                                {/* Datas e horários */}
-                                <div className="div--agendaForm-dates agenda--component">
-                                    <KeyboardDatePicker
-                                        disableToolbar
-                                        variant="inline"
-                                        format="DD/MM/YYYY"
-                                        margin="normal"
-                                        id="date-picker-initial"
-                                        label="Inicia em"
-                                        value={ this.state.selectedDate }
-                                        onChange={ this.changeInitialDate }
-                                        KeyboardButtonProps={{
-                                            'aria-label': 'change date',
-                                        }}
-                                    />
-                                    
-                                    <KeyboardDatePicker
-                                        disableToolbar
-                                        variant="inline"
-                                        format="DD/MM/YYYY"
-                                        margin="normal"
-                                        id="date-picker-final"
-                                        label="Encerra em"
-                                        value={ this.state.selectedDate }
-                                        onChange={ this.changeFinalDate }
-                                        KeyboardButtonProps={{
-                                        'aria-label': 'change date',
-                                        }}
-                                    />
-                                </div>
-                                <div className="div--agendaForm-times agenda--component">
-                                    <div>
-                                        <InputLabel htmlFor="checkbox--initial-time">Hora de início</InputLabel>
-                                        <Select
-                                            labelId="checkbox--initial-time"
-                                            id="checkbox--initial-time"
-                                            value={ this.initialTime }
-                                            onChange={ this.changeInitialTime }
-                                            input={<Input />}
-                                        >
-                                            {this.timePickerValues.map((timeItem) => (
-                                            <MenuItem key={timeItem} value={timeItem}>
-                                                <ListItemText primary={timeItem} />
-                                            </MenuItem>
-                                            ))}
-                                        </Select>
-                                    </div>
-                                    <div className="div--hours-finish">
-                                        <InputLabel htmlFor="checkbox--initial-time">Hora do término</InputLabel>
-                                        <Select
-                                            labelId="checkbox--final-time"
-                                            id="checkbox--final-time"
-                                            value={ this.finalTime }
-                                            onChange={ this.changeFinalTime }
-                                            input={<Input />}
-                                        >
-                                            {this.timePickerValues.map((timeItem) => (
-                                            <MenuItem key={timeItem} value={timeItem}>
-                                                <ListItemText primary={timeItem} />
-                                            </MenuItem>
-                                            ))}
-                                        </Select>
-                                    </div>
-                                </div>
-                                <div className="div--agendaForm-repeatOptions agenda--component">
-                                    <FormControlLabel
-                                        value="end"
-                                        control={
-                                            <Checkbox
-                                                checked={ this.allDayEvent } 
-                                                icon={<RadioButtonUncheckedIcon />}
-                                                checkedIcon={< CheckCircleIcon />}
-                                                onChange={ this.checkAllDayEvent }
+                                        {/* Datas e horários */}
+                                        <div className="div--agendaForm-dates agenda--component">
+                                            <KeyboardDatePicker
+                                                disableToolbar
+                                                variant="inline"
+                                                format="DD/MM/YYYY"
+                                                margin="normal"
+                                                id="date-picker-initial"
+                                                label="Inicia em:"
+                                                value={ this.state.selectedDate }
+                                                onChange={ this.changeInitialDate }
+                                                KeyboardButtonProps={{
+                                                    'aria-label': 'change date',
+                                                }}
                                             />
-                                        }
-                                        label="Dia todo"
-                                        labelPlacement="end"
-                                    />
-                                    <FormControlLabel
-                                            value="end"
-                                            control={
-                                                <Checkbox
-                                                    checked={ this.repeatEvent } 
-                                                    icon={<RadioButtonUncheckedIcon />}
-                                                    checkedIcon={< CheckCircleIcon />}
-                                                    onChange={ this.checkRepeatEvent }
+                                            
+                                            <KeyboardDatePicker
+                                                disableToolbar
+                                                variant="inline"
+                                                format="DD/MM/YYYY"
+                                                margin="normal"
+                                                id="date-picker-final"
+                                                label="Encerra em:"
+                                                value={ this.state.selectedDate }
+                                                onChange={ this.changeFinalDate }
+                                                KeyboardButtonProps={{
+                                                'aria-label': 'change date',
+                                                }}
+                                            />
+                                        </div>
+                                        <div className="div--agendaForm-times agenda--component">
+                                            <div>
+                                                <InputLabel htmlFor="checkbox--initial-time">Hora de início:</InputLabel>
+                                                <Select
+                                                    labelId="checkbox--initial-time"
+                                                    id="checkbox--initial-time"
+                                                    value={ this.initialTime }
+                                                    onChange={ this.changeInitialTime }
+                                                    input={<Input />}
+                                                >
+                                                    {this.timePickerValues.map((timeItem) => (
+                                                    <MenuItem key={timeItem} value={timeItem}>
+                                                        <ListItemText primary={timeItem} />
+                                                    </MenuItem>
+                                                    ))}
+                                                </Select>
+                                            </div>
+                                            <div className="div--hours-finish">
+                                                <InputLabel htmlFor="checkbox--initial-time">Hora do término:</InputLabel>
+                                                <Select
+                                                    labelId="checkbox--final-time"
+                                                    id="checkbox--final-time"
+                                                    value={ this.finalTime }
+                                                    onChange={ this.changeFinalTime }
+                                                    input={<Input />}
+                                                >
+                                                    {this.timePickerValues.map((timeItem) => (
+                                                    <MenuItem key={timeItem} value={timeItem}>
+                                                        <ListItemText primary={timeItem} />
+                                                    </MenuItem>
+                                                    ))}
+                                                </Select>
+                                            </div>
+                                        </div>
+                                        <div className="div--agendaForm-repeatOptions agenda--component">
+                                            <FormControlLabel
+                                                value="end"
+                                                control={
+                                                    <Checkbox
+                                                        checked={ this.allDayEvent } 
+                                                        icon={<RadioButtonUncheckedIcon />}
+                                                        checkedIcon={< CheckCircleIcon />}
+                                                        onChange={ this.checkAllDayEvent }
+                                                    />
+                                                }
+                                                label="Dia todo"
+                                                labelPlacement="end"
+                                            />
+                                            <FormControlLabel
+                                                    value="end"
+                                                    control={
+                                                        <Checkbox
+                                                            checked={ this.repeatEvent } 
+                                                            icon={<RadioButtonUncheckedIcon />}
+                                                            checkedIcon={< CheckCircleIcon />}
+                                                            onChange={ this.checkRepeatEvent }
+                                                        />
+                                                    }
+                                                    label="Repetir"
+                                                    labelPlacement="end"
                                                 />
-                                            }
-                                            label="Repetir"
-                                            labelPlacement="end"
-                                        />
-                                </div>
-                                <div className="div--agendaForm-client agenda--component">
-                                    <InputLabel htmlFor="checkbox--agenda-client">Cliente</InputLabel>
-                                    <Select
-                                        labelId="checkbox--agenda-client"
-                                        id="checkbox--agenda-client"
-                                        value={ this.clientListSelected }
-                                        onChange={ this.changeFinalTime }
-                                        input={<Input />}
-                                    >
-                                        {this.clientList.map((clientItem) => (
-                                        <MenuItem key={clientItem} value={clientItem}>
-                                            <ListItemText primary={clientItem} />
-                                        </MenuItem>
-                                        ))}
-                                    </Select>
-                                </div>
-                                <div className="div--agendaForm-observation agenda--component">
-                                    <InputLabel htmlFor="textarea-observation">Observações</InputLabel>
-                                    <TextareaAutosize id="textarea-observation" label="Testando" aria-label="minimum height" rowsMin={3} placeholder="Escreva detalhes do seu evento ou compromisso" />
-                                </div>
-                                <div className="div--agendaForm-buttonsBar agenda--component">
-                                    <Button id="optionEventButton">Opções</Button>
-                                    <Button id="saveEventButton">Salvar</Button>
-                                </div>
-                            </MuiPickersUtilsProvider>
-                        </form>
+                                        </div>
+                                        <div className="div--agendaForm-client agenda--component">
+                                            <InputLabel htmlFor="checkbox--agenda-client">Cliente:</InputLabel>
+                                            <Select
+                                                labelId="checkbox--agenda-client"
+                                                id="checkbox--agenda-client"
+                                                value={ this.clientListSelected }
+                                                onChange={ this.changeFinalTime }
+                                                input={<Input />}
+                                            >
+                                                {this.clientList.map((clientItem) => (
+                                                <MenuItem key={clientItem} value={clientItem}>
+                                                    <ListItemText primary={clientItem} />
+                                                </MenuItem>
+                                                ))}
+                                            </Select>
+                                        </div>
+                                        <div className="div--agendaForm-observation agenda--component">
+                                            <InputLabel htmlFor="textarea-observation">Observações:</InputLabel>
+                                            <TextareaAutosize id="textarea-observation" label="Testando" aria-label="minimum height" rowsMin={3} placeholder="Escreva detalhes do seu evento ou compromisso" />
+                                        </div>
+                                    </MuiPickersUtilsProvider>
+                                </form>
+                            </div>
+                            <div className="div-agenda--repeat">
+                                <MuiPickersUtilsProvider libInstance={ moment } utils={ MomentUtils } locale={ momentLocale }>                                
+                                    <div className="div--agendaForm-client agenda--component">
+                                        <InputLabel htmlFor="checkbox--repeat-mode">Repetição:</InputLabel>
+                                        <Select
+                                            labelId="checkbox--repeat-mode"
+                                            id="checkbox--repeat-mode"
+                                            value={ this.repeatListSelected }
+                                            onChange={ this.changeRepeatMode }
+                                            input={<Input />}
+                                        >
+                                            {this.repeatList.map((repeatItem) => (
+                                            <MenuItem key={repeatItem} value={repeatItem}>
+                                                <ListItemText primary={repeatItem} />
+                                            </MenuItem>
+                                            ))}
+                                        </Select>
+                                        <div className="div--repeat-mode">
+                                            <div>
+                                                <TextField id="counter-repeat-mode" label="Repita a cada:" /> 
+                                            </div>
+                                            <div>
+                                                <p>Semanas</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </MuiPickersUtilsProvider>
+                            </div>
+                        </div>
+                        <div className="div--agenda-footer">
+                            <div className="div--agendaForm-buttonsBar agenda--component">
+                                <Button id="optionEventButton">Opções</Button>
+                                <Button id="saveEventButton">Salvar</Button>
+                            </div>
+                        </div>
                     </div>
                 </Modal>
             </div>

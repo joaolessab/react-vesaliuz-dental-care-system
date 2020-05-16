@@ -171,7 +171,7 @@
 }
 
 /* Div dentro do modal de eventos */
-.div-agenda--appointment{
+.div--agenda-appointment{
     display: flex;
     flex-direction: column;
     min-width: 320px;
@@ -179,11 +179,11 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.div-agenda--appointment form{
+.div--agenda-appointment form{
     flex-direction: column;
     display: flex;
 }
-.div-agenda--appointment .agenda--component{
+.div--agenda-appointment .agenda--component, .div--agenda-repeat .agenda--component{
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -202,17 +202,17 @@
 .div--agendaForm-times, .div--agendaForm-repeatOptions{
     justify-content: start;
 }
-.div-agenda--appointment .MuiFormControl-marginNormal {
+.div--agenda-appointment .MuiFormControl-marginNormal {
     width: 140px !important;
 }
-.div-agenda--appointment .div--agendaForm-times .MuiSelect-select.MuiSelect-select{
+.div--agenda-appointment .div--agendaForm-times .MuiSelect-select.MuiSelect-select{
     width: 115px !important;
 }
 .MuiInputBase-input, .MuiPickersSlideTransition-transitionContainer > *, .rbc-header, .rbc-header + .rbc-header, .MuiInputLabel-root, .MuiTypography-root{
     font-family: 'Averta' !important;
     font-size: 14px !important;
 }
-.div-agenda--appointment .agenda--component .MuiFormControlLabel-root:nth-child(2){
+.div--agenda-appointment .agenda--component .MuiFormControlLabel-root:nth-child(2){
     margin-left: 65px;
 }
 .div--agendaForm-times .div--hours-finish{
@@ -231,7 +231,7 @@
 .div--agendaForm-observation{
     margin-top: 20px;
 }
-.div-agenda--appointment .MuiSelect-select:focus, .div-agenda--appointment input:focus, .div-agenda--appointment select:focus, .div-agenda--appointment textarea:focus {
+.div--agenda-appointment .MuiSelect-select:focus, .div--agenda-appointment input:focus, .div--agenda-appointment select:focus, .div--agenda-appointment textarea:focus {
     background-color: white !important;
     border-radius: 4px !important;
     box-shadow: none;
@@ -290,4 +290,78 @@
     color: #62696f !important;
     border: 1px solid #b5b5b5 !important;
     margin-right: 20px;
+}
+.div--modalAgenda-body{
+    display: flex;
+    flex-direction: column;
+}
+.div--agenda-appointment-body{
+    display: flex;
+}
+.div--agenda-footer{
+    display: flex;
+    justify-content: flex-end;
+}
+.div-agenda--repeat{
+    background-color: #2386fd;
+    border-radius: 10px;
+    width: 400px;
+    margin-bottom: 25px;
+    margin-top: 50px;
+    padding: 20px;
+    color: white;;
+}
+.div-agenda--repeat label {
+    color: #ffffff94;
+}
+.div-agenda--repeat .MuiInputBase-root {
+    width: 100%;
+    color: white;
+}
+.div-agenda--repeat .MuiSelect-select.MuiSelect-select {
+    margin-top: 16px;
+}
+.div-agenda--repeat .MuiSelect-icon {
+    color: rgb(255, 255, 255);
+}
+.div-agenda--repeat .MuiInput-underline:before {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.73);
+}
+.div-agenda--repeat .MuiSelect-select:focus {
+    border-radius: 0;
+    background-color: rgb(35, 134, 253);
+}
+.div-agenda--repeat .MuiInputBase-root {
+    border-bottom: 1px solid white;
+}
+.div-agenda--repeat .MuiInputBase-root:hover {
+    border-bottom: 0px;
+}
+.div-agenda--repeat .div--repeat-mode{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+.div-agenda--repeat .div--repeat-mode div:nth-child(1){
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+.div-agenda--repeat .div--repeat-mode div:nth-child(2){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+.div-agenda--repeat .div--repeat-mode div:nth-child(2) p{
+    margin-top: 25px;
+}
+.div-agenda--repeat .div--repeat-mode div:nth-child(1) .MuiInputBase-input{
+    text-align: center;
+}
+.div-agenda--repeat .div--repeat-mode input:focus {
+    box-shadow: none !important;
+}
+.div-agenda--repeat .div--repeat-mode .MuiInputLabel-root.Mui-focused {
+    color: #ffffff94 !important;
 }
