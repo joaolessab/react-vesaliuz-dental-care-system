@@ -200,6 +200,9 @@ class Agenda extends React.Component{
             "Anualmente"
         ];
         this.repeatListSelected = this.repeatList[0];
+
+        this.repeaterElements = ["Dia(s)", "Mes(es)", "Semana(s)", "Ano(s)"]
+        this.repeaterElement = this.repeaterElements[0];
     }
 
     // On load
@@ -654,10 +657,68 @@ class Agenda extends React.Component{
                                                 <TextField id="counter-repeat-mode" label="Repita a cada:" /> 
                                             </div>
                                             <div>
-                                                <p>Semanas</p>
+                                                <p>{ this.repeaterElement }</p>
                                             </div>
                                         </div>
-                                    </div>
+                                        <div className="div--endrepeat-mode">                                            
+                                            <InputLabel htmlFor="checkbox--endrepeat-mode">Quando encerra a repetição?</InputLabel>
+                                            <div className="div--endrepeat-mode-chosen-firstdiv">
+                                                <FormControlLabel
+                                                    value="end"
+                                                    control={
+                                                        <Checkbox
+                                                            checked={ this.allDayEvent } 
+                                                            icon={<RadioButtonUncheckedIcon />}
+                                                            checkedIcon={< CheckCircleIcon />}
+                                                            onChange={ this.checkAllDayEvent }
+                                                        />
+                                                    }
+                                                    label="Nunca"
+                                                    labelPlacement="end"
+                                                />
+                                            </div>
+                                            <div className="div--endrepeat-mode-chosen">
+                                                <div>
+                                                    <FormControlLabel
+                                                        value="end"
+                                                        control={
+                                                            <Checkbox
+                                                                checked={ this.allDayEvent } 
+                                                                icon={<RadioButtonUncheckedIcon />}
+                                                                checkedIcon={< CheckCircleIcon />}
+                                                                onChange={ this.checkAllDayEvent }
+                                                            />
+                                                        }
+                                                        label="Em:"
+                                                        labelPlacement="end"
+                                                    />
+                                                </div>
+                                                <div>
+                                                    <p>Testando</p>
+                                                </div>
+                                            </div>
+                                            <div className="div--endrepeat-mode-chosen">
+                                                <div>
+                                                    <FormControlLabel
+                                                        value="end"
+                                                        control={
+                                                            <Checkbox
+                                                                checked={ this.allDayEvent } 
+                                                                icon={<RadioButtonUncheckedIcon />}
+                                                                checkedIcon={< CheckCircleIcon />}
+                                                                onChange={ this.checkAllDayEvent }
+                                                            />
+                                                        }
+                                                        label="Depois de:"
+                                                        labelPlacement="end"
+                                                    />
+                                                </div>
+                                                <div>
+                                                    <p>Testando</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>  
                                 </MuiPickersUtilsProvider>
                             </div>
                         </div>

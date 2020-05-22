@@ -309,7 +309,9 @@
     margin-bottom: 25px;
     margin-top: 50px;
     padding: 20px;
-    color: white;;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    color: white;
 }
 .div-agenda--repeat label {
     color: #ffffff94;
@@ -364,4 +366,31 @@
 }
 .div-agenda--repeat .div--repeat-mode .MuiInputLabel-root.Mui-focused {
     color: #ffffff94 !important;
+}
+.div--endrepeat-mode{
+    margin-top: 30px;
+}
+.div--endrepeat-mode .MuiCheckbox-root {
+    color: rgba(255, 255, 255, 0.89);
+}
+.div--endrepeat-mode .MuiCheckbox-colorSecondary.Mui-checked, .div--endrepeat-mode .MuiInputLabel-root.Mui-focused {
+    color: #f8f8f8f0 !important;
+}
+.div--endrepeat-mode-chosen{
+    display: flex;
+}
+.div--endrepeat-mode-chosen div:nth-child(1){
+    flex: 1 1;
+    align-items: center;
+    justify-content: flex-start;
+    display: flex;
+}
+.div--endrepeat-mode-chosen div:nth-child(2){
+    flex: 1 1;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.div--endrepeat-mode-chosen-firstdiv{
+    margin-top: 10px;
 }
