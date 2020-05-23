@@ -656,7 +656,7 @@ class Agenda extends React.Component{
                                             <div>
                                                 <TextField id="counter-repeat-mode" label="Repita a cada:" /> 
                                             </div>
-                                            <div>
+                                            <div className="div--repeat-sample">
                                                 <p>{ this.repeaterElement }</p>
                                             </div>
                                         </div>
@@ -694,7 +694,14 @@ class Agenda extends React.Component{
                                                     />
                                                 </div>
                                                 <div>
-                                                    <p>Testando</p>
+                                                    <TextField
+                                                        id="input--repeat-number"
+                                                        type="number"
+                                                        defaultValue = "0"
+                                                        InputLabelProps={{
+                                                            shrink: true,
+                                                        }}
+                                                    />
                                                 </div>
                                             </div>
                                             <div className="div--endrepeat-mode-chosen">
@@ -714,7 +721,18 @@ class Agenda extends React.Component{
                                                     />
                                                 </div>
                                                 <div>
-                                                    <p>Testando</p>
+                                                    <KeyboardDatePicker
+                                                        disableToolbar
+                                                        variant="inline"
+                                                        format="DD/MM/YYYY"
+                                                        margin="normal"
+                                                        id="date-picker-final"
+                                                        value={ this.state.selectedDate }
+                                                        onChange={ this.changeFinalDate }
+                                                        KeyboardButtonProps={{
+                                                        'aria-label': 'change date',
+                                                        }}
+                                                    />
                                                 </div>
                                             </div>
                                         </div>
@@ -724,7 +742,8 @@ class Agenda extends React.Component{
                         </div>
                         <div className="div--agenda-footer">
                             <div className="div--agendaForm-buttonsBar agenda--component">
-                                <Button id="optionEventButton">Opções</Button>
+                                <Button id="deleteEventButton">Excluir</Button>
+                                <Button id="cancelEventButton">Cancelar</Button>
                                 <Button id="saveEventButton">Salvar</Button>
                             </div>
                         </div>

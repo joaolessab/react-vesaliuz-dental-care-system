@@ -190,3 +190,6 @@ input:focus, select:focus, textarea:focus{
 .MuiSelect-select.MuiSelect-select{
   margin-top: 4px;
 }
+.MuiIconButton-colorSecondary:hover {
+  background-color: rgba(18, 125, 255, 0.11) !important;
+}

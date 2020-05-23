@@ -27,7 +27,7 @@
     display: flex;
 }
 
-/* Agenda Component */
+/* AGENDA COMPONENT */
 .bigcalendar--toolbar-custom{
     display: flex;
     margin-bottom: 20px;
@@ -76,7 +76,7 @@
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
-.bigcalendar--toolbar-custom .div--view button:hover, .bigcalendar--toolbar-custom .div--view .selected, .bigcalendar--toolbar-custom .div--days button:hover, .bigcalendar--toolbar-custom .div--days .selected{
+.bigcalendar--toolbar-custom .div--view .selected, .bigcalendar--toolbar-custom .div--days .selected{
     cursor: pointer !important;
     animation-duration: 1s !important;
     background-color: #2386fd !important;
@@ -99,7 +99,7 @@
     text-transform: none !important;
     background-color: white !important;
 }
-.bigcalendar--toolbar-custom .div--manipulators Button:hover, .bigcalendar--toolbar-custom .div--manipulators .selected{
+.bigcalendar--toolbar-custom .div--manipulators .selected{
     cursor: pointer !important;
     animation-duration: 1s !important;
     background-color: #2386fd !important;
@@ -109,9 +109,6 @@
     transition: 0.2s !important;
     color: white !important;
 }
-.div--content-agenda .rbc-toolbar button:hover{
-    cursor: pointer;
-}
 .div--content-agenda .rbc-toolbar button{
     height: 50px;
     width: 85px;
@@ -119,7 +116,7 @@
     border: 0px;
     background-color: #fefeff;
 }
-.div--content-agenda .rbc-toolbar button:hover, .rbc-toolbar button:active, .rbc-toolbar button.rbc-active, .rbc-toolbar button:focus{
+.rbc-toolbar button:active, .rbc-toolbar button.rbc-active{
     cursor: pointer !important;
     animation-duration: 1s !important;
     background-color: #2386fd !important;
@@ -178,6 +175,7 @@
     margin: 30px;
     margin-top: 10px;
     margin-bottom: 10px;
+    margin-left: 15px;
 }
 .div--agenda-appointment form{
     flex-direction: column;
@@ -231,11 +229,6 @@
 .div--agendaForm-observation{
     margin-top: 20px;
 }
-.div--agenda-appointment .MuiSelect-select:focus, .div--agenda-appointment input:focus, .div--agenda-appointment select:focus, .div--agenda-appointment textarea:focus {
-    background-color: white !important;
-    border-radius: 4px !important;
-    box-shadow: none;
-}
 .div--agendaForm-observation{
     margin-top: 20px !important;
 }
@@ -249,12 +242,6 @@
     border: 1.3px solid #cdcdcd;
     border-radius: 6px;
     padding: 10px;
-}
-.div--agendaForm-observation textarea:hover{
-    border: 1.3px solid black;
-}
-.div--agendaForm-observation textarea:focus{
-    border: 1.3px solid #2386fd;
 }
 #saveEventButton{
     cursor: pointer !important;
@@ -270,13 +257,22 @@
     border-radius: 10px;
     height: 45px;
 }
-#optionEventButton:hover, #saveEventButton:hover{
+#deleteEventButton{
+    cursor: pointer !important;
+    animation-duration: 1s !important;
+    box-shadow: 0px 1px 2px 0px #2386fd4d !important;
+    transition: 0.2s !important;
+    width: 105px !important;
+    font-family: 'Averta' !important;
+    text-transform: none;
+    border-radius: 10px;
+    height: 45px;
     background-color: white !important;
     color: #62696f !important;
     border: 1px solid #b5b5b5 !important;
-    box-shadow: 1px 6px 3px 0px #969696 !important;
+    margin-right: 20px;
 }
-#optionEventButton{
+#cancelEventButton{
     cursor: pointer !important;
     animation-duration: 1s !important;
     box-shadow: 0px 1px 2px 0px #2386fd4d !important;
@@ -329,15 +325,8 @@
 .div-agenda--repeat .MuiInput-underline:before {
     border-bottom: 1px solid rgba(255, 255, 255, 0.73);
 }
-.div-agenda--repeat .MuiSelect-select:focus {
-    border-radius: 0;
-    background-color: rgb(35, 134, 253);
-}
 .div-agenda--repeat .MuiInputBase-root {
     border-bottom: 1px solid white;
-}
-.div-agenda--repeat .MuiInputBase-root:hover {
-    border-bottom: 0px;
 }
 .div-agenda--repeat .div--repeat-mode{
     display: flex;
@@ -361,36 +350,123 @@
 .div-agenda--repeat .div--repeat-mode div:nth-child(1) .MuiInputBase-input{
     text-align: center;
 }
-.div-agenda--repeat .div--repeat-mode input:focus {
-    box-shadow: none !important;
-}
-.div-agenda--repeat .div--repeat-mode .MuiInputLabel-root.Mui-focused {
-    color: #ffffff94 !important;
-}
 .div--endrepeat-mode{
     margin-top: 30px;
 }
 .div--endrepeat-mode .MuiCheckbox-root {
     color: rgba(255, 255, 255, 0.89);
 }
-.div--endrepeat-mode .MuiCheckbox-colorSecondary.Mui-checked, .div--endrepeat-mode .MuiInputLabel-root.Mui-focused {
-    color: #f8f8f8f0 !important;
-}
 .div--endrepeat-mode-chosen{
     display: flex;
 }
 .div--endrepeat-mode-chosen div:nth-child(1){
-    flex: 1 1;
-    align-items: center;
-    justify-content: flex-start;
-    display: flex;
-}
-.div--endrepeat-mode-chosen div:nth-child(2){
-    flex: 1 1;
-    align-items: center;
-    justify-content: center;
-    display: flex;
+    flex: 1;
+    width: 140px;
 }
 .div--endrepeat-mode-chosen-firstdiv{
     margin-top: 10px;
+}
+
+.div--endrepeat-mode-chosen .MuiFormControl-marginNormal {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+#input--repeat-number{
+    text-align: center;
+    width: 140px;
+}
+.div-agenda--repeat .MuiIconButton-root {
+    flex: 0 0 auto;
+    color: rgba(255, 255, 255, 0.9);
+}
+.div--repeat-sample{
+    width: 140px;
+    flex: none !important;
+}
+
+/* HOVER */
+.div-agenda--repeat .MuiIconButton-colorSecondary:hover {
+    background-color: #ffffff36 !important;
+}
+.div--content-agenda .rbc-toolbar button:hover{
+    cursor: pointer;
+}
+.div--agendaForm-observation textarea:hover{
+    border: 1.3px solid #2386fd;
+}
+.bigcalendar--toolbar-custom .div--view button:hover, .bigcalendar--toolbar-custom .div--days button:hover{
+    cursor: pointer !important;
+    animation-duration: 1s !important;
+    background-color: #2386fd !important;
+    background-position: 15px !important;
+    box-shadow: 0px 1px 2px 0px #2386fd4d !important;
+    border: 1.5px solid #ffffffbf !important;
+    transition: 0.2s !important;
+    color: white !important;
+}
+.bigcalendar--toolbar-custom .div--manipulators Button:hover{
+    cursor: pointer !important;
+    animation-duration: 1s !important;
+    background-color: #2386fd !important;
+    background-position: 15px !important;
+    box-shadow: 0px 1px 2px 0px #2386fd4d !important;
+    border: 1.5px solid #ffffffbf !important;
+    transition: 0.2s !important;
+    color: white !important;
+}
+#deleteEventButton:hover, #saveEventButton:hover, #cancelEventButton:hover{
+    background-color: white !important;
+    color: #62696f !important;
+    border: 1px solid #b5b5b5 !important;
+    box-shadow: 1px 6px 3px 0px #969696 !important;
+}
+.div--content-agenda .rbc-toolbar button:hover{
+    cursor: pointer !important;
+    animation-duration: 1s !important;
+    background-color: #2386fd !important;
+    background-position: 15px !important;
+    box-shadow: 0px 1px 2px 0px #2386fd4d !important;
+    border: 1.5px solid #ffffffbf !important;
+    transition: 0.2s !important;
+    color: white !important;
+}
+.div-agenda--repeat .MuiInputBase-root:hover {
+    border-bottom: 0px;
+}
+
+/* FOCUS */
+.rbc-toolbar button:focus{
+    cursor: pointer !important;
+    animation-duration: 1s !important;
+    background-color: #2386fd !important;
+    background-position: 15px !important;
+    box-shadow: 0px 1px 2px 0px #2386fd4d !important;
+    border: 1.5px solid #ffffffbf !important;
+    transition: 0.2s !important;
+    color: white !important;
+}
+.div--agenda-appointment .MuiSelect-select:focus, .div--agenda-appointment input:focus, .div--agenda-appointment select:focus, .div--agenda-appointment textarea:focus {
+    background-color: white !important;
+    border-radius: 4px !important;
+    box-shadow: none;
+}
+.div--agendaForm-observation textarea:focus{
+    border: 1.3px solid #2386fd;
+}
+.div-agenda--repeat .MuiSelect-select:focus {
+    border-radius: 0;
+    background-color: rgb(35, 134, 253);
+}
+.div-agenda--repeat .div--repeat-mode input:focus {
+    box-shadow: none !important;
+}
+.div-agenda--repeat input:focus, .div-agenda--repeat select:focus, .div-agenda--repeat textarea:focus {
+    box-shadow: none;
+}
+.div-agenda--repeat .div--repeat-mode .MuiInputLabel-root.Mui-focused {
+    color: #ffffff94 !important;
+}
+.div--endrepeat-mode .MuiCheckbox-colorSecondary.Mui-checked, .div--endrepeat-mode .MuiInputLabel-root.Mui-focused {
+    color: #f8f8f8f0 !important;
 }
