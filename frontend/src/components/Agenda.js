@@ -378,6 +378,7 @@ class Agenda extends React.Component{
     openCrudModal = (event, start, end) => {
         this.setCRUDInitialTime(start);
         this.setCRUDFinalTime(end);
+        this.forceUpdate();
 
         this.setState({ crudModalVisibility: true });
     };
@@ -405,6 +406,8 @@ class Agenda extends React.Component{
             minutes = 0;
         
         var finalTime = hour.toString() + ":" + minutes.toString();
+        if (finalTime.length == 4)
+            finalTime += "0";
         this.initialTime = finalTime;
     };
 
@@ -431,6 +434,8 @@ class Agenda extends React.Component{
             minutes = 0;
         
         var finalTime = hour.toString() + ":" + minutes.toString();
+        if (finalTime.length == 4)
+            finalTime += "0";
         this.finalTime = finalTime;
     };
     
