@@ -310,7 +310,7 @@
     color: white;
 }
 .div-agenda--repeat label {
-    color: #ffffff94;
+    color: #ffffffbf;
 }
 .div-agenda--repeat .MuiInputBase-root {
     width: 100%;
@@ -323,7 +323,7 @@
     color: rgb(255, 255, 255);
 }
 .div-agenda--repeat .MuiInput-underline:before {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.73);
+    border-bottom: 0px;
 }
 .div-agenda--repeat .MuiInputBase-root {
     border-bottom: 1px solid white;
@@ -385,15 +385,19 @@
     flex: none !important;
 }
 
+.div--endrepeat-mode-chosen-firstdiv label, .div--endrepeat-mode-chosen .MuiFormControlLabel-root{
+    color: white !important;
+}
+
 /* HOVER */
-.div-agenda--repeat .MuiIconButton-colorSecondary:hover {
-    background-color: #ffffff36 !important;
+.div--modalAgenda-body .MuiInput-underline:hover:not(.Mui-disabled):before {
+    border-bottom: 2px solid rgb(35, 134, 253);    
 }
 .div--content-agenda .rbc-toolbar button:hover{
     cursor: pointer;
 }
 .div--agendaForm-observation textarea:hover{
-    border: 1.3px solid #2386fd;
+    border: 1.5px solid #2386fd;
 }
 .bigcalendar--toolbar-custom .div--view button:hover, .bigcalendar--toolbar-custom .div--days button:hover{
     cursor: pointer !important;
@@ -431,8 +435,11 @@
     transition: 0.2s !important;
     color: white !important;
 }
-.div-agenda--repeat .MuiInputBase-root:hover {
-    border-bottom: 0px;
+.div-agenda--repeat .MuiIconButton-colorSecondary:hover {
+    background-color: #ffffff47 !important;
+}
+.div-agenda--repeat .MuiIconButton-root:hover {
+    background-color: #ffffff47 !important;
 }
 
 /* FOCUS */
@@ -451,9 +458,11 @@
     border-radius: 4px !important;
     box-shadow: none;
 }
+/* Observacao */
 .div--agendaForm-observation textarea:focus{
-    border: 1.3px solid #2386fd;
+    border: 1.5px solid #2386fd;
 }
+
 .div-agenda--repeat .MuiSelect-select:focus {
     border-radius: 0;
     background-color: rgb(35, 134, 253);
@@ -469,4 +478,8 @@
 }
 .div--endrepeat-mode .MuiCheckbox-colorSecondary.Mui-checked, .div--endrepeat-mode .MuiInputLabel-root.Mui-focused {
     color: #f8f8f8f0 !important;
+}
+.div--endrepeat-mode input:-internal-autofill-selected {
+    background-color: transparent !important;
+    background-image: none !important;
 }

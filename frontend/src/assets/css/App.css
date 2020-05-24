@@ -191,5 +191,8 @@ input:focus, select:focus, textarea:focus{
   margin-top: 4px;
 }
 .MuiIconButton-colorSecondary:hover {
-  background-color: rgba(18, 125, 255, 0.11) !important;
+  background-color: rgba(18, 125, 255, 0.11);
+}
+.MuiIconButton-root:hover {
+  background-color: rgba(18, 125, 255, 0.11);
 }

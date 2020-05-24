@@ -52,34 +52,43 @@ class Agenda extends React.Component{
         super(props);
 
         /* VARIABLES */
+
+        /* Eventos da Agenda */
         this.state = {
             dateChosen: moment().toDate(),
             events: [
-                {
+                {   
+                    id: 1,
                     start: moment().toDate(),
                     end: moment().add(1, "days").toDate(),
                     title: "Teste do João"
                 },
                 {
+                    id: 2,
                     start: moment().add(1, "weeks").toDate(),
                     end: moment().add(1, "weeks").toDate(),
                     title: "Teste do Jones"
                 },
                 {
+                    id: 3,
                     start: moment().add(1, "months").toDate(),
                     end: moment().add(1, "months").toDate(),
                     title: "Teste do Lessa"
                 }
             ],
             dateStringTitle: "Maio de 2020",
-            crudModalVisibility: false,
-            selectedDate : moment().toDate()
+            crudModalVisibility: false
         };
         
+        /* Configurações da Agenda */
         this.whatDate = "today";
         this.viewType = "month";        
 
-        /* Propriedades do Modal */
+        /* Propriedades do Modal do CRUD de eventos */
+        this.selectedInitialDate = moment().toDate();
+        this.selectedFinalDate = moment().toDate();
+        this.selectedAfterDate = moment().add(1, "days").toDate();
+
         this.timePickerValues = [
             "00:00",
             "00:15",
@@ -359,7 +368,7 @@ class Agenda extends React.Component{
     };
 
     handleEventSelected = (event) => {
-        this.openCrudModal(event.title, event.start, event.end)
+        this.openCrudModal(event.title, event.start, event.end);
     };
 
     handleSlotSelected = ({ start, end }) => {
@@ -367,19 +376,83 @@ class Agenda extends React.Component{
     };
 
     openCrudModal = (event, start, end) => {
+        this.setCRUDInitialTime(start);
+        this.setCRUDFinalTime(end);
+
         this.setState({ crudModalVisibility: true });
+    };
+
+    setCRUDInitialTime = (start) => {
+        var hour, minutes = null;
+
+        if (start != undefined && start != null){
+            hour = start.getHours();
+            minutes = start.getMinutes();
+        }
+        else{
+            hour = moment().toDate().getHours();
+            minutes = moment().toDate().getMinutes();
+        }
+        
+        // Minutes
+        if (minutes > 0 && minutes < 16)
+            minutes = 15;
+        else if (minutes > 15 && minutes < 31)
+            minutes = 30;
+        else if (minutes > 30 && minutes < 46)
+            minutes = 45;
+        else if (minutes > 45 || minutes == 0)
+            minutes = 0;
+        
+        var finalTime = hour.toString() + ":" + minutes.toString();
+        this.initialTime = finalTime;
+    };
+
+    setCRUDFinalTime = (end) => {
+        var hour, minutes = null;
+
+        if (end != undefined && end != null){
+            hour = end.getHours();
+            minutes = end.getMinutes();
+        }
+        else{
+            hour = moment().add(1, "hours").toDate().getHours();
+            minutes = moment().add(1, "hours").toDate().getMinutes();
+        }
+        
+        // Minutes
+        if (minutes > 0 && minutes < 16)
+            minutes = 15;
+        else if (minutes > 15 && minutes < 31)
+            minutes = 30;
+        else if (minutes > 30 && minutes < 46)
+            minutes = 45;
+        else if (minutes > 45 || minutes == 0)
+            minutes = 0;
+        
+        var finalTime = hour.toString() + ":" + minutes.toString();
+        this.finalTime = finalTime;
     };
     
     closeCrudModal = () => {
         this.setState({ crudModalVisibility: false });
     };
 
+    /* Funções do CRUD da Agenda */
+
     changeInitialDate = (date) => {
-        this.setState({ setSelectedDate: date });
+        this.selectedInitialDate = date;
+        this.forceUpdate();
     };
 
     changeFinalDate = (date) => {
-        this.setState({ setSelectedDate: date });
+        this.selectedFinalDate = date;
+        this.forceUpdate();
+    };
+
+    changeAfterDate = (date) => {
+        this.selectedAfterDate = date;
+        this.forceUpdate();
     };
 
     changeInitialTime = (event) => {
@@ -529,8 +602,8 @@ class Agenda extends React.Component{
                                                 margin="normal"
                                                 id="date-picker-initial"
                                                 label="Inicia em:"
-                                                value={ this.state.selectedDate }
-                                                onChange={ this.changeInitialDate }
+                                                value={ this.selectedInitialDate }
+                                                onChange={(e) => this.changeInitialDate(e)}
                                                 KeyboardButtonProps={{
                                                     'aria-label': 'change date',
                                                 }}
@@ -543,7 +616,7 @@ class Agenda extends React.Component{
                                                 margin="normal"
                                                 id="date-picker-final"
                                                 label="Encerra em:"
-                                                value={ this.state.selectedDate }
+                                                value={ this.selectedFinalDate }
                                                 onChange={ this.changeFinalDate }
                                                 KeyboardButtonProps={{
                                                 'aria-label': 'change date',
@@ -727,8 +800,8 @@ class Agenda extends React.Component{
                                                         format="DD/MM/YYYY"
                                                         margin="normal"
                                                         id="date-picker-final"
-                                                        value={ this.state.selectedDate }
-                                                        onChange={ this.changeFinalDate }
+                                                        value={ this.selectedAfterDate }
+                                                        onChange={ this.changeAfterDate }
                                                         KeyboardButtonProps={{
                                                         'aria-label': 'change date',
                                                         }}
