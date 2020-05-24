@@ -378,7 +378,6 @@ class Agenda extends React.Component{
     openCrudModal = (event, start, end) => {
         this.setCRUDInitialTime(start);
         this.setCRUDFinalTime(end);
-        this.forceUpdate();
 
         this.setState({ crudModalVisibility: true });
     };
