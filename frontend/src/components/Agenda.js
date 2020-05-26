@@ -383,6 +383,7 @@ class Agenda extends React.Component{
     };
 
     setCRUDInitialTime = (start) => {
+        debugger
         var hour, minutes = null;
 
         if (start != undefined && start != null){
@@ -411,6 +412,7 @@ class Agenda extends React.Component{
     };
 
     setCRUDFinalTime = (end) => {
+        debugger
         var hour, minutes = null;
 
         if (end != undefined && end != null){
@@ -445,6 +447,7 @@ class Agenda extends React.Component{
     /* Funções do CRUD da Agenda */
 
     changeInitialDate = (date) => {
+        debugger
         this.selectedInitialDate = date;
         this.forceUpdate();
     };
@@ -607,6 +610,7 @@ class Agenda extends React.Component{
                                                 id="date-picker-initial"
                                                 label="Inicia em:"
                                                 value={ this.selectedInitialDate }
+                                                autoOk = { true }
                                                 onChange={(e) => this.changeInitialDate(e)}
                                                 KeyboardButtonProps={{
                                                     'aria-label': 'change date',
@@ -621,6 +625,7 @@ class Agenda extends React.Component{
                                                 id="date-picker-final"
                                                 label="Encerra em:"
                                                 value={ this.selectedFinalDate }
+                                                autoOk = { true }
                                                 onChange={ this.changeFinalDate }
                                                 KeyboardButtonProps={{
                                                 'aria-label': 'change date',
@@ -804,6 +809,7 @@ class Agenda extends React.Component{
                                                         format="DD/MM/YYYY"
                                                         margin="normal"
                                                         id="date-picker-final"
+                                                        autoOk = { true }
                                                         value={ this.selectedAfterDate }
                                                         onChange={ this.changeAfterDate }
                                                         KeyboardButtonProps={{
