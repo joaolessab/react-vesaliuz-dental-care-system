@@ -353,9 +353,9 @@ class Agenda extends React.Component{
 
     /* Agenda behavior events */
     onEventResize = (type, { event, start, end, allDay }) => {
-        debugger
+        //debugger
         this.setState(state => {
-            debugger
+            //debugger
             state.events[0].start = start;
             state.events[0].end = end;
             return { events: state.events };
@@ -363,7 +363,7 @@ class Agenda extends React.Component{
     };
 
     onEventDrop = ({ event, start, end, allDay }) => {
-        debugger
+        //debugger
         console.log(start);
     };
 
@@ -383,18 +383,17 @@ class Agenda extends React.Component{
     };
 
     setCRUDInitialTime = (start) => {
-        debugger
         var hour, minutes = null;
 
         if (start != undefined && start != null){
-            hour = start.getHours();
+            hour = start;
             minutes = start.getMinutes();
         }
         else{
-            hour = moment().toDate().getHours();
+            hour = moment();
             minutes = moment().toDate().getMinutes();
         }
-        
+
         // Minutes
         if (minutes > 0 && minutes < 16)
             minutes = 15;
@@ -402,28 +401,41 @@ class Agenda extends React.Component{
             minutes = 30;
         else if (minutes > 30 && minutes < 46)
             minutes = 45;
-        else if (minutes > 45 || minutes == 0)
+        else if (minutes == 0)
             minutes = 0;
+        else if (minutes > 45){
+            minutes = 0;
+            hour = hour.add("1", "hours");
+        }
         
-        var finalTime = hour.toString() + ":" + minutes.toString();
-        if (finalTime.length == 4)
-            finalTime += "0";
+        hour = hour.toDate().getHours();
+        
+        /* Caso o moment preencha faltando um 0 */
+        hour = hour.toString();
+        minutes = minutes.toString();
+
+        if (hour.length == 1)
+            hour += "0";
+
+        if (minutes.length == 1)
+            minutes += "0";
+
+        var finalTime = hour + ":" + minutes;
         this.initialTime = finalTime;
     };
 
     setCRUDFinalTime = (end) => {
-        debugger
         var hour, minutes = null;
 
         if (end != undefined && end != null){
-            hour = end.getHours();
+            hour = end;
             minutes = end.getMinutes();
         }
         else{
-            hour = moment().add(1, "hours").toDate().getHours();
-            minutes = moment().add(1, "hours").toDate().getMinutes();
+            hour = moment().add("1", "hours");
+            minutes = moment().toDate().getMinutes();
         }
-        
+
         // Minutes
         if (minutes > 0 && minutes < 16)
             minutes = 15;
@@ -431,12 +443,26 @@ class Agenda extends React.Component{
             minutes = 30;
         else if (minutes > 30 && minutes < 46)
             minutes = 45;
-        else if (minutes > 45 || minutes == 0)
+        else if (minutes == 0)
             minutes = 0;
+        else if (minutes > 45){
+            minutes = 0;
+            hour = hour.add("1", "hours");
+        }
         
-        var finalTime = hour.toString() + ":" + minutes.toString();
-        if (finalTime.length == 4)
-            finalTime += "0";
+        hour = hour.toDate().getHours();
+        
+        /* Caso o moment preencha faltando um 0 */
+        hour = hour.toString();
+        minutes = minutes.toString();
+
+        if (hour.length == 1)
+            hour += "0";
+
+        if (minutes.length == 1)
+            minutes += "0";
+
+        var finalTime = hour + ":" + minutes;
         this.finalTime = finalTime;
     };
     
@@ -447,7 +473,6 @@ class Agenda extends React.Component{
     /* Funções do CRUD da Agenda */
 
     changeInitialDate = (date) => {
-        debugger
         this.selectedInitialDate = date;
         this.forceUpdate();
     };
