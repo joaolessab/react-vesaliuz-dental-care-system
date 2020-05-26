@@ -28,6 +28,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import '../assets/css/Agenda.css';
+import '../assets/css/Animations/Agenda--Animations.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
 
@@ -189,7 +190,7 @@ class Agenda extends React.Component{
         this.finalTime = this.timePickerValues[0];
         this.allDayEvent = false;
         this.repeatEvent = false;
-
+        
         this.clientList = [
             "João Carlos Nunes",
             "Regina Lessa",
@@ -375,9 +376,14 @@ class Agenda extends React.Component{
     };
 
     openCrudModal = (event, start, end) => {
+        // Assumindo que é um evento novo
         this.disabledKeyboardDatePicker = false;
+        this.allDayEvent = false;
+        this.repeatEvent = false;
         this.setCRUDInitialTime(start);
         this.setCRUDFinalTime(end);
+
+        //Assumindo que é uma edição
 
         this.setState({ crudModalVisibility: true });
     };
@@ -628,7 +634,9 @@ class Agenda extends React.Component{
                 <Modal open={ this.state.crudModalVisibility } onClose={ this.closeCrudModal } center>
                     <div className="div--modalAgenda-body">
                         <div className="div--agenda-appointment-body">
-                            <div className="div--agenda-appointment">
+                            <div 
+                                className={ this.repeatEvent === true ? "div--agenda-appointment div--agenda-appointment--opened" : "div--agenda-appointment" }
+                            >
                                 <form className={classes.root} noValidate autoComplete="off">
                                     <MuiPickersUtilsProvider libInstance={ moment } utils={ MomentUtils } locale={ momentLocale }>                                
                                         {/* Titulo */}
@@ -756,7 +764,9 @@ class Agenda extends React.Component{
                                     </MuiPickersUtilsProvider>
                                 </form>
                             </div>
-                            <div className="div-agenda--repeat">
+                            <div           
+                                className={ this.repeatEvent === true ? "div-agenda--repeat div-agenda--repeat--opened" : "div-agenda--repeat"}
+                            >
                                 <MuiPickersUtilsProvider libInstance={ moment } utils={ MomentUtils } locale={ momentLocale }>                                
                                     <div className="div--agendaForm-client agenda--component">
                                         <InputLabel htmlFor="checkbox--repeat-mode">Repetição:</InputLabel>
