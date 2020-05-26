@@ -46,13 +46,10 @@ const useStyles = theme => ({
 });
   
 class Agenda extends React.Component{    
-
-    constructor(props){
-         
+    constructor(props){         
         super(props);
 
-        /* VARIABLES */
-
+        /* VARIAVEIS */
         /* Eventos da Agenda */
         this.state = {
             dateChosen: moment().toDate(),
@@ -212,6 +209,8 @@ class Agenda extends React.Component{
 
         this.repeaterElements = ["Dia(s)", "Mes(es)", "Semana(s)", "Ano(s)"]
         this.repeaterElement = this.repeaterElements[0];
+
+        this.disabledKeyboardDatePicker = false;
     }
 
     // On load
@@ -376,6 +375,7 @@ class Agenda extends React.Component{
     };
 
     openCrudModal = (event, start, end) => {
+        this.disabledKeyboardDatePicker = false;
         this.setCRUDInitialTime(start);
         this.setCRUDFinalTime(end);
 
@@ -504,7 +504,18 @@ class Agenda extends React.Component{
 
     checkAllDayEvent = (event) => {
         this.allDayEvent = event.target.checked;
-        alert("mudar as datas para ambas no mesmo dia");
+        
+        // True
+        if (event.target.checked){
+            this.selectedFinalDate = this.selectedInitialDate;
+            this.initialTime = "00:00";
+            this.finalTime = "00:00";
+            this.disabledKeyboardDatePicker = true;
+        }
+        else{            
+            this.disabledKeyboardDatePicker = false;
+        }
+
         this.forceUpdate();
     };
 
@@ -648,7 +659,8 @@ class Agenda extends React.Component{
                                                 format="DD/MM/YYYY"
                                                 margin="normal"
                                                 id="date-picker-final"
-                                                label="Encerra em:"
+                                                label="Encerra em:"                                                    
+                                                disabled = { this.disabledKeyboardDatePicker }
                                                 value={ this.selectedFinalDate }
                                                 autoOk = { true }
                                                 onChange={ this.changeFinalDate }
@@ -662,7 +674,8 @@ class Agenda extends React.Component{
                                                 <InputLabel htmlFor="checkbox--initial-time">Hora de início:</InputLabel>
                                                 <Select
                                                     labelId="checkbox--initial-time"
-                                                    id="checkbox--initial-time"
+                                                    id="checkbox--initial-time"                                                    
+                                                    disabled = { this.disabledKeyboardDatePicker }
                                                     value={ this.initialTime }
                                                     onChange={ this.changeInitialTime }
                                                     input={<Input />}
@@ -678,7 +691,8 @@ class Agenda extends React.Component{
                                                 <InputLabel htmlFor="checkbox--initial-time">Hora do término:</InputLabel>
                                                 <Select
                                                     labelId="checkbox--final-time"
-                                                    id="checkbox--final-time"
+                                                    id="checkbox--final-time"                                                    
+                                                    disabled = { this.disabledKeyboardDatePicker }
                                                     value={ this.finalTime }
                                                     onChange={ this.changeFinalTime }
                                                     input={<Input />}
