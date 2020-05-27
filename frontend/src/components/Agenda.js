@@ -59,19 +59,29 @@ class Agenda extends React.Component{
                     id: 1,
                     start: moment().toDate(),
                     end: moment().add(1, "days").toDate(),
-                    title: "Teste do João"
+                    title: "Teste do João",
+                    observation: "Lorem Ipsum lorem ipsum"
                 },
                 {
                     id: 2,
                     start: moment().add(1, "weeks").toDate(),
-                    end: moment().add(1, "weeks").toDate(),
-                    title: "Teste do Jones"
+                    end: moment().add(1, "weeks").add(2, "hours").toDate(),
+                    title: "Teste do Jones",
+                    observation: "Lorem Ipsum lorem ipsum"
                 },
                 {
                     id: 3,
+                    start: moment().add(1, "weeks").add(2, "days").toDate(),
+                    end: moment().add(1, "weeks").add(2, "days").add(2, "hours").toDate(),
+                    title: "Teste do Cleiton",
+                    observation: "Lorem Ipsum lorem ipsum"
+                },
+                {
+                    id: 4,
                     start: moment().add(1, "months").toDate(),
                     end: moment().add(1, "months").toDate(),
-                    title: "Teste do Lessa"
+                    title: "Teste do Lessa",
+                    observation: "Lorem Ipsum lorem ipsum"
                 }
             ],
             dateStringTitle: "Maio de 2020",
@@ -83,6 +93,9 @@ class Agenda extends React.Component{
         this.viewType = "month";        
 
         /* Propriedades do Modal do CRUD de eventos */
+        this.eventTitle = "";
+        this.eventObservation = "";
+
         this.selectedInitialDate = moment().toDate();
         this.selectedFinalDate = moment().toDate();
         this.selectedAfterDate = moment().add(1, "days").toDate();
@@ -353,7 +366,7 @@ class Agenda extends React.Component{
 
     /* Agenda behavior events */
     onEventResize = (type, { event, start, end, allDay }) => {
-        //debugger
+        debugger
         this.setState(state => {
             //debugger
             state.events[0].start = start;
@@ -363,28 +376,36 @@ class Agenda extends React.Component{
     };
 
     onEventDrop = ({ event, start, end, allDay }) => {
-        //debugger
+        debugger
         console.log(start);
     };
 
     handleEventSelected = (event) => {
-        this.openCrudModal(event.title, event.start, event.end);
+        this.openCrudModal(event.title, event.start, event.end, event.observation);
     };
 
     handleSlotSelected = ({ start, end }) => {
+        //Slot em branco
         this.openCrudModal(null, start, end);
     };
 
-    openCrudModal = (event, start, end) => {
+    openCrudModal = (title, start, end, observation) => {
         // Assumindo que é um evento novo
-        this.disabledKeyboardDatePicker = false;
-        this.allDayEvent = false;
-        this.repeatEvent = false;
+        if (start == null){
+            this.disabledKeyboardDatePicker = false;
+            this.allDayEvent = false;
+            this.repeatEvent = false;
+            this.eventTitle = "";
+            this.eventObservation = "";
+        }
+        //Assumindo que é uma edição
+        else{
+            this.eventTitle = title;
+            this.eventObservation = observation;
+        }
+        
         this.setCRUDInitialTime(start);
         this.setCRUDFinalTime(end);
-
-        //Assumindo que é uma edição
-
         this.setState({ crudModalVisibility: true });
     };
 
@@ -392,7 +413,7 @@ class Agenda extends React.Component{
         var hour, minutes = null;
 
         if (start != undefined && start != null){
-            hour = start;
+            hour = moment(start.toISOString());
             minutes = start.getMinutes();
         }
         else{
@@ -413,7 +434,6 @@ class Agenda extends React.Component{
             minutes = 0;
             hour = hour.add("1", "hours");
         }
-        
         hour = hour.toDate().getHours();
         
         /* Caso o moment preencha faltando um 0 */
@@ -421,27 +441,27 @@ class Agenda extends React.Component{
         minutes = minutes.toString();
 
         if (hour.length == 1)
-            hour += "0";
+            hour = "0" + hour;
 
         if (minutes.length == 1)
-            minutes += "0";
+            minutes = minutes + "0";
 
-        var finalTime = hour + ":" + minutes;
-        this.initialTime = finalTime;
+        var initialTime = hour + ":" + minutes;
+        this.initialTime = initialTime;
     };
 
     setCRUDFinalTime = (end) => {
         var hour, minutes = null;
 
         if (end != undefined && end != null){
-            hour = end;
+            hour = moment(end.toISOString());
             minutes = end.getMinutes();
         }
         else{
             hour = moment().add("1", "hours");
             minutes = moment().toDate().getMinutes();
         }
-
+        
         // Minutes
         if (minutes > 0 && minutes < 16)
             minutes = 15;
@@ -455,7 +475,6 @@ class Agenda extends React.Component{
             minutes = 0;
             hour = hour.add("1", "hours");
         }
-        
         hour = hour.toDate().getHours();
         
         /* Caso o moment preencha faltando um 0 */
@@ -463,10 +482,10 @@ class Agenda extends React.Component{
         minutes = minutes.toString();
 
         if (hour.length == 1)
-            hour += "0";
+            hour = "0" + hour;
 
         if (minutes.length == 1)
-            minutes += "0";
+            minutes = minutes + "0";
 
         var finalTime = hour + ":" + minutes;
         this.finalTime = finalTime;
@@ -630,7 +649,7 @@ class Agenda extends React.Component{
                     </div>
                 </div>
 
-                {/* Modal de notícia */}
+                {/* Modal de Agenda */}
                 <Modal open={ this.state.crudModalVisibility } onClose={ this.closeCrudModal } center>
                     <div className="div--modalAgenda-body">
                         <div className="div--agenda-appointment-body">
@@ -641,7 +660,7 @@ class Agenda extends React.Component{
                                     <MuiPickersUtilsProvider libInstance={ moment } utils={ MomentUtils } locale={ momentLocale }>                                
                                         {/* Titulo */}
                                         <div className="div--agendaForm-title agenda--component">
-                                            <TextField id="title-event" label="Título do seu evento:" />
+                                            <TextField id="title-event" label="Título do seu evento:" value = { this.eventTitle } />
                                         </div>
 
                                         {/* Datas e horários */}
@@ -759,7 +778,7 @@ class Agenda extends React.Component{
                                         </div>
                                         <div className="div--agendaForm-observation agenda--component">
                                             <InputLabel htmlFor="textarea-observation">Observações:</InputLabel>
-                                            <TextareaAutosize id="textarea-observation" label="Testando" aria-label="minimum height" rowsMin={3} placeholder="Escreva detalhes do seu evento ou compromisso" />
+                                            <TextareaAutosize id="textarea-observation" value = { this.eventObservation } aria-label="minimum height" rowsMin={3} placeholder="Escreva detalhes do seu evento ou compromisso" />
                                         </div>
                                     </MuiPickersUtilsProvider>
                                 </form>
@@ -875,7 +894,7 @@ class Agenda extends React.Component{
                         <div className="div--agenda-footer">
                             <div className="div--agendaForm-buttonsBar agenda--component">
                                 <Button id="deleteEventButton">Excluir</Button>
-                                <Button id="cancelEventButton">Cancelar</Button>
+                                <Button id="cancelEventButton" onClick={ this.closeCrudModal }>Cancelar</Button>
                                 <Button id="saveEventButton">Salvar</Button>
                             </div>
                         </div>
