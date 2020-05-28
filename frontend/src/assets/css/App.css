@@ -196,3 +196,9 @@ input:focus, select:focus, textarea:focus{
 .MuiIconButton-root:hover {
   background-color: rgba(18, 125, 255, 0.11);
 }
+.hideComponent{
+  display: none;
+}
+.showComponent{
+  display: block;
+}

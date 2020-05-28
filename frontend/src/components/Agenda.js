@@ -26,7 +26,8 @@ import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import InputLabel from "@material-ui/core/InputLabel";
 
-// ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
+// ================ ESTILOS ===============
+
 import '../assets/css/Agenda.css';
 import '../assets/css/Animations/Agenda--Animations.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
@@ -50,42 +51,65 @@ class Agenda extends React.Component{
     constructor(props){         
         super(props);
 
-        /* VARIAVEIS */
-        /* Eventos da Agenda */
+        // ================ STATE FOR COMPONENT ===============
+
         this.state = {
             dateChosen: moment().toDate(),
             events: [
                 {   
                     id: 1,
+                    title: "Teste do João",
                     start: moment().toDate(),
                     end: moment().add(1, "days").toDate(),
-                    title: "Teste do João",
-                    observation: "Lorem Ipsum lorem ipsum"
+                    observation: "Lorem Ipsum lorem ipsum",
+                    client: 4
                 },
                 {
                     id: 2,
+                    title: "Teste do Jones",
                     start: moment().add(1, "weeks").toDate(),
                     end: moment().add(1, "weeks").add(2, "hours").toDate(),
-                    title: "Teste do Jones",
-                    observation: "Lorem Ipsum lorem ipsum"
+                    observation: "Lorem Ipsum lorem ipsum",
+                    client: 3
                 },
                 {
                     id: 3,
+                    title: "Teste do Cleiton",
                     start: moment().add(1, "weeks").add(2, "days").toDate(),
                     end: moment().add(1, "weeks").add(2, "days").add(2, "hours").toDate(),
-                    title: "Teste do Cleiton",
-                    observation: "Lorem Ipsum lorem ipsum"
+                    observation: "Lorem Ipsum lorem ipsum",
+                    client: 1
                 },
                 {
                     id: 4,
+                    title: "Teste do Lessa",
                     start: moment().add(1, "months").toDate(),
                     end: moment().add(1, "months").toDate(),
-                    title: "Teste do Lessa",
-                    observation: "Lorem Ipsum lorem ipsum"
+                    observation: "Lorem Ipsum lorem ipsum",
+                    client: 2
                 }
             ],
             dateStringTitle: "Maio de 2020",
-            crudModalVisibility: false
+            crudModalVisibility: false,
+
+            // ================ EVENT MODAL PARAMETERS ===============
+            
+            clientList: [
+                { clientName: "Andreas Pirlo", clientId: 1 },
+                { clientName: "Paulo Dybala", clientId: 2 },
+                { clientName: "Travis Scott", clientId: 3 },
+                { clientName: "Cristiano Ronaldo", clientId: 4 }
+            ],
+
+            eventTitle : "",
+            eventInitialDate: moment().toDate(),
+            eventFinalDate: moment().add(1, "days").toDate(),
+            eventInitialTime : "00:00",
+            eventFinalTime: "00:00",
+            eventAllDayCheck: false,
+            eventRepeatCheck: false,
+            eventClient: 17, 
+            eventObservation : ""
         };
         
         /* Configurações da Agenda */
@@ -93,10 +117,6 @@ class Agenda extends React.Component{
         this.viewType = "month";        
 
         /* Propriedades do Modal do CRUD de eventos */
-        this.eventTitle = "";
-        this.eventObservation = "";
-
-        this.selectedInitialDate = moment().toDate();
         this.selectedFinalDate = moment().toDate();
         this.selectedAfterDate = moment().add(1, "days").toDate();
 
@@ -198,20 +218,10 @@ class Agenda extends React.Component{
             "23:30",
             "23:45"
         ];
-
-        this.initialTime = this.timePickerValues[0];
-        this.finalTime = this.timePickerValues[0];
+        
+        this.eventfinalTime = this.timePickerValues[0];
         this.allDayEvent = false;
         this.repeatEvent = false;
-        
-        this.clientList = [
-            "João Carlos Nunes",
-            "Regina Lessa",
-            "Travis Scott",
-            "Cristiano Ronaldo",
-            "Napoleon Hill"
-        ];
-        this.clientListSelected = this.clientList[2];
 
         this.repeatList = [
             "Diariamente",
@@ -226,14 +236,6 @@ class Agenda extends React.Component{
 
         this.disabledKeyboardDatePicker = false;
     }
-
-    // On load
-    /*componentDidMount(){
-        this.load();
-    }
-
-    load = () => {
-    }*/
 
     changeWhatDate = (whatDate) => {
         //Day
@@ -395,13 +397,18 @@ class Agenda extends React.Component{
             this.disabledKeyboardDatePicker = false;
             this.allDayEvent = false;
             this.repeatEvent = false;
-            this.eventTitle = "";
-            this.eventObservation = "";
+
+            this.setState({
+                eventTitle: "",
+                eventObservation: ""
+            });
         }
         //Assumindo que é uma edição
         else{
-            this.eventTitle = title;
-            this.eventObservation = observation;
+            this.setState({
+                eventTitle: title,
+                eventObservation: observation
+            });
         }
         
         this.setCRUDInitialTime(start);
@@ -497,28 +504,8 @@ class Agenda extends React.Component{
 
     /* Funções do CRUD da Agenda */
 
-    changeInitialDate = (date) => {
-        this.selectedInitialDate = date;
-        this.forceUpdate();
-    };
-
-    changeFinalDate = (date) => {
-        this.selectedFinalDate = date;
-        this.forceUpdate();
-    };
-
     changeAfterDate = (date) => {
         this.selectedAfterDate = date;
-        this.forceUpdate();
-    };
-
-    changeInitialTime = (event) => {
-        this.initialTime = event.target.value;
-        this.forceUpdate();
-    };
-
-    changeFinalTime = (event) => {
-        this.finalTime = event.target.value;
         this.forceUpdate();
     };
 
@@ -548,14 +535,52 @@ class Agenda extends React.Component{
         this.repeatEvent = event.target.checked;
         this.forceUpdate();
     };
+    
+    // ================ ONCHANGE EVENTS ===============
 
-    // Visualização de Todo o conteúdo do HTML
+    changeEventTitle = (e) => {
+        this.setState({ eventTitle: e.target.value });
+    };
+
+    changeInitialDate = (date) => {
+        this.setState({ eventInitialDate: date });
+    };
+
+    changeFinalDate = (date) => {
+        this.setState({ eventFinalDate: date });
+    };
+
+    changeInitialTime = (e) => {
+        this.setState({ eventInitialTime: e.target.value });
+    };
+
+    changeFinalTime = (e) => {
+        this.setState({ eventFinalTime: e.target.value });
+    };
+
+    changeAllDayCheck = (e) => {
+        this.setState({ eventAllDayCheck: e.target.checked });
+    };
+
+    changeRepeatCheck = (e) => {
+        this.setState({ eventRepeatCheck: e.target.checked });
+    };
+
+    changeEventClient = (e) => {
+        debugger
+    };
+
+    changeEventObservation = (e) => {
+        this.setState({ eventObservation: e.target.value });
+    };
+
+    // ================ RENDERIZAÇÃO DO CONTEÚDO HTML ===============
+
     render(){
         const { classes } = this.props;
         const localizer = momentLocalizer(moment);
         const DnDCalendar = withDragAndDrop(Calendar);
-        
-        // RETORNO BÁSICO DO HTML
+
         return (
             <div className="container--miolo-main">
                 <div className="container--content-agenda">                    
@@ -660,7 +685,12 @@ class Agenda extends React.Component{
                                     <MuiPickersUtilsProvider libInstance={ moment } utils={ MomentUtils } locale={ momentLocale }>                                
                                         {/* Titulo */}
                                         <div className="div--agendaForm-title agenda--component">
-                                            <TextField id="title-event" label="Título do seu evento:" value = { this.eventTitle } />
+                                            <TextField 
+                                                id="title-event" 
+                                                label="Título do seu evento:" 
+                                                value = { this.state.eventTitle } 
+                                                onChange = { this.changeEventTitle }
+                                            />
                                         </div>
 
                                         {/* Datas e horários */}
@@ -672,9 +702,9 @@ class Agenda extends React.Component{
                                                 margin="normal"
                                                 id="date-picker-initial"
                                                 label="Inicia em:"
-                                                value={ this.selectedInitialDate }
+                                                value={ this.state.eventInitialDate }
                                                 autoOk = { true }
-                                                onChange={(e) => this.changeInitialDate(e)}
+                                                onChange={ this.changeInitialDate }
                                                 KeyboardButtonProps={{
                                                     'aria-label': 'change date',
                                                 }}
@@ -688,7 +718,7 @@ class Agenda extends React.Component{
                                                 id="date-picker-final"
                                                 label="Encerra em:"                                                    
                                                 disabled = { this.disabledKeyboardDatePicker }
-                                                value={ this.selectedFinalDate }
+                                                value={ this.state.eventFinalDate }
                                                 autoOk = { true }
                                                 onChange={ this.changeFinalDate }
                                                 KeyboardButtonProps={{
@@ -703,15 +733,15 @@ class Agenda extends React.Component{
                                                     labelId="checkbox--initial-time"
                                                     id="checkbox--initial-time"                                                    
                                                     disabled = { this.disabledKeyboardDatePicker }
-                                                    value={ this.initialTime }
+                                                    value={ this.state.eventInitialTime }
                                                     onChange={ this.changeInitialTime }
                                                     input={<Input />}
                                                 >
-                                                    {this.timePickerValues.map((timeItem) => (
-                                                    <MenuItem key={timeItem} value={timeItem}>
-                                                        <ListItemText primary={timeItem} />
-                                                    </MenuItem>
-                                                    ))}
+                                                    { this.timePickerValues.map((timeItem) => (
+                                                        <MenuItem key={timeItem} value={timeItem}>
+                                                            <ListItemText primary={timeItem} />
+                                                        </MenuItem>
+                                                    )) }
                                                 </Select>
                                             </div>
                                             <div className="div--hours-finish">
@@ -720,7 +750,7 @@ class Agenda extends React.Component{
                                                     labelId="checkbox--final-time"
                                                     id="checkbox--final-time"                                                    
                                                     disabled = { this.disabledKeyboardDatePicker }
-                                                    value={ this.finalTime }
+                                                    value={ this.state.eventFinalTime }
                                                     onChange={ this.changeFinalTime }
                                                     input={<Input />}
                                                 >
@@ -737,10 +767,10 @@ class Agenda extends React.Component{
                                                 value="end"
                                                 control={
                                                     <Checkbox
-                                                        checked={ this.allDayEvent } 
+                                                        checked={ this.state.eventAllDayCheck } 
                                                         icon={<RadioButtonUncheckedIcon />}
                                                         checkedIcon={< CheckCircleIcon />}
-                                                        onChange={ this.checkAllDayEvent }
+                                                        onChange={ this.changeAllDayCheck }
                                                     />
                                                 }
                                                 label="Dia todo"
@@ -750,10 +780,10 @@ class Agenda extends React.Component{
                                                     value="end"
                                                     control={
                                                         <Checkbox
-                                                            checked={ this.repeatEvent } 
+                                                            checked={ this.state.eventRepeatCheck } 
                                                             icon={<RadioButtonUncheckedIcon />}
                                                             checkedIcon={< CheckCircleIcon />}
-                                                            onChange={ this.checkRepeatEvent }
+                                                            onChange={ this.changeRepeatCheck }
                                                         />
                                                     }
                                                     label="Repetir"
@@ -765,20 +795,28 @@ class Agenda extends React.Component{
                                             <Select
                                                 labelId="checkbox--agenda-client"
                                                 id="checkbox--agenda-client"
-                                                value={ this.clientListSelected }
-                                                onChange={ this.changeFinalTime }
+                                                value = { this.state.clientList[0].clientName }
+                                                clientid = { this.state.clientList[0].clientId }
+                                                onChange={ this.changeEventClient }
                                                 input={<Input />}
                                             >
-                                                {this.clientList.map((clientItem) => (
-                                                <MenuItem key={clientItem} value={clientItem}>
-                                                    <ListItemText primary={clientItem} />
+                                                { this.state.clientList.map((clientItem) => (
+                                                <MenuItem key={ clientItem.clientName } value={ clientItem.clientName }>
+                                                    <ListItemText primary={ clientItem.clientName } />
                                                 </MenuItem>
-                                                ))}
+                                                )) }
                                             </Select>
                                         </div>
                                         <div className="div--agendaForm-observation agenda--component">
                                             <InputLabel htmlFor="textarea-observation">Observações:</InputLabel>
-                                            <TextareaAutosize id="textarea-observation" value = { this.eventObservation } aria-label="minimum height" rowsMin={3} placeholder="Escreva detalhes do seu evento ou compromisso" />
+                                            <TextareaAutosize 
+                                                id="textarea-observation" 
+                                                value = { this.state.eventObservation } 
+                                                aria-label="minimum height" 
+                                                rowsMin={3} 
+                                                placeholder="Escreva detalhes do seu evento ou compromisso"
+                                                onChange = { this.changeEventObservation }
+                                            />
                                         </div>
                                     </MuiPickersUtilsProvider>
                                 </form>
@@ -817,7 +855,7 @@ class Agenda extends React.Component{
                                                     value="end"
                                                     control={
                                                         <Checkbox
-                                                            checked={ this.allDayEvent } 
+                                                            checked={ this.state.eventAllDayCheck } 
                                                             icon={<RadioButtonUncheckedIcon />}
                                                             checkedIcon={< CheckCircleIcon />}
                                                             onChange={ this.checkAllDayEvent }
@@ -833,7 +871,7 @@ class Agenda extends React.Component{
                                                         value="end"
                                                         control={
                                                             <Checkbox
-                                                                checked={ this.allDayEvent } 
+                                                                checked={ this.state.eventAllDayCheck } 
                                                                 icon={<RadioButtonUncheckedIcon />}
                                                                 checkedIcon={< CheckCircleIcon />}
                                                                 onChange={ this.checkAllDayEvent }
@@ -893,7 +931,11 @@ class Agenda extends React.Component{
                         </div>
                         <div className="div--agenda-footer">
                             <div className="div--agendaForm-buttonsBar agenda--component">
-                                <Button id="deleteEventButton">Excluir</Button>
+                                <Button id="deleteEventButton" 
+                                    className={ this.repeatEvent ? "hideComponent": "" }
+                                >
+                                    Excluir
+                                </Button>
                                 <Button id="cancelEventButton" onClick={ this.closeCrudModal }>Cancelar</Button>
                                 <Button id="saveEventButton">Salvar</Button>
                             </div>
