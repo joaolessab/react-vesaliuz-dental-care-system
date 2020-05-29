@@ -228,7 +228,12 @@ class Agenda extends React.Component{
                 { option: "Mes(es)", id: 2 },
                 { option: "Semana(s)", id: 3 },
                 { option: "Ano(s)", id: 4 }
-            ]
+            ],
+
+            eventRepeatCounter: "",
+            eventRepeatNeverCheck: false,
+            eventRepeatInCheck: false,
+            eventRepeatAfterCheck: false
         };
 
         /* Configurações da Agenda */
@@ -556,7 +561,48 @@ class Agenda extends React.Component{
     };
 
     changeAfterDate = (date) => {
-        this.setState({eventAfterDate: date});
+        this.setState({ eventAfterDate: date });
+    };
+
+    changeEventRepeatCounter = (e) => {
+        this.setState({ eventRepeatCounter: e.target.value });
+    };
+
+    changeEventRepeatNeverCheck = (e) => {
+        if (e.target.checked){
+            this.setState({
+                eventRepeatInCheck: false,
+                eventRepeatAfterCheck: false
+            });
+        }
+
+        this.setState({eventRepeatNeverCheck: e.target.checked});
+    };
+
+    changeEventRepeatInCheck = (e) => {
+        if (e.target.checked){
+            this.setState({
+                eventRepeatNeverCheck: false,
+                eventRepeatAfterCheck: false
+            });
+        }
+
+        this.setState({ 
+            eventRepeatInCheck: e.target.checked
+        });
+    };
+
+    changeEventRepeatAfterCheck = (e) => {
+        if (e.target.checked){
+            this.setState({
+                eventRepeatNeverCheck: false,
+                eventRepeatInCheck: false
+            });
+        }
+
+        this.setState({ 
+            eventRepeatAfterCheck: e.target.checked
+        });
     };
 
     // ================ RENDERIZAÇÃO DO CONTEÚDO HTML ===============
@@ -826,7 +872,12 @@ class Agenda extends React.Component{
                                         </Select>
                                         <div className="div--repeat-mode">
                                             <div>
-                                                <TextField id="counter-repeat-mode" label="Repita a cada:" /> 
+                                                <TextField 
+                                                    id="counter-repeat-mode" 
+                                                    label="Repita a cada:" 
+                                                    value = { this.state.eventRepeatCounter } 
+                                                    onChange = { this.changeEventRepeatCounter }
+                                                /> 
                                             </div>
                                             <div className="div--repeat-sample">
                                                 <p>{ this.state.eventRepeatListItemValue }</p>
@@ -839,10 +890,10 @@ class Agenda extends React.Component{
                                                     value="end"
                                                     control={
                                                         <Checkbox
-                                                            checked={ this.state.eventAllDayCheck } 
+                                                            checked={ this.state.eventRepeatNeverCheck } 
                                                             icon={<RadioButtonUncheckedIcon />}
                                                             checkedIcon={< CheckCircleIcon />}
-                                                            onChange={ this.changeAllDayCheck }
+                                                            onChange={ this.changeEventRepeatNeverCheck }
                                                         />
                                                     }
                                                     label="Nunca"
@@ -855,10 +906,10 @@ class Agenda extends React.Component{
                                                         value="end"
                                                         control={
                                                             <Checkbox
-                                                                checked={ this.state.eventAllDayCheck } 
+                                                                checked={ this.state.eventRepeatInCheck } 
                                                                 icon={<RadioButtonUncheckedIcon />}
                                                                 checkedIcon={< CheckCircleIcon />}
-                                                                onChange={ this.changeAllDayCheck }
+                                                                onChange={ this.changeEventRepeatInCheck }
                                                             />
                                                         }
                                                         label="Em:"
@@ -882,10 +933,10 @@ class Agenda extends React.Component{
                                                         value="end"
                                                         control={
                                                             <Checkbox
-                                                                checked={ this.allDayEvent } 
+                                                                checked={ this.state.eventRepeatAfterCheck } 
                                                                 icon={<RadioButtonUncheckedIcon />}
                                                                 checkedIcon={< CheckCircleIcon />}
-                                                                onChange={ this.changeAllDayCheck }
+                                                                onChange={ this.changeEventRepeatAfterCheck }
                                                             />
                                                         }
                                                         label="Depois de:"
