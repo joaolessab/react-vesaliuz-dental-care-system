@@ -93,14 +93,6 @@ class Agenda extends React.Component{
             crudModalVisibility: false,
 
             // ================ EVENT MODAL PARAMETERS ===============
-            
-            clientList: [
-                { name: "Selecione...", id: 0 },
-                { name: "Andreas Pirlo", id: 1 },
-                { name: "Paulo Dybala", id: 2 },
-                { name: "Travis Scott", id: 3 },
-                { name: "Cristiano Ronaldo", id: 4 }
-            ],
 
             eventTitle : "",
             eventInitialDate: moment().toDate(),
@@ -109,126 +101,139 @@ class Agenda extends React.Component{
             eventFinalTime: "00:00",
             eventAllDayCheck: false,
             eventRepeatCheck: false,
-            eventClient: 0, 
+            eventClientListValue: 0, 
+            eventClientList: [
+                { name: "Selecione...", id: 0 },
+                { name: "Andreas Pirlo", id: 1 },
+                { name: "Paulo Dybala", id: 2 },
+                { name: "Travis Scott", id: 3 },
+                { name: "Cristiano Ronaldo", id: 4 }
+            ],
+
             eventObservation : "",
-            eventAfterDate: moment().add(1, "days").toDate()
+            eventAfterDate: moment().add(1, "days").toDate(),            
+
+            eventAgendaTimes : [
+                "00:00",
+                "00:15",
+                "00:30",
+                "00:45",
+                "01:00",
+                "01:15",
+                "01:30",
+                "01:45",
+                "02:00",
+                "02:15",
+                "02:30",
+                "02:45",
+                "03:00",
+                "03:15",
+                "03:30",
+                "03:45",
+                "04:00",
+                "04:15",
+                "04:30",
+                "04:45",
+                "05:00",
+                "05:15",
+                "05:30",
+                "05:45",
+                "06:00",
+                "06:15",
+                "06:30",
+                "06:45",
+                "07:00",
+                "07:15",
+                "07:30",
+                "07:45",
+                "08:00",
+                "08:15",
+                "08:30",
+                "08:45",
+                "09:00",
+                "09:15",
+                "09:30",
+                "09:45",
+                "10:00",
+                "10:15",
+                "10:30",
+                "10:45",
+                "11:00",
+                "11:15",
+                "11:30",
+                "11:45",
+                "12:00",
+                "12:15",
+                "12:30",
+                "12:45",
+                "13:00",
+                "13:15",
+                "13:30",
+                "13:45",
+                "14:00",
+                "14:15",
+                "14:30",
+                "14:45",
+                "15:00",
+                "15:15",
+                "15:30",
+                "15:45",            
+                "16:00",
+                "16:15",
+                "16:30",
+                "16:45",            
+                "17:00",
+                "17:15",
+                "17:30",
+                "17:45",            
+                "18:00",
+                "18:15",
+                "18:30",
+                "18:45",
+                "19:00",
+                "19:15",
+                "19:30",
+                "19:45",
+                "20:00",
+                "20:15",
+                "20:30",
+                "20:45",
+                "21:00",
+                "21:15",
+                "21:30",
+                "21:45",
+                "22:00",
+                "22:15",
+                "22:30",
+                "22:45",
+                "23:00",
+                "23:15",
+                "23:30",
+                "23:45"
+            ],
+
+            eventRepeatListValue: 0,
+            eventRepeatList: [
+                { option: "Selecione...", id: 0 },
+                { option: "Diariamente", id: 1 },
+                { option: "Semanalmente", id: 2 },
+                { option: "Mensalmente", id: 3 },
+                { option: "Anualmente", id: 4 }
+            ],
+
+            eventRepeatListItemValue: "-",
+            eventRepeatListItem: [
+                { option: "Selecione...", id: 0 },
+                { option: "Dia(s)", id: 1 },
+                { option: "Mes(es)", id: 2 },
+                { option: "Semana(s)", id: 3 },
+                { option: "Ano(s)", id: 4 }
+            ]
         };
-        
+
         /* Configurações da Agenda */
         this.whatDate = "today";
         this.viewType = "month";
-
-        this.timePickerValues = [
-            "00:00",
-            "00:15",
-            "00:30",
-            "00:45",
-            "01:00",
-            "01:15",
-            "01:30",
-            "01:45",
-            "02:00",
-            "02:15",
-            "02:30",
-            "02:45",
-            "03:00",
-            "03:15",
-            "03:30",
-            "03:45",
-            "04:00",
-            "04:15",
-            "04:30",
-            "04:45",
-            "05:00",
-            "05:15",
-            "05:30",
-            "05:45",
-            "06:00",
-            "06:15",
-            "06:30",
-            "06:45",
-            "07:00",
-            "07:15",
-            "07:30",
-            "07:45",
-            "08:00",
-            "08:15",
-            "08:30",
-            "08:45",
-            "09:00",
-            "09:15",
-            "09:30",
-            "09:45",
-            "10:00",
-            "10:15",
-            "10:30",
-            "10:45",
-            "11:00",
-            "11:15",
-            "11:30",
-            "11:45",
-            "12:00",
-            "12:15",
-            "12:30",
-            "12:45",
-            "13:00",
-            "13:15",
-            "13:30",
-            "13:45",
-            "14:00",
-            "14:15",
-            "14:30",
-            "14:45",
-            "15:00",
-            "15:15",
-            "15:30",
-            "15:45",            
-            "16:00",
-            "16:15",
-            "16:30",
-            "16:45",            
-            "17:00",
-            "17:15",
-            "17:30",
-            "17:45",            
-            "18:00",
-            "18:15",
-            "18:30",
-            "18:45",
-            "19:00",
-            "19:15",
-            "19:30",
-            "19:45",
-            "20:00",
-            "20:15",
-            "20:30",
-            "20:45",
-            "21:00",
-            "21:15",
-            "21:30",
-            "21:45",
-            "22:00",
-            "22:15",
-            "22:30",
-            "22:45",
-            "23:00",
-            "23:15",
-            "23:30",
-            "23:45"
-        ];
-        
-        this.eventfinalTime = this.timePickerValues[0];
-
-        this.repeatList = [
-            "Diariamente",
-            "Semanalmente",
-            "Mensalmente",
-            "Anualmente"
-        ];
-        this.repeatListSelected = this.repeatList[0];
-
-        this.repeaterElements = ["Dia(s)", "Mes(es)", "Semana(s)", "Ano(s)"]
-        this.repeaterElement = this.repeaterElements[0];
     }
 
     changeWhatDate = (whatDate) => {
@@ -387,7 +392,7 @@ class Agenda extends React.Component{
 
     openCrudModal = (title, start, end, observation) => {
         // Assumindo que é um evento novo
-        if (start == null){
+        if (start === null){
             this.disabledKeyboardDatePicker = false;
             //this.allDayEvent = false;
             //this.repeatEvent = false;
@@ -429,7 +434,7 @@ class Agenda extends React.Component{
             minutes = 30;
         else if (minutes > 30 && minutes < 46)
             minutes = 45;
-        else if (minutes == 0)
+        else if (minutes === 0)
             minutes = 0;
         else if (minutes > 45){
             minutes = 0;
@@ -441,10 +446,10 @@ class Agenda extends React.Component{
         hour = hour.toString();
         minutes = minutes.toString();
 
-        if (hour.length == 1)
+        if (hour.length === 1)
             hour = "0" + hour;
 
-        if (minutes.length == 1)
+        if (minutes.length === 1)
             minutes = minutes + "0";
 
         var initialTime = hour + ":" + minutes;
@@ -470,7 +475,7 @@ class Agenda extends React.Component{
             minutes = 30;
         else if (minutes > 30 && minutes < 46)
             minutes = 45;
-        else if (minutes == 0)
+        else if (minutes === 0)
             minutes = 0;
         else if (minutes > 45){
             minutes = 0;
@@ -482,10 +487,10 @@ class Agenda extends React.Component{
         hour = hour.toString();
         minutes = minutes.toString();
 
-        if (hour.length == 1)
+        if (hour.length === 1)
             hour = "0" + hour;
 
-        if (minutes.length == 1)
+        if (minutes.length === 1)
             minutes = minutes + "0";
 
         var finalTime = hour + ":" + minutes;
@@ -496,30 +501,6 @@ class Agenda extends React.Component{
         this.setState({ crudModalVisibility: false });
     };
 
-    /* Funções do CRUD da Agenda */   
-
-    changeRepeatMode = (event) => {
-        this.clientListSelected = event.target.value;
-        this.forceUpdate();
-    };
-
-    checkAllDayEvent = (event) => {
-        this.allDayEvent = event.target.checked;
-        
-        // True
-        if (event.target.checked){
-            //this.selectedFinalDate = this.selectedInitialDate;
-            this.initialTime = "00:00";
-            this.finalTime = "00:00";
-            this.disabledKeyboardDatePicker = true;
-        }
-        else{            
-            this.disabledKeyboardDatePicker = false;
-        }
-
-        this.forceUpdate();
-    };
-    
     // ================ ONCHANGE EVENTS ===============
 
     changeEventTitle = (e) => {
@@ -557,11 +538,21 @@ class Agenda extends React.Component{
     };
 
     changeEventClient = (e) => {
-        this.setState({ eventClient: e.target.value });
+        this.setState({ eventClientListValue: e.target.value });
     };
 
     changeEventObservation = (e) => {
         this.setState({ eventObservation: e.target.value });
+    };
+
+    changeRepeatMode = (e) => {
+        this.setState({ eventRepeatListValue: e.target.value });
+
+        for (var i = 0; i < this.state.eventRepeatListItem.length; i++){
+            if (this.state.eventRepeatList[i].id === e.target.value){
+                this.setState({ eventRepeatListItemValue: this.state.eventRepeatListItem[i].option });
+            }
+        }
     };
 
     changeAfterDate = (date) => {
@@ -731,7 +722,7 @@ class Agenda extends React.Component{
                                                     onChange={ this.changeInitialTime }
                                                     input={<Input />}
                                                 >
-                                                    { this.timePickerValues.map((timeItem) => (
+                                                    { this.state.eventAgendaTimes.map((timeItem) => (
                                                         <MenuItem key={timeItem} value={timeItem}>
                                                             <ListItemText primary={timeItem} />
                                                         </MenuItem>
@@ -748,7 +739,7 @@ class Agenda extends React.Component{
                                                     onChange={ this.changeFinalTime }
                                                     input={<Input />}
                                                 >
-                                                    {this.timePickerValues.map((timeItem) => (
+                                                    {this.state.eventAgendaTimes.map((timeItem) => (
                                                     <MenuItem key={timeItem} value={timeItem}>
                                                         <ListItemText primary={timeItem} />
                                                     </MenuItem>
@@ -789,11 +780,11 @@ class Agenda extends React.Component{
                                             <Select
                                                 labelId="checkbox--agenda-client"
                                                 id="checkbox--agenda-client"
-                                                value = { this.state.eventClient }
+                                                value = { this.state.eventClientListValue }
                                                 onChange={ this.changeEventClient }
                                                 input={ <Input /> }
                                             >
-                                                { this.state.clientList.map((clientItem) => (
+                                                { this.state.eventClientList.map((clientItem) => (
                                                     <MenuItem key={ clientItem.name } value={ clientItem.id }>
                                                         <ListItemText primary={ clientItem.name } />
                                                     </MenuItem>
@@ -823,13 +814,13 @@ class Agenda extends React.Component{
                                         <Select
                                             labelId="checkbox--repeat-mode"
                                             id="checkbox--repeat-mode"
-                                            value={ this.repeatListSelected }
+                                            value={ this.state.eventRepeatListValue }
                                             onChange={ this.changeRepeatMode }
                                             input={<Input />}
                                         >
-                                            {this.repeatList.map((repeatItem) => (
-                                            <MenuItem key={repeatItem} value={repeatItem}>
-                                                <ListItemText primary={repeatItem} />
+                                            { this.state.eventRepeatList.map((repeatItem) => (
+                                            <MenuItem key={repeatItem.option} value={repeatItem.id}>
+                                                <ListItemText primary={repeatItem.option} />
                                             </MenuItem>
                                             ))}
                                         </Select>
@@ -838,7 +829,7 @@ class Agenda extends React.Component{
                                                 <TextField id="counter-repeat-mode" label="Repita a cada:" /> 
                                             </div>
                                             <div className="div--repeat-sample">
-                                                <p>{ this.repeaterElement }</p>
+                                                <p>{ this.state.eventRepeatListItemValue }</p>
                                             </div>
                                         </div>
                                         <div className="div--endrepeat-mode">                                            
@@ -851,7 +842,7 @@ class Agenda extends React.Component{
                                                             checked={ this.state.eventAllDayCheck } 
                                                             icon={<RadioButtonUncheckedIcon />}
                                                             checkedIcon={< CheckCircleIcon />}
-                                                            onChange={ this.checkAllDayEvent }
+                                                            onChange={ this.changeAllDayCheck }
                                                         />
                                                     }
                                                     label="Nunca"
@@ -867,7 +858,7 @@ class Agenda extends React.Component{
                                                                 checked={ this.state.eventAllDayCheck } 
                                                                 icon={<RadioButtonUncheckedIcon />}
                                                                 checkedIcon={< CheckCircleIcon />}
-                                                                onChange={ this.checkAllDayEvent }
+                                                                onChange={ this.changeAllDayCheck }
                                                             />
                                                         }
                                                         label="Em:"
@@ -894,7 +885,7 @@ class Agenda extends React.Component{
                                                                 checked={ this.allDayEvent } 
                                                                 icon={<RadioButtonUncheckedIcon />}
                                                                 checkedIcon={< CheckCircleIcon />}
-                                                                onChange={ this.checkAllDayEvent }
+                                                                onChange={ this.changeAllDayCheck }
                                                             />
                                                         }
                                                         label="Depois de:"
