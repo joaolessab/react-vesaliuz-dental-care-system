@@ -463,3 +463,6 @@
     background-color: transparent !important;
     background-image: none !important;
 }
+.input--agendaForm-client{
+    margin-bottom: 5px;
+}
