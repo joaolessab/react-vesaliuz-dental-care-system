@@ -111,7 +111,7 @@ class Agenda extends React.Component{
             ],
 
             eventObservation : "",
-            eventAfterDate: moment().add(1, "days").toDate(),            
+            eventInDate: moment().add(1, "days").toDate(),            
 
             eventAgendaTimes : [
                 "00:00",
@@ -212,17 +212,9 @@ class Agenda extends React.Component{
                 "23:45"
             ],
 
+            eventRepeatCounterValue: 0,
             eventRepeatListValue: 0,
             eventRepeatList: [
-                { option: "Selecione...", id: 0 },
-                { option: "Diariamente", id: 1 },
-                { option: "Semanalmente", id: 2 },
-                { option: "Mensalmente", id: 3 },
-                { option: "Anualmente", id: 4 }
-            ],
-
-            eventRepeatListItemValue: "-",
-            eventRepeatListItem: [
                 { option: "Selecione...", id: 0 },
                 { option: "Dia(s)", id: 1 },
                 { option: "Mes(es)", id: 2 },
@@ -230,7 +222,6 @@ class Agenda extends React.Component{
                 { option: "Ano(s)", id: 4 }
             ],
 
-            eventRepeatCounter: "",
             eventRepeatNeverCheck: false,
             eventRepeatInCheck: false,
             eventRepeatAfterCheck: false
@@ -423,7 +414,7 @@ class Agenda extends React.Component{
     setCRUDInitialTime = (start) => {
         var hour, minutes = null;
 
-        if (start != undefined && start != null){
+        if (start !== undefined && start !== null){
             hour = moment(start.toISOString());
             minutes = start.getMinutes();
         }
@@ -464,7 +455,7 @@ class Agenda extends React.Component{
     setCRUDFinalTime = (end) => {
         var hour, minutes = null;
 
-        if (end != undefined && end != null){
+        if (end !== undefined && end !== null){
             hour = moment(end.toISOString());
             minutes = end.getMinutes();
         }
@@ -550,24 +541,19 @@ class Agenda extends React.Component{
         this.setState({ eventObservation: e.target.value });
     };
 
+    changeEventCounter = (e) => {
+        this.setState({ eventRepeatCounterValue: e.target.value });
+    };
+
     changeRepeatMode = (e) => {
-        this.setState({ eventRepeatListValue: e.target.value });
-
-        for (var i = 0; i < this.state.eventRepeatListItem.length; i++){
-            if (this.state.eventRepeatList[i].id === e.target.value){
-                this.setState({ eventRepeatListItemValue: this.state.eventRepeatListItem[i].option });
-            }
-        }
+        this.setState({ eventRepeatListValue: e.target.value }); 
+        alert("esconder dias da semana");
     };
 
-    changeAfterDate = (date) => {
-        this.setState({ eventAfterDate: date });
+    changeInDate = (date) => {
+        this.setState({ eventInDate: date });
     };
-
-    changeEventRepeatCounter = (e) => {
-        this.setState({ eventRepeatCounter: e.target.value });
-    };
-
+    
     changeEventRepeatNeverCheck = (e) => {
         if (e.target.checked){
             this.setState({
@@ -856,33 +842,47 @@ class Agenda extends React.Component{
                             >
                                 <MuiPickersUtilsProvider libInstance={ moment } utils={ MomentUtils } locale={ momentLocale }>                                
                                     <div className="div--agendaForm-client agenda--component">
-                                        <InputLabel htmlFor="checkbox--repeat-mode">Repetição:</InputLabel>
-                                        <Select
-                                            labelId="checkbox--repeat-mode"
-                                            id="checkbox--repeat-mode"
-                                            value={ this.state.eventRepeatListValue }
-                                            onChange={ this.changeRepeatMode }
-                                            input={<Input />}
-                                        >
-                                            { this.state.eventRepeatList.map((repeatItem) => (
-                                            <MenuItem key={repeatItem.option} value={repeatItem.id}>
-                                                <ListItemText primary={repeatItem.option} />
-                                            </MenuItem>
-                                            ))}
-                                        </Select>
-                                        <div className="div--repeat-mode">
-                                            <div>
-                                                <TextField 
-                                                    id="counter-repeat-mode" 
-                                                    label="Repita a cada:" 
-                                                    value = { this.state.eventRepeatCounter } 
-                                                    onChange = { this.changeEventRepeatCounter }
-                                                /> 
-                                            </div>
+                                        <div className="div--repeat-type">
+                                            <InputLabel htmlFor="checkbox--repeat-mode">Repetir a cada:</InputLabel>                                            
                                             <div className="div--repeat-sample">
-                                                <p>{ this.state.eventRepeatListItemValue }</p>
+                                                <TextField
+                                                    id="input--repeat-counterValue"
+                                                    type="number"
+                                                    value = { this.state.eventRepeatCounterValue }
+                                                    onChange = { this.changeEventCounter }
+                                                    InputLabelProps={{
+                                                        shrink: true,
+                                                    }}
+                                                />
+                                            </div>
+                                            <Select
+                                                labelId="checkbox--repeat-mode"
+                                                id="checkbox--repeat-mode"
+                                                value={ this.state.eventRepeatListValue }
+                                                onChange={ this.changeRepeatMode }
+                                                input={<Input />}
+                                            >
+                                                { this.state.eventRepeatList.map((repeatItem) => (
+                                                <MenuItem key={repeatItem.option} value={repeatItem.id}>
+                                                    <ListItemText primary={repeatItem.option} />
+                                                </MenuItem>
+                                                ))}
+                                            </Select>
+                                        </div>
+
+                                        <div className="div--repeat-week">
+                                            <InputLabel htmlFor="div--repeat-week-days">Repetir nos dias:</InputLabel>
+                                            <div className="div--repeat-week-days">
+                                                <Button>D</Button>
+                                                <Button>S</Button>
+                                                <Button>T</Button>
+                                                <Button>Q</Button>
+                                                <Button>Q</Button>
+                                                <Button>S</Button>
+                                                <Button>S</Button>
                                             </div>
                                         </div>
+
                                         <div className="div--endrepeat-mode">                                            
                                             <InputLabel htmlFor="checkbox--endrepeat-mode">Quando encerra a repetição?</InputLabel>
                                             <div className="div--endrepeat-mode-chosen-firstdiv">
@@ -917,12 +917,17 @@ class Agenda extends React.Component{
                                                     />
                                                 </div>
                                                 <div>
-                                                    <TextField
-                                                        id="input--repeat-number"
-                                                        type="number"
-                                                        defaultValue = "0"
-                                                        InputLabelProps={{
-                                                            shrink: true,
+                                                    <KeyboardDatePicker
+                                                        disableToolbar
+                                                        variant="inline"
+                                                        format="DD/MM/YYYY"
+                                                        margin="normal"
+                                                        id="date-picker-final"
+                                                        autoOk = { true }
+                                                        value={ this.state.eventInDate }
+                                                        onChange={ this.changeInDate }
+                                                        KeyboardButtonProps={{
+                                                        'aria-label': 'change date',
                                                         }}
                                                     />
                                                 </div>
@@ -944,17 +949,12 @@ class Agenda extends React.Component{
                                                     />
                                                 </div>
                                                 <div>
-                                                    <KeyboardDatePicker
-                                                        disableToolbar
-                                                        variant="inline"
-                                                        format="DD/MM/YYYY"
-                                                        margin="normal"
-                                                        id="date-picker-final"
-                                                        autoOk = { true }
-                                                        value={ this.state.eventAfterDate }
-                                                        onChange={ this.changeAfterDate }
-                                                        KeyboardButtonProps={{
-                                                        'aria-label': 'change date',
+                                                    <TextField
+                                                        id="input--repeat-number"
+                                                        type="number"
+                                                        defaultValue = "0"
+                                                        InputLabelProps={{
+                                                            shrink: true,
                                                         }}
                                                     />
                                                 </div>
