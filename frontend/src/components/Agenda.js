@@ -111,7 +111,7 @@ class Agenda extends React.Component{
             ],
 
             eventObservation : "",
-            eventInDate: moment().add(1, "days").toDate(),            
+            eventInDateValueValue: moment().add(1, "days").toDate(),            
 
             eventAgendaTimes : [
                 "00:00",
@@ -221,6 +221,14 @@ class Agenda extends React.Component{
                 { option: "Semana(s)", id: 3 },
                 { option: "Ano(s)", id: 4 }
             ],
+
+            eventWeekSundayCheck: false,
+            eventWeekMondayCheck: false,
+            eventWeekTuesdayCheck: false,
+            eventWeekWednesdayCheck: false,
+            eventWeekThursdayCheck: false,
+            eventWeekFridayCheck: false,
+            eventWeekSaturdayCheck: false,
 
             eventRepeatNeverCheck: false,
             eventRepeatInCheck: false,
@@ -529,7 +537,20 @@ class Agenda extends React.Component{
     
     changeRepeatCheck = (e) => {
         this.setState({ 
-            eventRepeatCheck: e.target.checked
+            eventRepeatCheck: e.target.checked,
+            eventRepeatListValue: 0,
+            eventRepeatCounterValue: 0,
+            eventRepeatNeverCheck: true,
+            eventRepeatInCheck: false,
+            eventRepeatAfterCheck: false,
+            // Dias da semana
+            eventWeekSundayCheck: false,
+            eventWeekMondayCheck: false,
+            eventWeekTuesdayCheck: false,
+            eventWeekWednesdayCheck: false,
+            eventWeekThursdayCheck: false,
+            eventWeekFridayCheck: false,
+            eventWeekSaturdayCheck: false
         });
     };
 
@@ -546,12 +567,30 @@ class Agenda extends React.Component{
     };
 
     changeRepeatMode = (e) => {
-        this.setState({ eventRepeatListValue: e.target.value }); 
-        alert("esconder dias da semana");
+        this.setState({ eventRepeatListValue: e.target.value });
     };
 
     changeInDate = (date) => {
-        this.setState({ eventInDate: date });
+        this.setState({ eventInDateValue: date });
+    };
+
+    changeRepeatWeekDay = (e, day) => {
+        var isEnabled = e.target.parentElement.classList.contains("day-selected");
+
+        if (day === "sunday")
+            this.setState({ eventWeekSundayCheck: !isEnabled });
+        if (day === "monday")
+            this.setState({ eventWeekMondayCheck: !isEnabled });
+        if (day === "tuesday")
+            this.setState({ eventWeekTuesdayCheck: !isEnabled });
+        if (day === "wednesday")
+            this.setState({ eventWeekWednesdayCheck: !isEnabled });
+        if (day === "thursday")
+            this.setState({ eventWeekThursdayCheck: !isEnabled });
+        if (day === "friday")
+            this.setState({ eventWeekFridayCheck: !isEnabled });
+        if (day === "saturday")
+            this.setState({ eventWeekSaturdayCheck: !isEnabled });
     };
     
     changeEventRepeatNeverCheck = (e) => {
@@ -870,16 +909,39 @@ class Agenda extends React.Component{
                                             </Select>
                                         </div>
 
-                                        <div className="div--repeat-week">
+                                        <div 
+                                            className={ this.state.eventRepeatListValue === 3 ? "div--repeat-week div--repeat-week-visible": "div--repeat-week" }
+                                        >
                                             <InputLabel htmlFor="div--repeat-week-days">Repetir nos dias:</InputLabel>
                                             <div className="div--repeat-week-days">
-                                                <Button>D</Button>
-                                                <Button>S</Button>
-                                                <Button>T</Button>
-                                                <Button>Q</Button>
-                                                <Button>Q</Button>
-                                                <Button>S</Button>
-                                                <Button>S</Button>
+                                                <Button
+                                                    onClick={(e) => this.changeRepeatWeekDay(e, "sunday") }
+                                                    className = { this.state.eventWeekSundayCheck ? "day-selected" : ""}
+                                                >D</Button>
+                                                <Button 
+                                                    onClick={(e) => this.changeRepeatWeekDay(e, "monday") }
+                                                    className = { this.state.eventWeekMondayCheck ? "day-selected" : ""}
+                                                >S</Button>
+                                                <Button 
+                                                    onClick={(e) => this.changeRepeatWeekDay(e, "tuesday") }
+                                                    className = { this.state.eventWeekTuesdayCheck ? "day-selected" : ""}
+                                                >T</Button>
+                                                <Button 
+                                                    onClick={(e) => this.changeRepeatWeekDay(e, "wednesday") }
+                                                    className = { this.state.eventWeekWednesdayCheck ? "day-selected" : ""}
+                                                >Q</Button>
+                                                <Button 
+                                                    onClick={(e) => this.changeRepeatWeekDay(e, "thursday") }
+                                                    className = { this.state.eventWeekThursdayCheck ? "day-selected" : ""}
+                                                >Q</Button>
+                                                <Button 
+                                                    onClick={(e) => this.changeRepeatWeekDay(e, "friday") }
+                                                    className = { this.state.eventWeekFridayCheck ? "day-selected" : ""}
+                                                >S</Button>
+                                                <Button
+                                                    onClick={(e) => this.changeRepeatWeekDay(e, "saturday") }
+                                                    className = { this.state.eventWeekSaturdayCheck ? "day-selected" : ""}
+                                                >S</Button>
                                             </div>
                                         </div>
 
@@ -922,9 +984,10 @@ class Agenda extends React.Component{
                                                         variant="inline"
                                                         format="DD/MM/YYYY"
                                                         margin="normal"
-                                                        id="date-picker-final"
+                                                        id="date-picker-repeat"
                                                         autoOk = { true }
-                                                        value={ this.state.eventInDate }
+                                                        disabled = { !this.state.eventRepeatInCheck }
+                                                        value={ this.state.eventInDateValueValue }
                                                         onChange={ this.changeInDate }
                                                         KeyboardButtonProps={{
                                                         'aria-label': 'change date',
@@ -952,6 +1015,7 @@ class Agenda extends React.Component{
                                                     <TextField
                                                         id="input--repeat-number"
                                                         type="number"
+                                                        disabled = { !this.state.eventRepeatAfterCheck }
                                                         defaultValue = "0"
                                                         InputLabelProps={{
                                                             shrink: true,

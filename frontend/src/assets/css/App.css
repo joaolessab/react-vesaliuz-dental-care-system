@@ -202,3 +202,6 @@ input:focus, select:focus, textarea:focus{
 .showComponent{
   display: block;
 }
+.div--endrepeat-mode-chosen .MuiInputBase-root.Mui-disabled{
+  border-bottom: 0px !important;
+}

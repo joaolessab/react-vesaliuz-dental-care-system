@@ -471,3 +471,17 @@
 .div-agenda--repeat .div--repeat-week label{
     margin-bottom: 20px;
 }
+
+.div-agenda--repeat .div--repeat-week{
+    display: none;
+}
+.div--repeat-week-visible{
+    display: flex !important;
+}
+.div--repeat-week-days .MuiButton-root:hover{
+    color: white;
+    background-color: #1e65b9;
+}.div--repeat-week-days .day-selected{
+    color: white;
+    background-color: #113a6b;
+}
