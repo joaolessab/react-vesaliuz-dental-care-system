@@ -51,9 +51,10 @@ class Agenda extends React.Component{
     constructor(props){         
         super(props);
 
-        // ================ STATE FOR COMPONENT ===============
-
         this.state = {
+            agendaCRUDMode: "insert",
+            agendaCRUDVisibility: false,
+                 
             dateChosen: moment().toDate(),
             events: [
                 {   
@@ -89,8 +90,8 @@ class Agenda extends React.Component{
                     client: 2
                 }
             ],
+
             dateStringTitle: "Maio de 2020",
-            crudModalVisibility: false,
 
             // ================ EVENT MODAL PARAMETERS ===============
 
@@ -111,7 +112,7 @@ class Agenda extends React.Component{
             ],
 
             eventObservation : "",
-            eventInDateValueValue: moment().add(1, "days").toDate(),            
+            eventInDateValue: moment().add(1, "days").toDate(),            
 
             eventAgendaTimes : [
                 "00:00",
@@ -394,29 +395,34 @@ class Agenda extends React.Component{
         this.openCrudModal(null, start, end);
     };
 
-    openCrudModal = (title, start, end, observation) => {
-        // Assumindo que é um evento novo
-        if (start === null){
-            this.disabledKeyboardDatePicker = false;
-            //this.allDayEvent = false;
-            //this.repeatEvent = false;
+    // ================ CALENDAR EVENTS ===============
 
+    openCrudModal = (title, start, end, observation) => {
+        // Caso seja um evento novo
+        if (start === null){
             this.setState({
+                agendaCRUDMode: "insert",
                 eventTitle: "",
                 eventObservation: ""
             });
         }
-        //Assumindo que é uma edição
+        // Caso seja uma edição
         else{
             this.setState({
+                agendaCRUDMode: "edit",
                 eventTitle: title,
                 eventObservation: observation
             });
         }
         
+        // Alterar scripts para SET STATE
         this.setCRUDInitialTime(start);
         this.setCRUDFinalTime(end);
-        this.setState({ crudModalVisibility: true });
+        this.setState({ agendaCRUDVisibility: true });
+    };
+
+    closeCrudModal = () => {
+        this.setState({ agendaCRUDVisibility: false });
     };
 
     setCRUDInitialTime = (start) => {
@@ -499,10 +505,6 @@ class Agenda extends React.Component{
 
         var finalTime = hour + ":" + minutes;
         this.finalTime = finalTime;
-    };
-    
-    closeCrudModal = () => {
-        this.setState({ crudModalVisibility: false });
     };
 
     // ================ ONCHANGE EVENTS ===============
@@ -731,7 +733,7 @@ class Agenda extends React.Component{
                 </div>
 
                 {/* Modal de Agenda */}
-                <Modal open={ this.state.crudModalVisibility } onClose={ this.closeCrudModal } center>
+                <Modal open={ this.state.agendaCRUDVisibility } onClose={ this.closeCrudModal } center>
                     <div className="div--modalAgenda-body">
                         <div className="div--agenda-appointment-body">
                             <div 
@@ -987,7 +989,7 @@ class Agenda extends React.Component{
                                                         id="date-picker-repeat"
                                                         autoOk = { true }
                                                         disabled = { !this.state.eventRepeatInCheck }
-                                                        value={ this.state.eventInDateValueValue }
+                                                        value={ this.state.eventInDateValue }
                                                         onChange={ this.changeInDate }
                                                         KeyboardButtonProps={{
                                                         'aria-label': 'change date',
@@ -1021,6 +1023,11 @@ class Agenda extends React.Component{
                                                             shrink: true,
                                                         }}
                                                     />
+                                                </div>                                                
+                                                <div 
+                                                    className= { this.state.eventRepeatAfterCheck ? "div--repeat-occurrency" : "div--repeat-occurrency-disabled" }
+                                                >
+                                                    <p>Ocorrências</p>
                                                 </div>
                                             </div>
                                         </div>
