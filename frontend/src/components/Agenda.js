@@ -237,173 +237,9 @@ class Agenda extends React.Component{
             eventRepeatInCheck: false,
             eventRepeatAfterCheck: false
         };
-
-        /* Configurações da Agenda */        
-        this.viewType = "month";
-    }
-
-    changeWhatDate = (whatDate) => {
-        //Day
-        if (this.viewType === "day"){
-            if (whatDate === "next")
-                this.state.agendaDataChosen = moment(this.state.agendaDataChosen).add(1, 'days').toDate();
-            if (whatDate === "today")
-                this.state.agendaDataChosen = moment().toDate();
-            if (whatDate === "previous")
-                this.state.agendaDataChosen = moment(this.state.agendaDataChosen).subtract(1, 'days').toDate();
-            
-            this.findLiteralDate("day");
-        }
-        //Week
-        else if (this.viewType === "week"){
-            if (whatDate === "next")
-                this.state.agendaDataChosen = moment(this.state.agendaDataChosen).add(1, 'weeks').toDate();
-            if (whatDate === "today")
-                this.state.agendaDataChosen = moment().toDate();
-            if (whatDate === "previous")
-                this.state.agendaDataChosen = moment(this.state.agendaDataChosen).subtract(1, 'weeks').toDate();
-            
-            this.findLiteralDate("week");
-        }
-        //Month
-        else if (this.viewType === "month"){
-            if (whatDate === "next")
-                this.state.agendaDataChosen = moment(this.state.agendaDataChosen).add(1, 'months').toDate();
-            if (whatDate === "today")
-                this.state.agendaDataChosen = moment().toDate();
-            if (whatDate === "previous")
-                this.state.agendaDataChosen = moment(this.state.agendaDataChosen).subtract(1, 'months').toDate();
-
-            this.findLiteralDate("month");
-        }
-        //Agenda
-        else if (this.viewType === "agenda"){
-            if (whatDate === "next")
-                this.state.agendaDataChosen = moment(this.state.agendaDataChosen).add(1, 'months').toDate();
-            if (whatDate === "today")
-                this.state.agendaDataChosen = moment().toDate();
-            if (whatDate === "previous")
-                this.state.agendaDataChosen = moment(this.state.agendaDataChosen).subtract(1, 'months').toDate();
-            
-            this.findLiteralDate("agenda");
-        }
-    
-        this.setState({ agendaPickerMode: whatDate });
     };
 
-    changeViewType = (newType) => {
-        this.findLiteralDate(newType);
-        this.viewType = newType;
-        this.forceUpdate();
-    };
-
-    findLiteralDate = (newType) => {
-        if (newType === "day"){
-            var day = moment(this.state.agendaDataChosen).format('DD');
-            var month = moment(this.state.agendaDataChosen).format('MM');
-            month = this.findMonthString(month);            
-            var year = moment(this.state.agendaDataChosen).format('YYYY');
-
-            this.setState({
-                agendaDateText: day + " de " + month + " de " + year
-            });
-        }
-        else if (newType === "week"){
-            var initialDayWeek = moment(this.state.agendaDataChosen).startOf('week').format('DD');
-            var initialMonthWeek = moment(this.state.agendaDataChosen).startOf('week').format('MM');
-            initialMonthWeek = this.findMonthString(initialMonthWeek);
-
-            var finalDayWeek = moment(this.state.agendaDataChosen).endOf('week').format('DD');
-            var finalMonthWeek = moment(this.state.agendaDataChosen).endOf('week').format('MM');
-            finalMonthWeek = this.findMonthString(finalMonthWeek);
-            var finalYearWeek = moment(this.state.agendaDataChosen).endOf('year').format('YYYY');
-
-            this.setState({
-                agendaDateText: initialDayWeek + " de " + initialMonthWeek + " à " + finalDayWeek + " de " + finalMonthWeek + " - " + finalYearWeek
-            });
-        }
-        else if (newType === "month"){
-            var month = moment(this.state.agendaDataChosen).format('MM');
-            month = this.findMonthString(month);            
-            var year = moment(this.state.agendaDataChosen).format('YYYY');
-
-            this.setState({
-                agendaDateText: month + " de " + year
-            });
-        }        
-        else if (newType === "agenda"){
-            var initialDay = moment(this.state.agendaDataChosen).format('DD');
-            var initialMonth = moment(this.state.agendaDataChosen).format('MM');
-            initialMonth = this.findMonthString(initialMonth);
-
-            var finalDay = moment(this.state.agendaDataChosen).add(1, 'months').format('DD');
-            var finalMonth = moment(this.state.agendaDataChosen).add(1, 'months').format('MM');
-            finalMonth = this.findMonthString(finalMonth);
-            var finalYear = moment(this.state.agendaDataChosen).add(1, 'months').format('YYYY');
-
-            this.setState({
-                agendaDateText: initialDay + " de " + initialMonth + " à " + finalDay + " de " + finalMonth + " - " + finalYear
-            });
-        }
-    };
-
-    findMonthString = (month) => {
-        switch(month) {
-            case "01":
-                return "Janeiro";
-            case "02":
-                return "Fevereiro";
-            case "03":
-                return "Março";
-            case "04":
-                return "Abril";
-            case "05":
-                return "Maio";
-            case "06":
-                return "Junho";
-            case "07":
-                return "Julho";
-            case "08":
-                return "Agosto";
-            case "09":
-                return "Setembro";
-            case "10":
-                return "Outubro";
-            case "11":
-                return "Novembro";
-            case "12":
-                return "Dezembro";
-            default:
-                return '-';
-        }
-    };
-
-    /* Agenda behavior events */
-    onEventResize = (type, { event, start, end, allDay }) => {
-        debugger
-        this.setState(state => {
-            //debugger
-            state.events[0].start = start;
-            state.events[0].end = end;
-            return { events: state.events };
-        });
-    };
-
-    onEventDrop = ({ event, start, end, allDay }) => {
-        debugger
-        console.log(start);
-    };
-
-    handleEventSelected = (event) => {
-        this.openCrudModal(event.title, event.start, event.end, event.observation);
-    };
-
-    handleSlotSelected = ({ start, end }) => {
-        //Slot em branco
-        this.openCrudModal(null, start, end);
-    };
-
-    // ================ CALENDAR EVENTS ===============
+    // ================ AGENDA / CALENDAR EVENTS ===============
 
     openCrudModal = (title, start, end, observation) => {
         // Caso seja um evento novo
@@ -433,86 +269,28 @@ class Agenda extends React.Component{
         this.setState({ agendaCRUDVisibility: false });
     };
 
-    setCRUDInitialTime = (start) => {
-        var hour, minutes = null;
-
-        if (start !== undefined && start !== null){
-            hour = moment(start.toISOString());
-            minutes = start.getMinutes();
-        }
-        else{
-            hour = moment();
-            minutes = moment().toDate().getMinutes();
-        }
-
-        // Minutes
-        if (minutes > 0 && minutes < 16)
-            minutes = 15;
-        else if (minutes > 15 && minutes < 31)
-            minutes = 30;
-        else if (minutes > 30 && minutes < 46)
-            minutes = 45;
-        else if (minutes === 0)
-            minutes = 0;
-        else if (minutes > 45){
-            minutes = 0;
-            hour = hour.add("1", "hours");
-        }
-        hour = hour.toDate().getHours();
-        
-        /* Caso o moment preencha faltando um 0 */
-        hour = hour.toString();
-        minutes = minutes.toString();
-
-        if (hour.length === 1)
-            hour = "0" + hour;
-
-        if (minutes.length === 1)
-            minutes = minutes + "0";
-
-        var initialTime = hour + ":" + minutes;
-        this.initialTime = initialTime;
+    onEventResize = (type, { event, start, end, allDay }) => {
+        debugger
+        this.setState(state => {
+            //debugger
+            state.events[0].start = start;
+            state.events[0].end = end;
+            return { events: state.events };
+        });
     };
 
-    setCRUDFinalTime = (end) => {
-        var hour, minutes = null;
+    onEventDrop = ({ event, start, end, allDay }) => {
+        debugger
+        console.log(start);
+    };
 
-        if (end !== undefined && end !== null){
-            hour = moment(end.toISOString());
-            minutes = end.getMinutes();
-        }
-        else{
-            hour = moment().add("1", "hours");
-            minutes = moment().toDate().getMinutes();
-        }
-        
-        // Minutes
-        if (minutes > 0 && minutes < 16)
-            minutes = 15;
-        else if (minutes > 15 && minutes < 31)
-            minutes = 30;
-        else if (minutes > 30 && minutes < 46)
-            minutes = 45;
-        else if (minutes === 0)
-            minutes = 0;
-        else if (minutes > 45){
-            minutes = 0;
-            hour = hour.add("1", "hours");
-        }
-        hour = hour.toDate().getHours();
-        
-        /* Caso o moment preencha faltando um 0 */
-        hour = hour.toString();
-        minutes = minutes.toString();
+    handleEventSelected = (event) => {
+        this.openCrudModal(event.title, event.start, event.end, event.observation);
+    };
 
-        if (hour.length === 1)
-            hour = "0" + hour;
-
-        if (minutes.length === 1)
-            minutes = minutes + "0";
-
-        var finalTime = hour + ":" + minutes;
-        this.finalTime = finalTime;
+    handleSlotSelected = ({ start, end }) => {
+        //Slot em branco
+        this.openCrudModal(null, start, end);
     };
 
     // ================ ONCHANGE EVENTS ===============
@@ -640,6 +418,225 @@ class Agenda extends React.Component{
         });
     };
 
+    // ================ UTILS EVENTS ===============
+
+    changeWhatDate = (whatDate) => {
+        //Day
+        if (this.state.agendaViewType === "day"){
+            if (whatDate === "next")
+                this.setState({ agendaDataChosen : moment(this.state.agendaDataChosen).add(1, 'days').toDate() });
+            if (whatDate === "today")
+                this.setState({ agendaDataChosen : moment().toDate() });
+            if (whatDate === "previous")
+                this.setState({ agendaDataChosen : moment(this.state.agendaDataChosen).subtract(1, 'days').toDate() });
+            
+            this.findLiteralDate("day");
+        }
+        //Week
+        else if (this.state.agendaViewType === "week"){
+            if (whatDate === "next")
+                this.setState({ agendaDataChosen : moment(this.state.agendaDataChosen).add(1, 'weeks').toDate() });
+            if (whatDate === "today")
+                this.setState({ agendaDataChosen : moment().toDate() });
+            if (whatDate === "previous")
+                this.setState({ agendaDataChosen : moment(this.state.agendaDataChosen).subtract(1, 'weeks').toDate() });
+            
+            this.findLiteralDate("week");
+        }
+        //Month
+        else if (this.state.agendaViewType === "month"){
+            if (whatDate === "next")
+                this.setState({ agendaDataChosen : moment(this.state.agendaDataChosen).add(1, 'months').toDate() });
+            if (whatDate === "today")
+                this.setState({ agendaDataChosen : moment().toDate() });
+            if (whatDate === "previous")
+                this.setState({ agendaDataChosen : moment(this.state.agendaDataChosen).subtract(1, 'months').toDate() });
+
+            this.findLiteralDate("month");
+        }
+        //Agenda
+        else if (this.state.agendaViewType === "agenda"){
+            if (whatDate === "next")
+                this.setState({ agendaDataChosen : moment(this.state.agendaDataChosen).add(1, 'months').toDate() });
+            if (whatDate === "today")
+                this.setState({ agendaDataChosen : moment().toDate() });
+            if (whatDate === "previous")
+                this.setState({ agendaDataChosen : moment(this.state.agendaDataChosen).subtract(1, 'months').toDate() });
+            
+            this.findLiteralDate("agenda");
+        }
+    
+        this.setState({ agendaPickerMode: whatDate });
+    };
+
+    changeViewType = (newType) => {
+        this.findLiteralDate(newType);
+        this.setState({ agendaViewType : newType });
+    };
+
+    findLiteralDate = (newType) => {
+        if (newType === "day"){
+            var day = moment(this.state.agendaDataChosen).format('DD');
+            var month = moment(this.state.agendaDataChosen).format('MM');
+            month = this.findMonthString(month);            
+            var year = moment(this.state.agendaDataChosen).format('YYYY');
+
+            this.setState({
+                agendaDateText: day + " de " + month + " de " + year
+            });
+        }
+        else if (newType === "week"){
+            var initialDayWeek = moment(this.state.agendaDataChosen).startOf('week').format('DD');
+            var initialMonthWeek = moment(this.state.agendaDataChosen).startOf('week').format('MM');
+            initialMonthWeek = this.findMonthString(initialMonthWeek);
+
+            var finalDayWeek = moment(this.state.agendaDataChosen).endOf('week').format('DD');
+            var finalMonthWeek = moment(this.state.agendaDataChosen).endOf('week').format('MM');
+            finalMonthWeek = this.findMonthString(finalMonthWeek);
+            var finalYearWeek = moment(this.state.agendaDataChosen).endOf('year').format('YYYY');
+
+            this.setState({
+                agendaDateText: initialDayWeek + " de " + initialMonthWeek + " à " + finalDayWeek + " de " + finalMonthWeek + " - " + finalYearWeek
+            });
+        }
+        else if (newType === "month"){
+            var month = moment(this.state.agendaDataChosen).format('MM');
+            month = this.findMonthString(month);            
+            var year = moment(this.state.agendaDataChosen).format('YYYY');
+
+            this.setState({
+                agendaDateText: month + " de " + year
+            });
+        }        
+        else if (newType === "agenda"){
+            var initialDay = moment(this.state.agendaDataChosen).format('DD');
+            var initialMonth = moment(this.state.agendaDataChosen).format('MM');
+            initialMonth = this.findMonthString(initialMonth);
+
+            var finalDay = moment(this.state.agendaDataChosen).add(1, 'months').format('DD');
+            var finalMonth = moment(this.state.agendaDataChosen).add(1, 'months').format('MM');
+            finalMonth = this.findMonthString(finalMonth);
+            var finalYear = moment(this.state.agendaDataChosen).add(1, 'months').format('YYYY');
+
+            this.setState({
+                agendaDateText: initialDay + " de " + initialMonth + " à " + finalDay + " de " + finalMonth + " - " + finalYear
+            });
+        }
+    };
+
+    findMonthString = (month) => {
+        switch(month) {
+            case "01":
+                return "Janeiro";
+            case "02":
+                return "Fevereiro";
+            case "03":
+                return "Março";
+            case "04":
+                return "Abril";
+            case "05":
+                return "Maio";
+            case "06":
+                return "Junho";
+            case "07":
+                return "Julho";
+            case "08":
+                return "Agosto";
+            case "09":
+                return "Setembro";
+            case "10":
+                return "Outubro";
+            case "11":
+                return "Novembro";
+            case "12":
+                return "Dezembro";
+            default:
+                return '-';
+        }
+    };
+    
+    setCRUDInitialTime = (start) => {
+        var hour, minutes = null;
+
+        if (start !== undefined && start !== null){
+            hour = moment(start.toISOString());
+            minutes = start.getMinutes();
+        }
+        else{
+            hour = moment();
+            minutes = moment().toDate().getMinutes();
+        }
+
+        // Minutes
+        if (minutes > 0 && minutes < 16)
+            minutes = 15;
+        else if (minutes > 15 && minutes < 31)
+            minutes = 30;
+        else if (minutes > 30 && minutes < 46)
+            minutes = 45;
+        else if (minutes === 0)
+            minutes = 0;
+        else if (minutes > 45){
+            minutes = 0;
+            hour = hour.add("1", "hours");
+        }
+        hour = hour.toDate().getHours();
+        
+        /* Caso o moment preencha faltando um 0 */
+        hour = hour.toString();
+        minutes = minutes.toString();
+
+        if (hour.length === 1)
+            hour = "0" + hour;
+
+        if (minutes.length === 1)
+            minutes = minutes + "0";
+
+        var initialTime = hour + ":" + minutes;
+        this.initialTime = initialTime;
+    };
+
+    setCRUDFinalTime = (end) => {
+        var hour, minutes = null;
+
+        if (end !== undefined && end !== null){
+            hour = moment(end.toISOString());
+            minutes = end.getMinutes();
+        }
+        else{
+            hour = moment().add("1", "hours");
+            minutes = moment().toDate().getMinutes();
+        }
+        
+        // Minutes
+        if (minutes > 0 && minutes < 16)
+            minutes = 15;
+        else if (minutes > 15 && minutes < 31)
+            minutes = 30;
+        else if (minutes > 30 && minutes < 46)
+            minutes = 45;
+        else if (minutes === 0)
+            minutes = 0;
+        else if (minutes > 45){
+            minutes = 0;
+            hour = hour.add("1", "hours");
+        }
+        hour = hour.toDate().getHours();
+        
+        /* Caso o moment preencha faltando um 0 */
+        hour = hour.toString();
+        minutes = minutes.toString();
+
+        if (hour.length === 1)
+            hour = "0" + hour;
+
+        if (minutes.length === 1)
+            minutes = minutes + "0";
+
+        var finalTime = hour + ":" + minutes;
+        this.finalTime = finalTime;
+    };
+
     // ================ RENDERIZAÇÃO DO CONTEÚDO HTML ===============
 
     render(){
@@ -694,25 +691,25 @@ class Agenda extends React.Component{
                             <div className="div--view">
                                 <Button 
                                     onClick={() => this.changeViewType("day")} 
-                                    className={ this.viewType === "day" ? "selected" : ""}
+                                    className={ this.state.agendaViewType === "day" ? "selected" : ""}
                                 >
                                     Dia
                                 </Button>
                                 <Button 
                                     onClick={() => this.changeViewType("week")} 
-                                    className={ this.viewType === "week" ? "selected" : ""}
+                                    className={ this.state.agendaViewType === "week" ? "selected" : ""}
                                 >
                                     Semana
                                 </Button>
                                 <Button 
                                     onClick={() => this.changeViewType("month")} 
-                                    className={ this.viewType === "month" ? "selected" : ""}
+                                    className={ this.state.agendaViewType === "month" ? "selected" : ""}
                                 >
                                     Mês
                                 </Button>
                                 <Button 
                                     onClick={() => this.changeViewType("agenda")} 
-                                    className={ this.viewType === "agenda" ? "selected" : ""}
+                                    className={ this.state.agendaViewType === "agenda" ? "selected" : ""}
                                 >
                                     Agenda
                                 </Button>
@@ -723,7 +720,7 @@ class Agenda extends React.Component{
                             resizable
 
                             defaultDate={ this.state.agendaDataChosen }
-                            defaultView= { this.viewType }
+                            defaultView= { this.state.agendaViewType }
 
                             localizer={ localizer }
                             style={{ height: 500 }}
