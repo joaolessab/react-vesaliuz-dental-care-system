@@ -52,10 +52,14 @@ class Agenda extends React.Component{
         super(props);
 
         this.state = {
+            agendaPickerMode: "today",            
+            agendaDateText: "Maio de 2020",
+            agendaViewType: "month",      
+            agendaDataChosen: moment().toDate(), // arrumar set state
+
             agendaCRUDMode: "insert",
-            agendaCRUDVisibility: false,
-                 
-            dateChosen: moment().toDate(),
+            agendaCRUDVisibility: false,           
+
             events: [
                 {   
                     id: 1,
@@ -89,9 +93,7 @@ class Agenda extends React.Component{
                     observation: "Lorem Ipsum lorem ipsum",
                     client: 2
                 }
-            ],
-
-            dateStringTitle: "Maio de 2020",
+            ],            
 
             // ================ EVENT MODAL PARAMETERS ===============
 
@@ -236,8 +238,7 @@ class Agenda extends React.Component{
             eventRepeatAfterCheck: false
         };
 
-        /* Configurações da Agenda */
-        this.whatDate = "today";
+        /* Configurações da Agenda */        
         this.viewType = "month";
     }
 
@@ -245,50 +246,49 @@ class Agenda extends React.Component{
         //Day
         if (this.viewType === "day"){
             if (whatDate === "next")
-                this.state.dateChosen = moment(this.state.dateChosen).add(1, 'days').toDate();
+                this.state.agendaDataChosen = moment(this.state.agendaDataChosen).add(1, 'days').toDate();
             if (whatDate === "today")
-                this.state.dateChosen = moment().toDate();
+                this.state.agendaDataChosen = moment().toDate();
             if (whatDate === "previous")
-                this.state.dateChosen = moment(this.state.dateChosen).subtract(1, 'days').toDate();
+                this.state.agendaDataChosen = moment(this.state.agendaDataChosen).subtract(1, 'days').toDate();
             
             this.findLiteralDate("day");
         }
         //Week
         else if (this.viewType === "week"){
             if (whatDate === "next")
-                this.state.dateChosen = moment(this.state.dateChosen).add(1, 'weeks').toDate();
+                this.state.agendaDataChosen = moment(this.state.agendaDataChosen).add(1, 'weeks').toDate();
             if (whatDate === "today")
-                this.state.dateChosen = moment().toDate();
+                this.state.agendaDataChosen = moment().toDate();
             if (whatDate === "previous")
-                this.state.dateChosen = moment(this.state.dateChosen).subtract(1, 'weeks').toDate();
+                this.state.agendaDataChosen = moment(this.state.agendaDataChosen).subtract(1, 'weeks').toDate();
             
             this.findLiteralDate("week");
         }
         //Month
         else if (this.viewType === "month"){
             if (whatDate === "next")
-                this.state.dateChosen = moment(this.state.dateChosen).add(1, 'months').toDate();
+                this.state.agendaDataChosen = moment(this.state.agendaDataChosen).add(1, 'months').toDate();
             if (whatDate === "today")
-                this.state.dateChosen = moment().toDate();
+                this.state.agendaDataChosen = moment().toDate();
             if (whatDate === "previous")
-                this.state.dateChosen = moment(this.state.dateChosen).subtract(1, 'months').toDate();
+                this.state.agendaDataChosen = moment(this.state.agendaDataChosen).subtract(1, 'months').toDate();
 
             this.findLiteralDate("month");
         }
         //Agenda
         else if (this.viewType === "agenda"){
             if (whatDate === "next")
-                this.state.dateChosen = moment(this.state.dateChosen).add(1, 'months').toDate();
+                this.state.agendaDataChosen = moment(this.state.agendaDataChosen).add(1, 'months').toDate();
             if (whatDate === "today")
-                this.state.dateChosen = moment().toDate();
+                this.state.agendaDataChosen = moment().toDate();
             if (whatDate === "previous")
-                this.state.dateChosen = moment(this.state.dateChosen).subtract(1, 'months').toDate();
+                this.state.agendaDataChosen = moment(this.state.agendaDataChosen).subtract(1, 'months').toDate();
             
             this.findLiteralDate("agenda");
         }
     
-        this.whatDate = whatDate;
-        this.forceUpdate();
+        this.setState({ agendaPickerMode: whatDate });
     };
 
     changeViewType = (newType) => {
@@ -299,43 +299,51 @@ class Agenda extends React.Component{
 
     findLiteralDate = (newType) => {
         if (newType === "day"){
-            var day = moment(this.state.dateChosen).format('DD');
-            var month = moment(this.state.dateChosen).format('MM');
+            var day = moment(this.state.agendaDataChosen).format('DD');
+            var month = moment(this.state.agendaDataChosen).format('MM');
             month = this.findMonthString(month);            
-            var year = moment(this.state.dateChosen).format('YYYY');
+            var year = moment(this.state.agendaDataChosen).format('YYYY');
 
-            this.state.dateStringTitle = day + " de " + month + " de " + year;
+            this.setState({
+                agendaDateText: day + " de " + month + " de " + year
+            });
         }
         else if (newType === "week"){
-            var initialDayWeek = moment(this.state.dateChosen).startOf('week').format('DD');
-            var initialMonthWeek = moment(this.state.dateChosen).startOf('week').format('MM');
+            var initialDayWeek = moment(this.state.agendaDataChosen).startOf('week').format('DD');
+            var initialMonthWeek = moment(this.state.agendaDataChosen).startOf('week').format('MM');
             initialMonthWeek = this.findMonthString(initialMonthWeek);
 
-            var finalDayWeek = moment(this.state.dateChosen).endOf('week').format('DD');
-            var finalMonthWeek = moment(this.state.dateChosen).endOf('week').format('MM');
+            var finalDayWeek = moment(this.state.agendaDataChosen).endOf('week').format('DD');
+            var finalMonthWeek = moment(this.state.agendaDataChosen).endOf('week').format('MM');
             finalMonthWeek = this.findMonthString(finalMonthWeek);
-            var finalYearWeek = moment(this.state.dateChosen).endOf('year').format('YYYY');
-            
-            this.state.dateStringTitle = initialDayWeek + " de " + initialMonthWeek + " à " + finalDayWeek + " de " + finalMonthWeek + " - " + finalYearWeek;
+            var finalYearWeek = moment(this.state.agendaDataChosen).endOf('year').format('YYYY');
+
+            this.setState({
+                agendaDateText: initialDayWeek + " de " + initialMonthWeek + " à " + finalDayWeek + " de " + finalMonthWeek + " - " + finalYearWeek
+            });
         }
         else if (newType === "month"){
-            var month = moment(this.state.dateChosen).format('MM');
+            var month = moment(this.state.agendaDataChosen).format('MM');
             month = this.findMonthString(month);            
-            var year = moment(this.state.dateChosen).format('YYYY');
+            var year = moment(this.state.agendaDataChosen).format('YYYY');
 
-            this.state.dateStringTitle = month + " de " + year;
+            this.setState({
+                agendaDateText: month + " de " + year
+            });
         }        
         else if (newType === "agenda"){
-            var initialDay = moment(this.state.dateChosen).format('DD');
-            var initialMonth = moment(this.state.dateChosen).format('MM');
+            var initialDay = moment(this.state.agendaDataChosen).format('DD');
+            var initialMonth = moment(this.state.agendaDataChosen).format('MM');
             initialMonth = this.findMonthString(initialMonth);
 
-            var finalDay = moment(this.state.dateChosen).add(1, 'months').format('DD');
-            var finalMonth = moment(this.state.dateChosen).add(1, 'months').format('MM');
+            var finalDay = moment(this.state.agendaDataChosen).add(1, 'months').format('DD');
+            var finalMonth = moment(this.state.agendaDataChosen).add(1, 'months').format('MM');
             finalMonth = this.findMonthString(finalMonth);
-            var finalYear = moment(this.state.dateChosen).add(1, 'months').format('YYYY');
+            var finalYear = moment(this.state.agendaDataChosen).add(1, 'months').format('YYYY');
 
-            this.state.dateStringTitle = initialDay + " de " + initialMonth + " à " + finalDay + " de " + finalMonth + " - " + finalYear;
+            this.setState({
+                agendaDateText: initialDay + " de " + initialMonth + " à " + finalDay + " de " + finalMonth + " - " + finalYear
+            });
         }
     };
 
@@ -647,7 +655,7 @@ class Agenda extends React.Component{
                             <h1>Agenda</h1>
                         </div>
                         <div className="dateTitle">
-                            <p>{ this.state.dateStringTitle }</p>
+                            <p>{ this.state.agendaDateText }</p>
                         </div>
                         <div>
                         </div>
@@ -662,7 +670,7 @@ class Agenda extends React.Component{
                                 </Button>
                                 <Button
                                     onClick={() => this.changeWhatDate("today")}
-                                    className={ this.whatDate === "today" ? "selected" : ""}
+                                    className={ this.state.agendaPickerMode === "today" ? "selected" : ""}
                                 >
                                     Hoje
                                 </Button>
@@ -714,7 +722,7 @@ class Agenda extends React.Component{
                             selectable
                             resizable
 
-                            defaultDate={ this.state.dateChosen }
+                            defaultDate={ this.state.agendaDataChosen }
                             defaultView= { this.viewType }
 
                             localizer={ localizer }
