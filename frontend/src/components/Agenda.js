@@ -244,10 +244,14 @@ class Agenda extends React.Component{
     openCrudModal = (title, start, end, observation) => {
         // Caso seja um evento novo
         if (start === null){
+            this.setEventInitialTime();
+            this.setEventFinalTime();
+
             this.setState({
                 agendaCRUDMode: "insert",
                 eventTitle: "",
-                eventObservation: ""
+                eventObservation: "",
+                agendaCRUDVisibility: true
             });
         }
         // Caso seja uma edição
@@ -255,14 +259,10 @@ class Agenda extends React.Component{
             this.setState({
                 agendaCRUDMode: "edit",
                 eventTitle: title,
-                eventObservation: observation
+                eventObservation: observation,
+                agendaCRUDVisibility: true
             });
         }
-        
-        // Alterar scripts para SET STATE
-        this.setCRUDInitialTime(start);
-        this.setCRUDFinalTime(end);
-        this.setState({ agendaCRUDVisibility: true });
     };
 
     closeCrudModal = () => {
@@ -557,17 +557,11 @@ class Agenda extends React.Component{
         }
     };
     
-    setCRUDInitialTime = (start) => {
+    setEventInitialTime = () => {
         var hour, minutes = null;
 
-        if (start !== undefined && start !== null){
-            hour = moment(start.toISOString());
-            minutes = start.getMinutes();
-        }
-        else{
-            hour = moment();
-            minutes = moment().toDate().getMinutes();
-        }
+        hour = moment();
+        minutes = moment().toDate().getMinutes();
 
         // Minutes
         if (minutes > 0 && minutes < 16)
@@ -595,20 +589,16 @@ class Agenda extends React.Component{
             minutes = minutes + "0";
 
         var initialTime = hour + ":" + minutes;
+
+        //AJUSTAR
         this.initialTime = initialTime;
     };
 
-    setCRUDFinalTime = (end) => {
+    setEventFinalTime = () => {
         var hour, minutes = null;
 
-        if (end !== undefined && end !== null){
-            hour = moment(end.toISOString());
-            minutes = end.getMinutes();
-        }
-        else{
-            hour = moment().add("1", "hours");
-            minutes = moment().toDate().getMinutes();
-        }
+        hour = moment().add("1", "hours");
+        minutes = moment().toDate().getMinutes();
         
         // Minutes
         if (minutes > 0 && minutes < 16)
@@ -623,6 +613,7 @@ class Agenda extends React.Component{
             minutes = 0;
             hour = hour.add("1", "hours");
         }
+        
         hour = hour.toDate().getHours();
         
         /* Caso o moment preencha faltando um 0 */
@@ -636,6 +627,8 @@ class Agenda extends React.Component{
             minutes = minutes + "0";
 
         var finalTime = hour + ":" + minutes;
+
+        //AJUSTAR
         this.finalTime = finalTime;
     };
 
