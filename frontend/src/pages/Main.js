@@ -54,26 +54,24 @@ class Main extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            child: Resume
+            appChosenView: Resume
         };
 
         // Funcao para acessar componentes dinamicos
         this.accessPage = function accessPage (page){
             this.switchButtonSelected(page);
-
+            
             if (page === "Resume")
-                this.setState({child: Resume});
+                this.setState({appChosenView: Resume});
 
             if (page === "Agenda")
-                this.setState({child: Agenda});
+                this.setState({appChosenView: Agenda});
 
             if (page === "Help")
-                this.setState({child: Help});
+                this.setState({appChosenView: Help});
 
             if (page === "News")
-                this.setState({child: News});
-
-            this.forceUpdate();
+                this.setState({appChosenView: News});
         };
 
         // Funcao para limpar selecao de botoes
@@ -202,7 +200,7 @@ class Main extends React.Component{
                         >
                         </button>
                         {/* Dynamic Content - Miolo */}
-                        { React.createElement(this.state.child) }
+                        { React.createElement(this.state.appChosenView) }
                     </div>
                 </div>
                 {/* FINAL DO MAIN */}

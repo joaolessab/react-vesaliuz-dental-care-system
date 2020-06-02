@@ -475,48 +475,50 @@ class Agenda extends React.Component{
     };
 
     findLiteralDate = (newType) => {
+        var day, month, year, initialDayWeek, initialMonthWeek, finalDayWeek, finalMonthWeek, finalYearWeek, initialDay, initialMonth, finalDay, finalMonth, finalYear = null;
+        
         if (newType === "day"){
-            var day = moment(this.state.agendaDataChosen).format('DD');
-            var month = moment(this.state.agendaDataChosen).format('MM');
+            day = moment(this.state.agendaDataChosen).format('DD');
+            month = moment(this.state.agendaDataChosen).format('MM');
             month = this.findMonthString(month);            
-            var year = moment(this.state.agendaDataChosen).format('YYYY');
+            year = moment(this.state.agendaDataChosen).format('YYYY');
 
             this.setState({
                 agendaDateText: day + " de " + month + " de " + year
             });
         }
         else if (newType === "week"){
-            var initialDayWeek = moment(this.state.agendaDataChosen).startOf('week').format('DD');
-            var initialMonthWeek = moment(this.state.agendaDataChosen).startOf('week').format('MM');
+            initialDayWeek = moment(this.state.agendaDataChosen).startOf('week').format('DD');
+            initialMonthWeek = moment(this.state.agendaDataChosen).startOf('week').format('MM');
             initialMonthWeek = this.findMonthString(initialMonthWeek);
 
-            var finalDayWeek = moment(this.state.agendaDataChosen).endOf('week').format('DD');
-            var finalMonthWeek = moment(this.state.agendaDataChosen).endOf('week').format('MM');
+            finalDayWeek = moment(this.state.agendaDataChosen).endOf('week').format('DD');
+            finalMonthWeek = moment(this.state.agendaDataChosen).endOf('week').format('MM');
             finalMonthWeek = this.findMonthString(finalMonthWeek);
-            var finalYearWeek = moment(this.state.agendaDataChosen).endOf('year').format('YYYY');
+            finalYearWeek = moment(this.state.agendaDataChosen).endOf('year').format('YYYY');
 
             this.setState({
                 agendaDateText: initialDayWeek + " de " + initialMonthWeek + " à " + finalDayWeek + " de " + finalMonthWeek + " - " + finalYearWeek
             });
         }
         else if (newType === "month"){
-            var month = moment(this.state.agendaDataChosen).format('MM');
+            month = moment(this.state.agendaDataChosen).format('MM');
             month = this.findMonthString(month);            
-            var year = moment(this.state.agendaDataChosen).format('YYYY');
+            year = moment(this.state.agendaDataChosen).format('YYYY');
 
             this.setState({
                 agendaDateText: month + " de " + year
             });
         }        
         else if (newType === "agenda"){
-            var initialDay = moment(this.state.agendaDataChosen).format('DD');
-            var initialMonth = moment(this.state.agendaDataChosen).format('MM');
+            initialDay = moment(this.state.agendaDataChosen).format('DD');
+            initialMonth = moment(this.state.agendaDataChosen).format('MM');
             initialMonth = this.findMonthString(initialMonth);
 
-            var finalDay = moment(this.state.agendaDataChosen).add(1, 'months').format('DD');
-            var finalMonth = moment(this.state.agendaDataChosen).add(1, 'months').format('MM');
+            finalDay = moment(this.state.agendaDataChosen).add(1, 'months').format('DD');
+            finalMonth = moment(this.state.agendaDataChosen).add(1, 'months').format('MM');
             finalMonth = this.findMonthString(finalMonth);
-            var finalYear = moment(this.state.agendaDataChosen).add(1, 'months').format('YYYY');
+            finalYear = moment(this.state.agendaDataChosen).add(1, 'months').format('YYYY');
 
             this.setState({
                 agendaDateText: initialDay + " de " + initialMonth + " à " + finalDay + " de " + finalMonth + " - " + finalYear
