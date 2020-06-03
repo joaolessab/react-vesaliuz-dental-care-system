@@ -243,13 +243,18 @@ class Agenda extends React.Component{
 
     openCrudModal = (title, start, end, observation) => {
         // Caso seja um evento novo
-        if (start === null){
+        if (start === null || start == undefined){
             this.setEventInitialTime();
             this.setEventFinalTime();
 
             this.setState({
                 agendaCRUDMode: "insert",
                 eventTitle: "",
+                eventInitialDate: moment().toDate(),
+                eventFinalDate: moment().add(1, "days").toDate(),
+                eventAllDayCheck: false,
+                eventRepeatCheck: false,
+                eventClientListValue: 0,
                 eventObservation: "",
                 agendaCRUDVisibility: true
             });
@@ -590,8 +595,7 @@ class Agenda extends React.Component{
 
         var initialTime = hour + ":" + minutes;
 
-        //AJUSTAR
-        this.initialTime = initialTime;
+        this.setState({ eventInitialTime : initialTime });
     };
 
     setEventFinalTime = () => {
@@ -628,8 +632,7 @@ class Agenda extends React.Component{
 
         var finalTime = hour + ":" + minutes;
 
-        //AJUSTAR
-        this.finalTime = finalTime;
+        this.setState({ eventFinalTime : finalTime });
     };
 
     // ================ RENDERIZAÇÃO DO CONTEÚDO HTML ===============
