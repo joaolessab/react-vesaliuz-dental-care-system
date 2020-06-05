@@ -63,35 +63,68 @@ class Agenda extends React.Component{
             events: [
                 {   
                     id: 1,
-                    title: "Teste do João",
+                    title: "Clareamento do Ronaldo",
                     start: moment().toDate(),
                     end: moment().add(1, "days").toDate(),
+                    client: 4,
                     observation: "Lorem Ipsum lorem ipsum",
-                    client: 4
+                    isAllDay: false,
+                    repeatOptions: {
+                        enabled: false
+                    }
                 },
                 {
                     id: 2,
                     title: "Teste do Jones",
                     start: moment().add(1, "weeks").toDate(),
                     end: moment().add(1, "weeks").add(2, "hours").toDate(),
+                    client: 3,
                     observation: "Lorem Ipsum lorem ipsum",
-                    client: 3
+                    isAllDay: false,
+                    repeatOptions: {
+                        enabled: true,
+                        repeatMode: 1,
+                        repeatEach: 3,
+                        repeatEndMode: {
+                            never: true
+                        }
+                    }
                 },
                 {
                     id: 3,
                     title: "Teste do Cleiton",
                     start: moment().add(1, "weeks").add(2, "days").toDate(),
                     end: moment().add(1, "weeks").add(2, "days").add(2, "hours").toDate(),
+                    client: 3,
                     observation: "Lorem Ipsum lorem ipsum",
-                    client: 1
+                    isAllDay: false,
+                    repeatOptions: {
+                        enabled: true,
+                        repeatMode: 2,
+                        repeatEach: 1,
+                        repeatEndMode: {
+                            in: true,
+                            inDateValue: moment().add(1, "weeks").add(2, "months").toDate()
+                        }
+                    }
                 },
                 {
                     id: 4,
                     title: "Teste do Lessa",
                     start: moment().add(1, "months").toDate(),
                     end: moment().add(1, "months").toDate(),
+                    client: 3,
                     observation: "Lorem Ipsum lorem ipsum",
-                    client: 2
+                    isAllDay: false,
+                    repeatOptions: {
+                        enabled: true,
+                        repeatMode: 2,
+                        repeatEach: 1,
+                        repeatEndMode: {
+                            after: true,
+                            afterValue: 4
+                        }
+                    }
                 }
             ],            
 
@@ -216,12 +249,12 @@ class Agenda extends React.Component{
             ],
 
             eventRepeatCounterValue: 0,
-            eventRepeatListValue: 0,
-            eventRepeatList: [
+            eventRepeatModeValue: 0,
+            eventRepeatMode: [
                 { option: "Selecione...", id: 0 },
                 { option: "Dia(s)", id: 1 },
-                { option: "Mes(es)", id: 2 },
-                { option: "Semana(s)", id: 3 },
+                { option: "Semana(s)", id: 2 },
+                { option: "Mes(es)", id: 3 },
                 { option: "Ano(s)", id: 4 }
             ],
 
@@ -235,36 +268,66 @@ class Agenda extends React.Component{
 
             eventRepeatNeverCheck: false,
             eventRepeatInCheck: false,
-            eventRepeatAfterCheck: false
+            eventRepeatAfterCheck: false,
+            eventRepeatAfterValue: 0
         };
     };
 
     // ================ AGENDA / CALENDAR EVENTS ===============
 
-    openCrudModal = (title, start, end, observation) => {
+    openCrudModal = (event) => {
         // Caso seja um evento novo
-        if (start === null || start == undefined){
-            this.setEventInitialTime();
-            this.setEventFinalTime();
-
+        if (event === null || event === undefined){
             this.setState({
                 agendaCRUDMode: "insert",
                 eventTitle: "",
+
                 eventInitialDate: moment().toDate(),
                 eventFinalDate: moment().add(1, "days").toDate(),
+                eventInitialTime: this.setEventInitialTime(),
+                eventFinalTime: this.setEventFinalTime(),
+
                 eventAllDayCheck: false,
                 eventRepeatCheck: false,
                 eventClientListValue: 0,
                 eventObservation: "",
+
                 agendaCRUDVisibility: true
             });
         }
         // Caso seja uma edição
         else{
+            debugger
             this.setState({
                 agendaCRUDMode: "edit",
-                eventTitle: title,
-                eventObservation: observation,
+                eventTitle: event.title === undefined || event.title === null ? "" : event.title,
+
+                eventInitialDate: event.start === undefined || event.start === null ? moment().toDate() : event.start,
+                eventFinalDate: event.end === undefined || event.end === null ? moment().toDate() : event.end,
+                eventInitialTime: event.start === undefined || event.start === null ? this.setEventInitialTime() : "",
+                eventFinalTime: event.end === undefined || event.end === null ? this.setEventFinalTime() : "",
+
+                eventAllDayCheck: event.isAllDay === undefined || event.isAllDay === null ? false : event.isAllDay,
+                eventRepeatCheck: event.repeatOptions === undefined || event.repeatOptions === null ? false : event.repeatOptions.enabled,
+                eventClientListValue: event.client === undefined || event.client === null ? 0 : event.client,
+                eventObservation: event.observation === undefined || event.observation === null ? "" : event.observation,
+                
+                eventRepeatCounterValue: event.repeatOptions.repeatEach === undefined || event.repeatOptions.repeatEach === null ? 0 : event.repeatOptions.repeatEach,
+                eventRepeatModeValue: event.repeatOptions.repeatMode === undefined || event.repeatOptions.repeatMode === null ? 0 : event.repeatOptions.repeatMode,
+                /*eventWeekSundayCheck
+                eventWeekMondayCheck
+                eventWeekTuesdayCheck
+                eventWeekWednesdayCheck
+                eventWeekThursdayCheck
+                eventWeekFridayCheck
+                eventWeekSaturdayCheck
+
+                eventRepeatNeverCheck
+                eventRepeatInCheck
+                eventInDateValue
+                eventRepeatAfterCheck
+                eventRepeatAfterValue*/
+
                 agendaCRUDVisibility: true
             });
         }
@@ -274,28 +337,23 @@ class Agenda extends React.Component{
         this.setState({ agendaCRUDVisibility: false });
     };
 
-    onEventResize = (type, { event, start, end, allDay }) => {
+    onEventResize = (event) => {
         debugger
-        this.setState(state => {
-            //debugger
-            state.events[0].start = start;
-            state.events[0].end = end;
-            return { events: state.events };
-        });
+        alert("alerta de confirmação");
     };
 
-    onEventDrop = ({ event, start, end, allDay }) => {
+    onEventDrop = (event) => {
         debugger
-        console.log(start);
+        alert("alerta de confirmação para salvar alteração");
     };
 
     handleEventSelected = (event) => {
-        this.openCrudModal(event.title, event.start, event.end, event.observation);
+        this.openCrudModal(event);
     };
 
     handleSlotSelected = ({ start, end }) => {
-        //Slot em branco
-        this.openCrudModal(null, start, end);
+        var event = {"start": start, "end": end};
+        this.openCrudModal(event);
     };
 
     // ================ ONCHANGE EVENTS ===============
@@ -329,21 +387,23 @@ class Agenda extends React.Component{
     };
     
     changeRepeatCheck = (e) => {
-        this.setState({ 
+        this.setState({            
             eventRepeatCheck: e.target.checked,
-            eventRepeatListValue: 0,
             eventRepeatCounterValue: 0,
-            eventRepeatNeverCheck: true,
-            eventRepeatInCheck: false,
-            eventRepeatAfterCheck: false,
-            // Dias da semana
+            eventRepeatModeValue: 0,
+
             eventWeekSundayCheck: false,
             eventWeekMondayCheck: false,
             eventWeekTuesdayCheck: false,
             eventWeekWednesdayCheck: false,
             eventWeekThursdayCheck: false,
             eventWeekFridayCheck: false,
-            eventWeekSaturdayCheck: false
+            eventWeekSaturdayCheck: false,
+
+            eventRepeatNeverCheck: true,
+            eventRepeatInCheck: false,
+            eventRepeatAfterCheck: false,
+            eventRepeatAfterValue: 0
         });
     };
 
@@ -360,7 +420,7 @@ class Agenda extends React.Component{
     };
 
     changeRepeatMode = (e) => {
-        this.setState({ eventRepeatListValue: e.target.value });
+        this.setState({ eventRepeatModeValue: e.target.value });
     };
 
     changeInDate = (date) => {
@@ -420,6 +480,12 @@ class Agenda extends React.Component{
 
         this.setState({ 
             eventRepeatAfterCheck: e.target.checked
+        });
+    };
+
+    changeEventRepeatAfterValue = (e) => {
+        this.setState({ 
+            eventRepeatAfterValue: parseInt(e.target.value)
         });
     };
 
@@ -594,8 +660,7 @@ class Agenda extends React.Component{
             minutes = minutes + "0";
 
         var initialTime = hour + ":" + minutes;
-
-        this.setState({ eventInitialTime : initialTime });
+        return initialTime;
     };
 
     setEventFinalTime = () => {
@@ -631,8 +696,7 @@ class Agenda extends React.Component{
             minutes = minutes + "0";
 
         var finalTime = hour + ":" + minutes;
-
-        this.setState({ eventFinalTime : finalTime });
+        return finalTime;
     };
 
     // ================ RENDERIZAÇÃO DO CONTEÚDO HTML ===============
@@ -729,7 +793,7 @@ class Agenda extends React.Component{
                             events={ this.state.events }
                             onEventDrop={ this.onEventDrop }
                             onEventResize={ this.onEventResize }
-                            onSelectEvent={ event => this.handleEventSelected(event) }
+                            onSelectEvent={ appointments => this.handleEventSelected(appointments) }
                             onSelectSlot={ this.handleSlotSelected }
                         />
                     </div>
@@ -902,11 +966,11 @@ class Agenda extends React.Component{
                                             <Select
                                                 labelId="checkbox--repeat-mode"
                                                 id="checkbox--repeat-mode"
-                                                value={ this.state.eventRepeatListValue }
+                                                value={ this.state.eventRepeatModeValue }
                                                 onChange={ this.changeRepeatMode }
                                                 input={<Input />}
                                             >
-                                                { this.state.eventRepeatList.map((repeatItem) => (
+                                                { this.state.eventRepeatMode.map((repeatItem) => (
                                                 <MenuItem key={repeatItem.option} value={repeatItem.id}>
                                                     <ListItemText primary={repeatItem.option} />
                                                 </MenuItem>
@@ -915,7 +979,7 @@ class Agenda extends React.Component{
                                         </div>
 
                                         <div 
-                                            className={ this.state.eventRepeatListValue === 3 ? "div--repeat-week div--repeat-week-visible": "div--repeat-week" }
+                                            className={ this.state.eventRepeatModeValue === 2 ? "div--repeat-week div--repeat-week-visible": "div--repeat-week" }
                                         >
                                             <InputLabel htmlFor="div--repeat-week-days">Repetir nos dias:</InputLabel>
                                             <div className="div--repeat-week-days">
@@ -1021,7 +1085,8 @@ class Agenda extends React.Component{
                                                         id="input--repeat-number"
                                                         type="number"
                                                         disabled = { !this.state.eventRepeatAfterCheck }
-                                                        defaultValue = "0"
+                                                        onChange = { this.changeEventRepeatAfterValue }
+                                                        value = { this.state.eventRepeatAfterValue }
                                                         InputLabelProps={{
                                                             shrink: true,
                                                         }}
@@ -1041,7 +1106,7 @@ class Agenda extends React.Component{
                         <div className="div--agenda-footer">
                             <div className="div--agendaForm-buttonsBar agenda--component">
                                 <Button id="deleteEventButton" 
-                                    className={ this.state.eventRepeatCheck ? "hideComponent": "" }
+                                    className={ this.state.agendaCRUDMode === "insert" ? "hideComponent": "" }
                                 >
                                     Excluir
                                 </Button>
