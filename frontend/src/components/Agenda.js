@@ -63,7 +63,19 @@ class Agenda extends React.Component{
             events: [
                 {   
                     id: 1,
-                    title: "Clareamento do Ronaldo",
+                    title: "Clareamento",
+                    start: moment().toDate(),
+                    end: moment().add(1, "days").toDate(),
+                    client: 4,
+                    observation: "Lorem Ipsum lorem ipsum",
+                    isAllDay: false,
+                    repeatOptions: {
+                        enabled: false
+                    }
+                },
+                {   
+                    id: 2,
+                    title: "Canal Dentário",
                     start: moment().toDate(),
                     end: moment().add(1, "days").toDate(),
                     client: 4,
@@ -74,8 +86,8 @@ class Agenda extends React.Component{
                     }
                 },
                 {
-                    id: 2,
-                    title: "Teste do Jones",
+                    id: 3,
+                    title: "Implantação de Porcelanas",
                     start: moment().add(1, "weeks").toDate(),
                     end: moment().add(1, "weeks").add(2, "hours").toDate(),
                     client: 3,
@@ -91,8 +103,8 @@ class Agenda extends React.Component{
                     }
                 },
                 {
-                    id: 3,
-                    title: "Teste do Cleiton",
+                    id: 4,
+                    title: "Molde de Aparelho",
                     start: moment().add(1, "weeks").add(2, "days").toDate(),
                     end: moment().add(1, "weeks").add(2, "days").add(2, "hours").toDate(),
                     client: 3,
@@ -102,6 +114,15 @@ class Agenda extends React.Component{
                         enabled: true,
                         repeatMode: 2,
                         repeatEach: 1,
+                        repeatModeWeek: {
+                            sunday: true,
+                            monday: true,
+                            tuesday: false,
+                            wednesday: true,
+                            thursday: false,
+                            friday: false,
+                            saturday: true
+                        },
                         repeatEndMode: {
                             in: true,
                             inDateValue: moment().add(1, "weeks").add(2, "months").toDate()
@@ -109,16 +130,16 @@ class Agenda extends React.Component{
                     }
                 },
                 {
-                    id: 4,
-                    title: "Teste do Lessa",
-                    start: moment().add(1, "months").toDate(),
-                    end: moment().add(1, "months").toDate(),
+                    id: 5,
+                    title: "Remoção de Tártaro",
+                    start: moment().add(5, "days").toDate(),
+                    end: moment().add(6, "days").toDate(),
                     client: 3,
                     observation: "Lorem Ipsum lorem ipsum",
                     isAllDay: false,
                     repeatOptions: {
                         enabled: true,
-                        repeatMode: 2,
+                        repeatMode: 3,
                         repeatEach: 1,
                         repeatEndMode: {
                             after: true,
@@ -297,40 +318,100 @@ class Agenda extends React.Component{
         }
         // Caso seja uma edição
         else{
-            debugger
+            //loadar initialTime e finalTime caso haja
             this.setState({
                 agendaCRUDMode: "edit",
                 eventTitle: event.title === undefined || event.title === null ? "" : event.title,
 
                 eventInitialDate: event.start === undefined || event.start === null ? moment().toDate() : event.start,
                 eventFinalDate: event.end === undefined || event.end === null ? moment().toDate() : event.end,
-                eventInitialTime: event.start === undefined || event.start === null ? this.setEventInitialTime() : "",
-                eventFinalTime: event.end === undefined || event.end === null ? this.setEventFinalTime() : "",
+                eventInitialTime: event.start === undefined || event.start === null ? this.setEventInitialTime() : this.readAlreadySetTime(event.start),
+                eventFinalTime: event.end === undefined || event.end === null ? this.setEventFinalTime() : this.readAlreadySetTime(event.end),
 
                 eventAllDayCheck: event.isAllDay === undefined || event.isAllDay === null ? false : event.isAllDay,
                 eventRepeatCheck: event.repeatOptions === undefined || event.repeatOptions === null ? false : event.repeatOptions.enabled,
                 eventClientListValue: event.client === undefined || event.client === null ? 0 : event.client,
                 eventObservation: event.observation === undefined || event.observation === null ? "" : event.observation,
                 
-                eventRepeatCounterValue: event.repeatOptions.repeatEach === undefined || event.repeatOptions.repeatEach === null ? 0 : event.repeatOptions.repeatEach,
-                eventRepeatModeValue: event.repeatOptions.repeatMode === undefined || event.repeatOptions.repeatMode === null ? 0 : event.repeatOptions.repeatMode,
-                /*eventWeekSundayCheck
-                eventWeekMondayCheck
-                eventWeekTuesdayCheck
-                eventWeekWednesdayCheck
-                eventWeekThursdayCheck
-                eventWeekFridayCheck
-                eventWeekSaturdayCheck
+                eventRepeatCounterValue: event.repeatOptions === undefined || event.repeatOptions === null ? 0 : event.repeatOptions.repeatEach,
+                eventRepeatModeValue: event.repeatOptions === undefined || event.repeatOptions === null ? 0 : event.repeatOptions.repeatMode,
+                
+                eventWeekSundayCheck: this.findRepeatModeWeek('sunday', event),
+                eventWeekMondayCheck: this.findRepeatModeWeek('monday', event),
+                eventWeekTuesdayCheck: this.findRepeatModeWeek('tuesday', event),
+                eventWeekWednesdayCheck: this.findRepeatModeWeek('wednesday', event),
+                eventWeekThursdayCheck: this.findRepeatModeWeek('thursday', event),
+                eventWeekFridayCheck: this.findRepeatModeWeek('friday', event),
+                eventWeekSaturdayCheck: this.findRepeatModeWeek('saturday', event),
 
-                eventRepeatNeverCheck
-                eventRepeatInCheck
-                eventInDateValue
-                eventRepeatAfterCheck
-                eventRepeatAfterValue*/
+                eventRepeatNeverCheck: this.findRepeatEndOptionFromEvent('never', event),
+                eventRepeatInCheck: this.findRepeatEndOptionFromEvent('in', event),
+                eventInDateValue: this.findRepeatEndOptionFromEvent('inDateValue', event),
+                eventRepeatAfterCheck: this.findRepeatEndOptionFromEvent('after', event),
+                eventRepeatAfterValue: this.findRepeatEndOptionFromEvent('afterValue', event),
 
                 agendaCRUDVisibility: true
             });
         }
+    };
+
+    findRepeatEndOptionFromEvent = (type, event) => {
+        if (event.repeatOptions === undefined || event.repeatOptions === null){
+            if (type === "never") return false;
+            if (type === "in") return false;
+            if (type === "inDateValue") return moment().toDate();
+            if (type === "after") return false;
+            if (type === "afterValue") return 0;
+        }
+        
+        if (event.repeatOptions.repeatEndMode === undefined || event.repeatOptions.repeatEndMode === null)
+            return false;
+        if (type === "never"){
+            if (event.repeatOptions.repeatEndMode.never === undefined || event.repeatOptions.repeatEndMode.never === null)
+                return false;
+            return event.repeatOptions.repeatEndMode.never;
+        }
+        if (type === "in"){
+            if (event.repeatOptions.repeatEndMode.in === undefined || event.repeatOptions.repeatEndMode.in === null)
+                return false;
+            return event.repeatOptions.repeatEndMode.in;
+        }
+        if (type === "inDateValue"){
+            if (event.repeatOptions.repeatEndMode.in === undefined || event.repeatOptions.repeatEndMode.in === null)
+                return moment().toDate();
+            return event.repeatOptions.repeatEndMode.inDateValue;
+        }
+        if (type === "after"){
+            if (event.repeatOptions.repeatEndMode.after === undefined || event.repeatOptions.repeatEndMode.after === null)
+                return false;
+            return event.repeatOptions.repeatEndMode.after;
+        }
+        if (type === "afterValue"){
+            if (event.repeatOptions.repeatEndMode.after === undefined || event.repeatOptions.repeatEndMode.after === null)
+                return 0;
+            return event.repeatOptions.repeatEndMode.afterValue;
+        }
+    };
+
+    findRepeatModeWeek = (day, event) => {
+        if (event.repeatOptions === undefined || event.repeatOptions === null)
+            return false;        
+        if (event.repeatOptions.repeatModeWeek === undefined || event.repeatOptions.repeatModeWeek === null)
+            return false;
+        if (day === "sunday")
+            return event.repeatOptions.repeatModeWeek.sunday;
+        if (day === "monday")
+            return event.repeatOptions.repeatModeWeek.monday;
+        if (day === "tuesday")
+            return event.repeatOptions.repeatModeWeek.tuesday;
+        if (day === "wednesday")
+            return event.repeatOptions.repeatModeWeek.wednesday;
+        if (day === "thursday")
+            return event.repeatOptions.repeatModeWeek.thursday;
+        if (day === "friday")
+            return event.repeatOptions.repeatModeWeek.friday;
+        if (day === "saturday")
+            return event.repeatOptions.repeatModeWeek.saturday;
     };
 
     closeCrudModal = () => {
@@ -626,6 +707,37 @@ class Agenda extends React.Component{
             default:
                 return '-';
         }
+    };
+
+    readAlreadySetTime = (timeGet) => {
+        var hour = timeGet.getHours().toString();
+        var minutes = timeGet.getMinutes().toString();
+
+        // Verificação se não existe evento
+        if (minutes !== 0 && minutes !== 15 && minutes !== 30 && minutes !== 45){
+            if (minutes > 0 && minutes < 16)
+                minutes = 15;
+            else if (minutes > 15 && minutes < 31)
+                minutes = 30;
+            else if (minutes > 30 && minutes < 46)
+                minutes = 45;
+            else if (minutes === 0)
+                minutes = 0;
+            else if (minutes > 45){
+                minutes = 0;
+                hour = hour.add("1", "hours");
+            }
+        }
+
+        // Tratamento Final das horas
+        if (hour.length === 1)
+            hour = "0" + hour;
+
+        if (minutes.length === 1)
+            minutes = minutes + "0";
+
+        var theTime = hour + ":" + minutes;
+        return theTime;
     };
     
     setEventInitialTime = () => {
