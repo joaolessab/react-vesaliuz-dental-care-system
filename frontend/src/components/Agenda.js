@@ -59,7 +59,7 @@ class Agenda extends React.Component{
             agendaDataChosen: moment().toDate(), // arrumar set state
 
             agendaCRUDMode: "insert",
-            agendaCRUDVisibility: false,           
+            agendaCRUDVisibility: false,          
 
             events: [
                 {   
@@ -291,7 +291,9 @@ class Agenda extends React.Component{
             eventRepeatNeverCheck: false,
             eventRepeatInCheck: false,
             eventRepeatAfterCheck: false,
-            eventRepeatAfterValue: 0
+            eventRepeatAfterValue: 0,
+
+            eventIdSelected: 0
         };
     };
 
@@ -322,6 +324,7 @@ class Agenda extends React.Component{
             //loadar initialTime e finalTime caso haja
             this.setState({
                 agendaCRUDMode: "edit",
+                eventIdSelected: event.id === undefined || event.id === null ? 0 : event.id,
                 eventTitle: event.title === undefined || event.title === null ? "" : event.title,
 
                 eventInitialDate: event.start === undefined || event.start === null ? moment().toDate() : event.start,
@@ -422,6 +425,24 @@ class Agenda extends React.Component{
     onEventResize = (event) => {
         debugger
         alert("alerta de confirmação");
+    };
+
+    deleteEvent = () => {
+        var currentEvents = Object.assign([], this.state.events, {});
+        var idSelected = this.state.eventIdSelected;
+        
+        for (var i = 0; i < currentEvents.length; i++){
+            if (currentEvents[i].id === idSelected)
+                currentEvents.splice(i);
+        }
+
+        // Salvando     
+        this.setState({
+            events: currentEvents,
+            agendaCRUDVisibility: false
+        });
+
+        cogoToast.success('Seu evento foi excluído.', { heading: 'Sucesso!', position: 'top-center', hideAfter: 3 });
     };
 
     saveNewEvent = () => {
@@ -755,8 +776,7 @@ class Agenda extends React.Component{
     };
 
     readAlreadySetTime = (timeGet) => {
-        var hour = timeGet.getHours().toString();
-        var minutes = timeGet.getMinutes().toString();
+        var minutes = timeGet.getMinutes();
 
         // Verificação se não existe evento
         if (minutes !== 0 && minutes !== 15 && minutes !== 30 && minutes !== 45){
@@ -770,9 +790,12 @@ class Agenda extends React.Component{
                 minutes = 0;
             else if (minutes > 45){
                 minutes = 0;
-                hour = hour.add("1", "hours");
+                var hour = timeGet.add("1", "hours");
             }
         }
+
+        hour = hour.toString();
+        minutes = minutes.toString();
 
         // Tratamento Final das horas
         if (hour.length === 1)
@@ -1264,6 +1287,7 @@ class Agenda extends React.Component{
                             <div className="div--agendaForm-buttonsBar agenda--component">
                                 <Button id="deleteEventButton" 
                                     className={ this.state.agendaCRUDMode === "insert" ? "hideComponent": "" }
+                                    onClick={ this.deleteEvent }
                                 >
                                     Excluir
                                 </Button>
