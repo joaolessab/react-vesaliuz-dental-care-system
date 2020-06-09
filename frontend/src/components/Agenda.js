@@ -304,7 +304,7 @@ class Agenda extends React.Component{
                 eventTitle: "",
 
                 eventInitialDate: moment().toDate(),
-                eventFinalDate: moment().add(1, "days").toDate(),
+                eventFinalDate: moment().toDate(),
                 eventInitialTime: this.setEventInitialTime(),
                 eventFinalTime: this.setEventFinalTime(),
 
@@ -423,6 +423,47 @@ class Agenda extends React.Component{
         alert("alerta de confirmação");
     };
 
+    saveNewEvent = () => {
+        var json = {
+            "id": this.state.events.length + 1,
+            "title": this.state.eventTitle,
+            "start": this.state.eventInitialDate,
+            "end": this.state.eventFinalDate,
+            "client": this.state.eventClientListValue,
+            "observation": this.state.eventObservation,
+            "isAllDay": this.state.eventAllDayCheck,
+            "repeatOptions": {
+                enabled: this.state.eventRepeatCheck,
+                repeatMode: this.state.eventRepeatModeValue,
+                repeatEach: this.state.eventRepeatCounterValue,
+                repeatModeWeek: {
+                    sunday: this.state.eventWeekSundayCheck,
+                    monday: this.state.eventWeekMondayCheck,
+                    tuesday: this.state.eventWeekTuesdayCheck,
+                    wednesday: this.state.eventWeekWednesdayCheck,
+                    thursday: this.state.eventWeekThursdayCheck,
+                    friday: this.state.eventWeekFridayCheck,
+                    saturday: this.state.eventWeekSaturdayCheck
+                },
+                repeatEndMode: {
+                    never: this.state.eventRepeatNeverCheck,
+                    in: this.state.eventRepeatInCheck,
+                    inDateValue: this.state.eventInDateValue,
+                    after: this.state.eventRepeatAfterCheck,
+                    afterValue: this.state.eventRepeatAfterValue
+                }
+            }
+        };
+        
+        // Salvando
+        var newEvents = Object.assign([], this.state.events, {});
+        newEvents.push(json);        
+        this.setState({
+            events: newEvents,
+            agendaCRUDVisibility: false
+        });
+    };
+    
     onEventDrop = (event) => {
         debugger
         alert("alerta de confirmação para salvar alteração");
@@ -462,6 +503,7 @@ class Agenda extends React.Component{
     changeAllDayCheck = (e) => {
         this.setState({ 
             eventAllDayCheck: e.target.checked,
+            eventFinalDate: this.state.eventInitialDate,
             eventInitialTime: "00:00",
             eventFinalTime: "00:00"
         });
@@ -1223,7 +1265,7 @@ class Agenda extends React.Component{
                                     Excluir
                                 </Button>
                                 <Button id="cancelEventButton" onClick={ this.closeCrudModal }>Cancelar</Button>
-                                <Button id="saveEventButton">Salvar</Button>
+                                <Button id="saveEventButton" onClick = { this.saveNewEvent } >Salvar</Button>
                             </div>
                         </div>
                     </div>
