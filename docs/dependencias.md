@@ -1,11 +1,11 @@
 ## MATERIAL DESIGN FOR REACT
 https://material-ui.com/getting-started/installation/
 
-## CALENDÁRIO
-https://devexpress.github.io/devextreme-reactive/react/scheduler/docs/guides/getting-started/
+## TOAST
+https://github.com/Cogoport/cogo-toast
 
-### Agenda escolhida:
-https://devexpress.github.io/devextreme-reactive/react/scheduler/docs/guides/resources/
-
-## Segunda opção da agenda:
+## CALENDARIO ALTERNATIVO
 http://jquense.github.io/react-big-calendar/examples/index.html
+
+## CALENDÁRIO ALTERNATIVO
+https://devexpress.github.io/devextreme-reactive/react/scheduler/docs/guides/getting-started/
