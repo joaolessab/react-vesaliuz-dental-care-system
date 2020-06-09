@@ -25,6 +25,7 @@ import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import InputLabel from "@material-ui/core/InputLabel";
+import cogoToast from 'cogo-toast';
 
 // ================ ESTILOS ===============
 
@@ -462,6 +463,8 @@ class Agenda extends React.Component{
             events: newEvents,
             agendaCRUDVisibility: false
         });
+
+        cogoToast.success('Seu evento foi adicionado.', { heading: 'Sucesso!', position: 'top-center', hideAfter: 3 });
     };
     
     onEventDrop = (event) => {

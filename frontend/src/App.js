@@ -6,6 +6,7 @@ import './assets/css/Responsive/App--Responsive.css';
 
 import './assets/css/Icons.css';
 import './assets/css/Fonts.css';
+import './assets/css/CogoToast.css';
 
 //Importando componentes
 import Routes from './routes';
