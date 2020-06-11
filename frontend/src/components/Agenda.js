@@ -328,7 +328,7 @@ class Agenda extends React.Component{
             //loadar initialTime e finalTime caso haja
             this.setState({
                 agendaCRUDMode: "edit",
-                eventIdSelected: event.id === undefined || event.id === null ? 0 : event.id,
+                eventIdSelected: event.id === undefined || event.id === null ? "erro" : event.id,
                 eventTitle: event.title === undefined || event.title === null ? "" : event.title,
 
                 eventInitialDate: event.start === undefined || event.start === null ? moment().toDate() : event.start,
@@ -341,8 +341,8 @@ class Agenda extends React.Component{
                 eventClientListValue: event.client === undefined || event.client === null ? 0 : event.client,
                 eventObservation: event.observation === undefined || event.observation === null ? "" : event.observation,
                 
-                eventRepeatCounterValue: event.repeatOptions === undefined || event.repeatOptions === null ? 0 : event.repeatOptions.repeatEach,
-                eventRepeatModeValue: event.repeatOptions === undefined || event.repeatOptions === null ? 0 : event.repeatOptions.repeatMode,
+                eventRepeatCounterValue: event.repeatOptions === undefined || event.repeatOptions === null ? 0 : this.findRepeatOptionsFromEvent("each", event.repeatOptions),
+                eventRepeatModeValue: event.repeatOptions === undefined || event.repeatOptions === null ? 0 : this.findRepeatOptionsFromEvent("mode", event.repeatOptions),
                 
                 eventWeekSundayCheck: this.findRepeatModeWeek('sunday', event),
                 eventWeekMondayCheck: this.findRepeatModeWeek('monday', event),
@@ -363,6 +363,26 @@ class Agenda extends React.Component{
         }
     };
 
+    findRepeatOptionsFromEvent = (type, repeatOptions) => {
+        if (type === "each"){
+            if (repeatOptions.repeatEach === undefined || repeatOptions.repeatEach === null){
+                return 0;
+            }
+            else{
+                return repeatOptions.repeatEach;
+            }
+        }
+
+        if (type === "mode"){
+            if (repeatOptions.repeatMode === undefined || repeatOptions.repeatMode === null){
+                return 0;
+            }
+            else{
+                return repeatOptions.repeatMode;
+            }
+        }
+    };
+
     findRepeatEndOptionFromEvent = (type, event) => {
         if (event.repeatOptions === undefined || event.repeatOptions === null){
             if (type === "never") return false;
@@ -372,8 +392,11 @@ class Agenda extends React.Component{
             if (type === "afterValue") return 0;
         }
         
-        if (event.repeatOptions.repeatEndMode === undefined || event.repeatOptions.repeatEndMode === null)
+        if (event.repeatOptions.repeatEndMode === undefined || event.repeatOptions.repeatEndMode === null){
+            if (type === "inDateValue")
+                return moment().toDate();
             return false;
+        }
         if (type === "never"){
             if (event.repeatOptions.repeatEndMode.never === undefined || event.repeatOptions.repeatEndMode.never === null)
                 return false;
@@ -385,7 +408,7 @@ class Agenda extends React.Component{
             return event.repeatOptions.repeatEndMode.in;
         }
         if (type === "inDateValue"){
-            if (event.repeatOptions.repeatEndMode.in === undefined || event.repeatOptions.repeatEndMode.in === null)
+            if (event.repeatOptions.repeatEndMode.inDateValue === undefined || event.repeatOptions.repeatEndMode.inDateValue === null)
                 return moment().toDate();
             return event.repeatOptions.repeatEndMode.inDateValue;
         }
@@ -432,17 +455,17 @@ class Agenda extends React.Component{
     };
 
     deleteEvent = () => {
-        var currentEvents = Object.assign([], this.state.events, {});
+        var newEvents = [];
         var idSelected = this.state.eventIdSelected;
-        
-        for (var i = 0; i < currentEvents.length; i++){
-            if (currentEvents[i].id === idSelected)
-                currentEvents.splice(i);
+
+        for (var i = 0; i < this.state.events.length; i++){
+            if (this.state.events[i].id !== idSelected)
+                newEvents.push(this.state.events[i]);
         }
 
         // Salvando     
         this.setState({
-            events: currentEvents,
+            events: newEvents,
             agendaCRUDVisibility: false
         });
 
@@ -797,6 +820,7 @@ class Agenda extends React.Component{
                 minutes = 0;
                 hour = moment(timeGet);
                 hour.add("1", "hours");
+                hour = hour._d.getHours();
             }
         }
 
