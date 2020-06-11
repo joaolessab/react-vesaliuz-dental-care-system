@@ -781,6 +781,7 @@ class Agenda extends React.Component{
 
     readAlreadySetTime = (timeGet) => {
         var minutes = timeGet.getMinutes();
+        var hour = timeGet.getHours();
 
         // Verificação se não existe evento
         if (minutes !== 0 && minutes !== 15 && minutes !== 30 && minutes !== 45){
@@ -794,11 +795,12 @@ class Agenda extends React.Component{
                 minutes = 0;
             else if (minutes > 45){
                 minutes = 0;
-                timeGet.add("1", "hours");
+                hour = moment(timeGet);
+                hour.add("1", "hours");
             }
         }
 
-        var hour = timeGet.getHours().toString()
+        hour = hour.toString();
         minutes = minutes.toString();
 
         // Tratamento Final das horas
