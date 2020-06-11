@@ -472,9 +472,17 @@ class Agenda extends React.Component{
         cogoToast.success('Seu evento foi excluído.', { heading: 'Sucesso!', position: 'top-center', hideAfter: 3 });
     };
 
-    saveNewEvent = () => {
+    saveEvent = () => {
+        var idCreated = null;
+        if (this.state.agendaCRUDMode === "insert"){
+            idCreated = this.state.events.length + 1;
+        }
+        else{
+            idCreated = this.state.eventIdSelected;
+        }
+
         var json = {
-            "id": this.state.events.length + 1,
+            "id": idCreated,
             "title": this.state.eventTitle,
             "start": this.state.eventInitialDate,
             "end": this.state.eventFinalDate,
@@ -504,15 +512,34 @@ class Agenda extends React.Component{
             }
         };
         
-        // Salvando
-        var newEvents = Object.assign([], this.state.events, {});
-        newEvents.push(json);        
-        this.setState({
-            events: newEvents,
-            agendaCRUDVisibility: false
-        });
+        // Salvando novo
+        if (this.state.agendaCRUDMode === "insert"){
+            debugger
+            var newEvents = Object.assign([], this.state.events, {});
+            newEvents.push(json);        
+            this.setState({
+                events: newEvents,
+                agendaCRUDVisibility: false
+            });
 
-        cogoToast.success('Seu evento foi adicionado.', { heading: 'Sucesso!', position: 'top-center', hideAfter: 3 });
+            cogoToast.success('Seu evento foi adicionado.', { heading: 'Sucesso!', position: 'top-center', hideAfter: 3 });
+        }
+        // Editando existente
+        else if (this.state.agendaCRUDMode === "edit"){
+            var newEvents = Object.assign([], this.state.events, {});
+
+            for (var i = 0; i < newEvents.length; i++){
+                if (newEvents[i].id === this.state.eventIdSelected)
+                    newEvents[i] = json;
+            }
+
+            this.setState({
+                events: newEvents,
+                agendaCRUDVisibility: false
+            });
+
+            cogoToast.success('Seu evento foi editado.', { heading: 'Sucesso!', position: 'top-center', hideAfter: 3 });
+        }
     };
     
     onEventDrop = (event) => {
@@ -1322,7 +1349,7 @@ class Agenda extends React.Component{
                                     Excluir
                                 </Button>
                                 <Button id="cancelEventButton" onClick={ this.closeCrudModal }>Cancelar</Button>
-                                <Button id="saveEventButton" onClick = { this.saveNewEvent } >Salvar</Button>
+                                <Button id="saveEventButton" onClick = { this.saveEvent } >Salvar</Button>
                             </div>
                         </div>
                     </div>
