@@ -52,9 +52,13 @@ class Agenda extends React.Component{
     constructor(props){         
         super(props);
 
+        var starterMonth = moment().format('MM');
+        starterMonth = this.findMonthString(starterMonth);            
+        var starterYear = moment().format('YYYY');
+
         this.state = {
             agendaPickerMode: "today",            
-            agendaDateText: "Maio de 2020",
+            agendaDateText: starterMonth + " de " + starterYear,
             agendaViewType: "month",      
             agendaDataChosen: moment().toDate(), // arrumar set state
 
@@ -790,11 +794,11 @@ class Agenda extends React.Component{
                 minutes = 0;
             else if (minutes > 45){
                 minutes = 0;
-                var hour = timeGet.add("1", "hours");
+                timeGet.add("1", "hours");
             }
         }
 
-        hour = hour.toString();
+        var hour = timeGet.getHours().toString()
         minutes = minutes.toString();
 
         // Tratamento Final das horas
