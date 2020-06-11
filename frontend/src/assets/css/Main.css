@@ -98,12 +98,17 @@
 }
 .container--blackboard-main .container--content-main .container--sidebar .sidebar{
     flex: 1 1;
-    overflow: auto;
     text-align: center;
     margin-top: 10px;
     margin-bottom: 10px;
     margin-right: 5px;
     overflow-x: hidden;
+    overflow: hidden;
+    margin-left: -4px;
+}
+.container--blackboard-main .container--content-main .container--sidebar .sidebar:hover{
+    overflow: auto;
+    margin-left: 0px;
 }
 .container--blackboard-main .container--content-main .container--sidebar .sidebar button{
     height: 50px !important;
