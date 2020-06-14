@@ -516,7 +516,7 @@ class Agenda extends React.Component{
         if (this.state.agendaCRUDMode === "insert"){
             debugger
             var newEvents = Object.assign([], this.state.events, {});
-            newEvents.push(json);        
+            newEvents.push(json);
             this.setState({
                 events: newEvents,
                 agendaCRUDVisibility: false
