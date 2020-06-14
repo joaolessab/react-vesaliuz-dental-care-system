@@ -7,3 +7,31 @@
 .ct-toast-success svg path{
     fill: #4caf50 !important;
 }
+
+/* INFO */
+.ct-toast-info .button--confirmation{
+    border: 0px;
+    margin-top: 10px;
+    width: 45px;
+    height: 25px;
+    background-color: #006df0;
+    color: white;
+    border-radius: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+.ct-toast-info .button--cancel{
+    border: 0px;
+    margin-top: 10px;
+    width: 45px;
+    height: 25px;
+    background-color: #006df0;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.ct-toast-info button:hover{
+    border: 1px solid #006df0;
+    background-color: transparent;
+    color: #006df0;
+}

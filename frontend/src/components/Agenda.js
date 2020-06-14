@@ -545,8 +545,40 @@ class Agenda extends React.Component{
     };
     
     onEventDrop = (event) => {
-        debugger
-        alert("alerta de confirmação para salvar alteração");
+        var newEvent = event;
+        cogoToast.info(
+            <div>
+                <div>Tem certeza que deseja salvar alteração?</div>
+                <button className="button--confirmation" onClick = {() => this.editDroppedEvent(newEvent)}>Sim</button>
+                <button className="button--cancel" onClick = { this.destroyCogoToastInfo }>Não</button>
+            </div>,
+            { heading: 'Confirmação', position: 'top-center', hideAfter: 0 }
+        );
+    };
+
+    editDroppedEvent = (newEvent) => {
+        var newEvents = Object.assign([], this.state.events, {});
+
+        for (var i = 0; i < newEvents.length; i++){
+            if (newEvents[i].id === newEvent.event.id){
+                newEvents[i].start = newEvent.start;
+                newEvents[i].end = newEvent.end;
+            }
+        }
+
+        this.setState({
+            events: newEvents
+        });
+        
+        this.destroyCogoToastInfo();
+        cogoToast.success('A data do evento foi alterada.', { heading: 'Sucesso!', position: 'top-center', hideAfter: 3 });
+    };
+
+    destroyCogoToastInfo = () => {
+        var ctToasts = document.getElementsByClassName("ct-toast");
+        for (var i = 0; i < ctToasts.length; i++){
+            ctToasts[i].remove();
+        }
     };
 
     handleEventSelected = (event) => {
