@@ -303,22 +303,24 @@ class Agenda extends React.Component{
 
     // ================ AGENDA / CALENDAR EVENTS ===============
 
-    openCrudModal = (event) => {
+    openCrudModal = (mode, event) => {
         // Caso seja um evento novo
-        if (event === null || event === undefined){
+        if (mode === "insert"){
             this.setState({
                 agendaCRUDMode: "insert",
                 eventTitle: "",
 
-                eventInitialDate: moment().toDate(),
-                eventFinalDate: moment().toDate(),
-                eventInitialTime: this.setEventInitialTime(),
-                eventFinalTime: this.setEventFinalTime(),
+                eventInitialDate: event.start === undefined || event.start === null ? moment().toDate() : event.start,
+                eventFinalDate: event.end === undefined || event.end === null ? moment().toDate() : event.end,
+                eventInitialTime: event.start === undefined || event.start === null ? this.setEventInitialTime() : this.readAlreadySetTime(event.start),
+                eventFinalTime: event.end === undefined || event.end === null ? this.setEventFinalTime() : this.readAlreadySetTime(event.end),
 
                 eventAllDayCheck: false,
                 eventRepeatCheck: false,
                 eventClientListValue: 0,
                 eventObservation: "",
+
+                eventRepeatModeValue: 0,
 
                 agendaCRUDVisibility: true
             });
@@ -472,15 +474,17 @@ class Agenda extends React.Component{
         cogoToast.success('Seu evento foi excluído.', { heading: 'Sucesso!', position: 'top-center', hideAfter: 3 });
     };
 
-    saveEvent = () => {
-        var idCreated = null;
+    generateHashID = () => {
         if (this.state.agendaCRUDMode === "insert"){
-            idCreated = this.state.events.length + 1;
+            return this.state.events.length + 1;
         }
         else{
-            idCreated = this.state.eventIdSelected;
+            return this.state.eventIdSelected;
         }
+    };
 
+    saveEvent = () => {
+        var idCreated = this.generateHashID();        
         var json = {
             "id": idCreated,
             "title": this.state.eventTitle,
@@ -512,10 +516,10 @@ class Agenda extends React.Component{
             }
         };
         
+        var newEvents = Object.assign([], this.state.events, {});
+        
         // Salvando novo
         if (this.state.agendaCRUDMode === "insert"){
-            debugger
-            var newEvents = Object.assign([], this.state.events, {});
             newEvents.push(json);
             this.setState({
                 events: newEvents,
@@ -526,8 +530,6 @@ class Agenda extends React.Component{
         }
         // Editando existente
         else if (this.state.agendaCRUDMode === "edit"){
-            var newEvents = Object.assign([], this.state.events, {});
-
             for (var i = 0; i < newEvents.length; i++){
                 if (newEvents[i].id === this.state.eventIdSelected)
                     newEvents[i] = json;
@@ -548,12 +550,12 @@ class Agenda extends React.Component{
     };
 
     handleEventSelected = (event) => {
-        this.openCrudModal(event);
+        this.openCrudModal("edit", event);
     };
 
     handleSlotSelected = ({ start, end }) => {
         var event = {"start": start, "end": end};
-        this.openCrudModal(event);
+        this.openCrudModal("insert", event);
     };
 
     // ================ ONCHANGE EVENTS ===============
@@ -981,7 +983,7 @@ class Agenda extends React.Component{
                                     <Button><SearchIcon/></Button>
                                 </Tooltip>
                                 <Tooltip TransitionComponent={Zoom} placement="bottom" title="Adicionar evento">
-                                    <Button onClick={() => this.openCrudModal()}><AddBoxIcon/></Button>
+                                    <Button onClick={() => this.openCrudModal("insert", null)}><AddBoxIcon/></Button>
                                 </Tooltip>
                                 {/* <Tooltip TransitionComponent={Zoom} placement="bottom" title="Sincronizar calendário"> */}
                                     <Button disabled><SyncIcon/></Button>
