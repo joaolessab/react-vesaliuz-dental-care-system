@@ -452,8 +452,15 @@ class Agenda extends React.Component{
     };
 
     onEventResize = (event) => {
-        debugger
-        alert("alerta de confirmação");
+        var newEvent = event;
+        cogoToast.info(
+            <div>
+                <div>Tem certeza que deseja salvar alteração?</div>
+                <button className="button--confirmation" onClick = {() => this.editDroppedEvent(newEvent)}>Sim</button>
+                <button className="button--cancel" onClick = { this.destroyCogoToastInfo }>Não</button>
+            </div>,
+            { heading: 'Confirmação', position: 'top-center', hideAfter: 0 }
+        );
     };
 
     deleteEvent = () => {
