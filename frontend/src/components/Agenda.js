@@ -310,10 +310,10 @@ class Agenda extends React.Component{
                 agendaCRUDMode: "insert",
                 eventTitle: "",
 
-                eventInitialDate: event.start === undefined || event.start === null ? moment().toDate() : event.start,
-                eventFinalDate: event.end === undefined || event.end === null ? moment().toDate() : event.end,
-                eventInitialTime: event.start === undefined || event.start === null ? this.setEventInitialTime() : this.readAlreadySetTime(event.start),
-                eventFinalTime: event.end === undefined || event.end === null ? this.setEventFinalTime() : this.readAlreadySetTime(event.end),
+                eventInitialDate: event === undefined || event === null ? moment().toDate() : event.start,
+                eventFinalDate: event === undefined || event === null ? moment().toDate() : event.end,
+                eventInitialTime: event === undefined || event === null ? this.setEventInitialTime() : this.readAlreadySetTime(event.start),
+                eventFinalTime: event === undefined || event === null ? this.setEventFinalTime() : this.readAlreadySetTime(event.end),
 
                 eventAllDayCheck: false,
                 eventRepeatCheck: false,
