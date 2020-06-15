@@ -734,51 +734,62 @@ class Agenda extends React.Component{
     // ================ UTILS EVENTS ===============
 
     changeWhatDate = (whatDate) => {
+        var newDate = null;
+
         //Day
         if (this.state.agendaViewType === "day"){
             if (whatDate === "next")
-                this.setState({ agendaDataChosen : moment(this.state.agendaDataChosen).add(1, 'days').toDate() });
+                newDate = moment(this.state.agendaDataChosen).add(1, 'days').toDate(); 
             if (whatDate === "today")
-                this.setState({ agendaDataChosen : moment().toDate() });
+                newDate = moment().toDate();
             if (whatDate === "previous")
-                this.setState({ agendaDataChosen : moment(this.state.agendaDataChosen).subtract(1, 'days').toDate() });
+                newDate = moment(this.state.agendaDataChosen).subtract(1, 'days').toDate();
             
-            this.findLiteralDate("day");
+            this.setState({ agendaDataChosen: newDate }, function () {
+                this.findLiteralDate("day");
+            });
         }
         //Week
         else if (this.state.agendaViewType === "week"){
             if (whatDate === "next")
-                this.setState({ agendaDataChosen : moment(this.state.agendaDataChosen).add(1, 'weeks').toDate() });
+                newDate = moment(this.state.agendaDataChosen).add(1, 'weeks').toDate();
             if (whatDate === "today")
-                this.setState({ agendaDataChosen : moment().toDate() });
+                newDate = moment().toDate();
             if (whatDate === "previous")
-                this.setState({ agendaDataChosen : moment(this.state.agendaDataChosen).subtract(1, 'weeks').toDate() });
-            
-            this.findLiteralDate("week");
+                newDate = moment(this.state.agendaDataChosen).subtract(1, 'weeks').toDate();
+
+            this.setState({ agendaDataChosen: newDate }, function () {
+                this.findLiteralDate("week");
+            });
         }
         //Month
         else if (this.state.agendaViewType === "month"){
             if (whatDate === "next")
-                this.setState({ agendaDataChosen : moment(this.state.agendaDataChosen).add(1, 'months').toDate() });
+                newDate = moment(this.state.agendaDataChosen).add(1, 'months').toDate();
             if (whatDate === "today")
-                this.setState({ agendaDataChosen : moment().toDate() });
+                newDate = moment().toDate();
             if (whatDate === "previous")
-                this.setState({ agendaDataChosen : moment(this.state.agendaDataChosen).subtract(1, 'months').toDate() });
+                newDate = moment(this.state.agendaDataChosen).subtract(1, 'months').toDate();
 
-            this.findLiteralDate("month");
+            this.setState({ agendaDataChosen: newDate }, function () {
+                this.findLiteralDate("month");
+            });
         }
         //Agenda
         else if (this.state.agendaViewType === "agenda"){
             if (whatDate === "next")
-                this.setState({ agendaDataChosen : moment(this.state.agendaDataChosen).add(1, 'months').toDate() });
+                newDate = moment(this.state.agendaDataChosen).add(1, 'months').toDate();
             if (whatDate === "today")
-                this.setState({ agendaDataChosen : moment().toDate() });
+                newDate = moment().toDate();
             if (whatDate === "previous")
-                this.setState({ agendaDataChosen : moment(this.state.agendaDataChosen).subtract(1, 'months').toDate() });
+                newDate = moment(this.state.agendaDataChosen).subtract(1, 'months').toDate();
             
-            this.findLiteralDate("agenda");
+            this.setState({ agendaDataChosen: newDate }, function () {
+                this.findLiteralDate("agenda");
+            });
         }
-    
+
+        // Setando view do botão selecionado
         this.setState({ agendaPickerMode: whatDate });
     };
 
