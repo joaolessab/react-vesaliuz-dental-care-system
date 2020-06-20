@@ -31,6 +31,7 @@ import cogoToast from 'cogo-toast';
 
 import '../assets/css/Agenda.css';
 import '../assets/css/Animations/Agenda--Animations.css';
+import '../assets/css/Responsive/Agenda--Responsive.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
 

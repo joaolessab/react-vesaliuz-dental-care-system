@@ -1,0 +1,204 @@
+/*****
+    Width: 320px until 2880px
+    Height: 240px until 1800px 
+******/
+
+/*****
+WIDTH
+******/
+.rbc-month-row {
+    min-height: 75px !important;
+}
+@media only screen and (max-width: 1214px) {
+    .bigcalendar--toolbar-custom .div--view button, .bigcalendar--toolbar-custom .div--days button {
+        width: 50px;
+        min-width: 50px;
+    }
+    /* Botões de Mudança de Dias */
+    /* Botão de Dia */
+    .div--view button:nth-child(1) span:nth-child(1){
+        text-align: center;
+        text-indent: -9999px;
+        line-height: 0;
+    }
+    .div--view button:nth-child(1) span:nth-child(1):after{
+        content: "D";
+        text-indent: 0;
+        display: block;
+        line-height: initial;
+    }
+    /* Botão de Semana */
+    .div--view button:nth-child(2) span:nth-child(1){
+        text-align: center;
+        text-indent: -9999px;
+        line-height: 0;
+    }
+    .div--view button:nth-child(2) span:nth-child(1):after{
+        content: "S";
+        text-indent: 0;
+        display: block;
+        line-height: initial;
+    }
+    /* Botão de Mês */
+    .div--view button:nth-child(3) span:nth-child(1){
+        text-align: center;
+        text-indent: -9999px;
+        line-height: 0;
+    }
+    .div--view button:nth-child(3) span:nth-child(1):after{
+        content: "M";
+        text-indent: 0;
+        display: block;
+        line-height: initial;
+    }
+    /* Botão de Agenda */
+    .div--view button:nth-child(4) span:nth-child(1){
+        text-align: center;
+        text-indent: -9999px;
+        line-height: 0;
+    }
+    .div--view button:nth-child(4) span:nth-child(1):after{
+        content: "A";
+        text-indent: 0;
+        display: block;
+        line-height: initial;
+    }
+    /* Botões Mudança de Localização */
+    .div--days button span{
+        text-align: center;
+        text-indent: -9999px;
+        line-height: 0;
+    }
+    /* Botão Anterior */
+    .div--days button:nth-child(1){
+        background-image: url("../../icons/arrowpreviousagenda-icon--black.svg");
+        background-repeat: no-repeat;
+        background-size: 15px;
+        background-position: 19px 17px;
+    }
+    /* Botão Hoje */
+    .div--days button:nth-child(2){
+        background-image: url("../../icons/arrowtodayagenda-icon--black.svg");
+        background-repeat: no-repeat;
+        background-size: 15px;
+        background-position: 19px 17px;
+    }
+    .div--days button:nth-child(2).selected{
+        background-image: url("../../icons/arrowtodayagenda-icon--white.svg");
+    }
+
+    /* Botão Próximo */
+    .div--days button:nth-child(3){
+        background-image: url("../../icons/arrownextagenda-icon--black.svg");
+        background-repeat: no-repeat;
+        background-size: 15px;
+        background-position: 19px 17px;
+    }
+    .bigcalendar--toolbar-custom .div--manipulators Button{
+        min-width: 50px !important;
+    }
+}
+@media only screen and (max-width: 1206px){
+    .rbc-time-header.rbc-overflowing {
+        margin-right: 0px;
+    }
+    .rbc-time-header {
+        border-right: 1px solid #DDD;
+    }
+    .rbc-label{
+        min-width: 0px;
+        max-width: 0px;
+    }
+    .rbc-time-header {
+        margin-right: 9px;
+        border-bottom: 2px solid #ddd !important;
+    }
+    .div--content-agenda{
+        margin-right: 0px;
+    }
+}
+@media only screen and (max-width: 1110px){
+    .container--content-agenda .div--content-title {
+        display: flex;
+        flex-direction: column;
+    }
+    .container--content-agenda .div--content-title div:nth-child(1) {
+        text-align: center;
+    }
+}
+@media only screen and (max-width: 860px){
+    .bigcalendar--toolbar-custom div{
+        flex: none;
+    }
+    .bigcalendar--toolbar-custom .div--manipulators Button{
+        margin-left: 0px;
+        margin-right: 0px;
+        border-radius: 0px !important;
+    }
+    .div--manipulators{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .bigcalendar--toolbar-custom .div--days button:nth-child(3){
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+    .bigcalendar--toolbar-custom .div--view button:nth-child(1) {
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+    }
+}
+@media only screen and (max-width: 848px){
+    .div--agenda-appointment-body {
+        flex-direction: column;
+    }
+    .div--agenda-appointment--opened {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+    .div-agenda--repeat{
+        margin-top: 0px;
+        display: none;
+    }
+    .div-agenda--repeat--opened{
+        display: block;
+    }
+}
+@media only screen and (max-width: 613px){
+    .bigcalendar--toolbar-custom {
+        flex-direction: column;
+    }
+    .bigcalendar--toolbar-custom .div--days, .bigcalendar--toolbar-custom .div--view {
+        justify-content: center;
+    }
+    .bigcalendar--toolbar-custom div {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .bigcalendar--toolbar-custom .div--days button:nth-child(3) {
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+    .bigcalendar--toolbar-custom .div--view button:nth-child(1) {
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+    .bigcalendar--toolbar-custom .div--manipulators button:nth-child(1){
+        border-top-left-radius: 10px !important;
+        border-bottom-left-radius: 10px !important;
+    }
+    .bigcalendar--toolbar-custom .div--manipulators button:nth-child(3){
+        border-top-right-radius: 10px !important;
+        border-bottom-right-radius: 10px !important;
+    }
+    .div--view button span{
+        text-indent: initial !important;
+        line-height: normal !important;
+    }
+    .div--view button span:after{
+        content: none !important;
+    }
+    .div--view button{
+        min-width: 70px !important;
+    }
+}

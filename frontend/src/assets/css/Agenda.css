@@ -17,7 +17,6 @@
     font-size: 18px;
     font-family: "Averta Semibold";
     /* background-color: red; */
-    margin-left: -20px;
 }
 .div--content-agenda{
     margin-right: 30px;
@@ -30,7 +29,8 @@
 /* AGENDA COMPONENT */
 .bigcalendar--toolbar-custom{
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 20px;    
+    justify-content: center;
 }
 .bigcalendar--toolbar-custom > div {
     flex: 1 1;
@@ -92,8 +92,8 @@
 .bigcalendar--toolbar-custom .div--manipulators Button{
     height: 50px !important;
     width: 50px !important;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
     border-radius: 10px !important;
     border: 0px !important;
     text-transform: none !important;
@@ -518,4 +518,10 @@
     display: block;
     line-height: initial;
     margin-top: -15px;
+}
+.div--days button:nth-child(3):hover{
+    background-color: white !important;
+}
+.rbc-agenda-view table.rbc-agenda-table thead > tr > th:nth-child(1) {
+    width: 92px !important;
 }
