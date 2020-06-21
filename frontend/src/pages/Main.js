@@ -9,6 +9,7 @@ import '../assets/css/Modal.css';
 
 import Resume from '../components/Resume';
 import Agenda from '../components/Agenda';
+import Clients from '../components/Clients';
 import News from '../components/News';
 import Help from '../components/Help';
 
@@ -63,13 +64,12 @@ class Main extends React.Component{
             
             if (page === "Resume")
                 this.setState({appChosenView: Resume});
-
             if (page === "Agenda")
                 this.setState({appChosenView: Agenda});
-
+            if (page === "Clients")
+                this.setState({appChosenView: Clients});
             if (page === "Help")
                 this.setState({appChosenView: Help});
-
             if (page === "News")
                 this.setState({appChosenView: News});
         };
@@ -85,6 +85,8 @@ class Main extends React.Component{
                 document.getElementsByClassName("icon--home")[0].classList.add("selected");
             if (page === "Agenda")
                 document.getElementsByClassName("icon--agendamentos")[0].classList.add("selected");
+            if (page === "Clients")
+                document.getElementsByClassName("icon--clientes")[0].classList.add("selected");
             if(page === "News")
                 document.getElementsByClassName("icon--news")[0].classList.add("selected");
             if(page === "Help")
