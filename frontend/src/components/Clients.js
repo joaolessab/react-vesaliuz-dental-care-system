@@ -20,13 +20,30 @@ class Clients extends React.Component{
                     {/* Auto Suggest */}
                     < AutoCompleteSuggest />
     
-                    <div className="div--info">
-                        <div className="div--info-icon">
+                    <div className="container--clients-card">
+                        <div className="div--individual-card">
+                            <div className="div--card-picture clark"></div>
+                            <div className="div--card-name">Clark Cold</div>
+                            <div className="div--card-contact">clarkcold@gmail.com<br/>(12) 99088-4140</div>
                         </div>
-                        <div className="div--info-text">
-                            <h1>Dica do dia: Aprenda como organizar sua agenda</h1>
-                            <p>Seus rendimentos dependem do seu tempo disponível. Quanto mais você escalar o seu negócio, mais resultados irá obter. Esse artigo aborda exatamente o passo a passo para...</p>
+                        
+                        <div className="div--individual-card">
+                            <div className="div--card-picture diana"></div>
+                            <div className="div--card-name">Diana Mendes</div>
+                            <div className="div--card-contact">dianamendes@gmail.com<br/>(12) 87995-1105</div>
                         </div>
+                        
+                        <div className="div--individual-card">
+                            <div className="div--card-picture oliver"></div>
+                            <div className="div--card-name">Oliver Queen</div>
+                            <div className="div--card-contact">oliverthekey@gmail.com<br/>(12) 97865-2141</div>
+                        </div>  
+
+                        <div className="div--individual-card">
+                            <div className="div--card-picture bruce"></div>
+                            <div className="div--card-name">Brunce Wayne da Silva</div>
+                            <div className="div--card-contact">brucesilva@gmail.com<br/>(12) 99065-4040</div>
+                        </div>                                              
                     </div>
                 </div>
             </div>

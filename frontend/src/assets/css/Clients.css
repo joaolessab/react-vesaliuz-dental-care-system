@@ -1,0 +1,47 @@
+.container--content-clients h1 {
+    font-family: 'Averta Extra Bold';
+    font-size: 20px;
+}
+.container--content-clients .div--content-title {
+    margin-bottom: 15px;
+}
+.container--content-clients{
+    flex: 1;
+    margin-right: 25px;
+}
+.container--clients-card{
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+}
+.div--individual-card {
+    display: flex;
+    margin-top: 20px;
+    flex-basis: 275px;
+    min-height: 300px;
+    max-height: 275px;
+    background-color: white;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.div--individual-card div{
+    margin: 10px;
+}
+.div--individual-card .div--card-picture{
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;    
+    background-size: 100px;
+}
+.div--individual-card .div--card-name{
+    font-family: "Averta Semibold";
+    font-size: 16px;
+}
+
+.bruce{background-image: url("../images/bruce.jpg")}
+.clark{background-image: url("../images/clark.jpg")}
+.oliver{background-image: url("../images/oliver.jpg")}
+.diana{background-image: url("../images/diana.jpg")}
