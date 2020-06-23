@@ -113,7 +113,7 @@
     border-radius: 6px;
     display: flex;
     justify-content: space-between;
-    margin-right: 25px;
+    margin-right: 28px;
 }
 .container--content-news .div--filter-news .formcontrol--tag-news{
     display: none;

@@ -1,0 +1,27 @@
+/*****
+    Width: 320px until 2880px
+    Height: 240px until 1800px 
+******/
+
+/*****
+WIDTH
+******/
+@media only screen and (max-width: 1206px) {
+    .container--content-clients .div--content-title, .container--content-clients .div--search{
+        margin-right: 0px !important;
+    }
+    .container--clients-card{
+        margin-right: 0px !important;
+        padding-right: 2px !important;
+    }
+}
+@media only screen and (max-width: 730px) {
+    .div--individual-card {
+        flex-basis: 235px;
+    }
+}
+@media only screen and (max-width: 658px) {
+    .div--individual-card {
+        flex-basis: 100%
+    }
+}

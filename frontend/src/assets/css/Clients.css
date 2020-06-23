@@ -2,30 +2,33 @@
     font-family: 'Averta Extra Bold';
     font-size: 20px;
 }
-.container--content-clients .div--content-title {
-    margin-bottom: 15px;
-}
 .container--content-clients{
     flex: 1;
-    margin-right: 25px;
+    display: flex;
+    flex-direction: column;
 }
 .container--clients-card{
     display: flex;
-    flex: 1;
     justify-content: space-between;
+    flex-wrap: wrap;
+    flex: 1 1;
+    overflow: auto;
+    margin-right: 12.5px;
+    padding-right: 12.5px;
 }
 .div--individual-card {
     display: flex;
-    margin-top: 20px;
+    margin-bottom: 20px;
     flex-basis: 275px;
-    min-height: 300px;
     max-height: 275px;
+    min-height: 275px;
     background-color: white;
     border-radius: 10px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
+    box-shadow: 0px 0px 15px 0px #eaeaea;
 }
 .div--individual-card div{
     margin: 10px;
@@ -63,4 +66,11 @@
 }
 .div--individual-card:hover .div--card-contact {
     color: white !important;
+}
+.container--content-clients .div--search{
+    margin-bottom: 20px;
+}
+
+.container--content-clients .div--content-title, .container--content-clients .div--search{
+    margin-right: 28px;
 }
