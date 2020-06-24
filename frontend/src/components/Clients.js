@@ -9,6 +9,22 @@ import Button from '@material-ui/core/Button';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
 class Clients extends React.Component{    
+    constructor(props){         
+        super(props);
+
+        this.state = {
+            clientCRUDVisibility: false
+        };
+    };
+
+    openCrudClientsModal = () => {
+        debugger
+    };
+
+    deleteClient = (clientId) => {
+        debugger
+    };
+
     // Visualização de Todo o conteúdo do HTML
     render(){
         // RETORNO BÁSICO DO HTML
@@ -24,8 +40,8 @@ class Clients extends React.Component{
     
                     <div className="container--clients-card">
                         <div className="div--individual-card">                            
-                            <Button className="button--card-delete"><DeleteForeverIcon /></Button>
-                            <div className="div--card-background">
+                            <Button className="button--card-delete" onClick={() => this.deleteClient(8) }><DeleteForeverIcon /></Button>
+                            <div className="div--card-background" onClick={ this.openCrudClientsModal }>
                                 <div className="div--card-picture clark"></div>
                                 <div className="div--card-name">Clark Cold</div>
                                 <div className="div--card-contact">clarkcold@gmail.com<br/>(12) 99088-4140</div>
