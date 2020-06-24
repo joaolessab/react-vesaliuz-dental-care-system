@@ -22,16 +22,26 @@
     flex-basis: 275px;
     max-height: 275px;
     min-height: 275px;
-    background-color: white;
-    border-radius: 10px;
+    background-color: transparent;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     text-align: center;
-    box-shadow: 0px 0px 15px 0px #eaeaea;
+    padding: 5px;
 }
-.div--individual-card div{
-    margin: 10px;
+.div--individual-card .div--card-background {
+    background-color: white;
+    flex: 1 1;
+    width: calc(100% - 6px);
+    align-items: center;
+    justify-content: center;
+    margin-top: -45px;
+    margin-right: 3px;
+    margin-left: 3px;
+    box-shadow: 0px 0px 15px 0px #eaeaea;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
 }
 .div--individual-card .div--card-picture{
     height: 100px;
@@ -43,10 +53,11 @@
 .div--individual-card .div--card-name{
     font-family: "Averta Semibold";
     font-size: 16px;
+    margin-top: 10px;
 }
 .div--individual-card .div--card-contact{
     color: #707070;
-    margin-top: -10px;
+    margin: 5px;
 }
 
 .bruce{background-image: url("../images/bruce.jpg")}
@@ -54,7 +65,7 @@
 .oliver{background-image: url("../images/oliver.jpg")}
 .diana{background-image: url("../images/diana.jpg")}
 
-.div--individual-card:hover {
+.div--individual-card:hover .div--card-background {
     cursor: pointer !important;
     animation-duration: 1s !important;
     background-color: #2386fd !important;
@@ -64,13 +75,38 @@
     transition: 0.2s !important;
     color: white !important;
 }
+.div--individual-card:hover .button--card-delete{
+    background-color: white;
+    border-radius: 10px;
+    min-height: 50px;
+    max-height: 50px;
+    max-width: 50px;
+    min-width: 50px;
+    width: 50px;
+    padding: 0px !important;
+    border: 1.5px solid #ffffffbf;
+    box-shadow: 0px 1px 2px 0px #2386fd4d !important;
+    color: black;
+}
 .div--individual-card:hover .div--card-contact {
     color: white !important;
 }
 .container--content-clients .div--search{
     margin-bottom: 20px;
 }
-
+.container--content-clients .div--card-address{
+    margin-top: 10px;
+}
 .container--content-clients .div--content-title, .container--content-clients .div--search{
     margin-right: 28px;
+}
+.container--content-clients .button--card-delete{
+    border-radius: 10px;
+    min-height: 50px;
+    max-height: 50px;
+    max-width: 50px;
+    min-width: 50px;
+    width: 50px;
+    padding: 0px !important;
+    color: transparent;
 }
