@@ -47,7 +47,7 @@ class Clients extends React.Component{
                 },
                 {
                     id: 4,
-                    name: "Brunce Wayne da Silva",
+                    name: "Bruce Wayne da Silva",
                     phone: "(12) 99065-4040",
                     email: "brucesilva@gmail.com",
                     address: "Rua Jacareí, 230",
@@ -125,7 +125,7 @@ class Clients extends React.Component{
                     <div className="container--clients-toolbar">
                         <div>
                             {/* Auto Suggest */}
-                            < AutoCompleteSuggest />
+                            < AutoCompleteSuggest source = "clients" />
                         </div>
                         <div>
                             <Button className="button--blue-casual">Novo cliente</Button>

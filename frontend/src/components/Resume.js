@@ -111,7 +111,7 @@ class Resume extends React.Component{
                     </div>
     
                     {/* Auto Suggest */}
-                    < AutoCompleteSuggest />
+                    < AutoCompleteSuggest source = "all" />
     
                     <div className="div--info">
                         <div className="div--info-icon">

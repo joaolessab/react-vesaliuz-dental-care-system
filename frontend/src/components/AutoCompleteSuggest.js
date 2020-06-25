@@ -11,15 +11,19 @@ const itemsSuggest = [
         title: 'Clientes',
         itemsSuggest: [
             {
-              name: 'César',
+              name: 'Clark Cold',
               year: 1972
             },
             {
-              name: 'Cíntia',
+              name: 'Diana Mendes',
               year: 1972
             },
             {
-              name: 'Cristiano',
+              name: 'Oliver Queen',
+              year: 1972
+            },
+            {
+              name: 'Bruce Wayne da Silva',
               year: 1972
             }
         ]
@@ -81,7 +85,7 @@ function escapeRegexCharacters(str) {
   return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
   
-function getSuggestions(value) {
+function getSuggestions(value, source) {
   const escapedValue = escapeRegexCharacters(value.trim());
     
   if (escapedValue === '') {
@@ -89,8 +93,15 @@ function getSuggestions(value) {
   }
   
   const regex = new RegExp('^' + escapedValue, 'i');
-  
-  return itemsSuggest
+
+  /* Selecionando Source */
+  var chosenSuggest = [];
+  if (source === "all")
+    chosenSuggest = itemsSuggest;
+  else if(source === "clients")
+    chosenSuggest = [itemsSuggest[0]];
+
+  return chosenSuggest
     .map(section => {
       return {
         title: section.title,
@@ -122,12 +133,13 @@ function getSectionSuggestions(section) {
 
 class AutoCompleteSuggest extends React.Component{
     // Substituindo o construtor do componente (são inputs do componente)
-    constructor() {
-        super();
-    
+    constructor(props) {
+        super(props);
+
         this.state = {
             value: '',
-            suggestions: []
+            suggestions: [],
+            source: props.source
         };    
     }
     
@@ -139,7 +151,7 @@ class AutoCompleteSuggest extends React.Component{
       
     onSuggestionsFetchRequested = ({ value }) => {
         this.setState({
-            suggestions: getSuggestions(value)
+            suggestions: getSuggestions(value, this.state.source)
         });
     };
     
