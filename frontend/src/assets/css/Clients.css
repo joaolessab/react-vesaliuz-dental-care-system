@@ -114,3 +114,13 @@
     padding: 0px !important;
     color: transparent;
 }
+.container--clients-toolbar{
+    display: flex;
+    margin-right: 28px;
+}
+.container--clients-toolbar div:nth-child(1){
+    flex: 1;
+}
+.container--clients-toolbar div:nth-child(1){
+    flex-basis: 110px;
+}

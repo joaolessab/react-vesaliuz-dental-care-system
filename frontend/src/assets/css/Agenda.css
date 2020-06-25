@@ -59,7 +59,7 @@
 }
 .bigcalendar--toolbar-custom .div--view button, .bigcalendar--toolbar-custom .div--days button{
     margin: 0;
-    height: 50px;
+    height: 45px;
     width: 85px;
     border: 0px;
     background-color: #fefeff;
@@ -90,8 +90,9 @@
     display: none !important;
 }
 .bigcalendar--toolbar-custom .div--manipulators Button{
-    height: 50px !important;
-    width: 50px !important;
+    height: 45px !important;
+    width: 45px !important;
+    min-width: 50px;
     margin-left: 5px;
     margin-right: 5px;
     border-radius: 10px !important;
@@ -524,4 +525,29 @@
 }
 .rbc-agenda-view table.rbc-agenda-table thead > tr > th:nth-child(1) {
     width: 92px !important;
+}
+.button--blue-casual{
+    background-color: #2386fd !important;
+    background-position: 15px !important;
+    background-image: none !important;
+    transition: 0.2s !important;
+    width: 105px !important;
+    height: 45px;
+    border-radius: 10px !important;
+    color: white !important;
+    background-image: none !important;
+    font-family: 'Averta' !important;
+    text-transform: none !important;
+}
+.button--blue-casual:hover{
+    cursor: pointer !important;
+    animation-duration: 1s !important;
+    height: 45px !important;
+    border-radius: 10px !important;
+    background-color: #ececec !important;
+    color: #585858 !important;
+    cursor: pointer !important;
+    font-family: 'Averta' !important;
+    font-size: 14px !important;
+    border: 1.5px solid #ffffffbf !important;
 }

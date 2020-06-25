@@ -121,10 +121,17 @@ class Clients extends React.Component{
                     <div className="div--content-title">
                         <h1>Clientes</h1>
                     </div>
-    
-                    {/* Auto Suggest */}
-                    < AutoCompleteSuggest />
-                    
+
+                    <div className="container--clients-toolbar">
+                        <div>
+                            {/* Auto Suggest */}
+                            < AutoCompleteSuggest />
+                        </div>
+                        <div>
+                            <Button className="button--blue-casual">Novo cliente</Button>
+                        </div>
+                    </div>
+
                     <div className="container--clients-card">
                         { listClients }                        
                     </div>
