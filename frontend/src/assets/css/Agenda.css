@@ -185,10 +185,6 @@
     flex-direction: row !important;
     justify-content: space-between;
 }
-.div--agendaForm-buttonsBar{
-    flex-direction: row !important;
-    justify-content: flex-end;
-}
 .div--agendaForm-times, .div--agendaForm-repeatOptions{
     justify-content: start;
 }
@@ -285,10 +281,6 @@
 }
 .div--agenda-appointment-body{
     display: flex;
-}
-.div--agenda-footer{
-    display: flex;
-    justify-content: flex-end;
 }
 .div-agenda--repeat label {
     color: #ffffffbf;
@@ -519,9 +511,6 @@
     display: block;
     line-height: initial;
     margin-top: -15px;
-}
-.div--days button:nth-child(3):hover{
-    background-color: white !important;
 }
 .rbc-agenda-view table.rbc-agenda-table thead > tr > th:nth-child(1) {
     width: 92px !important;

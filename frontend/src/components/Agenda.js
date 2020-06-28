@@ -7,6 +7,8 @@ import MomentUtils from "@date-io/moment";
 import 'moment/locale/pt-br';
 import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop';
 
+// ================ COMPONENTES ===============
+
 import { Modal } from 'react-responsive-modal';
 import Button from '@material-ui/core/Button';
 import AddBoxIcon from '@material-ui/icons/AddBox';
@@ -26,6 +28,8 @@ import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import InputLabel from "@material-ui/core/InputLabel";
 import cogoToast from 'cogo-toast';
+import { withStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
 
 // ================ ESTILOS ===============
 
@@ -34,9 +38,6 @@ import '../assets/css/Animations/Agenda--Animations.css';
 import '../assets/css/Responsive/Agenda--Responsive.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
-
-import { withStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
 
 const momentLocale = moment.locale('pt-br');
 
@@ -621,7 +622,7 @@ class Agenda extends React.Component{
     };
 
     changeAllDayCheck = (e) => {
-        this.setState({ 
+        this.setState({
             eventAllDayCheck: e.target.checked,
             eventFinalDate: this.state.eventInitialDate,
             eventInitialTime: "00:00",
@@ -1393,8 +1394,8 @@ class Agenda extends React.Component{
                                 </MuiPickersUtilsProvider>
                             </div>
                         </div>
-                        <div className="div--agenda-footer">
-                            <div className="div--agendaForm-buttonsBar agenda--component">
+                        <div className="custom--modal-footer">
+                            <div className="buttons--bar agenda--component">
                                 <Button id="deleteEventButton" 
                                     className={ this.state.agendaCRUDMode === "insert" ? "hideComponent": "" }
                                     onClick={ this.deleteEvent }

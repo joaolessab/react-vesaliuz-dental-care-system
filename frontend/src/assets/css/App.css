@@ -205,3 +205,13 @@ input:focus, select:focus, textarea:focus{
 .div--endrepeat-mode-chosen .MuiInputBase-root.Mui-disabled{
   border-bottom: 0px !important;
 }
+
+/* Modal Customizado */
+.custom--modal-footer{
+  display: flex;
+  justify-content: flex-end;
+}
+.custom--modal-footer .buttons--bar{
+  flex-direction: row !important;
+  justify-content: flex-end;
+}
