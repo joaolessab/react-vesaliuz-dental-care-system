@@ -36,6 +36,7 @@ import cogoToast from 'cogo-toast';
 // ================ ESTILOS ===============
 
 import '../assets/css/Clients.css';
+import '../assets/css/Animations/Clients--Animations.css';
 import '../assets/css/Responsive/Clients--Reponsive.css';
 
 // ================ PHOTOS ===============
@@ -306,203 +307,212 @@ class Clients extends React.Component{
                 {/* Modal de Clientes */}
                 <Modal open={ this.state.clientCRUDVisibility } onClose={ this.closeCrudModal } center>
                     <div className="div--modalAgenda-body">
-                        <div className="div--agenda-appointment-body">
+                        <div className="div--clients-information-body">
                             <div 
-                                className={ this.state.eventRepeatCheck === true ? "div--agenda-appointment div--agenda-appointment--opened" : "div--agenda-appointment" }
+                                className={ this.state.eventRepeatCheck === true ? "div--clients-information div--clients-information--opened" : "div--clients-information" }
                             >
                                 <form className={classes.root} noValidate autoComplete="off">
                                     <MuiPickersUtilsProvider libInstance={ moment } utils={ MomentUtils } locale={ momentLocale }>                                
                                         {/* Nome */}
-                                        <div className="div--agendaForm-title agenda--component">
-                                            <TextField 
-                                                id="title-event" 
-                                                label="Nome do Cliente:" 
-                                                value = { this.state.eventTitle } 
-                                                onChange = { this.changeEventTitle }
-                                            />
-                                        </div>
+                                        <div className="div--clients-information-divisor">
+                                            <div className="div--agendaForm-title agenda--component">
+                                                <TextField 
+                                                    id="title-event" 
+                                                    label="Nome do Cliente:" 
+                                                    value = { this.state.eventTitle } 
+                                                    onChange = { this.changeEventTitle }
+                                                />
+                                            </div>
 
-                                        <div className="div--agendaForm-dates agenda--component">
-                                            <TextField 
-                                                id="title-event" 
-                                                label="Data de Nascimento:" 
-                                                value = { this.state.eventTitle } 
-                                                onChange = { this.changeEventTitle }
-                                            />
-                                            
-                                            <TextField 
-                                                id="title-event" 
-                                                label="Sexo:" 
-                                                value = { this.state.eventTitle } 
-                                                onChange = { this.changeEventTitle }
-                                            />
-                                        </div>
+                                            <div className="div--agendaForm-dates agenda--component">
+                                                <TextField 
+                                                    id="title-event" 
+                                                    label="Data de Nascimento:" 
+                                                    value = { this.state.eventTitle } 
+                                                    onChange = { this.changeEventTitle }
+                                                />
+                                                
+                                                <TextField 
+                                                    id="title-event" 
+                                                    label="Sexo:" 
+                                                    value = { this.state.eventTitle } 
+                                                    onChange = { this.changeEventTitle }
+                                                />
+                                            </div>
 
-                                        <div className="div--agendaForm-repeatOptions agenda--component">
-                                            <FormControlLabel
-                                                value="end"
-                                                control={
-                                                    <Checkbox
-                                                        checked={ this.state.eventAllDayCheck } 
-                                                        icon={<RadioButtonUncheckedIcon />}
-                                                        checkedIcon={< CheckCircleIcon />}
-                                                        onChange={ this.changeAllDayCheck }
-                                                    />
-                                                }
-                                                label="Paciente"
-                                                labelPlacement="end"
-                                            />
-                                            <FormControlLabel
+                                            <div className="div--agendaForm-repeatOptions agenda--component">
+                                                <FormControlLabel
                                                     value="end"
                                                     control={
                                                         <Checkbox
-                                                            checked={ this.state.eventRepeatCheck }
+                                                            checked={ this.state.eventAllDayCheck } 
                                                             icon={<RadioButtonUncheckedIcon />}
                                                             checkedIcon={< CheckCircleIcon />}
-                                                            onChange={ this.changeRepeatCheck }
+                                                            onChange={ this.changeAllDayCheck }
                                                         />
                                                     }
-                                                    label="Dentista"
+                                                    label="Paciente"
                                                     labelPlacement="end"
                                                 />
-                                        </div>
-
-                                        <div className="div--agendaForm-dates agenda--component">
-                                            <TextField 
-                                                id="title-event" 
-                                                label="Profissão:" 
-                                                value = { this.state.eventTitle } 
-                                                onChange = { this.changeEventTitle }
-                                            />
-                                            
-                                            <TextField 
-                                                id="title-event" 
-                                                label="Estado Civil:" 
-                                                value = { this.state.eventTitle } 
-                                                onChange = { this.changeEventTitle }
-                                            />
-                                        </div>
-
-                                        {/* CPF ou CNPJ */}
-                                        <div className="div--agendaForm-title agenda--component">
-                                            <TextField 
-                                                id="title-event" 
-                                                label="CPF ou CNPJ:" 
-                                                value = { this.state.eventTitle } 
-                                                onChange = { this.changeEventTitle }
-                                            />
-                                        </div>
-
-                                        {/* Endereço */}
-                                        <div className="div--agendaForm-title agenda--component">
-                                            <TextField 
-                                                id="title-event" 
-                                                label="Endereço:" 
-                                                value = { this.state.eventTitle } 
-                                                onChange = { this.changeEventTitle }
-                                            />
-                                        </div>
-
-                                        <div className="div--agendaForm-dates agenda--component">
-                                            <TextField 
-                                                id="title-event" 
-                                                label="CEP:" 
-                                                value = { this.state.eventTitle } 
-                                                onChange = { this.changeEventTitle }
-                                            />
-                                            
-                                            <TextField 
-                                                id="title-event" 
-                                                label="Estado:" 
-                                                value = { this.state.eventTitle } 
-                                                onChange = { this.changeEventTitle }
-                                            />
-                                        </div>
-
-                                        <div className="div--agendaForm-title agenda--component">
-                                            <TextField 
-                                                id="title-event" 
-                                                label="Cidade:" 
-                                                value = { this.state.eventTitle } 
-                                                onChange = { this.changeEventTitle }
-                                            />
-                                        </div>
-
-                                        <div className="div--agendaForm-title agenda--component">
-                                            <TextField 
-                                                id="title-event" 
-                                                label="E-mail:" 
-                                                value = { this.state.eventTitle } 
-                                                onChange = { this.changeEventTitle }
-                                            />
-                                        </div>
-
-                                        <div className="div--agendaForm-title agenda--component">
-                                            <TextField 
-                                                id="title-event" 
-                                                label="Telefone Principal:" 
-                                                value = { this.state.eventTitle } 
-                                                onChange = { this.changeEventTitle }
-                                            />
-                                        </div>
-
-                                        <div className="div--agendaForm-title agenda--component">
-                                            <TextField 
-                                                id="title-event" 
-                                                label="Telefone Secundário:" 
-                                                value = { this.state.eventTitle } 
-                                                onChange = { this.changeEventTitle }
-                                            />
-                                        </div>
-
-                                        <div className="div--agendaForm-dates agenda--component">
-                                            <TextField 
-                                                id="title-event" 
-                                                label="Profissão:" 
-                                                value = { this.state.eventTitle } 
-                                                onChange = { this.changeEventTitle }
-                                            />
-                                            
-                                            <TextField 
-                                                id="title-event" 
-                                                label="Estado Civil:" 
-                                                value = { this.state.eventTitle } 
-                                                onChange = { this.changeEventTitle }
-                                            />
-                                        </div>
-
-                                        <div className="div--agendaForm-dates agenda--component">
-                                            <KeyboardDatePicker
-                                                disableToolbar
-                                                variant="inline"
-                                                format="DD/MM/YYYY"
-                                                margin="normal"
-                                                id="date-picker-initial"
-                                                label="Início do Tratamento:"
-                                                value={ this.state.eventInitialDate }
-                                                autoOk = { true }
-                                                onChange={ this.changeInitialDate }
-                                                KeyboardButtonProps={{
-                                                    'aria-label': 'change date',
-                                                }}
-                                            />
-                                            
-                                            <div className="div--agendaForm-client agenda--component">
-                                                <InputLabel htmlFor="checkbox--agenda-client" className="input--agendaForm-client">Cliente:</InputLabel>
-                                                <Select
-                                                    labelId="checkbox--agenda-client"
-                                                    id="checkbox--agenda-client"
-                                                    value = { this.state.eventClientListValue }
-                                                    onChange={ this.changeEventClient }
-                                                    input={ <Input /> }
-                                                >
-                                                    { this.state.eventClientList.map((clientItem) => (
-                                                        <MenuItem key={ clientItem.name } value={ clientItem.id }>
-                                                            <ListItemText primary={ clientItem.name } />
-                                                        </MenuItem>
-                                                    ))}
-                                                </Select>
+                                                <FormControlLabel
+                                                        value="end"
+                                                        control={
+                                                            <Checkbox
+                                                                checked={ this.state.eventRepeatCheck }
+                                                                icon={<RadioButtonUncheckedIcon />}
+                                                                checkedIcon={< CheckCircleIcon />}
+                                                                onChange={ this.changeRepeatCheck }
+                                                            />
+                                                        }
+                                                        label="Dentista"
+                                                        labelPlacement="end"
+                                                    />
                                             </div>
+
+                                            <div className="div--agendaForm-dates agenda--component">
+                                                <TextField 
+                                                    id="title-event" 
+                                                    label="Profissão:" 
+                                                    value = { this.state.eventTitle } 
+                                                    onChange = { this.changeEventTitle }
+                                                />
+                                                
+                                                <TextField 
+                                                    id="title-event" 
+                                                    label="Estado Civil:" 
+                                                    value = { this.state.eventTitle } 
+                                                    onChange = { this.changeEventTitle }
+                                                />
+                                            </div>
+
+                                            {/* CPF ou CNPJ */}
+                                            <div className="div--agendaForm-title agenda--component">
+                                                <TextField 
+                                                    id="title-event" 
+                                                    label="CPF ou CNPJ:" 
+                                                    value = { this.state.eventTitle } 
+                                                    onChange = { this.changeEventTitle }
+                                                />
+                                            </div>
+
+                                            {/* Endereço */}
+                                            <div className="div--agendaForm-title agenda--component">
+                                                <TextField 
+                                                    id="title-event" 
+                                                    label="Endereço:" 
+                                                    value = { this.state.eventTitle } 
+                                                    onChange = { this.changeEventTitle }
+                                                />
+                                            </div>
+
+                                            <div className="div--agendaForm-dates agenda--component">
+                                                <TextField 
+                                                    id="title-event" 
+                                                    label="CEP:" 
+                                                    value = { this.state.eventTitle } 
+                                                    onChange = { this.changeEventTitle }
+                                                />
+                                                
+                                                <TextField 
+                                                    id="title-event" 
+                                                    label="Estado:" 
+                                                    value = { this.state.eventTitle } 
+                                                    onChange = { this.changeEventTitle }
+                                                />
+                                            </div>
+                                        </div>
+
+                                        <div className="div--clients-information-divisor">
+                                            <div className="div--agendaForm-title agenda--component">
+                                                <TextField 
+                                                    id="title-event" 
+                                                    label="Cidade:" 
+                                                    value = { this.state.eventTitle } 
+                                                    onChange = { this.changeEventTitle }
+                                                />
+                                            </div>
+
+                                            <div className="div--agendaForm-title agenda--component">
+                                                <TextField 
+                                                    id="title-event" 
+                                                    label="E-mail:" 
+                                                    value = { this.state.eventTitle } 
+                                                    onChange = { this.changeEventTitle }
+                                                />
+                                            </div>
+
+                                            <div className="div--agendaForm-title agenda--component">
+                                                <TextField 
+                                                    id="title-event" 
+                                                    label="Telefone Principal:" 
+                                                    value = { this.state.eventTitle } 
+                                                    onChange = { this.changeEventTitle }
+                                                />
+                                            </div>
+
+                                            <div className="div--agendaForm-title agenda--component">
+                                                <TextField 
+                                                    id="title-event" 
+                                                    label="Telefone Secundário:" 
+                                                    value = { this.state.eventTitle } 
+                                                    onChange = { this.changeEventTitle }
+                                                />
+                                            </div>
+
+                                            <div className="div--agendaForm-dates agenda--component">
+                                                <TextField 
+                                                    id="title-event" 
+                                                    label="Profissão:" 
+                                                    value = { this.state.eventTitle } 
+                                                    onChange = { this.changeEventTitle }
+                                                />
+                                                
+                                                <TextField 
+                                                    id="title-event" 
+                                                    label="Estado Civil:" 
+                                                    value = { this.state.eventTitle } 
+                                                    onChange = { this.changeEventTitle }
+                                                />
+                                            </div>
+
+                                            <div className="div--agendaForm-dates agenda--component">
+                                                <KeyboardDatePicker
+                                                    disableToolbar
+                                                    variant="inline"
+                                                    format="DD/MM/YYYY"
+                                                    margin="normal"
+                                                    id="date-picker-initial"
+                                                    label="Início do Tratamento:"
+                                                    value={ this.state.eventInitialDate }
+                                                    autoOk = { true }
+                                                    onChange={ this.changeInitialDate }
+                                                    KeyboardButtonProps={{
+                                                        'aria-label': 'change date',
+                                                    }}
+                                                />
+                                                
+                                                <div className="div--agendaForm-client agenda--component">
+                                                    <InputLabel htmlFor="checkbox--agenda-client" className="input--agendaForm-client">Cliente:</InputLabel>
+                                                    <Select
+                                                        labelId="checkbox--agenda-client"
+                                                        id="checkbox--agenda-client"
+                                                        value = { this.state.eventClientListValue }
+                                                        onChange={ this.changeEventClient }
+                                                        input={ <Input /> }
+                                                    >
+                                                        { this.state.eventClientList.map((clientItem) => (
+                                                            <MenuItem key={ clientItem.name } value={ clientItem.id }>
+                                                                <ListItemText primary={ clientItem.name } />
+                                                            </MenuItem>
+                                                        ))}
+                                                    </Select>
+                                                </div>
+                                            </div>      
+                                        </div>
+                                    
+                                        <div className="div--clients-information-divisor div--clients-information-details">
+                                            <Button>Cadastrar Anamnese</Button>
+                                            <Button>Exame Intra-Oral</Button>
                                         </div>
                                     </MuiPickersUtilsProvider>
                                 </form>

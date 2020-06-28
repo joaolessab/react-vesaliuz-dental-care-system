@@ -4,6 +4,7 @@
 }
 .react-responsive-modal-modal{
     border-radius: 10px;
+    max-width: none !important;
 }
 .react-responsive-modal-modal h1{
     font-family: 'Averta Extra Bold';
