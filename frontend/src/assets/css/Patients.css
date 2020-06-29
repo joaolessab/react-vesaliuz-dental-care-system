@@ -1,13 +1,13 @@
-.container--content-clients h1 {
+.container--content-patients h1 {
     font-family: 'Averta Extra Bold';
     font-size: 20px;
 }
-.container--content-clients{
+.container--content-patients{
     flex: 1;
     display: flex;
     flex-direction: column;
 }
-.container--clients-card{
+.container--patients-card{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -95,16 +95,16 @@
 .div--individual-card:hover .div--card-contact {
     color: white !important;
 }
-.container--content-clients .div--search{
+.container--content-patients .div--search{
     margin-bottom: 20px;
 }
-.container--content-clients .div--card-address{
+.container--content-patients .div--card-address{
     margin-top: 10px;
 }
-.container--content-clients .div--content-title, .container--content-clients .div--search{
+.container--content-patients .div--content-title, .container--content-patients .div--search{
     margin-right: 28px;
 }
-.container--content-clients .button--card-delete{
+.container--content-patients .button--card-delete{
     border-radius: 10px;
     min-height: 50px;
     max-height: 50px;
@@ -114,23 +114,23 @@
     padding: 0px !important;
     color: transparent;
 }
-.container--clients-toolbar{
+.container--patients-toolbar{
     display: flex;
     margin-right: 28px;
 }
-.container--clients-toolbar div:nth-child(1){
+.container--patients-toolbar div:nth-child(1){
     flex: 1;
 }
-.container--clients-toolbar div:nth-child(1){
+.container--patients-toolbar div:nth-child(1){
     flex-basis: 110px;
 }
 
 /* Div dentro do modal de eventos */
-.div--clients-information form{
+.div--patients-information form{
     flex-direction: row;
     display: flex;
 }
-.div--clients-information .agenda--component{
+.div--patients-information .agenda--component{
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -138,30 +138,30 @@
     margin: 0;
     margin-top: 5px;
 }
-.div--clients-information .MuiFormControl-marginNormal {
+.div--patients-information .MuiFormControl-marginNormal {
     width: 140px !important;
 }
-.div--clients-information .div--agendaForm-times .MuiSelect-select.MuiSelect-select{
+.div--patients-information .div--agendaForm-times .MuiSelect-select.MuiSelect-select{
     width: 115px !important;
 }
-.div--clients-information .agenda--component .MuiFormControlLabel-root:nth-child(2){
+.div--patients-information .agenda--component .MuiFormControlLabel-root:nth-child(2){
     margin-left: 65px;
 }
-.div--clients-information-body{
+.div--patients-information-body{
     display: flex;
 }
-.div--clients-information .MuiSelect-select:focus, .div--clients-information input:focus, .div--clients-information select:focus, .div--clients-information textarea:focus {
+.div--patients-information .MuiSelect-select:focus, .div--patients-information input:focus, .div--patients-information select:focus, .div--patients-information textarea:focus {
     background-color: white !important;
     border-radius: 4px !important;
     box-shadow: none;
 }
-.div--clients-information-divisor{
+.div--patients-information-divisor{
     display: flex;
     flex: 1 1;
     width: 100% !important;
     flex-direction: column;
 }
-.div--clients-information-details Button{
+.div--patients-information-details Button{
     display: flex;
     flex: 1;
     cursor: pointer !important;

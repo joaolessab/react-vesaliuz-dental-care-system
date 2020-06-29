@@ -77,7 +77,7 @@ class Help extends React.Component{
                     <div className="div--accordion-list">
                         <Accordion
                             question = {"Como faço para registrar reembolso?"}
-                            answer = {'Basta acessar a aba de clientes e clicar no botão: "Vincular Exame".'}
+                            answer = {'Basta acessar a aba de pacientes e clicar no botão: "Vincular Exame".'}
                         />
                         <Accordion
                             question = {"Como faço para lançar receitas?"}
@@ -85,11 +85,11 @@ class Help extends React.Component{
                         />
                         <Accordion
                             question = {"Como faço para registrar reembolso?"}
-                            answer = {'Basta acessar a aba de clientes e clicar no botão: "Vincular Exame".'}
+                            answer = {'Basta acessar a aba de pacientes e clicar no botão: "Vincular Exame".'}
                         />
                         <Accordion
                             question = {"Como faço para registrar reembolso?"}
-                            answer = {'Basta acessar a aba de clientes e clicar no botão: "Vincular Exame".'}
+                            answer = {'Basta acessar a aba de pacientes e clicar no botão: "Vincular Exame".'}
                         />
                         <Accordion
                             question = {"Como faço para lançar receitas?"}
@@ -97,11 +97,11 @@ class Help extends React.Component{
                         />
                         <Accordion
                             question = {"Como faço para registrar reembolso?"}
-                            answer = {'Basta acessar a aba de clientes e clicar no botão: "Vincular Exame".'}
+                            answer = {'Basta acessar a aba de pacientes e clicar no botão: "Vincular Exame".'}
                         />
                         <Accordion
                             question = {"Como faço para registrar reembolso?"}
-                            answer = {'Basta acessar a aba de clientes e clicar no botão: "Vincular Exame".'}
+                            answer = {'Basta acessar a aba de pacientes e clicar no botão: "Vincular Exame".'}
                         />
                         <Accordion
                             question = {"Como faço para lançar receitas?"}
@@ -109,11 +109,11 @@ class Help extends React.Component{
                         />
                         <Accordion
                             question = {"Como faço para registrar reembolso?"}
-                            answer = {'Basta acessar a aba de clientes e clicar no botão: "Vincular Exame".'}
+                            answer = {'Basta acessar a aba de pacientes e clicar no botão: "Vincular Exame".'}
                         />
                         <Accordion
                             question = {"Como faço para registrar reembolso?"}
-                            answer = {'Basta acessar a aba de clientes e clicar no botão: "Vincular Exame".'}
+                            answer = {'Basta acessar a aba de pacientes e clicar no botão: "Vincular Exame".'}
                         />
                         <Accordion
                             question = {"Como faço para lançar receitas?"}
@@ -121,7 +121,7 @@ class Help extends React.Component{
                         />
                         <Accordion
                             question = {"Como faço para registrar reembolso?"}
-                            answer = {'Basta acessar a aba de clientes e clicar no botão: "Vincular Exame".'}
+                            answer = {'Basta acessar a aba de pacientes e clicar no botão: "Vincular Exame".'}
                         />
                     </div>
                 </div>

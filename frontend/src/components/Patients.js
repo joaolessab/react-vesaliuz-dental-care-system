@@ -1,7 +1,6 @@
 import React from 'react';
 import 'react-responsive-modal/styles.css';
 
-import { Calendar, momentLocalizer } from 'react-big-calendar'
 import moment from 'moment';
 import MomentUtils from "@date-io/moment";
 import 'moment/locale/pt-br';
@@ -12,9 +11,6 @@ import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop';
 import AutoCompleteSuggest from './AutoCompleteSuggest';
 import { Modal } from 'react-responsive-modal';
 import Button from '@material-ui/core/Button';
-import AddBoxIcon from '@material-ui/icons/AddBox';
-import SearchIcon from '@material-ui/icons/Search';
-import SyncIcon from '@material-ui/icons/Sync';
 import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
@@ -35,16 +31,16 @@ import cogoToast from 'cogo-toast';
 
 // ================ ESTILOS ===============
 
-import '../assets/css/Clients.css';
-import '../assets/css/Animations/Clients--Animations.css';
-import '../assets/css/Responsive/Clients--Reponsive.css';
+import '../assets/css/Patients.css';
+import '../assets/css/Animations/Patients--Animations.css';
+import '../assets/css/Responsive/Patients--Reponsive.css';
 
 // ================ PHOTOS ===============
 
-import clarkPhoto from '../assets/images/clients/clark.jpg';
-import dianaPhoto from '../assets/images/clients/diana.jpg';
-import oliverPhoto from '../assets/images/clients/oliver.jpg';
-import brucePhoto from '../assets/images/clients/bruce.jpg';
+import clarkPhoto from '../assets/images/patients/clark.jpg';
+import dianaPhoto from '../assets/images/patients/diana.jpg';
+import oliverPhoto from '../assets/images/patients/oliver.jpg';
+import brucePhoto from '../assets/images/patients/bruce.jpg';
 
 const momentLocale = moment.locale('pt-br');
 
@@ -57,13 +53,13 @@ const useStyles = theme => ({
     },
 });
 
-class Clients extends React.Component{    
+class Patients extends React.Component{    
     constructor(props){         
         super(props);
 
         this.state = {
             clientCRUDVisibility: false,
-            clients: [
+            patients: [
                 {
                     id: 1,
                     name: "Clark Cold",
@@ -214,7 +210,7 @@ class Clients extends React.Component{
     
     // ================ CRUD EVENTS ===============
 
-    openCrudClientsModal = (mode) => {
+    openCRUDPatientsModal = (mode) => {
         this.setState({
             clientCRUDVisibility: true
         });
@@ -236,15 +232,15 @@ class Clients extends React.Component{
     };
 
     deleteClient = (clientId) => {
-        var newClients = [];
-        for (var i = 0; i < this.state.clients.length; i++){
-            if (this.state.clients[i].id !== clientId)
-                newClients.push(this.state.clients[i]);
+        var newPatients = [];
+        for (var i = 0; i < this.state.patients.length; i++){
+            if (this.state.patients[i].id !== clientId)
+                newPatients.push(this.state.patients[i]);
         }
 
         // Salvando     
         this.setState({
-            clients: newClients
+            patients: newPatients
         });
         
         this.destroyCogoToastInfo();
@@ -262,14 +258,13 @@ class Clients extends React.Component{
     
     render(){
         const { classes } = this.props;
-        const localizer = momentLocalizer(moment);
 
-        // LISTAGEM DE CLIENTES
-        const listClients = this.state.clients.map((client) => {
+        // LISTAGEM DE PACIENTES
+        const listPatients = this.state.patients.map((client) => {
             return (
                 <div className="div--individual-card" key={client.id}>
                     <Button className="button--card-delete" onClick={() => this.triedToDeleteClient(client.id) }><DeleteForeverIcon /></Button>
-                    <div className="div--card-background" onClick={() => this.openCrudClientsModal("edit")}>
+                    <div className="div--card-background" onClick={() => this.openCRUDPatientsModal("edit")}>
                         <div className="div--card-picture">
                             <img src={ client.photo }></img>
                         </div>
@@ -284,37 +279,36 @@ class Clients extends React.Component{
         // RETORNO BÁSICO DO HTML
         return (
             <div className="container--miolo-main">
-                <div className="container--content-clients">
+                <div className="container--content-patients">
                     <div className="div--content-title">
-                        <h1>Clientes</h1>
+                        <h1>Pacientes</h1>
                     </div>
 
-                    <div className="container--clients-toolbar">
+                    <div className="container--patients-toolbar">
                         <div>
                             {/* Auto Suggest */}
-                            < AutoCompleteSuggest source = "clients" />
+                            < AutoCompleteSuggest source = "patients" />
                         </div>
                         <div>
-                            <Button className="button--blue-casual" onClick={() => this.openCrudClientsModal("insert")}>Novo cliente</Button>
+                            <Button className="button--blue-casual" onClick={() => this.openCRUDPatientsModal("insert")}>Novo cliente</Button>
                         </div>
                     </div>
 
-                    <div className="container--clients-card">
-                        { listClients }                        
+                    <div className="container--patients-card">
+                        { listPatients }                        
                     </div>
                 </div>
 
-                {/* Modal de Clientes */}
+                {/* Modal de Pacientes */}
                 <Modal open={ this.state.clientCRUDVisibility } onClose={ this.closeCrudModal } center>
                     <div className="div--modalAgenda-body">
-                        <div className="div--clients-information-body">
+                        <div className="div--patients-information-body">
                             <div 
-                                className={ this.state.eventRepeatCheck === true ? "div--clients-information div--clients-information--opened" : "div--clients-information" }
+                                className={ this.state.eventRepeatCheck === true ? "div--patients-information div--patients-information--opened" : "div--patients-information" }
                             >
                                 <form className={classes.root} noValidate autoComplete="off">
                                     <MuiPickersUtilsProvider libInstance={ moment } utils={ MomentUtils } locale={ momentLocale }>                                
-                                        {/* Nome */}
-                                        <div className="div--clients-information-divisor">
+                                    <div className="div--clients-information-divisor">
                                             <div className="div--agendaForm-title agenda--component">
                                                 <TextField 
                                                     id="title-event" 
@@ -338,35 +332,6 @@ class Clients extends React.Component{
                                                     value = { this.state.eventTitle } 
                                                     onChange = { this.changeEventTitle }
                                                 />
-                                            </div>
-
-                                            <div className="div--agendaForm-repeatOptions agenda--component">
-                                                <FormControlLabel
-                                                    value="end"
-                                                    control={
-                                                        <Checkbox
-                                                            checked={ this.state.eventAllDayCheck } 
-                                                            icon={<RadioButtonUncheckedIcon />}
-                                                            checkedIcon={< CheckCircleIcon />}
-                                                            onChange={ this.changeAllDayCheck }
-                                                        />
-                                                    }
-                                                    label="Paciente"
-                                                    labelPlacement="end"
-                                                />
-                                                <FormControlLabel
-                                                        value="end"
-                                                        control={
-                                                            <Checkbox
-                                                                checked={ this.state.eventRepeatCheck }
-                                                                icon={<RadioButtonUncheckedIcon />}
-                                                                checkedIcon={< CheckCircleIcon />}
-                                                                onChange={ this.changeRepeatCheck }
-                                                            />
-                                                        }
-                                                        label="Dentista"
-                                                        labelPlacement="end"
-                                                    />
                                             </div>
 
                                             <div className="div--agendaForm-dates agenda--component">
@@ -422,7 +387,7 @@ class Clients extends React.Component{
                                             </div>
                                         </div>
 
-                                        <div className="div--clients-information-divisor">
+                                        <div className="div--patients-information-divisor">
                                             <div className="div--agendaForm-title agenda--component">
                                                 <TextField 
                                                     id="title-event" 
@@ -492,7 +457,7 @@ class Clients extends React.Component{
                                                 />
                                                 
                                                 <div className="div--agendaForm-client agenda--component">
-                                                    <InputLabel htmlFor="checkbox--agenda-client" className="input--agendaForm-client">Cliente:</InputLabel>
+                                                    <InputLabel htmlFor="checkbox--agenda-client" className="input--agendaForm-client">Indicado por:</InputLabel>
                                                     <Select
                                                         labelId="checkbox--agenda-client"
                                                         id="checkbox--agenda-client"
@@ -510,7 +475,7 @@ class Clients extends React.Component{
                                             </div>      
                                         </div>
                                     
-                                        <div className="div--clients-information-divisor div--clients-information-details">
+                                        <div className="div--patients-information-divisor div--patients-information-details">
                                             <Button>Cadastrar Anamnese</Button>
                                             <Button>Exame Intra-Oral</Button>
                                         </div>
@@ -538,4 +503,4 @@ class Clients extends React.Component{
     }
 }
 
-export default withStyles(useStyles)(Clients);
+export default withStyles(useStyles)(Patients);

@@ -6,8 +6,8 @@
 .icon--agendamentos{background-image: url("../icons/calendar-icon--black.svg");}
 .icon--agendamentos:hover{background-image: url("../icons/calendar-icon--white.svg");}
 
-.icon--clientes{background-image: url("../icons/patient-icon--black.svg");}
-.icon--clientes:hover{background-image: url("../icons/patient-icon--white.svg");}
+.icon--patients{background-image: url("../icons/patient-icon--black.svg");}
+.icon--patients:hover{background-image: url("../icons/patient-icon--white.svg");}
 
 .icon--financas{background-image: url("../icons/finances-icon--black.svg");}
 .icon--financas:hover{background-image: url("../icons/finances-icon--white.svg");}

@@ -9,7 +9,7 @@ import '../assets/css/Modal.css';
 
 import Resume from '../components/Resume';
 import Agenda from '../components/Agenda';
-import Clients from '../components/Clients';
+import Patients from '../components/Patients';
 import News from '../components/News';
 import Help from '../components/Help';
 
@@ -66,8 +66,8 @@ class Main extends React.Component{
                 this.setState({appChosenView: Resume});
             if (page === "Agenda")
                 this.setState({appChosenView: Agenda});
-            if (page === "Clients")
-                this.setState({appChosenView: Clients});
+            if (page === "Patients")
+                this.setState({appChosenView: Patients});
             if (page === "Help")
                 this.setState({appChosenView: Help});
             if (page === "News")
@@ -85,8 +85,8 @@ class Main extends React.Component{
                 document.getElementsByClassName("icon--home")[0].classList.add("selected");
             if (page === "Agenda")
                 document.getElementsByClassName("icon--agendamentos")[0].classList.add("selected");
-            if (page === "Clients")
-                document.getElementsByClassName("icon--clientes")[0].classList.add("selected");
+            if (page === "Patients")
+                document.getElementsByClassName("icon--patients")[0].classList.add("selected");
             if(page === "News")
                 document.getElementsByClassName("icon--news")[0].classList.add("selected");
             if(page === "Help")
@@ -139,10 +139,10 @@ class Main extends React.Component{
                                 </Button>
 
                                 <Button 
-                                    className="icon--clientes"
-                                    onClick={() => this.accessPage("Clients")}
+                                    className="icon--patients"
+                                    onClick={() => this.accessPage("Patients")}
                                 >
-                                    <span>Clientes</span>
+                                    <span>Pacientes</span>
                                 </Button>
                                 
                                 <Button 

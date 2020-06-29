@@ -8,7 +8,7 @@ import '../assets/css/AutoCompleteSuggest.css';
 
 const itemsSuggest = [
     {
-        title: 'Clientes',
+        title: 'Pacientes',
         itemsSuggest: [
             {
               name: 'Clark Cold',
@@ -98,7 +98,7 @@ function getSuggestions(value, source) {
   var chosenSuggest = [];
   if (source === "all")
     chosenSuggest = itemsSuggest;
-  else if(source === "clients")
+  else if(source === "patients")
     chosenSuggest = [itemsSuggest[0]];
 
   return chosenSuggest

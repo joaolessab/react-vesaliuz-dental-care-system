@@ -1,4 +1,4 @@
-.div--clients-information{
+.div--patients-information{
     display: flex;
     flex-direction: column;
     min-width: 320px;
@@ -13,7 +13,7 @@
     -o-transition: 1s;
     transition: 1s;
 }
-.div--clients-information--opened{
+.div--patients-information--opened{
     margin-left: 15px;
 
     -webkit-transition: 1s;
