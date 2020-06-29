@@ -10,7 +10,7 @@
 }
 .container--blackboard-login .container--form{
     flex: 2;
-    background: #F5F6FA;
+    background: #efefefb3;
     display: flex;
     flex-direction: column;
     justify-content: center;

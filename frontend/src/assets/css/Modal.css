@@ -5,6 +5,13 @@
 .react-responsive-modal-modal{
     border-radius: 10px;
     max-width: none !important;
+    background-color: #f7f7f7 !important;
+}
+.react-responsive-modal-modal input, .react-responsive-modal-modal textarea, .react-responsive-modal-modal select{
+    box-shadow: 0px 5px 7px 0px #efefefcc;
+}
+.react-responsive-modal-modal input:focus, .react-responsive-modal-modal textarea:focus, .react-responsive-modal-modal select:focus{
+    box-shadow: 0px 5px 7px 0px #dedede;
 }
 .react-responsive-modal-modal h1{
     font-family: 'Averta Extra Bold';

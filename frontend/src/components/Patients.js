@@ -223,7 +223,7 @@ class Patients extends React.Component{
     triedToDeleteClient = (clientId) => {
         cogoToast.info(
             <div>
-                <div>Tem certeza que deseja excluir esse cliente?</div>
+                <div>Tem certeza que deseja excluir esse paciente?</div>
                 <button className="button--confirmation" onClick = {() => this.deleteClient(clientId)}>Sim</button>
                 <button className="button--cancel" onClick = { this.destroyCogoToastInfo }>Não</button>
             </div>,
@@ -244,7 +244,7 @@ class Patients extends React.Component{
         });
         
         this.destroyCogoToastInfo();
-        cogoToast.success('Cliente excluído com sucesso.', { heading: 'Sucesso!', position: 'top-center', hideAfter: 3 });
+        cogoToast.success('Paciente excluído com sucesso.', { heading: 'Sucesso!', position: 'top-center', hideAfter: 3 });
     };
 
     destroyCogoToastInfo = () => {
@@ -290,7 +290,7 @@ class Patients extends React.Component{
                             < AutoCompleteSuggest source = "patients" />
                         </div>
                         <div>
-                            <Button className="button--blue-casual" onClick={() => this.openCRUDPatientsModal("insert")}>Novo cliente</Button>
+                            <Button className="button--blue-casual" onClick={() => this.openCRUDPatientsModal("insert")}>Novo Paciente</Button>
                         </div>
                     </div>
 
@@ -308,11 +308,12 @@ class Patients extends React.Component{
                             >
                                 <form className={classes.root} noValidate autoComplete="off">
                                     <MuiPickersUtilsProvider libInstance={ moment } utils={ MomentUtils } locale={ momentLocale }>                                
-                                    <div className="div--clients-information-divisor">
+                                        <div className="div--patients-information-divisor">
                                             <div className="div--agendaForm-title agenda--component">
-                                                <TextField 
-                                                    id="title-event" 
-                                                    label="Nome do Cliente:" 
+                                                <input
+                                                    placeholder = "Nome do Paciente"
+                                                    type = "text"
+                                                    id="title-event"
                                                     value = { this.state.eventTitle } 
                                                     onChange = { this.changeEventTitle }
                                                 />
@@ -350,11 +351,10 @@ class Patients extends React.Component{
                                                 />
                                             </div>
 
-                                            {/* CPF ou CNPJ */}
                                             <div className="div--agendaForm-title agenda--component">
-                                                <TextField 
-                                                    id="title-event" 
-                                                    label="CPF ou CNPJ:" 
+                                                <input 
+                                                    type = "text"
+                                                    placeholder="CPF ou CNPJ:" 
                                                     value = { this.state.eventTitle } 
                                                     onChange = { this.changeEventTitle }
                                                 />

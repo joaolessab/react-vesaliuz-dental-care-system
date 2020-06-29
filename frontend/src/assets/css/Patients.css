@@ -121,10 +121,13 @@
 .container--patients-toolbar div:nth-child(1){
     flex: 1;
 }
-.container--patients-toolbar div:nth-child(1){
-    flex-basis: 110px;
+.container--patients-toolbar div:nth-child(2){
+    flex-basis: 130px;
 }
-
+.container--patients-toolbar div:nth-child(2) Button{
+    flex: 1 1;
+    width: 100% !important;
+}
 /* Div dentro do modal de eventos */
 .div--patients-information form{
     flex-direction: row;
@@ -150,16 +153,10 @@
 .div--patients-information-body{
     display: flex;
 }
-.div--patients-information .MuiSelect-select:focus, .div--patients-information input:focus, .div--patients-information select:focus, .div--patients-information textarea:focus {
-    background-color: white !important;
-    border-radius: 4px !important;
-    box-shadow: none;
-}
 .div--patients-information-divisor{
     display: flex;
-    flex: 1 1;
-    width: 100% !important;
     flex-direction: column;
+    min-width: 300px;
 }
 .div--patients-information-details Button{
     display: flex;
@@ -173,4 +170,12 @@
     font-family: 'Averta' !important;
     text-transform: none;
     border-radius: 10px;
+}
+.div--patients-information{
+    display: flex;
+    flex-direction: column;
+    min-width: 320px;
+    margin: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
