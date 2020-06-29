@@ -5,13 +5,7 @@
 .react-responsive-modal-modal{
     border-radius: 10px;
     max-width: none !important;
-    background-color: #f7f7f7 !important;
-}
-.react-responsive-modal-modal input, .react-responsive-modal-modal textarea, .react-responsive-modal-modal select{
-    box-shadow: 0px 5px 7px 0px #efefefcc;
-}
-.react-responsive-modal-modal input:focus, .react-responsive-modal-modal textarea:focus, .react-responsive-modal-modal select:focus{
-    box-shadow: 0px 5px 7px 0px #dedede;
+    background-color: #fbfbfb !important
 }
 .react-responsive-modal-modal h1{
     font-family: 'Averta Extra Bold';
@@ -231,4 +225,82 @@
     border-top-left-radius: 10px;
     color: white;
     text-align: justify;
+}
+/* MODAL CUSTOMIZADO */
+.custom--modal-footer{
+    display: flex;
+    justify-content: flex-end;
+  }
+  .custom--modal-footer .buttons--bar{
+    flex-direction: row !important;
+    justify-content: flex-end;
+  }
+  /* DIV DO INPUT */
+  .MuiInput-root {
+    background-color: white !important;
+    border-radius: 10px !important;
+    padding: 0px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    height: 45px !important;  
+    border: 1px solid #dcdcdc !important;
+    box-shadow: 0px 5px 7px 0px #efefefcc !important;
+  }
+  /* INPUT DO MODAL CUSTOMIZADO */
+  .MuiInputBase-input{
+    z-index: 301 !important;
+  }
+  .MuiInput-underline:after, .MuiInput-underline:before{
+    border: 0px !important;
+  }
+  /* LABEL DO MODAL CUSTOMIZADO */
+  .MuiInputLabel-formControl{
+    z-index: 300 !important;
+  }
+  .MuiInputLabel-root {
+    margin-top: 6.5px !important;
+    margin-left: 10px !important;
+  }
+  .MuiCheckbox-colorSecondary.Mui-checked, .MuiInputLabel-root.Mui-focused{
+    color: #2386fd !important;
+    margin-top: 0px !important;
+  }
+  .MuiInputLabel-shrink {margin-top: 0px !important;}
+
+  /* FLEX CSS */  
+.modal--split-columnar{
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+}
+.modal--split-one{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 100% !important;
+    margin: 0;
+    padding-top: 15px;
+}
+.modal--split-children{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+.modal--split-two{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    width: 100% !important;
+    margin: 0;
+    padding-top: 15px;
+}
+.modal--split-two > *{
+    flex: 1;
+}
+/* Elemento que está divido em 2 e é children, deve ser select */
+.modal--split-two .modal--split-children, .modal--split-two .modal--split-select{
+    margin-top: -9px;
+}
+.modal--split-two .modal--split-datetime{
+    margin-top: -16px;
 }

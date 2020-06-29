@@ -133,7 +133,7 @@
     flex-direction: row;
     display: flex;
 }
-.div--patients-information .agenda--component{
+.div--patients-information .patients--component{
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -141,22 +141,11 @@
     margin: 0;
     margin-top: 5px;
 }
-.div--patients-information .MuiFormControl-marginNormal {
-    width: 140px !important;
-}
 .div--patients-information .div--agendaForm-times .MuiSelect-select.MuiSelect-select{
     width: 115px !important;
 }
-.div--patients-information .agenda--component .MuiFormControlLabel-root:nth-child(2){
-    margin-left: 65px;
-}
 .div--patients-information-body{
     display: flex;
-}
-.div--patients-information-divisor{
-    display: flex;
-    flex-direction: column;
-    min-width: 300px;
 }
 .div--patients-information-details Button{
     display: flex;

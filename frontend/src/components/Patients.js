@@ -290,7 +290,7 @@ class Patients extends React.Component{
                             < AutoCompleteSuggest source = "patients" />
                         </div>
                         <div>
-                            <Button className="button--blue-casual" onClick={() => this.openCRUDPatientsModal("insert")}>Novo Paciente</Button>
+                            <button className="button--blue-casual" onClick={() => this.openCRUDPatientsModal("insert")}>Novo Paciente</button>
                         </div>
                     </div>
 
@@ -308,71 +308,65 @@ class Patients extends React.Component{
                             >
                                 <form className={classes.root} noValidate autoComplete="off">
                                     <MuiPickersUtilsProvider libInstance={ moment } utils={ MomentUtils } locale={ momentLocale }>                                
-                                        <div className="div--patients-information-divisor">
-                                            <div className="div--agendaForm-title agenda--component">
-                                                <input
-                                                    placeholder = "Nome do Paciente"
-                                                    type = "text"
-                                                    id="title-event"
+                                        <div className="modal--split-columnar">
+                                            
+                                            <div className="modal--split-one">
+                                                <TextField 
+                                                    label="Nome do Paciente:" 
                                                     value = { this.state.eventTitle } 
                                                     onChange = { this.changeEventTitle }
                                                 />
                                             </div>
 
-                                            <div className="div--agendaForm-dates agenda--component">
+                                            <div className="modal--split-two">
                                                 <TextField 
-                                                    id="title-event" 
                                                     label="Data de Nascimento:" 
                                                     value = { this.state.eventTitle } 
                                                     onChange = { this.changeEventTitle }
                                                 />
-                                                
-                                                <TextField 
-                                                    id="title-event" 
-                                                    label="Sexo:" 
-                                                    value = { this.state.eventTitle } 
-                                                    onChange = { this.changeEventTitle }
-                                                />
+                                                <div className="modal--split-children">
+                                                    <InputLabel htmlFor="checkbox--sex" className="input--agendaForm-client">Sexo:</InputLabel>
+                                                    <Select
+                                                        labelId="checkbox--sex"
+                                                        value = { this.state.eventClientListValue }
+                                                        onChange={ this.changeEventClient }
+                                                        input={ <Input /> }
+                                                    >
+                                                        { this.state.eventClientList.map((clientItem) => (
+                                                            <MenuItem key={ clientItem.name } value={ clientItem.id }>
+                                                                <ListItemText primary={ clientItem.name } />
+                                                            </MenuItem>
+                                                        ))}
+                                                    </Select>
+                                                </div>
                                             </div>
 
-                                            <div className="div--agendaForm-dates agenda--component">
+                                            <div className="modal--split-one">
                                                 <TextField 
-                                                    id="title-event" 
                                                     label="Profissão:" 
                                                     value = { this.state.eventTitle } 
                                                     onChange = { this.changeEventTitle }
                                                 />
-                                                
+                                            </div>
+
+                                            <div className="modal--split-one">
                                                 <TextField 
-                                                    id="title-event" 
-                                                    label="Estado Civil:" 
+                                                    label="CPF ou CNPJ:" 
                                                     value = { this.state.eventTitle } 
                                                     onChange = { this.changeEventTitle }
                                                 />
                                             </div>
 
-                                            <div className="div--agendaForm-title agenda--component">
-                                                <input 
-                                                    type = "text"
-                                                    placeholder="CPF ou CNPJ:" 
-                                                    value = { this.state.eventTitle } 
-                                                    onChange = { this.changeEventTitle }
-                                                />
-                                            </div>
-
-                                            {/* Endereço */}
-                                            <div className="div--agendaForm-title agenda--component">
+                                            <div className="modal--split-one">
                                                 <TextField 
-                                                    id="title-event" 
                                                     label="Endereço:" 
                                                     value = { this.state.eventTitle } 
                                                     onChange = { this.changeEventTitle }
                                                 />
                                             </div>
 
-                                            <div className="div--agendaForm-dates agenda--component">
+                                            <div className="modal--split-two">
                                                 <TextField 
-                                                    id="title-event" 
                                                     label="CEP:" 
                                                     value = { this.state.eventTitle } 
                                                     onChange = { this.changeEventTitle }
@@ -387,50 +381,57 @@ class Patients extends React.Component{
                                             </div>
                                         </div>
 
-                                        <div className="div--patients-information-divisor">
-                                            <div className="div--agendaForm-title agenda--component">
+                                        <div className="modal--split-columnar">
+
+                                            <div className="modal--split-one">
                                                 <TextField 
-                                                    id="title-event" 
                                                     label="Cidade:" 
                                                     value = { this.state.eventTitle } 
                                                     onChange = { this.changeEventTitle }
                                                 />
                                             </div>
 
-                                            <div className="div--agendaForm-title agenda--component">
+                                            <div className="modal--split-one">
                                                 <TextField 
-                                                    id="title-event" 
                                                     label="E-mail:" 
                                                     value = { this.state.eventTitle } 
                                                     onChange = { this.changeEventTitle }
                                                 />
                                             </div>
 
-                                            <div className="div--agendaForm-title agenda--component">
+                                            <div className="modal--split-one">
                                                 <TextField 
-                                                    id="title-event" 
                                                     label="Telefone Principal:" 
                                                     value = { this.state.eventTitle } 
                                                     onChange = { this.changeEventTitle }
                                                 />
                                             </div>
 
-                                            <div className="div--agendaForm-title agenda--component">
+                                            <div className="modal--split-one">
                                                 <TextField 
-                                                    id="title-event" 
                                                     label="Telefone Secundário:" 
                                                     value = { this.state.eventTitle } 
                                                     onChange = { this.changeEventTitle }
                                                 />
                                             </div>
 
-                                            <div className="div--agendaForm-dates agenda--component">
-                                                <TextField 
-                                                    id="title-event" 
-                                                    label="Profissão:" 
-                                                    value = { this.state.eventTitle } 
-                                                    onChange = { this.changeEventTitle }
-                                                />
+                                            <div className="modal--split-two">
+                                                <div className="modal--split-datetime">
+                                                    <KeyboardDatePicker
+                                                        disableToolbar
+                                                        variant="inline"
+                                                        format="DD/MM/YYYY"
+                                                        margin="normal"
+                                                        id="date-picker-initial"
+                                                        label="Início do Tratamento:"
+                                                        value={ this.state.eventInitialDate }
+                                                        autoOk = { true }
+                                                        onChange={ this.changeInitialDate }
+                                                        KeyboardButtonProps={{
+                                                            'aria-label': 'change date',
+                                                        }}
+                                                    />
+                                                </div>
                                                 
                                                 <TextField 
                                                     id="title-event" 
@@ -440,42 +441,25 @@ class Patients extends React.Component{
                                                 />
                                             </div>
 
-                                            <div className="div--agendaForm-dates agenda--component">
-                                                <KeyboardDatePicker
-                                                    disableToolbar
-                                                    variant="inline"
-                                                    format="DD/MM/YYYY"
-                                                    margin="normal"
-                                                    id="date-picker-initial"
-                                                    label="Início do Tratamento:"
-                                                    value={ this.state.eventInitialDate }
-                                                    autoOk = { true }
-                                                    onChange={ this.changeInitialDate }
-                                                    KeyboardButtonProps={{
-                                                        'aria-label': 'change date',
-                                                    }}
-                                                />
-                                                
-                                                <div className="div--agendaForm-client agenda--component">
-                                                    <InputLabel htmlFor="checkbox--agenda-client" className="input--agendaForm-client">Indicado por:</InputLabel>
-                                                    <Select
-                                                        labelId="checkbox--agenda-client"
-                                                        id="checkbox--agenda-client"
-                                                        value = { this.state.eventClientListValue }
-                                                        onChange={ this.changeEventClient }
-                                                        input={ <Input /> }
-                                                    >
-                                                        { this.state.eventClientList.map((clientItem) => (
-                                                            <MenuItem key={ clientItem.name } value={ clientItem.id }>
-                                                                <ListItemText primary={ clientItem.name } />
-                                                            </MenuItem>
-                                                        ))}
-                                                    </Select>
-                                                </div>
+                                            <div className="modal--split-one">
+                                                <InputLabel htmlFor="checkbox--agenda-client" className="input--agendaForm-client">Indicado por:</InputLabel>
+                                                <Select
+                                                    labelId="checkbox--agenda-client"
+                                                    id="checkbox--agenda-client"
+                                                    value = { this.state.eventClientListValue }
+                                                    onChange={ this.changeEventClient }
+                                                    input={ <Input /> }
+                                                >
+                                                    { this.state.eventClientList.map((clientItem) => (
+                                                        <MenuItem key={ clientItem.name } value={ clientItem.id }>
+                                                            <ListItemText primary={ clientItem.name } />
+                                                        </MenuItem>
+                                                    ))}
+                                                </Select>
                                             </div>      
                                         </div>
                                     
-                                        <div className="div--patients-information-divisor div--patients-information-details">
+                                        <div className="modal--split-columnar div--patients-information-details">
                                             <Button>Cadastrar Anamnese</Button>
                                             <Button>Exame Intra-Oral</Button>
                                         </div>
@@ -485,7 +469,7 @@ class Patients extends React.Component{
                         </div>
 
                         <div className="custom--modal-footer">
-                            <div className="buttons--bar agenda--component">
+                            <div className="buttons--bar patients--component">
                                 <Button id="deleteEventButton" 
                                     className={ this.state.agendaCRUDMode === "insert" ? "hideComponent": "" }
                                     onClick={ this.deleteEvent }

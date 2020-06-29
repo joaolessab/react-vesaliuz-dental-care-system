@@ -188,9 +188,6 @@
 .div--agendaForm-times, .div--agendaForm-repeatOptions{
     justify-content: start;
 }
-.div--agenda-appointment .MuiFormControl-marginNormal {
-    width: 140px !important;
-}
 .div--agenda-appointment .div--agendaForm-times .MuiSelect-select.MuiSelect-select{
     width: 115px !important;
 }
@@ -331,11 +328,6 @@
 }
 .div--endrepeat-mode-chosen-firstdiv{
     margin-top: 10px;
-}
-
-.div--endrepeat-mode-chosen .MuiFormControl-marginNormal {
-    margin-top: 0px;
-    margin-bottom: 0px;
 }
 
 #input--repeat-number{
@@ -519,7 +511,6 @@
     background-color: #2386fd !important;
     background-position: 15px !important;
     background-image: none !important;
-    transition: 0.2s !important;
     width: 105px !important;
     height: 45px;
     border-radius: 10px !important;
@@ -527,16 +518,20 @@
     background-image: none !important;
     font-family: 'Averta' !important;
     text-transform: none !important;
+    border: 0px;
 }
-.button--blue-casual:hover{
-    cursor: pointer !important;
-    animation-duration: 1s !important;
+.button--blue-casual:hover{    
+    transition: 0.2 !important;
     height: 45px !important;
     border-radius: 10px !important;
-    background-color: #ececec !important;
-    color: #585858 !important;
     cursor: pointer !important;
-    font-family: 'Averta' !important;
-    font-size: 14px !important;
+    background-color: #2386fd !important;
+    background-position: 15px !important;
+    box-shadow: 0px 1px 2px 0px #2386fd4d !important;
+    color: white !important;
+    background-image: none !important;
     border: 1.5px solid #ffffffbf !important;
+    color: white !important;
+    background-image: none !important;
+    font-family: 'Averta' !important;
 }

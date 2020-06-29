@@ -25,18 +25,12 @@ body, input, button, textarea{
 
 input, select, textarea{
   height: 45px;
-  border-radius: 6px;
   padding: 10px;
-  border: 0px;
   padding-left: 20px;
   padding-right: 20px;
   border-radius: 10px;
+  border: 1px solid #dcdcdc;
 }
-
-input:focus, select:focus, textarea:focus{
-  box-shadow: 0px 5px 7px 0px #dedede;
-}
-
 /* Scrollbar */
 ::-webkit-scrollbar-track
 {
@@ -175,12 +169,7 @@ input:focus, select:focus, textarea:focus{
 .MuiInputBase-input{
   height: 35px !important;
 }
-.MuiCheckbox-colorSecondary.Mui-checked, .MuiInputLabel-root.Mui-focused{
-  color: #2386fd !important;
-}
-.MuiInput-underline:after{
-  border-bottom: 2px solid #2386fd !important;
-}
+
 .MuiPickersDay-daySelected {
   background-color: #2386fd !important;
 }
@@ -204,14 +193,4 @@ input:focus, select:focus, textarea:focus{
 }
 .div--endrepeat-mode-chosen .MuiInputBase-root.Mui-disabled{
   border-bottom: 0px !important;
-}
-
-/* Modal Customizado */
-.custom--modal-footer{
-  display: flex;
-  justify-content: flex-end;
-}
-.custom--modal-footer .buttons--bar{
-  flex-direction: row !important;
-  justify-content: flex-end;
 }
