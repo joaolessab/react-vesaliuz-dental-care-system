@@ -93,121 +93,43 @@ class Patients extends React.Component{
                     photo: brucePhoto
                 }
             ],
-            eventAgendaTimes : [
-                "00:00",
-                "00:15",
-                "00:30",
-                "00:45",
-                "01:00",
-                "01:15",
-                "01:30",
-                "01:45",
-                "02:00",
-                "02:15",
-                "02:30",
-                "02:45",
-                "03:00",
-                "03:15",
-                "03:30",
-                "03:45",
-                "04:00",
-                "04:15",
-                "04:30",
-                "04:45",
-                "05:00",
-                "05:15",
-                "05:30",
-                "05:45",
-                "06:00",
-                "06:15",
-                "06:30",
-                "06:45",
-                "07:00",
-                "07:15",
-                "07:30",
-                "07:45",
-                "08:00",
-                "08:15",
-                "08:30",
-                "08:45",
-                "09:00",
-                "09:15",
-                "09:30",
-                "09:45",
-                "10:00",
-                "10:15",
-                "10:30",
-                "10:45",
-                "11:00",
-                "11:15",
-                "11:30",
-                "11:45",
-                "12:00",
-                "12:15",
-                "12:30",
-                "12:45",
-                "13:00",
-                "13:15",
-                "13:30",
-                "13:45",
-                "14:00",
-                "14:15",
-                "14:30",
-                "14:45",
-                "15:00",
-                "15:15",
-                "15:30",
-                "15:45",            
-                "16:00",
-                "16:15",
-                "16:30",
-                "16:45",            
-                "17:00",
-                "17:15",
-                "17:30",
-                "17:45",            
-                "18:00",
-                "18:15",
-                "18:30",
-                "18:45",
-                "19:00",
-                "19:15",
-                "19:30",
-                "19:45",
-                "20:00",
-                "20:15",
-                "20:30",
-                "20:45",
-                "21:00",
-                "21:15",
-                "21:30",
-                "21:45",
-                "22:00",
-                "22:15",
-                "22:30",
-                "22:45",
-                "23:00",
-                "23:15",
-                "23:30",
-                "23:45"
-            ],
-            eventClientList: [
+
+            patientName: "",
+            patientBirthday: "",
+            genreList: [
                 { name: "Selecione...", id: 0 },
-                { name: "Andreas Pirlo", id: 1 },
-                { name: "Paulo Dybala", id: 2 },
-                { name: "Travis Scott", id: 3 },
-                { name: "Cristiano Ronaldo", id: 4 }
+                { name: "Masculino", id: 1 },
+                { name: "Feminino", id: 2 },
+                { name: "Não informar", id: 3 }
             ],
-            eventRepeatMode: [
-                { option: "Selecione...", id: 0 },
-                { option: "Dia(s)", id: 1 },
-                { option: "Semana(s)", id: 2 },
-                { option: "Mes(es)", id: 3 },
-                { option: "Ano(s)", id: 4 }
-            ]
+            patientGenreValue: 0,
+            patientOccupation: "",
+            patientDocument: "",
+            patientAddress: "",
+            patientZipCode: "",
+            patientState: "",
+
+            patientCity: "",
+            patientEmail: "",
+            patientMainPhone: "",
+            patientSecondaryPhone: "",
+            patientInitialDate: "",
+            patientCivilStatus: ""
         };
     };
-    
+
+    // ================ CHANGE EVENTS ==============
+    changeSimpleString = (evt) => {
+        this.setState({
+            [evt.target.name]: evt.target.value
+        });
+    };
+
+    changeSimpleList = (evt) => {
+        debugger
+        //patientGenreValue
+    };
+        
     // ================ CRUD EVENTS ===============
 
     openCRUDPatientsModal = (mode) => {
@@ -303,7 +225,7 @@ class Patients extends React.Component{
                 <Modal open={ this.state.clientCRUDVisibility } onClose={ this.closeCrudModal } center>
                     <div className="div--modalAgenda-body">
                         <div className="custom--modal-header-patient">
-                            <Button className="icon--anamnese selected">Cadastrar Anamnese</Button>
+                            <Button className="icon--anamnese selected">Anamnese</Button>
                             <Button className="icon--agendamentos"><span>Agendas</span></Button>
                             <Button className="icon--financas"><span>Financeiro</span></Button>
                             <Button className="icon--exams"><span>Exames</span></Button>
@@ -318,29 +240,32 @@ class Patients extends React.Component{
                                         <div className="modal--split-columnar">
                                             <div className="modal--split-one">
                                                 <TextField 
-                                                    label="Nome do Paciente:" 
-                                                    value = { this.state.eventTitle } 
-                                                    onChange = { this.changeEventTitle }
+                                                    label="Nome do Paciente" 
+                                                    value = { this.state.patientName }
+                                                    name = "patientName"
+                                                    onChange={ this.changeSimpleString } 
                                                 />
                                             </div>
 
                                             <div className="modal--split-two">
                                                 <TextField 
-                                                    label="Nascimento:" 
-                                                    value = { this.state.eventTitle } 
-                                                    onChange = { this.changeEventTitle }
+                                                    label="Nascimento" 
+                                                    value = { this.state.patientBirthday }
+                                                    name = "patientBirthday"
+                                                    onChange={ this.changeSimpleString }                                               
                                                 />
                                                 <div className="modal--split-children">
                                                     <InputLabel htmlFor="checkbox--sex" className="input--agendaForm-client">Sexo:</InputLabel>
                                                     <Select
                                                         labelId="checkbox--sex"
-                                                        value = { this.state.eventClientListValue }
-                                                        onChange={ this.changeEventClient }
+                                                        value = { this.state.patientGenreValue }
+                                                        name = "patientGenreValue"
+                                                        onChange={ this.changeSimpleList }
                                                         input={ <Input /> }
                                                     >
-                                                        { this.state.eventClientList.map((clientItem) => (
-                                                            <MenuItem key={ clientItem.name } value={ clientItem.id }>
-                                                                <ListItemText primary={ clientItem.name } />
+                                                        { this.state.genreList.map((genreItem) => (
+                                                            <MenuItem key={ genreItem.name } value={ genreItem.id }>
+                                                                <ListItemText primary={ genreItem.name } />
                                                             </MenuItem>
                                                         ))}
                                                     </Select>
@@ -349,40 +274,44 @@ class Patients extends React.Component{
 
                                             <div className="modal--split-one">
                                                 <TextField 
-                                                    label="Profissão:" 
-                                                    value = { this.state.eventTitle } 
-                                                    onChange = { this.changeEventTitle }
+                                                    label="Profissão" 
+                                                    value = { this.state.patientOccupation }
+                                                    name = "patientOccupation"
+                                                    onChange={ this.changeSimpleString }                                               
                                                 />
                                             </div>
 
                                             <div className="modal--split-one">
                                                 <TextField 
                                                     label="CPF ou CNPJ:" 
-                                                    value = { this.state.eventTitle } 
-                                                    onChange = { this.changeEventTitle }
+                                                    value = { this.state.patientDocument }
+                                                    name = "patientDocument"
+                                                    onChange={ this.changeSimpleString }                                               
                                                 />
                                             </div>
 
                                             <div className="modal--split-one">
                                                 <TextField 
                                                     label="Endereço:" 
-                                                    value = { this.state.eventTitle } 
-                                                    onChange = { this.changeEventTitle }
+                                                    value = { this.state.patientAddress }
+                                                    name = "patientAddress"
+                                                    onChange={ this.changeSimpleString }                                               
                                                 />
                                             </div>
 
                                             <div className="modal--split-two">
                                                 <TextField 
                                                     label="CEP:" 
-                                                    value = { this.state.eventTitle } 
-                                                    onChange = { this.changeEventTitle }
+                                                    value = { this.state.patientZipCode }
+                                                    name = "patientZipCode"
+                                                    onChange={ this.changeSimpleString }                                               
                                                 />
-                                                
+
                                                 <TextField 
-                                                    id="title-event" 
                                                     label="Estado:" 
-                                                    value = { this.state.eventTitle } 
-                                                    onChange = { this.changeEventTitle }
+                                                    value = { this.state.patientState }
+                                                    name = "patientState"
+                                                    onChange={ this.changeSimpleString }                                               
                                                 />
                                             </div>
                                         </div>
@@ -392,32 +321,36 @@ class Patients extends React.Component{
                                             <div className="modal--split-one">
                                                 <TextField 
                                                     label="Cidade:" 
-                                                    value = { this.state.eventTitle } 
-                                                    onChange = { this.changeEventTitle }
+                                                    value = { this.state.patientCity }
+                                                    name = "patientCity"
+                                                    onChange={ this.changeSimpleString }                                               
                                                 />
                                             </div>
 
                                             <div className="modal--split-one">
                                                 <TextField 
                                                     label="E-mail:" 
-                                                    value = { this.state.eventTitle } 
-                                                    onChange = { this.changeEventTitle }
+                                                    value = { this.state.patientEmail }
+                                                    name = "patientEmail"
+                                                    onChange={ this.changeSimpleString }                                               
                                                 />
                                             </div>
 
                                             <div className="modal--split-one">
                                                 <TextField 
                                                     label="Telefone Principal:" 
-                                                    value = { this.state.eventTitle } 
-                                                    onChange = { this.changeEventTitle }
+                                                    value = { this.state.patientMainPhone }
+                                                    name = "patientMainPhone"
+                                                    onChange={ this.changeSimpleString }                                               
                                                 />
                                             </div>
 
                                             <div className="modal--split-one">
                                                 <TextField 
                                                     label="Telefone Secundário:" 
-                                                    value = { this.state.eventTitle } 
-                                                    onChange = { this.changeEventTitle }
+                                                    value = { this.state.patientSecondaryPhone }
+                                                    name = "patientSecondaryPhone"
+                                                    onChange={ this.changeSimpleString }                                               
                                                 />
                                             </div>
 
@@ -428,7 +361,6 @@ class Patients extends React.Component{
                                                         variant="inline"
                                                         format="DD/MM/YYYY"
                                                         margin="normal"
-                                                        id="date-picker-initial"
                                                         label="Início do Tratamento:"
                                                         value={ this.state.eventInitialDate }
                                                         autoOk = { true }
@@ -440,12 +372,12 @@ class Patients extends React.Component{
                                                 </div>
                                             </div>
 
-                                            <div className="modal--split-one">                                       
+                                            <div className="modal--split-one">                                    
                                                 <TextField 
-                                                    id="title-event" 
                                                     label="Estado Civil:" 
-                                                    value = { this.state.eventTitle } 
-                                                    onChange = { this.changeEventTitle }
+                                                    value = { this.state.patientCivilStatus }
+                                                    name = "patientCivilStatus"
+                                                    onChange={ this.changeSimpleString }                                               
                                                 />
                                             </div> 
                                         </div>
