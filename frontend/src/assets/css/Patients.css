@@ -139,32 +139,76 @@
     flex: 1;
     width: 100% !important;
     margin: 0;
-    margin-top: 5px;
+    margin-top: 20px;
 }
 .div--patients-information .div--agendaForm-times .MuiSelect-select.MuiSelect-select{
     width: 115px !important;
 }
+.div--patients-information-body form{
+    margin-top: -35px;
+}
 .div--patients-information-body{
     display: flex;
 }
-.div--patients-information-details Button{
-    display: flex;
-    flex: 1;
+.custom--modal-header-patient{
+    padding: 0px;
+}
+.custom--modal-header-patient Button{
+    height: 50px !important;
+    width: 50px;
+    border-radius: 10px !important;
+    border: 0px !important;
+    margin-bottom: 15px !important;
+    background-size: 24px !important;
+    background-repeat: no-repeat !important;
+    background-position: 13.5px !important;
+    text-transform: none !important;
+    background-color: #f0f0f0 !important;
+    min-width: unset !important;
+    margin-right: 15px;
+}
+.custom--modal-header-patient Button span{
+    display: none;
+}
+.custom--modal-header-patient Button:hover, .custom--modal-header-patient .selected{
     cursor: pointer !important;
+    animation-duration: 1s !important;
     background-color: #2386fd !important;
+    background-position: 15px !important;
     box-shadow: 0px 1px 2px 0px #2386fd4d !important;
     border: 1.5px solid #ffffffbf !important;
-    width: 100%;
+    transition: 0.2s !important;
+    width: 105px;
     color: white !important;
+    background-image: none !important;
     font-family: 'Averta' !important;
-    text-transform: none;
-    border-radius: 10px;
+}
+.custom--modal-header-patient Button:hover span, .custom--modal-header-patient .selected span{
+    display: block;
+}
+.custom--modal-header-patient .icon--anamnese{
+    width: 175px !important;
+}
+.custom--modal-header-patient .icon--anamnese:hover{
+    background-color: white !important;
+    color: #62696f !important;
+    border: 1px solid #b5b5b5 !important;
+    box-shadow: 1px 6px 3px 0px #969696 !important;
+}
+.custom--modal-header-patient .icon--anamnese span{
+    display: block;
 }
 .div--patients-information{
     display: flex;
     flex-direction: column;
     min-width: 320px;
-    margin: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
+.div--patients-information .modal--split-columnar{
+    padding-bottom: 8px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.div--patients-information .modal--split-columnar:nth-child(1){margin-right: 7.5px;}
+.div--patients-information .modal--split-columnar:nth-child(2){margin-left: 7.5px;}

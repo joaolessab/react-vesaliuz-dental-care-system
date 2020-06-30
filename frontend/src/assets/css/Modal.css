@@ -5,7 +5,8 @@
 .react-responsive-modal-modal{
     border-radius: 10px;
     max-width: none !important;
-    background-color: #fbfbfb !important
+    background-color: #fbfbfb !important;
+    padding: 25px !important;
 }
 .react-responsive-modal-modal h1{
     font-family: 'Averta Extra Bold';
@@ -31,6 +32,7 @@
 }
 .react-responsive-modal-closeButton{
     right: 18px !important;
+    top: 25px !important;
     height: 35px;
     width: 35px;
     cursor: pointer;
@@ -304,7 +306,7 @@
 }
 /* Elemento que está divido em 2 e é children, deve ser select */
 .modal--split-two .modal--split-children, .modal--split-two .modal--split-select{
-    margin-top: -8px;
+    margin-top: -10px;
 }
 .modal--split-datetime{
     margin-top: -16px;
@@ -325,8 +327,13 @@ select:-webkit-autofill:focus {
   transition: background-color 5000s ease-in-out 0s;
 }
 .MuiPopover-paper {
-    border-radius: 10px;
+    border-radius: 10px !important;
 }
 .MuiSelect-select:focus{
     background-color: transparent !important;
+}
+.MuiListItem-button:hover {
+    text-decoration: none;
+    background-color: rgb(35, 134, 253) !important;
+    color: white !important;
 }

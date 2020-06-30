@@ -302,14 +302,20 @@ class Patients extends React.Component{
                 {/* Modal de Pacientes */}
                 <Modal open={ this.state.clientCRUDVisibility } onClose={ this.closeCrudModal } center>
                     <div className="div--modalAgenda-body">
+                        <div className="custom--modal-header-patient">
+                            <Button className="icon--anamnese selected">Cadastrar Anamnese</Button>
+                            <Button className="icon--agendamentos"><span>Agendas</span></Button>
+                            <Button className="icon--financas"><span>Financeiro</span></Button>
+                            <Button className="icon--exams"><span>Exames</span></Button>
+                            <Button className="icon--procedure"><span>Tratamentos</span></Button>
+                        </div>
                         <div className="div--patients-information-body">
                             <div 
                                 className={ this.state.eventRepeatCheck === true ? "div--patients-information div--patients-information--opened" : "div--patients-information" }
                             >
                                 <form className={classes.root} noValidate autoComplete="off">
-                                    <MuiPickersUtilsProvider libInstance={ moment } utils={ MomentUtils } locale={ momentLocale }>                                
+                                    <MuiPickersUtilsProvider libInstance={ moment } utils={ MomentUtils } locale={ momentLocale }>
                                         <div className="modal--split-columnar">
-                                            
                                             <div className="modal--split-one">
                                                 <TextField 
                                                     label="Nome do Paciente:" 
@@ -443,16 +449,10 @@ class Patients extends React.Component{
                                                 />
                                             </div> 
                                         </div>
-                                    
-                                        <div className="modal--split-columnar div--patients-information-details">
-                                            <Button>Cadastrar Anamnese</Button>
-                                            <Button>Exame Intra-Oral</Button>
-                                        </div>
                                     </MuiPickersUtilsProvider>
                                 </form>
                             </div>
                         </div>
-
                         <div className="custom--modal-footer">
                             <div className="buttons--bar patients--component">
                                 <Button id="deleteEventButton" 
