@@ -320,7 +320,7 @@ class Patients extends React.Component{
 
                                             <div className="modal--split-two">
                                                 <TextField 
-                                                    label="Data de Nascimento:" 
+                                                    label="Nascimento:" 
                                                     value = { this.state.eventTitle } 
                                                     onChange = { this.changeEventTitle }
                                                 />
@@ -415,7 +415,7 @@ class Patients extends React.Component{
                                                 />
                                             </div>
 
-                                            <div className="modal--split-two">
+                                            <div className="modal--split-one">
                                                 <div className="modal--split-datetime">
                                                     <KeyboardDatePicker
                                                         disableToolbar
@@ -432,31 +432,16 @@ class Patients extends React.Component{
                                                         }}
                                                     />
                                                 </div>
-                                                
+                                            </div>
+
+                                            <div className="modal--split-one">                                       
                                                 <TextField 
                                                     id="title-event" 
                                                     label="Estado Civil:" 
                                                     value = { this.state.eventTitle } 
                                                     onChange = { this.changeEventTitle }
                                                 />
-                                            </div>
-
-                                            <div className="modal--split-one">
-                                                <InputLabel htmlFor="checkbox--agenda-client" className="input--agendaForm-client">Indicado por:</InputLabel>
-                                                <Select
-                                                    labelId="checkbox--agenda-client"
-                                                    id="checkbox--agenda-client"
-                                                    value = { this.state.eventClientListValue }
-                                                    onChange={ this.changeEventClient }
-                                                    input={ <Input /> }
-                                                >
-                                                    { this.state.eventClientList.map((clientItem) => (
-                                                        <MenuItem key={ clientItem.name } value={ clientItem.id }>
-                                                            <ListItemText primary={ clientItem.name } />
-                                                        </MenuItem>
-                                                    ))}
-                                                </Select>
-                                            </div>      
+                                            </div> 
                                         </div>
                                     
                                         <div className="modal--split-columnar div--patients-information-details">
