@@ -113,21 +113,30 @@ class Patients extends React.Component{
             patientEmail: "",
             patientMainPhone: "",
             patientSecondaryPhone: "",
-            patientInitialDate: "",
-            patientCivilStatus: ""
+            patientInitialDate: moment().toDate(),
+            civilStatusList: [
+                { name: "Selecione...", id: 0 },
+                { name: "Solteiro(a)", id: 1 },
+                { name: "Casado(a)", id: 2 },
+                { name: "Divorciado(a)", id: 3 },
+                { name: "Viúvo(a)", id: 4 },
+                { name: "Não informar", id: 5 } 
+            ],
+            patientCivilStatus: 0
         };
     };
 
     // ================ CHANGE EVENTS ==============
-    changeSimpleString = (evt) => {
+    changeSimpleValue = (evt) => {
         this.setState({
             [evt.target.name]: evt.target.value
         });
     };
 
-    changeSimpleList = (evt) => {
-        debugger
-        //patientGenreValue
+    changeSimpleDate = (name, value) => {
+        this.setState({
+            [name]: value
+        });
     };
         
     // ================ CRUD EVENTS ===============
@@ -243,7 +252,7 @@ class Patients extends React.Component{
                                                     label="Nome do Paciente" 
                                                     value = { this.state.patientName }
                                                     name = "patientName"
-                                                    onChange={ this.changeSimpleString } 
+                                                    onChange={ this.changeSimpleValue } 
                                                 />
                                             </div>
 
@@ -252,15 +261,15 @@ class Patients extends React.Component{
                                                     label="Nascimento" 
                                                     value = { this.state.patientBirthday }
                                                     name = "patientBirthday"
-                                                    onChange={ this.changeSimpleString }                                               
+                                                    onChange={ this.changeSimpleValue }                                               
                                                 />
                                                 <div className="modal--split-children">
-                                                    <InputLabel htmlFor="checkbox--sex" className="input--agendaForm-client">Sexo:</InputLabel>
+                                                    <InputLabel htmlFor="checkbox--genre">Sexo:</InputLabel>
                                                     <Select
-                                                        labelId="checkbox--sex"
+                                                        labelId="checkbox--genre"
                                                         value = { this.state.patientGenreValue }
                                                         name = "patientGenreValue"
-                                                        onChange={ this.changeSimpleList }
+                                                        onChange={ this.changeSimpleValue }
                                                         input={ <Input /> }
                                                     >
                                                         { this.state.genreList.map((genreItem) => (
@@ -277,7 +286,7 @@ class Patients extends React.Component{
                                                     label="Profissão" 
                                                     value = { this.state.patientOccupation }
                                                     name = "patientOccupation"
-                                                    onChange={ this.changeSimpleString }                                               
+                                                    onChange={ this.changeSimpleValue }                                               
                                                 />
                                             </div>
 
@@ -286,7 +295,7 @@ class Patients extends React.Component{
                                                     label="CPF ou CNPJ:" 
                                                     value = { this.state.patientDocument }
                                                     name = "patientDocument"
-                                                    onChange={ this.changeSimpleString }                                               
+                                                    onChange={ this.changeSimpleValue }                                               
                                                 />
                                             </div>
 
@@ -295,7 +304,7 @@ class Patients extends React.Component{
                                                     label="Endereço:" 
                                                     value = { this.state.patientAddress }
                                                     name = "patientAddress"
-                                                    onChange={ this.changeSimpleString }                                               
+                                                    onChange={ this.changeSimpleValue }                                               
                                                 />
                                             </div>
 
@@ -304,14 +313,14 @@ class Patients extends React.Component{
                                                     label="CEP:" 
                                                     value = { this.state.patientZipCode }
                                                     name = "patientZipCode"
-                                                    onChange={ this.changeSimpleString }                                               
+                                                    onChange={ this.changeSimpleValue }                                               
                                                 />
 
                                                 <TextField 
                                                     label="Estado:" 
                                                     value = { this.state.patientState }
                                                     name = "patientState"
-                                                    onChange={ this.changeSimpleString }                                               
+                                                    onChange={ this.changeSimpleValue }                                               
                                                 />
                                             </div>
                                         </div>
@@ -323,7 +332,7 @@ class Patients extends React.Component{
                                                     label="Cidade:" 
                                                     value = { this.state.patientCity }
                                                     name = "patientCity"
-                                                    onChange={ this.changeSimpleString }                                               
+                                                    onChange={ this.changeSimpleValue }                                               
                                                 />
                                             </div>
 
@@ -332,7 +341,7 @@ class Patients extends React.Component{
                                                     label="E-mail:" 
                                                     value = { this.state.patientEmail }
                                                     name = "patientEmail"
-                                                    onChange={ this.changeSimpleString }                                               
+                                                    onChange={ this.changeSimpleValue }                                               
                                                 />
                                             </div>
 
@@ -341,7 +350,7 @@ class Patients extends React.Component{
                                                     label="Telefone Principal:" 
                                                     value = { this.state.patientMainPhone }
                                                     name = "patientMainPhone"
-                                                    onChange={ this.changeSimpleString }                                               
+                                                    onChange={ this.changeSimpleValue }                                               
                                                 />
                                             </div>
 
@@ -350,7 +359,7 @@ class Patients extends React.Component{
                                                     label="Telefone Secundário:" 
                                                     value = { this.state.patientSecondaryPhone }
                                                     name = "patientSecondaryPhone"
-                                                    onChange={ this.changeSimpleString }                                               
+                                                    onChange={ this.changeSimpleValue }                                               
                                                 />
                                             </div>
 
@@ -362,9 +371,9 @@ class Patients extends React.Component{
                                                         format="DD/MM/YYYY"
                                                         margin="normal"
                                                         label="Início do Tratamento:"
-                                                        value={ this.state.eventInitialDate }
+                                                        value={ this.state.patientInitialDate }
                                                         autoOk = { true }
-                                                        onChange={ this.changeInitialDate }
+                                                        onChange={(e) => this.changeSimpleDate("patientInitialDate", e) }
                                                         KeyboardButtonProps={{
                                                             'aria-label': 'change date',
                                                         }}
@@ -372,13 +381,23 @@ class Patients extends React.Component{
                                                 </div>
                                             </div>
 
-                                            <div className="modal--split-one">                                    
-                                                <TextField 
-                                                    label="Estado Civil:" 
-                                                    value = { this.state.patientCivilStatus }
-                                                    name = "patientCivilStatus"
-                                                    onChange={ this.changeSimpleString }                                               
-                                                />
+                                            <div className="modal--split-one">
+                                                <div className="modal--split-children">
+                                                    <InputLabel htmlFor="checkbox--civilStatus">Status Civil:</InputLabel>
+                                                    <Select
+                                                        labelId="checkbox--civilStatus"
+                                                        value = { this.state.patientCivilStatus }
+                                                        name = "patientCivilStatus"
+                                                        onChange={ this.changeSimpleValue }
+                                                        input={ <Input /> }
+                                                    >
+                                                        { this.state.civilStatusList.map((civilStatusItem) => (
+                                                            <MenuItem key={ civilStatusItem.name } value={ civilStatusItem.id }>
+                                                                <ListItemText primary={ civilStatusItem.name } />
+                                                            </MenuItem>
+                                                        ))}
+                                                    </Select>
+                                                </div>
                                             </div> 
                                         </div>
                                     </MuiPickersUtilsProvider>

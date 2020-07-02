@@ -305,12 +305,15 @@
     flex: 1;
 }
 /* Elemento que está divido em 2 e é children, deve ser select */
-.modal--split-two .modal--split-children, .modal--split-two .modal--split-select{
-    margin-top: -10px;
+.modal--split-two .modal--split-children, .modal--split-two .modal--split-select, .modal--split-one .modal--split-children{
+    margin-top: -9.5px;
 }
 .modal--split-datetime{
     margin-top: -16px;
     display: flex;
+}
+.modal--split-children label{
+    margin-bottom: 5px !important;
 }
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
