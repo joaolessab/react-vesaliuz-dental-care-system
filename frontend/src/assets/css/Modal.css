@@ -237,6 +237,44 @@
     flex-direction: row !important;
     justify-content: flex-end;
   }
+
+  .custom--modal-footer .buttons--bar .white{
+    cursor: pointer !important;
+    animation-duration: 1s !important;
+    box-shadow: 0px 1px 2px 0px #2386fd4d !important;
+    transition: 0.2s !important;
+    width: 105px !important;
+    font-family: 'Averta' !important;
+    text-transform: none;
+    border-radius: 10px;
+    height: 45px;
+    background-color: white !important;
+    color: #62696f !important;
+    border: 1px solid #b5b5b5 !important;
+    margin-right: 15px;
+  }
+
+  .custom--modal-footer .buttons--bar .blue{
+    cursor: pointer !important;
+    animation-duration: 1s !important;
+    background-color: #2386fd !important;
+    box-shadow: 0px 1px 2px 0px #2386fd4d !important;
+    border: 1.5px solid #ffffffbf !important;
+    transition: 0.2s !important;
+    width: 105px !important;
+    color: white !important;
+    font-family: 'Averta' !important;
+    text-transform: none;
+    border-radius: 10px;
+    height: 45px;
+  }
+  .custom--modal-footer .buttons--bar .blue:hover, .custom--modal-footer .buttons--bar .white:hover{
+    background-color: white !important;
+    color: #62696f !important;
+    border: 1px solid #b5b5b5 !important;
+    box-shadow: 1px 6px 3px 0px #969696 !important;
+}
+
   /* DIV DO INPUT */
   .MuiInput-root {
     background-color: white !important;
@@ -332,11 +370,14 @@ select:-webkit-autofill:focus {
 .MuiPopover-paper {
     border-radius: 10px !important;
 }
-.MuiSelect-select:focus{
-    background-color: transparent !important;
-}
 .MuiListItem-button:hover {
     text-decoration: none;
     background-color: rgb(35, 134, 253) !important;
     color: white !important;
+}
+.modal--title-divisor{
+    font-family: 'Averta Extra Bold';
+    font-size: 20px;
+    position: absolute;
+    margin-top: 8px;
 }

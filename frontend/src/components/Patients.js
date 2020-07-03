@@ -1,5 +1,6 @@
 import React from 'react';
 import 'react-responsive-modal/styles.css';
+import InputMask from "react-input-mask";
 
 import moment from 'moment';
 import MomentUtils from "@date-io/moment";
@@ -59,6 +60,7 @@ class Patients extends React.Component{
 
         this.state = {
             clientCRUDVisibility: false,
+            clienteCRUDMode: "insert",
             patients: [
                 {
                     id: 1,
@@ -122,15 +124,65 @@ class Patients extends React.Component{
                 { name: "Viúvo(a)", id: 4 },
                 { name: "Não informar", id: 5 } 
             ],
-            patientCivilStatus: 0
+            patientCivilStatus: 0,
+
+            telephonePrimaryMask: "(99) 9999-9999",
+            telephoneSecondaryMask: "(99) 9999-9999"
         };
     };
 
     // ================ CHANGE EVENTS ==============
-    changeSimpleValue = (evt) => {
+    changeSimpleValue = (evt) => { 
         this.setState({
             [evt.target.name]: evt.target.value
         });
+    };
+
+    changePhone = (evt) => {
+        // Setando máscara (caso seja telefone primário)
+        if (evt.target.name === "patientMainPhone" || evt.target.name === "patientSecondaryPhone"){
+            var regex = /[\d|,|.|e|E|\+]+/g;
+            var matches = evt.target.value.match(regex);
+            var finalValue = "";
+            var finalMask = "";
+
+            if (matches != null)
+                finalValue = matches.join().replace(/,/g, '');
+
+            // Final Value
+            if (finalValue != "" && evt.nativeEvent.data != null){
+                if (this.state[evt.target.name].length == 10 && evt.nativeEvent.data.length == 1){
+                    finalMask = "(99) 99999-9999";
+                    finalValue = this.state[evt.target.name] + evt.nativeEvent.data;
+                }
+                else if (this.state[evt.target.name].length > 10){
+                    finalMask = "(99) 99999-9999";
+                }
+                else{
+                    finalMask = "(99) 9999-9999";
+                }
+            }
+            else{
+                finalMask = "(99) 9999-9999";
+            }
+
+            // Final State
+            var finalState = "";
+            var finalValueIndex = "";
+            if (evt.target.name  === "patientMainPhone"){
+                finalState = "telephonePrimaryMask";
+                finalValueIndex = "patientMainPhone";
+            }
+            else{
+                finalState = "telephoneSecondaryMask";                
+                finalValueIndex = "patientSecondaryPhone";
+            }
+            
+            this.setState({
+                [finalState]: finalMask,
+                [finalValueIndex]: finalValue
+            });
+        }
     };
 
     changeSimpleDate = (name, value) => {
@@ -138,11 +190,22 @@ class Patients extends React.Component{
             [name]: value
         });
     };
+
+    insertFillLabel = (evt) => {
+        var label = evt.target.parentElement.previousElementSibling;
+        label.classList.add("label--focused");
+    };
+
+    removeFillLabel = (evt) => {
+        var label = evt.currentTarget.parentElement.previousSibling;
+        label.classList.remove("label--focused");
+    };
         
     // ================ CRUD EVENTS ===============
 
     openCRUDPatientsModal = (mode) => {
         this.setState({
+            clienteCRUDMode: mode,
             clientCRUDVisibility: true
         });
     };
@@ -234,13 +297,15 @@ class Patients extends React.Component{
                 <Modal open={ this.state.clientCRUDVisibility } onClose={ this.closeCrudModal } center>
                     <div className="div--modalAgenda-body">
                         <div className="custom--modal-header-patient">
-                            <Button className="icon--anamnese selected">Anamnese</Button>
                             <Button className="icon--agendamentos"><span>Agendas</span></Button>
                             <Button className="icon--financas"><span>Financeiro</span></Button>
                             <Button className="icon--exams"><span>Exames</span></Button>
                             <Button className="icon--procedure"><span>Tratamentos</span></Button>
                         </div>
+
+                        {/* Dados Gerais */}
                         <div className="div--patients-information-body">
+                            <p className="modal--title-divisor">Dados Gerais</p>
                             <div 
                                 className={ this.state.eventRepeatCheck === true ? "div--patients-information div--patients-information--opened" : "div--patients-information" }
                             >
@@ -256,13 +321,20 @@ class Patients extends React.Component{
                                                 />
                                             </div>
 
-                                            <div className="modal--split-two">
-                                                <TextField 
-                                                    label="Nascimento" 
-                                                    value = { this.state.patientBirthday }
+                                            <div className="modal--split-two">    
+                                                <InputMask
+                                                    mask="99/99/9999"
                                                     name = "patientBirthday"
-                                                    onChange={ this.changeSimpleValue }                                               
-                                                />
+                                                    value = { this.state.patientBirthday }
+                                                    onChange={ this.changeSimpleValue }
+                                                >
+                                                    {() => <TextField
+                                                                label="Nascimento" 
+                                                                name = "patientBirthday"
+                                                                type="text"
+                                                    />}
+                                                </InputMask>
+
                                                 <div className="modal--split-children">
                                                     <InputLabel htmlFor="checkbox--genre">Sexo:</InputLabel>
                                                     <Select
@@ -270,6 +342,8 @@ class Patients extends React.Component{
                                                         value = { this.state.patientGenreValue }
                                                         name = "patientGenreValue"
                                                         onChange={ this.changeSimpleValue }
+                                                        onFocus = { this.insertFillLabel }
+                                                        onBlur = {(e) => this.removeFillLabel(e) }
                                                         input={ <Input /> }
                                                     >
                                                         { this.state.genreList.map((genreItem) => (
@@ -346,21 +420,33 @@ class Patients extends React.Component{
                                             </div>
 
                                             <div className="modal--split-one">
-                                                <TextField 
-                                                    label="Telefone Principal:" 
+                                                <InputMask                                               
                                                     value = { this.state.patientMainPhone }
+                                                    mask = { this.state.telephonePrimaryMask }
                                                     name = "patientMainPhone"
-                                                    onChange={ this.changeSimpleValue }                                               
-                                                />
+                                                    onChange={ this.changePhone }
+                                                >
+                                                    {() => <TextField
+                                                                label="Telefone Principal:" 
+                                                                name = "patientMainPhone"
+                                                                type="text"
+                                                    />}
+                                                </InputMask>
                                             </div>
 
                                             <div className="modal--split-one">
-                                                <TextField 
-                                                    label="Telefone Secundário:" 
+                                                <InputMask                                     
                                                     value = { this.state.patientSecondaryPhone }
+                                                    mask = { this.state.telephoneSecondaryMask }
                                                     name = "patientSecondaryPhone"
-                                                    onChange={ this.changeSimpleValue }                                               
-                                                />
+                                                    onChange={ this.changePhone }
+                                                >
+                                                    {() => <TextField
+                                                                label="Telefone Secundário:" 
+                                                                name = "patientSecondaryPhone"
+                                                                type="text"
+                                                    />}
+                                                </InputMask>
                                             </div>
 
                                             <div className="modal--split-one">
@@ -389,6 +475,8 @@ class Patients extends React.Component{
                                                         value = { this.state.patientCivilStatus }
                                                         name = "patientCivilStatus"
                                                         onChange={ this.changeSimpleValue }
+                                                        onFocus = { this.insertFillLabel }
+                                                        onBlur = {(e) => this.removeFillLabel(e) }
                                                         input={ <Input /> }
                                                     >
                                                         { this.state.civilStatusList.map((civilStatusItem) => (
@@ -404,16 +492,20 @@ class Patients extends React.Component{
                                 </form>
                             </div>
                         </div>
+                        
+                        {/* Bottom ToolBar */}
                         <div className="custom--modal-footer">
                             <div className="buttons--bar patients--component">
-                                <Button id="deleteEventButton" 
-                                    className={ this.state.agendaCRUDMode === "insert" ? "hideComponent": "" }
+                                <Button
+                                    className={ this.state.agendaCRUDMode === "insert white" ? "hideComponent": "white" }
                                     onClick={ this.deleteEvent }
                                 >
                                     Excluir
                                 </Button>
-                                <Button id="cancelEventButton" onClick={ this.closeCrudModal }>Cancelar</Button>
-                                <Button id="saveEventButton" onClick = { this.saveEvent } >Salvar</Button>
+                                <Button className="white" onClick={ this.closeCrudModal }>Cancelar</Button>
+                                <Button className="blue" onClick = { this.saveEvent } >Anamnese</Button>
+                                <Button className="blue" onClick = { this.saveEvent } >Salvar</Button>
+                                <Button className="blue" onClick = { this.saveEvent } >Próximo</Button>
                             </div>
                         </div>                        
                     </div>
