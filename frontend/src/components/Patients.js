@@ -127,7 +127,8 @@ class Patients extends React.Component{
             patientCivilStatus: 0,
 
             telephonePrimaryMask: "(99) 9999-9999",
-            telephoneSecondaryMask: "(99) 9999-9999"
+            telephoneSecondaryMask: "(99) 9999-9999",
+            patientDocumentMask: "999.999.999-99"
         };
     };
 
@@ -135,6 +136,37 @@ class Patients extends React.Component{
     changeSimpleValue = (evt) => { 
         this.setState({
             [evt.target.name]: evt.target.value
+        });
+    };
+
+    changeDocument = (evt) => {
+        var regex = /\d+/g;
+
+        var finalValue = evt.target.value.match(regex);        
+        if (finalValue === null){
+            finalValue = "";
+        }
+        else{            
+            finalValue = finalValue.join().replace(/,/g, '');
+        }
+
+        var finalMask = "";
+        
+        if (this.state[evt.target.name].length < 11){
+            finalMask = "999.999.999-99";
+        }
+        else{
+            if (evt.nativeEvent.data == null && this.state[evt.target.name].length === 11){
+                finalMask = "999.999.999-99";
+            }
+            else{
+                finalMask = "99.999.999/9999-99";
+            }
+        }
+
+        this.setState({
+            patientDocumentMask: finalMask,
+            [evt.target.name]: finalValue
         });
     };
 
@@ -146,12 +178,12 @@ class Patients extends React.Component{
             var finalValue = "";
             var finalMask = "";
 
-            if (matches != null)
+            if (matches !== null)
                 finalValue = matches.join().replace(/,/g, '');
 
             // Final Value
-            if (finalValue != "" && evt.nativeEvent.data != null){
-                if (this.state[evt.target.name].length == 10 && evt.nativeEvent.data.length == 1){
+            if (finalValue !== "" && evt.nativeEvent.data !== null){
+                if (this.state[evt.target.name].length === 10 && evt.nativeEvent.data.length === 1){
                     finalMask = "(99) 99999-9999";
                     finalValue = this.state[evt.target.name] + evt.nativeEvent.data;
                 }
@@ -365,12 +397,18 @@ class Patients extends React.Component{
                                             </div>
 
                                             <div className="modal--split-one">
-                                                <TextField 
-                                                    label="CPF ou CNPJ:" 
-                                                    value = { this.state.patientDocument }
+                                                <InputMask
+                                                    mask = { this.state.patientDocumentMask }
                                                     name = "patientDocument"
-                                                    onChange={ this.changeSimpleValue }                                               
-                                                />
+                                                    value = { this.state.patientDocument }
+                                                    onChange={ this.changeDocument }
+                                                >
+                                                    {() => <TextField
+                                                                label="CPF ou CNPJ:" 
+                                                                name = "patientDocument"
+                                                                type="text"
+                                                    />}
+                                                </InputMask>
                                             </div>
 
                                             <div className="modal--split-one">
