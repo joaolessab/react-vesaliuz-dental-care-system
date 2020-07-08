@@ -133,7 +133,139 @@ class Patients extends React.Component{
 
             telephonePrimaryMask: "(99) 9999-9999",
             telephoneSecondaryMask: "(99) 9999-9999",
-            patientDocumentMask: "999.999.999-99"
+            patientDocumentMask: "999.999.999-99",
+
+            anamneseSection: false,
+            anamnseQuestions: [
+                {
+                    id: 1,
+                    question: "É alérgico a algum medicamento? Qual?",
+                    answer: null,
+                    aditionalText: ""
+                },
+                {
+                    id: 2,
+                    question: "Tem boa saúde? Caso negativo, que doenças apresenta?",
+                    answer: null,
+                    aditionalText: ""
+                },
+                {
+                    id: 3,
+                    question: "Apresenta algum problema respiratório? Sinusite, renite ou bronquite?",
+                    answer: null,
+                    aditionalText: ""
+                },
+                {
+                    id: 4,
+                    question: "Possui dor de garganta frequente? Que medicação usa?",
+                    answer: null,
+                    aditionalText: ""
+                },
+                {
+                    id: 5,
+                    question: "Azia, má digestão, refluxo, úlcera ou gastrite?",
+                    answer: null,
+                    aditionalText: ""
+                },
+                {
+                    id: 9,
+                    question: "Tem o hábito de levar objetos à boca?",
+                    answer: null,
+                    aditionalText: ""
+                },
+                {
+                    id: 10,
+                    question: "Possui temperamento calmo?",
+                    answer: null,
+                    aditionalText: ""
+                },
+                {
+                    id: 11,
+                    question: "Dorme bem? Quantas horas por dia? Faz uso de medicação para dormir?",
+                    answer: null,
+                    aditionalText: ""
+                },
+                {
+                    id: 12,
+                    question: "Possui manchas nos dentes?",
+                    answer: null,
+                    aditionalText: ""
+                },
+                {
+                    id: 13,
+                    question: "Respirador bucal? Se sim, alguma obstrução nasal?",
+                    answer: null,
+                    aditionalText: ""
+                },
+                {
+                    id: 14,
+                    question: "Dor de cabeça frequente? Que medicação usa?",
+                    answer: null,
+                    aditionalText: ""
+                },
+                {
+                    id: 15,
+                    question: "Dor de dente? Quais?",
+                    answer: null,
+                    aditionalText: ""
+                },
+                {
+                    id: 16,
+                    question: "Anemia?",
+                    answer: null,
+                    aditionalText: ""
+                },
+                {
+                    id: 17,
+                    question: "Inflamações Bucais? Quais?",
+                    answer: null,
+                    aditionalText: ""
+                },
+                {
+                    id: 18,
+                    question: "Dificuldade para mastigação? Que tipo de alimento?",
+                    answer: null,
+                    aditionalText: ""
+                },
+                {
+                    id: 19,
+                    question: "Habito de bruxismo ou apertamento dos dentes?",
+                    answer: null,
+                    aditionalText: ""
+                },
+                {
+                    id: 20,
+                    question: "Cansaço fácil?",
+                    answer: null,
+                    aditionalText: ""
+                },
+                {
+                    id: 21,
+                    question: "Pus nas gengivas?",
+                    answer: null,
+                    aditionalText: ""
+                },
+                {
+                    id: 22,
+                    question: "Estalos da ATM?",
+                    answer: null,
+                    aditionalText: ""
+                },
+                {
+                    id: 23,
+                    question: "Temor por tratamento dentário? Houve alguma problema?",
+                    answer: null,
+                    aditionalText: ""
+                },
+                {
+                    id: 24,
+                    question: "Dentes moles? Quais?",
+                    answer: null,
+                    aditionalText: ""
+                },
+                //PAREI NO 6.JPEG
+            ]
+
         };
     };
 
@@ -251,7 +383,7 @@ class Patients extends React.Component{
         this.setState({ clientCRUDVisibility: false });
     };
 
-    openAnamneseModal = (mode) => {
+    openAnamneseSection = (mode) => {
         debugger
     };
 
@@ -559,11 +691,11 @@ class Patients extends React.Component{
                                 <Button className="white" onClick={ this.closePatientCrudModal }>Cancelar</Button>
                                 
                                 {this.state.clienteCRUDMode === "insert" ?
-                                    <Button className="anamnese blue" onClick = {() => this.openAnamneseModal("insert") } >Preencher Anamnese</Button>
+                                    <Button className="anamnese blue" onClick = {() => this.openAnamneseSection("insert") } >Preencher Anamnese</Button>
                                 : null }
 
                                 {this.state.clienteCRUDMode === "edit" ?
-                                    <Button className="anamnese blue" onClick = {() => this.openAnamneseModal("edit") } >Editar Anamnese</Button>
+                                    <Button className="anamnese blue" onClick = {() => this.openAnamneseSection("edit") } >Editar Anamnese</Button>
                                 : null }
 
                                 <Button className="blue" onClick = { this.saveEvent } >Salvar</Button>
