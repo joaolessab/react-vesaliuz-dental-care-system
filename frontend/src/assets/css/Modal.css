@@ -261,7 +261,7 @@
     box-shadow: 0px 1px 2px 0px #2386fd4d !important;
     border: 1.5px solid #ffffffbf !important;
     transition: 0.2s !important;
-    width: 105px !important;
+    width: 105px;
     color: white !important;
     font-family: 'Averta' !important;
     text-transform: none;

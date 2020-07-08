@@ -64,7 +64,11 @@
     color: #707070;
     margin: 5px;
 }
-
+.div--individual-card .div--card-toolbar{
+    justify-content: space-between;
+    width: 100%;
+    display: flex;
+}
 .div--individual-card:hover .div--card-background {
     cursor: pointer !important;
     animation-duration: 1s !important;
@@ -113,6 +117,19 @@
     width: 50px;
     padding: 0px !important;
     color: transparent;
+}
+.button--card-anamnese{
+    background-color: #ff4444 !important;
+    border-radius: 10px !important;
+    min-height: 50px;
+    max-height: 50px;
+    max-width: 50px;
+    min-width: 50px !important;
+    width: 50px;
+    padding: 0px !important;
+    border: 1.5px solid #ffffffbf !important;
+    box-shadow: 0px 1px 2px 0px #ffebeb !important;
+    color: white !important;
 }
 .container--patients-toolbar{
     display: flex;
@@ -200,3 +217,17 @@
 }
 .div--patients-information .modal--split-columnar:nth-child(1){margin-right: 7.5px;}
 .div--patients-information .modal--split-columnar:nth-child(2){margin-left: 7.5px;}
+
+.patients--component .anamnese{
+    width: 200px !important;
+    margin-right: 10px;
+}
+
+/* HOVER */
+.div--modalPatient-body .MuiInput-underline:hover:not(.Mui-disabled):before {
+    border-bottom: 2px solid rgb(35, 134, 253);    
+}
+.div--modalPatient-body{
+    display: flex;
+    flex-direction: column;
+}

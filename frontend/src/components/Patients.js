@@ -28,6 +28,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+import MenuBookIcon from '@material-ui/icons/MenuBook';
 import cogoToast from 'cogo-toast';
 
 // ================ ESTILOS ===============
@@ -68,7 +69,8 @@ class Patients extends React.Component{
                     phone: "(12) 99088-4140",
                     email: "clarkcold@gmail.com",
                     address: "Avenida Brasil, 21",
-                    photo: clarkPhoto
+                    photo: clarkPhoto,
+                    anamneseCheck: true
                 },
                 {
                     id: 2,
@@ -76,7 +78,8 @@ class Patients extends React.Component{
                     phone: "(12) 87995-1105",
                     email: "dianamendes@gmail.com",
                     address: "Rua Monsenhor Dutra, 43",
-                    photo: dianaPhoto
+                    photo: dianaPhoto,
+                    anamneseCheck: false
                 },
                 {
                     id: 3,
@@ -84,7 +87,8 @@ class Patients extends React.Component{
                     phone: "(12) 97865-2141",
                     email: "oliverthekey@gmail.com",
                     address: "Avenida JK, 110",
-                    photo: oliverPhoto
+                    photo: oliverPhoto,
+                    anamneseCheck: true
                 },
                 {
                     id: 4,
@@ -92,7 +96,8 @@ class Patients extends React.Component{
                     phone: "(12) 99065-4040",
                     email: "brucesilva@gmail.com",
                     address: "Rua Jacareí, 230",
-                    photo: brucePhoto
+                    photo: brucePhoto,
+                    anamneseCheck: false
                 }
             ],
 
@@ -242,8 +247,12 @@ class Patients extends React.Component{
         });
     };
 
-    closeCrudModal = () => {
+    closePatientCrudModal = () => {
         this.setState({ clientCRUDVisibility: false });
+    };
+
+    openAnamneseModal = (mode) => {
+        debugger
     };
 
     triedToDeleteClient = (clientId) => {
@@ -289,7 +298,10 @@ class Patients extends React.Component{
         const listPatients = this.state.patients.map((client) => {
             return (
                 <div className="div--individual-card" key={client.id}>
-                    <Button className="button--card-delete" onClick={() => this.triedToDeleteClient(client.id) }><DeleteForeverIcon /></Button>
+                    <div className="div--card-toolbar">
+                        { client.anamneseCheck === false ? <Button className="button--card-anamnese" onClick={() => this.fillPatientAnamnese(client.id) }><MenuBookIcon /></Button> : null }
+                        <Button className="button--card-delete" onClick={() => this.triedToDeleteClient(client.id) }><DeleteForeverIcon /></Button>
+                    </div>
                     <div className="div--card-background" onClick={() => this.openCRUDPatientsModal("edit")}>
                         <div className="div--card-picture">
                             <img src={ client.photo }></img>
@@ -326,8 +338,8 @@ class Patients extends React.Component{
                 </div>
 
                 {/* Modal de Pacientes */}
-                <Modal open={ this.state.clientCRUDVisibility } onClose={ this.closeCrudModal } center>
-                    <div className="div--modalAgenda-body">
+                <Modal open={ this.state.clientCRUDVisibility } onClose={ this.closePatientCrudModal } center>
+                    <div className="div--modalPatient-body">
                         <div className="custom--modal-header-patient">
                             <Button className="icon--agendamentos"><span>Agendas</span></Button>
                             <Button className="icon--financas"><span>Financeiro</span></Button>
@@ -534,18 +546,33 @@ class Patients extends React.Component{
                         {/* Bottom ToolBar */}
                         <div className="custom--modal-footer">
                             <div className="buttons--bar patients--component">
-                                <Button
-                                    className={ this.state.agendaCRUDMode === "insert white" ? "hideComponent": "white" }
-                                    onClick={ this.deleteEvent }
-                                >
-                                    Excluir
-                                </Button>
-                                <Button className="white" onClick={ this.closeCrudModal }>Cancelar</Button>
-                                <Button className="blue" onClick = { this.saveEvent } >Anamnese</Button>
+
+                                {this.state.clienteCRUDMode === "edit" ? 
+                                    <Button
+                                        className="white"
+                                        onClick={ this.deleteEvent }
+                                    >
+                                        Excluir
+                                    </Button>
+                                : null }
+
+                                <Button className="white" onClick={ this.closePatientCrudModal }>Cancelar</Button>
+                                
+                                {this.state.clienteCRUDMode === "insert" ?
+                                    <Button className="anamnese blue" onClick = {() => this.openAnamneseModal("insert") } >Preencher Anamnese</Button>
+                                : null }
+
+                                {this.state.clienteCRUDMode === "edit" ?
+                                    <Button className="anamnese blue" onClick = {() => this.openAnamneseModal("edit") } >Editar Anamnese</Button>
+                                : null }
+
                                 <Button className="blue" onClick = { this.saveEvent } >Salvar</Button>
-                                <Button className="blue" onClick = { this.saveEvent } >Próximo</Button>
                             </div>
                         </div>                        
+                    </div>
+                
+                    <div className="div--modalA">
+                        <p>Teste</p>
                     </div>
                 </Modal>
             </div>            
