@@ -274,8 +274,185 @@ class Patients extends React.Component{
                                                                                                     question: "Dentes moles? Quais?",
                                                                                                     type: "bool",
                                                                                                     aditionalText: true
-                                                                                                }                                                        
-                                                                                                //PAREI NO 6.JPEG
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 25,
+                                                                                                    question: "Fumante? Há quanto tempo?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 26,
+                                                                                                    question: "Usava aparelho ortodôntico? Por quanto tempo? Motivo? Tipo? Nome e telefone do ortodentista.",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 27,
+                                                                                                    question: "Faz tratamento de Canal? Quais dentes? Apresenta alguma sintomalogia?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 28,
+                                                                                                    question: "Usa ou usou protetor bucal para a prática esportiva? Que tipo? Se adaptou? Por que?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 29,
+                                                                                                    question: "Faz uso de prótese? Que tipo? Há quanto tempo? Alguma queixa?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 30,
+                                                                                                    question: "Qual sua frequência de tratamento dentário?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                }
+                                                                                            ]
+                                },
+                                { 
+                                    id: 4, label: "Seção 4", optional: false, questions:
+                                                                                            [
+                                                                                                {
+                                                                                                    id: 31,
+                                                                                                    question: "Apresenta desgaste dental? Quais dentes?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 32,
+                                                                                                    question: "Já esteve internado? Quando? Qual motivo?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 33,
+                                                                                                    question: "Está tomando algum medicamento? Qual? Há quanto tempo?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 34,
+                                                                                                    question: "Sofreu trauma na região dos dentes? Quais?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 35,
+                                                                                                    question: "Sofreu algum trauma na região da face? Onde? Sequelas? Escreva o histórico.",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 36,
+                                                                                                    question: "Doenças familiares? Quais?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 37,
+                                                                                                    question: "Sofreu alguma intervenção cirurgica bucal? Qual?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 38,
+                                                                                                    question: "Faz uso de chupeta? Quanto tempo?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 39,
+                                                                                                    question: "Alimentação boa? Que tipo?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 40,
+                                                                                                    question: "Roeu ou rói as unhas?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                }
+                                                                                            ]
+                                },
+                                { 
+                                    id: 5, label: "Seção 5", optional: false, questions:
+                                                                                            [
+                                                                                                {
+                                                                                                    id: 41,
+                                                                                                    question: "Tem ou teve o hábito de sucção digital? Quanto tempo?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 42,
+                                                                                                    question: "Foi amamentado? Fez uso de mamadeira? Por quanto tempo?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 43,
+                                                                                                    question: "Qual a frequência de escovação dental? Técnica? Tipo de escova? Troca de quanto em quanto tempo?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 44,
+                                                                                                    question: "Usa fio dental? Qual frequência?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 45,
+                                                                                                    question: "Faz uso de antisséptico bucal? Qual? Frequência? Motivo?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 46,
+                                                                                                    question: "Quais problemas odontológicos já teve?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 47,
+                                                                                                    question: "Faz ou fez uso de bochechos com fluor? Com qual frequência?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 48,
+                                                                                                    question: "Dificuldade de fonação?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 49,
+                                                                                                    question: "Peso e altura de acordo com a idade? Faz algum tratamento?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 50,
+                                                                                                    question: "Diabetes? Que medicação usa?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 51,
+                                                                                                    question: "Hipertensão? Que medicação usa?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 52,
+                                                                                                    question: "Problemas cardíacos? Quais? Que medicação ingere?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                }
                                                                                             ]
                                 }
                             ],

@@ -251,6 +251,8 @@
 }
 .div--anamneseinfo-toolbar{
     display: flex;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 .div--anamneseinfo-toolbar .section--label{
     height: 35px;
