@@ -64,8 +64,13 @@
     color: #707070;
     margin: 5px;
 }
-.div--individual-card .div--card-toolbar{
+.div--individual-card .div--card-toolbar-onlydelete{
     justify-content: space-between;
+    width: 100%;
+    display: flex;
+}
+.div--individual-card .div--card-toolbar-anamnese{
+    justify-content: flex-end;
     width: 100%;
     display: flex;
 }
@@ -203,6 +208,13 @@
 .custom--modal-header-patient Button:hover span, .custom--modal-header-patient .selected span{
     display: block;
 }
+.div--patients-anamneseinfo{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    flex: 1 1;
+    margin-top: 40px;
+}
 .div--patients-information{
     display: flex;
     flex-direction: column;
@@ -230,4 +242,83 @@
 .div--modalPatient-body{
     display: flex;
     flex-direction: column;
+}
+
+/* STEPS */
+.div--modalAnamnese-body{
+    display: flex;
+    flex-direction: column;
+}
+.div--anamneseinfo-toolbar{
+    display: flex;
+}
+.div--anamneseinfo-toolbar .section--label{
+    height: 35px;
+    background-color: #fbfbfb;
+    width: 100px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    cursor: pointer;
+}
+.div--anamneseinfo-toolbar .section--label:hover .section--counter, .div--anamneseinfo-toolbar .section--label .selected{
+    background-color: #2386fd;
+    color: white;
+    border-radius: 50px;
+    height: 30px;
+    width: 30px;
+    margin-left: 5px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.div--anamneseinfo-toolbar .section--counter{
+    background-color: #eaeaea;
+    color: black;
+    border-radius: 50px;
+    height: 30px;
+    width: 30px;
+    margin-left: 5px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.div--anamneseinfo-questions{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-height: 300px;
+    overflow: auto;
+    padding: 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.div--anamneseinfo-questions .MuiFormControlLabel-root:hover{
+    color: #2386fd !important;
+}
+.div--anamneseinfo-questions .MuiFormControlLabel-root:hover span{
+    color: #2386fd !important;
+}
+.div--anamneseinfo-questions .MuiButtonBase-root:hover{
+    background-color: transparent !important;
+    background-position: 15px !important;
+    color: #2386fd !important;
+    box-shadow: none !important;
+}
+.div--anamneseinfo-questions .MuiRadio-colorPrimary.Mui-checked{
+    color: #333333 !important;
+}
+.input--anamnese-moreinfo{
+    height: 100px;
+    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #dcdcdc;
+    width: 100%;
+}
+.div--question-block{
+    margin-bottom: 30px;
 }

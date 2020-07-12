@@ -23,6 +23,12 @@ import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
 import cogoToast from 'cogo-toast';
 
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
+
 // ================ ESTILOS ===============
 
 import '../assets/css/Patients.css';
@@ -44,7 +50,7 @@ const useStyles = theme => ({
             margin: theme.spacing(1),
             width: '25ch',
         },
-    },
+    }
 });
 
 class Patients extends React.Component{    
@@ -52,9 +58,9 @@ class Patients extends React.Component{
         super(props);
 
         this.state = {
-            clientCRUDVisibility: false,
-            clienteCRUDMode: "insert",
-            clientCRUDView: "dados_gerais",
+            patientCrudVisibility: false,
+            patientCrudMode: "insert",
+            patientCrudView: "dados_gerais",
             patients: [
                 {
                     id: 1,
@@ -128,137 +134,152 @@ class Patients extends React.Component{
             telephoneSecondaryMask: "(99) 9999-9999",
             patientDocumentMask: "999.999.999-99",
 
-            anamneseSection: false,
-            anamnseQuestions: [
-                {
-                    id: 1,
-                    question: "É alérgico a algum medicamento? Qual?",
-                    answer: null,
-                    aditionalText: ""
-                },
-                {
-                    id: 2,
-                    question: "Tem boa saúde? Caso negativo, que doenças apresenta?",
-                    answer: null,
-                    aditionalText: ""
-                },
-                {
-                    id: 3,
-                    question: "Apresenta algum problema respiratório? Sinusite, renite ou bronquite?",
-                    answer: null,
-                    aditionalText: ""
-                },
-                {
-                    id: 4,
-                    question: "Possui dor de garganta frequente? Que medicação usa?",
-                    answer: null,
-                    aditionalText: ""
-                },
-                {
-                    id: 5,
-                    question: "Azia, má digestão, refluxo, úlcera ou gastrite?",
-                    answer: null,
-                    aditionalText: ""
-                },
-                {
-                    id: 9,
-                    question: "Tem o hábito de levar objetos à boca?",
-                    answer: null,
-                    aditionalText: ""
-                },
-                {
-                    id: 10,
-                    question: "Possui temperamento calmo?",
-                    answer: null,
-                    aditionalText: ""
-                },
-                {
-                    id: 11,
-                    question: "Dorme bem? Quantas horas por dia? Faz uso de medicação para dormir?",
-                    answer: null,
-                    aditionalText: ""
-                },
-                {
-                    id: 12,
-                    question: "Possui manchas nos dentes?",
-                    answer: null,
-                    aditionalText: ""
-                },
-                {
-                    id: 13,
-                    question: "Respirador bucal? Se sim, alguma obstrução nasal?",
-                    answer: null,
-                    aditionalText: ""
-                },
-                {
-                    id: 14,
-                    question: "Dor de cabeça frequente? Que medicação usa?",
-                    answer: null,
-                    aditionalText: ""
-                },
-                {
-                    id: 15,
-                    question: "Dor de dente? Quais?",
-                    answer: null,
-                    aditionalText: ""
-                },
-                {
-                    id: 16,
-                    question: "Anemia?",
-                    answer: null,
-                    aditionalText: ""
-                },
-                {
-                    id: 17,
-                    question: "Inflamações Bucais? Quais?",
-                    answer: null,
-                    aditionalText: ""
-                },
-                {
-                    id: 18,
-                    question: "Dificuldade para mastigação? Que tipo de alimento?",
-                    answer: null,
-                    aditionalText: ""
-                },
-                {
-                    id: 19,
-                    question: "Habito de bruxismo ou apertamento dos dentes?",
-                    answer: null,
-                    aditionalText: ""
-                },
-                {
-                    id: 20,
-                    question: "Cansaço fácil?",
-                    answer: null,
-                    aditionalText: ""
-                },
-                {
-                    id: 21,
-                    question: "Pus nas gengivas?",
-                    answer: null,
-                    aditionalText: ""
-                },
-                {
-                    id: 22,
-                    question: "Estalos da ATM?",
-                    answer: null,
-                    aditionalText: ""
-                },
-                {
-                    id: 23,
-                    question: "Temor por tratamento dentário? Houve alguma problema?",
-                    answer: null,
-                    aditionalText: ""
-                },
-                {
-                    id: 24,
-                    question: "Dentes moles? Quais?",
-                    answer: null,
-                    aditionalText: ""
-                },
-                //PAREI NO 6.JPEG
-            ]
-
+            anamnseSectionMode: false,
+            anamneseSections:  [
+                                { 
+                                    id: 1, label: "Seção 1", optional: false, questions:
+                                                                                            [
+                                                                                                {
+                                                                                                    id: 1,
+                                                                                                    question: "É alérgico a algum medicamento? Qual?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 2,
+                                                                                                    question: "Tem boa saúde? Caso negativo, que doenças apresenta?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 3,
+                                                                                                    question: "Apresenta algum problema respiratório? Sinusite, renite ou bronquite?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 4,
+                                                                                                    question: "Possui dor de garganta frequente? Que medicação usa?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 5,
+                                                                                                    question: "Azia, má digestão, refluxo, úlcera ou gastrite?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 9,
+                                                                                                    question: "Tem o hábito de levar objetos à boca?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 10,
+                                                                                                    question: "Possui temperamento calmo?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                }
+                                                                                            ] 
+                                },
+                                { 
+                                    id: 2, label: "Seção 2", optional: false, questions: 
+                                                                                            [
+                                                                                                {
+                                                                                                    id: 11,
+                                                                                                    question: "Dorme bem? Quantas horas por dia? Faz uso de medicação para dormir?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 12,
+                                                                                                    question: "Possui manchas nos dentes?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 13,
+                                                                                                    question: "Respirador bucal? Se sim, alguma obstrução nasal?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 14,
+                                                                                                    question: "Dor de cabeça frequente? Que medicação usa?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 15,
+                                                                                                    question: "Dor de dente? Quais?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 16,
+                                                                                                    question: "Anemia?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 17,
+                                                                                                    question: "Inflamações Bucais? Quais?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 18,
+                                                                                                    question: "Dificuldade para mastigação? Que tipo de alimento?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 19,
+                                                                                                    question: "Habito de bruxismo ou apertamento dos dentes?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 20,
+                                                                                                    question: "Cansaço fácil?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                }
+                                                                                            ]
+                                },
+                                { 
+                                    id: 3, label: "Seção 3", optional: false, questions:
+                                                                                            [
+                                                                                                {
+                                                                                                    id: 21,
+                                                                                                    question: "Pus nas gengivas?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 22,
+                                                                                                    question: "Estalos da ATM?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 23,
+                                                                                                    question: "Temor por tratamento dentário? Houve alguma problema?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                },
+                                                                                                {
+                                                                                                    id: 24,
+                                                                                                    question: "Dentes moles? Quais?",
+                                                                                                    type: "bool",
+                                                                                                    aditionalText: true
+                                                                                                }                                                        
+                                                                                                //PAREI NO 6.JPEG
+                                                                                            ]
+                                }
+                            ],
+            anamnseSectionActive: 1
         };
     };
 
@@ -286,7 +307,7 @@ class Patients extends React.Component{
             finalMask = "999.999.999-99";
         }
         else{
-            if (evt.nativeEvent.data == null && this.state[evt.target.name].length === 11){
+            if (evt.nativeEvent.data === null && this.state[evt.target.name].length === 11){
                 finalMask = "999.999.999-99";
             }
             else{
@@ -367,25 +388,26 @@ class Patients extends React.Component{
 
     openCRUDPatientsModal = (mode) => {
         this.setState({
-            clienteCRUDMode: mode,
-            clientCRUDView: "dados_gerais",
-            clientCRUDVisibility: true
+            patientCrudMode: mode,
+            patientCrudView: "dados_gerais",
+            patientCrudVisibility: true
         });
     };
 
     closePatientCrudModal = () => {
-        this.setState({ clientCRUDVisibility: false });
+        this.setState({ patientCrudVisibility: false });
     };
 
-    openAnamneseSection = () => {
+    openanamnseSectionMode = () => {
         this.setState({
-            clientCRUDView: "anamnese"
+            patientCrudView: "anamnese",
+            anamnseSectionActive: 1
         });
     };
     
     goBackToGeneralData = () => {
         this.setState({
-            clientCRUDView: "dados_gerais"
+            patientCrudView: "dados_gerais"
         });
     };
 
@@ -426,13 +448,13 @@ class Patients extends React.Component{
     // ================ RENDERIZAÇÃO DO CONTEÚDO HTML ===============
     
     render(){
-        const { classes } = this.props;
+        const { classes } = this.props;        
 
         // LISTAGEM DE PACIENTES
         const listPatients = this.state.patients.map((client) => {
             return (
                 <div className="div--individual-card" key={client.id}>
-                    <div className="div--card-toolbar">
+                    <div className={ client.anamneseCheck === false ? "div--card-toolbar-onlydelete" : "div--card-toolbar-anamnese"}>
                         { client.anamneseCheck === false ? <Button className="button--card-anamnese" onClick={() => this.fillPatientAnamnese(client.id) }><MenuBookIcon /></Button> : null }
                         <Button className="button--card-delete" onClick={() => this.triedToDeleteClient(client.id) }><DeleteForeverIcon /></Button>
                     </div>
@@ -472,7 +494,7 @@ class Patients extends React.Component{
                 </div>
 
                 {/* Modal de Pacientes */}
-                <Modal open={ this.state.clientCRUDVisibility } onClose={ this.closePatientCrudModal } center>
+                <Modal open={ this.state.patientCrudVisibility } onClose={ this.closePatientCrudModal } center>
                     
                     {/* Superior Toolbar */}
                     <div className="custom--modal-header-patient">
@@ -484,7 +506,7 @@ class Patients extends React.Component{
                     
                     
                     {/* Dados Gerais */}
-                    { this.state.clientCRUDView === "dados_gerais" ?
+                    { this.state.patientCrudView === "dados_gerais" ?
                         <div className="div--modalPatient-body">
                         <p className="modal--title-divisor">Dados Gerais</p>
                         <div className="div--patients-information">
@@ -680,11 +702,91 @@ class Patients extends React.Component{
                     
                     
                     {/* Anamnese */}
-                    { this.state.clientCRUDView === "anamnese" ?
+                    { this.state.patientCrudView === "anamnese" ?
                         <div className="div--modalAnamnese-body">
-                            <p className="modal--title-divisor">Anamnese - Detalhamento</p>
-                            <div className="div--patients-information">
-                                <p>das</p>
+                            <div>
+                                <p className="modal--title-divisor">Anamnese - Detalhamento</p>
+                            </div>
+                            <div className="div--patients-anamneseinfo">
+
+                                {/* Step HTML Component */}                              
+                                <div className="div--anamneseinfo-toolbar">
+                                    { this.state.anamneseSections.map((step) => {
+                                        return (
+                                            <div key={step.id}>
+                                                <div className="section--label">
+                                                    Seção
+                                                    <div className={this.state.anamnseSectionActive === step.id ? "section--counter selected" : "section--counter"}>
+                                                        {step.id}
+                                                    </div>
+                                                </div>
+                                            </div>                                                
+                                        );
+                                    }) }
+                                </div>
+
+                                
+                                {/* Questions */}                        
+                                <div className="div--anamneseinfo-questions">
+                                    { this.state.anamneseSections.map((step) => {
+                                        return (
+                                            <div key={ "section-" + step.id}>
+                                                { 
+                                                    this.state.anamnseSectionActive === step.id ?
+                                                    step.questions.map((questions) =>
+                                                        {
+                                                            return (
+                                                                <div key={ "section--" + step.id + "-question-" + questions.id} id={ "section--" + step.id + "-question-" + questions.id} className="div--question-block">
+                                                                    <p>{questions.id + ". " + questions.question }</p>
+                                                                    
+                                                                    {/* Booleano - Sim / Não */}
+                                                                    { questions.type === "bool" ?
+                                                                        <div className="div--question-booleano">
+                                                                            <RadioGroup row aria-label="position" name="position" defaultValue="top">
+                                                                                <FormControlLabel
+                                                                                    value="Sim"
+                                                                                    control={<Radio color="primary" />}
+                                                                                    label="Sim"
+                                                                                    labelPlacement="end"
+                                                                                />
+                                                                
+                                                                                <FormControlLabel
+                                                                                    value="Não"
+                                                                                    control={<Radio color="primary" />}
+                                                                                    label="Não"
+                                                                                    labelPlacement="end"
+                                                                                />
+                                                                            </RadioGroup>
+                                                                        </div>
+                                                                    : null }
+
+                                                                    {/* Texto Adicional - Observação */}
+                                                                    { questions.aditionalText === true ?
+                                                                        <div className="div--questioncomentarios">
+                                                                            <input 
+                                                                                type = "text" 
+                                                                                className = "input--anamnese-moreinfo"
+                                                                                placeholder="Informação adicional" 
+                                                                                value = { "" }
+                                                                                name = "anamneseMoreInfo"
+                                                                                onChange={ this.changeSimpleValue } 
+                                                                            />
+                                                                        </div>
+                                                                    : null }
+
+                                                                </div>
+                                                            );
+                                                        })
+                                                    :
+                                                        null
+                                                }
+
+                                            </div>                                                
+                                        );
+                                    }) }
+                                </div>
+
+
                             </div>
                         </div>
                     : null }
@@ -693,7 +795,7 @@ class Patients extends React.Component{
                     <div className="custom--modal-footer">
                         <div className="buttons--bar patients--component">
 
-                            {this.state.clienteCRUDMode === "edit" ? 
+                            {this.state.patientCrudMode === "edit" ? 
                                 <Button
                                     className="white"
                                     onClick={ this.deleteEvent }
@@ -704,11 +806,11 @@ class Patients extends React.Component{
 
                             <Button className="white" onClick={ this.closePatientCrudModal }>Cancelar</Button>
                                 
-                            { this.state.clientCRUDView === "dados_gerais" ?
-                                <Button className="anamnese blue" onClick = { this.openAnamneseSection } >Anamnese</Button>
+                            { this.state.patientCrudView === "dados_gerais" ?
+                                <Button className="anamnese blue" onClick = { this.openanamnseSectionMode } >Anamnese</Button>
                             : null }
 
-                            { this.state.clientCRUDView === "anamnese" ?
+                            { this.state.patientCrudView === "anamnese" ?
                                 <Button className="anamnese blue" onClick = { this.goBackToGeneralData } >Dados Gerais</Button>
                             : null }
 

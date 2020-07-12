@@ -381,3 +381,6 @@ select:-webkit-autofill:focus {
     position: absolute;
     margin-top: 8px;
 }
+.container--content-news .MuiListItem-button:hover .MuiCheckbox-root{
+    color: white !important;
+}

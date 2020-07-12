@@ -124,8 +124,10 @@
 .container--content-news .div--filter-news .formcontrol--tag-news .MuiSelect-outlined.MuiSelect-outlined{
     padding-right: 10px;
     padding-left: 10px;
-    padding-top: 15px;
-    padding-bottom: 0px; 
+    margin-top: 0px;
+    padding-bottom: 0px;
+    padding-top: 17px;
+    background-color: transparent !important;
 }
 .MuiSelect-outlined.MuiSelect-outlined{
     font-family: 'Averta' !important;
