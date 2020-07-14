@@ -64,11 +64,24 @@ class Patients extends React.Component{
             patients: [
                 {
                     id: 1,
-                    name: "Clark Cold",
-                    phone: "(12) 99088-4140",
-                    email: "clarkcold@gmail.com",
-                    address: "Avenida Brasil, 21",
                     photo: clarkPhoto,
+
+                    name: "Clark Cold",
+                    birthday: "12/12/1993",
+                    genre: 1,
+                    occupation: "Advogado",
+                    documentId: "774.897.489-22",                    
+                    address: "Avenida Brasil, 21",
+                    zipcode: "56.248-00",
+                    state: "SP",
+
+                    city: "Paraibuna",                    
+                    email: "clarkcold@gmail.com",
+                    mainPhone: "(12) 99088-4140",
+                    secondaryPhone: "(12) 99088-4142",
+                    initialTreatment: moment().toDate(),
+                    civilStatus: 2,
+
                     anamneseCheck: true
                 },
                 {
@@ -119,7 +132,7 @@ class Patients extends React.Component{
             patientEmail: "",
             patientMainPhone: "",
             patientSecondaryPhone: "",
-            patientInitialDate: moment().toDate(),
+            patientInitialTreatment: moment().toDate(),
             civilStatusList: [
                 { name: "Selecione...", id: 0 },
                 { name: "Solteiro(a)", id: 1 },
@@ -142,44 +155,44 @@ class Patients extends React.Component{
                                                                                                 {
                                                                                                     id: 1,
                                                                                                     question: "É alérgico a algum medicamento? Qual?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section1--question1-bool" },
+                                                                                                    moreInfoAnswer: { fieldName: "section1--question1-moreinfo" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 2,
                                                                                                     question: "Tem boa saúde? Caso negativo, que doenças apresenta?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section1--question2-bool" },
+                                                                                                    moreInfoAnswer: { fieldName: "section1--question2-moreinfo" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 3,
                                                                                                     question: "Apresenta algum problema respiratório? Sinusite, renite ou bronquite?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section1--question3-bool" },
+                                                                                                    moreInfoAnswer: { fieldName: "section1--question3-moreinfo" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 4,
                                                                                                     question: "Possui dor de garganta frequente? Que medicação usa?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section1--question4-bool" },
+                                                                                                    moreInfoAnswer: { fieldName: "section1--question4-moreinfo" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 5,
                                                                                                     question: "Azia, má digestão, refluxo, úlcera ou gastrite?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section1--question5-bool" },
+                                                                                                    moreInfoAnswer: { fieldName: "section1--question5-moreinfo" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 9,
                                                                                                     question: "Tem o hábito de levar objetos à boca?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section1--question9-bool" },
+                                                                                                    moreInfoAnswer: { fieldName: "section1--question9-moreinfo" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 10,
                                                                                                     question: "Possui temperamento calmo?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section1--question10-bool" },
+                                                                                                    moreInfoAnswer: { fieldName: "section1--question10-moreinfo" }
                                                                                                 }
                                                                                             ] 
                                 },
@@ -461,7 +474,14 @@ class Patients extends React.Component{
     };
 
     // ================ CHANGE EVENTS ==============
-    changeSimpleValue = (evt) => { 
+    changeAnamneseSection = (index) => {
+        this.setState({
+            anamnseSectionActive: index
+        });
+    };
+
+    changeSimpleValue = (evt) => {
+        //debugger
         this.setState({
             [evt.target.name]: evt.target.value
         });
@@ -562,9 +582,63 @@ class Patients extends React.Component{
     };
         
     // ================ CRUD EVENTS ===============
+    findPatientInfo = (patientId) => {
+        for (var p = 0; p < this.state.patients.length; p++){
+            if (this.state.patients[p].id === patientId){
+                return this.state.patients[p]
+            }
+        }
+        return null;
+    };
 
-    openCRUDPatientsModal = (mode) => {
+    getPatientGeneralInfo = (patientInfo, fieldName) => {
+        // Exceções de campo de data
+        if (fieldName === "initialTreatment"){
+            if (patientInfo === null)
+                return moment().toDate()
+        }
+
+        // Exceções de campo lista
+        if (fieldName === "genre" || fieldName === "civilStatus"){
+            if (patientInfo === null)
+                return 0
+        }
+
+        // Sem exceções de campos
+        if (patientInfo === null)
+            return ""
+
+        if (patientInfo[fieldName] === null || fieldName[fieldName] === "")
+            return ""
+
+        // Valor final
+        return patientInfo[fieldName]
+    };
+
+    openCRUDPatientsModal = (mode, patientId) => {
+        var patientInfo = this.findPatientInfo(patientId);
+
         this.setState({
+            /* Patient General Info*/
+            patientName: this.getPatientGeneralInfo(patientInfo, "name"),
+            patientBirthday: this.getPatientGeneralInfo(patientInfo, "birthday"),
+            patientGenreValue: this.getPatientGeneralInfo(patientInfo, "genre"),
+            patientOccupation: this.getPatientGeneralInfo(patientInfo, "occupation"),
+            patientDocument: this.getPatientGeneralInfo(patientInfo, "documentId"),
+            patientAddress: this.getPatientGeneralInfo(patientInfo, "address"),
+            patientZipCode: this.getPatientGeneralInfo(patientInfo, "zipcode"),
+            patientState: this.getPatientGeneralInfo(patientInfo, "state"),
+            patientCity: this.getPatientGeneralInfo(patientInfo, "city"),
+            patientEmail: this.getPatientGeneralInfo(patientInfo, "email"),
+            patientMainPhone: this.getPatientGeneralInfo(patientInfo, "mainPhone"),
+            patientSecondaryPhone: this.getPatientGeneralInfo(patientInfo, "secondaryPhone"),
+            patientInitialTreatment: this.getPatientGeneralInfo(patientInfo, "initialTreatment"),
+            patientCivilStatus: this.getPatientGeneralInfo(patientInfo, "civilStatus"),
+            
+            /* Patient Anamnese */
+
+
+            /* Modal Options */
             patientCrudMode: mode,
             patientCrudView: "dados_gerais",
             patientCrudVisibility: true
@@ -588,21 +662,21 @@ class Patients extends React.Component{
         });
     };
 
-    triedToDeleteClient = (clientId) => {
+    triedToDeletePatient = (patientId) => {
         cogoToast.info(
             <div>
                 <div>Tem certeza que deseja excluir esse paciente?</div>
-                <button className="button--confirmation" onClick = {() => this.deleteClient(clientId)}>Sim</button>
+                <button className="button--confirmation" onClick = {() => this.deletePatient(patientId)}>Sim</button>
                 <button className="button--cancel" onClick = { this.destroyCogoToastInfo }>Não</button>
             </div>,
             { heading: 'Confirmação', position: 'top-center', hideAfter: 0 }
         );
     };
 
-    deleteClient = (clientId) => {
+    deletePatient = (patientId) => {
         var newPatients = [];
         for (var i = 0; i < this.state.patients.length; i++){
-            if (this.state.patients[i].id !== clientId)
+            if (this.state.patients[i].id !== patientId)
                 newPatients.push(this.state.patients[i]);
         }
 
@@ -628,20 +702,20 @@ class Patients extends React.Component{
         const { classes } = this.props;        
 
         // LISTAGEM DE PACIENTES
-        const listPatients = this.state.patients.map((client) => {
+        const listPatients = this.state.patients.map((patient) => {
             return (
-                <div className="div--individual-card" key={client.id}>
-                    <div className={ client.anamneseCheck === false ? "div--card-toolbar-onlydelete" : "div--card-toolbar-anamnese"}>
-                        { client.anamneseCheck === false ? <Button className="button--card-anamnese" onClick={() => this.fillPatientAnamnese(client.id) }><MenuBookIcon /></Button> : null }
-                        <Button className="button--card-delete" onClick={() => this.triedToDeleteClient(client.id) }><DeleteForeverIcon /></Button>
+                <div className="div--individual-card" key={patient.id}>
+                    <div className={ patient.anamneseCheck === false ? "div--card-toolbar-onlydelete" : "div--card-toolbar-anamnese"}>
+                        { patient.anamneseCheck === false ? <Button className="button--card-anamnese" onClick={() => this.fillPatientAnamnese(patient.id) }><MenuBookIcon /></Button> : null }
+                        <Button className="button--card-delete" onClick={() => this.triedToDeletePatient(patient.id) }><DeleteForeverIcon /></Button>
                     </div>
-                    <div className="div--card-background" onClick={() => this.openCRUDPatientsModal("edit")}>
+                    <div className="div--card-background" onClick={() => this.openCRUDPatientsModal("edit", patient.id)}>
                         <div className="div--card-picture">
-                            <img src={ client.photo }></img>
+                            <img src={ patient.photo }></img>
                         </div>
-                        <div className="div--card-name">{ client.name }</div>
-                        <div className="div--card-contact">{ client.email }<br/>{ client.phone }</div>
-                        <div className="div--card-address">{ client.address }</div>
+                        <div className="div--card-name">{ patient.name }</div>
+                        <div className="div--card-contact">{ patient.email }<br/>{ patient.phone }</div>
+                        <div className="div--card-address">{ patient.address }</div>
                     </div>
                 </div>
             );
@@ -661,7 +735,7 @@ class Patients extends React.Component{
                             < AutoCompleteSuggest source = "patients" />
                         </div>
                         <div>
-                            <button className="button--blue-casual" onClick={() => this.openCRUDPatientsModal("insert")}>Novo Paciente</button>
+                            <button className="button--blue-casual" onClick={() => this.openCRUDPatientsModal("insert", null)}>Novo Paciente</button>
                         </div>
                     </div>
 
@@ -840,9 +914,9 @@ class Patients extends React.Component{
                                                     format="DD/MM/YYYY"
                                                     margin="normal"
                                                     label="Início do Tratamento:"
-                                                    value={ this.state.patientInitialDate }
+                                                    value={ this.state.patientInitialTreatment }
                                                     autoOk = { true }
-                                                    onChange={(e) => this.changeSimpleDate("patientInitialDate", e) }
+                                                    onChange={(e) => this.changeSimpleDate("patientInitialTreatment", e) }
                                                     KeyboardButtonProps={{
                                                         'aria-label': 'change date',
                                                     }}
@@ -874,7 +948,7 @@ class Patients extends React.Component{
                                 </MuiPickersUtilsProvider>
                             </form>
                         </div>
-                    </div>                
+                    </div>             
                     : null }
                     
                     
@@ -891,7 +965,7 @@ class Patients extends React.Component{
                                     { this.state.anamneseSections.map((step) => {
                                         return (
                                             <div key={step.id}>
-                                                <div className="section--label">
+                                                <div className="section--label" onClick={() => this.changeAnamneseSection(step.id) } >
                                                     Seção
                                                     <div className={this.state.anamnseSectionActive === step.id ? "section--counter selected" : "section--counter"}>
                                                         {step.id}
@@ -917,7 +991,7 @@ class Patients extends React.Component{
                                                                     <p>{questions.id + ". " + questions.question }</p>
                                                                     
                                                                     {/* Booleano - Sim / Não */}
-                                                                    { questions.type === "bool" ?
+                                                                    { questions.boolAnswer !== null && questions.boolAnswer !== undefined ?
                                                                         <div className="div--question-booleano">
                                                                             <RadioGroup row aria-label="position" name="position" defaultValue="top">
                                                                                 <FormControlLabel
@@ -925,6 +999,7 @@ class Patients extends React.Component{
                                                                                     control={<Radio color="primary" />}
                                                                                     label="Sim"
                                                                                     labelPlacement="end"
+                                                                                    name = { questions.boolAnswer.fieldName }
                                                                                 />
                                                                 
                                                                                 <FormControlLabel
@@ -932,21 +1007,19 @@ class Patients extends React.Component{
                                                                                     control={<Radio color="primary" />}
                                                                                     label="Não"
                                                                                     labelPlacement="end"
+                                                                                    name = { questions.boolAnswer.fieldName }
                                                                                 />
                                                                             </RadioGroup>
                                                                         </div>
                                                                     : null }
 
                                                                     {/* Texto Adicional - Observação */}
-                                                                    { questions.aditionalText === true ?
-                                                                        <div className="div--questioncomentarios">
+                                                                    { questions.moreInfoAnswer !== null && questions.moreInfoAnswer !== undefined ?
+                                                                        <div className="div--anamnese-moreInfoInput">
                                                                             <input 
                                                                                 type = "text" 
-                                                                                className = "input--anamnese-moreinfo"
-                                                                                placeholder="Informação adicional" 
-                                                                                value = { "" }
-                                                                                name = "anamneseMoreInfo"
-                                                                                onChange={ this.changeSimpleValue } 
+                                                                                placeholder="Informação adicional"
+                                                                                name = { questions.moreInfoAnswer.fieldName }
                                                                             />
                                                                         </div>
                                                                     : null }
@@ -957,12 +1030,10 @@ class Patients extends React.Component{
                                                     :
                                                         null
                                                 }
-
                                             </div>                                                
                                         );
                                     }) }
                                 </div>
-
 
                             </div>
                         </div>
@@ -984,7 +1055,10 @@ class Patients extends React.Component{
                             <Button className="white" onClick={ this.closePatientCrudModal }>Cancelar</Button>
                                 
                             { this.state.patientCrudView === "dados_gerais" ?
-                                <Button className="anamnese blue" onClick = { this.openanamnseSectionMode } >Anamnese</Button>
+                                <Button className="anamnese blue" onClick = { this.openanamnseSectionMode } >
+                                    Anamnese
+                                    <MenuBookIcon />
+                                </Button>
                             : null }
 
                             { this.state.patientCrudView === "anamnese" ?

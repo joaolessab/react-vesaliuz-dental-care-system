@@ -234,6 +234,9 @@
     width: 200px !important;
     margin-right: 10px;
 }
+.patients--component .anamnese .MuiSvgIcon-root{
+    margin-left: 10px;
+}
 
 /* HOVER */
 .div--modalPatient-body .MuiInput-underline:hover:not(.Mui-disabled):before {
@@ -312,7 +315,7 @@
 .div--anamneseinfo-questions .MuiRadio-colorPrimary.Mui-checked{
     color: #333333 !important;
 }
-.input--anamnese-moreinfo{
+.div--anamnese-moreInfoInput input{
     height: 100px;
     padding: 10px;
     padding-left: 10px;
