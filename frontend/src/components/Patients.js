@@ -74,7 +74,6 @@ class Patients extends React.Component{
                     address: "Avenida Brasil, 21",
                     zipcode: "56.248-00",
                     state: "SP",
-
                     city: "Paraibuna",                    
                     email: "clarkcold@gmail.com",
                     mainPhone: "(12) 99088-4140",
@@ -82,7 +81,23 @@ class Patients extends React.Component{
                     initialTreatment: moment().toDate(),
                     civilStatus: 2,
 
-                    anamneseCheck: true
+                    anamnese: {
+                        completed: true,
+                        sections: [
+                            {
+                                id: 1,
+                                questions: [
+                                    { id: 1, boolValue: true, moreInfoValue: "Dipirona." },
+                                    { id: 2, boolValue: false, moreInfoValue: "" },
+                                    { id: 3, boolValue: true, moreInfoValue: "Bronquite." },
+                                    { id: 4, boolValue: false, moreInfoValue: "" },
+                                    { id: 5, boolValue: false, moreInfoValue: "" },
+                                    { id: 9, boolValue: true, moreInfoValue: "" },
+                                    { id: 10, boolValue: true, moreInfoValue: "" }
+                                ]
+                            }
+                        ]
+                    }
                 },
                 {
                     id: 2,
@@ -155,44 +170,44 @@ class Patients extends React.Component{
                                                                                                 {
                                                                                                     id: 1,
                                                                                                     question: "É alérgico a algum medicamento? Qual?",
-                                                                                                    boolAnswer: { fieldName: "section1--question1-bool" },
-                                                                                                    moreInfoAnswer: { fieldName: "section1--question1-moreinfo" }
+                                                                                                    boolAnswer: { fieldName: "section_1--question_1-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_1--question_1-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 2,
                                                                                                     question: "Tem boa saúde? Caso negativo, que doenças apresenta?",
-                                                                                                    boolAnswer: { fieldName: "section1--question2-bool" },
-                                                                                                    moreInfoAnswer: { fieldName: "section1--question2-moreinfo" }
+                                                                                                    boolAnswer: { fieldName: "section_1--question_2-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_1--question_2-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 3,
                                                                                                     question: "Apresenta algum problema respiratório? Sinusite, renite ou bronquite?",
-                                                                                                    boolAnswer: { fieldName: "section1--question3-bool" },
-                                                                                                    moreInfoAnswer: { fieldName: "section1--question3-moreinfo" }
+                                                                                                    boolAnswer: { fieldName: "section_1--question_3-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_1--question_3-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 4,
                                                                                                     question: "Possui dor de garganta frequente? Que medicação usa?",
-                                                                                                    boolAnswer: { fieldName: "section1--question4-bool" },
-                                                                                                    moreInfoAnswer: { fieldName: "section1--question4-moreinfo" }
+                                                                                                    boolAnswer: { fieldName: "section_1--question_4-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_1--question_4-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 5,
                                                                                                     question: "Azia, má digestão, refluxo, úlcera ou gastrite?",
-                                                                                                    boolAnswer: { fieldName: "section1--question5-bool" },
-                                                                                                    moreInfoAnswer: { fieldName: "section1--question5-moreinfo" }
+                                                                                                    boolAnswer: { fieldName: "section_1--question_5-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_1--question_5-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 9,
                                                                                                     question: "Tem o hábito de levar objetos à boca?",
-                                                                                                    boolAnswer: { fieldName: "section1--question9-bool" },
-                                                                                                    moreInfoAnswer: { fieldName: "section1--question9-moreinfo" }
+                                                                                                    bboolAnswer: { fieldName: "section_1--question_9-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_1--question_9-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 10,
                                                                                                     question: "Possui temperamento calmo?",
-                                                                                                    boolAnswer: { fieldName: "section1--question10-bool" },
-                                                                                                    moreInfoAnswer: { fieldName: "section1--question10-moreinfo" }
+                                                                                                    boolAnswer: { fieldName: "section_1--question_10-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_1--question_10-moreinfo", value: "" }
                                                                                                 }
                                                                                             ] 
                                 },
@@ -615,11 +630,27 @@ class Patients extends React.Component{
         return patientInfo[fieldName]
     };
 
+    changeAnamneseQuestionAnswer = (patientInfo, sectionId, question) => {
+        // AddQuestionKeysToJSON (bool, moreInfo, etc)
+        // debugger
+        if (patientInfo === null){
+            /*this.setState({
+                ["section_" + sectionId + "--question" + question.id + "-bool"] : null,
+                ["section_" + sectionId + "--question" + question.id + "-moreinfo"] : "teste",
+            });*/
+
+            this.setState({
+                [question.boolAnswer.value] : null,
+                [question.moreInfoAnswer.value] : "teste",
+            });
+        }
+    };
+
     openCRUDPatientsModal = (mode, patientId) => {
         var patientInfo = this.findPatientInfo(patientId);
 
+        /* Patient General Info*/
         this.setState({
-            /* Patient General Info*/
             patientName: this.getPatientGeneralInfo(patientInfo, "name"),
             patientBirthday: this.getPatientGeneralInfo(patientInfo, "birthday"),
             patientGenreValue: this.getPatientGeneralInfo(patientInfo, "genre"),
@@ -633,12 +664,20 @@ class Patients extends React.Component{
             patientMainPhone: this.getPatientGeneralInfo(patientInfo, "mainPhone"),
             patientSecondaryPhone: this.getPatientGeneralInfo(patientInfo, "secondaryPhone"),
             patientInitialTreatment: this.getPatientGeneralInfo(patientInfo, "initialTreatment"),
-            patientCivilStatus: this.getPatientGeneralInfo(patientInfo, "civilStatus"),
-            
-            /* Patient Anamnese */
+            patientCivilStatus: this.getPatientGeneralInfo(patientInfo, "civilStatus")
+        });
 
-
-            /* Modal Options */
+        /* Anamnese */
+        for (var s = 0; s < this.state.anamneseSections.length; s++){
+            for (var q = 0; q < this.state.anamneseSections[s].questions.length; q++){
+                var section = this.state.anamneseSections[s];
+                var question = section.questions[q];
+                this.changeAnamneseQuestionAnswer(patientInfo, section.id, question);
+            }
+        }
+        debugger
+        /* Modal Options */
+        this.setState({
             patientCrudMode: mode,
             patientCrudView: "dados_gerais",
             patientCrudVisibility: true
@@ -979,6 +1018,7 @@ class Patients extends React.Component{
                                 
                                 {/* Questions */}                        
                                 <div className="div--anamneseinfo-questions">
+                                    {/* Sections */}
                                     { this.state.anamneseSections.map((step) => {
                                         return (
                                             <div key={ "section-" + step.id}>
@@ -993,6 +1033,8 @@ class Patients extends React.Component{
                                                                     {/* Booleano - Sim / Não */}
                                                                     { questions.boolAnswer !== null && questions.boolAnswer !== undefined ?
                                                                         <div className="div--question-booleano">
+
+
                                                                             <RadioGroup row aria-label="position" name="position" defaultValue="top">
                                                                                 <FormControlLabel
                                                                                     value="Sim"
@@ -1000,6 +1042,7 @@ class Patients extends React.Component{
                                                                                     label="Sim"
                                                                                     labelPlacement="end"
                                                                                     name = { questions.boolAnswer.fieldName }
+                                                                                    checked = { questions.boolAnswer.value === true }
                                                                                 />
                                                                 
                                                                                 <FormControlLabel
@@ -1008,8 +1051,10 @@ class Patients extends React.Component{
                                                                                     label="Não"
                                                                                     labelPlacement="end"
                                                                                     name = { questions.boolAnswer.fieldName }
+                                                                                    checked = { questions.boolAnswer.value === false }
                                                                                 />
                                                                             </RadioGroup>
+
                                                                         </div>
                                                                     : null }
 
@@ -1020,6 +1065,7 @@ class Patients extends React.Component{
                                                                                 type = "text" 
                                                                                 placeholder="Informação adicional"
                                                                                 name = { questions.moreInfoAnswer.fieldName }
+                                                                                defaultValue = { questions.moreInfoAnswer.value }
                                                                             />
                                                                         </div>
                                                                     : null }
