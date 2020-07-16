@@ -200,7 +200,7 @@ class Patients extends React.Component{
                                                                                                 {
                                                                                                     id: 9,
                                                                                                     question: "Tem o hábito de levar objetos à boca?",
-                                                                                                    bboolAnswer: { fieldName: "section_1--question_9-bool", value: null },
+                                                                                                    boolAnswer: { fieldName: "section_1--question_9-bool", value: null },
                                                                                                     moreInfoAnswer: { fieldName: "section_1--question_9-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
@@ -631,19 +631,16 @@ class Patients extends React.Component{
     };
 
     changeAnamneseQuestionAnswer = (patientInfo, sectionId, question) => {
-        // AddQuestionKeysToJSON (bool, moreInfo, etc)
-        // debugger
-        if (patientInfo === null){
-            /*this.setState({
-                ["section_" + sectionId + "--question" + question.id + "-bool"] : null,
-                ["section_" + sectionId + "--question" + question.id + "-moreinfo"] : "teste",
-            });*/
-
-            this.setState({
-                [question.boolAnswer.value] : null,
-                [question.moreInfoAnswer.value] : "teste",
-            });
-        }
+        const sectionArrayIndex = this.state.anamneseSections.findIndex( element => element.id === sectionId );
+        const questionArrayIndex = this.state.anamneseSections[sectionArrayIndex].questions.findIndex( element => element.id === question.id );
+        let newAnamneseSections = [...this.state.anamneseSections];
+        
+        newAnamneseSections[sectionArrayIndex].questions[questionArrayIndex].boolAnswer.value = true;
+        newAnamneseSections[sectionArrayIndex].questions[questionArrayIndex].moreInfoAnswer.value = "teste";
+        
+        this.setState({
+            anamneseSections: newAnamneseSections
+        });
     };
 
     openCRUDPatientsModal = (mode, patientId) => {
@@ -672,10 +669,11 @@ class Patients extends React.Component{
             for (var q = 0; q < this.state.anamneseSections[s].questions.length; q++){
                 var section = this.state.anamneseSections[s];
                 var question = section.questions[q];
-                this.changeAnamneseQuestionAnswer(patientInfo, section.id, question);
+                if (section.id === 1)
+                    this.changeAnamneseQuestionAnswer(patientInfo, section.id, question);
             }
         }
-        debugger
+
         /* Modal Options */
         this.setState({
             patientCrudMode: mode,
