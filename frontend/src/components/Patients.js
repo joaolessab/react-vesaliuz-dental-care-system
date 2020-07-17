@@ -80,7 +80,6 @@ class Patients extends React.Component{
                     civilStatus: 2,
 
                     anamnese: {
-                        completed: true,
                         sections: [
                             {
                                 id: 1,
@@ -179,7 +178,6 @@ class Patients extends React.Component{
                     civilStatus: 2,
 
                     anamnese: {
-                        completed: false,
                         sections: [
                             {
                                 id: 1,
@@ -278,7 +276,6 @@ class Patients extends React.Component{
                     civilStatus: 2,
 
                     anamnese: {
-                        completed: true,
                         sections: [
                             {
                                 id: 1,
@@ -377,7 +374,6 @@ class Patients extends React.Component{
                     civilStatus: 2,
 
                     anamnese: {
-                        completed: false,
                         sections: [
                             {
                                 id: 1,
@@ -1067,19 +1063,47 @@ class Patients extends React.Component{
         }
     };
 
+    checkPendingAnamnese = (patientId) => {
+        const patientIndex = this.state.patients.findIndex(element => element.id === patientId);
+        const patient = this.state.patients[patientIndex];
+
+        for (var s = 0; s < patient.anamnese.sections.length; s++){
+            for (var q = 0; q < patient.anamnese.sections[s].questions.length; q++){
+                var question = patient.anamnese.sections[s].questions[q];
+                if (question.boolValue === null)
+                    return false;
+            }
+        }
+
+        return true;
+    };
+
     // ================ RENDERIZAÇÃO DO CONTEÚDO HTML ===============
     
     render(){
-        const { classes } = this.props;        
+        const { classes } = this.props;
 
         // LISTAGEM DE PACIENTES
         const listPatients = this.state.patients.map((patient) => {
             return (
                 <div className="div--individual-card" key={patient.id}>
-                    <div className={ patient.anamnese.completed === false ? "div--card-toolbar-onlydelete" : "div--card-toolbar-anamnese"}>
-                        { patient.anamnese.completed === false ? <Button className="button--card-anamnese" onClick={() => this.fillPatientAnamnese(patient.id) }><MenuBookIcon /></Button> : null }
-                        <Button className="button--card-delete" onClick={() => this.triedToDeletePatient(patient.id) }><DeleteForeverIcon /></Button>
-                    </div>
+
+                    {/* Eliminar repetição indevida */}
+                    {   this.checkPendingAnamnese(patient.id) === false ?
+                        
+                        <div className="div--card-toolbar-onlydelete">
+                            <Button className="button--card-anamnese" onClick={() => this.fillPatientAnamnese(patient.id) }><MenuBookIcon /></Button>
+                            <Button className="button--card-delete" onClick={() => this.triedToDeletePatient(patient.id) }><DeleteForeverIcon /></Button>
+                        </div>
+                        
+                        :
+                        
+                        <div className="div--card-toolbar-anamnese">
+                            <Button className="button--card-delete" onClick={() => this.triedToDeletePatient(patient.id) }><DeleteForeverIcon /></Button>
+                        </div>
+                    }
+
+                    {/* Eliminar repetição indevida acima */}
                     <div className="div--card-background" onClick={() => this.openCRUDPatientsModal("edit", patient.id)}>
                         <div className="div--card-picture">
                             <img alt = { patient.name } src={ patient.photo }></img>
