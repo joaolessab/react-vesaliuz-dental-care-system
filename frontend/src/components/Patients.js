@@ -95,36 +95,368 @@ class Patients extends React.Component{
                                     { id: 9, boolValue: true, moreInfoValue: "" },
                                     { id: 10, boolValue: true, moreInfoValue: "" }
                                 ]
+                            },
+                            {
+                                id: 2,
+                                questions: [
+                                    { id: 11, boolValue: true, moreInfoValue: "8 horas." },
+                                    { id: 12, boolValue: false, moreInfoValue: "" },
+                                    { id: 13, boolValue: true, moreInfoValue: "Não." },
+                                    { id: 14, boolValue: false, moreInfoValue: "" },
+                                    { id: 15, boolValue: false, moreInfoValue: "" },
+                                    { id: 16, boolValue: true, moreInfoValue: "" },
+                                    { id: 17, boolValue: true, moreInfoValue: "" },
+                                    { id: 18, boolValue: true, moreInfoValue: "" },
+                                    { id: 19, boolValue: true, moreInfoValue: "" },
+                                    { id: 20, boolValue: true, moreInfoValue: "Muito" }
+                                ]
+                            },
+                            {
+                                id: 3,
+                                questions: [
+                                    { id: 21, boolValue: true, moreInfoValue: "" },
+                                    { id: 22, boolValue: false, moreInfoValue: "" },
+                                    { id: 23, boolValue: true, moreInfoValue: "" },
+                                    { id: 24, boolValue: false, moreInfoValue: "Todos" },
+                                    { id: 25, boolValue: false, moreInfoValue: "" },
+                                    { id: 26, boolValue: true, moreInfoValue: "" },
+                                    { id: 27, boolValue: false, moreInfoValue: "" },
+                                    { id: 28, boolValue: false, moreInfoValue: "" },
+                                    { id: 29, boolValue: true, moreInfoValue: "" },
+                                    { id: 30, boolValue: true, moreInfoValue: "1 vez por mês" }
+                                ]
+                            },
+                            {
+                                id: 4,
+                                questions: [
+                                    { id: 31, boolValue: true, moreInfoValue: "" },
+                                    { id: 32, boolValue: false, moreInfoValue: "" },
+                                    { id: 33, boolValue: true, moreInfoValue: "" },
+                                    { id: 34, boolValue: false, moreInfoValue: "Dipirona" },
+                                    { id: 35, boolValue: false, moreInfoValue: "" },
+                                    { id: 36, boolValue: true, moreInfoValue: "" },
+                                    { id: 37, boolValue: false, moreInfoValue: "" },
+                                    { id: 38, boolValue: false, moreInfoValue: "" },
+                                    { id: 39, boolValue: true, moreInfoValue: "" },
+                                    { id: 40, boolValue: true, moreInfoValue: "1 vez por mês" }
+                                ]
+                            },
+                            {
+                                id: 5,
+                                questions: [
+                                    { id: 41, boolValue: true, moreInfoValue: "" },
+                                    { id: 42, boolValue: false, moreInfoValue: "" },
+                                    { id: 43, boolValue: true, moreInfoValue: "" },
+                                    { id: 44, boolValue: false, moreInfoValue: "Dipirona" },
+                                    { id: 45, boolValue: false, moreInfoValue: "" },
+                                    { id: 46, boolValue: true, moreInfoValue: "" },
+                                    { id: 47, boolValue: false, moreInfoValue: "" },
+                                    { id: 48, boolValue: false, moreInfoValue: "" },
+                                    { id: 49, boolValue: true, moreInfoValue: "" },
+                                    { id: 50, boolValue: true, moreInfoValue: "Nenhum" },
+                                    { id: 51, boolValue: true, moreInfoValue: "Nenhum" },
+                                    { id: 52, boolValue: true, moreInfoValue: "Nenhuma" }
+                                ]
                             }
                         ]
                     }
                 },
                 {
                     id: 2,
-                    name: "Diana Mendes",
-                    phone: "(12) 87995-1105",
-                    email: "dianamendes@gmail.com",
-                    address: "Rua Monsenhor Dutra, 43",
                     photo: dianaPhoto,
-                    anamneseCheck: false
+
+                    name: "Diana Mendes",
+                    birthday: "12/12/1992",
+                    genre: 1,
+                    occupation: "Advogado",
+                    documentId: "774.897.489-22",                    
+                    address: "Rua Monsenhor Dutra, 43",
+                    zipcode: "56.248-00",
+                    state: "SP",
+                    city: "Paraibuna",                    
+                    email: "dianamendes@gmail.com",
+                    mainPhone: "(12) 87995-1105",
+                    secondaryPhone: "(12) 99088-4142",
+                    initialTreatment: moment().toDate(),
+                    civilStatus: 2,
+
+                    anamnese: {
+                        completed: false,
+                        sections: [
+                            {
+                                id: 1,
+                                questions: [
+                                    { id: 1, boolValue: true, moreInfoValue: "Dipirona." },
+                                    { id: 2, boolValue: null, moreInfoValue: "" },
+                                    { id: 3, boolValue: true, moreInfoValue: "Bronquite." },
+                                    { id: 4, boolValue: false, moreInfoValue: "" },
+                                    { id: 5, boolValue: false, moreInfoValue: "" },
+                                    { id: 9, boolValue: true, moreInfoValue: "" },
+                                    { id: 10, boolValue: true, moreInfoValue: "" }
+                                ]
+                            },
+                            {
+                                id: 2,
+                                questions: [
+                                    { id: 11, boolValue: true, moreInfoValue: "8 horas." },
+                                    { id: 12, boolValue: false, moreInfoValue: "" },
+                                    { id: 13, boolValue: true, moreInfoValue: "Não." },
+                                    { id: 14, boolValue: false, moreInfoValue: "" },
+                                    { id: 15, boolValue: false, moreInfoValue: "" },
+                                    { id: 16, boolValue: true, moreInfoValue: "" },
+                                    { id: 17, boolValue: true, moreInfoValue: "" },
+                                    { id: 18, boolValue: true, moreInfoValue: "" },
+                                    { id: 19, boolValue: true, moreInfoValue: "" },
+                                    { id: 20, boolValue: true, moreInfoValue: "Muito" }
+                                ]
+                            },
+                            {
+                                id: 3,
+                                questions: [
+                                    { id: 21, boolValue: true, moreInfoValue: "" },
+                                    { id: 22, boolValue: false, moreInfoValue: "" },
+                                    { id: 23, boolValue: true, moreInfoValue: "" },
+                                    { id: 24, boolValue: false, moreInfoValue: "Todos" },
+                                    { id: 25, boolValue: false, moreInfoValue: "" },
+                                    { id: 26, boolValue: true, moreInfoValue: "" },
+                                    { id: 27, boolValue: false, moreInfoValue: "" },
+                                    { id: 28, boolValue: false, moreInfoValue: "" },
+                                    { id: 29, boolValue: true, moreInfoValue: "" },
+                                    { id: 30, boolValue: true, moreInfoValue: "1 vez por mês" }
+                                ]
+                            },
+                            {
+                                id: 4,
+                                questions: [
+                                    { id: 31, boolValue: true, moreInfoValue: "" },
+                                    { id: 32, boolValue: false, moreInfoValue: "" },
+                                    { id: 33, boolValue: true, moreInfoValue: "" },
+                                    { id: 34, boolValue: false, moreInfoValue: "Dipirona" },
+                                    { id: 35, boolValue: false, moreInfoValue: "" },
+                                    { id: 36, boolValue: true, moreInfoValue: "" },
+                                    { id: 37, boolValue: false, moreInfoValue: "" },
+                                    { id: 38, boolValue: false, moreInfoValue: "" },
+                                    { id: 39, boolValue: true, moreInfoValue: "" },
+                                    { id: 40, boolValue: true, moreInfoValue: "1 vez por mês" }
+                                ]
+                            },
+                            {
+                                id: 5,
+                                questions: [
+                                    { id: 41, boolValue: true, moreInfoValue: "" },
+                                    { id: 42, boolValue: false, moreInfoValue: "" },
+                                    { id: 43, boolValue: true, moreInfoValue: "" },
+                                    { id: 44, boolValue: false, moreInfoValue: "Dipirona" },
+                                    { id: 45, boolValue: false, moreInfoValue: "" },
+                                    { id: 46, boolValue: true, moreInfoValue: "" },
+                                    { id: 47, boolValue: false, moreInfoValue: "" },
+                                    { id: 48, boolValue: false, moreInfoValue: "" },
+                                    { id: 49, boolValue: true, moreInfoValue: "" },
+                                    { id: 50, boolValue: true, moreInfoValue: "Nenhum" },
+                                    { id: 51, boolValue: true, moreInfoValue: "Nenhum" },
+                                    { id: 52, boolValue: true, moreInfoValue: "Nenhuma" }
+                                ]
+                            }
+                        ]
+                    }
                 },
                 {
                     id: 3,
-                    name: "Oliver Queen",
-                    phone: "(12) 97865-2141",
-                    email: "oliverthekey@gmail.com",
-                    address: "Avenida JK, 110",
                     photo: oliverPhoto,
-                    anamneseCheck: true
+
+                    name: "Oliver Queen",
+                    birthday: "12/12/1992",
+                    genre: 1,
+                    occupation: "Advogado",
+                    documentId: "774.897.489-22",                    
+                    address: "Avenida JK, 110",
+                    zipcode: "56.248-00",
+                    state: "SP",
+                    city: "Paraibuna",                    
+                    email: "oliverthekey@gmail.com",
+                    mainPhone: "(12) 97865-2141",
+                    secondaryPhone: "(12) 99088-4142",
+                    initialTreatment: moment().toDate(),
+                    civilStatus: 2,
+
+                    anamnese: {
+                        completed: true,
+                        sections: [
+                            {
+                                id: 1,
+                                questions: [
+                                    { id: 1, boolValue: true, moreInfoValue: "Dipirona." },
+                                    { id: 2, boolValue: true, moreInfoValue: "" },
+                                    { id: 3, boolValue: true, moreInfoValue: "Bronquite." },
+                                    { id: 4, boolValue: false, moreInfoValue: "" },
+                                    { id: 5, boolValue: false, moreInfoValue: "" },
+                                    { id: 9, boolValue: true, moreInfoValue: "" },
+                                    { id: 10, boolValue: true, moreInfoValue: "" }
+                                ]
+                            },
+                            {
+                                id: 2,
+                                questions: [
+                                    { id: 11, boolValue: true, moreInfoValue: "8 horas." },
+                                    { id: 12, boolValue: false, moreInfoValue: "" },
+                                    { id: 13, boolValue: true, moreInfoValue: "Não." },
+                                    { id: 14, boolValue: false, moreInfoValue: "" },
+                                    { id: 15, boolValue: false, moreInfoValue: "" },
+                                    { id: 16, boolValue: true, moreInfoValue: "" },
+                                    { id: 17, boolValue: true, moreInfoValue: "" },
+                                    { id: 18, boolValue: true, moreInfoValue: "" },
+                                    { id: 19, boolValue: true, moreInfoValue: "" },
+                                    { id: 20, boolValue: true, moreInfoValue: "Muito" }
+                                ]
+                            },
+                            {
+                                id: 3,
+                                questions: [
+                                    { id: 21, boolValue: true, moreInfoValue: "" },
+                                    { id: 22, boolValue: false, moreInfoValue: "" },
+                                    { id: 23, boolValue: true, moreInfoValue: "" },
+                                    { id: 24, boolValue: false, moreInfoValue: "Todos" },
+                                    { id: 25, boolValue: false, moreInfoValue: "" },
+                                    { id: 26, boolValue: true, moreInfoValue: "" },
+                                    { id: 27, boolValue: false, moreInfoValue: "" },
+                                    { id: 28, boolValue: false, moreInfoValue: "" },
+                                    { id: 29, boolValue: true, moreInfoValue: "" },
+                                    { id: 30, boolValue: true, moreInfoValue: "1 vez por mês" }
+                                ]
+                            },
+                            {
+                                id: 4,
+                                questions: [
+                                    { id: 31, boolValue: true, moreInfoValue: "" },
+                                    { id: 32, boolValue: false, moreInfoValue: "" },
+                                    { id: 33, boolValue: true, moreInfoValue: "" },
+                                    { id: 34, boolValue: false, moreInfoValue: "Dipirona" },
+                                    { id: 35, boolValue: false, moreInfoValue: "" },
+                                    { id: 36, boolValue: true, moreInfoValue: "" },
+                                    { id: 37, boolValue: false, moreInfoValue: "" },
+                                    { id: 38, boolValue: false, moreInfoValue: "" },
+                                    { id: 39, boolValue: true, moreInfoValue: "" },
+                                    { id: 40, boolValue: true, moreInfoValue: "1 vez por mês" }
+                                ]
+                            },
+                            {
+                                id: 5,
+                                questions: [
+                                    { id: 41, boolValue: true, moreInfoValue: "" },
+                                    { id: 42, boolValue: false, moreInfoValue: "" },
+                                    { id: 43, boolValue: true, moreInfoValue: "" },
+                                    { id: 44, boolValue: false, moreInfoValue: "Dipirona" },
+                                    { id: 45, boolValue: false, moreInfoValue: "" },
+                                    { id: 46, boolValue: true, moreInfoValue: "" },
+                                    { id: 47, boolValue: false, moreInfoValue: "" },
+                                    { id: 48, boolValue: false, moreInfoValue: "" },
+                                    { id: 49, boolValue: true, moreInfoValue: "" },
+                                    { id: 50, boolValue: true, moreInfoValue: "Nenhum" },
+                                    { id: 51, boolValue: true, moreInfoValue: "Nenhum" },
+                                    { id: 52, boolValue: true, moreInfoValue: "Nenhuma" }
+                                ]
+                            }
+                        ]
+                    }
                 },
                 {
                     id: 4,
-                    name: "Bruce Wayne da Silva",
-                    phone: "(12) 99065-4040",
-                    email: "brucesilva@gmail.com",
-                    address: "Rua Jacareí, 230",
                     photo: brucePhoto,
-                    anamneseCheck: false
+
+                    name: "Bruce Wayne da Silva",
+                    birthday: "12/12/1992",
+                    genre: 1,
+                    occupation: "Advogado",
+                    documentId: "774.897.489-22",                    
+                    address: "Rua Jacareí, 230",
+                    zipcode: "56.248-00",
+                    state: "SP",
+                    city: "Paraibuna",                    
+                    email: "brucesilva@gmail.com",
+                    mainPhone: "(12) 99065-4040",
+                    secondaryPhone: "(12) 99088-4142",
+                    initialTreatment: moment().toDate(),
+                    civilStatus: 2,
+
+                    anamnese: {
+                        completed: false,
+                        sections: [
+                            {
+                                id: 1,
+                                questions: [
+                                    { id: 1, boolValue: true, moreInfoValue: "Dipirona." },
+                                    { id: 2, boolValue: null, moreInfoValue: "" },
+                                    { id: 3, boolValue: true, moreInfoValue: "Bronquite." },
+                                    { id: 4, boolValue: false, moreInfoValue: "" },
+                                    { id: 5, boolValue: false, moreInfoValue: "" },
+                                    { id: 9, boolValue: true, moreInfoValue: "" },
+                                    { id: 10, boolValue: true, moreInfoValue: "" }
+                                ]
+                            },
+                            {
+                                id: 2,
+                                questions: [
+                                    { id: 11, boolValue: true, moreInfoValue: "8 horas." },
+                                    { id: 12, boolValue: false, moreInfoValue: "" },
+                                    { id: 13, boolValue: true, moreInfoValue: "Não." },
+                                    { id: 14, boolValue: false, moreInfoValue: "" },
+                                    { id: 15, boolValue: false, moreInfoValue: "" },
+                                    { id: 16, boolValue: true, moreInfoValue: "" },
+                                    { id: 17, boolValue: true, moreInfoValue: "" },
+                                    { id: 18, boolValue: true, moreInfoValue: "" },
+                                    { id: 19, boolValue: true, moreInfoValue: "" },
+                                    { id: 20, boolValue: true, moreInfoValue: "Muito" }
+                                ]
+                            },
+                            {
+                                id: 3,
+                                questions: [
+                                    { id: 21, boolValue: true, moreInfoValue: "" },
+                                    { id: 22, boolValue: false, moreInfoValue: "" },
+                                    { id: 23, boolValue: true, moreInfoValue: "" },
+                                    { id: 24, boolValue: false, moreInfoValue: "Todos" },
+                                    { id: 25, boolValue: false, moreInfoValue: "" },
+                                    { id: 26, boolValue: true, moreInfoValue: "" },
+                                    { id: 27, boolValue: false, moreInfoValue: "" },
+                                    { id: 28, boolValue: false, moreInfoValue: "" },
+                                    { id: 29, boolValue: true, moreInfoValue: "" },
+                                    { id: 30, boolValue: true, moreInfoValue: "1 vez por mês" }
+                                ]
+                            },
+                            {
+                                id: 4,
+                                questions: [
+                                    { id: 31, boolValue: true, moreInfoValue: "" },
+                                    { id: 32, boolValue: false, moreInfoValue: "" },
+                                    { id: 33, boolValue: true, moreInfoValue: "" },
+                                    { id: 34, boolValue: false, moreInfoValue: "Dipirona" },
+                                    { id: 35, boolValue: false, moreInfoValue: "" },
+                                    { id: 36, boolValue: true, moreInfoValue: "" },
+                                    { id: 37, boolValue: false, moreInfoValue: "" },
+                                    { id: 38, boolValue: false, moreInfoValue: "" },
+                                    { id: 39, boolValue: true, moreInfoValue: "" },
+                                    { id: 40, boolValue: true, moreInfoValue: "1 vez por mês" }
+                                ]
+                            },
+                            {
+                                id: 5,
+                                questions: [
+                                    { id: 41, boolValue: true, moreInfoValue: "" },
+                                    { id: 42, boolValue: false, moreInfoValue: "" },
+                                    { id: 43, boolValue: true, moreInfoValue: "" },
+                                    { id: 44, boolValue: false, moreInfoValue: "Dipirona" },
+                                    { id: 45, boolValue: false, moreInfoValue: "" },
+                                    { id: 46, boolValue: true, moreInfoValue: "" },
+                                    { id: 47, boolValue: false, moreInfoValue: "" },
+                                    { id: 48, boolValue: false, moreInfoValue: "" },
+                                    { id: 49, boolValue: true, moreInfoValue: "" },
+                                    { id: 50, boolValue: true, moreInfoValue: "Nenhum" },
+                                    { id: 51, boolValue: true, moreInfoValue: "Nenhum" },
+                                    { id: 52, boolValue: true, moreInfoValue: "Nenhuma" }
+                                ]
+                            }
+                        ]
+                    }
                 }
             ],
 
@@ -217,62 +549,62 @@ class Patients extends React.Component{
                                                                                                 {
                                                                                                     id: 11,
                                                                                                     question: "Dorme bem? Quantas horas por dia? Faz uso de medicação para dormir?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_2--question_11-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_2--question_11-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 12,
                                                                                                     question: "Possui manchas nos dentes?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_2--question_12-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_2--question_12-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 13,
                                                                                                     question: "Respirador bucal? Se sim, alguma obstrução nasal?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_2--question_13-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_2--question_13-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 14,
                                                                                                     question: "Dor de cabeça frequente? Que medicação usa?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_2--question_14-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_2--question_14-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 15,
                                                                                                     question: "Dor de dente? Quais?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_2--question_15-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_2--question_15-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 16,
                                                                                                     question: "Anemia?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_2--question_16-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_2--question_16-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 17,
                                                                                                     question: "Inflamações Bucais? Quais?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_2--question_17-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_2--question_17-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 18,
                                                                                                     question: "Dificuldade para mastigação? Que tipo de alimento?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_2--question_18-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_2--question_18-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 19,
                                                                                                     question: "Habito de bruxismo ou apertamento dos dentes?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_2--question_19-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_2--question_19-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 20,
                                                                                                     question: "Cansaço fácil?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_2--question_20-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_2--question_20-moreinfo", value: "" }
                                                                                                 }
                                                                                             ]
                                 },
@@ -282,62 +614,62 @@ class Patients extends React.Component{
                                                                                                 {
                                                                                                     id: 21,
                                                                                                     question: "Pus nas gengivas?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_3--question_21-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_3--question_21-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 22,
                                                                                                     question: "Estalos da ATM?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_3--question_22-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_3--question_22-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 23,
                                                                                                     question: "Temor por tratamento dentário? Houve alguma problema?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_3--question_23-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_3--question_23-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 24,
                                                                                                     question: "Dentes moles? Quais?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_3--question_24-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_3--question_24-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 25,
                                                                                                     question: "Fumante? Há quanto tempo?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_3--question_25-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_3--question_25-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 26,
                                                                                                     question: "Usava aparelho ortodôntico? Por quanto tempo? Motivo? Tipo? Nome e telefone do ortodentista.",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_3--question_26-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_3--question_26-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 27,
                                                                                                     question: "Faz tratamento de Canal? Quais dentes? Apresenta alguma sintomalogia?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_3--question_27-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_3--question_27-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 28,
                                                                                                     question: "Usa ou usou protetor bucal para a prática esportiva? Que tipo? Se adaptou? Por que?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_3--question_28-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_3--question_28-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 29,
                                                                                                     question: "Faz uso de prótese? Que tipo? Há quanto tempo? Alguma queixa?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_3--question_29-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_3--question_29-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 30,
                                                                                                     question: "Qual sua frequência de tratamento dentário?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_3--question_30-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_3--question_30-moreinfo", value: "" }
                                                                                                 }
                                                                                             ]
                                 },
@@ -347,139 +679,139 @@ class Patients extends React.Component{
                                                                                                 {
                                                                                                     id: 31,
                                                                                                     question: "Apresenta desgaste dental? Quais dentes?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_4--question_31-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_4--question_31-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 32,
                                                                                                     question: "Já esteve internado? Quando? Qual motivo?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_4--question_32-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_4--question_32-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 33,
                                                                                                     question: "Está tomando algum medicamento? Qual? Há quanto tempo?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_4--question_33-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_4--question_33-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 34,
                                                                                                     question: "Sofreu trauma na região dos dentes? Quais?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_4--question_34-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_4--question_34-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 35,
                                                                                                     question: "Sofreu algum trauma na região da face? Onde? Sequelas? Escreva o histórico.",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_4--question_35-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_4--question_35-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 36,
                                                                                                     question: "Doenças familiares? Quais?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_4--question_36-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_4--question_36-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 37,
                                                                                                     question: "Sofreu alguma intervenção cirurgica bucal? Qual?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_4--question_37-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_4--question_37-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 38,
                                                                                                     question: "Faz uso de chupeta? Quanto tempo?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_4--question_38-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_4--question_38-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 39,
                                                                                                     question: "Alimentação boa? Que tipo?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_4--question_39-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_4--question_39-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 40,
                                                                                                     question: "Roeu ou rói as unhas?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_4--question_40-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_4--question_40-moreinfo", value: "" }
                                                                                                 }
                                                                                             ]
                                 },
-                                { 
+                                {
                                     id: 5, label: "Seção 5", optional: false, questions:
                                                                                             [
                                                                                                 {
                                                                                                     id: 41,
                                                                                                     question: "Tem ou teve o hábito de sucção digital? Quanto tempo?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_5--question_41-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_5--question_41-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 42,
                                                                                                     question: "Foi amamentado? Fez uso de mamadeira? Por quanto tempo?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_5--question_42-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_5--question_42-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 43,
                                                                                                     question: "Qual a frequência de escovação dental? Técnica? Tipo de escova? Troca de quanto em quanto tempo?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_5--question_43-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_5--question_43-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 44,
                                                                                                     question: "Usa fio dental? Qual frequência?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_5--question_44-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_5--question_44-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 45,
                                                                                                     question: "Faz uso de antisséptico bucal? Qual? Frequência? Motivo?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_5--question_45-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_5--question_45-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 46,
                                                                                                     question: "Quais problemas odontológicos já teve?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_5--question_46-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_5--question_46-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 47,
                                                                                                     question: "Faz ou fez uso de bochechos com fluor? Com qual frequência?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_5--question_47-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_5--question_47-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 48,
                                                                                                     question: "Dificuldade de fonação?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_5--question_48-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_5--question_48-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 49,
                                                                                                     question: "Peso e altura de acordo com a idade? Faz algum tratamento?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_5--question_49-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_5--question_49-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 50,
                                                                                                     question: "Diabetes? Que medicação usa?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_5--question_50-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_5--question_50-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 51,
                                                                                                     question: "Hipertensão? Que medicação usa?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_5--question_51-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_5--question_51-moreinfo", value: "" }
                                                                                                 },
                                                                                                 {
                                                                                                     id: 52,
                                                                                                     question: "Problemas cardíacos? Quais? Que medicação ingere?",
-                                                                                                    type: "bool",
-                                                                                                    aditionalText: true
+                                                                                                    boolAnswer: { fieldName: "section_5--question_52-bool", value: null },
+                                                                                                    moreInfoAnswer: { fieldName: "section_5--question_52-moreinfo", value: "" }
                                                                                                 }
                                                                                             ]
                                 }
@@ -496,7 +828,6 @@ class Patients extends React.Component{
     };
 
     changeSimpleValue = (evt) => {
-        //debugger
         this.setState({
             [evt.target.name]: evt.target.value
         });
@@ -634,10 +965,16 @@ class Patients extends React.Component{
         const sectionArrayIndex = this.state.anamneseSections.findIndex( element => element.id === sectionId );
         const questionArrayIndex = this.state.anamneseSections[sectionArrayIndex].questions.findIndex( element => element.id === question.id );
         let newAnamneseSections = [...this.state.anamneseSections];
-        
-        newAnamneseSections[sectionArrayIndex].questions[questionArrayIndex].boolAnswer.value = true;
-        newAnamneseSections[sectionArrayIndex].questions[questionArrayIndex].moreInfoAnswer.value = "teste";
-        
+
+        if (patientInfo === null){
+            newAnamneseSections[sectionArrayIndex].questions[questionArrayIndex].boolAnswer.value = null;
+            newAnamneseSections[sectionArrayIndex].questions[questionArrayIndex].moreInfoAnswer.value = "";
+        }
+        else{
+            newAnamneseSections[sectionArrayIndex].questions[questionArrayIndex].boolAnswer.value = patientInfo.anamnese.sections[sectionArrayIndex].questions[questionArrayIndex].boolValue;
+            newAnamneseSections[sectionArrayIndex].questions[questionArrayIndex].moreInfoAnswer.value = patientInfo.anamnese.sections[sectionArrayIndex].questions[questionArrayIndex].moreInfoValue;
+        }       
+                
         this.setState({
             anamneseSections: newAnamneseSections
         });
@@ -669,8 +1006,7 @@ class Patients extends React.Component{
             for (var q = 0; q < this.state.anamneseSections[s].questions.length; q++){
                 var section = this.state.anamneseSections[s];
                 var question = section.questions[q];
-                if (section.id === 1)
-                    this.changeAnamneseQuestionAnswer(patientInfo, section.id, question);
+                this.changeAnamneseQuestionAnswer(patientInfo, section.id, question);
             }
         }
 
@@ -742,8 +1078,8 @@ class Patients extends React.Component{
         const listPatients = this.state.patients.map((patient) => {
             return (
                 <div className="div--individual-card" key={patient.id}>
-                    <div className={ patient.anamneseCheck === false ? "div--card-toolbar-onlydelete" : "div--card-toolbar-anamnese"}>
-                        { patient.anamneseCheck === false ? <Button className="button--card-anamnese" onClick={() => this.fillPatientAnamnese(patient.id) }><MenuBookIcon /></Button> : null }
+                    <div className={ patient.anamnese.completed === false ? "div--card-toolbar-onlydelete" : "div--card-toolbar-anamnese"}>
+                        { patient.anamnese.completed === false ? <Button className="button--card-anamnese" onClick={() => this.fillPatientAnamnese(patient.id) }><MenuBookIcon /></Button> : null }
                         <Button className="button--card-delete" onClick={() => this.triedToDeletePatient(patient.id) }><DeleteForeverIcon /></Button>
                     </div>
                     <div className="div--card-background" onClick={() => this.openCRUDPatientsModal("edit", patient.id)}>
@@ -1031,8 +1367,6 @@ class Patients extends React.Component{
                                                                     {/* Booleano - Sim / Não */}
                                                                     { questions.boolAnswer !== null && questions.boolAnswer !== undefined ?
                                                                         <div className="div--question-booleano">
-
-
                                                                             <RadioGroup row aria-label="position" name="position" defaultValue="top">
                                                                                 <FormControlLabel
                                                                                     value="Sim"
@@ -1052,7 +1386,6 @@ class Patients extends React.Component{
                                                                                     checked = { questions.boolAnswer.value === false }
                                                                                 />
                                                                             </RadioGroup>
-
                                                                         </div>
                                                                     : null }
 
@@ -1067,13 +1400,11 @@ class Patients extends React.Component{
                                                                             />
                                                                         </div>
                                                                     : null }
-
                                                                 </div>
                                                             );
                                                         })
-                                                    :
-                                                        null
-                                                }
+                                                    : 
+                                                null }
                                             </div>                                                
                                         );
                                     }) }
