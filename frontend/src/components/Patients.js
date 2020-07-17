@@ -52,7 +52,7 @@ const useStyles = theme => ({
 });
 
 class Patients extends React.Component{    
-    constructor(props){         
+    constructor(props){
         super(props);
 
         this.state = {
@@ -227,7 +227,7 @@ class Patients extends React.Component{
                                     { id: 31, boolValue: true, moreInfoValue: "" },
                                     { id: 32, boolValue: false, moreInfoValue: "" },
                                     { id: 33, boolValue: true, moreInfoValue: "" },
-                                    { id: 34, boolValue: false, moreInfoValue: "Dipirona" },
+                                    { id: 34, boolValue: null, moreInfoValue: "Dipirona" },
                                     { id: 35, boolValue: false, moreInfoValue: "" },
                                     { id: 36, boolValue: true, moreInfoValue: "" },
                                     { id: 37, boolValue: false, moreInfoValue: "" },
@@ -454,6 +454,7 @@ class Patients extends React.Component{
                 }
             ],
 
+            patientIdSelected: null,
             patientName: "",
             patientBirthday: "",
             genreList: [
@@ -979,6 +980,7 @@ class Patients extends React.Component{
 
         /* Patient General Info*/
         this.setState({
+            patientIdSelected: this.getPatientGeneralInfo(patientInfo, "id"),
             patientName: this.getPatientGeneralInfo(patientInfo, "name"),
             patientBirthday: this.getPatientGeneralInfo(patientInfo, "birthday"),
             patientGenreValue: this.getPatientGeneralInfo(patientInfo, "genre"),
@@ -1063,7 +1065,23 @@ class Patients extends React.Component{
         }
     };
 
-    checkPendingAnamnese = (patientId) => {
+    checkPendingPatientSectionOfAnamnese = (patientIdSelected, sectionId) => {
+        const patientIndex = this.state.patients.findIndex(element => element.id === patientIdSelected);
+        const patient = this.state.patients[patientIndex];
+        const sectionIndex = patient.anamnese.sections.findIndex(element => element.id === sectionId);
+        const section = patient.anamnese.sections[sectionIndex];
+        const questions = section.questions;
+
+        for (var q = 0; q < questions.length; q++){
+            var question = questions[q];
+            if (question.boolValue === null){
+                return true;
+            }
+        }
+        return false;
+    };
+
+    checkPendingPatientAnamnese = (patientId) => {
         const patientIndex = this.state.patients.findIndex(element => element.id === patientId);
         const patient = this.state.patients[patientIndex];
 
@@ -1071,11 +1089,11 @@ class Patients extends React.Component{
             for (var q = 0; q < patient.anamnese.sections[s].questions.length; q++){
                 var question = patient.anamnese.sections[s].questions[q];
                 if (question.boolValue === null)
-                    return false;
+                    return true;
             }
         }
 
-        return true;
+        return false;
     };
 
     // ================ RENDERIZAÇÃO DO CONTEÚDO HTML ===============
@@ -1089,7 +1107,7 @@ class Patients extends React.Component{
                 <div className="div--individual-card" key={patient.id}>
 
                     {/* Eliminar repetição indevida */}
-                    {   this.checkPendingAnamnese(patient.id) === false ?
+                    {   this.checkPendingPatientAnamnese(patient.id) === true ?
                         
                         <div className="div--card-toolbar-onlydelete">
                             <Button className="button--card-anamnese" onClick={() => this.fillPatientAnamnese(patient.id) }><MenuBookIcon /></Button>
@@ -1362,9 +1380,32 @@ class Patients extends React.Component{
                                             <div key={step.id}>
                                                 <div className="section--label" onClick={() => this.changeAnamneseSection(step.id) } >
                                                     Seção
-                                                    <div className={this.state.anamnseSectionActive === step.id ? "section--counter selected" : "section--counter"}>
-                                                        {step.id}
-                                                    </div>
+
+                                                    {   this.state.anamnseSectionActive === step.id ?
+                                                        
+                                                        <div className="section--counter selected">
+                                                            {step.id}
+                                                        </div>
+                                                        : 
+                                                        [
+                                                            ( this.state.patientIdSelected === null ?
+                                                                <div className="section--counter">
+                                                                    {step.id}
+                                                                </div>
+                                                                :
+                                                                ( this.checkPendingPatientSectionOfAnamnese(this.state.patientIdSelected, step.id) === true ?
+                                                                    <div className="section--counter pending">
+                                                                        {step.id}
+                                                                    </div>
+                                                                    :
+                                                                    <div className="section--counter success">
+                                                                        {step.id}
+                                                                    </div>
+                                                                )
+                                                            )
+                                                        ]
+                                                    }                                                                                                     
+
                                                 </div>
                                             </div>                                                
                                         );

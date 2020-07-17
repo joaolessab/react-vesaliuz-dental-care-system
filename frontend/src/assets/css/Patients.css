@@ -291,6 +291,28 @@
     align-items: center;
     display: flex;
 }
+.div--anamneseinfo-toolbar .section--label .pending{
+    background-color: #ff4444;
+    color: white;
+    border-radius: 50px;
+    height: 30px;
+    width: 30px;
+    margin-left: 5px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.div--anamneseinfo-toolbar .section--label .success{
+    background-color: #61e7b6;
+    color: white;
+    border-radius: 50px;
+    height: 30px;
+    width: 30px;
+    margin-left: 5px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
 .div--anamneseinfo-questions{
     margin-top: 20px;
     margin-bottom: 20px;
