@@ -26,8 +26,6 @@ import cogoToast from 'cogo-toast';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
 
 // ================ ESTILOS ===============
 
@@ -495,7 +493,7 @@ class Patients extends React.Component{
             patientDocumentMask: "999.999.999-99",
 
             anamnseSectionMode: false,
-            anamneseSections:  [
+            anamneseSections:   [
                                 { 
                                     id: 1, label: "Seção 1", optional: false, questions:
                                                                                             [
@@ -815,7 +813,7 @@ class Patients extends React.Component{
                                                                                                 }
                                                                                             ]
                                 }
-                            ],
+                                ],
             anamnseSectionActive: 1
         };
     };
@@ -867,7 +865,7 @@ class Patients extends React.Component{
     changePhone = (evt) => {
         // Setando máscara (caso seja telefone primário)
         if (evt.target.name === "patientMainPhone" || evt.target.name === "patientSecondaryPhone"){
-            var regex = /[\d|,|.|e|E|\+]+/g;
+            var regex = /[\d|,|.|e|E|]+/g;
             var matches = evt.target.value.match(regex);
             var finalValue = "";
             var finalMask = "";
@@ -1084,7 +1082,7 @@ class Patients extends React.Component{
                     </div>
                     <div className="div--card-background" onClick={() => this.openCRUDPatientsModal("edit", patient.id)}>
                         <div className="div--card-picture">
-                            <img src={ patient.photo }></img>
+                            <img alt = { patient.name } src={ patient.photo }></img>
                         </div>
                         <div className="div--card-name">{ patient.name }</div>
                         <div className="div--card-contact">{ patient.email }<br/>{ patient.phone }</div>
