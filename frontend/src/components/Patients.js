@@ -828,6 +828,37 @@ class Patients extends React.Component{
         });
     };
 
+    changeAnamneseSimpleMoreInfo = (evt, sectionId, questionId) => {
+        const sectionArrayIndex = this.state.anamneseSections.findIndex( element => element.id === sectionId );
+        const questionArrayIndex = this.state.anamneseSections[sectionArrayIndex].questions.findIndex( element => element.id === questionId );
+        let newAnamneseSections = [...this.state.anamneseSections];
+
+        newAnamneseSections[sectionArrayIndex].questions[questionArrayIndex].moreInfoAnswer.value = evt.target.value;
+
+        this.setState({
+            anamneseSections: newAnamneseSections
+        });
+        console.log("Recheck Section Status");
+    };
+
+    changeAnamneseSimpleBool = (evt, sectionId, questionId) => {
+        const sectionArrayIndex = this.state.anamneseSections.findIndex( element => element.id === sectionId );
+        const questionArrayIndex = this.state.anamneseSections[sectionArrayIndex].questions.findIndex( element => element.id === questionId );
+        let newAnamneseSections = [...this.state.anamneseSections];
+
+        if (evt.target.value == "Sim"){
+            newAnamneseSections[sectionArrayIndex].questions[questionArrayIndex].boolAnswer.value = true;
+        }
+        else{
+            newAnamneseSections[sectionArrayIndex].questions[questionArrayIndex].boolAnswer.value = false;
+        }
+                
+        this.setState({
+            anamneseSections: newAnamneseSections
+        });
+        console.log("Recheck Section Status");
+    };
+
     changeDocument = (evt) => {
         var regex = /\d+/g;
 
@@ -1018,7 +1049,7 @@ class Patients extends React.Component{
         this.setState({ patientCrudVisibility: false });
     };
 
-    openanamnseSectionMode = () => {
+    openAnamnseSectionMode = () => {
         this.setState({
             patientCrudView: "anamnese",
             anamnseSectionActive: 1
@@ -1438,6 +1469,7 @@ class Patients extends React.Component{
                                                                                     labelPlacement="end"
                                                                                     name = { questions.boolAnswer.fieldName }
                                                                                     checked = { questions.boolAnswer.value === true }
+                                                                                    onChange = {(e) => this.changeAnamneseSimpleBool(e, step.id, questions.id) }
                                                                                 />
                                                                 
                                                                                 <FormControlLabel
@@ -1447,6 +1479,7 @@ class Patients extends React.Component{
                                                                                     labelPlacement="end"
                                                                                     name = { questions.boolAnswer.fieldName }
                                                                                     checked = { questions.boolAnswer.value === false }
+                                                                                    onChange = {(e) => this.changeAnamneseSimpleBool(e, step.id, questions.id) }
                                                                                 />
                                                                             </RadioGroup>
                                                                         </div>
@@ -1460,6 +1493,7 @@ class Patients extends React.Component{
                                                                                 placeholder="Informação adicional"
                                                                                 name = { questions.moreInfoAnswer.fieldName }
                                                                                 defaultValue = { questions.moreInfoAnswer.value }
+                                                                                onChange={(e) => this.changeAnamneseSimpleMoreInfo(e, step.id, questions.id) }
                                                                             />
                                                                         </div>
                                                                     : null }
@@ -1493,7 +1527,7 @@ class Patients extends React.Component{
                             <Button className="white" onClick={ this.closePatientCrudModal }>Cancelar</Button>
                                 
                             { this.state.patientCrudView === "dados_gerais" ?
-                                <Button className="anamnese blue" onClick = { this.openanamnseSectionMode } >
+                                <Button className="anamnese blue" onClick = { this.openAnamnseSectionMode } >
                                     Anamnese
                                     <MenuBookIcon />
                                 </Button>
