@@ -518,325 +518,325 @@ class Patients extends React.Component{
             patientDocumentMask: "999.999.999-99",
 
             anamneseSections:   [
-                                { 
-                                    id: 1, label: "Seção 1", optional: false, questions:
-                                                                                            [
-                                                                                                {
-                                                                                                    id: 1,
-                                                                                                    question: "É alérgico a algum medicamento? Qual?",
-                                                                                                    boolAnswer: { fieldName: "section_1--question_1-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_1--question_1-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 2,
-                                                                                                    question: "Tem boa saúde? Caso negativo, que doenças apresenta?",
-                                                                                                    boolAnswer: { fieldName: "section_1--question_2-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_1--question_2-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 3,
-                                                                                                    question: "Apresenta algum problema respiratório? Sinusite, renite ou bronquite?",
-                                                                                                    boolAnswer: { fieldName: "section_1--question_3-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_1--question_3-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 4,
-                                                                                                    question: "Possui dor de garganta frequente? Que medicação usa?",
-                                                                                                    boolAnswer: { fieldName: "section_1--question_4-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_1--question_4-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 5,
-                                                                                                    question: "Azia, má digestão, refluxo, úlcera ou gastrite?",
-                                                                                                    boolAnswer: { fieldName: "section_1--question_5-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_1--question_5-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 9,
-                                                                                                    question: "Tem o hábito de levar objetos à boca?",
-                                                                                                    boolAnswer: { fieldName: "section_1--question_9-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_1--question_9-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 10,
-                                                                                                    question: "Possui temperamento calmo?",
-                                                                                                    boolAnswer: { fieldName: "section_1--question_10-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_1--question_10-moreinfo", value: "" }
-                                                                                                }
-                                                                                            ] 
-                                },
-                                { 
-                                    id: 2, label: "Seção 2", optional: false, questions: 
-                                                                                            [
-                                                                                                {
-                                                                                                    id: 11,
-                                                                                                    question: "Dorme bem? Quantas horas por dia? Faz uso de medicação para dormir?",
-                                                                                                    boolAnswer: { fieldName: "section_2--question_11-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_2--question_11-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 12,
-                                                                                                    question: "Possui manchas nos dentes?",
-                                                                                                    boolAnswer: { fieldName: "section_2--question_12-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_2--question_12-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 13,
-                                                                                                    question: "Respirador bucal? Se sim, alguma obstrução nasal?",
-                                                                                                    boolAnswer: { fieldName: "section_2--question_13-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_2--question_13-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 14,
-                                                                                                    question: "Dor de cabeça frequente? Que medicação usa?",
-                                                                                                    boolAnswer: { fieldName: "section_2--question_14-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_2--question_14-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 15,
-                                                                                                    question: "Dor de dente? Quais?",
-                                                                                                    boolAnswer: { fieldName: "section_2--question_15-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_2--question_15-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 16,
-                                                                                                    question: "Anemia?",
-                                                                                                    boolAnswer: { fieldName: "section_2--question_16-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_2--question_16-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 17,
-                                                                                                    question: "Inflamações Bucais? Quais?",
-                                                                                                    boolAnswer: { fieldName: "section_2--question_17-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_2--question_17-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 18,
-                                                                                                    question: "Dificuldade para mastigação? Que tipo de alimento?",
-                                                                                                    boolAnswer: { fieldName: "section_2--question_18-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_2--question_18-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 19,
-                                                                                                    question: "Habito de bruxismo ou apertamento dos dentes?",
-                                                                                                    boolAnswer: { fieldName: "section_2--question_19-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_2--question_19-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 20,
-                                                                                                    question: "Cansaço fácil?",
-                                                                                                    boolAnswer: { fieldName: "section_2--question_20-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_2--question_20-moreinfo", value: "" }
-                                                                                                }
-                                                                                            ]
-                                },
-                                { 
-                                    id: 3, label: "Seção 3", optional: false, questions:
-                                                                                            [
-                                                                                                {
-                                                                                                    id: 21,
-                                                                                                    question: "Pus nas gengivas?",
-                                                                                                    boolAnswer: { fieldName: "section_3--question_21-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_3--question_21-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 22,
-                                                                                                    question: "Estalos da ATM?",
-                                                                                                    boolAnswer: { fieldName: "section_3--question_22-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_3--question_22-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 23,
-                                                                                                    question: "Temor por tratamento dentário? Houve alguma problema?",
-                                                                                                    boolAnswer: { fieldName: "section_3--question_23-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_3--question_23-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 24,
-                                                                                                    question: "Dentes moles? Quais?",
-                                                                                                    boolAnswer: { fieldName: "section_3--question_24-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_3--question_24-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 25,
-                                                                                                    question: "Fumante? Há quanto tempo?",
-                                                                                                    boolAnswer: { fieldName: "section_3--question_25-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_3--question_25-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 26,
-                                                                                                    question: "Usava aparelho ortodôntico? Por quanto tempo? Motivo? Tipo? Nome e telefone do ortodentista.",
-                                                                                                    boolAnswer: { fieldName: "section_3--question_26-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_3--question_26-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 27,
-                                                                                                    question: "Faz tratamento de Canal? Quais dentes? Apresenta alguma sintomalogia?",
-                                                                                                    boolAnswer: { fieldName: "section_3--question_27-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_3--question_27-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 28,
-                                                                                                    question: "Usa ou usou protetor bucal para a prática esportiva? Que tipo? Se adaptou? Por que?",
-                                                                                                    boolAnswer: { fieldName: "section_3--question_28-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_3--question_28-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 29,
-                                                                                                    question: "Faz uso de prótese? Que tipo? Há quanto tempo? Alguma queixa?",
-                                                                                                    boolAnswer: { fieldName: "section_3--question_29-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_3--question_29-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 30,
-                                                                                                    question: "Qual sua frequência de tratamento dentário?",
-                                                                                                    boolAnswer: { fieldName: "section_3--question_30-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_3--question_30-moreinfo", value: "" }
-                                                                                                }
-                                                                                            ]
-                                },
-                                { 
-                                    id: 4, label: "Seção 4", optional: false, questions:
-                                                                                            [
-                                                                                                {
-                                                                                                    id: 31,
-                                                                                                    question: "Apresenta desgaste dental? Quais dentes?",
-                                                                                                    boolAnswer: { fieldName: "section_4--question_31-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_4--question_31-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 32,
-                                                                                                    question: "Já esteve internado? Quando? Qual motivo?",
-                                                                                                    boolAnswer: { fieldName: "section_4--question_32-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_4--question_32-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 33,
-                                                                                                    question: "Está tomando algum medicamento? Qual? Há quanto tempo?",
-                                                                                                    boolAnswer: { fieldName: "section_4--question_33-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_4--question_33-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 34,
-                                                                                                    question: "Sofreu trauma na região dos dentes? Quais?",
-                                                                                                    boolAnswer: { fieldName: "section_4--question_34-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_4--question_34-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 35,
-                                                                                                    question: "Sofreu algum trauma na região da face? Onde? Sequelas? Escreva o histórico.",
-                                                                                                    boolAnswer: { fieldName: "section_4--question_35-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_4--question_35-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 36,
-                                                                                                    question: "Doenças familiares? Quais?",
-                                                                                                    boolAnswer: { fieldName: "section_4--question_36-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_4--question_36-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 37,
-                                                                                                    question: "Sofreu alguma intervenção cirurgica bucal? Qual?",
-                                                                                                    boolAnswer: { fieldName: "section_4--question_37-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_4--question_37-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 38,
-                                                                                                    question: "Faz uso de chupeta? Quanto tempo?",
-                                                                                                    boolAnswer: { fieldName: "section_4--question_38-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_4--question_38-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 39,
-                                                                                                    question: "Alimentação boa? Que tipo?",
-                                                                                                    boolAnswer: { fieldName: "section_4--question_39-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_4--question_39-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 40,
-                                                                                                    question: "Roeu ou rói as unhas?",
-                                                                                                    boolAnswer: { fieldName: "section_4--question_40-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_4--question_40-moreinfo", value: "" }
-                                                                                                }
-                                                                                            ]
-                                },
-                                {
-                                    id: 5, label: "Seção 5", optional: false, questions:
-                                                                                            [
-                                                                                                {
-                                                                                                    id: 41,
-                                                                                                    question: "Tem ou teve o hábito de sucção digital? Quanto tempo?",
-                                                                                                    boolAnswer: { fieldName: "section_5--question_41-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_5--question_41-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 42,
-                                                                                                    question: "Foi amamentado? Fez uso de mamadeira? Por quanto tempo?",
-                                                                                                    boolAnswer: { fieldName: "section_5--question_42-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_5--question_42-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 43,
-                                                                                                    question: "Qual a frequência de escovação dental? Técnica? Tipo de escova? Troca de quanto em quanto tempo?",
-                                                                                                    boolAnswer: { fieldName: "section_5--question_43-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_5--question_43-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 44,
-                                                                                                    question: "Usa fio dental? Qual frequência?",
-                                                                                                    boolAnswer: { fieldName: "section_5--question_44-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_5--question_44-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 45,
-                                                                                                    question: "Faz uso de antisséptico bucal? Qual? Frequência? Motivo?",
-                                                                                                    boolAnswer: { fieldName: "section_5--question_45-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_5--question_45-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 46,
-                                                                                                    question: "Quais problemas odontológicos já teve?",
-                                                                                                    boolAnswer: { fieldName: "section_5--question_46-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_5--question_46-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 47,
-                                                                                                    question: "Faz ou fez uso de bochechos com fluor? Com qual frequência?",
-                                                                                                    boolAnswer: { fieldName: "section_5--question_47-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_5--question_47-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 48,
-                                                                                                    question: "Dificuldade de fonação?",
-                                                                                                    boolAnswer: { fieldName: "section_5--question_48-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_5--question_48-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 49,
-                                                                                                    question: "Peso e altura de acordo com a idade? Faz algum tratamento?",
-                                                                                                    boolAnswer: { fieldName: "section_5--question_49-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_5--question_49-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 50,
-                                                                                                    question: "Diabetes? Que medicação usa?",
-                                                                                                    boolAnswer: { fieldName: "section_5--question_50-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_5--question_50-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 51,
-                                                                                                    question: "Hipertensão? Que medicação usa?",
-                                                                                                    boolAnswer: { fieldName: "section_5--question_51-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_5--question_51-moreinfo", value: "" }
-                                                                                                },
-                                                                                                {
-                                                                                                    id: 52,
-                                                                                                    question: "Problemas cardíacos? Quais? Que medicação ingere?",
-                                                                                                    boolAnswer: { fieldName: "section_5--question_52-bool", value: null },
-                                                                                                    moreInfoAnswer: { fieldName: "section_5--question_52-moreinfo", value: "" }
-                                                                                                }
-                                                                                            ]
-                                }
+                                    { 
+                                        id: 1, label: "Seção 1", optional: false, questions:
+                                                                                                [
+                                                                                                    {
+                                                                                                        id: 1,
+                                                                                                        question: "É alérgico a algum medicamento? Qual?",
+                                                                                                        boolAnswer: { fieldName: "section_1--question_1-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_1--question_1-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 2,
+                                                                                                        question: "Tem boa saúde? Caso negativo, que doenças apresenta?",
+                                                                                                        boolAnswer: { fieldName: "section_1--question_2-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_1--question_2-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 3,
+                                                                                                        question: "Apresenta algum problema respiratório? Sinusite, renite ou bronquite?",
+                                                                                                        boolAnswer: { fieldName: "section_1--question_3-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_1--question_3-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 4,
+                                                                                                        question: "Possui dor de garganta frequente? Que medicação usa?",
+                                                                                                        boolAnswer: { fieldName: "section_1--question_4-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_1--question_4-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 5,
+                                                                                                        question: "Azia, má digestão, refluxo, úlcera ou gastrite?",
+                                                                                                        boolAnswer: { fieldName: "section_1--question_5-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_1--question_5-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 9,
+                                                                                                        question: "Tem o hábito de levar objetos à boca?",
+                                                                                                        boolAnswer: { fieldName: "section_1--question_9-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_1--question_9-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 10,
+                                                                                                        question: "Possui temperamento calmo?",
+                                                                                                        boolAnswer: { fieldName: "section_1--question_10-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_1--question_10-moreinfo", value: "" }
+                                                                                                    }
+                                                                                                ] 
+                                    },
+                                    { 
+                                        id: 2, label: "Seção 2", optional: false, questions: 
+                                                                                                [
+                                                                                                    {
+                                                                                                        id: 11,
+                                                                                                        question: "Dorme bem? Quantas horas por dia? Faz uso de medicação para dormir?",
+                                                                                                        boolAnswer: { fieldName: "section_2--question_11-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_2--question_11-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 12,
+                                                                                                        question: "Possui manchas nos dentes?",
+                                                                                                        boolAnswer: { fieldName: "section_2--question_12-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_2--question_12-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 13,
+                                                                                                        question: "Respirador bucal? Se sim, alguma obstrução nasal?",
+                                                                                                        boolAnswer: { fieldName: "section_2--question_13-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_2--question_13-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 14,
+                                                                                                        question: "Dor de cabeça frequente? Que medicação usa?",
+                                                                                                        boolAnswer: { fieldName: "section_2--question_14-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_2--question_14-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 15,
+                                                                                                        question: "Dor de dente? Quais?",
+                                                                                                        boolAnswer: { fieldName: "section_2--question_15-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_2--question_15-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 16,
+                                                                                                        question: "Anemia?",
+                                                                                                        boolAnswer: { fieldName: "section_2--question_16-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_2--question_16-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 17,
+                                                                                                        question: "Inflamações Bucais? Quais?",
+                                                                                                        boolAnswer: { fieldName: "section_2--question_17-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_2--question_17-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 18,
+                                                                                                        question: "Dificuldade para mastigação? Que tipo de alimento?",
+                                                                                                        boolAnswer: { fieldName: "section_2--question_18-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_2--question_18-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 19,
+                                                                                                        question: "Habito de bruxismo ou apertamento dos dentes?",
+                                                                                                        boolAnswer: { fieldName: "section_2--question_19-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_2--question_19-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 20,
+                                                                                                        question: "Cansaço fácil?",
+                                                                                                        boolAnswer: { fieldName: "section_2--question_20-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_2--question_20-moreinfo", value: "" }
+                                                                                                    }
+                                                                                                ]
+                                    },
+                                    { 
+                                        id: 3, label: "Seção 3", optional: false, questions:
+                                                                                                [
+                                                                                                    {
+                                                                                                        id: 21,
+                                                                                                        question: "Pus nas gengivas?",
+                                                                                                        boolAnswer: { fieldName: "section_3--question_21-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_3--question_21-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 22,
+                                                                                                        question: "Estalos da ATM?",
+                                                                                                        boolAnswer: { fieldName: "section_3--question_22-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_3--question_22-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 23,
+                                                                                                        question: "Temor por tratamento dentário? Houve alguma problema?",
+                                                                                                        boolAnswer: { fieldName: "section_3--question_23-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_3--question_23-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 24,
+                                                                                                        question: "Dentes moles? Quais?",
+                                                                                                        boolAnswer: { fieldName: "section_3--question_24-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_3--question_24-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 25,
+                                                                                                        question: "Fumante? Há quanto tempo?",
+                                                                                                        boolAnswer: { fieldName: "section_3--question_25-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_3--question_25-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 26,
+                                                                                                        question: "Usava aparelho ortodôntico? Por quanto tempo? Motivo? Tipo? Nome e telefone do ortodentista.",
+                                                                                                        boolAnswer: { fieldName: "section_3--question_26-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_3--question_26-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 27,
+                                                                                                        question: "Faz tratamento de Canal? Quais dentes? Apresenta alguma sintomalogia?",
+                                                                                                        boolAnswer: { fieldName: "section_3--question_27-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_3--question_27-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 28,
+                                                                                                        question: "Usa ou usou protetor bucal para a prática esportiva? Que tipo? Se adaptou? Por que?",
+                                                                                                        boolAnswer: { fieldName: "section_3--question_28-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_3--question_28-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 29,
+                                                                                                        question: "Faz uso de prótese? Que tipo? Há quanto tempo? Alguma queixa?",
+                                                                                                        boolAnswer: { fieldName: "section_3--question_29-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_3--question_29-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 30,
+                                                                                                        question: "Qual sua frequência de tratamento dentário?",
+                                                                                                        boolAnswer: { fieldName: "section_3--question_30-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_3--question_30-moreinfo", value: "" }
+                                                                                                    }
+                                                                                                ]
+                                    },
+                                    { 
+                                        id: 4, label: "Seção 4", optional: false, questions:
+                                                                                                [
+                                                                                                    {
+                                                                                                        id: 31,
+                                                                                                        question: "Apresenta desgaste dental? Quais dentes?",
+                                                                                                        boolAnswer: { fieldName: "section_4--question_31-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_4--question_31-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 32,
+                                                                                                        question: "Já esteve internado? Quando? Qual motivo?",
+                                                                                                        boolAnswer: { fieldName: "section_4--question_32-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_4--question_32-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 33,
+                                                                                                        question: "Está tomando algum medicamento? Qual? Há quanto tempo?",
+                                                                                                        boolAnswer: { fieldName: "section_4--question_33-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_4--question_33-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 34,
+                                                                                                        question: "Sofreu trauma na região dos dentes? Quais?",
+                                                                                                        boolAnswer: { fieldName: "section_4--question_34-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_4--question_34-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 35,
+                                                                                                        question: "Sofreu algum trauma na região da face? Onde? Sequelas? Escreva o histórico.",
+                                                                                                        boolAnswer: { fieldName: "section_4--question_35-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_4--question_35-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 36,
+                                                                                                        question: "Doenças familiares? Quais?",
+                                                                                                        boolAnswer: { fieldName: "section_4--question_36-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_4--question_36-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 37,
+                                                                                                        question: "Sofreu alguma intervenção cirurgica bucal? Qual?",
+                                                                                                        boolAnswer: { fieldName: "section_4--question_37-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_4--question_37-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 38,
+                                                                                                        question: "Faz uso de chupeta? Quanto tempo?",
+                                                                                                        boolAnswer: { fieldName: "section_4--question_38-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_4--question_38-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 39,
+                                                                                                        question: "Alimentação boa? Que tipo?",
+                                                                                                        boolAnswer: { fieldName: "section_4--question_39-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_4--question_39-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 40,
+                                                                                                        question: "Roeu ou rói as unhas?",
+                                                                                                        boolAnswer: { fieldName: "section_4--question_40-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_4--question_40-moreinfo", value: "" }
+                                                                                                    }
+                                                                                                ]
+                                    },
+                                    {
+                                        id: 5, label: "Seção 5", optional: false, questions:
+                                                                                                [
+                                                                                                    {
+                                                                                                        id: 41,
+                                                                                                        question: "Tem ou teve o hábito de sucção digital? Quanto tempo?",
+                                                                                                        boolAnswer: { fieldName: "section_5--question_41-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_5--question_41-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 42,
+                                                                                                        question: "Foi amamentado? Fez uso de mamadeira? Por quanto tempo?",
+                                                                                                        boolAnswer: { fieldName: "section_5--question_42-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_5--question_42-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 43,
+                                                                                                        question: "Qual a frequência de escovação dental? Técnica? Tipo de escova? Troca de quanto em quanto tempo?",
+                                                                                                        boolAnswer: { fieldName: "section_5--question_43-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_5--question_43-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 44,
+                                                                                                        question: "Usa fio dental? Qual frequência?",
+                                                                                                        boolAnswer: { fieldName: "section_5--question_44-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_5--question_44-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 45,
+                                                                                                        question: "Faz uso de antisséptico bucal? Qual? Frequência? Motivo?",
+                                                                                                        boolAnswer: { fieldName: "section_5--question_45-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_5--question_45-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 46,
+                                                                                                        question: "Quais problemas odontológicos já teve?",
+                                                                                                        boolAnswer: { fieldName: "section_5--question_46-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_5--question_46-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 47,
+                                                                                                        question: "Faz ou fez uso de bochechos com fluor? Com qual frequência?",
+                                                                                                        boolAnswer: { fieldName: "section_5--question_47-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_5--question_47-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 48,
+                                                                                                        question: "Dificuldade de fonação?",
+                                                                                                        boolAnswer: { fieldName: "section_5--question_48-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_5--question_48-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 49,
+                                                                                                        question: "Peso e altura de acordo com a idade? Faz algum tratamento?",
+                                                                                                        boolAnswer: { fieldName: "section_5--question_49-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_5--question_49-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 50,
+                                                                                                        question: "Diabetes? Que medicação usa?",
+                                                                                                        boolAnswer: { fieldName: "section_5--question_50-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_5--question_50-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 51,
+                                                                                                        question: "Hipertensão? Que medicação usa?",
+                                                                                                        boolAnswer: { fieldName: "section_5--question_51-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_5--question_51-moreinfo", value: "" }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        id: 52,
+                                                                                                        question: "Problemas cardíacos? Quais? Que medicação ingere?",
+                                                                                                        boolAnswer: { fieldName: "section_5--question_52-bool", value: null },
+                                                                                                        moreInfoAnswer: { fieldName: "section_5--question_52-moreinfo", value: "" }
+                                                                                                    }
+                                                                                                ]
+                                    }
                                 ],
             anamnseSectionActive: 1
         };
@@ -873,7 +873,7 @@ class Patients extends React.Component{
         const questionArrayIndex = this.state.anamneseSections[sectionArrayIndex].questions.findIndex( element => element.id === questionId );
         let newAnamneseSections = [...this.state.anamneseSections];
 
-        if (evt.target.value == "Sim"){
+        if (evt.target.value === "Sim"){
             newAnamneseSections[sectionArrayIndex].questions[questionArrayIndex].boolAnswer.value = true;
         }
         else{
@@ -1161,14 +1161,93 @@ class Patients extends React.Component{
             .toString(16)
             .substring(1);
     };
-    
-    generateHashCode = function () {
-        return this.generatePieceHashCode() + this.generatePieceHashCode()  + '_' + this.generatePieceHashCode() + '-' + this.generatePieceHashCode() + '-' + this.generatePieceHashCode() + this.generatePieceHashCode() +this.generatePieceHashCode(); 
+
+    getHashID = () => {
+        if (this.state.patientCrudMode === "insert"){
+            return this.generatePieceHashCode() + this.generatePieceHashCode()  + '_' + this.generatePieceHashCode() + '-' + this.generatePieceHashCode() + '-' + this.generatePieceHashCode() + this.generatePieceHashCode() +this.generatePieceHashCode();
+        }
+        else{
+            return this.state.patientIdSelected;
+        }
+    };
+
+    getPatientAnswerFromSection = (sectionId) => {
+        const sectionArrayIndex = this.state.anamneseSections.findIndex( element => element.id === sectionId );
+        return this.state.anamneseSections[sectionArrayIndex].questions;
     };
 
     savePatient = () => {
-        var id = this.generateHashCode();
-        debugger
+        var json = {
+            id: this.getHashID(),
+            photo: clarkPhoto,
+
+            name: this.state.patientName,
+            birthday: this.state.patientBirthday,
+            genre: this.state.patientGenreValue,
+            occupation: this.state.patientOccupation,
+            documentId: this.state.patientDocument,         
+            address: this.state.patientAddress,
+            zipcode: this.state.patientZipCode,
+            state: this.state.patientStateValue,
+            city: this.state.patientCity,                    
+            email: this.state.patientEmail,
+            mainPhone: this.state.patientMainPhone,
+            secondaryPhone: this.state.secondaryPhone,
+            initialTreatment: this.state.patientInitialTreatment,
+            civilStatus: this.state.patientCivilStatus,
+
+            anamnese: {
+                sections: [
+                    {
+                        id: 1,
+                        questions: this.getPatientAnswerFromSection(1)
+                    },
+                    {
+                        id: 2,
+                        questions: this.getPatientAnswerFromSection(2)
+                    },
+                    {
+                        id: 3,
+                        questions: this.getPatientAnswerFromSection(3)
+                    },
+                    {
+                        id: 4,
+                        questions: this.getPatientAnswerFromSection(4)
+                    },
+                    {
+                        id: 5,
+                        questions: this.getPatientAnswerFromSection(5)
+                    }
+                ]
+            }
+        };
+        
+        var newPatients = Object.assign([], this.state.patients, {});
+
+        // Salvando novo
+        if (this.state.patientCrudMode === "insert"){
+            newPatients.push(json);
+            this.setState({
+                patients: newPatients,
+                patientCrudVisibility: false
+            });
+
+            cogoToast.success('Paciente cadastrado.', { heading: 'Sucesso!', position: 'top-center', hideAfter: 3 });
+        }
+        // Editando existente
+        else if (this.state.patientCrudMode === "edit"){
+            for (var i = 0; i < newPatients.length; i++){
+                if (newPatients[i].id === this.state.eventIdSelected)
+                    newPatients[i] = json;
+            }
+
+            this.setState({
+                patients: newPatients,
+                patientCrudVisibility: false
+            });
+
+            cogoToast.success('Paciente editado.', { heading: 'Sucesso!', position: 'top-center', hideAfter: 3 });
+        }
     };
 
     // ================ RENDERIZAÇÃO DO CONTEÚDO HTML ===============

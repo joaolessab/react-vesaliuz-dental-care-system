@@ -69,7 +69,7 @@ class Agenda extends React.Component{
 
             events: [
                 {   
-                    id: 1,
+                    id: "32909329_ff88-9768-a27a462bb00a",
                     title: "Clareamento",
                     start: moment().toDate(),
                     end: moment().add(1, "days").toDate(),
@@ -81,7 +81,7 @@ class Agenda extends React.Component{
                     }
                 },
                 {   
-                    id: 2,
+                    id: "c69cab1c_b40d-88ec-87022ed8925c",
                     title: "Canal Dentário",
                     start: moment().toDate(),
                     end: moment().add(1, "days").toDate(),
@@ -93,7 +93,7 @@ class Agenda extends React.Component{
                     }
                 },
                 {
-                    id: 3,
+                    id: "12a1052c_a5c7-7b3d-aa778c7fcec3",
                     title: "Implantação de Porcelanas",
                     start: moment().add(1, "weeks").toDate(),
                     end: moment().add(1, "weeks").add(2, "hours").toDate(),
@@ -110,7 +110,7 @@ class Agenda extends React.Component{
                     }
                 },
                 {
-                    id: 4,
+                    id: "fed3380b_e565-c47c-cfef9f925d45",
                     title: "Molde de Aparelho",
                     start: moment().add(1, "weeks").add(2, "days").toDate(),
                     end: moment().add(1, "weeks").add(2, "days").add(2, "hours").toDate(),
@@ -137,7 +137,7 @@ class Agenda extends React.Component{
                     }
                 },
                 {
-                    id: 5,
+                    id: "45cb72f8_e54d-b428-179cf947cc4c",
                     title: "Remoção de Tártaro",
                     start: moment().add(5, "days").toDate(),
                     end: moment().add(6, "days").toDate(),
@@ -483,9 +483,15 @@ class Agenda extends React.Component{
         cogoToast.success('Seu evento foi excluído.', { heading: 'Sucesso!', position: 'top-center', hideAfter: 3 });
     };
 
-    generateHashID = () => {
+    generatePieceHashCode = function (){
+        return Math.floor((1 + Math.random()) * 0x10000)
+            .toString(16)
+            .substring(1);
+    };
+
+    getHashID = () => {
         if (this.state.agendaCRUDMode === "insert"){
-            return this.state.events.length + 1;
+            return this.generatePieceHashCode() + this.generatePieceHashCode()  + '_' + this.generatePieceHashCode() + '-' + this.generatePieceHashCode() + '-' + this.generatePieceHashCode() + this.generatePieceHashCode() +this.generatePieceHashCode();
         }
         else{
             return this.state.eventIdSelected;
@@ -493,7 +499,7 @@ class Agenda extends React.Component{
     };
 
     saveEvent = () => {
-        var idCreated = this.generateHashID();        
+        var idCreated = this.getHashID();        
         var json = {
             "id": idCreated,
             "title": this.state.eventTitle,
