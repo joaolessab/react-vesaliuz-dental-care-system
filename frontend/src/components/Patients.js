@@ -71,7 +71,7 @@ class Patients extends React.Component{
                     documentId: "774.897.489-22",                    
                     address: "Avenida Brasil, 21",
                     zipcode: "56.248-00",
-                    state: "SP",
+                    state: 3,
                     city: "Paraibuna",                    
                     email: "clarkcold@gmail.com",
                     mainPhone: "(12) 99088-4140",
@@ -169,7 +169,7 @@ class Patients extends React.Component{
                     documentId: "774.897.489-22",                    
                     address: "Rua Monsenhor Dutra, 43",
                     zipcode: "56.248-00",
-                    state: "SP",
+                    state: 10,
                     city: "Paraibuna",                    
                     email: "dianamendes@gmail.com",
                     mainPhone: "(12) 87995-1105",
@@ -267,7 +267,7 @@ class Patients extends React.Component{
                     documentId: "774.897.489-22",                    
                     address: "Avenida JK, 110",
                     zipcode: "56.248-00",
-                    state: "SP",
+                    state: 12,
                     city: "Paraibuna",                    
                     email: "oliverthekey@gmail.com",
                     mainPhone: "(12) 97865-2141",
@@ -365,7 +365,7 @@ class Patients extends React.Component{
                     documentId: "774.897.489-22",                    
                     address: "Rua Jacareí, 230",
                     zipcode: "56.248-00",
-                    state: "SP",
+                    state: 17,
                     city: "Paraibuna",                    
                     email: "brucesilva@gmail.com",
                     mainPhone: "(12) 99065-4040",
@@ -468,8 +468,37 @@ class Patients extends React.Component{
             patientDocument: "",
             patientAddress: "",
             patientZipCode: "",
-            patientState: "",
-
+            patientStateValue: 0,
+            stateList: [
+                { name: "Selecione...", id: 0 },
+                { name: "Acre", id: 1 },
+                { name: "Alagoas", id: 2 },
+                { name: "Amapá", id: 3 },
+                { name: "Amazonas", id: 4 },
+                { name: "Bahia", id: 5 },
+                { name: "Ceará", id: 6 },
+                { name: "Distrito Federal", id: 7 },
+                { name: "Espírito Santo", id: 8 },
+                { name: "Goiás", id: 9 },
+                { name: "Maranhão", id: 10 },
+                { name: "Mato Grosso", id: 11 },
+                { name: "Mato Grosso do Sul", id: 12 },
+                { name: "Minas Gerais", id: 13 },
+                { name: "Pará", id: 14 },
+                { name: "Paraíba", id: 15 },
+                { name: "Paraná", id: 16 },
+                { name: "Pernambuco", id: 17 },
+                { name: "Piauí", id: 18 },
+                { name: "Rio de Janeiro", id: 19 },
+                { name: "Rio Grande do Norte", id: 20 },
+                { name: "Rio Grande do Sul", id: 21 },
+                { name: "Rondônia", id: 22 },
+                { name: "Roraima", id: 23 },
+                { name: "Santa Catarina", id: 24 },
+                { name: "São Paulo", id: 25 },
+                { name: "Sergipe", id: 26 },
+                { name: "Tocantins", id: 27 }
+            ],
             patientCity: "",
             patientEmail: "",
             patientMainPhone: "",
@@ -970,7 +999,7 @@ class Patients extends React.Component{
         }
 
         // Exceções de campo lista
-        if (fieldName === "genre" || fieldName === "civilStatus"){
+        if (fieldName === "genre" || fieldName === "civilStatus" || fieldName === "state"){
             if (patientInfo === null)
                 return 0
         }
@@ -1018,7 +1047,7 @@ class Patients extends React.Component{
             patientDocument: this.getPatientGeneralInfo(patientInfo, "documentId"),
             patientAddress: this.getPatientGeneralInfo(patientInfo, "address"),
             patientZipCode: this.getPatientGeneralInfo(patientInfo, "zipcode"),
-            patientState: this.getPatientGeneralInfo(patientInfo, "state"),
+            patientStateValue: this.getPatientGeneralInfo(patientInfo, "state"),
             patientCity: this.getPatientGeneralInfo(patientInfo, "city"),
             patientEmail: this.getPatientGeneralInfo(patientInfo, "email"),
             patientMainPhone: this.getPatientGeneralInfo(patientInfo, "mainPhone"),
@@ -1292,12 +1321,25 @@ class Patients extends React.Component{
                                                 name = "patientZipCode"
                                                 onChange={ this.changeSimpleValue }                                               
                                             />
-                                            <TextField 
-                                                label="Estado:" 
-                                                value = { this.state.patientState }
-                                                name = "patientState"
-                                                onChange={ this.changeSimpleValue }                                               
-                                            />
+
+                                            <div className="modal--split-children">
+                                                <InputLabel htmlFor="checkbox--state">Estado:</InputLabel>
+                                                <Select
+                                                    labelId="checkbox--state"
+                                                    value = { this.state.patientStateValue }
+                                                    name = "patientStateValue"
+                                                    onChange={ this.changeSimpleValue }
+                                                    onFocus = { this.insertFillLabel }
+                                                    onBlur = {(e) => this.removeFillLabel(e) }
+                                                    input={ <Input /> }
+                                                >
+                                                    { this.state.stateList.map((stateItem) => (
+                                                        <MenuItem key={ stateItem.name } value={ stateItem.id }>
+                                                            <ListItemText primary={ stateItem.name } />
+                                                        </MenuItem>
+                                                    ))}
+                                                </Select>
+                                            </div>
                                         </div>
                                     </div>
 
