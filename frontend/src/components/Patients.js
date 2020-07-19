@@ -61,7 +61,7 @@ class Patients extends React.Component{
             patientCrudView: "dados_gerais",
             patients: [
                 {
-                    id: 1,
+                    id: "e6929a98_2bc0-b29e-189b0cca7aae",
                     photo: clarkPhoto,
 
                     name: "Clark Cold",
@@ -159,7 +159,7 @@ class Patients extends React.Component{
                     }
                 },
                 {
-                    id: 2,
+                    id: "76c0137f_4f24-d016-3cd087535791",
                     photo: dianaPhoto,
 
                     name: "Diana Mendes",
@@ -257,7 +257,7 @@ class Patients extends React.Component{
                     }
                 },
                 {
-                    id: 3,
+                    id: "18436ee8_8942-8930-64b20706600e",
                     photo: oliverPhoto,
 
                     name: "Oliver Queen",
@@ -355,7 +355,7 @@ class Patients extends React.Component{
                     }
                 },
                 {
-                    id: 4,
+                    id: "bc918484_a3cb-9499-72890fcc6fd3",
                     photo: brucePhoto,
 
                     name: "Bruce Wayne da Silva",
@@ -453,7 +453,6 @@ class Patients extends React.Component{
                     }
                 }
             ],
-
             patientIdSelected: null,
             patientName: "",
             patientBirthday: "",
@@ -1157,6 +1156,21 @@ class Patients extends React.Component{
         return false;
     };
 
+    generatePieceHashCode = function (){
+        return Math.floor((1 + Math.random()) * 0x10000)
+            .toString(16)
+            .substring(1);
+    };
+    
+    generateHashCode = function () {
+        return this.generatePieceHashCode() + this.generatePieceHashCode()  + '_' + this.generatePieceHashCode() + '-' + this.generatePieceHashCode() + '-' + this.generatePieceHashCode() + this.generatePieceHashCode() +this.generatePieceHashCode(); 
+    };
+
+    savePatient = () => {
+        var id = this.generateHashCode();
+        debugger
+    };
+
     // ================ RENDERIZAÇÃO DO CONTEÚDO HTML ===============
     
     render(){
@@ -1580,7 +1594,7 @@ class Patients extends React.Component{
                                 <Button className="anamnese blue" onClick = { this.goBackToGeneralData } >Dados Gerais</Button>
                             : null }
 
-                            <Button className="blue" onClick = { this.saveEvent } >Salvar</Button>
+                            <Button className="blue" onClick = { this.savePatient } >Salvar</Button>
                         </div>
                     </div>  
                 </Modal>

@@ -299,7 +299,7 @@
   }
   .MuiInputLabel-root {
     margin-top: 6.5px !important;
-    margin-left: 5px !important;
+    margin-left: 10px !important;
   }
   .MuiCheckbox-colorSecondary.Mui-checked, .MuiInputLabel-root.Mui-focused{
     color: #2386fd !important;
@@ -380,6 +380,7 @@ select:-webkit-autofill:focus {
     font-size: 20px;
     position: absolute;
     margin-top: 8px;
+    margin-left: 10px;
 }
 .container--content-news .MuiListItem-button:hover .MuiCheckbox-root{
     color: white !important;
