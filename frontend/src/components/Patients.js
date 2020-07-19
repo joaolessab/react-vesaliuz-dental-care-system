@@ -489,7 +489,6 @@ class Patients extends React.Component{
             telephoneSecondaryMask: "(99) 9999-9999",
             patientDocumentMask: "999.999.999-99",
 
-            anamnseSectionMode: false,
             anamneseSections:   [
                                 { 
                                     id: 1, label: "Seção 1", optional: false, questions:
@@ -1006,7 +1005,7 @@ class Patients extends React.Component{
         });
     };
 
-    openCRUDPatientsModal = (mode, patientId) => {
+    openCRUDPatientsModal = (mode, patientId, IsAnamnseSectionMode) => {
         var patientInfo = this.findPatientInfo(patientId);
 
         /* Patient General Info*/
@@ -1043,6 +1042,10 @@ class Patients extends React.Component{
             patientCrudView: "dados_gerais",
             patientCrudVisibility: true
         });
+
+        /* Is Anamnese */
+        if (IsAnamnseSectionMode)
+            this.openAnamnseSectionMode();
     };
 
     closePatientCrudModal = () => {
@@ -1139,7 +1142,7 @@ class Patients extends React.Component{
                     {   this.checkPendingPatientAnamnese(patient.id) === true ?
                         
                         <div className="div--card-toolbar-onlydelete">
-                            <Button className="button--card-anamnese" onClick={() => this.fillPatientAnamnese(patient.id) }><MenuBookIcon /></Button>
+                            <Button className="button--card-anamnese" onClick={() => this.openCRUDPatientsModal("edit", patient.id, true) }><MenuBookIcon /></Button>
                             <Button className="button--card-delete" onClick={() => this.triedToDeletePatient(patient.id) }><DeleteForeverIcon /></Button>
                         </div>
                         
