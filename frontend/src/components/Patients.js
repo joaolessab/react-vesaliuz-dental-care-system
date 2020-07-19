@@ -201,7 +201,7 @@ class Patients extends React.Component{
                                     { id: 15, boolValue: false, moreInfoValue: "" },
                                     { id: 16, boolValue: true, moreInfoValue: "" },
                                     { id: 17, boolValue: true, moreInfoValue: "" },
-                                    { id: 18, boolValue: true, moreInfoValue: "" },
+                                    { id: 18, boolValue: null, moreInfoValue: "" },
                                     { id: 19, boolValue: true, moreInfoValue: "" },
                                     { id: 20, boolValue: true, moreInfoValue: "Muito" }
                                 ]
@@ -1096,16 +1096,14 @@ class Patients extends React.Component{
         }
     };
 
-    checkPendingPatientSectionOfAnamnese = (patientIdSelected, sectionId) => {
-        const patientIndex = this.state.patients.findIndex(element => element.id === patientIdSelected);
-        const patient = this.state.patients[patientIndex];
-        const sectionIndex = patient.anamnese.sections.findIndex(element => element.id === sectionId);
-        const section = patient.anamnese.sections[sectionIndex];
+    checkPendingPatientSectionOfAnamnese = (sectionId) => {
+        const sectionIndex = this.state.anamneseSections.findIndex(element => element.id === sectionId);
+        const section = this.state.anamneseSections[sectionIndex];
         const questions = section.questions;
 
         for (var q = 0; q < questions.length; q++){
             var question = questions[q];
-            if (question.boolValue === null){
+            if (question.boolAnswer.value === null){
                 return true;
             }
         }
@@ -1404,33 +1402,33 @@ class Patients extends React.Component{
                             </div>
                             <div className="div--patients-anamneseinfo">
 
-                                {/* Step HTML Component */}                              
+                                {/* section HTML Component */}                              
                                 <div className="div--anamneseinfo-toolbar">
-                                    { this.state.anamneseSections.map((step) => {
+                                    { this.state.anamneseSections.map((section) => {
                                         return (
-                                            <div key={step.id}>
-                                                <div className="section--label" onClick={() => this.changeAnamneseSection(step.id) } >
+                                            <div key={section.id}>
+                                                <div className="section--label" onClick={() => this.changeAnamneseSection(section.id) } >
                                                     Seção
 
-                                                    {   this.state.anamnseSectionActive === step.id ?
+                                                    {   this.state.anamnseSectionActive === section.id ?
                                                         
                                                         <div className="section--counter selected">
-                                                            {step.id}
+                                                            {section.id}
                                                         </div>
                                                         : 
                                                         [
                                                             ( this.state.patientIdSelected === null ?
                                                                 <div className="section--counter">
-                                                                    {step.id}
+                                                                    {section.id}
                                                                 </div>
                                                                 :
-                                                                ( this.checkPendingPatientSectionOfAnamnese(this.state.patientIdSelected, step.id) === true ?
+                                                                ( this.checkPendingPatientSectionOfAnamnese(section.id) === true ?
                                                                     <div className="section--counter pending">
-                                                                        {step.id}
+                                                                        {section.id}
                                                                     </div>
                                                                     :
                                                                     <div className="section--counter success">
-                                                                        {step.id}
+                                                                        {section.id}
                                                                     </div>
                                                                 )
                                                             )
@@ -1447,15 +1445,15 @@ class Patients extends React.Component{
                                 {/* Questions */}                        
                                 <div className="div--anamneseinfo-questions">
                                     {/* Sections */}
-                                    { this.state.anamneseSections.map((step) => {
+                                    { this.state.anamneseSections.map((section) => {
                                         return (
-                                            <div key={ "section-" + step.id}>
+                                            <div key={ "section-" + section.id}>
                                                 { 
-                                                    this.state.anamnseSectionActive === step.id ?
-                                                    step.questions.map((questions) =>
+                                                    this.state.anamnseSectionActive === section.id ?
+                                                    section.questions.map((questions) =>
                                                         {
                                                             return (
-                                                                <div key={ "section--" + step.id + "-question-" + questions.id} id={ "section--" + step.id + "-question-" + questions.id} className="div--question-block">
+                                                                <div key={ "section--" + section.id + "-question-" + questions.id} id={ "section--" + section.id + "-question-" + questions.id} className="div--question-block">
                                                                     <p>{questions.id + ". " + questions.question }</p>
                                                                     
                                                                     {/* Booleano - Sim / Não */}
@@ -1469,7 +1467,7 @@ class Patients extends React.Component{
                                                                                     labelPlacement="end"
                                                                                     name = { questions.boolAnswer.fieldName }
                                                                                     checked = { questions.boolAnswer.value === true }
-                                                                                    onChange = {(e) => this.changeAnamneseSimpleBool(e, step.id, questions.id) }
+                                                                                    onChange = {(e) => this.changeAnamneseSimpleBool(e, section.id, questions.id) }
                                                                                 />
                                                                 
                                                                                 <FormControlLabel
@@ -1479,7 +1477,7 @@ class Patients extends React.Component{
                                                                                     labelPlacement="end"
                                                                                     name = { questions.boolAnswer.fieldName }
                                                                                     checked = { questions.boolAnswer.value === false }
-                                                                                    onChange = {(e) => this.changeAnamneseSimpleBool(e, step.id, questions.id) }
+                                                                                    onChange = {(e) => this.changeAnamneseSimpleBool(e, section.id, questions.id) }
                                                                                 />
                                                                             </RadioGroup>
                                                                         </div>
@@ -1493,7 +1491,7 @@ class Patients extends React.Component{
                                                                                 placeholder="Informação adicional"
                                                                                 name = { questions.moreInfoAnswer.fieldName }
                                                                                 defaultValue = { questions.moreInfoAnswer.value }
-                                                                                onChange={(e) => this.changeAnamneseSimpleMoreInfo(e, step.id, questions.id) }
+                                                                                onChange={(e) => this.changeAnamneseSimpleMoreInfo(e, section.id, questions.id) }
                                                                             />
                                                                         </div>
                                                                     : null }
