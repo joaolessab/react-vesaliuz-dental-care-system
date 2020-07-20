@@ -80,6 +80,7 @@ class Patients extends React.Component{
                     civilStatus: 2,
 
                     anamnese: {
+                        filled: true,
                         sections: [
                             {
                                 id: 1,
@@ -178,6 +179,7 @@ class Patients extends React.Component{
                     civilStatus: 2,
 
                     anamnese: {
+                        filled: false,
                         sections: [
                             {
                                 id: 1,
@@ -276,6 +278,7 @@ class Patients extends React.Component{
                     civilStatus: 2,
 
                     anamnese: {
+                        filled: true,
                         sections: [
                             {
                                 id: 1,
@@ -374,6 +377,7 @@ class Patients extends React.Component{
                     civilStatus: 2,
 
                     anamnese: {
+                        filled: false,
                         sections: [
                             {
                                 id: 1,
@@ -1127,7 +1131,7 @@ class Patients extends React.Component{
         }
     };
 
-    checkPendingPatientSectionOfAnamnese = (sectionId) => {
+    checkPendingModalSection = (sectionId) => {
         const sectionIndex = this.state.anamneseSections.findIndex(element => element.id === sectionId);
         const section = this.state.anamneseSections[sectionIndex];
         const questions = section.questions;
@@ -1135,25 +1139,22 @@ class Patients extends React.Component{
         for (var q = 0; q < questions.length; q++){
             var question = questions[q];
             if (question.boolAnswer.value === null){
-                return true;
+                return true; // Not Pending
             }
         }
         return false;
     };
 
-    checkPendingPatientAnamnese = (patientId) => {
-        const patientIndex = this.state.patients.findIndex(element => element.id === patientId);
-        const patient = this.state.patients[patientIndex];
-
-        for (var s = 0; s < patient.anamnese.sections.length; s++){
-            for (var q = 0; q < patient.anamnese.sections[s].questions.length; q++){
-                var question = patient.anamnese.sections[s].questions[q];
-                if (question.boolValue === null)
-                    return true;
+    checkFilledAnamneseForInput = () => {
+        const modalSections = this.state.anamneseSections;
+        for (var s = 0; s < modalSections.length; s++){
+            for (var q = 0; q < modalSections[s].questions.length; q++){
+                var question = modalSections[s].questions[q];
+                if (question.boolAnswer.value === null)
+                    return false; // Not Filled
             }
         }
-
-        return false;
+        return true;
     };
 
     generatePieceHashCode = function (){
@@ -1195,8 +1196,8 @@ class Patients extends React.Component{
             secondaryPhone: this.state.secondaryPhone,
             initialTreatment: this.state.patientInitialTreatment,
             civilStatus: this.state.patientCivilStatus,
-
             anamnese: {
+                filled: this.checkFilledAnamneseForInput(),
                 sections: [
                     {
                         id: 1,
@@ -1237,7 +1238,7 @@ class Patients extends React.Component{
         // Editando existente
         else if (this.state.patientCrudMode === "edit"){
             for (var i = 0; i < newPatients.length; i++){
-                if (newPatients[i].id === this.state.eventIdSelected)
+                if (newPatients[i].id === this.state.patientIdSelected)
                     newPatients[i] = json;
             }
 
@@ -1261,7 +1262,7 @@ class Patients extends React.Component{
                 <div className="div--individual-card" key={patient.id}>
 
                     {/* Eliminar repetição indevida */}
-                    {   this.checkPendingPatientAnamnese(patient.id) === true ?
+                    {   patient.anamnese.filled === false ?
                         
                         <div className="div--card-toolbar-onlydelete">
                             <Button className="button--card-anamnese" onClick={() => this.openCRUDPatientsModal("edit", patient.id, true) }><MenuBookIcon /></Button>
@@ -1553,14 +1554,14 @@ class Patients extends React.Component{
                                                         <div className="section--counter selected">
                                                             {section.id}
                                                         </div>
-                                                        : 
+                                                        :
                                                         [
                                                             ( this.state.patientIdSelected === null ?
                                                                 <div className="section--counter">
                                                                     {section.id}
                                                                 </div>
                                                                 :
-                                                                ( this.checkPendingPatientSectionOfAnamnese(section.id) === true ?
+                                                                ( this.checkPendingModalSection(section.id) === true ?
                                                                     <div className="section--counter pending">
                                                                         {section.id}
                                                                     </div>
