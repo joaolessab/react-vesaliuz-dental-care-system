@@ -22,6 +22,8 @@ import TextField from '@material-ui/core/TextField';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
 import cogoToast from 'cogo-toast';
+import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
+import SkipNextIcon from '@material-ui/icons/SkipNext';
 
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -847,6 +849,18 @@ class Patients extends React.Component{
     };
 
     // ================ CHANGE EVENTS ==============
+    goToPreviousAnamneseSection = () => {
+        var previousSection = this.state.anamnseSectionActive - 1;
+        this.setState({
+            anamnseSectionActive: previousSection
+        });
+    };
+    goToNextAnamneseSection = () => {
+        var nextSection = this.state.anamnseSectionActive + 1;
+        this.setState({
+            anamnseSectionActive: nextSection
+        });
+    };
     changeAnamneseSection = (index) => {
         this.setState({
             anamnseSectionActive: index
@@ -1173,8 +1187,15 @@ class Patients extends React.Component{
     };
 
     getPatientAnswerFromSection = (sectionId) => {
+        var sectionWithAnswers = [];
+
         const sectionArrayIndex = this.state.anamneseSections.findIndex( element => element.id === sectionId );
-        return this.state.anamneseSections[sectionArrayIndex].questions;
+        const questions = this.state.anamneseSections[sectionArrayIndex].questions;
+        for (var q = 0; q < questions.length; q++){
+            var newQuestion = {"id": questions[q].id, "boolValue": questions[q].boolAnswer.value, "moreInfo": questions[q].moreInfoAnswer.value};
+            sectionWithAnswers.push(newQuestion);
+        }
+        return sectionWithAnswers;
     };
 
     savePatient = () => {
@@ -1222,7 +1243,7 @@ class Patients extends React.Component{
                 ]
             }
         };
-        
+
         var newPatients = Object.assign([], this.state.patients, {});
 
         // Salvando novo
@@ -1543,6 +1564,17 @@ class Patients extends React.Component{
 
                                 {/* section HTML Component */}                              
                                 <div className="div--anamneseinfo-toolbar">
+                                    <div>
+                                        { this.state.anamnseSectionActive === 1 ? 
+                                            <Button className="section--previous" disabled>
+                                                <SkipPreviousIcon onClick={ this.goToPreviousAnamneseSection } /> 
+                                            </Button>
+                                            :
+                                            <Button className="section--previous">
+                                                <SkipPreviousIcon onClick={ this.goToPreviousAnamneseSection } /> 
+                                            </Button>
+                                        }
+                                    </div>
                                     { this.state.anamneseSections.map((section) => {
                                         return (
                                             <div key={section.id}>
@@ -1557,16 +1589,16 @@ class Patients extends React.Component{
                                                         :
                                                         [
                                                             ( this.state.patientIdSelected === null ?
-                                                                <div className="section--counter">
+                                                                <div key={section.id + "_section"} className="section--counter">
                                                                     {section.id}
                                                                 </div>
                                                                 :
                                                                 ( this.checkPendingModalSection(section.id) === true ?
-                                                                    <div className="section--counter pending">
+                                                                    <div key={section.id + "_section"} className="section--counter pending">
                                                                         {section.id}
                                                                     </div>
                                                                     :
-                                                                    <div className="section--counter success">
+                                                                    <div key={section.id + "_section"} className="section--counter success">
                                                                         {section.id}
                                                                     </div>
                                                                 )
@@ -1578,6 +1610,17 @@ class Patients extends React.Component{
                                             </div>                                                
                                         );
                                     }) }
+                                    <div>
+                                        { this.state.anamnseSectionActive === 5 ? 
+                                            <Button className="section--next" disabled>
+                                                <SkipNextIcon onClick={ this.goToNextAnamneseSection } /> 
+                                            </Button>
+                                            :
+                                            <Button className="section--next">
+                                                <SkipNextIcon onClick={ this.goToNextAnamneseSection } /> 
+                                            </Button>
+                                        }
+                                    </div>
                                 </div>
 
                                 

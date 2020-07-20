@@ -255,12 +255,13 @@
 .div--anamneseinfo-toolbar{
     display: flex;
     margin-top: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 15px;    
+    justify-content: space-between;
 }
 .div--anamneseinfo-toolbar .section--label{
-    height: 35px;
-    background-color: #fbfbfb;
-    width: 100px;
+    height: 45px;
+    background-color: #f0f0f0;
+    width: 105px;
     display: flex;
     flex-direction: row;
     text-align: center;
@@ -268,11 +269,12 @@
     align-items: center;
     margin: 5px;
     cursor: pointer;
+    border-radius: 6px;
 }
 .div--anamneseinfo-toolbar .section--label:hover .section--counter, .div--anamneseinfo-toolbar .section--label .selected{
     background-color: #2386fd;
     color: white;
-    border-radius: 50px;
+    border-radius: 6px;
     height: 30px;
     width: 30px;
     margin-left: 5px;
@@ -283,7 +285,7 @@
 .div--anamneseinfo-toolbar .section--counter{
     background-color: #eaeaea;
     color: black;
-    border-radius: 50px;
+    border-radius: 6px;
     height: 30px;
     width: 30px;
     margin-left: 5px;
@@ -294,7 +296,7 @@
 .div--anamneseinfo-toolbar .section--label .pending{
     background-color: #ff4444;
     color: white;
-    border-radius: 50px;
+    border-radius: 6px;
     height: 30px;
     width: 30px;
     margin-left: 5px;
@@ -305,7 +307,7 @@
 .div--anamneseinfo-toolbar .section--label .success{
     background-color: #47d88e;
     color: white;
-    border-radius: 50px;
+    border-radius: 6px;
     height: 30px;
     width: 30px;
     margin-left: 5px;
@@ -348,4 +350,26 @@
 }
 .div--question-block{
     margin-bottom: 30px;
+}
+.section--previous .MuiSvgIcon-root, .section--next .MuiSvgIcon-root{
+    margin-top: 2.5px;
+    margin-left: 2.5px;
+}
+.section--previous:hover, .section--next:hover{
+    background-color: #2386fd !important;
+    color: white !important;
+}
+.section--next, .section--previous{
+    background-color: #f0f0f0 !important;
+    color: black !important;
+    border-radius: 6px !important;
+    height: 30px;
+    width: 30px;
+    margin-top: 13px !important;
+    cursor: pointer !important;
+    min-width: 30px !important;
+    max-width: 30px !important;
+}
+.section--next.Mui-disabled, .section--previous.Mui-disabled{
+    color: rgba(0, 0, 0, 0.26) !important;
 }
