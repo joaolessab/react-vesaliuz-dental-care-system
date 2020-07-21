@@ -152,7 +152,7 @@
 }
 /* Div dentro do modal de eventos */
 .div--patients-information form{
-    flex-direction: row;
+    flex-direction: column;
     display: flex;
 }
 .div--patients-information .patients--component{
@@ -269,12 +269,12 @@
     align-items: center;
     margin: 5px;
     cursor: pointer;
-    border-radius: 6px;
+    border-radius: 15px;
 }
 .div--anamneseinfo-toolbar .section--label:hover .section--counter, .div--anamneseinfo-toolbar .section--label .selected{
     background-color: #2386fd;
     color: white;
-    border-radius: 6px;
+    border-radius: 20px;
     height: 30px;
     width: 30px;
     margin-left: 5px;
@@ -285,7 +285,7 @@
 .div--anamneseinfo-toolbar .section--counter{
     background-color: #eaeaea;
     color: black;
-    border-radius: 6px;
+    border-radius: 20px;
     height: 30px;
     width: 30px;
     margin-left: 5px;
@@ -296,7 +296,7 @@
 .div--anamneseinfo-toolbar .section--label .pending{
     background-color: #ff4444;
     color: white;
-    border-radius: 6px;
+    border-radius: 20px;
     height: 30px;
     width: 30px;
     margin-left: 5px;
@@ -307,7 +307,7 @@
 .div--anamneseinfo-toolbar .section--label .success{
     background-color: #47d88e;
     color: white;
-    border-radius: 6px;
+    border-radius: 20px;
     height: 30px;
     width: 30px;
     margin-left: 5px;
@@ -351,7 +351,10 @@
 .div--question-block{
     margin-bottom: 30px;
 }
-.section--previous .MuiSvgIcon-root, .section--next .MuiSvgIcon-root{
+.section--previous .MuiSvgIcon-root{
+    margin-left: 2.5px;
+}
+.section--previous .MuiSvgIcon-root{
     margin-top: 2.5px;
     margin-left: 2.5px;
 }
@@ -362,7 +365,7 @@
 .section--next, .section--previous{
     background-color: #f0f0f0 !important;
     color: black !important;
-    border-radius: 6px !important;
+    border-radius: 20px !important;
     height: 30px;
     width: 30px;
     margin-top: 13px !important;
@@ -372,4 +375,29 @@
 }
 .section--next.Mui-disabled, .section--previous.Mui-disabled{
     color: rgba(0, 0, 0, 0.26) !important;
+}
+.modal--text-row{
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    width: 100% !important;
+}
+.modal--pic-row{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+.modal--pic-row .input--picture{
+    border: 0px !important;
+    padding: 0px;
+    background-color: red;
+    color: transparent !important;
+    cursor: pointer;
+}
+.modal--pic-row .input--picture + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    background-color: black;
+    display: inline-block;
 }

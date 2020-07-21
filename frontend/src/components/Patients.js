@@ -24,16 +24,17 @@ import MenuBookIcon from '@material-ui/icons/MenuBook';
 import cogoToast from 'cogo-toast';
 import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
 import SkipNextIcon from '@material-ui/icons/SkipNext';
-
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import ReactCrop from 'react-image-crop';
 
 // ================ ESTILOS ===============
 
 import '../assets/css/Patients.css';
 import '../assets/css/Animations/Patients--Animations.css';
 import '../assets/css/Responsive/Patients--Reponsive.css';
+import 'react-image-crop/dist/ReactCrop.css';
 
 // ================ PHOTOS ===============
 
@@ -58,6 +59,15 @@ class Patients extends React.Component{
         super(props);
 
         this.state = {
+            src: null,
+            crop: {
+                unit: "%",
+                width: 30,
+                aspect: 1 / 1
+            },
+            croppedImageUrl: null,
+
+
             patientCrudVisibility: false,
             patientCrudMode: "insert",
             patientCrudView: "dados_gerais",
@@ -460,6 +470,15 @@ class Patients extends React.Component{
                 }
             ],
             patientIdSelected: null,
+            patientPicture: {
+                src: null,
+                crop: {
+                    unit: "%",
+                    width: 30,
+                    aspect: 1 / 1
+                },
+                croppedImageUrl: null
+            },
             patientName: "",
             patientBirthday: "",
             genreList: [
@@ -1272,6 +1291,79 @@ class Patients extends React.Component{
         }
     };
 
+    /* File Image */
+    changePicture = (e) => {
+        const fileReader = new FileReader()
+        fileReader.onloadend = () => {
+            this.setState({src: fileReader.result })
+        }
+        fileReader.readAsDataURL(e.target.files[0])
+    };
+
+    sendPicture = (e) => {
+        e.preventDefault();        
+        var teste = this.state.croppedImage;
+        debugger
+    };
+
+    onPictureLoad = (image) => {
+        this.imageRef = image
+    };
+    
+    onCropChange = (crop) => {
+        this.setState({ crop });
+    };
+    
+    onCropComplete = (crop) => {
+        if (this.imageRef && crop.width && crop.height) {
+            const croppedImageUrl = this.getCroppedImg(this.imageRef, crop)
+            this.setState({ croppedImageUrl })
+        }
+    };
+    
+    getCroppedImg(image, crop) {
+        const canvas = document.createElement("canvas");
+        const scaleX = image.naturalWidth / image.width;
+        const scaleY = image.naturalHeight / image.height;
+        canvas.width = crop.width;
+        canvas.height = crop.height;
+        const ctx = canvas.getContext("2d");
+        
+        ctx.drawImage(
+            image,
+            crop.x * scaleX,
+            crop.y * scaleY,
+            crop.width * scaleX,
+            crop.height * scaleY,
+            0,
+            0,
+            crop.width,
+            crop.height
+         )
+    
+        const reader = new FileReader()
+        canvas.toBlob(blob => {
+            reader.readAsDataURL(blob)
+            reader.onloadend = () => {
+                this.dataURLtoFile(reader.result, 'cropped.jpg')
+            }
+        })
+    };
+
+    dataURLtoFile(dataurl, filename) {
+        let arr = dataurl.split(','),
+            mime = arr[0].match(/:(.*?);/)[1],
+            bstr = atob(arr[1]), 
+            n = bstr.length, 
+            u8arr = new Uint8Array(n);
+                
+        while(n--){
+            u8arr[n] = bstr.charCodeAt(n);
+        }
+        let croppedImage = new File([u8arr], filename, {type:mime});
+        this.setState({croppedImage: croppedImage }) 
+    };
+
     // ================ RENDERIZAÇÃO DO CONTEÚDO HTML ===============
     
     render(){
@@ -1352,201 +1444,218 @@ class Patients extends React.Component{
                         <div className="div--patients-information">
                             <form className={classes.root} noValidate autoComplete="off">
                                 <MuiPickersUtilsProvider libInstance={ moment } utils={ MomentUtils } locale={ momentLocale }>
-                                    <div className="modal--split-columnar">
-                                        <div className="modal--split-one">
-                                            <TextField 
-                                                label="Nome do Paciente" 
-                                                value = { this.state.patientName }
-                                                name = "patientName"
-                                                onChange={ this.changeSimpleValue } 
-                                                required
-                                            />
-                                        </div>
-
-                                        <div className="modal--split-two">    
-                                            <InputMask
-                                                mask="99/99/9999"
-                                                name = "patientBirthday"
-                                                value = { this.state.patientBirthday }
-                                                onChange={ this.changeSimpleValue }
-                                            >
-                                                {() => <TextField
-                                                            label="Nascimento" 
-                                                            name = "patientBirthday"
-                                                            type="text"
-                                                />}
-                                            </InputMask>
-
-                                            <div className="modal--split-children">
-                                                <InputLabel htmlFor="checkbox--genre">Sexo:</InputLabel>
-                                                <Select
-                                                    labelId="checkbox--genre"
-                                                    value = { this.state.patientGenreValue }
-                                                    name = "patientGenreValue"
-                                                    onChange={ this.changeSimpleValue }
-                                                    onFocus = { this.insertFillLabel }
-                                                    onBlur = {(e) => this.removeFillLabel(e) }
-                                                    input={ <Input /> }
-                                                >
-                                                    { this.state.genreList.map((genreItem) => (
-                                                        <MenuItem key={ genreItem.name } value={ genreItem.id }>
-                                                            <ListItemText primary={ genreItem.name } />
-                                                        </MenuItem>
-                                                    ))}
-                                                </Select>
-                                            </div>
-                                        </div>
-
-                                        <div className="modal--split-one">
-                                            <TextField 
-                                                label="Profissão" 
-                                                value = { this.state.patientOccupation }
-                                                name = "patientOccupation"
-                                                onChange={ this.changeSimpleValue }                                               
-                                            />
-                                        </div>
-
-                                        <div className="modal--split-one">
-                                            <InputMask
-                                                mask = { this.state.patientDocumentMask }
-                                                name = "patientDocument"
-                                                value = { this.state.patientDocument }
-                                                onChange={ this.changeDocument }
-                                            >
-                                                {() => <TextField
-                                                            label="CPF ou CNPJ:" 
-                                                            name = "patientDocument"
-                                                            type="text"
-                                                />}
-                                            </InputMask>
-                                        </div>
-
-                                        <div className="modal--split-one">
-                                            <TextField 
-                                                label="Endereço:" 
-                                                value = { this.state.patientAddress }
-                                                name = "patientAddress"
-                                                onChange={ this.changeSimpleValue }                                               
-                                            />
-                                        </div>
-
-                                        <div className="modal--split-two">
-                                            <TextField 
-                                                label="CEP:" 
-                                                value = { this.state.patientZipCode }
-                                                name = "patientZipCode"
-                                                onChange={ this.changeSimpleValue }                                               
-                                            />
-
-                                            <div className="modal--split-children">
-                                                <InputLabel htmlFor="checkbox--state">Estado:</InputLabel>
-                                                <Select
-                                                    labelId="checkbox--state"
-                                                    value = { this.state.patientStateValue }
-                                                    name = "patientStateValue"
-                                                    onChange={ this.changeSimpleValue }
-                                                    onFocus = { this.insertFillLabel }
-                                                    onBlur = {(e) => this.removeFillLabel(e) }
-                                                    input={ <Input /> }
-                                                >
-                                                    { this.state.stateList.map((stateItem) => (
-                                                        <MenuItem key={ stateItem.name } value={ stateItem.id }>
-                                                            <ListItemText primary={ stateItem.name } />
-                                                        </MenuItem>
-                                                    ))}
-                                                </Select>
-                                            </div>
-                                        </div>
+                                    
+                                    <div className="modal--pic-row">
+                                        <input className="input--picture" type='file' value={ this.state.profile_pic } 
+                                        onChange={this.changePicture} />
+                                            {this.state.src && (
+                                                <ReactCrop
+                                                    src={this.state.src}
+                                                    crop={this.state.crop}
+                                                    onImageLoaded={this.onPictureLoad}
+                                                    onComplete={this.onCropComplete}
+                                                    onChange={this.onCropChange}
+                                                />
+                                            )}
+                                        <button onClick={this.sendPicture}>Teste</button>
                                     </div>
 
-                                    <div className="modal--split-columnar">
-
-                                        <div className="modal--split-one">
-                                            <TextField 
-                                                label="Cidade:" 
-                                                value = { this.state.patientCity }
-                                                name = "patientCity"
-                                                onChange={ this.changeSimpleValue }                                               
-                                            />
-                                        </div>
-
-                                        <div className="modal--split-one">
-                                            <TextField 
-                                                label="E-mail:" 
-                                                value = { this.state.patientEmail }
-                                                name = "patientEmail"
-                                                onChange={ this.changeSimpleValue }                                               
-                                            />
-                                        </div>
-
-                                        <div className="modal--split-one">
-                                            <InputMask                                               
-                                                value = { this.state.patientMainPhone }
-                                                mask = { this.state.telephonePrimaryMask }
-                                                name = "patientMainPhone"
-                                                onChange={ this.changePhone }
-                                            >
-                                                {() => <TextField
-                                                            label="Telefone Principal:" 
-                                                            name = "patientMainPhone"
-                                                            type="text"
-                                                />}
-                                            </InputMask>
-                                        </div>
-
-                                        <div className="modal--split-one">
-                                            <InputMask                                     
-                                                value = { this.state.patientSecondaryPhone }
-                                                mask = { this.state.telephoneSecondaryMask }
-                                                name = "patientSecondaryPhone"
-                                                onChange={ this.changePhone }
-                                            >
-                                                {() => <TextField
-                                                            label="Telefone Secundário:" 
-                                                            name = "patientSecondaryPhone"
-                                                            type="text"
-                                                />}
-                                            </InputMask>
-                                        </div>
-
-                                        <div className="modal--split-one">
-                                            <div className="modal--split-datetime">
-                                                <KeyboardDatePicker
-                                                    disableToolbar
-                                                    variant="inline"
-                                                    format="DD/MM/YYYY"
-                                                    margin="normal"
-                                                    label="Início do Tratamento:"
-                                                    value={ this.state.patientInitialTreatment }
-                                                    autoOk = { true }
-                                                    onChange={(e) => this.changeSimpleDate("patientInitialTreatment", e) }
-                                                    KeyboardButtonProps={{
-                                                        'aria-label': 'change date',
-                                                    }}
+                                    <div className="modal--text-row">
+                                        <div className="modal--split-columnar">
+                                            <div className="modal--split-one">
+                                                <TextField 
+                                                    label="Nome do Paciente" 
+                                                    value = { this.state.patientName }
+                                                    name = "patientName"
+                                                    onChange={ this.changeSimpleValue } 
+                                                    required
                                                 />
                                             </div>
-                                        </div>
 
-                                        <div className="modal--split-one">
-                                            <div className="modal--split-children">
-                                                <InputLabel htmlFor="checkbox--civilStatus">Status Civil:</InputLabel>
-                                                <Select
-                                                    labelId="checkbox--civilStatus"
-                                                    value = { this.state.patientCivilStatus }
-                                                    name = "patientCivilStatus"
+                                            <div className="modal--split-two">    
+                                                <InputMask
+                                                    mask="99/99/9999"
+                                                    name = "patientBirthday"
+                                                    value = { this.state.patientBirthday }
                                                     onChange={ this.changeSimpleValue }
-                                                    onFocus = { this.insertFillLabel }
-                                                    onBlur = {(e) => this.removeFillLabel(e) }
-                                                    input={ <Input /> }
                                                 >
-                                                    { this.state.civilStatusList.map((civilStatusItem) => (
-                                                        <MenuItem key={ civilStatusItem.name } value={ civilStatusItem.id }>
-                                                            <ListItemText primary={ civilStatusItem.name } />
-                                                        </MenuItem>
-                                                    ))}
-                                                </Select>
+                                                    {() => <TextField
+                                                                label="Nascimento" 
+                                                                name = "patientBirthday"
+                                                                type="text"
+                                                    />}
+                                                </InputMask>
+
+                                                <div className="modal--split-children">
+                                                    <InputLabel htmlFor="checkbox--genre">Sexo:</InputLabel>
+                                                    <Select
+                                                        labelId="checkbox--genre"
+                                                        value = { this.state.patientGenreValue }
+                                                        name = "patientGenreValue"
+                                                        onChange={ this.changeSimpleValue }
+                                                        onFocus = { this.insertFillLabel }
+                                                        onBlur = {(e) => this.removeFillLabel(e) }
+                                                        input={ <Input /> }
+                                                    >
+                                                        { this.state.genreList.map((genreItem) => (
+                                                            <MenuItem key={ genreItem.name } value={ genreItem.id }>
+                                                                <ListItemText primary={ genreItem.name } />
+                                                            </MenuItem>
+                                                        ))}
+                                                    </Select>
+                                                </div>
                                             </div>
-                                        </div> 
+
+                                            <div className="modal--split-one">
+                                                <TextField 
+                                                    label="Profissão" 
+                                                    value = { this.state.patientOccupation }
+                                                    name = "patientOccupation"
+                                                    onChange={ this.changeSimpleValue }                                               
+                                                />
+                                            </div>
+
+                                            <div className="modal--split-one">
+                                                <InputMask
+                                                    mask = { this.state.patientDocumentMask }
+                                                    name = "patientDocument"
+                                                    value = { this.state.patientDocument }
+                                                    onChange={ this.changeDocument }
+                                                >
+                                                    {() => <TextField
+                                                                label="CPF ou CNPJ:" 
+                                                                name = "patientDocument"
+                                                                type="text"
+                                                    />}
+                                                </InputMask>
+                                            </div>
+
+                                            <div className="modal--split-one">
+                                                <TextField 
+                                                    label="Endereço:" 
+                                                    value = { this.state.patientAddress }
+                                                    name = "patientAddress"
+                                                    onChange={ this.changeSimpleValue }                                               
+                                                />
+                                            </div>
+
+                                            <div className="modal--split-two">
+                                                <TextField 
+                                                    label="CEP:" 
+                                                    value = { this.state.patientZipCode }
+                                                    name = "patientZipCode"
+                                                    onChange={ this.changeSimpleValue }                                               
+                                                />
+
+                                                <div className="modal--split-children">
+                                                    <InputLabel htmlFor="checkbox--state">Estado:</InputLabel>
+                                                    <Select
+                                                        labelId="checkbox--state"
+                                                        value = { this.state.patientStateValue }
+                                                        name = "patientStateValue"
+                                                        onChange={ this.changeSimpleValue }
+                                                        onFocus = { this.insertFillLabel }
+                                                        onBlur = {(e) => this.removeFillLabel(e) }
+                                                        input={ <Input /> }
+                                                    >
+                                                        { this.state.stateList.map((stateItem) => (
+                                                            <MenuItem key={ stateItem.name } value={ stateItem.id }>
+                                                                <ListItemText primary={ stateItem.name } />
+                                                            </MenuItem>
+                                                        ))}
+                                                    </Select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="modal--split-columnar">
+
+                                            <div className="modal--split-one">
+                                                <TextField 
+                                                    label="Cidade:" 
+                                                    value = { this.state.patientCity }
+                                                    name = "patientCity"
+                                                    onChange={ this.changeSimpleValue }                                               
+                                                />
+                                            </div>
+
+                                            <div className="modal--split-one">
+                                                <TextField 
+                                                    label="E-mail:" 
+                                                    value = { this.state.patientEmail }
+                                                    name = "patientEmail"
+                                                    onChange={ this.changeSimpleValue }                                               
+                                                />
+                                            </div>
+
+                                            <div className="modal--split-one">
+                                                <InputMask                                               
+                                                    value = { this.state.patientMainPhone }
+                                                    mask = { this.state.telephonePrimaryMask }
+                                                    name = "patientMainPhone"
+                                                    onChange={ this.changePhone }
+                                                >
+                                                    {() => <TextField
+                                                                label="Telefone Principal:" 
+                                                                name = "patientMainPhone"
+                                                                type="text"
+                                                    />}
+                                                </InputMask>
+                                            </div>
+
+                                            <div className="modal--split-one">
+                                                <InputMask                                     
+                                                    value = { this.state.patientSecondaryPhone }
+                                                    mask = { this.state.telephoneSecondaryMask }
+                                                    name = "patientSecondaryPhone"
+                                                    onChange={ this.changePhone }
+                                                >
+                                                    {() => <TextField
+                                                                label="Telefone Secundário:" 
+                                                                name = "patientSecondaryPhone"
+                                                                type="text"
+                                                    />}
+                                                </InputMask>
+                                            </div>
+
+                                            <div className="modal--split-one">
+                                                <div className="modal--split-datetime">
+                                                    <KeyboardDatePicker
+                                                        disableToolbar
+                                                        variant="inline"
+                                                        format="DD/MM/YYYY"
+                                                        margin="normal"
+                                                        label="Início do Tratamento:"
+                                                        value={ this.state.patientInitialTreatment }
+                                                        autoOk = { true }
+                                                        onChange={(e) => this.changeSimpleDate("patientInitialTreatment", e) }
+                                                        KeyboardButtonProps={{
+                                                            'aria-label': 'change date',
+                                                        }}
+                                                    />
+                                                </div>
+                                            </div>
+
+                                            <div className="modal--split-one">
+                                                <div className="modal--split-children">
+                                                    <InputLabel htmlFor="checkbox--civilStatus">Status Civil:</InputLabel>
+                                                    <Select
+                                                        labelId="checkbox--civilStatus"
+                                                        value = { this.state.patientCivilStatus }
+                                                        name = "patientCivilStatus"
+                                                        onChange={ this.changeSimpleValue }
+                                                        onFocus = { this.insertFillLabel }
+                                                        onBlur = {(e) => this.removeFillLabel(e) }
+                                                        input={ <Input /> }
+                                                    >
+                                                        { this.state.civilStatusList.map((civilStatusItem) => (
+                                                            <MenuItem key={ civilStatusItem.name } value={ civilStatusItem.id }>
+                                                                <ListItemText primary={ civilStatusItem.name } />
+                                                            </MenuItem>
+                                                        ))}
+                                                    </Select>
+                                                </div>
+                                            </div> 
+                                        </div>
                                     </div>
                                 </MuiPickersUtilsProvider>
                             </form>
