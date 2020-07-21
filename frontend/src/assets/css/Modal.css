@@ -6,7 +6,7 @@
     border-radius: 10px;
     max-width: none !important;
     background-color: #fbfbfb !important;
-    padding: 25px !important;
+    padding: 30px !important;
 }
 .react-responsive-modal-modal h1{
     font-family: 'Averta Extra Bold';
@@ -31,8 +31,8 @@
     border-radius: 6px;
 }
 .react-responsive-modal-closeButton{
-    right: 18px !important;
-    top: 25px !important;
+    right: 35px !important;
+    top: 35px !important;
     height: 35px;
     width: 35px;
     cursor: pointer;
@@ -379,7 +379,7 @@ select:-webkit-autofill:focus {
     font-family: 'Averta Extra Bold';
     font-size: 20px;
     position: absolute;
-    margin-top: 8px;
+    margin-top: 0px;
     margin-left: 10px;
 }
 .container--content-news .MuiListItem-button:hover .MuiCheckbox-root{

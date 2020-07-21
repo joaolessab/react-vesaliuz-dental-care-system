@@ -1359,6 +1359,7 @@ class Patients extends React.Component{
                                                 value = { this.state.patientName }
                                                 name = "patientName"
                                                 onChange={ this.changeSimpleValue } 
+                                                required
                                             />
                                         </div>
 
