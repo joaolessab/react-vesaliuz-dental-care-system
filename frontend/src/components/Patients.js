@@ -1446,17 +1446,32 @@ class Patients extends React.Component{
                                 <MuiPickersUtilsProvider libInstance={ moment } utils={ MomentUtils } locale={ momentLocale }>
                                     
                                     <div className="modal--pic-row">
-                                        <input className="input--picture" type='file' value={ this.state.profile_pic } 
-                                        onChange={this.changePicture} />
-                                            {this.state.src && (
-                                                <ReactCrop
-                                                    src={this.state.src}
-                                                    crop={this.state.crop}
-                                                    onImageLoaded={this.onPictureLoad}
-                                                    onComplete={this.onCropComplete}
-                                                    onChange={this.onCropChange}
-                                                />
-                                            )}
+                                        <div className="div--pic-upbutton">
+                                            <input 
+                                                className="input--picture" 
+                                                type='file' 
+                                                value={ this.state.profile_pic }                                         
+                                                onChange={this.changePicture} 
+                                            />
+                                        </div>
+
+                                        <div className="div--pic-text">
+                                            <h1>Seu paciente precisa de uma foto!</h1>
+                                            <p>Clique na imagem para alterar</p>
+                                            <div className="div--point-left"></div>
+                                        </div>
+                                    </div>
+
+                                    <div className="modal--pic-row">
+                                        {this.state.src && (
+                                            <ReactCrop
+                                                src={this.state.src}
+                                                crop={this.state.crop}
+                                                onImageLoaded={this.onPictureLoad}
+                                                onComplete={this.onCropComplete}
+                                                onChange={this.onCropChange}
+                                            />
+                                        )}
                                         <button onClick={this.sendPicture}>Teste</button>
                                     </div>
 
