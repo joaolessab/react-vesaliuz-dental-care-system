@@ -62,7 +62,7 @@ class Patients extends React.Component{
             src: null,
             crop: {
                 unit: "%",
-                width: 30,
+                width: 60,
                 aspect: 1 / 1
             },
             croppedImageUrl: null,
@@ -470,15 +470,6 @@ class Patients extends React.Component{
                 }
             ],
             patientIdSelected: null,
-            patientPicture: {
-                src: null,
-                crop: {
-                    unit: "%",
-                    width: 30,
-                    aspect: 1 / 1
-                },
-                croppedImageUrl: null
-            },
             patientName: "",
             patientBirthday: "",
             genreList: [
@@ -1445,36 +1436,57 @@ class Patients extends React.Component{
                             <form className={classes.root} noValidate autoComplete="off">
                                 <MuiPickersUtilsProvider libInstance={ moment } utils={ MomentUtils } locale={ momentLocale }>
                                     
-                                    <div className="modal--pic-row">
-                                        <div className="div--pic-upbutton">
-                                            <input 
-                                                className="input--picture" 
-                                                type='file' 
-                                                value={ this.state.profile_pic }                                         
-                                                onChange={this.changePicture} 
-                                            />
+                                    {/* Foto do Paciente */}
+                                    { this.state.src === null ?
+                                        <div className="modal--pic-row">
+                                            <div className="div--pic-upbutton">
+                                                <input 
+                                                    className="input--picture" 
+                                                    type='file' 
+                                                    value={ this.state.profile_pic }                                         
+                                                    onChange={this.changePicture} 
+                                                />
+                                            </div>
+
+                                            <div className="div--pic-text patient-pic--textneed">
+                                                <h1>Seu paciente precisa de uma foto!</h1>
+                                                <p>Clique na imagem para alterar</p>
+                                                <div className="div--point-left"></div>
+                                            </div>
+                                        </div>
+                                    :
+                                        <div className="modal--pic-row">
+                                        <div className="div--pic-upbutton patient-pic--cropexib">
+                                            {this.state.src && (
+                                                <ReactCrop
+                                                    src={this.state.src}
+                                                    crop={this.state.crop}
+                                                    onImageLoaded={this.onPictureLoad}
+                                                    onComplete={this.onCropComplete}
+                                                    onChange={this.onCropChange}
+                                                />
+                                            )}
                                         </div>
 
                                         <div className="div--pic-text">
-                                            <h1>Seu paciente precisa de uma foto!</h1>
-                                            <p>Clique na imagem para alterar</p>
-                                            <div className="div--point-left"></div>
+                                            <input 
+                                                className="input--picture-changer" 
+                                                type='file' 
+                                                value={ this.state.profile_pic }                                         
+                                                onChange={this.changePicture} 
+                                            />                                        
                                         </div>
-                                    </div>
 
-                                    <div className="modal--pic-row">
-                                        {this.state.src && (
-                                            <ReactCrop
-                                                src={this.state.src}
-                                                crop={this.state.crop}
-                                                onImageLoaded={this.onPictureLoad}
-                                                onComplete={this.onCropComplete}
-                                                onChange={this.onCropChange}
-                                            />
-                                        )}
-                                        <button onClick={this.sendPicture}>Teste</button>
+                                        <div className="div--pic-text">
+                                            <div className="div--patient-likedpic" onClick={this.sendPicture}>
+                                                <h1>Gostou?</h1>
+                                                <p className="div-pic-text-paragraphbtn">Clique aqui para<br/>salvar a foto</p>                                                             
+                                            </div>
+                                        </div>                                        
                                     </div>
+                                    }
 
+                                    {/* Dados do Paciente */}
                                     <div className="modal--text-row">
                                         <div className="modal--split-columnar">
                                             <div className="modal--split-one">

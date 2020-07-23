@@ -381,6 +381,7 @@
     flex: 1;
     flex-direction: row;
     width: 100% !important;
+    margin-top: -2px !important;
 }
 .modal--pic-row{    
     margin: 0 !important;
@@ -397,14 +398,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 30px;
 }
 .modal--pic-row .div--pic-text{
     flex: 1 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 30px;
     text-align: center;
     flex-direction: column;
 }
@@ -416,8 +415,8 @@
     background-color: #2386fd;
     color: transparent;
     height: 150px;
-    width: 150px;
-    border-radius: 100px;
+    width: 155px;
+    border-radius: 20px;
     cursor: pointer;
     box-shadow: 0px 1px 2px 0px #2386fd4d !important;
     border: 1.5px solid #ffffffbf !important;
@@ -445,4 +444,62 @@
     position: absolute;
     margin-top: 60px;
     margin-left: -350px;
+}
+.modal--pic-row .input--picture-changer{
+    color: white;
+    height: 150px;
+    width: 155px;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: #2386fd;
+    box-shadow: 0px 1px 2px 0px #2386fd4d !important;
+    border: 1.5px solid #ffffffbf !important;
+}
+.modal--pic-row .input--picture-changer::-webkit-file-upload-button {
+    visibility: hidden;
+}
+.modal--pic-row .input--picture-changer::after {
+    content: "Clique aqui para \A alterar a foto";
+    display: inline-block;
+    outline: none;
+    white-space: pre-wrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    text-align: center;
+    font-size: 14px;
+    font-family: 'Averta';
+}
+.modal--pic-row .input--picture-changer::before {
+    content: "Não gostou?";
+    font-size: 20px;
+    margin: 0px !important;
+    font-family: 'Averta Extra Bold';
+    display: inline-block;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    padding-top: 25px;
+}
+.div-pic-text-paragraphbtn{
+    margin-top: 20px;
+}
+.div--patient-likedpic{
+    color: white;
+    height: 150px;
+    width: 155px;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: #2386fd;
+    box-shadow: 0px 1px 2px 0px #2386fd4d !important;
+    border: 1.5px solid #ffffffbf !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.patient-pic--textneed{
+    margin-left: 20px;
+}
+.patient-pic--cropexib{
+    flex: 1;
 }

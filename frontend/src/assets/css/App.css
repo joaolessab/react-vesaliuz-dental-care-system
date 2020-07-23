@@ -207,3 +207,13 @@ input, select, textarea{
 .label--focused{
   color: #2386fd !important;
 }
+.ReactCrop{
+  border-radius: 20px;
+  box-shadow: 0px 1px 2px 0px #2386fd4d !important;
+  border: 1.5px solid #ffffffbf !important;  
+  height: 150px;
+  width: 155px;
+}
+.ReactCrop__crop-selection{
+  border-radius: 10px;
+}
