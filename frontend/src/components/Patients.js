@@ -65,8 +65,7 @@ class Patients extends React.Component{
                 width: 60,
                 aspect: 1 / 1
             },
-            croppedImageUrl: null,
-
+            srcWasCropped: false,
 
             patientCrudVisibility: false,
             patientCrudMode: "insert",
@@ -1066,6 +1065,11 @@ class Patients extends React.Component{
 
         /* Patient General Info*/
         this.setState({
+            crop: {
+                unit: "%",
+                width: 60,
+                aspect: 1 / 1
+            },
             patientIdSelected: this.getPatientGeneralInfo(patientInfo, "id"),
             patientName: this.getPatientGeneralInfo(patientInfo, "name"),
             patientBirthday: this.getPatientGeneralInfo(patientInfo, "birthday"),
@@ -1098,6 +1102,20 @@ class Patients extends React.Component{
             patientCrudView: "dados_gerais",
             patientCrudVisibility: true
         });
+
+        /* Picture */
+        if (mode === "insert"){
+            this.setState({
+                src: null,
+                srcWasCropped: false
+            });
+        }
+        else{
+            this.setState({
+                src: null,
+                srcWasCropped: true
+            });
+        }
 
         /* Is Anamnese */
         if (IsAnamnseSectionMode)
@@ -1282,77 +1300,93 @@ class Patients extends React.Component{
         }
     };
 
-    /* File Image */
-    changePicture = (e) => {
-        const fileReader = new FileReader()
-        fileReader.onloadend = () => {
-            this.setState({src: fileReader.result })
+    /* PATIENT PICTURE */
+    onSelectFile = (e) => {
+        if (e.target.files && e.target.files.length > 0) {
+            const reader = new FileReader();
+            reader.addEventListener('load', () =>
+                this.setState({ 
+                    src: reader.result,
+                    crop: {
+                        unit: "%",
+                        width: 60,
+                        aspect: 1 / 1
+                    },
+                    srcWasCropped: false
+                })
+            );
+            reader.readAsDataURL(e.target.files[0]);
         }
-        fileReader.readAsDataURL(e.target.files[0])
     };
 
-    sendPicture = (e) => {
-        e.preventDefault();        
-        var teste = this.state.croppedImage;
-        debugger
+    onImageLoaded = (image) => {
+        this.imageRef = image;
     };
 
-    onPictureLoad = (image) => {
-        this.imageRef = image
+    onCropComplete = () => {
+        var crop = this.state.crop;
+        this.makeClientCrop(crop);
     };
-    
+
     onCropChange = (crop) => {
-        this.setState({ crop });
+        if (this.state.crop.saved != true)
+            this.setState({ crop });
     };
-    
-    onCropComplete = (crop) => {
+
+    async makeClientCrop(crop) {
         if (this.imageRef && crop.width && crop.height) {
-            const croppedImageUrl = this.getCroppedImg(this.imageRef, crop)
-            this.setState({ croppedImageUrl })
+            const croppedImageUrl = await this.getCroppedImg(
+                this.imageRef,
+                crop,
+                'newFile.jpeg'
+            );
+
+            this.setState({ 
+                src: croppedImageUrl,
+                crop: {
+                    unit: "%",
+                    width: 60,
+                    aspect: 1 / 1,
+                    saved: true
+                },
+                srcWasCropped: true
+            });
         }
     };
-    
-    getCroppedImg(image, crop) {
-        const canvas = document.createElement("canvas");
+
+    getCroppedImg(image, crop, fileName) {
+        const canvas = document.createElement('canvas');
         const scaleX = image.naturalWidth / image.width;
         const scaleY = image.naturalHeight / image.height;
         canvas.width = crop.width;
         canvas.height = crop.height;
-        const ctx = canvas.getContext("2d");
-        
+        const ctx = canvas.getContext('2d');
+        ctx.imageSmoothingQuality = "high";
         ctx.drawImage(
-            image,
-            crop.x * scaleX,
-            crop.y * scaleY,
-            crop.width * scaleX,
-            crop.height * scaleY,
-            0,
-            0,
-            crop.width,
-            crop.height
-         )
-    
-        const reader = new FileReader()
-        canvas.toBlob(blob => {
-            reader.readAsDataURL(blob)
-            reader.onloadend = () => {
-                this.dataURLtoFile(reader.result, 'cropped.jpg')
-            }
-        })
-    };
-
-    dataURLtoFile(dataurl, filename) {
-        let arr = dataurl.split(','),
-            mime = arr[0].match(/:(.*?);/)[1],
-            bstr = atob(arr[1]), 
-            n = bstr.length, 
-            u8arr = new Uint8Array(n);
-                
-        while(n--){
-            u8arr[n] = bstr.charCodeAt(n);
-        }
-        let croppedImage = new File([u8arr], filename, {type:mime});
-        this.setState({croppedImage: croppedImage }) 
+          image,
+          crop.x * scaleX,
+          crop.y * scaleY,
+          crop.width * scaleX,
+          crop.height * scaleY,
+          0,
+          0,
+          crop.width,
+          crop.height
+        );
+        
+        return new Promise((resolve, reject) => {
+            canvas.toBlob(blob => {
+                if (!blob) {
+                    //reject(new Error('Canvas is empty'));
+                    console.error('Canvas is empty');
+                    return;
+              }
+                blob.name = fileName;
+                window.URL.revokeObjectURL(this.fileUrl);
+                this.fileUrl = window.URL.createObjectURL(blob);
+                resolve(this.fileUrl);
+            }, 'image/jpeg');
+        });
     };
 
     // ================ RENDERIZAÇÃO DO CONTEÚDO HTML ===============
@@ -1443,8 +1477,8 @@ class Patients extends React.Component{
                                                 <input 
                                                     className="input--picture" 
                                                     type='file' 
-                                                    value={ this.state.profile_pic }                                         
-                                                    onChange={this.changePicture} 
+                                                    accept="image/*"                                       
+                                                    onChange={this.onSelectFile} 
                                                 />
                                             </div>
 
@@ -1461,28 +1495,37 @@ class Patients extends React.Component{
                                                 <ReactCrop
                                                     src={this.state.src}
                                                     crop={this.state.crop}
-                                                    onImageLoaded={this.onPictureLoad}
-                                                    onComplete={this.onCropComplete}
+                                                    ruleOfThirds
+                                                    onImageLoaded={this.onImageLoaded}
+                                                    // onComplete={this.onCropComplete}
                                                     onChange={this.onCropChange}
                                                 />
                                             )}
                                         </div>
-
+                                        
                                         <div className="div--pic-text">
-                                            <input 
-                                                className="input--picture-changer" 
-                                                type='file' 
-                                                value={ this.state.profile_pic }                                         
-                                                onChange={this.changePicture} 
-                                            />                                        
+                                            {/* Foto do Paciente */}
+                                            { this.state.srcWasCropped === true ?
+                                                <div className="div--patient-croppedpic" onClick={this.onCropComplete}>
+                                                    <h1>Pronto!</h1>
+                                                    <p className="div-pic-text-paragraphbtn">Foto<br/>selecionada</p>                                                           
+                                                </div>
+                                            :
+                                                <div className="div--patient-likedpic" onClick={this.onCropComplete}>
+                                                    <h1>Gostou?</h1>
+                                                    <p className="div-pic-text-paragraphbtn">Clique aqui para<br/>cortar a foto</p>                                                           
+                                                </div>
+                                            }
                                         </div>
 
                                         <div className="div--pic-text">
-                                            <div className="div--patient-likedpic" onClick={this.sendPicture}>
-                                                <h1>Gostou?</h1>
-                                                <p className="div-pic-text-paragraphbtn">Clique aqui para<br/>salvar a foto</p>                                                             
-                                            </div>
-                                        </div>                                        
+                                            <input
+                                                className="input--picture-changer" 
+                                                type='file' 
+                                                accept="image/*"                                       
+                                                onChange={this.onSelectFile} 
+                                            />                                        
+                                        </div>                                                                              
                                     </div>
                                     }
 

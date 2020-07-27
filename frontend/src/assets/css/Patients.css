@@ -124,7 +124,7 @@
     color: transparent;
 }
 .button--card-anamnese{
-    background-color: #ff4444 !important;
+    background-color: #D21F3C !important;
     border-radius: 10px !important;
     min-height: 50px;
     max-height: 50px;
@@ -305,7 +305,7 @@
     display: flex;
 }
 .div--anamneseinfo-toolbar .section--label .success{
-    background-color: #47d88e;
+    background-color: #49b064;
     color: white;
     border-radius: 20px;
     height: 30px;
@@ -395,12 +395,13 @@
     display: flex;
 }
 .modal--pic-row .div--pic-upbutton{
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .modal--pic-row .div--pic-text{
-    flex: 1 1;
+    flex: 2;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -414,14 +415,14 @@
 .modal--pic-row .input--picture{
     background-color: #2386fd;
     color: transparent;
-    height: 150px;
-    width: 155px;
+    height: 120px;
+    width: 125px;
     border-radius: 20px;
     cursor: pointer;
     box-shadow: 0px 1px 2px 0px #2386fd4d !important;
     border: 1.5px solid #ffffffbf !important;
     transition: 0.2s !important;
-    background-position: 8px;
+    background-position: -4px;
     background-size: 135px;
     background-repeat: no-repeat;
     background-image: url("../icons/superhero-teeth.svg");     
@@ -447,11 +448,11 @@
 }
 .modal--pic-row .input--picture-changer{
     color: white;
-    height: 150px;
-    width: 155px;
+    height: 120px;
+    width: 125px;
     border-radius: 20px;
     cursor: pointer;
-    background-color: #2386fd;
+    background-color: #D21F3C;
     box-shadow: 0px 1px 2px 0px #2386fd4d !important;
     border: 1.5px solid #ffffffbf !important;
 }
@@ -459,7 +460,7 @@
     visibility: hidden;
 }
 .modal--pic-row .input--picture-changer::after {
-    content: "Clique aqui para \A alterar a foto";
+    content: "Clique \A para alterar";
     display: inline-block;
     outline: none;
     white-space: pre-wrap;
@@ -468,25 +469,27 @@
     text-align: center;
     font-size: 14px;
     font-family: 'Averta';
+    padding-left: 4px;
 }
 .modal--pic-row .input--picture-changer::before {
     content: "Não gostou?";
     font-size: 20px;
-    margin: 0px !important;
+    margin: -14px !important;
+    margin-top: 0px !important;
     font-family: 'Averta Extra Bold';
     display: inline-block;
     outline: none;
     white-space: nowrap;
     -webkit-user-select: none;
-    padding-top: 25px;
+    padding-top: 10px;
 }
 .div-pic-text-paragraphbtn{
     margin-top: 20px;
 }
 .div--patient-likedpic{
     color: white;
-    height: 150px;
-    width: 155px;
+    height: 120px;
+    width: 125px;
     border-radius: 20px;
     cursor: pointer;
     background-color: #2386fd;
@@ -501,5 +504,19 @@
     margin-left: 20px;
 }
 .patient-pic--cropexib{
-    flex: 1;
+    flex: 2 !important;
+}
+.div--patient-croppedpic{
+    color: white;
+    height: 120px;
+    width: 125px;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: #49b064;
+    box-shadow: 0px 1px 2px 0px #2386fd4d !important;
+    border: 1.5px solid #ffffffbf !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
