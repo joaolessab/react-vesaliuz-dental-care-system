@@ -503,9 +503,6 @@
 .patient-pic--textneed{
     margin-left: 20px;
 }
-.patient-pic--cropexib{
-    flex: 2 !important;
-}
 .div--patient-croppedpic{
     color: white;
     height: 120px;

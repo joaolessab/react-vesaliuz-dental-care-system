@@ -27,14 +27,12 @@ import SkipNextIcon from '@material-ui/icons/SkipNext';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import ReactCrop from 'react-image-crop';
 
 // ================ ESTILOS ===============
 
 import '../assets/css/Patients.css';
 import '../assets/css/Animations/Patients--Animations.css';
 import '../assets/css/Responsive/Patients--Reponsive.css';
-import 'react-image-crop/dist/ReactCrop.css';
 
 // ================ PHOTOS ===============
 
@@ -42,6 +40,24 @@ import clarkPhoto from '../assets/images/patients/clark.jpg';
 import dianaPhoto from '../assets/images/patients/diana.jpg';
 import oliverPhoto from '../assets/images/patients/oliver.jpg';
 import brucePhoto from '../assets/images/patients/bruce.jpg';
+
+// ================ JS UTILS ===============
+import { image64toCanvasRef } from '../assets/js/ResuableUtils';
+
+// ================ REACT EASY CROP ===============
+import Cropper from 'react-easy-crop';
+import Typography from '@material-ui/core/Typography';
+import { getOrientation } from 'get-orientation/browser';
+import Slider from '@material-ui/core/Slider';
+import ImgDialog from '../assets/external_libs/react-easy-copy/ImgDialog';
+import { getCroppedImg, getRotatedImage } from '../assets/external_libs/react-easy-copy/canvasUtils';
+import { styles } from '../assets/external_libs/react-easy-copy/styles';
+
+const ORIENTATION_TO_ANGLE = {
+    '3': 180,
+    '6': 90,
+    '8': -90,
+};
 
 const momentLocale = moment.locale('pt-br');
 
@@ -58,15 +74,9 @@ class Patients extends React.Component{
     constructor(props){
         super(props);
 
-        this.state = {
-            src: null,
-            crop: {
-                unit: "%",
-                width: 60,
-                aspect: 1 / 1
-            },
-            srcWasCropped: false,
+        this.imagePreviewCanvasRef = React.createRef(); // Importante
 
+        this.state = {
             patientCrudVisibility: false,
             patientCrudMode: "insert",
             patientCrudView: "dados_gerais",
@@ -532,6 +542,7 @@ class Patients extends React.Component{
             telephoneSecondaryMask: "(99) 9999-9999",
             patientDocumentMask: "999.999.999-99",
 
+            /* ANAMNESE */
             anamneseSections:   [
                                     { 
                                         id: 1, label: "Seção 1", optional: false, questions:
@@ -853,7 +864,16 @@ class Patients extends React.Component{
                                                                                                 ]
                                     }
                                 ],
-            anamnseSectionActive: 1
+            anamnseSectionActive: 1,
+
+            /* PROFILE PIC: REACT EASY CROP */
+            imgSrc: null,
+            crop: { x: 0, y: 0 },
+            rotation: 0,
+            zoom: 1,
+            croppedAreaPixels: null,
+            croppedImage: null,
+            aspect: 4 / 3
         };
     };
 
@@ -1065,11 +1085,6 @@ class Patients extends React.Component{
 
         /* Patient General Info*/
         this.setState({
-            crop: {
-                unit: "%",
-                width: 60,
-                aspect: 1 / 1
-            },
             patientIdSelected: this.getPatientGeneralInfo(patientInfo, "id"),
             patientName: this.getPatientGeneralInfo(patientInfo, "name"),
             patientBirthday: this.getPatientGeneralInfo(patientInfo, "birthday"),
@@ -1102,20 +1117,6 @@ class Patients extends React.Component{
             patientCrudView: "dados_gerais",
             patientCrudVisibility: true
         });
-
-        /* Picture */
-        if (mode === "insert"){
-            this.setState({
-                src: null,
-                srcWasCropped: false
-            });
-        }
-        else{
-            this.setState({
-                src: null,
-                srcWasCropped: true
-            });
-        }
 
         /* Is Anamnese */
         if (IsAnamnseSectionMode)
@@ -1300,97 +1301,53 @@ class Patients extends React.Component{
         }
     };
 
-    /* PATIENT PICTURE */
-    onSelectFile = (e) => {
+    /* PROFILE PIC: REACT EASY CROP */
+    onFileChange = async e => {
         if (e.target.files && e.target.files.length > 0) {
-            const reader = new FileReader();
-            reader.addEventListener('load', () =>
-                this.setState({ 
-                    src: reader.result,
-                    crop: {
-                        unit: "%",
-                        width: 60,
-                        aspect: 1 / 1
-                    },
-                    srcWasCropped: false
-                })
-            );
-            reader.readAsDataURL(e.target.files[0]);
-        }
-    };
-
-    onImageLoaded = (image) => {
-        this.imageRef = image;
-    };
-
-    onCropComplete = () => {
-        var crop = this.state.crop;
-        this.makeClientCrop(crop);
-    };
-
-    onCropChange = (crop) => {
-        if (this.state.crop.saved != true)
-            this.setState({ crop });
-    };
-
-    async makeClientCrop(crop) {
-        if (this.imageRef && crop.width && crop.height) {
-            const croppedImageUrl = await this.getCroppedImg(
-                this.imageRef,
-                crop,
-                'newFile.jpeg'
-            );
-
-            this.setState({ 
-                src: croppedImageUrl,
-                crop: {
-                    unit: "%",
-                    width: 60,
-                    aspect: 1 / 1,
-                    saved: true
-                },
-                srcWasCropped: true
+            const file = e.target.files[0];
+            let imageDataUrl = await this.readFile(file);
+    
+            // apply rotation if needed
+            const orientation = await getOrientation(file);
+            const rotation = ORIENTATION_TO_ANGLE[orientation];
+            if (rotation) {
+                imageDataUrl = await getRotatedImage(imageDataUrl, rotation)
+            }
+    
+            this.setState({
+                imgSrc: imageDataUrl,
+                patientCrudView: "crop"
             });
         }
     };
 
-    getCroppedImg(image, crop, fileName) {
-        const canvas = document.createElement('canvas');
-        const scaleX = image.naturalWidth / image.width;
-        const scaleY = image.naturalHeight / image.height;
-        canvas.width = crop.width;
-        canvas.height = crop.height;
-        const ctx = canvas.getContext('2d');
-        ctx.imageSmoothingQuality = "high";
-        ctx.drawImage(
-          image,
-          crop.x * scaleX,
-          crop.y * scaleY,
-          crop.width * scaleX,
-          crop.height * scaleY,
-          0,
-          0,
-          crop.width,
-          crop.height
-        );
-        
-        return new Promise((resolve, reject) => {
-            canvas.toBlob(blob => {
-                if (!blob) {
-                    //reject(new Error('Canvas is empty'));
-                    console.error('Canvas is empty');
-                    return;
-              }
-                blob.name = fileName;
-                window.URL.revokeObjectURL(this.fileUrl);
-                this.fileUrl = window.URL.createObjectURL(blob);
-                resolve(this.fileUrl);
-            }, 'image/jpeg');
+    readFile(file) {
+        return new Promise(resolve => {
+            const reader = new FileReader()
+            reader.addEventListener('load', () => resolve(reader.result), false)
+            reader.readAsDataURL(file)
         });
     };
 
-    // ================ RENDERIZAÇÃO DO CONTEÚDO HTML ===============
+    setCrop = crop => {
+        this.setState({ crop })
+    };
+
+    setRotation = rotation => {
+        debugger
+        this.setState({ rotation })
+    };
+
+    onCropComplete = (croppedArea, croppedAreaPixels) => {
+        debugger
+        console.log(croppedArea, croppedAreaPixels)
+    };
+
+    setZoom = zoom => {
+        this.setState({ zoom })
+    };
     
+    // ================ RENDERIZAÇÃO DO CONTEÚDO HTML ===============
     render(){
         const { classes } = this.props;
 
@@ -1460,8 +1417,7 @@ class Patients extends React.Component{
                         <Button className="icon--exams"><span>Exames</span></Button>
                         <Button className="icon--procedure"><span>Tratamentos</span></Button>
                     </div>
-                    
-                    
+                                        
                     {/* Dados Gerais */}
                     { this.state.patientCrudView === "dados_gerais" ?
                         <div className="div--modalPatient-body">
@@ -1471,15 +1427,15 @@ class Patients extends React.Component{
                                 <MuiPickersUtilsProvider libInstance={ moment } utils={ MomentUtils } locale={ momentLocale }>
                                     
                                     {/* Foto do Paciente */}
-                                    { this.state.src === null ?
+                                    { this.state.imgSrc === null ?
                                         <div className="modal--pic-row">
                                             <div className="div--pic-upbutton">
                                                 <input 
                                                     className="input--picture" 
                                                     type='file' 
                                                     accept="image/*"                                       
-                                                    onChange={this.onSelectFile} 
-                                                />
+                                                    onChange={this.onFileChange} 
+                                                />                                                
                                             </div>
 
                                             <div className="div--pic-text patient-pic--textneed">
@@ -1490,28 +1446,16 @@ class Patients extends React.Component{
                                         </div>
                                     :
                                         <div className="modal--pic-row">
-                                        <div className="div--pic-upbutton patient-pic--cropexib">
-                                            {this.state.src && (
-                                                <ReactCrop
-                                                    src={this.state.src}
-                                                    crop={this.state.crop}
-                                                    ruleOfThirds
-                                                    onImageLoaded={this.onImageLoaded}
-                                                    // onComplete={this.onCropComplete}
-                                                    onChange={this.onCropChange}
-                                                />
-                                            )}
-                                        </div>
                                         
                                         <div className="div--pic-text">
                                             {/* Foto do Paciente */}
-                                            { this.state.srcWasCropped === true ?
-                                                <div className="div--patient-croppedpic" onClick={this.onCropComplete}>
+                                            { 1 === 0 ?
+                                                <div className="div--patient-croppedpic">
                                                     <h1>Pronto!</h1>
                                                     <p className="div-pic-text-paragraphbtn">Foto<br/>selecionada</p>                                                           
                                                 </div>
                                             :
-                                                <div className="div--patient-likedpic" onClick={this.onCropComplete}>
+                                                <div className="div--patient-likedpic">
                                                     <h1>Gostou?</h1>
                                                     <p className="div-pic-text-paragraphbtn">Clique aqui para<br/>cortar a foto</p>                                                           
                                                 </div>
@@ -1732,8 +1676,7 @@ class Patients extends React.Component{
                         </div>
                     </div>             
                     : null }
-                    
-                    
+                                        
                     {/* Anamnese */}
                     { this.state.patientCrudView === "anamnese" ?
                         <div className="div--modalAnamnese-body">
@@ -1871,6 +1814,63 @@ class Patients extends React.Component{
                         </div>
                     : null }
 
+                    {/* Profile Pic */}
+                    { this.state.patientCrudView === "crop" ?
+                        <div className="div--modalAnamnese-body">
+                            <div>
+                                <p className="modal--title-divisor">Edição de Foto do usuário</p>
+                            </div>
+                            <div className="div--patients-anamneseinfo">
+                                <div className="crop-container">
+                                    <Cropper
+                                        image={this.state.imgSrc}
+                                        crop={this.state.crop}                                        
+                                        rotation={this.state.rotation}
+                                        zoom={this.state.zoom}
+                                        aspect={4 / 3}
+                                        onCropChange={this.setCrop}
+                                        onRotationChange={this.setRotation}
+                                        onCropComplete={this.onCropComplete}
+                                        onZoomChange={this.setZoom}
+                                    />
+                                </div>
+                                <div className="controls">
+                                    <Typography
+                                        variant="overline"
+                                        classes={{ root: classes.sliderLabel }}
+                                    >
+                                        Zoom
+                                    </Typography>
+                                    <Slider
+                                        value={this.state.zoom}
+                                        min={1}
+                                        max={3}
+                                        step={0.1}
+                                        aria-labelledby="Zoom"
+                                        onChange={(e, zoom) => this.setZoom(zoom)}
+                                    />
+                                </div>
+                                <div className="controls">
+                                    <Typography
+                                        variant="overline"
+                                        classes={{ root: classes.sliderLabel }}
+                                    >
+                                        Rotation
+                                    </Typography>
+                                    <Slider
+                                        value={this.state.rotation}
+                                        min={0}
+                                        max={360}
+                                        step={1}
+                                        aria-labelledby="Rotation"
+                                        classes={{ container: classes.slider }}
+                                        onChange={(e, rotation) => this.setRotation(rotation)}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    : null }
+
                     {/* Bottom ToolBar */}
                     <div className="custom--modal-footer">
                         <div className="buttons--bar patients--component">
@@ -1894,7 +1894,7 @@ class Patients extends React.Component{
                             : null }
 
                             { this.state.patientCrudView === "anamnese" ?
-                                <Button className="anamnese blue" onClick = { this.goBackToGeneralData } >Dados Gerais</Button>
+                                <Button className="anamnese blue" onClick = { this.goBackToGeneralData }>Dados Gerais</Button>
                             : null }
 
                             <Button className="blue" onClick = { this.savePatient } >Salvar</Button>
