@@ -215,12 +215,37 @@
     flex: 1 1;
     margin-top: 40px;
 }
+.div--patients-profilepic{
+    display: flex;
+    height: 500px;
+    max-height: 500px;
+    width: 500px;
+    max-width: 500px;
+    flex-direction: column;
+}
+.div--patients-profilepic .crop-container{
+    flex-basis: 360px;
+}
+.div--patients-profilepic .crop-container .reactEasyCrop_Container{
+    margin-top: 140px;
+}
+
+.div--patients-profilepic .controls{
+    flex: 1;
+}
+.div--patients-profilepic .crop-container .reactEasyCrop_Container, .div--patients-profilepic .crop-container .reactEasyCrop_Image, .reactEasyCrop_CropArea{
+    max-height: 300px;
+}
+
 .div--patients-information{
     display: flex;
     flex-direction: column;
     min-width: 320px;
     margin-top: 12px;
     margin-bottom: 10px;
+    max-height: 515px;
+    overflow: hidden;
+    overflow-y: auto;
 }
 .div--patients-information .modal--split-columnar{
     padding-bottom: 8px;
@@ -401,12 +426,13 @@
     align-items: center;
 }
 .modal--pic-row .div--pic-text{
-    flex: 2;
+    flex: 2 1;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     flex-direction: column;
+    padding-top: 18px;
 }
 .modal--pic-row .div--pic-text h1{
     font-size: 20px;
@@ -443,77 +469,35 @@
     background-size: 105px;
     background-repeat: no-repeat;
     position: absolute;
-    margin-top: 60px;
+    margin-top: -17px;
     margin-left: -350px;
-}
-.modal--pic-row .input--picture-changer{
-    color: white;
-    height: 120px;
-    width: 125px;
-    border-radius: 20px;
-    cursor: pointer;
-    background-color: #D21F3C;
-    box-shadow: 0px 1px 2px 0px #2386fd4d !important;
-    border: 1.5px solid #ffffffbf !important;
-}
-.modal--pic-row .input--picture-changer::-webkit-file-upload-button {
-    visibility: hidden;
-}
-.modal--pic-row .input--picture-changer::after {
-    content: "Clique \A para alterar";
-    display: inline-block;
-    outline: none;
-    white-space: pre-wrap;
-    -webkit-user-select: none;
-    cursor: pointer;
-    text-align: center;
-    font-size: 14px;
-    font-family: 'Averta';
-    padding-left: 4px;
-}
-.modal--pic-row .input--picture-changer::before {
-    content: "Não gostou?";
-    font-size: 20px;
-    margin: -14px !important;
-    margin-top: 0px !important;
-    font-family: 'Averta Extra Bold';
-    display: inline-block;
-    outline: none;
-    white-space: nowrap;
-    -webkit-user-select: none;
-    padding-top: 10px;
-}
-.div-pic-text-paragraphbtn{
-    margin-top: 20px;
-}
-.div--patient-likedpic{
-    color: white;
-    height: 120px;
-    width: 125px;
-    border-radius: 20px;
-    cursor: pointer;
-    background-color: #2386fd;
-    box-shadow: 0px 1px 2px 0px #2386fd4d !important;
-    border: 1.5px solid #ffffffbf !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    position: relative;
 }
 .patient-pic--textneed{
     margin-left: 20px;
 }
-.div--patient-croppedpic{
-    color: white;
-    height: 120px;
-    width: 125px;
-    border-radius: 20px;
-    cursor: pointer;
-    background-color: #49b064;
+.custom--modal-footer .input--picture-changer{
+    cursor: pointer !important;
+    animation-duration: 1s !important;
     box-shadow: 0px 1px 2px 0px #2386fd4d !important;
-    border: 1.5px solid #ffffffbf !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    transition: 0.2s !important;
+    width: 118px !important;
+    font-family: 'Averta' !important;
+    text-transform: none;
+    border-radius: 10px;
+    height: 45px;
+    background-color: white !important;
+    color: #62696f !important;
+    border: 1px solid #b5b5b5 !important;
+    margin-right: 15px;    
+    padding-top: 13px;
+}
+.custom--modal-footer .input--picture-changer::-webkit-file-upload-button {
+    visibility: hidden;
+}
+.custom--modal-footer .input--picture-changer::before {
+    content: "Alterar foto";
+    font-size: 14px;
+    font-family: 'Averta';    
+    text-align: center;
 }

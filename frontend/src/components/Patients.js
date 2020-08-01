@@ -1334,17 +1334,27 @@ class Patients extends React.Component{
     };
 
     setRotation = rotation => {
-        debugger
         this.setState({ rotation })
     };
 
     onCropComplete = (croppedArea, croppedAreaPixels) => {
-        debugger
-        console.log(croppedArea, croppedAreaPixels)
+        this.setState({croppedAreaPixels: croppedAreaPixels});
     };
 
     setZoom = zoom => {
-        this.setState({ zoom })
+        this.setState({ zoom });
+    };
+
+    recordPatientPicture = async e => {
+        try {
+            const croppedImage = await getCroppedImg(this.state.imgSrc, this.state.croppedAreaPixels, this.state.rotation);
+            console.log('donee', { croppedImage });
+            debugger
+          } 
+        catch (e) {
+            debugger
+            console.error(e);
+        }
     };
     
     // ================ RENDERIZAÇÃO DO CONTEÚDO HTML ===============
@@ -1446,31 +1456,8 @@ class Patients extends React.Component{
                                         </div>
                                     :
                                         <div className="modal--pic-row">
-                                        
-                                        <div className="div--pic-text">
-                                            {/* Foto do Paciente */}
-                                            { 1 === 0 ?
-                                                <div className="div--patient-croppedpic">
-                                                    <h1>Pronto!</h1>
-                                                    <p className="div-pic-text-paragraphbtn">Foto<br/>selecionada</p>                                                           
-                                                </div>
-                                            :
-                                                <div className="div--patient-likedpic">
-                                                    <h1>Gostou?</h1>
-                                                    <p className="div-pic-text-paragraphbtn">Clique aqui para<br/>cortar a foto</p>                                                           
-                                                </div>
-                                            }
+                                            <p>AQUI VAI ENTRAR A FOTO INSERIDA</p>                                                                           
                                         </div>
-
-                                        <div className="div--pic-text">
-                                            <input
-                                                className="input--picture-changer" 
-                                                type='file' 
-                                                accept="image/*"                                       
-                                                onChange={this.onSelectFile} 
-                                            />                                        
-                                        </div>                                                                              
-                                    </div>
                                     }
 
                                     {/* Dados do Paciente */}
@@ -1820,7 +1807,7 @@ class Patients extends React.Component{
                             <div>
                                 <p className="modal--title-divisor">Edição de Foto do usuário</p>
                             </div>
-                            <div className="div--patients-anamneseinfo">
+                            <div className="div--patients-profilepic">
                                 <div className="crop-container">
                                     <Cropper
                                         image={this.state.imgSrc}
@@ -1855,7 +1842,7 @@ class Patients extends React.Component{
                                         variant="overline"
                                         classes={{ root: classes.sliderLabel }}
                                     >
-                                        Rotation
+                                        Girar
                                     </Typography>
                                     <Slider
                                         value={this.state.rotation}
@@ -1884,7 +1871,11 @@ class Patients extends React.Component{
                                 </Button>
                             : null }
 
-                            <Button className="white" onClick={ this.closePatientCrudModal }>Cancelar</Button>
+                            { this.state.patientCrudView !== "crop" ?
+                                <Button className="white" onClick={ this.closePatientCrudModal }>Cancelar</Button>
+                                :
+                                null
+                            }                            
                                 
                             { this.state.patientCrudView === "dados_gerais" ?
                                 <Button className="anamnese blue" onClick = { this.openAnamnseSectionMode } >
@@ -1897,7 +1888,26 @@ class Patients extends React.Component{
                                 <Button className="anamnese blue" onClick = { this.goBackToGeneralData }>Dados Gerais</Button>
                             : null }
 
-                            <Button className="blue" onClick = { this.savePatient } >Salvar</Button>
+                            { this.state.patientCrudView !== "crop" ?
+                                <Button className="blue" onClick = { this.savePatient } >Salvar</Button>
+                                :
+                                null
+                            }
+                            
+                            {/* Profile Picture */}
+                            { this.state.patientCrudView === "crop" ?
+                                <div style={{display: "flex"}}>
+                                    <input 
+                                            className="input--picture-changer"
+                                            type='file' 
+                                            accept="image/*"                                       
+                                            onChange={this.onFileChange}
+                                    />                       
+                                    <Button className="blue" onClick = { this.recordPatientPicture } >Gravar Foto</Button>
+                                </div>
+                                :
+                                null
+                            }
                         </div>
                     </div>  
                 </Modal>
