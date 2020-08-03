@@ -15,6 +15,7 @@ export function base64StringtoFile (base64String, filename) {
   // Download a Base64-encoded file
   
   export function downloadBase64File (base64Data, filename) {
+    debugger
     var element = document.createElement('a')
     element.setAttribute('href', base64Data)
     element.setAttribute('download', filename)

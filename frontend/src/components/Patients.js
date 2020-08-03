@@ -42,7 +42,11 @@ import oliverPhoto from '../assets/images/patients/oliver.jpg';
 import brucePhoto from '../assets/images/patients/bruce.jpg';
 
 // ================ JS UTILS ===============
-import { image64toCanvasRef } from '../assets/js/ResuableUtils';
+import { 
+    base64StringtoFile, 
+    downloadBase64File,
+    extractImageFileExtensionFromBase64 
+} from '../assets/external_libs/react-easy-copy/ResuableUtils';
 
 // ================ REACT EASY CROP ===============
 import Cropper from 'react-easy-crop';
@@ -1322,6 +1326,7 @@ class Patients extends React.Component{
     };
 
     readFile(file) {
+        console.log(file);
         return new Promise(resolve => {
             const reader = new FileReader()
             reader.addEventListener('load', () => resolve(reader.result), false)
@@ -1348,13 +1353,26 @@ class Patients extends React.Component{
     recordPatientPicture = async e => {
         try {
             const croppedImage = await getCroppedImg(this.state.imgSrc, this.state.croppedAreaPixels, this.state.rotation);
-            console.log('donee', { croppedImage });
-            debugger
-          } 
+            this.setState({ croppedImage: croppedImage }, function () {
+                this.downloadPatientPicture();
+            });            
+          }
         catch (e) {
             debugger
-            console.error(e);
+            //console.error(e);
         }
+    };
+
+    downloadPatientPicture = () => {
+        const fileExtension = extractImageFileExtensionFromBase64(this.state.croppedImage);
+        const myFilename = "previewFile." + fileExtension;
+        
+        // file to be uploaded
+        const myNewCroppedFile = base64StringtoFile(this.state.croppedImage, myFilename);
+        console.log(myNewCroppedFile);
+
+        // download file
+        downloadBase64File(this.state.croppedImage, myFilename);
     };
     
     // ================ RENDERIZAÇÃO DO CONTEÚDO HTML ===============
@@ -1853,6 +1871,7 @@ class Patients extends React.Component{
                                         classes={{ container: classes.slider }}
                                         onChange={(e, rotation) => this.setRotation(rotation)}
                                     />
+                                    <Button onClick={this.downloadPatientPicture} >Download</Button>
                                 </div>
                             </div>
                         </div>
