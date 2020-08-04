@@ -1209,8 +1209,8 @@ class Patients extends React.Component{
             .substring(1);
     };
 
-    getHashID = () => {
-        if (this.state.patientCrudMode === "insert"){
+    getHashID = (cropper) => {
+        if (this.state.patientCrudMode === "insert" || cropper === "cropper"){
             return this.generatePieceHashCode() + this.generatePieceHashCode()  + '_' + this.generatePieceHashCode() + '-' + this.generatePieceHashCode() + '-' + this.generatePieceHashCode() + this.generatePieceHashCode() +this.generatePieceHashCode();
         }
         else{
@@ -1319,13 +1319,14 @@ class Patients extends React.Component{
     
             this.setState({
                 imgSrc: imageDataUrl,
-                patientCrudView: "crop"
+                patientCrudView: "crop",
+                rotation: 0,
+                zoom: 1
             });
         }
     };
 
     readFile(file) {
-        console.log(file);
         return new Promise(resolve => {
             const reader = new FileReader()
             reader.addEventListener('load', () => resolve(reader.result), false)
@@ -1353,8 +1354,29 @@ class Patients extends React.Component{
         try {
             const croppedImage = await getCroppedImg(this.state.imgSrc, this.state.croppedAreaPixels, this.state.rotation);
             this.setState({ croppedImage: croppedImage }, function () {
-                this.downloadPatientPicture();
-            });            
+                
+                //Depois de setar o crop da Imagem
+                const fileExtension = extractImageFileExtensionFromBase64(this.state.croppedImage);
+                const myFilename = "previewFile." + fileExtension;
+
+                // Transforma o Cropped64 em arquivo
+                const myNewCroppedFile = base64StringtoFile(this.state.croppedImage, myFilename);
+                console.log("Novo arquivo: " + myNewCroppedFile);
+                
+                // Caso não haja patientId, gera um
+                if (this.state.patientIdSelected === null || this.state.patientIdSelected === ""){
+                    var newPatId = this.getHashID('cropper');
+                    this.setState({ patientIdSelected: newPatId });
+                }
+                debugger
+                // Seta a imagem ajustada para aquela usuario
+                localStorage.setItem("file", myNewCroppedFile);
+                localStorage.setItem("imagem64", this.state.croppedImage);
+
+                // Essa função faria o download
+                //downloadBase64File(this.state.croppedImage, myFilename);
+                
+            });
           }
         catch (e) {
             debugger
@@ -1362,16 +1384,10 @@ class Patients extends React.Component{
         }
     };
 
-    downloadPatientPicture = () => {
-        const fileExtension = extractImageFileExtensionFromBase64(this.state.croppedImage);
-        const myFilename = "previewFile." + fileExtension;
-        
-        // file to be uploaded
-        const myNewCroppedFile = base64StringtoFile(this.state.croppedImage, myFilename);
-        console.log(myNewCroppedFile);
-
-        // download file
-        downloadBase64File(this.state.croppedImage, myFilename);
+    tester = () => {
+        var oi = localStorage.getItem("file");
+        var tchau = localStorage.getItem("imagem64");
+        debugger
     };
     
     // ================ RENDERIZAÇÃO DO CONTEÚDO HTML ===============
@@ -1920,7 +1936,8 @@ class Patients extends React.Component{
                                             accept="image/*"                                       
                                             onChange={this.onFileChange}
                                     />                       
-                                    <Button className="blue" onClick = { this.recordPatientPicture } >Gravar Foto</Button>
+                                    <Button className="blue" onClick = { this.recordPatientPicture }>Gravar Foto</Button>
+                                    <Button onClick = {this.tester} >Tester</Button>
                                 </div>
                                 :
                                 null
