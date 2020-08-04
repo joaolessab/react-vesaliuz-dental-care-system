@@ -53,7 +53,6 @@ import Cropper from 'react-easy-crop';
 import Typography from '@material-ui/core/Typography';
 import { getOrientation } from 'get-orientation/browser';
 import Slider from '@material-ui/core/Slider';
-import ImgDialog from '../assets/external_libs/react-easy-copy/ImgDialog';
 import { getCroppedImg, getRotatedImage } from '../assets/external_libs/react-easy-copy/canvasUtils';
 import { styles } from '../assets/external_libs/react-easy-copy/styles';
 
@@ -1871,7 +1870,6 @@ class Patients extends React.Component{
                                         classes={{ container: classes.slider }}
                                         onChange={(e, rotation) => this.setRotation(rotation)}
                                     />
-                                    <Button onClick={this.downloadPatientPicture} >Download</Button>
                                 </div>
                             </div>
                         </div>

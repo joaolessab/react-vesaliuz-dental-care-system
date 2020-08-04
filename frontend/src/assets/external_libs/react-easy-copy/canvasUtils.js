@@ -54,6 +54,10 @@ export async function getCroppedImg(imageSrc, pixelCrop, rotation = 0) {
     Math.round(0 - safeArea / 2 + image.height * 0.5 - pixelCrop.y)
   )
 
+  /////////////////////////////////////////////////////////////
+  ///////// AQUI SERÁ ONDE SALVAREMOS NO BANCO OU NÃO /////////
+  ////////////////////////////////////////////////////////////
+
   // As Base64 string
   return canvas.toDataURL('image/jpeg');
 
