@@ -80,9 +80,12 @@ class Patients extends React.Component{
         this.imagePreviewCanvasRef = React.createRef(); // Importante
 
         this.state = {
+            /* MODAL */
             patientCrudVisibility: false,
             patientCrudMode: "insert",
             patientCrudView: "dados_gerais",
+
+            /* PATIENT LIST */
             patients: [
                 {
                     id: "e6929a98_2bc0-b29e-189b0cca7aae",
@@ -481,6 +484,8 @@ class Patients extends React.Component{
                     }
                 }
             ],
+
+            /* PATIENT INPUTS */
             patientIdSelected: null,
             patientName: "",
             patientBirthday: "",
@@ -541,6 +546,7 @@ class Patients extends React.Component{
             ],
             patientCivilStatus: 0,
 
+            /* MASKS */
             telephonePrimaryMask: "(99) 9999-9999",
             telephoneSecondaryMask: "(99) 9999-9999",
             patientDocumentMask: "999.999.999-99",
@@ -1084,6 +1090,150 @@ class Patients extends React.Component{
     };
 
     openCRUDPatientsModal = (mode, patientId, IsAnamnseSectionMode) => {
+        this.setState({
+            patientIdSelected: null,
+            patientName: "",
+            patientBirthday: "",
+            patientGenreValue: 0,
+            patientOccupation: "",
+            patientDocument: "",
+            patientAddress: "",
+            patientZipCode: "",
+            patientStateValue: 0,
+            patientCity: "",
+            patientEmail: "",
+            patientMainPhone: "",
+            patientSecondaryPhone: "",
+            patientInitialTreatment: moment().toDate(),
+            patientCivilStatus: 0
+        });
+        
+        /* Anamnese */
+        for (var s = 0; s < this.state.anamneseSections.length; s++){
+            for (var q = 0; q < this.state.anamneseSections[s].questions.length; q++){
+                var section = this.state.anamneseSections[s];
+                var question = section.questions[q];
+                //this.changeAnamneseQuestionAnswer(patientInfo, section.id, question); // descomentar essa linha
+                this.changeAnamneseQuestionAnswer(null, section.id, question); // comentar essa linha
+            }
+        }
+
+        /* Modal Options */
+        this.setState({
+            patientCrudMode: mode,
+            patientCrudView: "dados_gerais",
+            patientCrudVisibility: true
+        });
+
+        /* Is Anamnese */
+        if (IsAnamnseSectionMode)
+            this.openAnamnseSectionMode();
+    };
+
+    savePatient = () => {
+        /* MONTANDO PACIENTE */
+        var json = {
+            id: this.getHashID(),
+            photo: this.state.croppedImage,
+
+            name: this.state.patientName,
+            birthday: this.state.patientBirthday,
+            genre: this.state.patientGenreValue,
+            occupation: this.state.patientOccupation,
+            documentId: this.state.patientDocument,         
+            address: this.state.patientAddress,
+            zipcode: this.state.patientZipCode,
+            state: this.state.patientStateValue,
+            city: this.state.patientCity,                    
+            email: this.state.patientEmail,
+            mainPhone: this.state.patientMainPhone,
+            secondaryPhone: this.state.secondaryPhone,
+            initialTreatment: this.state.patientInitialTreatment,
+            civilStatus: this.state.patientCivilStatus,
+            anamnese: {
+                filled: this.checkFilledAnamneseForInput(),
+                sections: [
+                    {
+                        id: 1,
+                        questions: this.getPatientAnswerFromSection(1)
+                    },
+                    {
+                        id: 2,
+                        questions: this.getPatientAnswerFromSection(2)
+                    },
+                    {
+                        id: 3,
+                        questions: this.getPatientAnswerFromSection(3)
+                    },
+                    {
+                        id: 4,
+                        questions: this.getPatientAnswerFromSection(4)
+                    },
+                    {
+                        id: 5,
+                        questions: this.getPatientAnswerFromSection(5)
+                    }
+                ]
+            }
+        };
+
+        /* LENDO LISTA DE PACIENTES DO STORAGE */  
+        var newPatients = [];        
+        if (localStorage.getItem("patientsList") !== null){
+            newPatients = Object.assign([], JSON.parse(localStorage.getItem("patientsList")), {});
+        }
+
+        /* SALVANDO QUANDO FOR NOVO PACIENTE  */
+        if (this.state.patientCrudMode === "insert"){
+            debugger
+            newPatients.push(json);
+        }
+
+        /* PERSISTINDO NO LOCAL STORE E ATUALIZANDO ESTADO */
+        newPatients = JSON.stringify(newPatients);
+        localStorage.setItem("patientsList", newPatients);
+
+        /*this.setState({
+            patients: newPatients,
+            patientCrudVisibility: false
+        });*/
+
+        this.setState({
+            patientCrudVisibility: false
+        });
+
+        cogoToast.success('Paciente cadastrado.', { heading: 'Sucesso!', position: 'top-center', hideAfter: 3 });
+
+        /*
+        
+        // Salvando novo
+        if (this.state.patientCrudMode === "insert"){
+            newPatients.push(json);
+            this.setState({
+                patients: newPatients,
+                patientCrudVisibility: false
+            });
+
+            cogoToast.success('Paciente cadastrado.', { heading: 'Sucesso!', position: 'top-center', hideAfter: 3 });
+        }
+        // Editando existente
+        else if (this.state.patientCrudMode === "edit"){
+            for (var i = 0; i < newPatients.length; i++){
+                if (newPatients[i].id === this.state.patientIdSelected)
+                    newPatients[i] = json;
+            }
+
+            this.setState({
+                patients: newPatients,
+                patientCrudVisibility: false
+            });
+
+            cogoToast.success('Paciente editado.', { heading: 'Sucesso!', position: 'top-center', hideAfter: 3 });
+        }*/
+    };
+
+
+    openCRUDPatientsModal_ORIGINAL = (mode, patientId, IsAnamnseSectionMode) => {
         var patientInfo = this.findPatientInfo(patientId);
 
         /* Patient General Info*/
@@ -1230,7 +1380,7 @@ class Patients extends React.Component{
         return sectionWithAnswers;
     };
 
-    savePatient = () => {
+    savePatient_ORIGINAL = () => {
         var json = {
             id: this.getHashID(),
             photo: clarkPhoto,
@@ -1351,6 +1501,13 @@ class Patients extends React.Component{
     };
 
     recordPatientPicture = async e => {
+        const croppedImage = await getCroppedImg(this.state.imgSrc, this.state.croppedAreaPixels, this.state.rotation);
+        this.setState({ croppedImage: croppedImage }, function () {
+            this.setState({patientCrudView: "dados_gerais"});
+        });
+    };
+
+    recordPatientPicture_ORIGINAL = async e => {
         try {
             const croppedImage = await getCroppedImg(this.state.imgSrc, this.state.croppedAreaPixels, this.state.rotation);
             this.setState({ croppedImage: croppedImage }, function () {
