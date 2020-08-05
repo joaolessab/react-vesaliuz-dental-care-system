@@ -1366,28 +1366,25 @@ class Patients extends React.Component{
                 // Caso não haja patientId, gera um
                 if (this.state.patientIdSelected === null || this.state.patientIdSelected === ""){
                     var newPatId = this.getHashID('cropper');
-                    this.setState({ patientIdSelected: newPatId });
+                    this.setState({ patientIdSelected: newPatId }, function () {
+                        var pictureId = this.state.patientIdSelected + "%picture%";
+                        var pictureImage64 = this.state.croppedImage;
+                        localStorage.setItem(pictureId, pictureImage64);
+                        this.setState({patientCrudView: "dados_gerais"});
+                    });
                 }
-                debugger
-                // Seta a imagem ajustada para aquela usuario
-                localStorage.setItem("file", myNewCroppedFile);
-                localStorage.setItem("imagem64", this.state.croppedImage);
-
-                // Essa função faria o download
-                //downloadBase64File(this.state.croppedImage, myFilename);
-                
+                else{
+                    var pictureId = this.state.patientIdSelected + "%picture%";
+                    var pictureImage64 = this.state.croppedImage;
+                    localStorage.setItem(pictureId, pictureImage64);                    
+                    this.setState({patientCrudView: "dados_gerais"});
+                }
             });
           }
         catch (e) {
             debugger
             //console.error(e);
         }
-    };
-
-    tester = () => {
-        var oi = localStorage.getItem("file");
-        var tchau = localStorage.getItem("imagem64");
-        debugger
     };
     
     // ================ RENDERIZAÇÃO DO CONTEÚDO HTML ===============
@@ -1937,7 +1934,6 @@ class Patients extends React.Component{
                                             onChange={this.onFileChange}
                                     />                       
                                     <Button className="blue" onClick = { this.recordPatientPicture }>Gravar Foto</Button>
-                                    <Button onClick = {this.tester} >Tester</Button>
                                 </div>
                                 :
                                 null
