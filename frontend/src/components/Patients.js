@@ -86,404 +86,7 @@ class Patients extends React.Component{
             patientCrudView: "dados_gerais",
 
             /* PATIENT LIST */
-            patients: [
-                {
-                    id: "e6929a98_2bc0-b29e-189b0cca7aae",
-                    photo: clarkPhoto,
-
-                    name: "Clark Cold",
-                    birthday: "12/12/1993",
-                    genre: 1,
-                    occupation: "Advogado",
-                    documentId: "774.897.489-22",                    
-                    address: "Avenida Brasil, 21",
-                    zipcode: "56.248-00",
-                    state: 3,
-                    city: "Paraibuna",                    
-                    email: "clarkcold@gmail.com",
-                    mainPhone: "(12) 99088-4140",
-                    secondaryPhone: "(12) 99088-4142",
-                    initialTreatment: moment().toDate(),
-                    civilStatus: 2,
-
-                    anamnese: {
-                        filled: true,
-                        sections: [
-                            {
-                                id: 1,
-                                questions: [
-                                    { id: 1, boolValue: true, moreInfoValue: "Dipirona." },
-                                    { id: 2, boolValue: false, moreInfoValue: "" },
-                                    { id: 3, boolValue: true, moreInfoValue: "Bronquite." },
-                                    { id: 4, boolValue: false, moreInfoValue: "" },
-                                    { id: 5, boolValue: false, moreInfoValue: "" },
-                                    { id: 9, boolValue: true, moreInfoValue: "" },
-                                    { id: 10, boolValue: true, moreInfoValue: "" }
-                                ]
-                            },
-                            {
-                                id: 2,
-                                questions: [
-                                    { id: 11, boolValue: true, moreInfoValue: "8 horas." },
-                                    { id: 12, boolValue: false, moreInfoValue: "" },
-                                    { id: 13, boolValue: true, moreInfoValue: "Não." },
-                                    { id: 14, boolValue: false, moreInfoValue: "" },
-                                    { id: 15, boolValue: false, moreInfoValue: "" },
-                                    { id: 16, boolValue: true, moreInfoValue: "" },
-                                    { id: 17, boolValue: true, moreInfoValue: "" },
-                                    { id: 18, boolValue: true, moreInfoValue: "" },
-                                    { id: 19, boolValue: true, moreInfoValue: "" },
-                                    { id: 20, boolValue: true, moreInfoValue: "Muito" }
-                                ]
-                            },
-                            {
-                                id: 3,
-                                questions: [
-                                    { id: 21, boolValue: true, moreInfoValue: "" },
-                                    { id: 22, boolValue: false, moreInfoValue: "" },
-                                    { id: 23, boolValue: true, moreInfoValue: "" },
-                                    { id: 24, boolValue: false, moreInfoValue: "Todos" },
-                                    { id: 25, boolValue: false, moreInfoValue: "" },
-                                    { id: 26, boolValue: true, moreInfoValue: "" },
-                                    { id: 27, boolValue: false, moreInfoValue: "" },
-                                    { id: 28, boolValue: false, moreInfoValue: "" },
-                                    { id: 29, boolValue: true, moreInfoValue: "" },
-                                    { id: 30, boolValue: true, moreInfoValue: "1 vez por mês" }
-                                ]
-                            },
-                            {
-                                id: 4,
-                                questions: [
-                                    { id: 31, boolValue: true, moreInfoValue: "" },
-                                    { id: 32, boolValue: false, moreInfoValue: "" },
-                                    { id: 33, boolValue: true, moreInfoValue: "" },
-                                    { id: 34, boolValue: false, moreInfoValue: "Dipirona" },
-                                    { id: 35, boolValue: false, moreInfoValue: "" },
-                                    { id: 36, boolValue: true, moreInfoValue: "" },
-                                    { id: 37, boolValue: false, moreInfoValue: "" },
-                                    { id: 38, boolValue: false, moreInfoValue: "" },
-                                    { id: 39, boolValue: true, moreInfoValue: "" },
-                                    { id: 40, boolValue: true, moreInfoValue: "1 vez por mês" }
-                                ]
-                            },
-                            {
-                                id: 5,
-                                questions: [
-                                    { id: 41, boolValue: true, moreInfoValue: "" },
-                                    { id: 42, boolValue: false, moreInfoValue: "" },
-                                    { id: 43, boolValue: true, moreInfoValue: "" },
-                                    { id: 44, boolValue: false, moreInfoValue: "Dipirona" },
-                                    { id: 45, boolValue: false, moreInfoValue: "" },
-                                    { id: 46, boolValue: true, moreInfoValue: "" },
-                                    { id: 47, boolValue: false, moreInfoValue: "" },
-                                    { id: 48, boolValue: false, moreInfoValue: "" },
-                                    { id: 49, boolValue: true, moreInfoValue: "" },
-                                    { id: 50, boolValue: true, moreInfoValue: "Nenhum" },
-                                    { id: 51, boolValue: true, moreInfoValue: "Nenhum" },
-                                    { id: 52, boolValue: true, moreInfoValue: "Nenhuma" }
-                                ]
-                            }
-                        ]
-                    }
-                },
-                {
-                    id: "76c0137f_4f24-d016-3cd087535791",
-                    photo: dianaPhoto,
-
-                    name: "Diana Mendes",
-                    birthday: "12/12/1992",
-                    genre: 1,
-                    occupation: "Advogado",
-                    documentId: "774.897.489-22",                    
-                    address: "Rua Monsenhor Dutra, 43",
-                    zipcode: "56.248-00",
-                    state: 10,
-                    city: "Paraibuna",                    
-                    email: "dianamendes@gmail.com",
-                    mainPhone: "(12) 87995-1105",
-                    secondaryPhone: "(12) 99088-4142",
-                    initialTreatment: moment().toDate(),
-                    civilStatus: 2,
-
-                    anamnese: {
-                        filled: false,
-                        sections: [
-                            {
-                                id: 1,
-                                questions: [
-                                    { id: 1, boolValue: true, moreInfoValue: "Dipirona." },
-                                    { id: 2, boolValue: null, moreInfoValue: "" },
-                                    { id: 3, boolValue: true, moreInfoValue: "Bronquite." },
-                                    { id: 4, boolValue: false, moreInfoValue: "" },
-                                    { id: 5, boolValue: false, moreInfoValue: "" },
-                                    { id: 9, boolValue: true, moreInfoValue: "" },
-                                    { id: 10, boolValue: true, moreInfoValue: "" }
-                                ]
-                            },
-                            {
-                                id: 2,
-                                questions: [
-                                    { id: 11, boolValue: true, moreInfoValue: "8 horas." },
-                                    { id: 12, boolValue: false, moreInfoValue: "" },
-                                    { id: 13, boolValue: true, moreInfoValue: "Não." },
-                                    { id: 14, boolValue: false, moreInfoValue: "" },
-                                    { id: 15, boolValue: false, moreInfoValue: "" },
-                                    { id: 16, boolValue: true, moreInfoValue: "" },
-                                    { id: 17, boolValue: true, moreInfoValue: "" },
-                                    { id: 18, boolValue: null, moreInfoValue: "" },
-                                    { id: 19, boolValue: true, moreInfoValue: "" },
-                                    { id: 20, boolValue: true, moreInfoValue: "Muito" }
-                                ]
-                            },
-                            {
-                                id: 3,
-                                questions: [
-                                    { id: 21, boolValue: true, moreInfoValue: "" },
-                                    { id: 22, boolValue: false, moreInfoValue: "" },
-                                    { id: 23, boolValue: true, moreInfoValue: "" },
-                                    { id: 24, boolValue: false, moreInfoValue: "Todos" },
-                                    { id: 25, boolValue: false, moreInfoValue: "" },
-                                    { id: 26, boolValue: true, moreInfoValue: "" },
-                                    { id: 27, boolValue: false, moreInfoValue: "" },
-                                    { id: 28, boolValue: false, moreInfoValue: "" },
-                                    { id: 29, boolValue: true, moreInfoValue: "" },
-                                    { id: 30, boolValue: true, moreInfoValue: "1 vez por mês" }
-                                ]
-                            },
-                            {
-                                id: 4,
-                                questions: [
-                                    { id: 31, boolValue: true, moreInfoValue: "" },
-                                    { id: 32, boolValue: false, moreInfoValue: "" },
-                                    { id: 33, boolValue: true, moreInfoValue: "" },
-                                    { id: 34, boolValue: null, moreInfoValue: "Dipirona" },
-                                    { id: 35, boolValue: false, moreInfoValue: "" },
-                                    { id: 36, boolValue: true, moreInfoValue: "" },
-                                    { id: 37, boolValue: false, moreInfoValue: "" },
-                                    { id: 38, boolValue: false, moreInfoValue: "" },
-                                    { id: 39, boolValue: true, moreInfoValue: "" },
-                                    { id: 40, boolValue: true, moreInfoValue: "1 vez por mês" }
-                                ]
-                            },
-                            {
-                                id: 5,
-                                questions: [
-                                    { id: 41, boolValue: true, moreInfoValue: "" },
-                                    { id: 42, boolValue: false, moreInfoValue: "" },
-                                    { id: 43, boolValue: true, moreInfoValue: "" },
-                                    { id: 44, boolValue: false, moreInfoValue: "Dipirona" },
-                                    { id: 45, boolValue: false, moreInfoValue: "" },
-                                    { id: 46, boolValue: true, moreInfoValue: "" },
-                                    { id: 47, boolValue: false, moreInfoValue: "" },
-                                    { id: 48, boolValue: false, moreInfoValue: "" },
-                                    { id: 49, boolValue: true, moreInfoValue: "" },
-                                    { id: 50, boolValue: true, moreInfoValue: "Nenhum" },
-                                    { id: 51, boolValue: true, moreInfoValue: "Nenhum" },
-                                    { id: 52, boolValue: true, moreInfoValue: "Nenhuma" }
-                                ]
-                            }
-                        ]
-                    }
-                },
-                {
-                    id: "18436ee8_8942-8930-64b20706600e",
-                    photo: oliverPhoto,
-
-                    name: "Oliver Queen",
-                    birthday: "12/12/1992",
-                    genre: 1,
-                    occupation: "Advogado",
-                    documentId: "774.897.489-22",                    
-                    address: "Avenida JK, 110",
-                    zipcode: "56.248-00",
-                    state: 12,
-                    city: "Paraibuna",                    
-                    email: "oliverthekey@gmail.com",
-                    mainPhone: "(12) 97865-2141",
-                    secondaryPhone: "(12) 99088-4142",
-                    initialTreatment: moment().toDate(),
-                    civilStatus: 2,
-
-                    anamnese: {
-                        filled: true,
-                        sections: [
-                            {
-                                id: 1,
-                                questions: [
-                                    { id: 1, boolValue: true, moreInfoValue: "Dipirona." },
-                                    { id: 2, boolValue: true, moreInfoValue: "" },
-                                    { id: 3, boolValue: true, moreInfoValue: "Bronquite." },
-                                    { id: 4, boolValue: false, moreInfoValue: "" },
-                                    { id: 5, boolValue: false, moreInfoValue: "" },
-                                    { id: 9, boolValue: true, moreInfoValue: "" },
-                                    { id: 10, boolValue: true, moreInfoValue: "" }
-                                ]
-                            },
-                            {
-                                id: 2,
-                                questions: [
-                                    { id: 11, boolValue: true, moreInfoValue: "8 horas." },
-                                    { id: 12, boolValue: false, moreInfoValue: "" },
-                                    { id: 13, boolValue: true, moreInfoValue: "Não." },
-                                    { id: 14, boolValue: false, moreInfoValue: "" },
-                                    { id: 15, boolValue: false, moreInfoValue: "" },
-                                    { id: 16, boolValue: true, moreInfoValue: "" },
-                                    { id: 17, boolValue: true, moreInfoValue: "" },
-                                    { id: 18, boolValue: true, moreInfoValue: "" },
-                                    { id: 19, boolValue: true, moreInfoValue: "" },
-                                    { id: 20, boolValue: true, moreInfoValue: "Muito" }
-                                ]
-                            },
-                            {
-                                id: 3,
-                                questions: [
-                                    { id: 21, boolValue: true, moreInfoValue: "" },
-                                    { id: 22, boolValue: false, moreInfoValue: "" },
-                                    { id: 23, boolValue: true, moreInfoValue: "" },
-                                    { id: 24, boolValue: false, moreInfoValue: "Todos" },
-                                    { id: 25, boolValue: false, moreInfoValue: "" },
-                                    { id: 26, boolValue: true, moreInfoValue: "" },
-                                    { id: 27, boolValue: false, moreInfoValue: "" },
-                                    { id: 28, boolValue: false, moreInfoValue: "" },
-                                    { id: 29, boolValue: true, moreInfoValue: "" },
-                                    { id: 30, boolValue: true, moreInfoValue: "1 vez por mês" }
-                                ]
-                            },
-                            {
-                                id: 4,
-                                questions: [
-                                    { id: 31, boolValue: true, moreInfoValue: "" },
-                                    { id: 32, boolValue: false, moreInfoValue: "" },
-                                    { id: 33, boolValue: true, moreInfoValue: "" },
-                                    { id: 34, boolValue: false, moreInfoValue: "Dipirona" },
-                                    { id: 35, boolValue: false, moreInfoValue: "" },
-                                    { id: 36, boolValue: true, moreInfoValue: "" },
-                                    { id: 37, boolValue: false, moreInfoValue: "" },
-                                    { id: 38, boolValue: false, moreInfoValue: "" },
-                                    { id: 39, boolValue: true, moreInfoValue: "" },
-                                    { id: 40, boolValue: true, moreInfoValue: "1 vez por mês" }
-                                ]
-                            },
-                            {
-                                id: 5,
-                                questions: [
-                                    { id: 41, boolValue: true, moreInfoValue: "" },
-                                    { id: 42, boolValue: false, moreInfoValue: "" },
-                                    { id: 43, boolValue: true, moreInfoValue: "" },
-                                    { id: 44, boolValue: false, moreInfoValue: "Dipirona" },
-                                    { id: 45, boolValue: false, moreInfoValue: "" },
-                                    { id: 46, boolValue: true, moreInfoValue: "" },
-                                    { id: 47, boolValue: false, moreInfoValue: "" },
-                                    { id: 48, boolValue: false, moreInfoValue: "" },
-                                    { id: 49, boolValue: true, moreInfoValue: "" },
-                                    { id: 50, boolValue: true, moreInfoValue: "Nenhum" },
-                                    { id: 51, boolValue: true, moreInfoValue: "Nenhum" },
-                                    { id: 52, boolValue: true, moreInfoValue: "Nenhuma" }
-                                ]
-                            }
-                        ]
-                    }
-                },
-                {
-                    id: "bc918484_a3cb-9499-72890fcc6fd3",
-                    photo: brucePhoto,
-
-                    name: "Bruce Wayne da Silva",
-                    birthday: "12/12/1992",
-                    genre: 1,
-                    occupation: "Advogado",
-                    documentId: "774.897.489-22",                    
-                    address: "Rua Jacareí, 230",
-                    zipcode: "56.248-00",
-                    state: 17,
-                    city: "Paraibuna",                    
-                    email: "brucesilva@gmail.com",
-                    mainPhone: "(12) 99065-4040",
-                    secondaryPhone: "(12) 99088-4142",
-                    initialTreatment: moment().toDate(),
-                    civilStatus: 2,
-
-                    anamnese: {
-                        filled: false,
-                        sections: [
-                            {
-                                id: 1,
-                                questions: [
-                                    { id: 1, boolValue: true, moreInfoValue: "Dipirona." },
-                                    { id: 2, boolValue: null, moreInfoValue: "" },
-                                    { id: 3, boolValue: true, moreInfoValue: "Bronquite." },
-                                    { id: 4, boolValue: false, moreInfoValue: "" },
-                                    { id: 5, boolValue: false, moreInfoValue: "" },
-                                    { id: 9, boolValue: true, moreInfoValue: "" },
-                                    { id: 10, boolValue: true, moreInfoValue: "" }
-                                ]
-                            },
-                            {
-                                id: 2,
-                                questions: [
-                                    { id: 11, boolValue: true, moreInfoValue: "8 horas." },
-                                    { id: 12, boolValue: false, moreInfoValue: "" },
-                                    { id: 13, boolValue: true, moreInfoValue: "Não." },
-                                    { id: 14, boolValue: false, moreInfoValue: "" },
-                                    { id: 15, boolValue: false, moreInfoValue: "" },
-                                    { id: 16, boolValue: true, moreInfoValue: "" },
-                                    { id: 17, boolValue: true, moreInfoValue: "" },
-                                    { id: 18, boolValue: true, moreInfoValue: "" },
-                                    { id: 19, boolValue: true, moreInfoValue: "" },
-                                    { id: 20, boolValue: true, moreInfoValue: "Muito" }
-                                ]
-                            },
-                            {
-                                id: 3,
-                                questions: [
-                                    { id: 21, boolValue: true, moreInfoValue: "" },
-                                    { id: 22, boolValue: false, moreInfoValue: "" },
-                                    { id: 23, boolValue: true, moreInfoValue: "" },
-                                    { id: 24, boolValue: false, moreInfoValue: "Todos" },
-                                    { id: 25, boolValue: false, moreInfoValue: "" },
-                                    { id: 26, boolValue: true, moreInfoValue: "" },
-                                    { id: 27, boolValue: false, moreInfoValue: "" },
-                                    { id: 28, boolValue: false, moreInfoValue: "" },
-                                    { id: 29, boolValue: true, moreInfoValue: "" },
-                                    { id: 30, boolValue: true, moreInfoValue: "1 vez por mês" }
-                                ]
-                            },
-                            {
-                                id: 4,
-                                questions: [
-                                    { id: 31, boolValue: true, moreInfoValue: "" },
-                                    { id: 32, boolValue: false, moreInfoValue: "" },
-                                    { id: 33, boolValue: true, moreInfoValue: "" },
-                                    { id: 34, boolValue: false, moreInfoValue: "Dipirona" },
-                                    { id: 35, boolValue: false, moreInfoValue: "" },
-                                    { id: 36, boolValue: true, moreInfoValue: "" },
-                                    { id: 37, boolValue: false, moreInfoValue: "" },
-                                    { id: 38, boolValue: false, moreInfoValue: "" },
-                                    { id: 39, boolValue: true, moreInfoValue: "" },
-                                    { id: 40, boolValue: true, moreInfoValue: "1 vez por mês" }
-                                ]
-                            },
-                            {
-                                id: 5,
-                                questions: [
-                                    { id: 41, boolValue: true, moreInfoValue: "" },
-                                    { id: 42, boolValue: false, moreInfoValue: "" },
-                                    { id: 43, boolValue: true, moreInfoValue: "" },
-                                    { id: 44, boolValue: false, moreInfoValue: "Dipirona" },
-                                    { id: 45, boolValue: false, moreInfoValue: "" },
-                                    { id: 46, boolValue: true, moreInfoValue: "" },
-                                    { id: 47, boolValue: false, moreInfoValue: "" },
-                                    { id: 48, boolValue: false, moreInfoValue: "" },
-                                    { id: 49, boolValue: true, moreInfoValue: "" },
-                                    { id: 50, boolValue: true, moreInfoValue: "Nenhum" },
-                                    { id: 51, boolValue: true, moreInfoValue: "Nenhum" },
-                                    { id: 52, boolValue: true, moreInfoValue: "Nenhuma" }
-                                ]
-                            }
-                        ]
-                    }
-                }
-            ],
+            patients: this.getLocalStoragePatients(),
 
             /* PATIENT INPUTS */
             patientIdSelected: null,
@@ -886,6 +489,15 @@ class Patients extends React.Component{
         };
     };
 
+    getLocalStoragePatients = () => {
+        /* LENDO LISTA DE PACIENTES DO STORAGE */
+        var newPatients = [];
+        if (localStorage.getItem("patientsList") !== null){
+            newPatients = Object.assign([], JSON.parse(localStorage.getItem("patientsList")), {});
+        }
+        return newPatients;
+    };
+
     // ================ CHANGE EVENTS ==============
     goToPreviousAnamneseSection = () => {
         var previousSection = this.state.anamnseSectionActive - 1;
@@ -1178,46 +790,33 @@ class Patients extends React.Component{
         };
 
         /* LENDO LISTA DE PACIENTES DO STORAGE */  
-        var newPatients = [];        
+        var newPatients = [];
         if (localStorage.getItem("patientsList") !== null){
+            debugger
             newPatients = Object.assign([], JSON.parse(localStorage.getItem("patientsList")), {});
         }
-
         /* SALVANDO QUANDO FOR NOVO PACIENTE  */
         if (this.state.patientCrudMode === "insert"){
-            debugger
+            //debugger
             newPatients.push(json);
         }
-
-        /* PERSISTINDO NO LOCAL STORE E ATUALIZANDO ESTADO */
-        newPatients = JSON.stringify(newPatients);
-        localStorage.setItem("patientsList", newPatients);
-
-        /*this.setState({
-            patients: newPatients,
-            patientCrudVisibility: false
-        });*/
+        else{
+            debugger
+        }
+        debugger
+        /* PERSISTINDO NO LOCAL STORE E ATUALIZANDO ESTADO COM JSON */
+        localStorage.setItem("patientsList", JSON.stringify(newPatients));
 
         this.setState({
+            patients: newPatients,
             patientCrudVisibility: false
         });
 
         cogoToast.success('Paciente cadastrado.', { heading: 'Sucesso!', position: 'top-center', hideAfter: 3 });
 
-        /*
         
-        // Salvando novo
-        if (this.state.patientCrudMode === "insert"){
-            newPatients.push(json);
-            this.setState({
-                patients: newPatients,
-                patientCrudVisibility: false
-            });
-
-            cogoToast.success('Paciente cadastrado.', { heading: 'Sucesso!', position: 'top-center', hideAfter: 3 });
-        }
         // Editando existente
-        else if (this.state.patientCrudMode === "edit"){
+        /*else if (this.state.patientCrudMode === "edit"){
             for (var i = 0; i < newPatients.length; i++){
                 if (newPatients[i].id === this.state.patientIdSelected)
                     newPatients[i] = json;
@@ -1539,7 +1138,6 @@ class Patients extends React.Component{
             });
           }
         catch (e) {
-            debugger
             //console.error(e);
         }
     };
