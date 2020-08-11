@@ -442,13 +442,13 @@
     background-color: #2386fd;
     color: transparent;
     height: 120px;
-    width: 125px;
+    width: 120px;
     border-radius: 20px;
     cursor: pointer;
     box-shadow: 0px 1px 2px 0px #2386fd4d !important;
     border: 1.5px solid #ffffffbf !important;
     transition: 0.2s !important;
-    background-position: -4px;
+    background-position: -6px;
     background-size: 135px;
     background-repeat: no-repeat;
     background-image: url("../icons/superhero-teeth.svg");     
@@ -500,4 +500,37 @@
     font-size: 14px;
     font-family: 'Averta';    
     text-align: center;
+}
+
+.img--selected-pic{
+    color: transparent;
+    height: 120px;
+    width: 120px;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0px 1px 2px 0px #2386fd4d !important;
+    border: 1.5px solid #ffffffbf !important;
+    transition: 0.2s !important;
+}
+
+
+.input--picture-invisible{
+    color: transparent;
+    background-color: transparent;
+    height: 120px;
+    width: 120px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: -120px;
+}
+.input--picture-invisible::after {
+    content: "";    
+    display: none;
+}
+.input--picture-invisible::before {
+    content: '';
+    display: none;
+}
+.input--picture-invisible::-webkit-file-upload-button {
+    visibility: hidden;
 }
