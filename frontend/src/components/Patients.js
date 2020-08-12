@@ -89,7 +89,7 @@ class Patients extends React.Component{
                 { name: "Selecione...", id: 0 },
                 { name: "Masculino", id: 1 },
                 { name: "Feminino", id: 2 },
-                { name: "Não informar", id: 3 }
+                { name: "Não desejo informar", id: 3 }
             ],
             patientGenreValue: 0,
             patientOccupation: "",
@@ -1206,33 +1206,72 @@ class Patients extends React.Component{
             }
         };
 
-        /* LENDO LISTA DE PACIENTES DO STORAGE */  
-        var newPatients = [];
-        if (localStorage.getItem("patientsList") !== null){
-            //debugger
-            newPatients = Object.assign([], JSON.parse(localStorage.getItem("patientsList")), {});
-        }
-        /* SALVANDO QUANDO FOR NOVO PACIENTE  */
-        if (this.state.patientCrudMode === "insert"){
-            //debugger
-            newPatients.push(json);
-            cogoToast.success('Paciente cadastrado.', { heading: 'Sucesso!', position: 'top-center', hideAfter: 3 });
-        }
-        else if (this.state.patientCrudMode === "edit"){
-            for (var i = 0; i < newPatients.length; i++){
-                if (newPatients[i].id === this.state.patientIdSelected)
-                    newPatients[i] = json;
-            }            
-            cogoToast.success('Paciente editado.', { heading: 'Sucesso!', position: 'top-center', hideAfter: 3 });
-        }
+        // VERIFICANDO CAMPOS VALIDOS
+        var missingFields = this.verifyRequiredFields(json);
         
-        /* PERSISTINDO NO LOCAL STORE E ATUALIZANDO ESTADO COM JSON */
-        localStorage.setItem("patientsList", JSON.stringify(newPatients));
+        if (missingFields.length === 0){
+            /* LENDO LISTA DE PACIENTES DO STORAGE */  
+            var newPatients = [];
+            if (localStorage.getItem("patientsList") !== null){
+                newPatients = Object.assign([], JSON.parse(localStorage.getItem("patientsList")), {});
+            }
+            /* SALVANDO QUANDO FOR NOVO PACIENTE  */
+            if (this.state.patientCrudMode === "insert"){
+                newPatients.push(json);
+                cogoToast.success('Paciente cadastrado.', { heading: 'Sucesso!', position: 'top-center', hideAfter: 3 });
+            }
+            else if (this.state.patientCrudMode === "edit"){
+                for (var i = 0; i < newPatients.length; i++){
+                    if (newPatients[i].id === this.state.patientIdSelected)
+                        newPatients[i] = json;
+                }            
+                cogoToast.success('Paciente editado.', { heading: 'Sucesso!', position: 'top-center', hideAfter: 3 });
+            }
 
-        this.setState({
-            patients: newPatients,
-            patientCrudVisibility: false
-        });
+            /* PERSISTINDO NO LOCAL STORE E ATUALIZANDO ESTADO COM JSON */
+            localStorage.setItem("patientsList", JSON.stringify(newPatients));
+
+            this.setState({
+                patients: newPatients,
+                patientCrudVisibility: false
+            });
+        }
+        else{
+            cogoToast.warn(
+                <div>
+                    <p>Preencha os campos a seguir:</p>
+                    <ul className="cogotoast--patient-missing">
+                        {missingFields.map((value, index) => {
+                            return <li key={index}>{value}</li>
+                        })}
+                    </ul>
+                    <button className="button--cancel" onClick = { this.destroyCogoToastInfo }>Entendi</button>
+                </div>, 
+                { heading: 'Ops! Infelizmente faltam informações', position: 'top-center', hideAfter: 0 }
+            );            
+        }
+    };
+
+    teste = () => {
+        return <div>hehe</div>
+    };
+    
+    verifyRequiredFields = (json) => {
+        var missingFields = [];
+
+        // VERIFICANDO CAMPOS
+        if (json.name.length === 0)
+            missingFields.push(<p>Nome</p>);
+        if (json.birthday.length === 0)
+            missingFields.push(<p>Nascimento</p>);
+        if (json.genre.length === 0)
+            missingFields.push(<p>Sexo</p>);
+        if (json.documentId.length === 0)
+            missingFields.push(<p>Documento</p>);
+        if (json.email.length === 0)
+            missingFields.push(<p>E-mail</p>);
+
+        return missingFields;
     };
 
     closePatientCrudModal = () => {
@@ -1646,7 +1685,7 @@ class Patients extends React.Component{
                                                 </InputMask>
 
                                                 <div className="modal--split-children">
-                                                    <InputLabel htmlFor="checkbox--genre">Sexo:</InputLabel>
+                                                    <InputLabel htmlFor="checkbox--genre">Gêreno:</InputLabel>
                                                     <Select
                                                         labelId="checkbox--genre"
                                                         value = { this.state.patientGenreValue }

@@ -35,3 +35,21 @@
     background-color: transparent;
     color: #006df0;
 }
+
+/* Warning */
+.ct-toast-warn .button--cancel{
+    border: 0px;
+    margin-top: 10px;
+    width: 60px;
+    height: 25px;
+    background-color: #e8c852;
+    color: white;
+    border-radius: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+.ct-toast-warn button:hover{
+    border: 1px solid #e8c852;
+    background-color: transparent;
+    color: #e8c852;
+}
