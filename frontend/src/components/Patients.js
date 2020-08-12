@@ -1067,6 +1067,14 @@ class Patients extends React.Component{
                 return 0
         }
 
+        if (fieldName === "photo"){
+            if (patientInfo === null)
+                return null
+            if (patientInfo.photo === null)
+                return null
+            return patientInfo.photo
+        }
+
         // Sem exceções de campos
         if (patientInfo === null)
             return ""
@@ -1098,23 +1106,25 @@ class Patients extends React.Component{
     };
 
     openCRUDPatientsModal = (mode, patientId, IsAnamnseSectionMode) => {
+        var patientInfo = this.findPatientInfo(patientId);
+
         // Zerando "DADOS GERAIS"
         this.setState({
-            patientIdSelected: null,
-            patientName: "",
-            patientBirthday: "",
-            patientGenreValue: 0,
-            patientOccupation: "",
-            patientDocument: "",
-            patientAddress: "",
-            patientZipCode: "",
-            patientStateValue: 0,
-            patientCity: "",
-            patientEmail: "",
-            patientMainPhone: "",
-            patientSecondaryPhone: "",
-            patientInitialTreatment: moment().toDate(),
-            patientCivilStatus: 0
+            patientIdSelected: this.getPatientGeneralInfo(patientInfo, "id"),
+            patientName: this.getPatientGeneralInfo(patientInfo, "name"),
+            patientBirthday: this.getPatientGeneralInfo(patientInfo, "birthday"),
+            patientGenreValue: this.getPatientGeneralInfo(patientInfo, "genre"),
+            patientOccupation: this.getPatientGeneralInfo(patientInfo, "occupation"),
+            patientDocument: this.getPatientGeneralInfo(patientInfo, "documentId"),
+            patientAddress: this.getPatientGeneralInfo(patientInfo, "address"),
+            patientZipCode: this.getPatientGeneralInfo(patientInfo, "zipcode"),
+            patientStateValue: this.getPatientGeneralInfo(patientInfo, "state"),
+            patientCity: this.getPatientGeneralInfo(patientInfo, "city"),
+            patientEmail: this.getPatientGeneralInfo(patientInfo, "email"),
+            patientMainPhone: this.getPatientGeneralInfo(patientInfo, "mainPhone"),
+            patientSecondaryPhone: this.getPatientGeneralInfo(patientInfo, "secondaryPhone"),
+            patientInitialTreatment: this.getPatientGeneralInfo(patientInfo, "initialTreatment"),
+            patientCivilStatus: this.getPatientGeneralInfo(patientInfo, "civilStatus")
         });
         
         // Zerando "ANAMNESE"
@@ -1122,8 +1132,7 @@ class Patients extends React.Component{
             for (var q = 0; q < this.state.anamneseSections[s].questions.length; q++){
                 var section = this.state.anamneseSections[s];
                 var question = section.questions[q];
-                //this.changeAnamneseQuestionAnswer(patientInfo, section.id, question); // descomentar essa linha
-                this.changeAnamneseQuestionAnswer(null, section.id, question); // comentar essa linha
+                this.changeAnamneseQuestionAnswer(patientInfo, section.id, question);
             }
         }
 
@@ -1135,7 +1144,7 @@ class Patients extends React.Component{
             zoom: 1,
             aspect: 1 / 1,
             croppedAreaPixels: null,
-            croppedImage: null
+            croppedImage: this.getPatientGeneralInfo(patientInfo, "photo")
         });
 
         // Zerando Modal Options
@@ -1200,7 +1209,7 @@ class Patients extends React.Component{
         /* LENDO LISTA DE PACIENTES DO STORAGE */  
         var newPatients = [];
         if (localStorage.getItem("patientsList") !== null){
-            debugger
+            //debugger
             newPatients = Object.assign([], JSON.parse(localStorage.getItem("patientsList")), {});
         }
         /* SALVANDO QUANDO FOR NOVO PACIENTE  */
@@ -1209,9 +1218,9 @@ class Patients extends React.Component{
             newPatients.push(json);
         }
         else{
-            debugger
+            //debugger
         }
-        debugger
+        //debugger
         /* PERSISTINDO NO LOCAL STORE E ATUALIZANDO ESTADO COM JSON */
         localStorage.setItem("patientsList", JSON.stringify(newPatients));
 
@@ -1237,50 +1246,6 @@ class Patients extends React.Component{
 
             cogoToast.success('Paciente editado.', { heading: 'Sucesso!', position: 'top-center', hideAfter: 3 });
         }*/
-    };
-
-
-    openCRUDPatientsModal_ORIGINAL = (mode, patientId, IsAnamnseSectionMode) => {
-        var patientInfo = this.findPatientInfo(patientId);
-
-        /* Patient General Info*/
-        this.setState({
-            patientIdSelected: this.getPatientGeneralInfo(patientInfo, "id"),
-            patientName: this.getPatientGeneralInfo(patientInfo, "name"),
-            patientBirthday: this.getPatientGeneralInfo(patientInfo, "birthday"),
-            patientGenreValue: this.getPatientGeneralInfo(patientInfo, "genre"),
-            patientOccupation: this.getPatientGeneralInfo(patientInfo, "occupation"),
-            patientDocument: this.getPatientGeneralInfo(patientInfo, "documentId"),
-            patientAddress: this.getPatientGeneralInfo(patientInfo, "address"),
-            patientZipCode: this.getPatientGeneralInfo(patientInfo, "zipcode"),
-            patientStateValue: this.getPatientGeneralInfo(patientInfo, "state"),
-            patientCity: this.getPatientGeneralInfo(patientInfo, "city"),
-            patientEmail: this.getPatientGeneralInfo(patientInfo, "email"),
-            patientMainPhone: this.getPatientGeneralInfo(patientInfo, "mainPhone"),
-            patientSecondaryPhone: this.getPatientGeneralInfo(patientInfo, "secondaryPhone"),
-            patientInitialTreatment: this.getPatientGeneralInfo(patientInfo, "initialTreatment"),
-            patientCivilStatus: this.getPatientGeneralInfo(patientInfo, "civilStatus")
-        });
-
-        /* Anamnese */
-        for (var s = 0; s < this.state.anamneseSections.length; s++){
-            for (var q = 0; q < this.state.anamneseSections[s].questions.length; q++){
-                var section = this.state.anamneseSections[s];
-                var question = section.questions[q];
-                this.changeAnamneseQuestionAnswer(patientInfo, section.id, question);
-            }
-        }
-
-        /* Modal Options */
-        this.setState({
-            patientCrudMode: mode,
-            patientCrudView: "dados_gerais",
-            patientCrudVisibility: true
-        });
-
-        /* Is Anamnese */
-        if (IsAnamnseSectionMode)
-            this.openAnamnseSectionMode();
     };
 
     closePatientCrudModal = () => {

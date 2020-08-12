@@ -512,16 +512,14 @@
     border: 1.5px solid #ffffffbf !important;
     transition: 0.2s !important;
 }
-
-
 .input--picture-invisible{
     color: transparent;
     background-color: transparent;
     height: 120px;
     width: 120px;
-    border-radius: 20px;
     cursor: pointer;
     margin-left: -120px;
+    border: 0px;
 }
 .input--picture-invisible::after {
     content: "";    
