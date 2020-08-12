@@ -1216,11 +1216,16 @@ class Patients extends React.Component{
         if (this.state.patientCrudMode === "insert"){
             //debugger
             newPatients.push(json);
+            cogoToast.success('Paciente cadastrado.', { heading: 'Sucesso!', position: 'top-center', hideAfter: 3 });
         }
-        else{
-            //debugger
+        else if (this.state.patientCrudMode === "edit"){
+            for (var i = 0; i < newPatients.length; i++){
+                if (newPatients[i].id === this.state.patientIdSelected)
+                    newPatients[i] = json;
+            }            
+            cogoToast.success('Paciente editado.', { heading: 'Sucesso!', position: 'top-center', hideAfter: 3 });
         }
-        //debugger
+        
         /* PERSISTINDO NO LOCAL STORE E ATUALIZANDO ESTADO COM JSON */
         localStorage.setItem("patientsList", JSON.stringify(newPatients));
 
@@ -1228,24 +1233,6 @@ class Patients extends React.Component{
             patients: newPatients,
             patientCrudVisibility: false
         });
-
-        cogoToast.success('Paciente cadastrado.', { heading: 'Sucesso!', position: 'top-center', hideAfter: 3 });
-
-        
-        // Editando existente
-        /*else if (this.state.patientCrudMode === "edit"){
-            for (var i = 0; i < newPatients.length; i++){
-                if (newPatients[i].id === this.state.patientIdSelected)
-                    newPatients[i] = json;
-            }
-
-            this.setState({
-                patients: newPatients,
-                patientCrudVisibility: false
-            });
-
-            cogoToast.success('Paciente editado.', { heading: 'Sucesso!', position: 'top-center', hideAfter: 3 });
-        }*/
     };
 
     closePatientCrudModal = () => {
