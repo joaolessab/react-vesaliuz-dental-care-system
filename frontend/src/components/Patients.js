@@ -1567,7 +1567,11 @@ class Patients extends React.Component{
                     {/* Eliminar repetição indevida acima */}
                     <div className="div--card-background" onClick={() => this.openCRUDPatientsModal("edit", patient.id)}>
                         <div className="div--card-picture">
-                            <img alt = { patient.name } src={ patient.photo }></img>
+                            { patient.photo === null ?
+                                <div className="image--teeth-default"></div>
+                                :
+                                <img alt = { patient.name } src={ patient.photo }></img>
+                            }
                         </div>
                         <div className="div--card-name">{ patient.name }</div>
                         <div className="div--card-contact">{ patient.email }<br/>{ patient.phone }</div>
@@ -2059,7 +2063,7 @@ class Patients extends React.Component{
                     <div className="custom--modal-footer">
                         <div className="buttons--bar patients--component">
 
-                            {this.state.patientCrudMode === "edit" ? 
+                            {this.state.patientCrudMode === "edit" && this.state.patientCrudView !== "crop" ?
                                 <Button
                                     className="white"
                                     onClick={ this.deleteEvent }

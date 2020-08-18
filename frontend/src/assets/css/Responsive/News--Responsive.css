@@ -18,7 +18,6 @@ WIDTH
     }
     .container--blackboard-main .div--content-title {
         justify-content: center;
-        margin-bottom: 20px;
     }
 }
 @media only screen and (max-width: 1206px){

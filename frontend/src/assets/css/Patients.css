@@ -54,7 +54,7 @@
 .div--individual-card .div--card-picture img{
     height: 94px;
     width: 94px;
-    border-radius: 10px;
+    border-radius: 7px;
 }
 .div--individual-card .div--card-name{
     font-family: "Averta Semibold";
@@ -220,6 +220,7 @@
     margin-bottom: 10px;
     flex: 1 1;
     margin-top: 40px;
+    max-height: 500px;
 }
 .div--patients-profilepic{
     display: flex;
@@ -242,16 +243,17 @@
 .div--patients-profilepic .crop-container .reactEasyCrop_Container, .div--patients-profilepic .crop-container .reactEasyCrop_Image, .reactEasyCrop_CropArea{
     max-height: 300px;
 }
-
 .div--patients-information{
     display: flex;
     flex-direction: column;
     min-width: 320px;
-    margin-top: 12px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     max-height: 515px;
     overflow: hidden;
     overflow-y: auto;
+    padding-bottom: 15px;
+    margin-top: 40px;
+    padding-right: 20px;
 }
 .div--patients-information .modal--split-columnar{
     padding-bottom: 8px;
@@ -276,6 +278,7 @@
 .div--modalPatient-body{
     display: flex;
     flex-direction: column;
+    max-height: 500px;
 }
 
 /* STEPS */
@@ -414,9 +417,9 @@
     width: 100% !important;
     margin-top: -2px !important;
 }
-.modal--pic-row{    
+.div--patients-information .modal--pic-row{    
     margin: 0 !important;
-    margin-top: 30px !important;
+    margin-top: 0px !important;
     background-color: #efefef;
     padding: 20px;
     border-radius: 10px;
@@ -541,4 +544,15 @@
 .cogotoast--patient-missing{
     margin-top: 5px;
     margin-bottom: 5px;
+}
+.image--teeth-default{
+    background-color: #2386fd;
+    color: transparent;
+    background-position: -5px;
+    background-size: 110px;
+    background-repeat: no-repeat;
+    background-image: url("../icons/superhero-teeth.svg");
+    height: 94px;
+    width: 94px;
+    border-radius: 7px;
 }
