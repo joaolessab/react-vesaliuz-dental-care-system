@@ -15,7 +15,7 @@ import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import '../assets/css/News.css';
 import '../assets/css/News--Icons.css';
-//import '../assets/css/Responsive/News--Responsive.css';
+import '../assets/css/Responsive/News--Responsive.css';
 
 class News extends React.Component{
 

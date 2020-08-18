@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import '../assets/css/Help.css';
-//import '../assets/css/Responsive/Help--Responsive.css';
+import '../assets/css/Responsive/Help--Responsive.css';
 
 import Accordion from './Accordion';
 

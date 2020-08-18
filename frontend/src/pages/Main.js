@@ -192,7 +192,14 @@ class Main extends React.Component{
                                     onClick={() => this.accessPage("Nubibuz")}
                                 >
                                     <span>Sobre Nós</span>
-                                </Button>                   
+                                </Button>
+
+                                <Button
+                                    className="icon--nubibuz"
+                                    onClick={() => this.accessPage("Nubibuz")}
+                                >
+                                    <span>Configurações</span>
+                                </Button>                 
                             </div>
                         </div>        
 

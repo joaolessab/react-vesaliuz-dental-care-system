@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import '../assets/css/Login.css';
-//import '../assets/css/Responsive/Login--Responsive.css';
+import '../assets/css/Responsive/Login--Responsive.css';
 
 export default function Login({ history }){
     // FUNCOES DO JAVASCRIPT
