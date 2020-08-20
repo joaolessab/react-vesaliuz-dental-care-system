@@ -197,6 +197,21 @@
         min-width: 70px !important;
     }
 }
+@media only screen and (max-width: 591px){
+    .rbc-ellipsis, .rbc-event-label, .rbc-row-segment .rbc-event-content, .rbc-show-more {
+        white-space: break-spaces !important;
+    }
+    .rbc-month-row {
+        min-height: 180px !important;
+    }
+}
 /***** =================================================================================================================== ******/
 /***** ======================================== HEIGHT: 550px / 1800px =================================================== ******/
 /***** =================================================================================================================== ******/
+@media only screen and (max-height: 672px){
+    .div--agenda-appointment-body {
+        max-height: 383px;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+}
