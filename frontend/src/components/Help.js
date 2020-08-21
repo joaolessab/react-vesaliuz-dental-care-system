@@ -4,6 +4,7 @@ import { Modal } from 'react-responsive-modal';
 import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
 import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import '../assets/css/Help.css';
@@ -55,9 +56,20 @@ class Help extends React.Component{
                 <div className="container--form-help">
                     <p className="p--subtitle">Conte-nos o seu problema</p>
                     <form>
-                        <label htmlFor="name">Seu nome:</label>
-                        <input type="text" id="name" placeholder="Digite o seu nome" className="input--white-context-wth-shadow"/>
-    
+
+                        {/*
+                            <label htmlFor="name">Seu nome:</label>
+                            <input type="text" id="name" placeholder="Digite o seu nome" className="input--white-context-wth-shadow"/>
+                        */}
+
+                        <TextField 
+                            label="Seu nome" 
+                            //value = { this.state.patientName }
+                            value = "Teste"
+                            name = "patientName"
+                            //onChange={ this.changeSimpleValue }
+                        />
+
                         <label htmlFor="email">Seu e-mail:</label>
                         <input type="email" id="email" placeholder="Digite seu melhor e-mail" className="input--white-context-wth-shadow"/>
     

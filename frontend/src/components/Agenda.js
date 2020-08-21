@@ -1108,7 +1108,6 @@ class Agenda extends React.Component{
                                         {/* Titulo */}
                                         <div className="div--agendaForm-title agenda--component">
                                             <TextField 
-                                                id="title-event" 
                                                 label="Título do seu evento:" 
                                                 value = { this.state.eventTitle } 
                                                 onChange = { this.changeEventTitle }
@@ -1185,32 +1184,36 @@ class Agenda extends React.Component{
                                             </div>
                                         </div>
                                         <div className="div--agendaForm-repeatOptions agenda--component">
-                                            <FormControlLabel
-                                                value="end"
-                                                control={
-                                                    <Checkbox
-                                                        checked={ this.state.eventAllDayCheck } 
-                                                        icon={<RadioButtonUncheckedIcon />}
-                                                        checkedIcon={< CheckCircleIcon />}
-                                                        onChange={ this.changeAllDayCheck }
-                                                    />
-                                                }
-                                                label="Dia todo"
-                                                labelPlacement="end"
-                                            />
-                                            <FormControlLabel
+                                            <div>
+                                                <FormControlLabel
                                                     value="end"
                                                     control={
                                                         <Checkbox
-                                                            checked={ this.state.eventRepeatCheck }
+                                                            checked={ this.state.eventAllDayCheck } 
                                                             icon={<RadioButtonUncheckedIcon />}
                                                             checkedIcon={< CheckCircleIcon />}
-                                                            onChange={ this.changeRepeatCheck }
+                                                            onChange={ this.changeAllDayCheck }
                                                         />
                                                     }
-                                                    label="Repetir"
+                                                    label="Dia todo"
                                                     labelPlacement="end"
                                                 />
+                                            </div>
+                                            <div>
+                                                <FormControlLabel
+                                                        value="end"
+                                                        control={
+                                                            <Checkbox
+                                                                checked={ this.state.eventRepeatCheck }
+                                                                icon={<RadioButtonUncheckedIcon />}
+                                                                checkedIcon={< CheckCircleIcon />}
+                                                                onChange={ this.changeRepeatCheck }
+                                                            />
+                                                        }
+                                                        label="Repetir"
+                                                        labelPlacement="end"
+                                                    />
+                                            </div>
                                         </div>
                                         <div className="div--agendaForm-client agenda--component">
                                             <InputLabel htmlFor="checkbox--agenda-client" className="input--agendaForm-client">Cliente:</InputLabel>

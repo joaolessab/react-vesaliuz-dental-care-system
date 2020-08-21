@@ -201,8 +201,12 @@
 .div--agendaForm-times .div--hours-finish{
     margin-left: 40px;
 }
-.div--agendaForm-times{
-    margin-top: 10px !important;
+.div--agendaForm-times div{
+    flex: 1;
+    width: 100%;
+}
+.div--agendaForm-times .MuiInput-root{
+    margin-top: 10px;
 }
 .MuiInputLabel-shrink{
     transform: translate(0, -2.5px) scale(1) !important;
@@ -210,6 +214,9 @@
 .div--agendaForm-repeatOptions{
     margin-top: 10px !important;
     margin-bottom: 10px !important;
+}
+.div--agendaForm-repeatOptions div{
+    flex: 1;
 }
 .div--agendaForm-observation{
     margin-top: 20px;
@@ -221,12 +228,13 @@
     height: 70px !important;
     max-height: 70px !important;
     overflow: auto;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-bottom: 20px;
     resize: none;
     border: 1.3px solid #949494;
     border-radius: 6px;
     padding: 10px;
+    background-color: white;
 }
 #saveEventButton{
     cursor: pointer !important;
@@ -415,7 +423,7 @@
     color: white !important;
 }
 .div--agenda-appointment .MuiSelect-select:focus, .div--agenda-appointment input:focus, .div--agenda-appointment select:focus, .div--agenda-appointment textarea:focus {
-    background-color: white !important;
+    /*background-color: white !important;*/
     border-radius: 4px !important;
     box-shadow: none;
 }
