@@ -2081,13 +2081,9 @@ class Patients extends React.Component{
                             </Button>
                         : null }
 
-                        { this.state.patientCrudView !== "crop" ?
-                            <Button className="modal--footer-btn_white" onClick={ this.closePatientCrudModal }>
-                                Cancelar
-                            </Button>
-                            :
-                            null
-                        }
+                        <Button className="modal--footer-btn_white" onClick={ this.closePatientCrudModal }>
+                            Cancelar
+                        </Button>
                                 
                         { this.state.patientCrudView === "dados_gerais" ?
                             <Button className="modal--footer-btn_white" onClick = { this.openAnamnseSectionMode } >
@@ -2096,7 +2092,7 @@ class Patients extends React.Component{
                         : null }
 
                         { this.state.patientCrudView !== "dados_gerais" ?
-                            <Button className="modal--footer-btn_white" onClick = { this.goBackToGeneralData }>
+                            <Button className="modal--footer-btn_white modal--footer-btn_dados_gerais" onClick = { this.goBackToGeneralData }>
                                 Dados Gerais
                             </Button>
                         : null }

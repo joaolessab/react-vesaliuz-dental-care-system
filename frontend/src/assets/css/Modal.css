@@ -137,7 +137,7 @@
     cursor: pointer !important;
     animation-duration: 1s !important;
     transition: 0.2s !important;
-    width: 105px !important;
+    width: 105px;
     font-family: 'Averta' !important;
     text-transform: none;
     border-radius: 10px;
