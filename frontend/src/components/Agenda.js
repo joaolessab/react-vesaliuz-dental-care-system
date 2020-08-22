@@ -1096,6 +1096,14 @@ class Agenda extends React.Component{
                     </div>
                 </div>
 
+
+
+
+
+
+
+
+
                 {/* Modal de Agenda */}
                 <Modal open={ this.state.agendaCRUDVisibility } onClose={ this.closeCrudModal } center>
                     <div className="div--modalAgenda-body">
@@ -1417,6 +1425,16 @@ class Agenda extends React.Component{
                         </div>
                     </div>
                 </Modal>
+
+
+
+
+
+
+
+
+
+
             </div>
         );
     }

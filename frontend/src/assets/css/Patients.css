@@ -178,42 +178,6 @@
 .div--patients-information-body{
     display: flex;
 }
-.custom--modal-header-patient{
-    padding: 0px;
-}
-.custom--modal-header-patient Button{
-    height: 50px !important;
-    width: 50px;
-    border-radius: 10px !important;
-    border: 0px !important;
-    margin-bottom: 15px !important;
-    background-size: 24px !important;
-    background-repeat: no-repeat !important;
-    background-position: 13.5px !important;
-    text-transform: none !important;
-    background-color: #f0f0f0 !important;
-    min-width: unset !important;
-    margin-right: 15px;
-}
-.custom--modal-header-patient Button span{
-    display: none;
-}
-.custom--modal-header-patient Button:hover, .custom--modal-header-patient .selected{
-    cursor: pointer !important;
-    animation-duration: 1s !important;
-    background-color: #2386fd !important;
-    background-position: 15px !important;
-    box-shadow: 0px 1px 2px 0px #2386fd4d !important;
-    border: 1.5px solid #ffffffbf !important;
-    transition: 0.2s !important;
-    width: 105px;
-    color: white !important;
-    background-image: none !important;
-    font-family: 'Averta' !important;
-}
-.custom--modal-header-patient Button:hover span, .custom--modal-header-patient .selected span{
-    display: block;
-}
 .div--patients-anamneseinfo{
     display: flex;
     flex-direction: column;
@@ -271,21 +235,7 @@
     margin-left: 10px;
 }
 
-/* HOVER */
-.div--modalPatient-body .MuiInput-underline:hover:not(.Mui-disabled):before {
-    border-bottom: 2px solid rgb(35, 134, 253);    
-}
-.div--modalPatient-body{
-    display: flex;
-    flex-direction: column;
-    max-height: 500px;
-}
-
 /* STEPS */
-.div--modalAnamnese-body{
-    display: flex;
-    flex-direction: column;
-}
 .div--anamneseinfo-toolbar{
     display: flex;
     margin-top: 15px;

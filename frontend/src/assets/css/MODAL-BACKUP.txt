@@ -1,0 +1,339 @@
+.react-responsive-modal-modal .div--modalBody-default {
+    overflow: auto;
+    text-align: center;
+    height: 500px;
+    padding-right: 18px;
+    margin-left: 18px;
+}
+.react-responsive-modal-modal .div--modalBody-default p{
+    text-align: justify !important;
+}
+.react-responsive-modal-modal .div--modalBody-default img{
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+
+
+.react-responsive-modal-modal .div--modalBody-chatBot{
+    overflow: hidden;
+    margin-left: -20px;
+    width: calc(100% + 40px);
+    margin-bottom: -20px;
+    margin-top: 20px;
+    height: 500px;
+    background-color: #dbdbdb;
+    display: flex;
+    flex-direction: column;
+}
+.react-responsive-modal-modal .div--modalBody-chatBot .div--chatBox{
+    flex: 1 1;
+    padding: 20px;
+    box-shadow: inset 0px 10px 17px 4px #cecece26;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+.react-responsive-modal-modal .div--modalBody-chatBot .div--typerBox{
+    display: flex;
+    flex-basis: 65px;
+    justify-content: space-between;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: white;
+}
+.react-responsive-modal-modal .div--modalBody-chatBot .div--typerBox .button--letter, .react-responsive-modal-modal .div--modalBody-chatBot .div--typerBox .button--attach, .react-responsive-modal-modal .div--modalBody-chatBot .div--typerBox .button--send{
+    min-height: 45px;
+    min-width: 45px;
+    border: 0px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border-radius: 6px;
+}
+.react-responsive-modal-modal .div--modalBody-chatBot .div--typerBox input{
+    flex: 1;
+    background-color: transparent;
+    color: black;
+}
+.react-responsive-modal-modal .div--modalBody-chatBot .div--typerBox .button--letter{
+    background-image: url("../icons/font-icon--black.svg");
+    background-size: 18px;
+    background-position: 15px;
+}
+.react-responsive-modal-modal .div--modalBody-chatBot .div--typerBox .button--letter:hover{
+    background-image: url("../icons/font-icon--white.svg");
+    background-position: 12px;
+    background-color: #2386fd;
+    box-shadow: 0px 1px 2px 0px #2386fd4d;
+    color: white;
+    border: 1.5px solid #ffffffbf;
+    cursor: pointer;
+}
+.react-responsive-modal-modal .div--modalBody-chatBot .div--typerBox .button--attach{
+    background-image: url("../icons/paperclip-icon--black.svg");
+    background-size: 18px;
+    background-position: 15px;
+}
+.react-responsive-modal-modal .div--modalBody-chatBot .div--typerBox .button--attach:hover{
+    background-image: url("../icons/paperclip-icon--white.svg");
+    background-position: 12px;
+    background-color: #2386fd;
+    box-shadow: 0px 1px 2px 0px #2386fd4d;
+    color: white;
+    border: 1.5px solid #ffffffbf;
+    cursor: pointer;
+}
+.react-responsive-modal-modal .div--modalBody-chatBot .div--typerBox .button--send{
+    background-image: url("../icons/paperplane-icon--white.svg");
+    background-size: 18px;
+    background-position: 11px;
+    background-color: #2386fd;
+    box-shadow: 0px 1px 2px 0px #2386fd4d;
+    color: white;
+    border: 1.5px solid #ffffffbf;
+}
+.react-responsive-modal-modal .div--modalBody-chatBot .div--typerBox .button--send:hover{
+    background-image: url("../icons/paperplane-icon--black.svg");
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid #4b4b4b;
+}
+.div--header-chatBot{
+    margin-right: 40px;
+    display: flex;
+}
+.div--robotTalk-chatBot p{
+    font-size: 16px;
+    font-family: 'Averta Semibold';
+}
+.div--robotTalk-chatBot em{
+    font-family: 'Averta' !important;
+    font-size: 13px !important;
+    font-style: normal !important;
+}
+.react-responsive-modal-modal .div--header-chatBot .div--robotBig-chatBot{
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+    background-color: #2386fd;
+    border-radius: 6px;
+    background-image: url("../images/avatarBot.png");
+    background-repeat: no-repeat;
+    background-size: 48px;
+    background-position: -4px;
+}
+.div--chatline-robot{
+    flex-basis: auto;
+    margin-bottom: 20px;
+    display: flex;
+}
+.div--chatline-robot .chat-avatar{
+    height: 30px;
+    width: 30px;    
+    border-radius: 6px;
+    background-repeat: no-repeat;
+    background-size: 36px;
+    background-position: -3px;
+    background-image: url("../images/avatarBot.png");
+}
+.div--chatline-robot .chat-message{
+    margin-left: 10px;
+    background-color: white;
+    flex: 1;
+    padding: 10px;
+    max-width: 330px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    color: black;
+    text-align: justify;
+}
+
+.div--chatline-customer{
+    flex-basis: auto;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.div--chatline-customer .chat-avatar{
+    height: 30px;
+    width: 30px;
+    border-radius: 6px;
+    background-repeat: no-repeat;
+    background-size: 36px;
+    background-position: -5px;
+    background-image: url("../images/profile_pic.jpg");
+}
+.div--chatline-customer .chat-message{
+    margin-right: 10px;
+    background-color: #2386fd;
+    flex: 1 1;
+    padding: 10px;
+    max-width: 330px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    color: white;
+    text-align: justify;
+}
+/* MODAL CUSTOMIZADO */
+.custom--modal-footer{
+    display: flex;
+    justify-content: flex-end;
+  }
+  .custom--modal-footer .buttons--bar{
+    flex-direction: row !important;
+    justify-content: flex-end;
+  }
+
+  .custom--modal-footer .buttons--bar .white{
+    cursor: pointer !important;
+    animation-duration: 1s !important;
+    box-shadow: 0px 1px 2px 0px #2386fd4d !important;
+    transition: 0.2s !important;
+    width: 118px !important;
+    font-family: 'Averta' !important;
+    text-transform: none;
+    border-radius: 10px;
+    height: 45px;
+    background-color: white !important;
+    color: #62696f !important;
+    border: 1px solid #b5b5b5 !important;
+    margin-right: 15px;
+  }
+
+  .custom--modal-footer .buttons--bar .blue{
+    cursor: pointer !important;
+    animation-duration: 1s !important;
+    background-color: #2386fd !important;
+    box-shadow: 0px 1px 2px 0px #2386fd4d !important;
+    border: 1.5px solid #ffffffbf !important;
+    transition: 0.2s !important;
+    width: 118px;
+    color: white !important;
+    font-family: 'Averta' !important;
+    text-transform: none;
+    border-radius: 10px;
+    height: 45px;
+  }
+  .custom--modal-footer .buttons--bar .blue:hover, .custom--modal-footer .buttons--bar .white:hover{
+    background-color: white !important;
+    color: #62696f !important;
+    border: 1px solid #b5b5b5 !important;
+    box-shadow: 1px 6px 3px 0px #969696 !important;
+}
+
+  /* DIV DO INPUT */
+  .MuiInput-root {
+    background-color: white !important;
+    border-radius: 10px !important;
+    padding: 0px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    height: 45px !important;  
+    border: 1px solid #dcdcdc !important;
+    box-shadow: 0px 5px 7px 0px #efefefcc !important;
+  }
+  /* INPUT DO MODAL CUSTOMIZADO */
+  .MuiInputBase-input{
+    z-index: 301 !important;
+  }
+  .MuiInput-underline:after, .MuiInput-underline:before{
+    border: 0px !important;
+  }
+  /* LABEL DO MODAL CUSTOMIZADO */
+  .MuiInputLabel-formControl{
+    z-index: 300 !important;
+  }
+  .MuiInputLabel-root {
+    margin-top: 6.5px !important;
+    margin-left: 10px !important;
+  }
+  .MuiCheckbox-colorSecondary.Mui-checked, .MuiInputLabel-root.Mui-focused{
+    color: #2386fd !important;
+    margin-top: 0px !important;
+  }
+  .MuiInputLabel-shrink {margin-top: 0px !important;}
+
+  /* FLEX CSS */  
+.modal--split-columnar{
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+}
+.modal--split-one{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 100% !important;
+    margin: 0;
+    max-height: 60px;
+    margin-top: 20px;
+}
+.modal--split-children{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+.modal--split-two{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    width: 100% !important;
+    margin: 0;
+    margin-top: 20px;
+    max-height: 60px;
+}
+.modal--split-two div:nth-child(1){
+    margin-right: 5px;
+}
+.modal--split-two > *, .modal--split-datetime > *{
+    flex: 1;
+}
+/* Elemento que está divido em 2 e é children, deve ser select */
+.modal--split-two .modal--split-children, .modal--split-two .modal--split-select, .modal--split-one .modal--split-children{
+    margin-top: -9.5px;
+}
+.modal--split-datetime{
+    margin-top: -16px;
+    display: flex;
+}
+.modal--split-children label{
+    margin-bottom: 5px !important;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 0px;
+  -webkit-text-fill-color: black;
+  -webkit-box-shadow: 0 0 0px 0px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+.MuiPopover-paper {
+    border-radius: 10px !important;
+}
+.MuiListItem-button:hover {
+    text-decoration: none;
+    background-color: rgb(35, 134, 253) !important;
+    color: white !important;
+}
+.modal--title-divisor{
+    font-family: 'Averta Extra Bold';
+    font-size: 20px;
+    position: absolute;
+    margin-top: 0px;
+    margin-left: 10px;
+}
+.container--content-news .MuiListItem-button:hover .MuiCheckbox-root{
+    color: white !important;
+}

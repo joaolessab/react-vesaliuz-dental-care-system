@@ -1604,11 +1604,28 @@ class Patients extends React.Component{
                     </div>
                 </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 {/* Modal de Pacientes */}
                 <Modal open={ this.state.patientCrudVisibility } onClose={ this.closePatientCrudModal } center>
                     
                     {/* Superior Toolbar */}
-                    <div className="custom--modal-header-patient">
+                    <div className="modal--header-for-buttons">
                         <Button className="icon--agendamentos"><span>Agendas</span></Button>
                         <Button className="icon--financas"><span>Financeiro</span></Button>
                         <Button className="icon--exams"><span>Exames</span></Button>
@@ -1617,9 +1634,9 @@ class Patients extends React.Component{
                                         
                     {/* Dados Gerais */}
                     { this.state.patientCrudView === "dados_gerais" ?
-                        <div className="div--modalPatient-body">
-                        <p className="modal--title-divisor">Dados Gerais</p>
-                        <div className="div--patients-information">
+                        <div className="modal--body-custom">
+                            <p className="modal--body-custom-title">Dados Gerais</p>
+                            <div className="div--patients-information">
                             <form className={classes.root} noValidate autoComplete="off">
                                 <MuiPickersUtilsProvider libInstance={ moment } utils={ MomentUtils } locale={ momentLocale }>
                                     
@@ -1862,15 +1879,13 @@ class Patients extends React.Component{
                                 </MuiPickersUtilsProvider>
                             </form>
                         </div>
-                    </div>             
+                        </div>             
                     : null }
                                         
                     {/* Anamnese */}
                     { this.state.patientCrudView === "anamnese" ?
-                        <div className="div--modalAnamnese-body">
-                            <div>
-                                <p className="modal--title-divisor">Anamnese - Detalhamento</p>
-                            </div>
+                        <div className="modal--body-custom">
+                            <p className="modal--body-custom-title">Anamnese - Detalhamento</p>
                             <div className="div--patients-anamneseinfo">
 
                                 {/* section HTML Component */}                              
@@ -2004,10 +2019,8 @@ class Patients extends React.Component{
 
                     {/* Profile Pic */}
                     { this.state.patientCrudView === "crop" ?
-                        <div className="div--modalAnamnese-body">
-                            <div>
-                                <p className="modal--title-divisor">Edição de Foto do usuário</p>
-                            </div>
+                        <div className="modal--body-custom">
+                            <p className="modal--body-custom-title">Edição de Foto do usuário</p>
                             <div className="div--patients-profilepic">
                                 <div className="crop-container">
                                     <Cropper
@@ -2112,6 +2125,16 @@ class Patients extends React.Component{
                         </div>
                     </div>  
                 </Modal>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             </div>            
         );
     }
