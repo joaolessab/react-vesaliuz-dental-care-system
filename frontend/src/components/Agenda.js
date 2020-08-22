@@ -1101,20 +1101,16 @@ class Agenda extends React.Component{
 
 
 
-
-
-
                 {/* Modal de Agenda */}
                 <Modal open={ this.state.agendaCRUDVisibility } onClose={ this.closeCrudModal } center>
-                    <div className="div--modalAgenda-body">
-                        <div className="div--agenda-appointment-body">
+                    <div className="modal--body-custom">
                             <div 
                                 className={ this.state.eventRepeatCheck === true ? "div--agenda-appointment div--agenda-appointment--opened" : "div--agenda-appointment" }
                             >
                                 <form className={classes.root} noValidate autoComplete="off">
                                     <MuiPickersUtilsProvider libInstance={ moment } utils={ MomentUtils } locale={ momentLocale }>                                
                                         {/* Titulo */}
-                                        <div className="div--agendaForm-title agenda--component">
+                                        <div className="div--agendaForm-title">
                                             <TextField 
                                                 label="Título do seu evento:" 
                                                 value = { this.state.eventTitle } 
@@ -1123,7 +1119,7 @@ class Agenda extends React.Component{
                                         </div>
 
                                         {/* Datas e horários */}
-                                        <div className="div--agendaForm-dates agenda--component">
+                                        <div className="div--agendaForm-dates">
                                             <KeyboardDatePicker
                                                 disableToolbar
                                                 variant="inline"
@@ -1155,7 +1151,7 @@ class Agenda extends React.Component{
                                                 }}
                                             />
                                         </div>
-                                        <div className="div--agendaForm-times agenda--component">
+                                        <div className="div--agendaForm-times">
                                             <div>
                                                 <InputLabel htmlFor="checkbox--initial-time">Hora de início:</InputLabel>
                                                 <Select
@@ -1191,7 +1187,7 @@ class Agenda extends React.Component{
                                                 </Select>
                                             </div>
                                         </div>
-                                        <div className="div--agendaForm-repeatOptions agenda--component">
+                                        <div className="div--agendaForm-repeatOptions">
                                             <div>
                                                 <FormControlLabel
                                                     value="end"
@@ -1223,7 +1219,7 @@ class Agenda extends React.Component{
                                                     />
                                             </div>
                                         </div>
-                                        <div className="div--agendaForm-client agenda--component">
+                                        <div className="div--agendaForm-client">
                                             <InputLabel htmlFor="checkbox--agenda-client" className="input--agendaForm-client">Cliente:</InputLabel>
                                             <Select
                                                 labelId="checkbox--agenda-client"
@@ -1239,7 +1235,7 @@ class Agenda extends React.Component{
                                                 ))}
                                             </Select>
                                         </div>
-                                        <div className="div--agendaForm-observation agenda--component">
+                                        <div className="div--agendaForm-observation">
                                             <InputLabel htmlFor="textarea-observation">Observações:</InputLabel>
                                             <TextareaAutosize 
                                                 id="textarea-observation" 
@@ -1257,7 +1253,7 @@ class Agenda extends React.Component{
                                 className={ this.state.eventRepeatCheck === true ? "div-agenda--repeat div-agenda--repeat--opened" : "div-agenda--repeat"}
                             >
                                 <MuiPickersUtilsProvider libInstance={ moment } utils={ MomentUtils } locale={ momentLocale }>                                
-                                    <div className="div--agendaForm-client agenda--component">
+                                    <div className="div--agendaForm-client">
                                         <div className="div--repeat-type">
                                             <InputLabel htmlFor="checkbox--repeat-mode">Repetir a cada:</InputLabel>                                            
                                             <div className="div--repeat-sample">
@@ -1411,8 +1407,9 @@ class Agenda extends React.Component{
                                 </MuiPickersUtilsProvider>
                             </div>
                         </div>
-                        <div className="custom--modal-footer">
-                            <div className="buttons--bar agenda--component">
+
+                    <div className="modal--footer">
+                            <div className="">
                                 <Button id="deleteEventButton" 
                                     className={ this.state.agendaCRUDMode === "insert" ? "hideComponent": "" }
                                     onClick={ this.deleteEvent }
@@ -1423,7 +1420,6 @@ class Agenda extends React.Component{
                                 <Button id="saveEventButton" onClick = { this.saveEvent } >Salvar</Button>
                             </div>
                         </div>
-                    </div>
                 </Modal>
 
 

@@ -1595,7 +1595,7 @@ class Patients extends React.Component{
                             < AutoCompleteSuggest source = "patients" />
                         </div>
                         <div>
-                            <button className="button--blue-casual" onClick={() => this.openCRUDPatientsModal("insert", null)}>Novo Paciente</button>
+                            <button className="" onClick={() => this.openCRUDPatientsModal("insert", null)}>Novo Paciente</button>
                         </div>
                     </div>
 
@@ -2071,68 +2071,60 @@ class Patients extends React.Component{
                     : null }
 
                     {/* Bottom ToolBar */}
-                    <div className="custom--modal-footer">
-                        <div className="buttons--bar patients--component">
+                    <div className="modal--footer">
+                        {this.state.patientCrudMode === "edit" && this.state.patientCrudView === "dados_gerais" ?
+                            <Button
+                                className="modal--footer-btn_red"
+                                onClick={ this.deleteEvent }
+                            >
+                                Excluir
+                            </Button>
+                        : null }
 
-                            {this.state.patientCrudMode === "edit" && this.state.patientCrudView !== "crop" ?
-                                <Button
-                                    className="white"
-                                    onClick={ this.deleteEvent }
-                                >
-                                    Excluir
-                                </Button>
-                            : null }
-
-                            { this.state.patientCrudView !== "crop" ?
-                                <Button className="white" onClick={ this.closePatientCrudModal }>Cancelar</Button>
-                                :
-                                null
-                            }                            
+                        { this.state.patientCrudView !== "crop" ?
+                            <Button className="modal--footer-btn_white" onClick={ this.closePatientCrudModal }>
+                                Cancelar
+                            </Button>
+                            :
+                            null
+                        }
                                 
-                            { this.state.patientCrudView === "dados_gerais" ?
-                                <Button className="anamnese blue" onClick = { this.openAnamnseSectionMode } >
-                                    Anamnese
-                                    <MenuBookIcon />
-                                </Button>
-                            : null }
+                        { this.state.patientCrudView === "dados_gerais" ?
+                            <Button className="modal--footer-btn_white" onClick = { this.openAnamnseSectionMode } >
+                                Anamnese
+                            </Button>
+                        : null }
 
-                            { this.state.patientCrudView === "anamnese" ?
-                                <Button className="anamnese blue" onClick = { this.goBackToGeneralData }>Dados Gerais</Button>
-                            : null }
+                        { this.state.patientCrudView !== "dados_gerais" ?
+                            <Button className="modal--footer-btn_white" onClick = { this.goBackToGeneralData }>
+                                Dados Gerais
+                            </Button>
+                        : null }
 
-                            { this.state.patientCrudView !== "crop" ?
-                                <Button className="blue" onClick = { this.savePatient } >Salvar</Button>
-                                :
-                                null
-                            }
+                        { this.state.patientCrudView !== "crop" ?
+                            <Button className="modal--footer-btn_blue" onClick = { this.savePatient }>
+                                Salvar
+                            </Button>
+                            :
+                            null
+                        }
                             
-                            {/* Profile Picture */}
-                            { this.state.patientCrudView === "crop" ?
-                                <div style={{display: "flex"}}>
-                                    <input 
-                                            className="input--picture-changer"
-                                            type='file' 
-                                            accept="image/*"                                       
-                                            onChange={this.onFileChange}
-                                    />                       
-                                    <Button className="blue" onClick = { this.recordPatientPicture }>Gravar Foto</Button>
-                                </div>
-                                :
-                                null
-                            }
-                        </div>
-                    </div>  
-                </Modal>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+                        {/* Profile Picture */}
+                        { this.state.patientCrudView === "crop" ?
+                            <div style={{display: "flex"}}>
+                                <input 
+                                        className="input--picture-changer"
+                                        type='file' 
+                                        accept="image/*"                                       
+                                        onChange={this.onFileChange}
+                                />                       
+                                <Button className="modal--footer-btn_blue" onClick = { this.recordPatientPicture }>Gravar Foto</Button>
+                            </div>
+                            :
+                            null
+                        }
+                        </div>                
+                </Modal>          
             </div>            
         );
     }

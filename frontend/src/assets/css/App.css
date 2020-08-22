@@ -210,3 +210,8 @@ input, select, textarea{
 .MuiSlider-root{
   color: #2386fd !important;
 }
+
+/* Inputs */
+.MuiInputLabel-shrink{
+  transform: translate(0, -2.5px) scale(1) !important;
+}

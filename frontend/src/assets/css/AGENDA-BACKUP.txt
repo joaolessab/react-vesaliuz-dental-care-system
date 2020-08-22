@@ -4,14 +4,6 @@
     flex-direction: column;
     display: flex;
 }
-.div--agenda-appointment .agenda--component, .div--agenda-repeat .agenda--component{
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    width: 100% !important;
-    margin: 0;
-    margin-top: 5px;
-}
 .div--agendaForm-times, .div--agendaForm-dates, .div--agendaForm-repeatOptions{
     flex-direction: row !important;
     justify-content: space-between;
@@ -25,9 +17,6 @@
 .MuiInputBase-input, .MuiPickersSlideTransition-transitionContainer > *, .rbc-header, .rbc-header + .rbc-header, .MuiInputLabel-root, .MuiTypography-root{
     font-family: 'Averta' !important;
     font-size: 14px !important;
-}
-.div--agenda-appointment .agenda--component .MuiFormControlLabel-root:nth-child(2){
-    margin-left: 65px;
 }
 .div--agendaForm-times .div--hours-finish{
     margin-left: 40px;
@@ -109,13 +98,6 @@
     border: 1px solid #b5b5b5 !important;
     margin-right: 15px;
 }
-.div--modalAgenda-body{
-    display: flex;
-    flex-direction: column;
-}
-.div--agenda-appointment-body{
-    display: flex;
-}
 .div-agenda--repeat label {
     color: #ffffffbf;
 }
@@ -185,11 +167,6 @@
 
 .div--endrepeat-mode-chosen-firstdiv label, .div--endrepeat-mode-chosen .MuiFormControlLabel-root{
     color: white !important;
-}
-
-/* HOVER */
-.div--modalAgenda-body .MuiInput-underline:hover:not(.Mui-disabled):before {
-    border-bottom: 2px solid rgb(35, 134, 253);    
 }
 .div--content-agenda .rbc-toolbar button:hover{
     cursor: pointer;
@@ -343,32 +320,4 @@
 }
 .rbc-agenda-view table.rbc-agenda-table thead > tr > th:nth-child(1) {
     width: 95.8px !important;
-}
-.button--blue-casual{
-    background-color: #2386fd !important;
-    background-position: 15px !important;
-    background-image: none !important;
-    width: 105px !important;
-    height: 45px;
-    border-radius: 10px !important;
-    color: white !important;
-    background-image: none !important;
-    font-family: 'Averta' !important;
-    text-transform: none !important;
-    border: 0px;
-}
-.button--blue-casual:hover{    
-    transition: 0.2 !important;
-    height: 45px !important;
-    border-radius: 10px !important;
-    cursor: pointer !important;
-    background-color: #2386fd !important;
-    background-position: 15px !important;
-    box-shadow: 0px 1px 2px 0px #2386fd4d !important;
-    color: white !important;
-    background-image: none !important;
-    border: 1.5px solid #ffffffbf !important;
-    color: white !important;
-    background-image: none !important;
-    font-family: 'Averta' !important;
 }
