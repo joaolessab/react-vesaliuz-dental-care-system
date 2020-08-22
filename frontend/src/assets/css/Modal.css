@@ -39,6 +39,11 @@
     margin-bottom: 10px;
     flex: 1 1;
     margin-top: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.modal--body-custom-content p{
+    text-align: justify;
 }
 .modal--body-content-fields{
     display: flex;
@@ -52,8 +57,8 @@
     display: none !important;
 }
 .react-responsive-modal-closeButton{
-    right: 30px !important;
-    top: 30px !important;
+    right: 15px !important;
+    top: 15px !important;
     height: 35px;
     width: 35px;
     cursor: pointer;
@@ -84,6 +89,9 @@
 }
 
 /* Headers */
+.modal--header-for-calls{
+    margin-top: 30px;
+}
 .modal--header-for-buttons{
     padding: 0px;
 }
