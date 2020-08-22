@@ -156,28 +156,6 @@
     flex: 1 1;
     width: 100% !important;
 }
-/* Div dentro do modal de eventos */
-.div--patients-information form{
-    flex-direction: column;
-    display: flex;
-}
-.div--patients-information .patients--component{
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    width: 100% !important;
-    margin: 0;
-    margin-top: 20px;
-}
-.div--patients-information .div--agendaForm-times .MuiSelect-select.MuiSelect-select{
-    width: 115px !important;
-}
-.div--patients-information-body form{
-    margin-top: -35px;
-}
-.div--patients-information-body{
-    display: flex;
-}
 .div--patients-anamneseinfo{
     display: flex;
     flex-direction: column;
@@ -207,25 +185,6 @@
 .div--patients-profilepic .crop-container .reactEasyCrop_Container, .div--patients-profilepic .crop-container .reactEasyCrop_Image, .reactEasyCrop_CropArea{
     max-height: 300px;
 }
-.div--patients-information{
-    display: flex;
-    flex-direction: column;
-    min-width: 320px;
-    margin-bottom: 30px;
-    max-height: 515px;
-    overflow: hidden;
-    overflow-y: auto;
-    padding-bottom: 15px;
-    margin-top: 40px;
-    padding-right: 20px;
-}
-.div--patients-information .modal--split-columnar{
-    padding-bottom: 8px;
-    margin-left: 0px;
-    margin-right: 0px;
-}
-.div--patients-information .modal--split-columnar:nth-child(1){margin-right: 7.5px;}
-.div--patients-information .modal--split-columnar:nth-child(2){margin-left: 7.5px;}
 
 .patients--component .anamnese{
     width: 200px !important;
@@ -360,14 +319,14 @@
 .section--next.Mui-disabled, .section--previous.Mui-disabled{
     color: rgba(0, 0, 0, 0.26) !important;
 }
-.modal--text-row{
+.modal--body-content-fields{
     display: flex;
     flex: 1;
     flex-direction: row;
     width: 100% !important;
     margin-top: -2px !important;
 }
-.div--patients-information .modal--pic-row{    
+.modal--body-content-pic{    
     margin: 0 !important;
     margin-top: 0px !important;
     background-color: #efefef;
@@ -378,13 +337,13 @@
     width: 100% !important;
     display: flex;
 }
-.modal--pic-row .div--pic-upbutton{
+.modal--body-content-pic .div--pic-upbutton{
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.modal--pic-row .div--pic-text{
+.modal--body-content-pic .div--pic-text{
     flex: 2 1;
     display: flex;
     justify-content: center;
@@ -393,11 +352,11 @@
     flex-direction: column;
     padding-top: 18px;
 }
-.modal--pic-row .div--pic-text h1{
+.modal--body-content-pic .div--pic-text h1{
     font-size: 20px;
     margin: 0px !important;
 }
-.modal--pic-row .input--picture{
+.modal--body-content-pic .input--picture{
     background-color: #2386fd;
     color: transparent;
     height: 120px;
@@ -412,14 +371,14 @@
     background-repeat: no-repeat;
     background-image: url("../icons/superhero-teeth.svg");     
 }
-.modal--pic-row .input--picture::-webkit-file-upload-button {
+.modal--body-content-pic .input--picture::-webkit-file-upload-button {
   visibility: hidden;
 }
-.modal--pic-row .input--picture::before {
+.modal--body-content-pic .input--picture::before {
   content: '';
   display: none;
 }
-.modal--pic-row .div--point-left{
+.modal--body-content-pic .div--point-left{
     background-image: url("../icons/point_left_hand.gif");  
     height: 42px;
     width: 60px;

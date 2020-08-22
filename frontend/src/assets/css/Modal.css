@@ -40,6 +40,12 @@
     flex: 1 1;
     margin-top: 10px;
 }
+.modal--body-content-fields{
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    width: 100% !important;
+}
 
 /* Buttons */
 .react-responsive-modal-closeButton svg{
