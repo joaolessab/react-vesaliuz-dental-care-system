@@ -1690,7 +1690,7 @@ class Patients extends React.Component{
                                                     />
                                                 </div>
 
-                                                <div className="modal--split-two">    
+                                                <div className="">    
                                                     <InputMask
                                                         mask="99/99/9999"
                                                         name = "patientBirthday"
@@ -1704,7 +1704,7 @@ class Patients extends React.Component{
                                                         />}
                                                     </InputMask>
 
-                                                    <div className="modal--split-children">
+                                                    <div className="">
                                                         <InputLabel htmlFor="checkbox--genre">Gêreno:</InputLabel>
                                                         <Select
                                                             labelId="checkbox--genre"
@@ -1757,7 +1757,7 @@ class Patients extends React.Component{
                                                     />
                                                 </div>
 
-                                                <div className="modal--split-two">
+                                                <div className="">
                                                     <TextField 
                                                         label="CEP:" 
                                                         value = { this.state.patientZipCode }
@@ -1765,7 +1765,7 @@ class Patients extends React.Component{
                                                         onChange={ this.changeSimpleValue }                                               
                                                     />
 
-                                                    <div className="modal--split-children">
+                                                    <div className="">
                                                         <InputLabel htmlFor="checkbox--state">Estado:</InputLabel>
                                                         <Select
                                                             labelId="checkbox--state"
@@ -1853,7 +1853,7 @@ class Patients extends React.Component{
                                                 </div>
 
                                                 <div className="">
-                                                    <div className="modal--split-children">
+                                                    <div className="">
                                                         <InputLabel htmlFor="checkbox--civilStatus">Status Civil:</InputLabel>
                                                         <Select
                                                             labelId="checkbox--civilStatus"
@@ -1884,9 +1884,9 @@ class Patients extends React.Component{
                     { this.state.patientCrudView === "anamnese" ?
                         <div className="modal--body-custom">
                             <p className="modal--body-custom-title">Anamnese - Detalhamento</p>
-                            <div className="div--patients-anamneseinfo">
-
-                                {/* section HTML Component */}                              
+                            
+                            <div className="modal--body-custom-content">
+                                {/* Info ToolBar */}
                                 <div className="div--anamneseinfo-toolbar">
                                     <div>
                                         { this.state.anamnseSectionActive === 1 ? 
@@ -1946,7 +1946,6 @@ class Patients extends React.Component{
                                         }
                                     </div>
                                 </div>
-
                                 
                                 {/* Questions */}                        
                                 <div className="div--anamneseinfo-questions">
@@ -2010,8 +2009,9 @@ class Patients extends React.Component{
                                         );
                                     }) }
                                 </div>
-
                             </div>
+                        
+                        
                         </div>
                     : null }
 

@@ -251,37 +251,13 @@
     display: flex;
 }
 .div--anamneseinfo-questions{
-    margin-top: 20px;
+    margin-top: 10px;
     margin-bottom: 20px;
     max-height: 300px;
     overflow: auto;
     padding: 20px;
     padding-top: 0px;
     padding-bottom: 0px;
-}
-.div--anamneseinfo-questions .MuiFormControlLabel-root:hover{
-    color: #2386fd !important;
-}
-.div--anamneseinfo-questions .MuiFormControlLabel-root:hover span{
-    color: #2386fd !important;
-}
-.div--anamneseinfo-questions .MuiButtonBase-root:hover{
-    background-color: transparent !important;
-    background-position: 15px !important;
-    color: #2386fd !important;
-    box-shadow: none !important;
-}
-.div--anamneseinfo-questions .MuiRadio-colorPrimary.Mui-checked{
-    color: #333333 !important;
-}
-.div--anamnese-moreInfoInput input{
-    height: 45px;
-    padding: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    border-radius: 10px;
-    border: 1px solid #dcdcdc;
-    width: 100%;
 }
 .div--question-block{
     margin-bottom: 30px;
@@ -310,13 +286,6 @@
 }
 .section--next.Mui-disabled, .section--previous.Mui-disabled{
     color: rgba(0, 0, 0, 0.26) !important;
-}
-.modal--body-content-fields{
-    display: flex;
-    flex: 1;
-    flex-direction: row;
-    width: 100% !important;
-    margin-top: -2px !important;
 }
 .modal--body-content-pic{    
     margin: 0 !important;
