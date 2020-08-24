@@ -215,3 +215,7 @@ input, select, textarea{
 .MuiInputLabel-shrink{
   transform: translate(0, -2.5px) scale(1) !important;
 }
+.MuiTypography-overline {
+  font-size: 14px;
+  font-family: "Averta";
+}

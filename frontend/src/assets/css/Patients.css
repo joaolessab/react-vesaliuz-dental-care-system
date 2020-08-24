@@ -164,25 +164,24 @@
     margin-top: 40px;
     max-height: 500px;
 }
-.div--patients-profilepic{
-    display: flex;
-    height: 500px;
-    max-height: 500px;
-    width: 500px;
-    max-width: 500px;
-    flex-direction: column;
+.modal--body-custom-content_crop-condition{
+    overflow: hidden;
 }
-.div--patients-profilepic .crop-container{
+.modal--body-custom-content .crop--container{
     flex-basis: 360px;
+    max-height: 360px;
 }
-.div--patients-profilepic .crop-container .reactEasyCrop_Container{
+.modal--body-custom-content .crop--container .reactEasyCrop_Container{
     margin-top: 140px;
 }
 
-.div--patients-profilepic .controls{
-    flex: 1;
+.modal--body-custom-content .crop--controls{
+    overflow: hidden;
+    margin-top: -55px;
+    flex-basis: 128px;
+    margin-bottom: 10px;
 }
-.div--patients-profilepic .crop-container .reactEasyCrop_Container, .div--patients-profilepic .crop-container .reactEasyCrop_Image, .reactEasyCrop_CropArea{
+.modal--body-custom-content .crop--container .reactEasyCrop_Container, .modal--body-custom-content .crop-container .reactEasyCrop_Image, .reactEasyCrop_CropArea{
     max-height: 300px;
 }
 

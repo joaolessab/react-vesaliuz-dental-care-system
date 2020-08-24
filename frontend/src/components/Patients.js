@@ -2019,8 +2019,9 @@ class Patients extends React.Component{
                     { this.state.patientCrudView === "crop" ?
                         <div className="modal--body-custom">
                             <p className="modal--body-custom-title">Edição de Foto do usuário</p>
-                            <div className="div--patients-profilepic">
-                                <div className="crop-container">
+                            
+                            <div className="modal--body-custom-content modal--body-custom-content_crop-condition">
+                                <div className="crop--container">
                                     <Cropper
                                         image={this.state.imgSrc}
                                         crop={this.state.crop}                                        
@@ -2033,7 +2034,7 @@ class Patients extends React.Component{
                                         onZoomChange={this.setZoom}
                                     />
                                 </div>
-                                <div className="controls">
+                                <div className="crop--controls">
                                     <Typography
                                         variant="overline"
                                         classes={{ root: classes.sliderLabel }}
@@ -2048,8 +2049,7 @@ class Patients extends React.Component{
                                         aria-labelledby="Zoom"
                                         onChange={(e, zoom) => this.setZoom(zoom)}
                                     />
-                                </div>
-                                <div className="controls">
+                                    
                                     <Typography
                                         variant="overline"
                                         classes={{ root: classes.sliderLabel }}
