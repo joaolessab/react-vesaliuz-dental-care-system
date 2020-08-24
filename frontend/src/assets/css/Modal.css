@@ -45,11 +45,12 @@
 .modal--body-custom-content p{
     text-align: justify;
 }
-.modal--body-content-fields{
+.modal--fields-container{
     display: flex;
     flex: 1;
     flex-direction: row;
     width: 100% !important;
+    margin: 0px !important;
 }
 
 /* Buttons */
@@ -188,33 +189,19 @@
 .modal--body-custom-content .MuiRadio-colorPrimary.Mui-checked{
     color: #333333 !important;
 }
-.MuiInput-root {
-    background-color: white !important;
-    border-radius: 10px !important;
-    padding: 0px !important;
-    padding-left: 10px !important;
-    padding-right: 10px !important;
-    height: 45px !important;  
-    border: 1px solid #dcdcdc !important;
-    box-shadow: 0px 5px 7px 0px #efefefcc !important;
+.modal--fields-container_half{
+    display: flex;
+    flex: 1;    
+    flex-direction: column;
 }
-.MuiInputBase-input{
-    z-index: 301 !important;
+.modal--fields-container_half .modal--field{
+    width: 100%;
+    margin-top: 10px;
+}
+.modal--field .MuiFormControl-root, .modal--field .MuiInputBase-root{
     width: 100% !important;
 }
-.MuiInput-underline:after, .MuiInput-underline:before{
-    border: 0px !important;
+.modal--field_special_legend label{
+    margin-top: -2px !important;
+    margin-bottom: 4px !important;
 }
-/* LABEL DO MODAL CUSTOMIZADO */
-.MuiInputLabel-formControl{
-    z-index: 300 !important;
-}
-.MuiInputLabel-root {
-    margin-top: 6.5px !important;
-    margin-left: 10px !important;
-}
-.MuiCheckbox-colorSecondary.Mui-checked, .MuiInputLabel-root.Mui-focused{
-    color: #2386fd !important;
-    margin-top: 0px !important;
-}
-.MuiInputLabel-shrink {margin-top: 0px !important;}

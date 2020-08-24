@@ -14,10 +14,6 @@
 .div--agenda-appointment .div--agendaForm-times .MuiSelect-select.MuiSelect-select{
     width: 115px !important;
 }
-.MuiInputBase-input, .MuiPickersSlideTransition-transitionContainer > *, .rbc-header, .rbc-header + .rbc-header, .MuiInputLabel-root, .MuiTypography-root{
-    font-family: 'Averta' !important;
-    font-size: 14px !important;
-}
 .div--agendaForm-times .div--hours-finish{
     margin-left: 40px;
 }

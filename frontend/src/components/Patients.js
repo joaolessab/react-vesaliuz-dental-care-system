@@ -1636,12 +1636,13 @@ class Patients extends React.Component{
                     { this.state.patientCrudView === "dados_gerais" ?
                         <div className="modal--body-custom">
                             <p className="modal--body-custom-title">Dados Gerais</p>
+
                             <div className="modal--body-custom-content">
                                 <form className={classes.root} noValidate autoComplete="off">
                                     <MuiPickersUtilsProvider libInstance={ moment } utils={ MomentUtils } locale={ momentLocale }>                                        
                                         {/* Foto do Paciente */}
                                         { this.state.croppedImage === null ?
-                                            <div className="modal--body-content-pic">
+                                            <div className="boxpicture--container">
                                                 <div className="div--pic-upbutton">
                                                     <input 
                                                         className="input--picture" 
@@ -1658,7 +1659,7 @@ class Patients extends React.Component{
                                                 </div>
                                             </div>
                                         :
-                                            <div className="modal--body-content-pic">
+                                            <div className="boxpicture--container">
                                                 <div className="div--pic-upbutton">
                                                     <img src={this.state.croppedImage} className="img--selected-pic" />
                                                     <input 
@@ -1678,9 +1679,10 @@ class Patients extends React.Component{
                                         }
 
                                         {/* Dados do Paciente */}
-                                        <div className="modal--body-content-fields">
-                                            <div className="">
-                                                <div className="">
+                                        <div className="modal--fields-container">
+                                            {/* Coluna Esquerda */}
+                                            <div className="modal--fields-container_half">
+                                                <div className="modal--field">
                                                     <TextField 
                                                         label="Nome do Paciente" 
                                                         value = { this.state.patientName }
@@ -1690,7 +1692,7 @@ class Patients extends React.Component{
                                                     />
                                                 </div>
 
-                                                <div className="">    
+                                                <div className="modal--field">    
                                                     <InputMask
                                                         mask="99/99/9999"
                                                         name = "patientBirthday"
@@ -1703,28 +1705,28 @@ class Patients extends React.Component{
                                                                     type="text"
                                                         />}
                                                     </InputMask>
-
-                                                    <div className="">
-                                                        <InputLabel htmlFor="checkbox--genre">Gêreno:</InputLabel>
-                                                        <Select
-                                                            labelId="checkbox--genre"
-                                                            value = { this.state.patientGenreValue }
-                                                            name = "patientGenreValue"
-                                                            onChange={ this.changeSimpleValue }
-                                                            onFocus = { this.insertFillLabel }
-                                                            onBlur = {(e) => this.removeFillLabel(e) }
-                                                            input={ <Input /> }
-                                                        >
-                                                            { this.state.genreList.map((genreItem) => (
-                                                                <MenuItem key={ genreItem.name } value={ genreItem.id }>
-                                                                    <ListItemText primary={ genreItem.name } />
-                                                                </MenuItem>
-                                                            ))}
-                                                        </Select>
-                                                    </div>
                                                 </div>
 
-                                                <div className="">
+                                                <div className="modal--field modal--field_special_legend">
+                                                    <InputLabel htmlFor="checkbox--genre">Gêreno:</InputLabel>
+                                                    <Select
+                                                        labelId="checkbox--genre"
+                                                        value = { this.state.patientGenreValue }
+                                                        name = "patientGenreValue"
+                                                        onChange={ this.changeSimpleValue }
+                                                        onFocus = { this.insertFillLabel }
+                                                        onBlur = {(e) => this.removeFillLabel(e) }
+                                                        input={ <Input /> }
+                                                    >
+                                                        { this.state.genreList.map((genreItem) => (
+                                                            <MenuItem key={ genreItem.name } value={ genreItem.id }>
+                                                                <ListItemText primary={ genreItem.name } />
+                                                            </MenuItem>
+                                                        ))}
+                                                    </Select>
+                                                </div>
+
+                                                <div className="modal--field">
                                                     <TextField 
                                                         label="Profissão" 
                                                         value = { this.state.patientOccupation }
@@ -1733,7 +1735,7 @@ class Patients extends React.Component{
                                                     />
                                                 </div>
 
-                                                <div className="">
+                                                <div className="modal--field">
                                                     <InputMask
                                                         mask = { this.state.patientDocumentMask }
                                                         name = "patientDocument"
@@ -1748,7 +1750,7 @@ class Patients extends React.Component{
                                                     </InputMask>
                                                 </div>
 
-                                                <div className="">
+                                                <div className="modal--field">
                                                     <TextField 
                                                         label="Endereço:" 
                                                         value = { this.state.patientAddress }
@@ -1757,36 +1759,37 @@ class Patients extends React.Component{
                                                     />
                                                 </div>
 
-                                                <div className="">
+                                                <div className="modal--field">
                                                     <TextField 
                                                         label="CEP:" 
                                                         value = { this.state.patientZipCode }
                                                         name = "patientZipCode"
                                                         onChange={ this.changeSimpleValue }                                               
                                                     />
+                                                </div>
 
-                                                    <div className="">
-                                                        <InputLabel htmlFor="checkbox--state">Estado:</InputLabel>
-                                                        <Select
-                                                            labelId="checkbox--state"
-                                                            value = { this.state.patientStateValue }
-                                                            name = "patientStateValue"
-                                                            onChange={ this.changeSimpleValue }
-                                                            onFocus = { this.insertFillLabel }
-                                                            onBlur = {(e) => this.removeFillLabel(e) }
-                                                            input={ <Input /> }
-                                                        >
-                                                            { this.state.stateList.map((stateItem) => (
-                                                                <MenuItem key={ stateItem.name } value={ stateItem.id }>
-                                                                    <ListItemText primary={ stateItem.name } />
-                                                                </MenuItem>
-                                                            ))}
-                                                        </Select>
-                                                    </div>
+                                                <div className="modal--field modal--field_special_legend">
+                                                    <InputLabel htmlFor="checkbox--state">Estado:</InputLabel>
+                                                    <Select
+                                                        labelId="checkbox--state"
+                                                        value = { this.state.patientStateValue }
+                                                        name = "patientStateValue"
+                                                        onChange={ this.changeSimpleValue }
+                                                        onFocus = { this.insertFillLabel }
+                                                        onBlur = {(e) => this.removeFillLabel(e) }
+                                                        input={ <Input /> }
+                                                    >
+                                                        { this.state.stateList.map((stateItem) => (
+                                                            <MenuItem key={ stateItem.name } value={ stateItem.id }>
+                                                                <ListItemText primary={ stateItem.name } />
+                                                            </MenuItem>
+                                                        ))}
+                                                    </Select>
                                                 </div>
                                             </div>
-                                            <div className="">
-                                                <div className="">
+                                            {/* Coluna Direita */}
+                                            <div className="modal--fields-container_half">
+                                                <div className="modal--field">
                                                     <TextField 
                                                         label="Cidade:" 
                                                         value = { this.state.patientCity }
@@ -1795,7 +1798,7 @@ class Patients extends React.Component{
                                                     />
                                                 </div>
 
-                                                <div className="">
+                                                <div className="modal--field">
                                                     <TextField 
                                                         label="E-mail:" 
                                                         value = { this.state.patientEmail }
@@ -1804,7 +1807,7 @@ class Patients extends React.Component{
                                                     />
                                                 </div>
 
-                                                <div className="">
+                                                <div className="modal--field">
                                                     <InputMask                                               
                                                         value = { this.state.patientMainPhone }
                                                         mask = { this.state.telephonePrimaryMask }
@@ -1819,7 +1822,7 @@ class Patients extends React.Component{
                                                     </InputMask>
                                                 </div>
 
-                                                <div className="">
+                                                <div className="modal--field">
                                                     <InputMask                                     
                                                         value = { this.state.patientSecondaryPhone }
                                                         mask = { this.state.telephoneSecondaryMask }
@@ -1834,7 +1837,7 @@ class Patients extends React.Component{
                                                     </InputMask>
                                                 </div>
 
-                                                <div className="">
+                                                <div className="modal--field modal--field_special_legend">
                                                     <div className="modal--split-datetime">
                                                         <KeyboardDatePicker
                                                             disableToolbar
@@ -1852,7 +1855,7 @@ class Patients extends React.Component{
                                                     </div>
                                                 </div>
 
-                                                <div className="">
+                                                <div className="modal--field modal--field_special_legend">
                                                     <div className="">
                                                         <InputLabel htmlFor="checkbox--civilStatus">Status Civil:</InputLabel>
                                                         <Select
@@ -1871,7 +1874,7 @@ class Patients extends React.Component{
                                                             ))}
                                                         </Select>
                                                     </div>
-                                                </div> 
+                                                </div>                                            
                                             </div>
                                         </div>
                                     </MuiPickersUtilsProvider>
@@ -1884,10 +1887,9 @@ class Patients extends React.Component{
                     { this.state.patientCrudView === "anamnese" ?
                         <div className="modal--body-custom">
                             <p className="modal--body-custom-title">Anamnese - Detalhamento</p>
-                            
                             <div className="modal--body-custom-content">
                                 {/* Info ToolBar */}
-                                <div className="div--anamneseinfo-toolbar">
+                                <div className="toolbar--anamnese-container">
                                     <div>
                                         { this.state.anamnseSectionActive === 1 ? 
                                             <Button className="section--previous" disabled>
@@ -1945,10 +1947,9 @@ class Patients extends React.Component{
                                             </Button>
                                         }
                                     </div>
-                                </div>
-                                
+                                </div> 
                                 {/* Questions */}                        
-                                <div className="div--anamneseinfo-questions">
+                                <div className="questions--anamnese-container">
                                     {/* Sections */}
                                     { this.state.anamneseSections.map((section) => {
                                         return (
@@ -2010,8 +2011,6 @@ class Patients extends React.Component{
                                     }) }
                                 </div>
                             </div>
-                        
-                        
                         </div>
                     : null }
 
@@ -2049,7 +2048,7 @@ class Patients extends React.Component{
                                         aria-labelledby="Zoom"
                                         onChange={(e, zoom) => this.setZoom(zoom)}
                                     />
-                                    
+
                                     <Typography
                                         variant="overline"
                                         classes={{ root: classes.sliderLabel }}
@@ -2120,7 +2119,7 @@ class Patients extends React.Component{
                             null
                         }
                         </div>                
-                </Modal>          
+                </Modal>
             </div>            
         );
     }

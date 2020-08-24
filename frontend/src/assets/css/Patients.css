@@ -186,13 +186,13 @@
 }
 
 /* STEPS */
-.div--anamneseinfo-toolbar{
+.toolbar--anamnese-container{
     display: flex;
+    margin-bottom: 30px;
     margin-top: 15px;
-    margin-bottom: 15px;    
     justify-content: space-between;
 }
-.div--anamneseinfo-toolbar .section--label{
+.toolbar--anamnese-container .section--label{
     height: 45px;
     background-color: #f0f0f0;
     width: 105px;
@@ -205,7 +205,7 @@
     cursor: pointer;
     border-radius: 15px;
 }
-.div--anamneseinfo-toolbar .section--label:hover .section--counter, .div--anamneseinfo-toolbar .section--label .selected{
+.toolbar--anamnese-container .section--label:hover .section--counter, .toolbar--anamnese-container .section--label .selected{
     background-color: #2386fd;
     color: white;
     border-radius: 20px;
@@ -216,7 +216,7 @@
     align-items: center;
     display: flex;
 }
-.div--anamneseinfo-toolbar .section--counter{
+.toolbar--anamnese-container .section--counter{
     background-color: #eaeaea;
     color: black;
     border-radius: 20px;
@@ -227,7 +227,7 @@
     align-items: center;
     display: flex;
 }
-.div--anamneseinfo-toolbar .section--label .pending{
+.toolbar--anamnese-container .section--label .pending{
     background-color: #ff972b;
     color: white;
     border-radius: 20px;
@@ -238,7 +238,7 @@
     align-items: center;
     display: flex;
 }
-.div--anamneseinfo-toolbar .section--label .success{
+.toolbar--anamnese-container .section--label .success{
     background-color: #49b064;
     color: white;
     border-radius: 20px;
@@ -249,9 +249,8 @@
     align-items: center;
     display: flex;
 }
-.div--anamneseinfo-questions{
-    margin-top: 10px;
-    margin-bottom: 20px;
+.questions--anamnese-container{
+    margin-bottom: 10px;
     max-height: 300px;
     overflow: auto;
     padding: 20px;
@@ -286,7 +285,7 @@
 .section--next.Mui-disabled, .section--previous.Mui-disabled{
     color: rgba(0, 0, 0, 0.26) !important;
 }
-.modal--body-content-pic{    
+.boxpicture--container{    
     margin: 0 !important;
     margin-top: 0px !important;
     background-color: #efefef;
@@ -297,13 +296,13 @@
     width: 100% !important;
     display: flex;
 }
-.modal--body-content-pic .div--pic-upbutton{
+.boxpicture--container .div--pic-upbutton{
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.modal--body-content-pic .div--pic-text{
+.boxpicture--container .div--pic-text{
     flex: 2 1;
     display: flex;
     justify-content: center;
@@ -312,11 +311,11 @@
     flex-direction: column;
     padding-top: 18px;
 }
-.modal--body-content-pic .div--pic-text h1{
+.boxpicture--container .div--pic-text h1{
     font-size: 20px;
     margin: 0px !important;
 }
-.modal--body-content-pic .input--picture{
+.boxpicture--container .input--picture{
     background-color: #2386fd;
     color: transparent;
     height: 120px;
@@ -331,14 +330,14 @@
     background-repeat: no-repeat;
     background-image: url("../icons/superhero-teeth.svg");     
 }
-.modal--body-content-pic .input--picture::-webkit-file-upload-button {
+.boxpicture--container .input--picture::-webkit-file-upload-button {
   visibility: hidden;
 }
-.modal--body-content-pic .input--picture::before {
+.boxpicture--container .input--picture::before {
   content: '';
   display: none;
 }
-.modal--body-content-pic .div--point-left{
+.boxpicture--container .div--point-left{
     background-image: url("../icons/point_left_hand.gif");  
     height: 42px;
     width: 60px;
