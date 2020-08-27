@@ -168,8 +168,13 @@
     color: white !important;
 }
 .modal--news-img{
-    width: 100%;
+    width: auto;
     margin-top: 20px;
     margin-bottom: 20px;
     border-radius: 6px; 
+}
+.div--img-news-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
