@@ -41,6 +41,7 @@
     margin-top: 10px;
     overflow-y: auto;
     overflow-x: hidden;
+    min-width: 400px;
 }
 .modal--body-custom-content p{
     text-align: justify;
@@ -48,7 +49,7 @@
 .modal--fields-container{
     display: flex;
     flex: 1;
-    flex-direction: row;
+    flex-direction: column;
     width: 100% !important;
     margin: 0px !important;
 }
@@ -194,14 +195,19 @@
     flex: 1;    
     flex-direction: column;
 }
-.modal--fields-container_half .modal--field{
+.modal--fields-container .modal--field,.modal--fields-container_half .modal--field{
     width: 100%;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 .modal--field .MuiFormControl-root, .modal--field .MuiInputBase-root{
     width: 100% !important;
 }
 .modal--field_special_legend label{
-    margin-top: -2px !important;
+    margin-top: -2px !important;    
+    margin-left: 8px !important;
     margin-bottom: 4px !important;
+}
+.modal--field .MuiFormControl-marginNormal{
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
 }
