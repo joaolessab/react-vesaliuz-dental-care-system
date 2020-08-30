@@ -1597,7 +1597,7 @@ class Patients extends React.Component{
                             < AutoCompleteSuggest source = "patients" />
                         </div>
                         <div>
-                            <button className="" onClick={() => this.openCRUDPatientsModal("insert", null)}>Novo Paciente</button>
+                            <button className="button--content-blue" onClick={() => this.openCRUDPatientsModal("insert", null)}>Novo Paciente</button>
                         </div>
                     </div>
 

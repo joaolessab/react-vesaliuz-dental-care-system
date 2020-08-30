@@ -1096,11 +1096,6 @@ class Agenda extends React.Component{
                     </div>
                 </div>
 
-
-
-
-
-
                 {/* Modal de Agenda */}
                 <Modal open={ this.state.agendaCRUDVisibility } onClose={ this.closeCrudModal } center>
                     <div className="modal--body-custom">
@@ -1111,19 +1106,34 @@ class Agenda extends React.Component{
                         }
                         
                         {/* Evento info */}
-                        <div 
-                            className={ this.state.eventRepeatCheck === true ? "modal--body-custom-content div--agenda-appointment--opened" : "modal--body-custom-content div--agenda-appointment" }
-                        >
+                        <div className="modal--body-custom-content">
                             <form className={classes.root} noValidate autoComplete="off">
                                 <MuiPickersUtilsProvider libInstance={ moment } utils={ MomentUtils } locale={ momentLocale }>                                
                                     {/* Div de Campos Normais */}
                                     <div className="modal--fields-container">
-                                        <div className="modal--field">
+                                        <div className="modal--field no--margin">
                                             <TextField 
                                                 label="Título do seu evento:" 
                                                 value = { this.state.eventTitle } 
                                                 onChange = { this.changeEventTitle }
                                             />
+                                        </div>
+
+                                        <div className="modal--field modal--field_special_legend">
+                                            <InputLabel htmlFor="checkbox--agenda-client">Cliente:</InputLabel>
+                                            <Select
+                                                labelId="checkbox--agenda-client"
+                                                id="checkbox--agenda-client"
+                                                value = { this.state.eventClientListValue }
+                                                onChange={ this.changeEventClient }
+                                                input={ <Input /> }
+                                            >
+                                                { this.state.eventClientList.map((clientItem) => (
+                                                    <MenuItem key={ clientItem.name } value={ clientItem.id }>
+                                                        <ListItemText primary={ clientItem.name } />
+                                                    </MenuItem>
+                                                ))}
+                                            </Select>
                                         </div>
 
                                         {/* Datas e horários */}
@@ -1161,45 +1171,9 @@ class Agenda extends React.Component{
                                                 }}
                                             />
                                         </div>
-
-                                        <div className="modal--field modal--field_special_legend">
-                                            <InputLabel htmlFor="checkbox--initial-time">Hora de início:</InputLabel>
-                                            <Select
-                                                labelId="checkbox--initial-time"
-                                                id="checkbox--initial-time"                                                    
-                                                disabled = { this.state.eventAllDayCheck }
-                                                value={ this.state.eventInitialTime }
-                                                onChange={ this.changeInitialTime }
-                                                input={<Input />}
-                                            >
-                                                { this.state.eventAgendaTimes.map((timeItem) => (
-                                                    <MenuItem key={timeItem} value={timeItem}>
-                                                        <ListItemText primary={timeItem} />
-                                                    </MenuItem>
-                                                )) }
-                                            </Select>
-                                        </div>
                                         
-                                        <div className="modal--field modal--field_special_legend">
-                                            <InputLabel htmlFor="checkbox--initial-time">Hora do término:</InputLabel>
-                                            <Select
-                                                labelId="checkbox--final-time"
-                                                id="checkbox--final-time"                                                    
-                                                disabled = { this.state.eventAllDayCheck }
-                                                value={ this.state.eventFinalTime }
-                                                onChange={ this.changeFinalTime }
-                                                input={<Input />}
-                                            >
-                                                {this.state.eventAgendaTimes.map((timeItem) => (
-                                                <MenuItem key={timeItem} value={timeItem}>
-                                                    <ListItemText primary={timeItem} />
-                                                </MenuItem>
-                                                ))}
-                                            </Select>
-                                        </div>
-                                        
-                                        <div className="modal--field">
-                                            <div>
+                                        <div className="modal--separator modal--separator-times_for_agenda">
+                                            <div className="modal--field no--margin">
                                                 <FormControlLabel
                                                     value="end"
                                                     control={
@@ -1214,7 +1188,46 @@ class Agenda extends React.Component{
                                                     labelPlacement="end"
                                                 />
                                             </div>
-                                            <div>
+
+                                            <div className="modal--field modal--field_special_legend">
+                                                <InputLabel htmlFor="checkbox--initial-time">Hora de início:</InputLabel>
+                                                <Select
+                                                    labelId="checkbox--initial-time"
+                                                    id="checkbox--initial-time"                                                    
+                                                    disabled = { this.state.eventAllDayCheck }
+                                                    value={ this.state.eventInitialTime }
+                                                    onChange={ this.changeInitialTime }
+                                                    input={<Input />}
+                                                >
+                                                    { this.state.eventAgendaTimes.map((timeItem) => (
+                                                        <MenuItem key={timeItem} value={timeItem}>
+                                                            <ListItemText primary={timeItem} />
+                                                        </MenuItem>
+                                                    )) }
+                                                </Select>
+                                            </div>
+                                            
+                                            <div className="modal--field modal--field_special_legend">
+                                                <InputLabel htmlFor="checkbox--initial-time">Hora do término:</InputLabel>
+                                                <Select
+                                                    labelId="checkbox--final-time"
+                                                    id="checkbox--final-time"                                                    
+                                                    disabled = { this.state.eventAllDayCheck }
+                                                    value={ this.state.eventFinalTime }
+                                                    onChange={ this.changeFinalTime }
+                                                    input={<Input />}
+                                                >
+                                                    {this.state.eventAgendaTimes.map((timeItem) => (
+                                                    <MenuItem key={timeItem} value={timeItem}>
+                                                        <ListItemText primary={timeItem} />
+                                                    </MenuItem>
+                                                    ))}
+                                                </Select>
+                                            </div>
+                                        </div>                                        
+
+                                        <div className="modal--separator-blue modal--separator-times_for_agenda">
+                                            <div className="modal--field no--margin">
                                                 <FormControlLabel
                                                         value="end"
                                                         control={
@@ -1229,26 +1242,159 @@ class Agenda extends React.Component{
                                                         labelPlacement="end"
                                                     />
                                             </div>
+
+                                            { this.state.eventRepeatCheck === true ?
+                                                <div className="teste">                         
+                                                    <div className="modal--field">
+                                                        <InputLabel htmlFor="checkbox--repeat-mode">Repetir a cada:</InputLabel>
+                                                    </div>
+
+                                                    <div className="modal--field">
+                                                        <TextField
+                                                            id="input--repeat-counterValue"
+                                                            type="number"
+                                                            value = { this.state.eventRepeatCounterValue }
+                                                            onChange = { this.changeEventCounter }
+                                                            InputLabelProps={{
+                                                                shrink: true,
+                                                            }}
+                                                        />
+                                                    </div>
+
+                                                    <div className="modal--field">
+                                                        <Select
+                                                            labelId="checkbox--repeat-mode"
+                                                            id="checkbox--repeat-mode"
+                                                            value={ this.state.eventRepeatModeValue }
+                                                            onChange={ this.changeRepeatMode }
+                                                            input={<Input />}
+                                                        >
+                                                            { this.state.eventRepeatMode.map((repeatItem) => (
+                                                            <MenuItem key={repeatItem.option} value={repeatItem.id}>
+                                                                <ListItemText primary={repeatItem.option} />
+                                                            </MenuItem>
+                                                            ))}
+                                                        </Select>   
+                                                    </div>
+                                                
+                                                    { this.state.eventRepeatModeValue === 2 ?
+                                                        <div className="modal--field">
+                                                            <InputLabel htmlFor="div--repeat-week-days">Repetir nos dias:</InputLabel>
+                                                            <div className="div--repeat-week-days">
+                                                                <Button
+                                                                    onClick={(e) => this.changeRepeatWeekDay(e, "sunday") }
+                                                                    className = { this.state.eventWeekSundayCheck ? "day-selected" : ""}
+                                                                >D</Button>
+                                                                <Button 
+                                                                    onClick={(e) => this.changeRepeatWeekDay(e, "monday") }
+                                                                    className = { this.state.eventWeekMondayCheck ? "day-selected" : ""}
+                                                                >S</Button>
+                                                                <Button 
+                                                                    onClick={(e) => this.changeRepeatWeekDay(e, "tuesday") }
+                                                                    className = { this.state.eventWeekTuesdayCheck ? "day-selected" : ""}
+                                                                >T</Button>
+                                                                <Button 
+                                                                    onClick={(e) => this.changeRepeatWeekDay(e, "wednesday") }
+                                                                    className = { this.state.eventWeekWednesdayCheck ? "day-selected" : ""}
+                                                                >Q</Button>
+                                                                <Button 
+                                                                    onClick={(e) => this.changeRepeatWeekDay(e, "thursday") }
+                                                                    className = { this.state.eventWeekThursdayCheck ? "day-selected" : ""}
+                                                                >Q</Button>
+                                                                <Button 
+                                                                    onClick={(e) => this.changeRepeatWeekDay(e, "friday") }
+                                                                    className = { this.state.eventWeekFridayCheck ? "day-selected" : ""}
+                                                                >S</Button>
+                                                                <Button
+                                                                    onClick={(e) => this.changeRepeatWeekDay(e, "saturday") }
+                                                                    className = { this.state.eventWeekSaturdayCheck ? "day-selected" : ""}
+                                                                >S</Button>
+                                                            </div>
+                                                        </div>
+                                                    : null }
+
+                                                    <div className="modal--field">
+                                                        <InputLabel htmlFor="checkbox--endrepeat-mode">Quando encerra a repetição?</InputLabel>
+                                                    </div>
+
+                                                    <div className="modal--field">                                            
+                                                        <FormControlLabel
+                                                            value="end"
+                                                            control={
+                                                                <Checkbox
+                                                                    checked={ this.state.eventRepeatNeverCheck } 
+                                                                    icon={<RadioButtonUncheckedIcon />}
+                                                                    checkedIcon={< CheckCircleIcon />}
+                                                                    onChange={ this.changeEventRepeatNeverCheck }
+                                                                />
+                                                            }
+                                                            label="Nunca"
+                                                            labelPlacement="end"
+                                                        />
+                                                    </div>
+
+                                                    <div className="modal--field modal--field-groupedItem modal--field-groupedItem_for_agenda">
+                                                        <FormControlLabel
+                                                            value="end"
+                                                            control={
+                                                                <Checkbox
+                                                                    checked={ this.state.eventRepeatInCheck } 
+                                                                    icon={<RadioButtonUncheckedIcon />}
+                                                                    checkedIcon={< CheckCircleIcon />}
+                                                                    onChange={ this.changeEventRepeatInCheck }
+                                                                />
+                                                            }
+                                                            label="Em:"
+                                                            labelPlacement="end"
+                                                        />
+
+                                                        <KeyboardDatePicker
+                                                            disableToolbar
+                                                            variant="inline"
+                                                            format="DD/MM/YYYY"
+                                                            margin="normal"
+                                                            id="date-picker-repeat"
+                                                            autoOk = { true }
+                                                            disabled = { !this.state.eventRepeatInCheck }
+                                                            value={ this.state.eventInDateValue }
+                                                            onChange={ this.changeInDate }
+                                                            KeyboardButtonProps={{
+                                                                'aria-label': 'change date',
+                                                            }}
+                                                        />
+                                                    </div>
+                                                        
+                                                    <div className="modal--field modal--field-groupedItem modal--field-groupedItem_bottom_spaced">
+                                                        <FormControlLabel
+                                                            value="end"
+                                                            control={
+                                                                <Checkbox
+                                                                    checked={ this.state.eventRepeatAfterCheck } 
+                                                                    icon={<RadioButtonUncheckedIcon />}
+                                                                    checkedIcon={< CheckCircleIcon />}
+                                                                    onChange={ this.changeEventRepeatAfterCheck }
+                                                                />
+                                                            }
+                                                            label="Depois de:"
+                                                            labelPlacement="end"
+                                                        />
+                                                        <TextField
+                                                            id="input--repeat-number"
+                                                            type="number"
+                                                            disabled = { !this.state.eventRepeatAfterCheck }
+                                                            onChange = { this.changeEventRepeatAfterValue }
+                                                            value = { this.state.eventRepeatAfterValue }
+                                                            InputLabelProps={{
+                                                                shrink: true,
+                                                            }}
+                                                        />
+                                                        <InputLabel>vezes</InputLabel>
+                                                    </div>
+                                                </div>
+                                            : null }
                                         </div>
-                                        
-                                        <div className="modal--field modal--field_special_legend">
-                                            <InputLabel htmlFor="checkbox--agenda-client">Cliente:</InputLabel>
-                                            <Select
-                                                labelId="checkbox--agenda-client"
-                                                id="checkbox--agenda-client"
-                                                value = { this.state.eventClientListValue }
-                                                onChange={ this.changeEventClient }
-                                                input={ <Input /> }
-                                            >
-                                                { this.state.eventClientList.map((clientItem) => (
-                                                    <MenuItem key={ clientItem.name } value={ clientItem.id }>
-                                                        <ListItemText primary={ clientItem.name } />
-                                                    </MenuItem>
-                                                ))}
-                                            </Select>
-                                        </div>
-                                        
-                                        <div className="modal--field modal--field_special_legend">
+                                    
+                                        <div className="modal--field modal--field_special_legend no--margin">
                                             <InputLabel htmlFor="textarea-observation">Observações:</InputLabel>
                                             <TextareaAutosize 
                                                 id="textarea-observation" 
@@ -1258,162 +1404,8 @@ class Agenda extends React.Component{
                                                 placeholder="Escreva detalhes do seu evento ou compromisso"
                                                 onChange = { this.changeEventObservation }
                                             />
-                                        </div>                
-                                    </div>
-
-                                    {/* Div de Repetição */}
-                                    <div className="modal--fields-container">
-
-                                        <div className="modal--field">
-                                            <InputLabel htmlFor="checkbox--repeat-mode">Repetir a cada:</InputLabel>
-                                            <TextField
-                                                id="input--repeat-counterValue"
-                                                type="number"
-                                                value = { this.state.eventRepeatCounterValue }
-                                                onChange = { this.changeEventCounter }
-                                                InputLabelProps={{
-                                                    shrink: true,
-                                                }}
-                                            />
                                         </div>
-
-                                        <div className="modal--field">
-                                            <Select
-                                                labelId="checkbox--repeat-mode"
-                                                id="checkbox--repeat-mode"
-                                                value={ this.state.eventRepeatModeValue }
-                                                onChange={ this.changeRepeatMode }
-                                                input={<Input />}
-                                            >
-                                                { this.state.eventRepeatMode.map((repeatItem) => (
-                                                <MenuItem key={repeatItem.option} value={repeatItem.id}>
-                                                    <ListItemText primary={repeatItem.option} />
-                                                </MenuItem>
-                                                ))}
-                                            </Select>   
-                                        </div>
-                                        
-                                        { this.state.eventRepeatModeValue === 2 ?
-                                            <div className="modal--field">
-                                                <InputLabel htmlFor="div--repeat-week-days">Repetir nos dias:</InputLabel>
-                                                <div className="div--repeat-week-days">
-                                                    <Button
-                                                        onClick={(e) => this.changeRepeatWeekDay(e, "sunday") }
-                                                        className = { this.state.eventWeekSundayCheck ? "day-selected" : ""}
-                                                    >D</Button>
-                                                    <Button 
-                                                        onClick={(e) => this.changeRepeatWeekDay(e, "monday") }
-                                                        className = { this.state.eventWeekMondayCheck ? "day-selected" : ""}
-                                                    >S</Button>
-                                                    <Button 
-                                                        onClick={(e) => this.changeRepeatWeekDay(e, "tuesday") }
-                                                        className = { this.state.eventWeekTuesdayCheck ? "day-selected" : ""}
-                                                    >T</Button>
-                                                    <Button 
-                                                        onClick={(e) => this.changeRepeatWeekDay(e, "wednesday") }
-                                                        className = { this.state.eventWeekWednesdayCheck ? "day-selected" : ""}
-                                                    >Q</Button>
-                                                    <Button 
-                                                        onClick={(e) => this.changeRepeatWeekDay(e, "thursday") }
-                                                        className = { this.state.eventWeekThursdayCheck ? "day-selected" : ""}
-                                                    >Q</Button>
-                                                    <Button 
-                                                        onClick={(e) => this.changeRepeatWeekDay(e, "friday") }
-                                                        className = { this.state.eventWeekFridayCheck ? "day-selected" : ""}
-                                                    >S</Button>
-                                                    <Button
-                                                        onClick={(e) => this.changeRepeatWeekDay(e, "saturday") }
-                                                        className = { this.state.eventWeekSaturdayCheck ? "day-selected" : ""}
-                                                    >S</Button>
-                                                </div>
-                                            </div>
-                                        : null }
-
-                                        <div className="modal--field">                                            
-                                            <InputLabel htmlFor="checkbox--endrepeat-mode">Quando encerra a repetição?</InputLabel>
-                                            <FormControlLabel
-                                                value="end"
-                                                control={
-                                                    <Checkbox
-                                                        checked={ this.state.eventRepeatNeverCheck } 
-                                                        icon={<RadioButtonUncheckedIcon />}
-                                                        checkedIcon={< CheckCircleIcon />}
-                                                        onChange={ this.changeEventRepeatNeverCheck }
-                                                    />
-                                                }
-                                                label="Nunca"
-                                                labelPlacement="end"
-                                            />
-                                        </div>
-
-                                        <div className="modal--field">
-                                            <FormControlLabel
-                                                value="end"
-                                                control={
-                                                    <Checkbox
-                                                        checked={ this.state.eventRepeatInCheck } 
-                                                        icon={<RadioButtonUncheckedIcon />}
-                                                        checkedIcon={< CheckCircleIcon />}
-                                                        onChange={ this.changeEventRepeatInCheck }
-                                                    />
-                                                }
-                                                label="Em:"
-                                                labelPlacement="end"
-                                            />
-                                        </div>
-
-                                        <div className="modal--field">
-                                            <KeyboardDatePicker
-                                                disableToolbar
-                                                variant="inline"
-                                                format="DD/MM/YYYY"
-                                                margin="normal"
-                                                id="date-picker-repeat"
-                                                autoOk = { true }
-                                                disabled = { !this.state.eventRepeatInCheck }
-                                                value={ this.state.eventInDateValue }
-                                                onChange={ this.changeInDate }
-                                                KeyboardButtonProps={{
-                                                    'aria-label': 'change date',
-                                                }}
-                                            />
-                                        </div>
-
-                                        <div className="modal--field">
-                                            <FormControlLabel
-                                                value="end"
-                                                control={
-                                                    <Checkbox
-                                                        checked={ this.state.eventRepeatAfterCheck } 
-                                                        icon={<RadioButtonUncheckedIcon />}
-                                                        checkedIcon={< CheckCircleIcon />}
-                                                        onChange={ this.changeEventRepeatAfterCheck }
-                                                    />
-                                                }
-                                                label="Depois de:"
-                                                labelPlacement="end"
-                                            />
-                                        </div>
-
-                                        <div className="modal--field">
-                                            <TextField
-                                                id="input--repeat-number"
-                                                type="number"
-                                                disabled = { !this.state.eventRepeatAfterCheck }
-                                                onChange = { this.changeEventRepeatAfterValue }
-                                                value = { this.state.eventRepeatAfterValue }
-                                                InputLabelProps={{
-                                                    shrink: true,
-                                                }}
-                                            />
-                                        </div> 
-                                        
-                                        {this.state.eventRepeatAfterCheck ?
-                                            <div className="modal--field">
-                                                <p>Ocorrências</p>
-                                            </div>
-                                        : null }
-                                    </div>                                
+                                    </div>                               
                                 </MuiPickersUtilsProvider>
                             </form>
                         </div>

@@ -23,11 +23,21 @@ body, input, button, textarea{
   font-size: 14px;
 }
 
-input, select, textarea{
+input, select{
   height: 45px;
   padding: 10px;
   padding-left: 20px;
   padding-right: 20px;
+  border-radius: 10px;
+  border: 1px solid #dcdcdc;
+  width: 100%;
+  font-family: 'Averta';
+}
+textarea{
+  height: 45px;
+  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
   border-radius: 10px;
   border: 1px solid #dcdcdc;
   width: 100%;
@@ -83,6 +93,25 @@ input, select, textarea{
   width: 50px;
   cursor: pointer;
   font-family: 'Averta Semibold';
+}
+.button--content-blue{
+  cursor: pointer !important;
+  animation-duration: 1s !important;
+  transition: 0.2s !important;
+  font-family: 'Averta' !important;
+  text-transform: none;
+  border-radius: 10px;
+  height: 45px;
+  background-color: #2386fd !important;
+  border: 0px !important;
+  box-shadow: 0px 1px 2px 0px #2386fd4d !important;
+  color: white !important;
+}
+.button--content-blue:hover {
+  background-color: white !important;
+  color: #62696f !important;
+  border: 1px solid #b5b5b5 !important;
+  box-shadow: 1px 6px 3px 0px #969696 !important;
 }
 .input--white-context-wth-shadow{
   background-color: white;
@@ -249,3 +278,8 @@ input, select, textarea{
   margin-top: 0px !important;
 }
 .MuiInputLabel-shrink {margin-top: 0px !important;}
+
+/*GAMBS*/
+.no--margin{
+  margin: 0px !important;
+}

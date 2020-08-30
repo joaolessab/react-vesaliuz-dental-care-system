@@ -230,3 +230,10 @@
     transition: 0.2s !important;
     color: white !important;
 }
+.modal--separator-times_for_agenda{
+    padding-top: 10px !important;
+}
+
+.modal--field-groupedItem_for_agenda .MuiTextField-root {
+    flex: 2 !important;
+} 
