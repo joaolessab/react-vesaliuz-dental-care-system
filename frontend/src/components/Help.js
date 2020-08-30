@@ -5,6 +5,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import InputLabel from "@material-ui/core/InputLabel";
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import '../assets/css/Help.css';
@@ -18,7 +19,8 @@ class Help extends React.Component{
 
         /* VARIABLES */
         this.state = {
-            modalVisibility: false   
+            modalVisibility: false,
+            customerName: ""
         };
     }
 
@@ -55,24 +57,29 @@ class Help extends React.Component{
     
                 <div className="container--form-help">
                     <p className="p--subtitle">Conte-nos o seu problema</p>
-                    <form>
+                    <form className="modal--separator-blue">
+                        <div className="modal--field">
+                            <InputLabel>Seu nome:</InputLabel>
+                            <TextField
+                                value = { this.state.customerName }
+                                onChange = { this.changeEventCounter }
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                            />
+                        </div>
 
-                        {/*
-                            <label htmlFor="name">Seu nome:</label>
-                            <input type="text" id="name" placeholder="Digite o seu nome" className="input--white-context-wth-shadow"/>
-                        */}
-
-                        <TextField 
-                            label="Seu nome" 
-                            //value = { this.state.patientName }
-                            value = "Teste"
-                            name = "patientName"
-                            //onChange={ this.changeSimpleValue }
-                        />
-
-                        <label htmlFor="email">Seu e-mail:</label>
-                        <input type="email" id="email" placeholder="Digite seu melhor e-mail" className="input--white-context-wth-shadow"/>
-    
+                        <div className="modal--field">
+                            <InputLabel>Seu melhor e-mail:</InputLabel>
+                            <TextField
+                                value = { this.state.customerName }
+                                onChange = { this.changeEventCounter }
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                            />
+                        </div>
+                        
                         <label htmlFor="telephone">Seu telefone:</label>
                         <input type="text" id="telephone" placeholder="Digite o seu melhor telefone" className="input--white-context-wth-shadow"/>
     
