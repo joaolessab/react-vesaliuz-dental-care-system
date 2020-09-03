@@ -5,6 +5,8 @@ import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import InputMask from "react-input-mask";
+import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import InputLabel from "@material-ui/core/InputLabel";
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
@@ -20,7 +22,9 @@ class Help extends React.Component{
         /* VARIABLES */
         this.state = {
             modalVisibility: false,
-            customerName: ""
+            customerName: "",
+            customerEmail: "",
+            telephonePrimaryMask: "(99) 9999-9999",
         };
     }
 
@@ -30,6 +34,59 @@ class Help extends React.Component{
     
     onCloseModal = () => {
         this.setState({ modalVisibility: false });
+    };
+
+    changeSimpleValue = (evt) => {
+        this.setState({
+            [evt.target.name]: evt.target.value
+        });
+    };
+
+    changePhone = (evt) => {
+        // Setando máscara (caso seja telefone primário)
+        if (evt.target.name === "customerMainPhone" || evt.target.name === "customerSecondaryPhone"){
+            var regex = /[\d|,|.|e|E|]+/g;
+            var matches = evt.target.value.match(regex);
+            var finalValue = "";
+            var finalMask = "";
+
+            if (matches !== null)
+                finalValue = matches.join().replace(/,/g, '');
+
+            // Final Value
+            if (finalValue !== "" && evt.nativeEvent.data !== null){
+                if (this.state[evt.target.name].length === 10 && evt.nativeEvent.data.length === 1){
+                    finalMask = "(99) 99999-9999";
+                    finalValue = this.state[evt.target.name] + evt.nativeEvent.data;
+                }
+                else if (this.state[evt.target.name].length > 10){
+                    finalMask = "(99) 99999-9999";
+                }
+                else{
+                    finalMask = "(99) 9999-9999";
+                }
+            }
+            else{
+                finalMask = "(99) 9999-9999";
+            }
+
+            // Final State
+            var finalState = "";
+            var finalValueIndex = "";
+            if (evt.target.name  === "customerMainPhone"){
+                finalState = "telephonePrimaryMask";
+                finalValueIndex = "customerMainPhone";
+            }
+            else{
+                finalState = "telephoneSecondaryMask";                
+                finalValueIndex = "customerSecondaryPhone";
+            }
+            
+            this.setState({
+                [finalState]: finalMask,
+                [finalValueIndex]: finalValue
+            });
+        }
     };
 
     // Visualização de Todo o conteúdo do HTML
@@ -55,44 +112,62 @@ class Help extends React.Component{
                     </div>
                 </div>
     
-                <div className="container--form-help">
-                    <p className="p--subtitle">Conte-nos o seu problema</p>
-                    <form className="modal--separator-blue">
-                        <div className="modal--field">
-                            <InputLabel>Seu nome:</InputLabel>
-                            <TextField
-                                value = { this.state.customerName }
-                                onChange = { this.changeEventCounter }
-                                InputLabelProps={{
-                                    shrink: true,
-                                }}
-                            />
-                        </div>
+                <div className="container--form-help">    
+                    <p className="modal--body-custom-title">Conte-nos o seu problema</p>
 
-                        <div className="modal--field">
-                            <InputLabel>Seu melhor e-mail:</InputLabel>
-                            <TextField
-                                value = { this.state.customerName }
-                                onChange = { this.changeEventCounter }
-                                InputLabelProps={{
-                                    shrink: true,
-                                }}
-                            />
-                        </div>
-                        
-                        <label htmlFor="telephone">Seu telefone:</label>
-                        <input type="text" id="telephone" placeholder="Digite o seu melhor telefone" className="input--white-context-wth-shadow"/>
-    
-                        <label htmlFor="situation">Seu problema:</label>
-                        <textarea id="situation" placeholder="Digite o seu relato" className="input--white-context-wth-shadow">
-                        </textarea>
-    
-                        <Button type="submit" className="button--white-context">Enviar e-mail</Button>                            
+                    <form className="modal--separator-blue" noValidate autoComplete="off">
+                        <div className="modal--fields-container">
+                            <div className="modal--field no--margin">
+                                <TextField
+                                    name = "customerName"
+                                    label="Seu nome:" 
+                                    value = { this.state.customerName }
+                                    onChange = { this.changeSimpleValue }
+                                />
+                            </div>
+
+                            <div className="modal--field">
+                                <TextField                            
+                                    name = "customerEmail"                                
+                                    label="Seu melhor e-mail:" 
+                                    value = { this.state.customerEmail }
+                                    onChange = { this.changeSimpleValue }
+                                />
+                            </div>
+
+                            <div className="modal--field">
+                                <InputMask                                               
+                                    value = { this.state.customerMainPhone }
+                                    mask = { this.state.telephonePrimaryMask }
+                                    name = "customerMainPhone"
+                                    onChange={ this.changePhone }
+                                >
+                                {() => <TextField
+                                            label="Telefone Principal:" 
+                                            name = "customerMainPhone"
+                                            type="text"
+                                        />}
+                                </InputMask>
+                           </div>
+
+                           <div className="modal--field modal--field_special_legend">
+                                <InputLabel htmlFor="textarea-observation">Seu problema:</InputLabel>
+                                <TextareaAutosize 
+                                    id="textarea-observation" 
+                                    value = { this.state.eventObservation } 
+                                    aria-label="minimum height" 
+                                    rowsMin={3}
+                                    onChange = { this.changeEventObservation }
+                                />
+                            </div>
+        
+                            <Button type="submit" className="button--white-context">Enviar e-mail</Button>
+                        </div>                      
                     </form>
                 </div>
     
                 <div className="container-questions--help">
-                    <p className="p--subtitle">Dúvidas Frequentes</p>
+                    <p className="modal--body-custom-title">Dúvidas Frequentes</p>
                     <div className="div--accordion-list">
                         <Accordion
                             question = {"Como faço para registrar reembolso?"}

@@ -1786,19 +1786,19 @@ class Patients extends React.Component{
                                                 </div>
 
                                             <div className="modal--field">
-                                                    <InputMask                                               
-                                                        value = { this.state.patientMainPhone }
-                                                        mask = { this.state.telephonePrimaryMask }
-                                                        name = "patientMainPhone"
-                                                        onChange={ this.changePhone }
-                                                    >
-                                                        {() => <TextField
-                                                                    label="Telefone Principal:" 
-                                                                    name = "patientMainPhone"
-                                                                    type="text"
-                                                        />}
-                                                    </InputMask>
-                                                </div>
+                                                <InputMask                                               
+                                                    value = { this.state.patientMainPhone }
+                                                    mask = { this.state.telephonePrimaryMask }
+                                                    name = "patientMainPhone"
+                                                    onChange={ this.changePhone }
+                                                >
+                                                    {() => <TextField
+                                                                label="Telefone Principal:" 
+                                                                name = "patientMainPhone"
+                                                                type="text"
+                                                    />}
+                                                </InputMask>
+                                            </div>
 
                                             <div className="modal--field">
                                                     <InputMask                                     
