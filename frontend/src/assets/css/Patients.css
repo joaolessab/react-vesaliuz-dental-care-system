@@ -430,8 +430,9 @@
     visibility: hidden;
 }
 .modal--footer .input--picture-changer::before {
-    content: "Alterar foto";
+    content: "Outra foto";
     font-size: 14px;
     font-family: 'Averta';    
     text-align: center;
+    margin-left: 3px;
 }

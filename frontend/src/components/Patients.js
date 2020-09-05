@@ -1612,7 +1612,7 @@ class Patients extends React.Component{
                     {/* Superior Toolbar */}
                     <div className="modal--header-for-buttons">
                         <Button className="icon--agendamentos"><span>Agendas</span></Button>
-                        <Button className="icon--financas"><span>Financeiro</span></Button>
+                        <Button className="icon--finances"><span>Financeiro</span></Button>
                         <Button className="icon--exams"><span>Exames</span></Button>
                         <Button className="icon--procedure"><span>Tratamentos</span></Button>
                     </div>
@@ -2056,7 +2056,7 @@ class Patients extends React.Component{
                         : null }
 
                         <Button className="modal--footer-btn_white" onClick={ this.closePatientCrudModal }>
-                            Cancelar
+                            Fechar
                         </Button>
                                 
                         { this.state.patientCrudView === "dados_gerais" ?
