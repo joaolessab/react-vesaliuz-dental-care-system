@@ -1016,7 +1016,7 @@ class Agenda extends React.Component{
                         <div>
                         </div>
                     </div>
-                    <div className="div--content-agenda">
+                    <div className="div--content-body">
                         <div className="bigcalendar--toolbar-custom">
                             <div className="div--days">
                                 <Button

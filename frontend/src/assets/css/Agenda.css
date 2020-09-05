@@ -18,14 +18,6 @@
     font-family: "Averta Semibold";
     /* background-color: red; */
 }
-.div--content-agenda{
-    margin-right: 30px;
-    overflow: hidden;
-    flex: 1 1;
-    flex-direction: column;
-    display: flex;
-}
-
 /* AGENDA COMPONENT */
 .bigcalendar--toolbar-custom{
     display: flex;
@@ -110,7 +102,7 @@
     transition: 0.2s !important;
     color: white !important;
 }
-.div--content-agenda .rbc-toolbar button{
+.div--content-body .rbc-toolbar button{
     height: 50px;
     width: 85px;
     border-radius: 10px;
@@ -200,7 +192,7 @@
     transition: 0.2s !important;
     color: white !important;
 }
-.div--content-agenda .rbc-toolbar button:hover{
+.div--content-body .rbc-toolbar button:hover{
     cursor: pointer !important;
     animation-duration: 1s !important;
     background-color: #2386fd !important;

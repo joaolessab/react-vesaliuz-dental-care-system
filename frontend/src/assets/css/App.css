@@ -291,3 +291,7 @@ input:-webkit-autofill:active  {
   transition: background-color 5000s;
   -webkit-text-fill-color: black !important;
 }
+
+/* Default App */
+.mt10{margin-top: 10px;}
+.mt20{margin-top: 20px;}

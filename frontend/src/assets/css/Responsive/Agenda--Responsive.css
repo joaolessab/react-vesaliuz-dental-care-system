@@ -108,9 +108,6 @@
         margin-right: 9px;
         border-bottom: 2px solid #ddd !important;
     }
-    .div--content-agenda{
-        margin-right: 0px;
-    }
 }
 @media only screen and (max-width: 1110px){
     .container--content-agenda .div--content-title {

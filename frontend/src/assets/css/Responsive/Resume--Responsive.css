@@ -26,6 +26,9 @@
     }
     .container--auxiliar-resume .div--bar-right {
         margin-top: 25px;
+    }    
+    .div--content-body{
+        margin-right: 0px;
     }
 }
 @media only screen and (max-width: 838px) {
