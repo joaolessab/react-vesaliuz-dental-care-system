@@ -112,10 +112,9 @@ class Help extends React.Component{
                     </div>
                 </div>
     
-                <div className="container--form-help">    
-                    <p className="modal--body-custom-title">Conte-nos o seu problema</p>
-
+                <div className="container--form-help">
                     <form className="modal--separator-blue" noValidate autoComplete="off">
+                        <p className="modal--body-custom-title">Conte-nos o seu problema</p>
                         <div className="modal--fields-container">
                             <div className="modal--field no--margin">
                                 <TextField
@@ -160,9 +159,10 @@ class Help extends React.Component{
                                     onChange = { this.changeEventObservation }
                                 />
                             </div>
-        
-                            <Button type="submit" className="button--white-context">Enviar e-mail</Button>
-                        </div>                      
+                        </div>    
+                        <div className="modal--footer">
+                            <Button className="modal--footer-btn_white button-help--send_email">Enviar e-mail</Button>
+                        </div>                  
                     </form>
                 </div>
     

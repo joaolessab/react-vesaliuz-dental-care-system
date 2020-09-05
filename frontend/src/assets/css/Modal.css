@@ -86,7 +86,7 @@
     color: rgb(255 255 255 / 85%) !important;
 }
 .modal--separator-blue .MuiButtonBase-root:hover {
-    color: rgb(255 255 255 / 85%) !important;
+    color: rgb(255 255 255 / 85%);
 }
 .modal--separator-blue .MuiFormControlLabel-root:hover span {
     color: rgb(255 255 255 / 85%) !important;
@@ -183,6 +183,7 @@
 /* Footer */
 .modal--footer{
     display: flex;
+    flex: 1;
 }
 .modal--footer button{
     cursor: pointer !important;
@@ -283,4 +284,12 @@
     border: 0px !important;
     box-shadow: 0px 0px 0px 0px !important;
     color: rgb(255 255 255 / 85%) !important;
+}
+
+.modal--separator-blue input:-webkit-autofill,
+.modal--separator-blue input:-webkit-autofill:hover, 
+.modal--separator-blue input:-webkit-autofill:focus, 
+.modal--separator-blue input:-webkit-autofill:active  {
+  transition: background-color 5000s;
+  -webkit-text-fill-color: white !important;
 }

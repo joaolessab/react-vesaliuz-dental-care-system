@@ -27,6 +27,7 @@
 }
 .container--form-help p{
     margin-bottom: 10px;
+    text-align: center;
 }
 .container--form-help form label{
     font-size: 14px;
@@ -291,43 +292,7 @@
     background-color: white;
     border: 1px solid #4b4b4b;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.button-help--send_email{
+    flex: 1;
+    margin-right: 0px !important;
+}
