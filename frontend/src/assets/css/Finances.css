@@ -12,6 +12,7 @@
     color: white;
     border-radius: 10px;
     margin-right: 10px;
+    box-shadow: 0px 0px 15px 0px #eaeaea;
 }
 .div--content-summary h1{
     font-size: 40px;
@@ -26,6 +27,10 @@
     height: 150px;
     margin-left: 10px;
     border-radius: 10px;
+    box-shadow: 0px 0px 15px 0px #eaeaea;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
 }
 .div--financial-row{
     display: flex;
@@ -36,7 +41,7 @@
 }
 .div--financial_item{
     display: flex;
-    min-height: 45px;
+    min-height: 50px;
     background-color: white;
     border-radius: 10px;
     margin-bottom: 10px;
@@ -64,6 +69,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    padding-left: 15px;
 }
 .div--financial_item_right{
     flex: 1;
@@ -71,21 +77,15 @@
     justify-content: flex-end;
     align-items: center;
 }
+.div--financial_item_right .item--price{
+    width: 100px;
+    text-align: center;
+}
 .div--financial_item_right .item--price em{
     font-style: normal;
 }
 .div--financial_item_right p, .div--financial_item_right div, .div--financial_item_right button, .div--financial_item_right Button{
     margin-left: 10px;
-}
-.div--financial_item_right .button--delete{
-    max-width: 30px;
-    min-width: 30px;
-    height: 30px;
-    padding: 0px !important;
-    border: 0px;
-    color: black !important;
-    background-color: white;
-    display: none;
 }
 .div--financial_item:hover{
     cursor: pointer;
@@ -93,15 +93,24 @@
     box-shadow: 0px 1px 2px 0px #2386fd4d !important;
     border: 1.5px solid #ffffffbf !important;
     transition: 0.2s !important;
-    color: white !important;
+    color: white !important;   
 }
-.div--financial_item:hover .button--delete{
-    display: flex;    
-    border: 1.5px solid #ffffffbf;
-    box-shadow: 0px 1px 2px 0px #2386fd4d !important;
-    background-color: #D21F3C !important;
-    border-radius: 6px !important;
+.div--financial_item:hover .checkbox--list-selection{
+    display: flex !important;
+}
+.div--financial_item:hover .financial--tag{
+    background-color: white !important;
+    color: #2386fd;
+}
+.div--financial_item:hover .MuiCheckbox-root {
     color: white !important;
+    margin-left: -8px;
+}
+.div--financial_item:hover .div--financial_item_left{
+    padding-left: 0px;
+}
+.div--financial_item:hover .financial--tag:before{
+    background-color: white !important;
 }
 .div--financial_item:hover .financial--revenue-icon{
     background-image: url("../icons/financial--up-white.svg");
@@ -112,46 +121,33 @@
 .div--financial-header_between{
     justify-content: space-between;
 }
-
-.div--content-actions_button-bars Button{
-    cursor: pointer !important;
-    animation-duration: 1s !important;
-    transition: 0.2s !important;
-    width: 90px;
-    font-family: 'Averta' !important;
-    border-radius: 10px;
-    height: 85px;
-    margin-right: 15px;
-    margin: 11px;
-    background-color: white !important;
-    border: 1px solid #e0e0e0 !important;
-    box-shadow: 0px 1px 2px 0px #b5b5b5 !important;
-    color: #62696f !important;
-}
-.div--content-actions_button-bars Button:hover{
-    color: white !important;
-    border: 0px !important;
-}
-.div--content-actions_revenue:hover{ 
-    background-color: #32cc77 !important; 
-}
-.div--content-actions_expense:hover{ 
-    background-color: #D21F3C !important; 
-}
-.div--content-actions_export:hover{ 
-    background-color: #2386fd !important; 
-}
-/*.div--content-actions_button-bars Button{
-    height: 85px;
-    background-color: transparent;
-    width: 90px;
-    margin: 10px;
-    border: 2px solid #efefef;
-    transition: 0.2s !important;
-    font-family: 'Averta' !important;
-    border-radius: 10px;
-}
-*/.div--content-actions_button-bars .MuiButton-label{
+.financial--tag{
+    position: relative;
+    font-size: 14px;
+    text-decoration: none;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 5px;
+    background-color: #2386fd;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 300;
+}
+.financial--tag:before {
+    content: '';
+    width: 20px;
+    height: 22.5px;
+    background-color: #2386fd;
+    position: absolute;
+    left: -7px;
+    top: 2px;
+    transform: rotate(45deg);
+    border-radius: 5px;
+    z-index: 200;
+}
+.financial--tag em{
+    font-style: normal;
+    z-index: 400;
+    margin-left: -5px;
 }
