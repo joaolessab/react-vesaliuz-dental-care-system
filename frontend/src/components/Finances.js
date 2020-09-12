@@ -207,7 +207,7 @@ class Finances extends React.Component{
                                 <Bar
                                     options = {mixedChartData.options}
                                     data = {mixedChartData.data}
-                                    height = {90}
+                                    height = {85}
                                 />
                             </div>
                         </div>
