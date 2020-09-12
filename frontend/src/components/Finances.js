@@ -166,8 +166,8 @@ class Finances extends React.Component{
         // LISTAGEM DE PACIENTES
         const listTransactions = this.state.transactions.map((transaction) => {
             return (
-                    <div className="div--financial_item" key={transaction.id}>
-                        <div className="div--financial_item_left">
+                    <div className="div--grid_item" key={transaction.id}>
+                        <div className="div--grid_item_left">
                             <Checkbox
                                 className="checkbox--list-selection"
                                 checked={ this.state.eventAllDayCheck } 
@@ -177,10 +177,16 @@ class Finances extends React.Component{
                             />                   
                             <div>{transaction.description}</div>
                         </div>
-                        <div className="div--financial_item_right">
-                            <p className="financial--tag"><em>{transaction.tag}</em></p>
-                            <p className="item--price">R$<em>{transaction.price}</em></p>
-                            <div className={transaction.type === 1 ? "financial--revenue-icon" : "financial--expense-icon"}></div>
+                        <div className="div--grid_item_right">
+                            <div className="div--grid_item_right_each">
+                                <p className="financial--tag"><em>{transaction.tag}</em></p>
+                            </div>
+                            <div className="div--grid_item_right_each">
+                                <div className={transaction.type === 1 ? "financial--revenue-icon" : "financial--expense-icon"}></div>
+                            </div>
+                            <div className="div--grid_item_right_each">
+                                <p className="item--price">R$<em>{transaction.price}</em></p>
+                            </div>
                         </div>
                     </div>
             );
@@ -212,7 +218,7 @@ class Finances extends React.Component{
                             </div>
                         </div>
 
-                        <div className="div--content-row mt20 div--financial-header_between">
+                        <div className="div--content-row mt20">
                             <div><p className="modal--body-custom-title">Transações recentes</p></div>
                             {/*<div>
                                 <Button className="button--blue-noborder">Nova Receita</Button>
@@ -220,6 +226,24 @@ class Finances extends React.Component{
                                 <Button className="button--blue-noborder">Importar</Button>
                                 <Button className="button--blue-noborder">Ver todas</Button>
                             </div> */}
+                        </div>
+                            
+                        {/* Div com filtros */}
+                        <div className="div--grid_item">
+                            <div className="div--grid_item_left">
+                                <div>descricao</div>
+                            </div>
+                            <div className="div--grid_item_right">
+                                <div className="div--grid_item_right_each">
+                                    <p>botoes</p>
+                                </div>
+                                <div className="div--grid_item_right_each">
+                                    <p>botoes</p>
+                                </div>
+                                <div className="div--grid_item_right_each">
+                                    <p>botoes</p>
+                                </div>
+                            </div>
                         </div>
 
                         {/* Div com itens */}

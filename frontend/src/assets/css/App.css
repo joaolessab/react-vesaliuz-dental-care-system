@@ -314,3 +314,60 @@ input:-webkit-autofill:active  {
 .checkbox--list-selection{
   display: none !important;
 }
+
+/* List grid items */
+.div--grid_item{
+  display: flex;
+  min-height: 50px;
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0px 0px 15px 0px #eaeaea;
+  align-items: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.div--grid_item_left{
+  flex: 1;    
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 15px;
+}
+.div--grid_item_right{
+  flex: 1;
+  display: flex; 
+  justify-content: flex-end;
+  align-items: center;
+}
+/* Hover */
+.div--grid_item:hover{
+  cursor: pointer;
+  background-color: #2386fd;
+  box-shadow: 0px 1px 2px 0px #2386fd4d !important;
+  border: 1.5px solid #ffffffbf !important;
+  transition: 0.2s !important;
+  color: white !important;   
+}
+.div--grid_item:hover .checkbox--list-selection{
+  display: flex !important;
+}
+.div--grid_item:hover .MuiCheckbox-root {
+  color: white !important;
+  margin-left: -8px;
+}
+.div--grid_item:hover .div--grid_item_left{
+  padding-left: 0px;
+}
+.div--grid_item_right .div--grid_item_right_each{
+  width: 120px;
+  text-align: center;
+  font-style: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.div--grid_item_right .div--grid_item_right_each em{
+  text-align: center;
+  font-style: normal;
+}
