@@ -1,7 +1,5 @@
 import React from 'react';
 import { defaults } from 'react-chartjs-2';
-import  { Line } from 'react-chartjs-2';
-import { Pie } from 'react-chartjs-2'; 
 import { Bar } from 'react-chartjs-2';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
@@ -22,48 +20,93 @@ import SendIcon from '@material-ui/icons/Send';
 
 defaults.global.defaultFontFamily = 'Averta';
 
-const lineChartData = {
+const mixedChartData = {
     data: {
-        labels: ["Jan", "Fev", "Mar"],
+        labels: ['Janeiro', 'Fevereiro', 'Março'],
         datasets: [
             {
-                label: "Receitas",
-                borderColor: "#32cc77",
-                backgroundColor: "#32cc77",
-                borderWidth: 2,
-                data: [900, 2200, 3250]
+                label: 'Faturamento',
+                type:'line',
+                data: [250, 120, 340],
+                fill: false,
+                borderColor: '#efdc4c',
+                backgroundColor: '#efdc4c',
+                pointBorderColor: '#efdc4c',
+                pointBackgroundColor: '#efdc4c',
+                pointHoverBackgroundColor: '#efdc4c',
+                pointHoverBorderColor: '#efdc4c',
             },
             {
-                label: "Despesas",
-                borderColor: "#e47474",
-                backgroundColor: "#e47474",
-                borderWidth: 2,
-                data: [2050, 2000, 1208]
+                type: 'bar',
+                label: 'Receita',
+                data: [200, 20, 300],
+                fill: false,
+                backgroundColor: '#32cc77',
+                borderColor: '#32cc77',
+                /*hoverBackgroundColor: '#2386fd',
+                hoverBorderColor: '#2386fd',*/
+            },
+            {
+                type: 'bar',
+                label: 'Despesa',
+                data: [50, 100, 40],
+                fill: false,
+                backgroundColor: '#e47474',
+                borderColor: '#e47474',
+                /*hoverBackgroundColor: '#71B37C',
+                hoverBorderColor: '#71B37C',*/
             }
         ]
     },
     options: {
-        legend: {
-            display: false,
-            labels: {fontFamily: 'Averta'}
+        responsive: true,
+        tooltips: {
+            mode: 'label'
         },
-        scales: {
-            xAxes: [{
-                gridLines: {
-                    display:false
+        elements: {
+            line: {
+                fill: false
+            }
+        },
+        /*scales: {
+            xAxes: [
+                {
+                    display: true,
+                    gridLines: {
+                        display: false
+                    },
+                    labels: {
+                        show: true
+                    }
                 }
-            }],
-            yAxes: [{
-                ticks: {
-                   fontColor: "transparent",
-                   fontSize: 0
+            ],
+            yAxes: [
+                {
+                    type: 'linear',
+                    display: true,
+                    position: 'left',
+                    id: 'y-axis-1',
+                    gridLines: {
+                        display: false
+                    },
+                    labels: {
+                        show: true
+                    }
                 },
-                gridLines: {
-                    display:false
-                }   
-            }]
-        },
-        responsive: true
+                {
+                    type: 'linear',
+                    display: true,
+                    position: 'right',
+                    id: 'y-axis-2',
+                    gridLines: {
+                        display: false
+                    },
+                    labels: {
+                        show: true
+                    }
+                }
+            ]
+        }*/
     }
 };
 
@@ -162,9 +205,9 @@ class Finances extends React.Component{
 
                             <div className="div--content-actions">
                                 <Bar
-                                    options = {lineChartData.options}
-                                    data = {lineChartData.data}
-                                    height = {50}
+                                    options = {mixedChartData.options}
+                                    data = {mixedChartData.data}
+                                    height = {90}
                                 />
                             </div>
                         </div>
