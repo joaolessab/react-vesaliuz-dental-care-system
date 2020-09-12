@@ -17,6 +17,8 @@ import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 import SendIcon from '@material-ui/icons/Send';
+import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
 defaults.global.defaultFontFamily = 'Averta';
 
@@ -229,19 +231,25 @@ class Finances extends React.Component{
                         </div>
                             
                         {/* Div com filtros */}
-                        <div className="div--grid_item">
+                        <div className="div--grid_filter_item">
                             <div className="div--grid_item_left">
-                                <div>descricao</div>
+                                <div className="div--grid_item_left_each">
+                                    <Button><ArrowDropUpIcon/></Button>
+                                    <Button><ArrowDropDownIcon/></Button>
+                                </div>
                             </div>
                             <div className="div--grid_item_right">
                                 <div className="div--grid_item_right_each">
-                                    <p>botoes</p>
+                                    <Button><ArrowDropUpIcon/></Button>
+                                    <Button><ArrowDropDownIcon/></Button>
                                 </div>
                                 <div className="div--grid_item_right_each">
-                                    <p>botoes</p>
+                                    <Button><ArrowDropUpIcon/></Button>
+                                    <Button><ArrowDropDownIcon/></Button>
                                 </div>
                                 <div className="div--grid_item_right_each">
-                                    <p>botoes</p>
+                                    <Button><ArrowDropUpIcon/></Button>
+                                    <Button><ArrowDropDownIcon/></Button>
                                 </div>
                             </div>
                         </div>

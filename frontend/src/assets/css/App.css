@@ -359,15 +359,36 @@ input:-webkit-autofill:active  {
 .div--grid_item:hover .div--grid_item_left{
   padding-left: 0px;
 }
-.div--grid_item_right .div--grid_item_right_each{
+.div--grid_item_right_each, .div--grid_item_left_each{
   width: 120px;
   text-align: center;
   font-style: normal;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
-.div--grid_item_right .div--grid_item_right_each em{
+.div--grid_item_right_each{
+  justify-content: center;
+}
+.div--grid_item_left_each{
+  justify-content: flex-start;
+}
+
+.div--grid_item_right_each em, .div--grid_item_left_each em{
   text-align: center;
   font-style: normal;
+}
+.div--grid_filter_item{
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.div--grid_item_right_each Button, .div--grid_item_left_each Button{
+  height: 20px;
+  width: 20px;
+  color: #2386fd;
+  padding: 0px;
+  margin: 0px;
+  min-width: 20px;
 }
