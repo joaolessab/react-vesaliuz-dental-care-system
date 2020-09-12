@@ -1111,7 +1111,7 @@ class Agenda extends React.Component{
                                 <MuiPickersUtilsProvider libInstance={ moment } utils={ MomentUtils } locale={ momentLocale }>                                
                                     {/* Div de Campos Normais */}
                                     <div className="modal--fields-container">
-                                        <div className="modal--field no--margin">
+                                        <div className="modal--field m0">
                                             <TextField 
                                                 label="Título do seu evento:" 
                                                 value = { this.state.eventTitle } 
@@ -1173,7 +1173,7 @@ class Agenda extends React.Component{
                                         </div>
                                         
                                         <div className="modal--separator modal--separator-times_for_agenda">
-                                            <div className="modal--field no--margin">
+                                            <div className="modal--field m0">
                                                 <FormControlLabel
                                                     value="end"
                                                     control={
@@ -1227,7 +1227,7 @@ class Agenda extends React.Component{
                                         </div>                                        
 
                                         <div className="modal--separator-blue modal--separator-times_for_agenda">
-                                            <div className="modal--field no--margin">
+                                            <div className="modal--field m0">
                                                 <FormControlLabel
                                                         value="end"
                                                         control={
@@ -1394,7 +1394,7 @@ class Agenda extends React.Component{
                                             : null }
                                         </div>
                                     
-                                        <div className="modal--field modal--field_special_legend no--margin">
+                                        <div className="modal--field modal--field_special_legend m0">
                                             <InputLabel htmlFor="textarea-observation">Observações:</InputLabel>
                                             <TextareaAutosize 
                                                 id="textarea-observation" 

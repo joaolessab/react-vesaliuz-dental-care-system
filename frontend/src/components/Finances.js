@@ -19,6 +19,10 @@ import RemoveIcon from '@material-ui/icons/Remove';
 import SendIcon from '@material-ui/icons/Send';
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
+import DonutSmallIcon from '@material-ui/icons/DonutSmall';
+import EqualizerIcon from '@material-ui/icons/Equalizer';
 
 defaults.global.defaultFontFamily = 'Averta';
 
@@ -117,13 +121,15 @@ class Finances extends React.Component{
         super(props);
 
         this.state = {
+            summaryChartView: true,
+            chartType: "mixed",
             transactions: [
                 { 
                     id: 0,
-                    description: "Limpeza rápida do Marcus",
-                    price: "105,00",
-                    type: 1,
-                    tag: "Tratamentos"
+                    description: "Cadeira para recepcionista",
+                    price: "279,00",
+                    type: 0,
+                    tag: "Infraestrutura"
                 },
                 { 
                     id: 1,
@@ -134,27 +140,35 @@ class Finances extends React.Component{
                 },
                 { 
                     id: 2,
-                    description: "Cadeira para recepcionista",
-                    price: "279,00",
-                    type: 0,
-                    tag: "Infraestrutura"
+                    description: "Limpeza rápida do Marcus",
+                    price: "105,00",
+                    type: 1,
+                    tag: "Tratamentos"
                 },
                 { 
                     id: 3,
+                    description: "Clareamento do João",
+                    price: "500,00",
+                    type: 1,
+                    tag: "Tratamentos"
+                },
+                
+                { 
+                    id: 4,
                     description: "Lâmpadas para escritório",
                     price: "89,00",
                     type: 0,
                     tag: "Infraestrutura"
                 },
                 { 
-                    id: 4,
+                    id: 5,
                     description: "Limpeza rápida do Cláudio",
                     price: "105,00",
                     type: 1,
                     tag: "Tratamentos"
                 },
                 { 
-                    id: 5,
+                    id: 6,
                     description: "Enxaguante bucal 2L",
                     price: "50,00",
                     type: 0,
@@ -162,6 +176,12 @@ class Finances extends React.Component{
                 }
             ]
         };
+    };
+
+    changeBoolEvent = (evtName) => {
+        this.setState({
+            [evtName]: !this.state.summaryChartView
+        });
     };
 
     render(){
@@ -205,57 +225,101 @@ class Finances extends React.Component{
                     <div className="div--content-body">
                         {/* Div com Resumo */}
                         <div className="div--content-row">
-                            <div className="div--content-summary">
-                                <h1>R$ 2.015,10</h1>
-                                <p>Seu saldo geral está positivo</p>
+                            <Button 
+                                className="button--financial-toggle button--financial-donut"
+                                onClick = { () => this.changeBoolEvent("summaryChartView") }>                                    
+                                { this.state.summaryChartView ? 
+                                    <VisibilityIcon/>
+                                    :
+                                    <VisibilityOffIcon/>
+                                }
+                            </Button>
+                            <Button className="button--financial-toggle button--financial-eyeview">
+                                <DonutSmallIcon/>
+                            </Button>
+                            
+                            { this.state.summaryChartView ?
+                            <div className="div--summaryChart">
+                                <div className="div--content-summary">
+                                    <h1>R$ 2.015,10</h1>
+                                    <p>Seu saldo geral está positivo</p>
 
+                                </div>
+
+                                <div className="div--content-actions">
+                                    <Bar
+                                        options = {mixedChartData.options}
+                                        data = {mixedChartData.data}
+                                        height = {80}
+                                    />
+                                </div>
                             </div>
-
-                            <div className="div--content-actions">
-                                <Bar
-                                    options = {mixedChartData.options}
-                                    data = {mixedChartData.data}
-                                    height = {80}
-                                />
-                            </div>
-                        </div>
-
-                        <div className="div--content-row mt20">
-                            <div><p className="modal--body-custom-title">Transações recentes</p></div>
-                            {/*<div>
-                                <Button className="button--blue-noborder">Nova Receita</Button>
-                                <Button className="button--blue-noborder">Nova Despesa</Button>
-                                <Button className="button--blue-noborder">Importar</Button>
-                                <Button className="button--blue-noborder">Ver todas</Button>
-                            </div> */}
+                            : null 
+                            }
                         </div>
                             
                         {/* Div com filtros */}
-                        <div className="div--grid_filter_item">
-                            <div className="div--grid_item_left">
+                        <div className="div--grid_filter_item mt20">
+                            <div className="div--grid_item_left pl0">
                                 <div className="div--grid_item_left_each">
-                                    <Button><ArrowDropUpIcon/></Button>
-                                    <Button><ArrowDropDownIcon/></Button>
+                                    <div>
+                                        <button className="button--filter button--filter-upsel">
+                                            <div className="button--filter-paragraph">
+                                                <p>Transação</p>
+                                            </div>
+                                            <div className="button--filter-arrows">
+                                                <ArrowDropUpIcon/>
+                                                <ArrowDropDownIcon/>
+                                            </div>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                             <div className="div--grid_item_right">
                                 <div className="div--grid_item_right_each">
-                                    <Button><ArrowDropUpIcon/></Button>
-                                    <Button><ArrowDropDownIcon/></Button>
+                                    <div>
+                                        <button className="button--filter">
+                                            <div className="button--filter-paragraph">
+                                                <p>Categoria</p>
+                                            </div>
+                                            <div className="button--filter-arrows">
+                                                <ArrowDropUpIcon/>
+                                                <ArrowDropDownIcon/>
+                                            </div>
+                                        </button>
+                                    </div>
                                 </div>
                                 <div className="div--grid_item_right_each">
-                                    <Button><ArrowDropUpIcon/></Button>
-                                    <Button><ArrowDropDownIcon/></Button>
+                                    <div>
+                                        <button className="button--filter">
+                                            <div className="button--filter-paragraph">
+                                                <p>Tipo</p>
+                                            </div>
+                                            <div className="button--filter-arrows">
+                                                <ArrowDropUpIcon/>
+                                                <ArrowDropDownIcon/>
+                                            </div>
+                                        </button>
+                                    </div>
                                 </div>
                                 <div className="div--grid_item_right_each">
-                                    <Button><ArrowDropUpIcon/></Button>
-                                    <Button><ArrowDropDownIcon/></Button>
+                                    <div>
+                                        <button className="button--filter">
+                                            <div className="button--filter-paragraph">
+                                                <p>Preço</p>
+                                            </div>
+                                            <div className="button--filter-arrows">
+                                                <ArrowDropUpIcon/>
+                                                <ArrowDropDownIcon/>
+                                            </div>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         {/* Div com itens */}
-                        <div className="div--content-row mt10">
+                        <div className="div--content-row mt20">
                             <div className="div--financial-row">
                                 { listTransactions }
                             </div>

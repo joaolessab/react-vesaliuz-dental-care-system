@@ -96,3 +96,23 @@
     z-index: 400;
     margin-left: -5px;
 }
+.button--financial-toggle{
+    position: absolute !important;
+    top: 152px;
+    background-color: white !important;
+    width: 30px;
+    height: 30px;
+    padding: 0px !important;
+    margin: 0px !important;
+    min-width: 30px !important;
+}
+.button--financial-toggle .MuiSvgIcon-root{
+    width: 20px;
+    height: 20px;
+}
+.button--financial-donut{right: 76px !important;}
+.button--financial-eyeview{right: 118px !important;}
+.div--summaryChart{
+    display: flex;
+    flex: 1;
+}

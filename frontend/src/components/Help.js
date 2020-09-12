@@ -116,7 +116,7 @@ class Help extends React.Component{
                     <form className="modal--separator-blue" noValidate autoComplete="off">
                         <p className="modal--body-custom-title">Conte-nos o seu problema</p>
                         <div className="modal--fields-container">
-                            <div className="modal--field no--margin">
+                            <div className="modal--field m0">
                                 <TextField
                                     name = "customerName"
                                     label="Seu nome:" 
