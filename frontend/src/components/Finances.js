@@ -1,6 +1,7 @@
 import React from 'react';
 import { defaults } from 'react-chartjs-2';
 import { Bar } from 'react-chartjs-2';
+import { Doughnut } from 'react-chartjs-2';
 
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 import '../assets/css/Finances.css';
@@ -116,13 +117,40 @@ const mixedChartData = {
     }
 };
 
+const donutChartData = {
+    data: {
+        labels: ["Infraestrutura", "Tratamentos", "Consultas", "Investimento"],
+        datasets: [
+            {
+                backgroundColor: [
+                    "#5D001E",
+                    "#E3E2DF",
+                    "#E3AFBC",
+                    "#9A1750",
+                    "#EE4C7C"
+                ],
+                borderColor: "white",
+                borderWidth: 2,
+                data: [14, 15, 4, 20]
+            }
+        ]
+    },
+    options: {
+        legend: {
+            display: true,
+            labels: {fontFamily: 'Averta'}
+        },
+        responsive: true
+    }
+};
+
 class Finances extends React.Component{
     constructor(props){
         super(props);
 
         this.state = {
             summaryChartView: true,
-            chartType: "mixed",
+            mixedChartOpenned: true,
             transactions: [
                 { 
                     id: 0,
@@ -180,7 +208,7 @@ class Finances extends React.Component{
 
     changeBoolEvent = (evtName) => {
         this.setState({
-            [evtName]: !this.state.summaryChartView
+            [evtName]: !this.state[evtName]
         });
     };
 
@@ -234,8 +262,14 @@ class Finances extends React.Component{
                                     <VisibilityOffIcon/>
                                 }
                             </Button>
-                            <Button className="button--financial-toggle button--financial-eyeview">
+                            <Button 
+                                className="button--financial-toggle button--financial-eyeview"
+                                onClick = { () => this.changeBoolEvent("mixedChartOpenned") }> 
+                                { this.state.mixedChartOpenned == true ?
                                 <DonutSmallIcon/>
+                                :
+                                <EqualizerIcon/>
+                                }
                             </Button>
                             
                             { this.state.summaryChartView ?
@@ -247,11 +281,19 @@ class Finances extends React.Component{
                                 </div>
 
                                 <div className="div--content-actions">
+                                    { this.state.mixedChartOpenned == true ?
                                     <Bar
                                         options = {mixedChartData.options}
                                         data = {mixedChartData.data}
                                         height = {80}
                                     />
+                                    :
+                                    <Doughnut
+                                        options = {donutChartData.options}
+                                        data = {donutChartData.data}
+                                        height = {75}
+                                    />
+                                    }
                                 </div>
                             </div>
                             : null 
@@ -319,7 +361,7 @@ class Finances extends React.Component{
                         </div>
 
                         {/* Div com itens */}
-                        <div className="div--content-row mt20">
+                        <div className="div--content-row mt20 div--financial-grid">
                             <div className="div--financial-row">
                                 { listTransactions }
                             </div>
