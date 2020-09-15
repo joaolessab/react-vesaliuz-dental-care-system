@@ -106,6 +106,7 @@ textarea{
   border: 0px !important;
   box-shadow: 0px 1px 2px 0px #2386fd4d !important;
   color: white !important;
+  width: 130px !important;
 }
 .button--content-blue:hover {
   background-color: white !important;
@@ -426,4 +427,18 @@ input:-webkit-autofill:active  {
 }
 .button--filter-downsel svg:nth-child(2){
   color: #2386fd;
+}
+.div--content-header{
+  display: flex;  
+  align-items: center;
+}
+.div--content-title{
+  max-height: 40px;
+  flex: 1;
+}
+.button--content-green{
+  background-color: #32cc77 !important;
+}
+.button--content-red{
+  background-color: #e47474 !important;
 }

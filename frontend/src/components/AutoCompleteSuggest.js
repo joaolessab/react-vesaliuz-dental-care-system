@@ -8,8 +8,8 @@ import '../assets/css/AutoCompleteSuggest.css';
 
 const itemsSuggest = [
     {
-        title: 'Pacientes',
-        itemsSuggest: [
+      title: 'Pacientes',
+      itemsSuggest: [
             {
               name: 'Clark Cold',
               year: 1972
@@ -78,6 +78,20 @@ const itemsSuggest = [
           year: 2012
         }
       ]
+    },
+    {
+      title: 'Transações',
+      itemsSuggest: [
+        {
+          name: 'Cadeira para recepcionista'
+        },
+        {
+          name: 'Clareamento do João'
+        },
+        {
+          name: 'Limpeza rápida do Marcus'
+        }
+      ]
     }
 ];
   
@@ -100,6 +114,8 @@ function getSuggestions(value, source) {
     chosenSuggest = itemsSuggest;
   else if(source === "patients")
     chosenSuggest = [itemsSuggest[0]];
+  else if(source === "transactions")
+    chosenSuggest = [itemsSuggest[4]];
 
   return chosenSuggest
     .map(section => {

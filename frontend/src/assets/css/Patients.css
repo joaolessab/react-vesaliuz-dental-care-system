@@ -145,12 +145,17 @@
 .container--patients-toolbar{
     display: flex;
     margin-right: 28px;
+    height: 50px;
+    margin-bottom: 20px;
 }
 .container--patients-toolbar div:nth-child(1){
     flex: 1;
 }
 .container--patients-toolbar div:nth-child(2){
     flex-basis: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .container--patients-toolbar div:nth-child(2) Button{
     flex: 1 1;

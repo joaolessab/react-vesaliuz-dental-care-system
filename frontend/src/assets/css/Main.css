@@ -211,4 +211,5 @@
 .container--blackboard-main .div--content-title{
     flex-basis: 40px;
     display: flex;
+    align-items: center;
 }

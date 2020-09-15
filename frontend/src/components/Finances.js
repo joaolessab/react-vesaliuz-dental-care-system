@@ -24,6 +24,7 @@ import VisibilityIcon from '@material-ui/icons/Visibility';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 import DonutSmallIcon from '@material-ui/icons/DonutSmall';
 import EqualizerIcon from '@material-ui/icons/Equalizer';
+import AutoCompleteSuggest from './AutoCompleteSuggest';
 
 defaults.global.defaultFontFamily = 'Averta';
 
@@ -246,13 +247,14 @@ class Finances extends React.Component{
         return (
             <div className="container--miolo-main">
                 <div className="container--content-resume">
-                    <div className="div--content-title">
-                        <h1>Finanças</h1>
-                    </div>
-
-                    <div className="div--content-body">
-                        {/* Div com Resumo */}
-                        <div className="div--content-row">
+                    <div className="div--content-header">
+                        <div className="div--content-title">
+                            <h1>Finanças</h1>
+                        </div>
+                        <div className="div--financial-utilities">
+                            <button class="button--content-blue button--content-green">Receita</button>
+                            <button class="button--content-blue button--content-red">Despesa</button>
+                            <button class="button--content-blue">Importar</button>
                             <Button 
                                 className="button--financial-toggle button--financial-donut"
                                 onClick = { () => this.changeBoolEvent("summaryChartView") }>                                    
@@ -266,12 +268,17 @@ class Finances extends React.Component{
                                 className="button--financial-toggle button--financial-eyeview"
                                 onClick = { () => this.changeBoolEvent("mixedChartOpenned") }> 
                                 { this.state.mixedChartOpenned == true ?
-                                <DonutSmallIcon/>
-                                :
-                                <EqualizerIcon/>
+                                    <DonutSmallIcon/>
+                                    :
+                                    <EqualizerIcon/>
                                 }
                             </Button>
-                            
+                        </div>
+                    </div>
+
+                    <div className="div--content-body mt20">
+                        {/* Div com Resumo */}
+                        <div className="div--content-row">                            
                             { this.state.summaryChartView ?
                             <div className="div--summaryChart">
                                 <div className="div--content-summary">
@@ -298,8 +305,8 @@ class Finances extends React.Component{
                             </div>
                             : null 
                             }
-                        </div>
-                            
+                        </div>                       
+
                         {/* Div com filtros */}
                         <div className="div--grid_filter_item mt20">
                             <div className="div--grid_item_left pl0">
@@ -359,9 +366,15 @@ class Finances extends React.Component{
                                 </div>
                             </div>
                         </div>
+                        
+                        {/* Div de pesquisa e botões rápidos */}
+                        <div className="div--content-row mt20">
+                            {/* Auto Suggest */}
+                            < AutoCompleteSuggest source = "transactions" />
+                        </div>
 
                         {/* Div com itens */}
-                        <div className="div--content-row mt20 div--financial-grid">
+                        <div className="div--content-row mt10 div--financial-grid">
                             <div className="div--financial-row">
                                 { listTransactions }
                             </div>
