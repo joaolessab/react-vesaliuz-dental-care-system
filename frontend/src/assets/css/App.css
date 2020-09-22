@@ -436,9 +436,3 @@ input:-webkit-autofill:active  {
   max-height: 40px;
   flex: 1;
 }
-.button--content-green{
-  background-color: #32cc77 !important;
-}
-.button--content-red{
-  background-color: #e47474 !important;
-}

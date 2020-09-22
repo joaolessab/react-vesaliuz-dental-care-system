@@ -3,21 +3,34 @@ import { defaults } from 'react-chartjs-2';
 import { Bar } from 'react-chartjs-2';
 import { Doughnut } from 'react-chartjs-2';
 
+import moment from 'moment';
+import MomentUtils from "@date-io/moment";
+
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
+
 import '../assets/css/Finances.css';
 import '../assets/css/Responsive/Resume--Responsive.css';
 
 // ================ COMPONENTES ===============
 import Button from '@material-ui/core/Button';
-import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import Checkbox from '@material-ui/core/Checkbox';
 import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import { Modal } from 'react-responsive-modal';
+import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
+import TextField from '@material-ui/core/TextField';
+import InputMask from "react-input-mask";
+import InputLabel from "@material-ui/core/InputLabel";
+import Input from '@material-ui/core/Input';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 // ================ ÍCONES ===============
-import AddIcon from '@material-ui/icons/Add';
-import RemoveIcon from '@material-ui/icons/Remove';
-import SendIcon from '@material-ui/icons/Send';
+
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import VisibilityIcon from '@material-ui/icons/Visibility';
@@ -26,7 +39,23 @@ import DonutSmallIcon from '@material-ui/icons/DonutSmall';
 import EqualizerIcon from '@material-ui/icons/Equalizer';
 import AutoCompleteSuggest from './AutoCompleteSuggest';
 
+// ================ ACESSO RÁPIDO ===============
+
+import AddIcon from '@material-ui/icons/Add';
+import RemoveIcon from '@material-ui/icons/Remove';
+import SendIcon from '@material-ui/icons/Send';
+
+// ================ CHARTS ===============
+
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import SpeedDial from '@material-ui/lab/SpeedDial';
+import SpeedDialIcon from '@material-ui/lab/SpeedDialIcon';
+import SpeedDialAction from '@material-ui/lab/SpeedDialAction';
+
 defaults.global.defaultFontFamily = 'Averta';
+
+const momentLocale = moment.locale('pt-br');
 
 const mixedChartData = {
     data: {
@@ -145,13 +174,62 @@ const donutChartData = {
     }
 };
 
+const useStyles = theme => ({
+    root: {
+        height: 45,
+    },
+    speedDial: {
+        '&.MuiSpeedDial-directionUp, &.MuiSpeedDial-directionLeft': {
+            bottom: theme.spacing(2),
+            right: theme.spacing(2),
+        },
+        '&.MuiSpeedDial-directionDown, &.MuiSpeedDial-directionRight': {
+            top: theme.spacing(2),
+            left: theme.spacing(2),
+        },
+    },
+});
+
+const shortCutActions = [
+    { 
+        icon:   <div className="div--speedial-content div--speedial-green">
+                    <p>Nova Receita</p>
+                </div>, 
+        name: 'Receita',
+        type: 1
+    },
+    { 
+        icon:   <div className="div--speedial-content div--speedial-red">
+                    <p>Nova Despesa</p>
+                </div>, 
+        name: 'Despesa',
+        type: 0
+    },
+    { 
+        icon:   <div className="div--speedial-content div--speedial-blue">
+                    <p>Importar dados</p>
+                </div>, 
+        name: 'Importação',
+        type: 2
+    }
+];
+
+// ================ CLASS ===============
+
 class Finances extends React.Component{
     constructor(props){
         super(props);
 
         this.state = {
+            // Speed Dial
+            open: false,
+            hidden: false,
+
+            // Charts
             summaryChartView: true,
             mixedChartOpenned: true,
+            
+            // Transactions Items
             transactions: [
                 { 
                     id: 0,
@@ -203,7 +281,17 @@ class Finances extends React.Component{
                     type: 0,
                     tag: "Material"
                 }
-            ]
+            ],
+
+            // Modal
+            isModalOpen: false,
+            modalMode: "insert",
+
+            // Modal Fields
+            modalDescriptionValue: "",
+            modalCategoriesValue: "",
+            modalTypeValue: "",
+            modalPriceValue: ""
         };
     };
 
@@ -213,11 +301,68 @@ class Finances extends React.Component{
         });
     };
 
+    /*handleVisibility = () => {
+        this.setState(state => ({
+            open: false,
+            hidden: !state.hidden,
+        }));
+    };*/
+
+    handleClick = () => {
+        this.setState(state => ({
+            open: !state.open,
+        }));
+    };
+    
+    handleOpen = () => {
+        if (!this.state.hidden) {
+            this.setState({
+                open: true,
+            });
+        }
+    };
+    
+    handleClose = () => {
+        this.setState({
+            open: false,
+        });
+    };
+
+    openModal = (mode, type) => {
+        this.setState({
+            modalMode: mode,
+            modalType: type,
+            isModalOpen: true
+        });
+    };
+
+    closeModal = () => {
+        this.setState({ isModalOpen: false });
+    };
+
+    saveModalItem = () =>{
+        alert("save modal item");
+    };
+
+    deleteModalItem = () => {
+        alert("delete modal item");
+    };
+
+    changeModalSimpleValue = (evt) => {
+        this.setState({
+            [evt.target.name]: evt.target.value
+        });
+    };
+
     render(){
         // LISTAGEM DE PACIENTES
         const listTransactions = this.state.transactions.map((transaction) => {
             return (
-                    <div className="div--grid_item" key={transaction.id}>
+                    <div 
+                        className="div--grid_item" 
+                        key={transaction.id}
+                        onClick={() => this.openModal("edit", transaction.type)}
+                    >
                         <div className="div--grid_item_left">
                             <Checkbox
                                 className="checkbox--list-selection"
@@ -242,6 +387,9 @@ class Finances extends React.Component{
                     </div>
             );
         });
+        
+        const { classes } = this.props;
+        const { hidden, open } = this.state;        
 
         // RETORNO BÁSICO DO HTML
         return (
@@ -252,9 +400,36 @@ class Finances extends React.Component{
                             <h1>Finanças</h1>
                         </div>
                         <div className="div--financial-utilities">
-                            <button class="button--content-blue button--content-green">Receita</button>
-                            <button class="button--content-blue button--content-red">Despesa</button>
-                            <button class="button--content-blue">Importar</button>
+
+                            {/* Speed Dial */}
+                            <div className={classes.root}>
+                                <SpeedDial
+                                    ariaLabel="SpeedDial tooltip example"
+                                    className={classes.speedDial}
+                                    hidden={hidden}
+                                    icon={<SpeedDialIcon />}
+                                    onBlur={this.handleClose}
+                                    onClick={this.handleClick}
+                                    onClose={this.handleClose}
+                                    onFocus={this.handleOpen}
+                                    onMouseEnter={this.handleOpen}
+                                    onMouseLeave={this.handleClose}
+                                    open={open}
+                                    direction = {"left"}
+                                >
+                                {shortCutActions.map(action => (
+                                    <SpeedDialAction
+                                        key={action.name}
+                                        icon={action.icon}
+                                        tooltipTitle={action.name}
+                                        open = {true}
+                                        tooltipOpen = {true}
+                                        onClick={() => this.openModal("insert", action.tyoe)}
+                                    />
+                                ))}
+                                </SpeedDial>
+                            </div>
+
                             <Button 
                                 className="button--financial-toggle button--financial-donut"
                                 onClick = { () => this.changeBoolEvent("summaryChartView") }>                                    
@@ -267,7 +442,7 @@ class Finances extends React.Component{
                             <Button 
                                 className="button--financial-toggle button--financial-eyeview"
                                 onClick = { () => this.changeBoolEvent("mixedChartOpenned") }> 
-                                { this.state.mixedChartOpenned == true ?
+                                { this.state.mixedChartOpenned === true ?
                                     <DonutSmallIcon/>
                                     :
                                     <EqualizerIcon/>
@@ -288,7 +463,7 @@ class Finances extends React.Component{
                                 </div>
 
                                 <div className="div--content-actions">
-                                    { this.state.mixedChartOpenned == true ?
+                                    { this.state.mixedChartOpenned === true ?
                                     <Bar
                                         options = {mixedChartData.options}
                                         data = {mixedChartData.data}
@@ -381,9 +556,103 @@ class Finances extends React.Component{
                         </div>
                     </div>
                 </div>
+
+
+                
+
+
+
+                {/* Modal de Transações */}
+                <Modal open={ this.state.isModalOpen } onClose={ this.closeModal } center>
+
+                    {/* Dados Gerais */}
+                    <div className="modal--body-custom">
+                        { this.state.modalMode === "insert" ?
+                            <p className="modal--body-custom-title">Nova Transação</p>
+                            :
+                            <p className="modal--body-custom-title">Editar Transação</p>
+                        }
+
+                        <div className="modal--body-custom-content">
+                            <form noValidate autoComplete="off">
+                                <MuiPickersUtilsProvider libInstance={ moment } utils={ MomentUtils } locale={ momentLocale }>                                        
+                                    {/* Dados da Transação */}
+                                    <div className="modal--fields-container">
+                                        <div className="modal--field">                                            
+                                            <TextField 
+                                                label="Transação" 
+                                                value = { this.state.modalDescriptionValue }
+                                                name = "modalDescriptionValue"
+                                                onChange={ this.changeModalSimpleValue } 
+                                                required
+                                            />
+                                        </div>
+
+                                        <div className="modal--field">                                            
+                                            <TextField 
+                                                label="Categorias" 
+                                                value = { this.state.modalCategoriesValue }
+                                                name = "modalCategoriesValue"
+                                                onChange={ this.changeModalSimpleValue } 
+                                                required
+                                            />
+                                        </div>
+
+                                        <div className="modal--field">                                            
+                                            <TextField 
+                                                label="Tipo" 
+                                                value = { this.state.modalTypeValue }
+                                                name = "modalTypeValue"
+                                                onChange={ this.changeModalSimpleValue } 
+                                                required
+                                            />
+                                        </div>   
+
+                                        <div className="modal--field">                                            
+                                            <TextField 
+                                                label="Preço" 
+                                                value = { this.state.modalPriceValue }
+                                                name = "modalPriceValue"
+                                                onChange={ this.changeModalSimpleValue } 
+                                                required
+                                            />
+                                        </div>                      
+                                    </div>
+                                </MuiPickersUtilsProvider>
+                            </form>
+                        </div>
+                    </div>
+
+                    {/* Bottom ToolBar */}
+                    <div className="modal--footer">
+                        {this.state.modalMode === "edit" ?
+                            <Button
+                                className="modal--footer-btn_red"
+                                onClick={ this.deleteModalItem }
+                            >
+                                Excluir
+                            </Button>
+                        : null }
+
+                        <Button className="modal--footer-btn_white" onClick={ this.closeModal }>
+                            Fechar
+                        </Button>                                
+                        
+                        <Button className="modal--footer-btn_blue" onClick = { this.saveModalItem }>
+                            Salvar
+                        </Button>
+                    </div>                
+                </Modal>
+
+
+
+            
+            
+            
+            
             </div>
         );
     }
 }
 
-export default Finances;
+export default withStyles(useStyles)(Finances);
