@@ -290,11 +290,12 @@ input:-webkit-autofill:active  {
 
 /* Default App */
 .m0{margin: 0px !important;}
-.mt5{margin-top: 5px;}
-.mt10{margin-top: 10px;}
-.mt20{margin-top: 20px;}
+.mt3{margin-top: 3px !important;}
+.mt5{margin-top: 5px !important;}
+.mt10{margin-top: 10px !important;}
+.mt20{margin-top: 20px !important;}
 .pl0{padding-left: 0px !important;}
-.ml0{margin-left: 0px;}
+.ml0{margin-left: 0px !important;}
 
 .button--blue-noborder{
   cursor: pointer !important;

@@ -28,6 +28,7 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 
 // ================ ÍCONES ===============
 
@@ -289,9 +290,16 @@ class Finances extends React.Component{
 
             // Modal Fields
             modalDescriptionValue: "",
-            modalCategoriesValue: "",
+            modalTransactionValue: "",
             modalTypeValue: "",
-            modalPriceValue: ""
+            modalDateValue: moment().toDate(),
+            modalPriceValue: "",
+            modalCategoriesValue : [
+                "Selecione...",
+                "Infraestrutura",
+                "Tratamentos",
+                "Material"
+            ]
         };
     };
 
@@ -352,6 +360,10 @@ class Finances extends React.Component{
         this.setState({
             [evt.target.name]: evt.target.value
         });
+    };
+
+    changeDate = (date) => {
+        this.setState({ modalDateValue: date });
     };
 
     render(){
@@ -489,7 +501,7 @@ class Finances extends React.Component{
                                     <div>
                                         <button className="button--filter button--filter-upsel">
                                             <div className="button--filter-paragraph">
-                                                <p>Transação</p>
+                                                <p>Descrição</p>
                                             </div>
                                             <div className="button--filter-arrows">
                                                 <ArrowDropUpIcon/>
@@ -499,6 +511,7 @@ class Finances extends React.Component{
                                     </div>
                                 </div>
                             </div>
+
                             <div className="div--grid_item_right">
                                 <div className="div--grid_item_right_each">
                                     <div>
@@ -578,9 +591,9 @@ class Finances extends React.Component{
                                 <MuiPickersUtilsProvider libInstance={ moment } utils={ MomentUtils } locale={ momentLocale }>                                        
                                     {/* Dados da Transação */}
                                     <div className="modal--fields-container">
-                                        <div className="modal--field">                                            
+                                        <div className="modal--field mt5">                                            
                                             <TextField 
-                                                label="Transação" 
+                                                label="Descrição" 
                                                 value = { this.state.modalDescriptionValue }
                                                 name = "modalDescriptionValue"
                                                 onChange={ this.changeModalSimpleValue } 
@@ -590,38 +603,65 @@ class Finances extends React.Component{
 
                                         <div className="modal--field">                                            
                                             <TextField 
-                                                label="Categorias" 
-                                                value = { this.state.modalCategoriesValue }
-                                                name = "modalCategoriesValue"
+                                                label="Valor" 
+                                                value = { this.state.modalTransactionValue }
+                                                name = "modalTransactionValue"
                                                 onChange={ this.changeModalSimpleValue } 
                                                 required
                                             />
                                         </div>
 
-                                        <div className="modal--field">                                            
-                                            <TextField 
-                                                label="Tipo" 
-                                                value = { this.state.modalTypeValue }
-                                                name = "modalTypeValue"
-                                                onChange={ this.changeModalSimpleValue } 
-                                                required
+                                        <div className="modal--field modal--field_special_legend">
+                                            <KeyboardDatePicker
+                                                disableToolbar
+                                                variant="inline"
+                                                format="DD/MM/YYYY"
+                                                margin="normal"
+                                                id="date-picker-initial"
+                                                label="Data:"
+                                                value={ this.state.modalDateValue }
+                                                autoOk = { true }
+                                                onChange={ this.changeDate }
+                                                KeyboardButtonProps={{
+                                                    'aria-label': 'change date',
+                                                }}
                                             />
-                                        </div>   
+                                        </div>
 
-                                        <div className="modal--field">                                            
-                                            <TextField 
-                                                label="Preço" 
-                                                value = { this.state.modalPriceValue }
-                                                name = "modalPriceValue"
-                                                onChange={ this.changeModalSimpleValue } 
-                                                required
+                                        <div className="modal--field modal--field_special_legend">
+                                            <InputLabel htmlFor="checkbox--initial-time">Categoria:</InputLabel>
+                                            <Select
+                                                labelId="checkbox--final-time"
+                                                id="checkbox--final-time"
+                                                value={ this.state.eventInitialTime }
+                                                onChange={ this.changeInitialTime }
+                                                input={<Input />}
+                                            >
+                                                { this.state.modalCategoriesValue.map((categoryItem) => (
+                                                    <MenuItem key={categoryItem} value={categoryItem}>
+                                                        <ListItemText primary={categoryItem} />
+                                                    </MenuItem>
+                                                )) }
+                                            </Select>
+                                        </div>
+
+                                        <div className="modal--field modal--field_special_legend">
+                                            <InputLabel htmlFor="textarea-observation">Observações:</InputLabel>
+                                            <TextareaAutosize 
+                                                id="textarea-observation" 
+                                                value = { this.state.eventObservation } 
+                                                aria-label="minimum height" 
+                                                rowsMin={3} 
+                                                placeholder="Escreva detalhes do seu evento ou compromisso"
+                                                onChange = { this.changeEventObservation }
                                             />
-                                        </div>                      
+                                        </div>
                                     </div>
                                 </MuiPickersUtilsProvider>
                             </form>
                         </div>
                     </div>
+
 
                     {/* Bottom ToolBar */}
                     <div className="modal--footer">
@@ -632,21 +672,21 @@ class Finances extends React.Component{
                             >
                                 Excluir
                             </Button>
-                        : null }
+                        : null }                         
 
                         <Button className="modal--footer-btn_white" onClick={ this.closeModal }>
                             Fechar
+                        </Button>  
+
+                        <Button className="modal--footer-btn_white btn--finances-attach-file" onClick={ this.attachFile }>
+                            Anexar arquivo
                         </Button>                                
                         
                         <Button className="modal--footer-btn_blue" onClick = { this.saveModalItem }>
                             Salvar
                         </Button>
                     </div>                
-                </Modal>
-
-
-
-            
+                </Modal>          
             
             
             

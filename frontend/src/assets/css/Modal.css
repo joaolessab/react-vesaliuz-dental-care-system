@@ -184,6 +184,7 @@
 .modal--footer{
     display: flex;
     flex: 1;
+    margin-top: 10px;
 }
 .modal--footer button{
     cursor: pointer !important;
@@ -255,7 +256,7 @@
 .modal--field_special_legend label{
     margin-top: -2px !important;    
     margin-left: 8px !important;
-    margin-bottom: 4px !important;
+    margin-bottom: 8px !important;
 }
 .modal--field .MuiFormControl-marginNormal{
     margin-top: 0px !important;

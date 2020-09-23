@@ -1111,7 +1111,7 @@ class Agenda extends React.Component{
                                 <MuiPickersUtilsProvider libInstance={ moment } utils={ MomentUtils } locale={ momentLocale }>                                
                                     {/* Div de Campos Normais */}
                                     <div className="modal--fields-container">
-                                        <div className="modal--field m0">
+                                        <div className="modal--field mt5">
                                             <TextField 
                                                 label="Título do seu evento:" 
                                                 value = { this.state.eventTitle } 
