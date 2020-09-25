@@ -30,6 +30,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import IntlCurrencyInput from "react-intl-currency-input";
+import cogoToast from 'cogo-toast';
 
 // ================ ÍCONES ===============
 
@@ -229,58 +230,7 @@ class Finances extends React.Component{
             mixedChartOpenned: true,
             
             // Transactions Items
-            transactions: [
-                { 
-                    id: 0,
-                    description: "Cadeira para recepcionista",
-                    price: "279,00",
-                    type: 0,
-                    tag: "Infraestrutura"
-                },
-                { 
-                    id: 1,
-                    description: "Clareamento do João",
-                    price: "500,00",
-                    type: 1,
-                    tag: "Tratamentos"
-                },
-                { 
-                    id: 2,
-                    description: "Limpeza rápida do Marcus",
-                    price: "105,00",
-                    type: 1,
-                    tag: "Tratamentos"
-                },
-                { 
-                    id: 3,
-                    description: "Clareamento do João",
-                    price: "500,00",
-                    type: 1,
-                    tag: "Tratamentos"
-                },
-                
-                { 
-                    id: 4,
-                    description: "Lâmpadas para escritório",
-                    price: "89,00",
-                    type: 0,
-                    tag: "Infraestrutura"
-                },
-                { 
-                    id: 5,
-                    description: "Limpeza rápida do Cláudio",
-                    price: "105,00",
-                    type: 1,
-                    tag: "Tratamentos"
-                },
-                { 
-                    id: 6,
-                    description: "Enxaguante bucal 2L",
-                    price: "50,00",
-                    type: 0,
-                    tag: "Material"
-                }
-            ],
+            transactions: this.getLocalStorageTransactions(), 
 
             // Modal
             isModalOpen: false,
@@ -311,6 +261,76 @@ class Finances extends React.Component{
                 },
             }
         };
+    };
+
+    getLocalStorageTransactions = () => {
+        this.insertBaseTransactions();
+
+        /* LENDO LISTA DE TRANSACTIONS DO STORAGE */
+        var newTransactions = [];
+        if (localStorage.getItem("transactionsList") !== null){
+            newTransactions = Object.assign([], JSON.parse(localStorage.getItem("transactionsList")), {});
+        }
+        return newTransactions;
+    };
+
+    insertBaseTransactions = () => {
+        localStorage.clear();
+        
+        var baseTransactions = [
+            { 
+                id: 0,
+                description: "Cadeira para recepcionista",
+                price: "279,00",
+                type: 0,
+                tag: "Infraestrutura"
+            },
+            { 
+                id: 1,
+                description: "Clareamento do João",
+                price: "500,00",
+                type: 1,
+                tag: "Tratamentos"
+            },
+            { 
+                id: 2,
+                description: "Limpeza rápida do Marcus",
+                price: "105,00",
+                type: 1,
+                tag: "Tratamentos"
+            },
+            { 
+                id: 3,
+                description: "Clareamento do João",
+                price: "500,00",
+                type: 1,
+                tag: "Tratamentos"
+            },
+            
+            { 
+                id: 4,
+                description: "Lâmpadas para escritório",
+                price: "89,00",
+                type: 0,
+                tag: "Infraestrutura"
+            },
+            { 
+                id: 5,
+                description: "Limpeza rápida do Cláudio",
+                price: "105,00",
+                type: 1,
+                tag: "Tratamentos"
+            },
+            { 
+                id: 6,
+                description: "Enxaguante bucal 2L",
+                price: "50,00",
+                type: 0,
+                tag: "Material"
+            }
+        ];
+
+        localStorage.setItem("transactionsList", JSON.stringify(baseTransactions));
     };
 
     changeBoolEvent = (evtName) => {
@@ -370,8 +390,28 @@ class Finances extends React.Component{
         alert("save modal item");
     };
 
-    deleteModalItem = () => {
-        alert("delete modal item");
+    deleteModalItem = (transactionId) => {
+        var newTransactions = [];
+        for (var i = 0; i < this.state.transactions.length; i++){
+            if (this.state.transactions[i].id !== transactionId)
+                newTransactions.push(this.state.transactions[i]);
+        }
+
+        // Salvando
+        this.setState({
+            transactions: newTransactions,
+            isModalOpen: false
+        });
+        
+        this.destroyCogoToastInfo();
+        cogoToast.success('Transação excluída com sucesso.', { heading: 'Sucesso!', position: 'top-center', hideAfter: 3 });
+    };
+
+    destroyCogoToastInfo = () => {
+        var ctToasts = document.getElementsByClassName("ct-toast");
+        for (var i = 0; i < ctToasts.length; i++){
+            ctToasts[i].remove();
+        }
     };
 
     changeModalSimpleValue = (evt) => {
@@ -686,13 +726,12 @@ class Finances extends React.Component{
                         </div>
                     </div>
 
-
                     {/* Bottom ToolBar */}
                     <div className="modal--footer">
                         {this.state.modalMode === "edit" ?
                             <Button
                                 className="modal--footer-btn_red"
-                                onClick={ this.deleteModalItem }
+                                onClick = {() => this.deleteModalItem(0)}
                             >
                                 Excluir
                             </Button>
@@ -710,7 +749,7 @@ class Finances extends React.Component{
                             Salvar
                         </Button>
                     </div>                
-                </Modal>          
+                </Modal>        
             
             
             

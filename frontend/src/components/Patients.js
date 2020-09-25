@@ -1313,7 +1313,8 @@ class Patients extends React.Component{
 
         // Salvando     
         this.setState({
-            patients: newPatients
+            patients: newPatients,
+            patientCrudVisibility: false
         });
         
         this.destroyCogoToastInfo();
@@ -2049,7 +2050,7 @@ class Patients extends React.Component{
                         {this.state.patientCrudMode === "edit" && this.state.patientCrudView === "dados_gerais" ?
                             <Button
                                 className="modal--footer-btn_red"
-                                onClick={ this.deleteEvent }
+                                onClick={() => this.triedToDeletePatient(this.state.patientIdSelected) }
                             >
                                 Excluir
                             </Button>
