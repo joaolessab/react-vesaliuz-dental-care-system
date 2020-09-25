@@ -29,6 +29,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
+import IntlCurrencyInput from "react-intl-currency-input";
 
 // ================ ÍCONES ===============
 
@@ -287,18 +288,30 @@ class Finances extends React.Component{
             // Modal
             isModalOpen: false,
             modalMode: "insert",
+            modalCurrencyConfig: {
+                locale: "pt-BR",
+                formats: {
+                    number: {
+                        BRL: {
+                            style: "currency",
+                            currency: "BRL",
+                            minimumFractionDigits: 2,
+                            maximumFractionDigits: 2,
+                        },
+                    },
+                },
+            },
 
             // Modal Fields
             modalDescriptionValue: "",
-            modalTransactionValue: "",
             modalTypeValue: "",
             modalDateValue: moment().toDate(),
-            modalPriceValue: "",
+            modalPriceValue: 0,
             modalCategoriesValue : [
-                "Selecione...",
-                "Infraestrutura",
-                "Tratamentos",
-                "Material"
+                {text: "Selecione...", id: 0},
+                {text: "Infraestrutura...", id: 1},
+                {text: "Tratamentos...", id: 2},
+                {text: "Material...", id: 3}
             ]
         };
     };
@@ -364,6 +377,13 @@ class Finances extends React.Component{
 
     changeDate = (date) => {
         this.setState({ modalDateValue: date });
+    };
+
+    changeCurrencyValue = (event, value, maskedValue) => {
+        event.preventDefault();
+        this.setState({ modalPriceValue: value }, function () {
+            console.log(this.state.modalPriceValue);
+        });        
     };
 
     render(){
@@ -601,13 +621,14 @@ class Finances extends React.Component{
                                             />
                                         </div>
 
-                                        <div className="modal--field">                                            
-                                            <TextField 
-                                                label="Valor" 
-                                                value = { this.state.modalTransactionValue }
-                                                name = "modalTransactionValue"
-                                                onChange={ this.changeModalSimpleValue } 
-                                                required
+                                        <div className="modal--field modal--field-intlcurrencyinput">
+                                            <InputLabel htmlFor="checkbox--transaction-price">Preço:</InputLabel>
+                                            <IntlCurrencyInput 
+                                                currency="BRL" 
+                                                config={ this.state.modalCurrencyConfig }
+                                                onChange={ this.changeCurrencyValue }
+                                                value = { this.state.modalPriceValue }
+                                                id="checkbox--transaction-price"
                                             />
                                         </div>
 
@@ -629,17 +650,17 @@ class Finances extends React.Component{
                                         </div>
 
                                         <div className="modal--field modal--field_special_legend">
-                                            <InputLabel htmlFor="checkbox--initial-time">Categoria:</InputLabel>
+                                            <InputLabel htmlFor="checkbox--transaction-category">Categoria:</InputLabel>
                                             <Select
-                                                labelId="checkbox--final-time"
-                                                id="checkbox--final-time"
-                                                value={ this.state.eventInitialTime }
+                                                labelId="checkbox--transaction-category-label"
+                                                id="checkbox--transaction-category"
+                                                value={ 0 }
                                                 onChange={ this.changeInitialTime }
                                                 input={<Input />}
                                             >
                                                 { this.state.modalCategoriesValue.map((categoryItem) => (
-                                                    <MenuItem key={categoryItem} value={categoryItem}>
-                                                        <ListItemText primary={categoryItem} />
+                                                    <MenuItem key={categoryItem.id} value={categoryItem.id}>
+                                                        <ListItemText primary={categoryItem.text} />
                                                     </MenuItem>
                                                 )) }
                                             </Select>

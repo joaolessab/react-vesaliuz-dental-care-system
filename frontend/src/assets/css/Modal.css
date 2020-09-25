@@ -241,6 +241,14 @@
 .modal--body-custom-content .MuiRadio-colorPrimary.Mui-checked{
     color: #333333 !important;
 }
+.modal--field-intlcurrencyinput label{
+    padding-bottom: 5px;
+    margin-top: 0px !important;
+}
+.modal--field-intlcurrencyinput input{
+    padding-left: 10px;
+    padding-right: 10px;
+}
 .modal--fields-container_half{
     display: flex;
     flex: 1;    
