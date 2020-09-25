@@ -196,22 +196,19 @@ const shortCutActions = [
     { 
         icon:   <div className="div--speedial-content div--speedial-green">
                     <p>Nova Receita</p>
-                </div>, 
-        name: 'Receita',
+                </div>,
         type: 1
     },
     { 
         icon:   <div className="div--speedial-content div--speedial-red">
                     <p>Nova Despesa</p>
-                </div>, 
-        name: 'Despesa',
+                </div>,
         type: 0
     },
     { 
         icon:   <div className="div--speedial-content div--speedial-blue">
                     <p>Importar dados</p>
-                </div>, 
-        name: 'Importação',
+                </div>,
         type: 2
     }
 ];
@@ -288,6 +285,18 @@ class Finances extends React.Component{
             // Modal
             isModalOpen: false,
             modalMode: "insert",
+            
+            // Modal Fields
+            modalDescriptionValue: "",
+            modalTypeValue: "Receita",
+            modalDateValue: moment().toDate(),
+            modalPriceValue: 0,
+            modalCategoriesValue : [
+                {text: "Selecione...", id: 0},
+                {text: "Infraestrutura...", id: 1},
+                {text: "Tratamentos...", id: 2},
+                {text: "Material...", id: 3}
+            ],
             modalCurrencyConfig: {
                 locale: "pt-BR",
                 formats: {
@@ -300,19 +309,7 @@ class Finances extends React.Component{
                         },
                     },
                 },
-            },
-
-            // Modal Fields
-            modalDescriptionValue: "",
-            modalTypeValue: "",
-            modalDateValue: moment().toDate(),
-            modalPriceValue: 0,
-            modalCategoriesValue : [
-                {text: "Selecione...", id: 0},
-                {text: "Infraestrutura...", id: 1},
-                {text: "Tratamentos...", id: 2},
-                {text: "Material...", id: 3}
-            ]
+            }
         };
     };
 
@@ -350,9 +347,17 @@ class Finances extends React.Component{
     };
 
     openModal = (mode, type) => {
+        // Mudando TypeValue
+        if (type === 1){
+            type = "Receita";
+        }
+        else{
+            type = "Despesa";
+        }
+
         this.setState({
             modalMode: mode,
-            modalType: type,
+            modalTypeValue: type,
             isModalOpen: true
         });
     };
@@ -451,12 +456,10 @@ class Finances extends React.Component{
                                 >
                                 {shortCutActions.map(action => (
                                     <SpeedDialAction
-                                        key={action.name}
                                         icon={action.icon}
-                                        tooltipTitle={action.name}
                                         open = {true}
                                         tooltipOpen = {true}
-                                        onClick={() => this.openModal("insert", action.tyoe)}
+                                        onClick={() => this.openModal("insert", action.type)}
                                     />
                                 ))}
                                 </SpeedDial>
@@ -601,9 +604,9 @@ class Finances extends React.Component{
                     {/* Dados Gerais */}
                     <div className="modal--body-custom">
                         { this.state.modalMode === "insert" ?
-                            <p className="modal--body-custom-title">Nova Transação</p>
+                            <p className="modal--body-custom-title">Nova {this.state.modalTypeValue}</p>
                             :
-                            <p className="modal--body-custom-title">Editar Transação</p>
+                            <p className="modal--body-custom-title">Editar {this.state.modalTypeValue}</p>
                         }
 
                         <div className="modal--body-custom-content">
