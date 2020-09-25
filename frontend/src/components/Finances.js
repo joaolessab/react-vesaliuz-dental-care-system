@@ -243,9 +243,9 @@ class Finances extends React.Component{
             modalPriceValue: 0,
             modalCategoriesValue : [
                 {text: "Selecione...", id: 0},
-                {text: "Infraestrutura...", id: 1},
-                {text: "Tratamentos...", id: 2},
-                {text: "Material...", id: 3}
+                {text: "Infraestrutura", id: 1},
+                {text: "Tratamentos", id: 2},
+                {text: "Material", id: 3}
             ],
             modalCurrencyConfig: {
                 locale: "pt-BR",
@@ -279,54 +279,75 @@ class Finances extends React.Component{
         
         var baseTransactions = [
             { 
-                id: 0,
-                description: "Cadeira para recepcionista",
-                price: "279,00",
+                id: "e6929a98_2bc0-b29e-189b0cc3212ae",
                 type: 0,
-                tag: "Infraestrutura"
+                description: "Cadeira para recepcionista",
+                price: 279.50,
+                date: "12/02/2020",
+                tag: 1,
+                observation: "Teste",
+                attaches: []
             },
-            { 
-                id: 1,
-                description: "Clareamento do João",
-                price: "500,00",
+            {
+                id: "e6929456_2bc0-b29e-456b0cc3212ae",
                 type: 1,
-                tag: "Tratamentos"
+                description: "Clareamento do João",
+                price: 500.00,
+                date: "12/02/2020",
+                tag: 2,
+                observation: "Teste",
+                attaches: []
             },
             { 
-                id: 2,
+                id: "e6334a98_2bc0-b29e-456b0cc3212ae",
+                type: 1,
                 description: "Limpeza rápida do Marcus",
-                price: "105,00",
-                type: 1,
-                tag: "Tratamentos"
+                price: 105.00,
+                date: "12/02/2020",
+                tag: 3,
+                observation: "Teste",
+                attaches: []
             },
             { 
-                id: 3,
-                description: "Clareamento do João",
-                price: "500,00",
+                id: "e6998798_2bc0-b29e-456b0cc3212ae",
                 type: 1,
-                tag: "Tratamentos"
+                description: "Clareamento do João",
+                price: 500.00,
+                date: "12/02/2020",
+                tag: 2,
+                observation: "Teste",
+                attaches: []
             },
             
             { 
-                id: 4,
+                id: "e7899a98_2bc0-b29e-456b0cc3212ae",
+                type: 0,
                 description: "Lâmpadas para escritório",
-                price: "89,00",
-                type: 0,
-                tag: "Infraestrutura"
+                price: 89.00,
+                date: "12/02/2020",
+                tag: 3,
+                observation: "Teste",
+                attaches: []
             },
             { 
-                id: 5,
-                description: "Limpeza rápida do Cláudio",
-                price: "105,00",
+                id: "e6567a98_2bc0-b29e-456b0cc3212ae",
                 type: 1,
-                tag: "Tratamentos"
+                description: "Limpeza rápida do Cláudio",
+                price: 105.00,
+                date: "12/02/2020",
+                tag: 2,
+                observation: "Teste",
+                attaches: []
             },
             { 
-                id: 6,
-                description: "Enxaguante bucal 2L",
-                price: "50,00",
+                id: "e6456a98_2bc0-b29e-456b0cc3212ae",
                 type: 0,
-                tag: "Material"
+                description: "Enxaguante bucal 2L",
+                price: 50.00,
+                date: "12/02/2020",
+                tag: 3,
+                observation: "Teste",
+                attaches: []
             }
         ];
 
