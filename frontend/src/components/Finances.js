@@ -233,13 +233,14 @@ class Finances extends React.Component{
             mixedChartOpenned: true,
             
             // Transactions Items
-            transactions: this.getLocalStorageTransactions(), 
+            transactions: this.getLocalStorageTransactions(),
 
             // Modal
             isModalOpen: false,
             modalMode: "insert",
             
             // Modal Fields
+            modalIdSelected: null,
             modalDescriptionValue: "",
             modalTypeValue: "Receita",
             modalDateValue: moment().toDate(),
@@ -439,6 +440,7 @@ class Finances extends React.Component{
         
         // Zerando "DADOS GERAIS"
         this.setState({
+            modalIdSelected: transactionId,
             modalDescriptionValue: this.getTransactionGeneralInfo(transactionInfo, "description"),
             modalTypeValue: transactionType,
             modalDateValue: this.getTransactionGeneralInfo(transactionInfo, "date"),
@@ -448,9 +450,9 @@ class Finances extends React.Component{
         });
 
         if (transactionId === null)
-            {var myModalMode = false;}
+            {var myModalMode = "insert";}
         else
-            {var myModalMode = true;}
+            {var myModalMode = "edit";}
         
         this.setState({
             modalMode: myModalMode,
@@ -462,14 +464,94 @@ class Finances extends React.Component{
         this.setState({ isModalOpen: false });
     };
 
-    saveModalItem = () =>{
-        alert("save modal item");
+    generatePieceHashCode = function (){
+        return Math.floor((1 + Math.random()) * 0x10000)
+            .toString(16)
+            .substring(1);
     };
 
-    deleteModalItem = (transactionId) => {
+    getHashID = () => {
+        if (this.state.modalMode === "insert"){
+            return this.generatePieceHashCode() + this.generatePieceHashCode()  + '_' + this.generatePieceHashCode() + '-' + this.generatePieceHashCode() + '-' + this.generatePieceHashCode() + this.generatePieceHashCode() +this.generatePieceHashCode();
+        }
+        else{
+            return this.state.modalIdSelected;
+        }
+    };
+
+    verifyRequiredFields = (json) => {
+        var missingFields = [];
+
+        if (json.description.length === 0)
+            missingFields.push(<p>Descrição</p>);
+
+        return missingFields;
+    };
+
+    saveModalItem = () => {
+        /* MONTANDO PACIENTE */
+        var json = {
+            id: this.getHashID(),
+            type: this.state.modalTypeValue,
+            description: this.state.modalDescriptionValue,
+            price: this.state.modalPriceValue,
+            date: this.state.modalDateValue,
+            tag: this.state.modalCategoriesValueSelected,
+            observation: this.state.modalObservationValue,
+            attaches: []
+        };
+
+        // VERIFICANDO CAMPOS VALIDOS
+        var missingFields = this.verifyRequiredFields(json);
+
+        if (missingFields.length === 0){
+            // LENDO LISTA DE PACIENTES DO STORAGE
+            var newTransactions = [];
+            if (localStorage.getItem("transactionsList") !== null){
+                newTransactions = Object.assign([], JSON.parse(localStorage.getItem("transactionsList")), {});
+            }
+            
+            // SALVANDO QUANDO FOR NOVO PACIENTE
+            if (this.state.modalMode === "insert"){
+                newTransactions.push(json);
+                cogoToast.success('Transação cadastrada.', { heading: 'Sucesso!', position: 'top-center', hideAfter: 3 });
+            }
+            else if (this.state.modalMode === "edit"){
+                for (var i = 0; i < newTransactions.length; i++){
+                    if (newTransactions[i].id === this.state.modalIdSelected)
+                        newTransactions[i] = json;
+                }            
+                cogoToast.success('Transação editada.', { heading: 'Sucesso!', position: 'top-center', hideAfter: 3 });
+            }
+
+            // PERSISTINDO NO LOCAL STORE E ATUALIZANDO ESTADO COM JSON
+            localStorage.setItem("transactionsList", JSON.stringify(newTransactions));
+
+            this.setState({
+                transactions: newTransactions,
+                isModalOpen: false
+            });
+        }
+        else{
+            cogoToast.warn(
+                <div>
+                    <p>Preencha os campos a seguir:</p>
+                    <ul className="cogotoast--patient-missing">
+                        {missingFields.map((value, index) => {
+                            return <li key={index}>{value}</li>
+                        })}
+                    </ul>
+                    <button className="button--cancel" onClick = { this.destroyCogoToastInfo }>Entendi</button>
+                </div>, 
+                { heading: 'Ops! Infelizmente faltam informações', position: 'top-center', hideAfter: 0 }
+            );            
+        }
+    };
+
+    deleteModalItem = () => {
         var newTransactions = [];
         for (var i = 0; i < this.state.transactions.length; i++){
-            if (this.state.transactions[i].id !== transactionId)
+            if (this.state.transactions[i].id !== this.state.modalIdSelected)
                 newTransactions.push(this.state.transactions[i]);
         }
 
@@ -810,7 +892,7 @@ class Finances extends React.Component{
                         {this.state.modalMode === "edit" ?
                             <Button
                                 className="modal--footer-btn_red"
-                                onClick = {() => this.deleteModalItem(0)}
+                                onClick = {() => this.deleteModalItem()}
                             >
                                 Excluir
                             </Button>

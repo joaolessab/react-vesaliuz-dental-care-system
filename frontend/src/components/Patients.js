@@ -1253,10 +1253,6 @@ class Patients extends React.Component{
             );            
         }
     };
-
-    teste = () => {
-        return <div>hehe</div>
-    };
     
     verifyRequiredFields = (json) => {
         var missingFields = [];
