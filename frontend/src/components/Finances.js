@@ -565,6 +565,17 @@ class Finances extends React.Component{
         cogoToast.success('Transação excluída com sucesso.', { heading: 'Sucesso!', position: 'top-center', hideAfter: 3 });
     };
 
+    findTagText = (intTag) => {
+        for (var i = 0; i < this.state.modalCategoriesValue.length; i++){
+            if (intTag === this.state.modalCategoriesValue[i].id)
+                return this.state.modalCategoriesValue[i].text
+        }
+    };
+
+    convertPriceCurrency = (intPrice) => {
+        return intPrice.toLocaleString('pt-br', {minimumFractionDigits: 2});
+    };
+
     destroyCogoToastInfo = () => {
         var ctToasts = document.getElementsByClassName("ct-toast");
         for (var i = 0; i < ctToasts.length; i++){
@@ -610,13 +621,13 @@ class Finances extends React.Component{
                         </div>
                         <div className="div--grid_item_right">
                             <div className="div--grid_item_right_each">
-                                <p className="financial--tag"><em>{transaction.tag}</em></p>
+                                <p className="financial--tag"><em>{this.findTagText(transaction.tag)}</em></p>
                             </div>
                             <div className="div--grid_item_right_each">
                                 <div className={transaction.type === 1 ? "financial--revenue-icon" : "financial--expense-icon"}></div>
                             </div>
                             <div className="div--grid_item_right_each">
-                                <p className="item--price">R$<em>{transaction.price}</em></p>
+                                <p className="item--price">R$ <em>{this.convertPriceCurrency(transaction.price)}</em></p>
                             </div>
                         </div>
                     </div>
