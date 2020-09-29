@@ -198,19 +198,22 @@ const shortCutActions = [
         icon:   <div className="div--speedial-content div--speedial-green">
                     <p>Nova Receita</p>
                 </div>,
-        type: 1
+        type: 1,
+        id: 1
     },
     { 
         icon:   <div className="div--speedial-content div--speedial-red">
                     <p>Nova Despesa</p>
                 </div>,
-        type: 0
+        type: 0,
+        id: 2
     },
     { 
         icon:   <div className="div--speedial-content div--speedial-blue">
                     <p>Importar dados</p>
                 </div>,
-        type: 2
+        type: 2,
+        id: 3
     }
 ];
 
@@ -241,12 +244,14 @@ class Finances extends React.Component{
             modalTypeValue: "Receita",
             modalDateValue: moment().toDate(),
             modalPriceValue: 0,
+            modalCategoriesValueSelected: 0,
             modalCategoriesValue : [
                 {text: "Selecione...", id: 0},
                 {text: "Infraestrutura", id: 1},
                 {text: "Tratamentos", id: 2},
                 {text: "Material", id: 3}
             ],
+            modalObservationValue: "",
             modalCurrencyConfig: {
                 locale: "pt-BR",
                 formats: {
@@ -387,18 +392,68 @@ class Finances extends React.Component{
         });
     };
 
-    openModal = (mode, type) => {
-        // Mudando TypeValue
-        if (type === 1){
-            type = "Receita";
+    findTransactionInfo = (transactionId) => {
+        for (var p = 0; p < this.state.transactions.length; p++){
+            if (this.state.transactions[p].id === transactionId){
+                return this.state.transactions[p]
+            }
         }
-        else{
-            type = "Despesa";
+        return null;
+    };
+
+    getTransactionGeneralInfo = (transactionInfo, fieldName) => {
+        // Exceções de campo de data
+        if (fieldName === "date"){
+            if (transactionInfo === null)
+                return moment().toDate()
         }
 
+        if (fieldName === "price"){
+            if (transactionInfo === null)
+                return 0
+        }
+
+        if (fieldName === "tag"){
+            if (transactionInfo === null)
+                return 0
+        }
+
+        // Sem exceções de campos
+        if (transactionInfo === null)
+            return ""
+
+        if (transactionInfo[fieldName] === null || fieldName[fieldName] === "")
+            return ""
+
+        // Valor final
+        return transactionInfo[fieldName]
+    };
+
+    openModal = (transactionType, transactionId) => {
+        var transactionInfo = this.findTransactionInfo(transactionId);
+        
+        if (transactionType === 1)
+            {transactionType = "Receita";}
+        else
+            {transactionType = "Despesa";} 
+        
+        // Zerando "DADOS GERAIS"
         this.setState({
-            modalMode: mode,
-            modalTypeValue: type,
+            modalDescriptionValue: this.getTransactionGeneralInfo(transactionInfo, "description"),
+            modalTypeValue: transactionType,
+            modalDateValue: this.getTransactionGeneralInfo(transactionInfo, "date"),
+            modalPriceValue: this.getTransactionGeneralInfo(transactionInfo, "price"),
+            modalCategoriesValueSelected: this.getTransactionGeneralInfo(transactionInfo, "tag"),
+            modalObservationValue: this.getTransactionGeneralInfo(transactionInfo, "observation")
+        });
+
+        if (transactionId === null)
+            {var myModalMode = false;}
+        else
+            {var myModalMode = true;}
+        
+        this.setState({
+            modalMode: myModalMode,
             isModalOpen: true
         });
     };
@@ -459,7 +514,7 @@ class Finances extends React.Component{
                     <div 
                         className="div--grid_item" 
                         key={transaction.id}
-                        onClick={() => this.openModal("edit", transaction.type)}
+                        onClick={() => this.openModal(transaction.type, transaction.id)}
                     >
                         <div className="div--grid_item_left">
                             <Checkbox
@@ -517,10 +572,11 @@ class Finances extends React.Component{
                                 >
                                 {shortCutActions.map(action => (
                                     <SpeedDialAction
+                                        key = {action.id}
                                         icon={action.icon}
                                         open = {true}
                                         tooltipOpen = {true}
-                                        onClick={() => this.openModal("insert", action.type)}
+                                        onClick={() => this.openModal(action.type, null)}
                                     />
                                 ))}
                                 </SpeedDial>
@@ -718,8 +774,9 @@ class Finances extends React.Component{
                                             <Select
                                                 labelId="checkbox--transaction-category-label"
                                                 id="checkbox--transaction-category"
-                                                value={ 0 }
-                                                onChange={ this.changeInitialTime }
+                                                value={ this.state.modalCategoriesValueSelected }
+                                                name = "modalCategoriesValueSelected"
+                                                onChange={ this.changeModalSimpleValue }
                                                 input={<Input />}
                                             >
                                                 { this.state.modalCategoriesValue.map((categoryItem) => (
@@ -734,11 +791,12 @@ class Finances extends React.Component{
                                             <InputLabel htmlFor="textarea-observation">Observações:</InputLabel>
                                             <TextareaAutosize 
                                                 id="textarea-observation" 
-                                                value = { this.state.eventObservation } 
+                                                value = { this.state.modalObservationValue } 
+                                                name = "modalObservationValue"
+                                                onChange={ this.changeModalSimpleValue }
                                                 aria-label="minimum height" 
                                                 rowsMin={3} 
                                                 placeholder="Escreva detalhes do seu evento ou compromisso"
-                                                onChange = { this.changeEventObservation }
                                             />
                                         </div>
                                     </div>
