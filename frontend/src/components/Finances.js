@@ -1,4 +1,6 @@
 import React from 'react';
+import _ from 'lodash';
+import classList from 'react-classlist-helper';
 import { defaults } from 'react-chartjs-2';
 import { Bar } from 'react-chartjs-2';
 import { Doughnut } from 'react-chartjs-2';
@@ -234,6 +236,10 @@ class Finances extends React.Component{
             
             // Transactions Items
             transactions: this.getLocalStorageTransactions(),
+            transactionsFilterBy: {
+                "field": "description",
+                "isAscOrder": true
+            },
 
             // Modal
             isModalOpen: false,
@@ -525,6 +531,8 @@ class Finances extends React.Component{
             }
 
             // PERSISTINDO NO LOCAL STORE E ATUALIZANDO ESTADO COM JSON
+            newTransactions = this.giveBackFilteredBy(newTransactions);
+
             localStorage.setItem("transactionsList", JSON.stringify(newTransactions));
 
             this.setState({
@@ -554,6 +562,8 @@ class Finances extends React.Component{
             if (this.state.transactions[i].id !== this.state.modalIdSelected)
                 newTransactions.push(this.state.transactions[i]);
         }
+
+        newTransactions = this.giveBackFilteredBy(newTransactions);
 
         // Salvando
         this.setState({
@@ -598,6 +608,38 @@ class Finances extends React.Component{
         this.setState({ modalPriceValue: value }, function () {
             console.log(this.state.modalPriceValue);
         });        
+    };
+
+    giveBackFilteredBy = (array) => {
+        var newArray = _.sortBy(array, [this.state.transactionsFilterBy.field]);
+        if (this.state.transactionsFilterBy.isAscOrder == false)
+            newArray = newArray.reverse();
+
+        return newArray;
+    };
+
+    filterBy = (evt) => {
+        var field = evt.currentTarget.name;
+
+        var newList = _.sortBy(this.state.transactions, [field]);
+        var isAscOrder = this.state.transactionsFilterBy.isAscOrder;
+
+        if (field === this.state.transactionsFilterBy.field){
+            if (isAscOrder == true)
+                newList = newList.reverse();
+            isAscOrder = !isAscOrder
+        }           
+        else{
+            isAscOrder = true
+        } 
+        
+        this.setState({
+            transactions: newList,
+            transactionsFilterBy: {
+                "field": field,
+                "isAscOrder": isAscOrder
+            }
+        });
     };
 
     render(){
@@ -732,7 +774,15 @@ class Finances extends React.Component{
                             <div className="div--grid_item_left pl0">
                                 <div className="div--grid_item_left_each">
                                     <div>
-                                        <button className="button--filter button--filter-upsel">
+                                        <button 
+                                            name = "description"
+                                            onClick = { this.filterBy }
+                                            className={classList({
+                                                'button--filter': this.state.transactionsFilterBy.field !== "description",
+                                                'button--filter button--filter-asc': this.state.transactionsFilterBy.field === "description" && this.state.transactionsFilterBy.isAscOrder,
+                                                'button--filter button--filter-desc': this.state.transactionsFilterBy.field === "description" && !this.state.transactionsFilterBy.isAscOrder
+                                            })}
+                                        >
                                             <div className="button--filter-paragraph">
                                                 <p>Descrição</p>
                                             </div>
@@ -748,7 +798,15 @@ class Finances extends React.Component{
                             <div className="div--grid_item_right">
                                 <div className="div--grid_item_right_each">
                                     <div>
-                                        <button className="button--filter">
+                                        <button 
+                                            name = "tag"
+                                            onClick = { this.filterBy }
+                                            className={classList({
+                                                'button--filter': this.state.transactionsFilterBy.field !== "tag",
+                                                'button--filter button--filter-asc': this.state.transactionsFilterBy.field === "tag" && this.state.transactionsFilterBy.isAscOrder,
+                                                'button--filter button--filter-desc': this.state.transactionsFilterBy.field === "tag" && !this.state.transactionsFilterBy.isAscOrder
+                                            })}
+                                        >
                                             <div className="button--filter-paragraph">
                                                 <p>Categoria</p>
                                             </div>
@@ -761,7 +819,15 @@ class Finances extends React.Component{
                                 </div>
                                 <div className="div--grid_item_right_each">
                                     <div>
-                                        <button className="button--filter">
+                                        <button 
+                                            name = "type"
+                                            onClick = { this.filterBy }
+                                            className={classList({
+                                                'button--filter': this.state.transactionsFilterBy.field !== "type",
+                                                'button--filter button--filter-asc': this.state.transactionsFilterBy.field === "type" && this.state.transactionsFilterBy.isAscOrder,
+                                                'button--filter button--filter-desc': this.state.transactionsFilterBy.field === "type" && !this.state.transactionsFilterBy.isAscOrder
+                                            })}
+                                        >
                                             <div className="button--filter-paragraph">
                                                 <p>Tipo</p>
                                             </div>
@@ -774,7 +840,15 @@ class Finances extends React.Component{
                                 </div>
                                 <div className="div--grid_item_right_each">
                                     <div>
-                                        <button className="button--filter">
+                                        <button 
+                                            name = "price"
+                                            onClick = { this.filterBy }
+                                            className={classList({
+                                                'button--filter': this.state.transactionsFilterBy.field !== "price",
+                                                'button--filter button--filter-asc': this.state.transactionsFilterBy.field === "price" && this.state.transactionsFilterBy.isAscOrder,
+                                                'button--filter button--filter-desc': this.state.transactionsFilterBy.field === "price" && !this.state.transactionsFilterBy.isAscOrder
+                                            })}
+                                        >
                                             <div className="button--filter-paragraph">
                                                 <p>Preço</p>
                                             </div>

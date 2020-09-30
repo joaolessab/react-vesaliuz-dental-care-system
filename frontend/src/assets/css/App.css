@@ -423,10 +423,10 @@ input:-webkit-autofill:active  {
 .button--filter-arrows svg:nth-child(2){
   margin-top: -12px !important;
 }
-.button--filter-upsel svg:nth-child(1){
+.button--filter-asc svg:nth-child(1){
   color: #2386fd;
 }
-.button--filter-downsel svg:nth-child(2){
+.button--filter-desc svg:nth-child(2){
   color: #2386fd;
 }
 .div--content-header{
