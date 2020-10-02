@@ -57,6 +57,7 @@ import { withStyles } from '@material-ui/core/styles';
 import SpeedDial from '@material-ui/lab/SpeedDial';
 import SpeedDialIcon from '@material-ui/lab/SpeedDialIcon';
 import SpeedDialAction from '@material-ui/lab/SpeedDialAction';
+import { NewReleases } from '@material-ui/icons';
 
 defaults.global.defaultFontFamily = 'Averta';
 
@@ -237,7 +238,7 @@ class Finances extends React.Component{
             // Transactions Items
             transactions: this.getLocalStorageTransactions(),
             transactionsFilterBy: {
-                "field": "description",
+                "field": "date",
                 "isAscOrder": true
             },
 
@@ -283,7 +284,10 @@ class Finances extends React.Component{
         if (localStorage.getItem("transactionsList") !== null){
             newTransactions = Object.assign([], JSON.parse(localStorage.getItem("transactionsList")), {});
         }
-        return newTransactions;
+        
+        var newArray = _.sortBy(newTransactions, 'date').reverse();
+
+        return newArray;
     };
 
     insertBaseTransactions = () => {
@@ -295,7 +299,7 @@ class Finances extends React.Component{
                 type: 0,
                 description: "Cadeira para recepcionista",
                 price: 279.50,
-                date: "12/02/2020",
+                date: moment("11/02/2020", 'DD-MM-YYYY'),
                 tag: 1,
                 observation: "Teste",
                 attaches: []
@@ -305,7 +309,7 @@ class Finances extends React.Component{
                 type: 1,
                 description: "Clareamento do João",
                 price: 500.00,
-                date: "12/02/2020",
+                date: moment("12/02/2020", 'DD-MM-YYYY'),
                 tag: 2,
                 observation: "Teste",
                 attaches: []
@@ -315,7 +319,7 @@ class Finances extends React.Component{
                 type: 1,
                 description: "Limpeza rápida do Marcus",
                 price: 105.00,
-                date: "12/02/2020",
+                date: moment("02/03/2020", 'DD-MM-YYYY'),
                 tag: 3,
                 observation: "Teste",
                 attaches: []
@@ -325,7 +329,7 @@ class Finances extends React.Component{
                 type: 1,
                 description: "Clareamento do João",
                 price: 500.00,
-                date: "12/02/2020",
+                date: moment("01/12/2019", 'DD-MM-YYYY'),
                 tag: 2,
                 observation: "Teste",
                 attaches: []
@@ -336,7 +340,7 @@ class Finances extends React.Component{
                 type: 0,
                 description: "Lâmpadas para escritório",
                 price: 89.00,
-                date: "12/02/2020",
+                date: moment("17/06/2020", 'DD-MM-YYYY'),
                 tag: 3,
                 observation: "Teste",
                 attaches: []
@@ -346,7 +350,7 @@ class Finances extends React.Component{
                 type: 1,
                 description: "Limpeza rápida do Cláudio",
                 price: 105.00,
-                date: "12/02/2020",
+                date: moment("03/04/2020", 'DD-MM-YYYY'),
                 tag: 2,
                 observation: "Teste",
                 attaches: []
@@ -356,7 +360,7 @@ class Finances extends React.Component{
                 type: 0,
                 description: "Enxaguante bucal 2L",
                 price: 50.00,
-                date: "12/02/2020",
+                date: moment("19/09/2020", 'DD-MM-YYYY'),
                 tag: 3,
                 observation: "Teste",
                 attaches: []
@@ -411,8 +415,12 @@ class Finances extends React.Component{
     getTransactionGeneralInfo = (transactionInfo, fieldName) => {
         // Exceções de campo de data
         if (fieldName === "date"){
-            if (transactionInfo === null)
+            if (transactionInfo === null){
                 return moment().toDate()
+            }
+            /*else{
+                return moment(transactionInfo[fieldName], 'DD-MM-YYYY')
+            }*/
         }
 
         if (fieldName === "price"){
@@ -575,6 +583,10 @@ class Finances extends React.Component{
         cogoToast.success('Transação excluída com sucesso.', { heading: 'Sucesso!', position: 'top-center', hideAfter: 3 });
     };
 
+    convertDateToString = (dateMoment) => {        
+        return moment(dateMoment).format('DD/MM/YYYY');
+    };
+
     findTagText = (intTag) => {
         for (var i = 0; i < this.state.modalCategoriesValue.length; i++){
             if (intTag === this.state.modalCategoriesValue[i].id)
@@ -631,7 +643,7 @@ class Finances extends React.Component{
         }           
         else{
             isAscOrder = true
-        } 
+        }
         
         this.setState({
             transactions: newList,
@@ -662,6 +674,9 @@ class Finances extends React.Component{
                             <div>{transaction.description}</div>
                         </div>
                         <div className="div--grid_item_right">
+                            <div className="div--grid_item_right_each">
+                                <p><em>{this.convertDateToString(transaction.date)}</em></p>
+                            </div>
                             <div className="div--grid_item_right_each">
                                 <p className="financial--tag"><em>{this.findTagText(transaction.tag)}</em></p>
                             </div>
@@ -796,6 +811,29 @@ class Finances extends React.Component{
                             </div>
 
                             <div className="div--grid_item_right">
+
+                                <div className="div--grid_item_right_each">
+                                    <div>
+                                        <button 
+                                            name = "date"
+                                            onClick = { this.filterBy }
+                                            className={classList({
+                                                'button--filter': this.state.transactionsFilterBy.field !== "date",
+                                                'button--filter button--filter-asc': this.state.transactionsFilterBy.field === "date" && this.state.transactionsFilterBy.isAscOrder,
+                                                'button--filter button--filter-desc': this.state.transactionsFilterBy.field === "date" && !this.state.transactionsFilterBy.isAscOrder
+                                            })}
+                                        >
+                                            <div className="button--filter-paragraph">
+                                                <p>Data</p>
+                                            </div>
+                                            <div className="button--filter-arrows">
+                                                <ArrowDropUpIcon/>
+                                                <ArrowDropDownIcon/>
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+
                                 <div className="div--grid_item_right_each">
                                     <div>
                                         <button 
@@ -817,6 +855,7 @@ class Finances extends React.Component{
                                         </button>
                                     </div>
                                 </div>
+
                                 <div className="div--grid_item_right_each">
                                     <div>
                                         <button 
@@ -838,6 +877,7 @@ class Finances extends React.Component{
                                         </button>
                                     </div>
                                 </div>
+
                                 <div className="div--grid_item_right_each">
                                     <div>
                                         <button 
@@ -859,6 +899,7 @@ class Finances extends React.Component{
                                         </button>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                         
