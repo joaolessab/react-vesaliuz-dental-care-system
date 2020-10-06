@@ -33,6 +33,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import IntlCurrencyInput from "react-intl-currency-input";
 import cogoToast from 'cogo-toast';
+import Autocomplete from '@material-ui/lab/Autocomplete';
 
 // ================ ÍCONES ===============
 
@@ -993,6 +994,17 @@ class Finances extends React.Component{
                                                     </MenuItem>
                                                 )) }
                                             </Select>
+
+
+                                            <Autocomplete
+                                                id="free-solo-demo"
+                                                multiple
+                                                limitTags={2}
+                                                options={this.state.modalCategoriesValue.map((option) => option.text)}
+                                                renderInput={(params) => (
+                                                    <TextField {...params} margin="normal" variant="outlined" />
+                                                )}
+                                            />
                                         </div>
 
                                         <div className="modal--field modal--field_special_legend">
