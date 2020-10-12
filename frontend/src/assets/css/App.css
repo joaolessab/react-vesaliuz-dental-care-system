@@ -15,7 +15,7 @@ body{
 }
 
 /* Por padrão, o Input e o Button não herdam a fonte do corpo do HTML */
-body, input, button, h1, h2, h3, h4, h5, h6, textarea{
+body, input, button, h1, h2, h3, h4, h5, h6, textarea, .MuiChip-label{
   font-family: 'Averta';
 }
 
@@ -436,4 +436,22 @@ input:-webkit-autofill:active  {
 .div--content-title{
   max-height: 40px;
   flex: 1;
+}
+.MuiAutocomplete-inputRoot{
+  display: flex !important;
+  height: auto !important;
+  /*flex-direction: column !important;*/
+}
+.MuiAutocomplete-inputRoot[class*="MuiInput-root"] .MuiAutocomplete-input:first-child {
+  padding: 4px !important;
+}
+.MuiAutocomplete-tag {
+  margin-top: 10px !important;
+}
+.MuiAutocomplete-endAdornment .MuiAutocomplete-clearIndicator:hover {
+  color: #2386fd !important;
+}
+.MuiAutocomplete-popper, .MuiAutocomplete-popper Input, .MuiAutocomplete-popper input, .MuiAutocomplete-popper p, .MuiAutocomplete-popper h1, .MuiAutocomplete-popper div, .MuiAutocomplete-popper span{
+  font-family: 'Averta' !important;
+  font-size: 14px !important;
 }

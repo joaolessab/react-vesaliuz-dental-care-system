@@ -253,13 +253,11 @@ class Finances extends React.Component{
             modalTypeValue: "Receita",
             modalDateValue: moment().toDate(),
             modalPriceValue: 0,
-            modalCategoriesValueSelected: 0,
-            modalCategoriesValue : [
-                {text: "Selecione...", id: 0},
-                {text: "Infraestrutura", id: 1},
-                {text: "Tratamentos", id: 2},
-                {text: "Material", id: 3}
-            ],
+            modalCategoriesSuggest : this.getTagSuggestions(),
+
+            modalCategoriesSelected: [],
+            modalCategoriasNewSelection: [],
+
             modalObservationValue: "",
             modalCurrencyConfig: {
                 locale: "pt-BR",
@@ -275,6 +273,24 @@ class Finances extends React.Component{
                 },
             }
         };
+    };
+
+    getTagSuggestions = () => {
+        if (localStorage.getItem("transactionsList") !== null){
+            var tagSuggestions = [];
+            var transactions = Object.assign([], JSON.parse(localStorage.getItem("transactionsList")), {});
+            
+            for (var t = 0; t < transactions.length; t++){
+                for (var ta = 0; ta < transactions[t].tags.length; ta++){
+                    var tag = transactions[t].tags[ta];
+                    tagSuggestions.indexOf(tag) === -1 && tagSuggestions.push(tag);
+                }
+            }
+            return tagSuggestions;
+        }
+        else{
+            return [];
+        }
     };
 
     getLocalStorageTransactions = () => {
@@ -301,7 +317,7 @@ class Finances extends React.Component{
                 description: "Cadeira para recepcionista",
                 price: 279.50,
                 date: moment("11/02/2020", 'DD-MM-YYYY'),
-                tag: 1,
+                tags: ["Infraestrutura", "Tratamentos"],
                 observation: "Teste",
                 attaches: []
             },
@@ -311,7 +327,7 @@ class Finances extends React.Component{
                 description: "Clareamento do João",
                 price: 500.00,
                 date: moment("12/02/2020", 'DD-MM-YYYY'),
-                tag: 2,
+                tags: ["Infraestrutura"],
                 observation: "Teste",
                 attaches: []
             },
@@ -321,7 +337,7 @@ class Finances extends React.Component{
                 description: "Limpeza rápida do Marcus",
                 price: 105.00,
                 date: moment("02/03/2020", 'DD-MM-YYYY'),
-                tag: 3,
+                tags: ["Infraestrutura"],
                 observation: "Teste",
                 attaches: []
             },
@@ -331,7 +347,7 @@ class Finances extends React.Component{
                 description: "Clareamento do João",
                 price: 500.00,
                 date: moment("01/12/2019", 'DD-MM-YYYY'),
-                tag: 2,
+                tags: ["Infraestrutura"],
                 observation: "Teste",
                 attaches: []
             },
@@ -342,7 +358,7 @@ class Finances extends React.Component{
                 description: "Lâmpadas para escritório",
                 price: 89.00,
                 date: moment("17/06/2020", 'DD-MM-YYYY'),
-                tag: 3,
+                tags: ["Infraestrutura"],
                 observation: "Teste",
                 attaches: []
             },
@@ -352,7 +368,7 @@ class Finances extends React.Component{
                 description: "Limpeza rápida do Cláudio",
                 price: 105.00,
                 date: moment("03/04/2020", 'DD-MM-YYYY'),
-                tag: 2,
+                tags: ["Infraestrutura"],
                 observation: "Teste",
                 attaches: []
             },
@@ -362,7 +378,7 @@ class Finances extends React.Component{
                 description: "Enxaguante bucal 2L",
                 price: 50.00,
                 date: moment("19/09/2020", 'DD-MM-YYYY'),
-                tag: 3,
+                tags: ["Tratamentos"],
                 observation: "Teste",
                 attaches: []
             }
@@ -429,9 +445,9 @@ class Finances extends React.Component{
                 return 0
         }
 
-        if (fieldName === "tag"){
+        if (fieldName === "tags"){
             if (transactionInfo === null)
-                return 0
+                return []
         }
 
         // Sem exceções de campos
@@ -460,7 +476,7 @@ class Finances extends React.Component{
             modalTypeValue: transactionType,
             modalDateValue: this.getTransactionGeneralInfo(transactionInfo, "date"),
             modalPriceValue: this.getTransactionGeneralInfo(transactionInfo, "price"),
-            modalCategoriesValueSelected: this.getTransactionGeneralInfo(transactionInfo, "tag"),
+            modalCategoriesSelected: this.getTransactionGeneralInfo(transactionInfo, "tags"),
             modalObservationValue: this.getTransactionGeneralInfo(transactionInfo, "observation")
         });
 
@@ -511,7 +527,7 @@ class Finances extends React.Component{
             description: this.state.modalDescriptionValue,
             price: this.state.modalPriceValue,
             date: this.state.modalDateValue,
-            tag: this.state.modalCategoriesValueSelected,
+            tags: this.state.modalCategoriasNewSelection,
             observation: this.state.modalObservationValue,
             attaches: []
         };
@@ -548,6 +564,9 @@ class Finances extends React.Component{
                 transactions: newTransactions,
                 isModalOpen: false
             });
+
+            // Adicionando TAG para a lista de Tags
+            this.refreshTagSuggestions(json.tags);
         }
         else{
             cogoToast.warn(
@@ -563,6 +582,17 @@ class Finances extends React.Component{
                 { heading: 'Ops! Infelizmente faltam informações', position: 'top-center', hideAfter: 0 }
             );            
         }
+    };
+
+    refreshTagSuggestions = (newTags) => {
+        var oldTags = this.state.modalCategoriesSuggest;
+
+        for (var n = 0; n < newTags.length; n++){
+            var newTag = newTags[n];
+            oldTags.indexOf(newTag) === -1 && oldTags.push(newTag);
+        }
+        
+        this.setState({modalCategoriesSuggest: oldTags});
     };
 
     deleteModalItem = () => {
@@ -588,11 +618,12 @@ class Finances extends React.Component{
         return moment(dateMoment).format('DD/MM/YYYY');
     };
 
-    findTagText = (intTag) => {
-        for (var i = 0; i < this.state.modalCategoriesValue.length; i++){
-            if (intTag === this.state.modalCategoriesValue[i].id)
-                return this.state.modalCategoriesValue[i].text
-        }
+    findTagText = (array) => {
+        if (array.length == 0)
+            return ""
+        if (array.length == 1)
+            return array[0]
+        return "+ 1"
     };
 
     convertPriceCurrency = (intPrice) => {
@@ -655,6 +686,10 @@ class Finances extends React.Component{
         });
     };
 
+    changeCurrentModalCategories = (values) => {
+        this.setState({modalCategoriasNewSelection: values});
+    };
+
     render(){
         // LISTAGEM DE PACIENTES
         const listTransactions = this.state.transactions.map((transaction) => {
@@ -679,7 +714,7 @@ class Finances extends React.Component{
                                 <p><em>{this.convertDateToString(transaction.date)}</em></p>
                             </div>
                             <div className="div--grid_item_right_each">
-                                <p className="financial--tag"><em>{this.findTagText(transaction.tag)}</em></p>
+                                <p className="financial--tag"><em>{this.findTagText(transaction.tags)}</em></p>
                             </div>
                             <div className="div--grid_item_right_each">
                                 <div className={transaction.type === 1 ? "financial--revenue-icon" : "financial--expense-icon"}></div>
@@ -693,7 +728,7 @@ class Finances extends React.Component{
         });
         
         const { classes } = this.props;
-        const { hidden, open } = this.state;        
+        const { hidden, open } = this.state;
 
         // RETORNO BÁSICO DO HTML
         return (
@@ -980,30 +1015,23 @@ class Finances extends React.Component{
 
                                         <div className="modal--field modal--field_special_legend">
                                             <InputLabel htmlFor="checkbox--transaction-category">Categoria:</InputLabel>
-                                            <Select
-                                                labelId="checkbox--transaction-category-label"
-                                                id="checkbox--transaction-category"
-                                                value={ this.state.modalCategoriesValueSelected }
-                                                name = "modalCategoriesValueSelected"
-                                                onChange={ this.changeModalSimpleValue }
-                                                input={<Input />}
-                                            >
-                                                { this.state.modalCategoriesValue.map((categoryItem) => (
-                                                    <MenuItem key={categoryItem.id} value={categoryItem.id}>
-                                                        <ListItemText primary={categoryItem.text} />
-                                                    </MenuItem>
-                                                )) }
-                                            </Select>
-
 
                                             <Autocomplete
-                                                id="free-solo-demo"
                                                 multiple
-                                                limitTags={2}
-                                                options={this.state.modalCategoriesValue.map((option) => option.text)}
-                                                renderInput={(params) => (
-                                                    <TextField {...params} margin="normal" variant="outlined" />
-                                                )}
+                                                freeSolo
+                                                limitTags = {2}
+                                                defaultValue = {this.state.modalCategoriesSelected}
+                                                //options={this.state.modalCategoriesSuggest}
+                                                options={this.state.modalCategoriesSuggest.map((option) => option)}
+                                                onChange = { (event, value) => this.changeCurrentModalCategories(value) }
+                                                renderInput={params => (                                          
+                                                    <TextField
+                                                        {...params}
+                                                        variant="standard"
+                                                        margin="normal"
+                                                        fullWidth
+                                                    />
+                                                )}              
                                             />
                                         </div>
 
@@ -1048,7 +1076,7 @@ class Finances extends React.Component{
                             Salvar
                         </Button>
                     </div>                
-                </Modal>        
+                </Modal>   
             
             
             
