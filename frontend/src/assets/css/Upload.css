@@ -1,29 +1,29 @@
-.div--attacher-container{
+.div--upload-container{
     display: flex;
 }
-.div--attacher-upload{
-    display: flex;
-    flex: 1;
-}
-.div--attacher-files{
+.div--upload-upload{
     display: flex;
     flex: 1;
 }
-.div--attacher-fileItem{
+.div--upload-files{
+    display: flex;
+    flex: 1;
+}
+.div--upload-fileItem{
     display: flex;
     flex: 1;
     flex-direction: column;
 }
-.div--attacher-progressContainer{
+.div--upload-progressContainer{
     background-color: red;
     flex: 1;
     display: flex;
 }
-.div--attacher-progressBar{
+.div--upload-progressBar{
     flex: 1;
     background-color: green;
 }
-.div--attacher-loader{
+.div--upload-loader{
     flex-basis: 40px;
     background-color: blue;
 }

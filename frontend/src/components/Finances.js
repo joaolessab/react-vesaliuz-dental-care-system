@@ -4,7 +4,7 @@ import classList from 'react-classlist-helper';
 import { defaults } from 'react-chartjs-2';
 import { Bar } from 'react-chartjs-2';
 import { Doughnut } from 'react-chartjs-2';
-import Attacher from './Attacher';
+import Upload from './Upload';
 
 import moment from 'moment';
 import MomentUtils from "@date-io/moment";
@@ -1034,7 +1034,7 @@ class Finances extends React.Component{
                                         </div>
 
                                         <div className="modal--field">
-                                            <Attacher />
+                                            <Upload />
                                         </div>
 
                                         <div className="modal--field modal--field_special_legend">
