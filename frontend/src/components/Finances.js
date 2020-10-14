@@ -711,10 +711,10 @@ class Finances extends React.Component{
                         </div>
                         <div className="div--grid_item_right">
                             <div className="div--grid_item_right_each">
-                                <p><em>{this.convertDateToString(transaction.date)}</em></p>
+                                <p className="financial--tag"><em>{this.findTagText(transaction.tags)}</em></p>
                             </div>
                             <div className="div--grid_item_right_each">
-                                <p className="financial--tag"><em>{this.findTagText(transaction.tags)}</em></p>
+                                <p><em>{this.convertDateToString(transaction.date)}</em></p>
                             </div>
                             <div className="div--grid_item_right_each">
                                 <div className={transaction.type === 1 ? "financial--revenue-icon" : "financial--expense-icon"}></div>
@@ -870,7 +870,7 @@ class Finances extends React.Component{
                                     </div>
                                 </div>
 
-                                <div className="div--grid_item_right_each">
+                                {/*<div className="div--grid_item_right_each">
                                     <div>
                                         <button 
                                             name = "tag"
@@ -890,7 +890,7 @@ class Finances extends React.Component{
                                             </div>
                                         </button>
                                     </div>
-                                </div>
+                                </div> */}
 
                                 <div className="div--grid_item_right_each">
                                     <div>
@@ -952,10 +952,7 @@ class Finances extends React.Component{
                             </div>
                         </div>
                     </div>
-                </div>
-
-
-                
+                </div>               
 
 
 
