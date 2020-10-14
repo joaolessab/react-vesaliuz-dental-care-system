@@ -1,0 +1,29 @@
+.div--attacher-container{
+    display: flex;
+}
+.div--attacher-upload{
+    display: flex;
+    flex: 1;
+}
+.div--attacher-files{
+    display: flex;
+    flex: 1;
+}
+.div--attacher-fileItem{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+.div--attacher-progressContainer{
+    background-color: red;
+    flex: 1;
+    display: flex;
+}
+.div--attacher-progressBar{
+    flex: 1;
+    background-color: green;
+}
+.div--attacher-loader{
+    flex-basis: 40px;
+    background-color: blue;
+}

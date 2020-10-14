@@ -4,6 +4,7 @@ import classList from 'react-classlist-helper';
 import { defaults } from 'react-chartjs-2';
 import { Bar } from 'react-chartjs-2';
 import { Doughnut } from 'react-chartjs-2';
+import Attacher from './Attacher';
 
 import moment from 'moment';
 import MomentUtils from "@date-io/moment";
@@ -58,7 +59,7 @@ import { withStyles } from '@material-ui/core/styles';
 import SpeedDial from '@material-ui/lab/SpeedDial';
 import SpeedDialIcon from '@material-ui/lab/SpeedDialIcon';
 import SpeedDialAction from '@material-ui/lab/SpeedDialAction';
-import { NewReleases } from '@material-ui/icons';
+import { AttachFile, NewReleases } from '@material-ui/icons';
 
 defaults.global.defaultFontFamily = 'Averta';
 
@@ -1030,6 +1031,10 @@ class Finances extends React.Component{
                                                     />
                                                 )}              
                                             />
+                                        </div>
+
+                                        <div className="modal--field">
+                                            <Attacher />
                                         </div>
 
                                         <div className="modal--field modal--field_special_legend">
