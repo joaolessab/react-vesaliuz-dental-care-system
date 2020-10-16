@@ -1068,11 +1068,7 @@ class Finances extends React.Component{
 
                         <Button className="modal--footer-btn_white" onClick={ this.closeModal }>
                             Fechar
-                        </Button>  
-
-                        <Button className="modal--footer-btn_white btn--finances-attach-file" onClick={ this.attachFile }>
-                            Anexar arquivo
-                        </Button>                                
+                        </Button>                            
                         
                         <Button className="modal--footer-btn_blue" onClick = { this.saveModalItem }>
                             Salvar
