@@ -58,7 +58,7 @@ class Dropzone extends Component {
   render() {
     return (
       <div
-        className={`Dropzone ${this.state.hightlight ? "Highlight" : ""}`}
+        className={`dropzone--container ${this.state.hightlight ? "dropzone--highlight" : ""}`}
         onDragOver={this.onDragOver}
         onDragLeave={this.onDragLeave}
         onDrop={this.onDrop}
@@ -67,17 +67,13 @@ class Dropzone extends Component {
       >
         <input
           ref={this.fileInputRef}
-          className="FileInput"
+          className="dropzone--input"
           type="file"
           multiple
           onChange={this.onFilesAdded}
         />
-        <img
-          alt="upload"
-          className="Icon"
-          src="baseline-cloud_upload-24px.svg"
-        />
-        <span>Upload Files</span>
+        <div className="dropzone--image"/>
+        <span>Solte o arquivo<br/>ou clique aqui</span>
       </div>
     );
   }

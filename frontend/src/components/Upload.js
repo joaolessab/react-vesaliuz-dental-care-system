@@ -1,6 +1,7 @@
 import React from 'react';
 import '../assets/css/Upload.css';
 import Dropzone from "./Dropzone";
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
 class Upload extends React.Component {
   constructor(props){
@@ -75,20 +76,20 @@ class Upload extends React.Component {
 
   render () {
     return (
-        <div className="Upload">
-        <span className="Title">Upload Files</span>
-        <div className="Content">
+        <div className="div--upload-container">
+        <div className="div--upload-content">
           <div>
             <Dropzone
               onFilesAdded={this.onFilesAdded}
               disabled={this.state.uploading || this.state.successfullUploaded}
             />
           </div>
-          <div className="Files">
+          <div className="div--upload-files">
             {this.state.files.map(file => {
               return (
-                <div key={file.name} className="Row">
-                  <span className="Filename">{file.name}</span>
+                <div key={file.name} className="div--upload-filerow">
+                  <span className="div--upload-filename">{file.name}</span>
+                  <button className="btn--upload-delete"><DeleteForeverIcon /></button>
                 </div>
               );
             })}
