@@ -2,6 +2,9 @@ import React from 'react';
 import '../assets/css/Upload.css';
 import Dropzone from "./Dropzone";
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+import GetAppIcon from '@material-ui/icons/GetApp';
+import PublishIcon from '@material-ui/icons/Publish';
+import { Emoji } from 'emoji-mart'
 
 class Upload extends React.Component {
   constructor(props){
@@ -16,9 +19,25 @@ class Upload extends React.Component {
   }
 
   onFilesAdded = (files) => {
-    this.setState(prevState => ({
-      files: prevState.files.concat(files)
-    }));
+    var filesAdded = this.state.files.concat(files);
+
+    // Cortando os últimos caso haja mais que 4
+    if (filesAdded.length > 4){
+      filesAdded = filesAdded.slice(0, 4);
+    }
+
+    this.setState({files: filesAdded});
+  }
+
+  deleteThisFile = (fileToRemove) => {
+    var cleannedFiles = [];
+    for (var f = 0; f < this.state.files.length; f++){
+      if (this.state.files[f] !== fileToRemove){
+        cleannedFiles.push(this.state.files[f]);
+      }
+    }
+
+    this.setState({files: cleannedFiles});
   }
 
   /*async uploadFiles() {
@@ -77,24 +96,47 @@ class Upload extends React.Component {
   render () {
     return (
         <div className="div--upload-container">
-        <div className="div--upload-content">
-          <div>
-            <Dropzone
-              onFilesAdded={this.onFilesAdded}
-              disabled={this.state.uploading || this.state.successfullUploaded}
-            />
+          { this.state.files.length < 4 ? "" :
+          <div className="div--maximum--container">
+            <p>Limite máximo de anexos atingido para o seu plano.
+              <br/>
+              Quer fazer upload ilimitado?
+            </p>
+            <div className="div--maximum--upgrade">
+              <p>Clique aqui e faça um upgrade!</p>
+              <Emoji emoji={{ id: 'relaxed', skin: 3 }} size={22} set={'facebook'}/>
+            </div>
           </div>
-          <div className="div--upload-files">
-            {this.state.files.map(file => {
-              return (
-                <div key={file.name} className="div--upload-filerow">
-                  <span className="div--upload-filename">{file.name}</span>
-                  <button className="btn--upload-delete"><DeleteForeverIcon /></button>
-                </div>
-              );
-            })}
+          }
+
+          <div className="div--upload-content">
+            <div>
+              <Dropzone
+                onFilesAdded={ this.onFilesAdded }
+                //disabled={this.state.uploading || this.state.successfullUploaded || this.state.files.length >= 4}
+                disabled={ this.state.files.length >= 4 }
+              />
+            </div>
+            <div className="div--upload-files">
+              {this.state.files.map(file => {
+                return (
+                  <div key={file.name} className="div--upload-filerow">
+                    <span className="div--upload-filename">{file.name}</span>
+                    <div>
+                      <button className="btn--upload-actions btn--upload-actions-upload"><PublishIcon /></button>
+                      <button className="btn--upload-actions btn--upload-actions-download"><GetAppIcon /></button>
+                      <button 
+                        className="btn--upload-actions btn--upload-actions-delete"
+                        onClick={() => this.deleteThisFile(file)}
+                      >
+                        <DeleteForeverIcon />
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
-        </div>
       </div>
     );    
   }

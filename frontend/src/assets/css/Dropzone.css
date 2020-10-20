@@ -10,6 +10,16 @@
   flex-direction: column;
   font-size: 14px;
   color:rgb(128 128 128);
+  text-align: center;
+}
+.dropzone--disabled, .dropzone--disabled:hover{
+  background-color: #d21f3c !important;
+  color: white !important;
+  border: 2px dashed white !important;
+}
+.dropzone--disabled .dropzone--image{
+  background-image: url("../icons/upload--white.svg");
+  opacity: 10;
 }
 .dropzone--highlight, .dropzone--container:hover{
   background-color: rgb(35 134 253);

@@ -481,10 +481,12 @@ class Finances extends React.Component{
             modalObservationValue: this.getTransactionGeneralInfo(transactionInfo, "observation")
         });
 
+        var myModalMode = "";
+
         if (transactionId === null)
-            {var myModalMode = "insert";}
+            {myModalMode = "insert";}
         else
-            {var myModalMode = "edit";}
+            {myModalMode = "edit";}
         
         this.setState({
             modalMode: myModalMode,
@@ -620,9 +622,9 @@ class Finances extends React.Component{
     };
 
     findTagText = (array) => {
-        if (array.length == 0)
+        if (array.length === 0)
             return ""
-        if (array.length == 1)
+        if (array.length === 1)
             return array[0]
         return "+ 1"
     };
@@ -657,7 +659,7 @@ class Finances extends React.Component{
 
     giveBackFilteredBy = (array) => {
         var newArray = _.sortBy(array, [this.state.transactionsFilterBy.field]);
-        if (this.state.transactionsFilterBy.isAscOrder == false)
+        if (this.state.transactionsFilterBy.isAscOrder === false)
             newArray = newArray.reverse();
 
         return newArray;
@@ -670,7 +672,7 @@ class Finances extends React.Component{
         var isAscOrder = this.state.transactionsFilterBy.isAscOrder;
 
         if (field === this.state.transactionsFilterBy.field){
-            if (isAscOrder == true)
+            if (isAscOrder === true)
                 newList = newList.reverse();
             isAscOrder = !isAscOrder
         }           
@@ -1074,9 +1076,7 @@ class Finances extends React.Component{
                             Salvar
                         </Button>
                     </div>                
-                </Modal>   
-            
-            
+                </Modal>            
             
             </div>
         );

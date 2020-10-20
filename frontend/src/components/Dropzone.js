@@ -58,7 +58,7 @@ class Dropzone extends Component {
   render() {
     return (
       <div
-        className={`dropzone--container ${this.state.hightlight ? "dropzone--highlight" : ""}`}
+        className={`dropzone--container ${this.state.hightlight && !this.props.disabled ? "dropzone--highlight" : ""} ${this.props.disabled ? "dropzone--disabled" : ""}`}
         onDragOver={this.onDragOver}
         onDragLeave={this.onDragLeave}
         onDrop={this.onDrop}
@@ -73,7 +73,7 @@ class Dropzone extends Component {
           onChange={this.onFilesAdded}
         />
         <div className="dropzone--image"/>
-        <span>Solte o arquivo<br/>ou clique aqui</span>
+        { this.props.disabled ? <span>Limite máximo<br/>atingido</span> : <span>Solte o arquivo<br/>ou clique aqui</span> }
       </div>
     );
   }

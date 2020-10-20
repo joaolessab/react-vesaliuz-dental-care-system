@@ -44,17 +44,69 @@
   padding-right: 10px;
   color: #3a3a3a;
 }
-.btn--upload-delete{
+
+.btn--upload-actions-upload{background-color: #2386fd; cursor: progress !important;}
+.btn--upload-actions-upload:hover{
+  background-color: #2386fd !important; 
+  color: white !important;
+  border: 0px !important;
+  box-shadow: none !important;
+}
+
+.btn--upload-actions-download{background-color: #32cc77;}
+.btn--upload-actions-delete{background-color: #d21f3c;}
+
+.btn--upload-actions{
   height: 30px;
   margin-left: 10px;
   border-radius: 5px;
   border: 0px;
-  background-color: #d21f3c;
   color: white;
   width: 30px;
   margin-top: -2px;
+  cursor: pointer;
 }
-.btn--upload-delete svg{
+.btn--upload-actions:hover {
+  background-color: white;
+  color: #62696f;
+  border: 1px solid #b5b5b5;
+  box-shadow: 1px 6px 3px 0px #969696;
+}
+.btn--upload-actions svg{
   font-size: 23px;
   margin-top: 2px;
+}
+
+
+.div--maximum--container{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  justify-items: center;
+  margin-bottom: 20px;
+  background-color: #2386fd !important;
+  border-radius: 5px;
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+}
+.div--maximum--container:hover{
+  background-color: white !important;
+  color: #62696f !important;
+  border: 1px solid #b5b5b5 !important;
+  box-shadow: 1px 6px 3px 0px #969696 !important;
+}
+.div--maximum--container p{
+  text-align: center;
+}
+.div--maximum--upgrade{
+  display: flex;
+  margin-top: 10px;
+}
+.div--maximum--upgrade p{
+  margin-right: 10px;
+  padding-top: 2px;
 }
