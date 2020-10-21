@@ -1,0 +1,24 @@
+@mixin mixin-nav-bar ($backColor,$colorText,$sizeTitle,$sizeDesc){
+	width:100%;
+	height:80px;
+	padding:10px;
+	background-color: $backColor;
+	min-height: 50px;
+	margin-bottom: 20px;
+	border: 1px solid $backColor;
+	color: $colorText;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+		h1 {
+			margin: 0;
+			font-size:$sizeTitle;
+		}
+		p {
+			font-size:$sizeDesc;
+			margin: 0;
+		}
+}
+
+.nav {
+	@include mixin-nav-bar(#CF4646, #fff, 55px, 18px);
+}

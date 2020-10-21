@@ -1,0 +1,22 @@
+{
+  "name": "ws-node-mongodb",
+  "version": "0.0.1",
+  "description": "App base para testar restful",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.20",
+    "validator": "^5.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "rest",
+    "restful"
+  ],
+  "author": "Tiago Marques",
+  "license": "ISC"
+}

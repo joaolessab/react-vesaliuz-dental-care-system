@@ -1,0 +1,217 @@
+body {
+	font-size:10px;
+}
+
+#teste {
+	margin: 0 auto;
+	padding:10px;
+	width:420px;
+	height:290px;
+	border:1px solid #000;
+	background-image: url(../imagens/odontoBase.jpg);
+	background-repeat:no-repeat;
+}
+
+
+/* SUPERIOR ADULTA */
+#teste ul#superiorAdulta {
+	margin: 0px;
+	padding: 0px;
+}
+#teste ul#superiorAdulta li {
+	display:inline;
+	float:left;
+	width:22px;
+	height:26px;
+		/*border:1px solid #000;*/
+	margin:0px 3px 0px 0px;
+	
+}
+#teste ul#superiorAdulta li.afastamento1 {
+	margin:0px 0px 0px 22px;
+}
+#teste ul#superiorAdulta li.afastamento2 {
+	margin:0px 5px;
+}
+#teste ul#superiorAdulta li a {
+	display: inline;
+}
+#teste ul#superiorAdulta li span {
+	margin:0px;
+	font-weight:bold;
+	width:10px;
+	text-align:center;
+}
+
+/* SUPERIOR INFANTIL */
+#teste #superiorInfantil {
+	margin: 0px 0px 0px 84px;
+	padding: 0px;
+}
+#teste #superiorInfantil li {
+	display:inline;
+	float:left;
+	width:22px;
+	height:26px;
+		/*border:1px solid #000;*/
+	margin:0px 3px 0px 0px;
+}
+#teste #superiorInfantil li.afastamento1 {
+	/*margin:0px 8px 0px 54px;*/
+	margin: 0 0 0 20px;
+}
+#teste #superiorInfantil li.afastamento2 {
+	margin:0px 5px;
+}
+#teste ul #superiorInfantil li a {
+	display: inline;
+}
+#teste #superiorInfantil li span {
+	margin:0px;
+	font-weight:bold;
+	width:10px;
+	text-align:center;
+}
+
+
+/* INFERIOR INFANTIL */
+#teste #inferiorInfantil {
+	margin: 0px 0px 0px 84px;
+	padding: 0px;
+}
+#teste #inferiorInfantil li {
+	display:inline;
+	float:left;
+	width:22px;
+	height:26px;
+		/*border:1px solid #000;*/
+	margin:0px 3px 0px 0px;
+}
+#teste #inferiorInfantil li.afastamento1 {
+	/*margin:0px 8px 0px 54px;*/
+	margin: 0 0 0 20px;
+}
+#teste #inferiorInfantil li.afastamento2 {
+	margin:0px 5px;
+}
+#teste ul #inferiorInfantil li a {
+	display: inline;
+}
+#teste #inferiorInfantil li span {
+	margin:0px;
+	font-weight:bold;
+	width:10px;
+	text-align:center;
+}
+
+
+/* INFERIOR ADULTA */
+#teste #inferiorAdulta {
+	margin: 0px;
+	padding: 0px;
+}
+#teste #inferiorAdulta li {
+	display:inline;
+	float:left;
+	width:22px;
+	height:26px;
+		/*border:1px solid #000;*/
+	margin:0px 3px 0px 0px;
+}
+#teste #inferiorAdulta li.afastamento1 {
+	margin: 0 0 0 22px;
+}
+#teste #inferiorAdulta li.afastamento2 {
+	margin:0px 5px;
+}
+#teste ul #inferiorAdulta li a {
+	display: inline;
+}
+#teste #inferiorAdulta li span {
+	margin:0px;
+	font-weight:bold;
+	width:10px;
+	text-align:center;
+}
+
+
+/* BOTOES DAS PALETAS DE CORES */
+
+#btCariado:link, #btCariado:visited  {
+	width:124px;
+	height:30px;		
+	display:block;
+	float:left;
+	background-image:url('../imagens/botaoOdontoCariado.jpg');
+	background-repeat:no-repeat;
+	margin:3px 7px;
+}
+#btRestaurado:link, #btRestaurado:visited  {
+	width:124px;
+	height:30px;		
+	display:block;
+	float:left;
+	background-image:url('../imagens/botaoOdontoRestaurado.jpg');
+	background-repeat:no-repeat;
+	margin:3px 7px;
+}
+#btHigido:link, #btHigido:visited  {
+	width:124px;
+	height:30px;		
+	display:block;
+	float:left;
+	background-image:url('../imagens/botaoOdontoHigido.jpg');
+	background-repeat:no-repeat;
+	margin:3px 7px;
+}
+
+/* CASOS DE HOVER */
+#btCariado:hover, #btCariado:active, #btCariado:focus {
+	width:124px;
+	height:30px;		
+	display:block;
+	float:left;
+	background-image:url('../imagens/botaoOdontoCariadoHover.jpg');
+	background-repeat:no-repeat;
+	margin:3px 7px;
+}
+#btRestaurado:hover, #btRestaurado:active, #btRestaurado:focus {
+	width:124px;
+	height:30px;		
+	display:block;
+	float:left;
+	background-image:url('../imagens/botaoOdontoRestauradoHover.jpg');
+	background-repeat:no-repeat;
+	margin:3px 7px;
+}
+#btHigido:hover {
+	width:124px;
+	height:30px;		
+	display:block;
+	float:left;
+	background-image:url('../imagens/botaoOdontoHigidoHover.jpg');
+	background-repeat:no-repeat;
+	margin:3px 7px;
+}
+
+/* Classes */
+.tipo1 {
+	color:red;
+	margin-left:50px;
+	display:inline;
+}
+.blue {
+	background-color: blue;		
+}
+.red {
+	background-color: red;		
+}
+.black {
+	background-color: black;		
+}
+
+/* Ajustes 1px */
+#dente10, #dente12, #dente15, #dente14, #dente25, #dente26, #dente35, 
+#dente36, #dente46, #dente48, #dente49, #dente50 , #dente51  {
+    margin-left: 1px;
+}

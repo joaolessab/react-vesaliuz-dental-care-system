@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+
+	<script   src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+	<style type="text/css">
+	.imagem-menor img {}
+	.principal {width: 100%;}
+
+	.thumbs ul {margin: 0;padding: 0;list-style: none;}
+	.thumbs ul li {display:inline;margin:12px;}
+	.thumbs ul li img {width:70px;}
+	.thumbs ul li a {width:70px;height:70px;display: block;}
+	.imagem-menor {float: left;border: 1px solid #ccc;padding: 2px;}
+	.imagem-menor:nth-of-type(1) a img, li.imagem-menor:nth-of-type(5) a img {margin:15px 0 0 0;}
+
+	.preco-antigo {color:#CCC;margin: 30px 0 0px 0;}
+	.preco-novo {margin: 10px 0 0px 0;}
+	.bt-comprar-produto {margin: 20px 0;}
+	.nome {margin-bottom: 0;}
+	</style>
+
+
+</head>
+<body>
+
+
+	<script type="text/javascript">  
+		$.getJSON("http://www.outletclube.com/web_api/products/2/", function(data) {
+
+			console.log(data);
+			console.log(data.Product.price);
+
+
+			var ImgDefault = "<img src='" + data.Product.ProductImage[0].http + "' class='principal'> ";
+			
+		    var output="<ul>";
+            for (var i in data.Product.ProductImage) 
+            {
+                output+="<li class='imagem-menor'> <a href='#'><img src='" + data.Product.ProductImage[i].http  + "' /></li></a>";
+            }
+            output+="</ul>";
+
+            $('div.produto').html(ImgDefault);
+            $('div.thumbs').html(output);
+
+            $('.nome').html(data.Product.name);
+            $('.referencia').html(data.Product.id);
+            $('.price').html(data.Product.price);
+            $('.retail-price').html(data.Product.promotional_price);
+            $('.parcelamento').html(data.Product.payment_option);
+            $('.descricao').html(data.Product.description_small);
+            
+		});
+    </script>
+
+    <div class="container">
+    	<div class="row">
+	    
+			<div class="foto-produto col-xs-12 col-sm-6 col-md-6">
+				<div class="produto"></div>
+				<div class="thumbs"></div>
+			</div>
+
+			<div class="dados-produto col-xs-12 col-sm-6 col-md-6">
+				<h1 class="nome"></h1>
+				<small>Referencia: <span class="referencia"></span></small>
+
+				<h3 class="preco-antigo">De: <span class="price"></span></h3>
+				<h2 class="preco-novo">Por: <span class="retail-price"></span></h2>
+
+				<p class="parcelamento"></p>
+
+				<button type="button" class="btn btn-primary btn-lg btn-success bt-comprar-produto">Comprar</button>
+				<p><strong>Descrição:</strong></p>
+				<p class="descricao"></p>
+			</div>
+
+		</div>
+	<div>
+
+
+	<div class="modal fade">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	        <h4 class="modal-title">Exemplo página de produto</h4>
+	      </div>
+	      <div class="modal-body">
+	        <p>Neste exemplo estamos buscando da API da loja tray via restful, os dados do produto e utilizando na montagem da página de produto.</p>
+	        <p>Utilizamos Jquery e Ajax, junto com o bootstrap para estilizar e tornar a tela responsiva (Mobile, tablet e Desktop)</p>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+
+	<script type="text/javascript">
+
+		$(window).load(function(){
+	        $('.modal').modal('show');
+	    });
+
+	</script>
+
+</body>
+</html>

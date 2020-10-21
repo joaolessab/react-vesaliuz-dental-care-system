@@ -1,0 +1,6 @@
+ODONTOGRAMA 1.0
+
+O odontograma serve para registrar o estado da bocal do paciente do SIGSAUDE, onde temos as linhas 1 e 4 com maior quantidade de dentes para os adultos, e as duas no meio para dentição infantil.
+
+Tecnologia utilizada, javascript e SVG, infelizmente não havia possibilidade de ser feito em Jquery, porque o dojo toolkit até a versão 1.9 era incompativel com o jQuery.
+

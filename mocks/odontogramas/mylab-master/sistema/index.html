@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+
+	<link rel="stylesheet" type="text/css" href="./css/slick.css">
+    <link rel="stylesheet" type="text/css" href="./css/slick-theme.css">
+
+	<style type="text/css">
+
+	.produto-vitrine .nome {margin-top:10px;}
+	.produto-vitrine .preco-antigo {font-size:11px;margin-bottom:0;text-decoration: line-through;}
+	.produto-vitrine .preco-novo {font-size:24px;}
+	.produto-vitrine .parcelamento {display:block;}
+	.produto-vitrine .bt-comprar-produto {margin:10px 0;}
+
+	.produto {float:left; padding:10px 0 0 0;min-height:400px;text-align:center;border: 1px solid #FFF;}
+	.produto a img {width:100%;}
+	.produto:nth-of-type(1) {display: none;}
+	.produto:hover {background: #f6f6f6;border: 1px solid #e5e5e5;}
+	 ul {margin:0; padding:0;list-style:none;}
+
+	 .add-product img {
+	    width: 360px;
+	    display: block;
+	    margin: 0 auto;
+	}
+	.modal-body p {text-align:center;}
+
+	.active_page {font-weight: bold;font-size: 14px;}
+
+	</style>
+
+
+</head>
+<body>
+
+
+	<div class="container">	
+		
+		<!-- Cabecalho -->
+		<div class="row">
+			<nav class="navbar navbar-default">
+			  <div class="container">
+				<a class="navbar-brand" href="#">
+					Sistema Lista de Produtos
+				</a>
+			  </div>
+			</nav>
+		</div>
+
+		<!-- Botões Adicionar e Apagar -->
+		<div class="row">
+			<nav class="navbar">
+				<div class="btn-group">
+					<button type="button" class="btn btn-default btn-md" onclick="exibeToolbar();">
+					  <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Adicionar item
+					</button>
+
+					<button type="button" class="btn btn-default btn-md" onclick="deletaLista();">
+					  <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> Apagar lista
+					</button>
+				</div>
+			</nav>
+		</div>
+
+		<!-- Toolbar -->
+		<div class="row">
+			<form class="navbar-form navbar-left" role="search" id ="toolbar" style="display:none;">
+			  <div class="form-group">
+				  <input type="text" class="form-control" id="produto" placeholder="Produto">
+
+				  <input type="number" class="form-control" id="quantidade" placeholder="Quantidade">
+
+				  <input type="text" class="form-control" id="valor" placeholder="valor">
+
+					<button type="button" id="btSalvar" class="btn btn-default btn-md" onclick="saveList()">
+					  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Salvar
+					</button>
+
+					<span id="inputIDUpdate"></span>
+
+					<button type="button" class="btn btn-default btn-md" onclick="limpaCampos();">
+					  <span class="glyphicon glyphicon-remove" aria-hidden="true" ></span> Limpar
+					</button>
+			  </div>
+			</form>
+		</div>	
+	
+		<!-- Tabela listagem de produtos -->
+		<div class="row">	
+			<div class="panel panel-default" >
+				<table class="table" id="tabelaItens"></table> 
+			</div>
+		</div>	
+	
+
+
+
+		<!-- Paginacao -->
+		<div class="row">
+
+			<nav aria-label="Page navigation">
+			  <ul class="pagination" id='pageNav'>
+			   
+			  </ul>
+			</nav>
+		</div>
+
+
+
+
+
+
+		<!-- Produtos recomendados vitrine -->
+		<div class="row">
+	        <div class="page-header">
+	          <h1>Produtos <small>recomendados pela loja</small></h1>
+	        </div>
+
+	        <div class="produto-vitrine">
+	        	<ul class="carrosell-marcas slider">
+	        		
+	        	</ul>
+	        </div>	
+        </div>
+
+
+		<!-- Produtos recomendados carrosel 
+		<div class="row">
+	        <div class="page-header">
+	          <h1>Produtos <small>recomendados pela loja</small></h1>
+	        </div>
+		
+			<div>
+		        <section class="carrosell-marcas slider">
+		          
+		          <div>
+		            <img src="http://placehold.it/100x100?text=1" />
+		          </div>
+
+		          <div>
+		            <img src="http://placehold.it/100x100?text=2" />
+		          </div>
+
+		          <div>
+		            <img src="http://placehold.it/100x100?text=3" />
+		          </div>
+
+		          <div>
+		            <img src="http://placehold.it/100x100?text=4" />
+		          </div>
+
+		          <div>
+		            <img src="http://placehold.it/100x100?text=5" />
+		          </div>
+
+		          <div>
+		            <img src="http://placehold.it/100x100?text=6" />
+		          </div>
+
+		          <div>
+		            <img src="http://placehold.it/100x100?text=7" />
+		          </div>
+
+		          <div>
+		            <img src="http://placehold.it/100x100?text=8" />
+		          </div>
+
+		          <div>
+		            <img src="http://placehold.it/100x100?text=9" />
+		          </div>
+
+		        </section>
+			</div>
+		</div>-->	
+
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+
+
+
+
+
+
+		<!-- Barra bottom total -->
+		<nav class="navbar navbar-default navbar-fixed-bottom">
+		  <div class="container">
+		    <h3 class="text-center bt-sucess" id="totalValor"></h3>
+		  </div>
+		</nav>
+
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	        <h4 class="modal-title">Adicionar produto ao carrinho</h4>
+	      </div>
+
+	      <div class="modal-body" id="modal-body">
+	      </div>
+
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="./js/slick.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/main.js"></script>
+	<!--<script src="js/pagination.js"></script>-->
+	<script src="js/paging.js"></script>
+	<script src="js/webservice.js"></script>
+
+	<script type="text/javascript">
+      $(document).on('ready', function() {
+        //Meus slides
+        $(".carrosell-marcas").slick({
+          infinite: true,
+          autoplay: true,
+          autoplaySpeed: 2000,
+          slidesToShow: 5
+        });
+      });
+    </script>
+
+    <script>
+		    var pager = new Pager('tabelaItens', 5); 
+		    pager.init(); 
+		    pager.showPageNav('pager', 'pageNav'); 
+		    pager.showPage(1);
+    </script>
+
+</body>
+</html>

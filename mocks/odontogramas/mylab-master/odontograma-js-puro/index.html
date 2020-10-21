@@ -1,0 +1,1337 @@
+<!DOCTYPE HTML>
+<html>
+  
+  <head>
+	<title>Odontograma v 1.0 Final</title>
+	<style type="text/css">
+		
+
+	</style>
+    <script type="text/javascript">
+
+	function marca(id){
+		//face do dente que será pintada
+		var ponto = document.getElementById(id);
+
+		//Cor atual da face
+		var corAtualFace = ponto.getAttribute("fill");
+
+		//cor que irá pintar
+		var corSelecionada = document.getElementById("corAtiva");
+		corSelecionada = corSelecionada.getAttribute("class");
+		//alert(corSelecionada);
+
+		if (corAtualFace == corSelecionada){
+			ponto.setAttribute("fill", "white");
+		} else {
+			ponto.setAttribute("fill", corSelecionada);
+		}
+
+	}
+
+	function retirar(id, elem){
+		var ponto = document.getElementById(id);
+
+		ponto.setAttribute("visibility", "hidden");
+
+			var elementoDisparador = elem.id;
+			var elementoAparece = elem.id;
+				//alert(elementoAparece+'quem disparou');
+			elementoAparece = elementoAparece.substring(1,4);
+			elementoAparece = parseInt(elementoAparece,10);
+			elementoAparece = elementoAparece -1;
+				//alert(elementoAparece+'quem vai sofrer a mudanca');
+
+		document.getElementById('s'+elementoAparece).style.visibility = "visible";
+		document.getElementById(elementoDisparador).style.visibility = "hidden";
+	}		
+
+	function colocar(id, elem){
+		var ponto = document.getElementById(id);
+	
+		ponto.setAttribute("visibility", "visible");
+
+			var elementoDisparador = elem.id;			
+			var elementoAparece = elem.id;
+				//alert(elementoAparece+'quem disparou');
+			elementoAparece = elementoAparece.substring(1,4);
+			elementoAparece = parseInt(elementoAparece,10);
+			elementoAparece = elementoAparece +1;
+				//alert(elementoAparece+'quem vai sofrer a mudanca');
+					
+		document.getElementById(elementoDisparador).style.visibility = "hidden";
+		document.getElementById('s'+elementoAparece).style.visibility = "visible";
+	}
+	function acendeCaixa(valor){
+		var pegaCor = document.getElementById("corAtiva");
+		pegaCor.setAttribute("class", valor);
+	
+	}
+	function init(){
+		acendeCaixa('black');
+	}
+	window.onload = init;
+    </script>
+	<link rel="stylesheet" href="css/estilosOdontograma.css" media="screen" />
+  </head>
+  
+  <body>
+
+	<div id="teste">
+	
+	<ul id="superiorAdulta">
+		<li>
+			<br />
+			<span onclick="colocar('dente1', this);" style="cursor:pointer;visibility:hidden;" id="s1" title="Colocar">
+				<img src="imagens/bullet_add.png" />
+			</span>
+			      
+
+			<span onclick="retirar('dente1', this);" style="cursor:pointer;" id="s2" title="extrair">
+				<img src="imagens/bullet_delete.png" />
+			</span>
+		</li>
+
+		<li>
+			<br />
+			<span onclick="colocar('dente2', this);" style="cursor:pointer;visibility:hidden;" id="s3">
+				<img src="imagens/bullet_add.png" />
+			</span>
+			      
+
+			<span onclick="retirar('dente2', this);" style="cursor:pointer;" id="s4">
+				<img src="imagens/bullet_delete.png" />
+			</span>
+		</li>
+
+		<li>
+			<br />
+			<span onclick="colocar('dente3', this);" style="cursor:pointer;visibility:hidden;" id="s5">
+				<img src="imagens/bullet_add.png" />
+			</span>
+			      
+
+			<span onclick="retirar('dente3', this);" style="cursor:pointer;" id="s6">
+				<img src="imagens/bullet_delete.png" />
+			</span>
+		</li>
+
+		<li>
+			<br />
+			<span onclick="colocar('dente4', this);" style="cursor:pointer;visibility:hidden;" id="s7">
+				<img src="imagens/bullet_add.png" />
+			</span>
+			      
+
+			<span onclick="retirar('dente4', this);" style="cursor:pointer;" id="s8">
+				<img src="imagens/bullet_delete.png" />
+			</span>
+		</li>
+
+		<li>
+			<br />
+			<span onclick="colocar('dente5', this);" style="cursor:pointer;visibility:hidden;" id="s9">
+				<img src="imagens/bullet_add.png" />
+			</span>
+			      
+
+			<span onclick="retirar('dente5', this);" style="cursor:pointer;" id="s10">
+				<img src="imagens/bullet_delete.png" />
+			</span>
+		</li>
+
+		<li>
+			<br />
+			<span onclick="colocar('dente6', this);" style="cursor:pointer;visibility:hidden;" id="s11">
+				<img src="imagens/bullet_add.png" />
+			</span>
+			      
+
+			<span onclick="retirar('dente6', this);" style="cursor:pointer;" id="s12">
+				<img src="imagens/bullet_delete.png" />
+			</span>
+		</li>
+
+		<li>
+			<br />
+			<span onclick="colocar('dente7', this);" style="cursor:pointer;visibility:hidden;" id="s13">
+				<img src="imagens/bullet_add.png" />
+			</span>
+			      
+
+			<span onclick="retirar('dente7', this);" style="cursor:pointer;" id="s14">
+				<img src="imagens/bullet_delete.png" />
+			</span>
+		</li>
+
+		<li>
+			<br />
+			<span onclick="colocar('dente8', this);" style="cursor:pointer;visibility:hidden;" id="s15">
+				<img src="imagens/bullet_add.png" />
+			</span>
+			      
+
+			<span onclick="retirar('dente8', this);" style="cursor:pointer;" id="s16">
+				<img src="imagens/bullet_delete.png" />
+			</span>
+		</li>
+
+	
+		<li class="afastamento1">
+			<br />
+			<span onclick="colocar('dente9', this);" style="cursor:pointer;visibility:hidden;" id="s17">
+				<img src="imagens/bullet_add.png" />
+			</span>
+			      
+
+			<span onclick="retirar('dente9', this);" style="cursor:pointer;" id="s18">
+				<img src="imagens/bullet_delete.png" />
+			</span>
+		</li>
+		<li>
+			<br />
+			<span onclick="colocar('dente10', this);" style="cursor:pointer;visibility:hidden;" id="s19">
+				<img src="imagens/bullet_add.png" />
+			</span>
+			      
+
+			<span onclick="retirar('dente10', this);" style="cursor:pointer;" id="s20">
+				<img src="imagens/bullet_delete.png" />
+			</span>
+		</li>
+
+
+		<li>
+			<br />
+			<span onclick="colocar('dente11', this);" style="cursor:pointer;visibility:hidden;" id="s21">
+				<img src="imagens/bullet_add.png" />
+			</span>
+			      
+
+			<span onclick="retirar('dente11', this);" style="cursor:pointer;" id="s22">
+				<img src="imagens/bullet_delete.png" />
+			</span>
+		</li>
+
+
+		<li>
+			<br />
+			<span onclick="colocar('dente12', this);" style="cursor:pointer;visibility:hidden;" id="s23">
+				<img src="imagens/bullet_add.png" />
+			</span>
+			      
+
+			<span onclick="retirar('dente12', this);" style="cursor:pointer;" id="s24">
+				<img src="imagens/bullet_delete.png" />
+			</span>
+		</li>
+
+		<li>
+			<br />
+			<span onclick="colocar('dente13', this);" style="cursor:pointer;visibility:hidden;" id="s25">
+				<img src="imagens/bullet_add.png" />
+			</span>
+			      
+
+			<span onclick="retirar('dente13', this);" style="cursor:pointer;" id="s26">
+				<img src="imagens/bullet_delete.png" />
+			</span>
+		</li>
+
+		<li>
+			<br />
+			<span onclick="colocar('dente14', this);" style="cursor:pointer;visibility:hidden;" id="s27">
+				<img src="imagens/bullet_add.png" />
+			</span>
+			      
+
+			<span onclick="retirar('dente14', this);" style="cursor:pointer;" id="s28">
+				<img src="imagens/bullet_delete.png" />
+			</span>
+		</li>
+
+		<li>
+			<br />
+			<span onclick="colocar('dente15', this);" style="cursor:pointer;visibility:hidden;" id="s29">
+				<img src="imagens/bullet_add.png" />
+			</span>
+			      
+
+			<span onclick="retirar('dente15', this);" style="cursor:pointer;" id="s30">
+				<img src="imagens/bullet_delete.png" />
+			</span>
+		</li>
+
+		<li>
+			<br />
+			<span onclick="colocar('dente16', this);" style="cursor:pointer;visibility:hidden;" id="s31">
+				<img src="imagens/bullet_add.png" />
+			</span>
+			      
+
+			<span onclick="retirar('dente16', this);" style="cursor:pointer;" id="s32">
+				<img src="imagens/bullet_delete.png" />
+			</span>
+		</li>
+	</ul>
+	<br style="clear:left;">
+	<svg width="21.876177" height="25.828159"  id="dente1">
+	  <polygon fill="white" stroke="blue" id="d1f5" onclick="marca('d1f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d1f1" onclick="marca('d1f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d1f2" onclick="marca('d1f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d1f3" onclick="marca('d1f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d1f4" onclick="marca('d1f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente2">
+	  <polygon fill="white" stroke="blue" id="d2f5" onclick="marca('d2f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d2f1" onclick="marca('d2f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d2f2" onclick="marca('d2f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d2f3" onclick="marca('d2f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d2f4" onclick="marca('d2f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente3">
+	  <polygon fill="white" stroke="blue" id="d3f5" onclick="marca('d3f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d3f1" onclick="marca('d3f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d3f2" onclick="marca('d3f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d3f3" onclick="marca('d3f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d3f4" onclick="marca('d3f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente4">
+	  <polygon fill="white" stroke="blue" id="d4f5" onclick="marca('d4f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d4f1" onclick="marca('d4f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d4f2" onclick="marca('d4f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d4f3" onclick="marca('d4f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d4f4" onclick="marca('d4f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente5">
+	  <polygon fill="white" stroke="blue" id="d5f5" onclick="marca('d5f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d5f1" onclick="marca('d5f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d5f2" onclick="marca('d5f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d5f3" onclick="marca('d5f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d5f4" onclick="marca('d5f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente6">
+	  <polygon fill="white" stroke="blue" id="d6f5" onclick="marca('d6f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d6f1" onclick="marca('d6f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d6f2" onclick="marca('d6f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d6f3" onclick="marca('d6f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d6f4" onclick="marca('d6f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente7">
+	  <polygon fill="white" stroke="blue" id="d7f5" onclick="marca('d7f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d7f1" onclick="marca('d7f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d7f2" onclick="marca('d7f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d7f3" onclick="marca('d7f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d7f4" onclick="marca('d7f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente8">
+	  <polygon fill="white" stroke="blue" id="d8f5" onclick="marca('d8f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d8f1" onclick="marca('d8f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d8f2" onclick="marca('d8f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d8f3" onclick="marca('d8f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d8f4" onclick="marca('d8f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="41.876177" height="25.828159" id="dente9">
+	  <polygon id="d9f5" fill="white" stroke="blue" onclick="marca('d9f5')" points="37.25,20.75 37.25,45.5 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,12.779688,-7.954079)" />
+	  <polygon id="d9f1" fill="white" stroke="blue" onclick="marca('d9f1')" points="12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 12.75,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,12.779688,-7.954079)" />
+	  <polygon id="d9f2" fill="white" stroke="blue" onclick="marca('d9f2')" points="37.25,37.25 45.25,45.25 45.5,12.25 37.25,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,12.779688,-7.954079)" />
+	  <polygon id="d9f3" fill="white" stroke="blue" onclick="marca('d9f3')" points="45.25,45.25 12.75,45.25 20.75,37.25 37.25,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,12.779688,-7.954079)" />
+	  <polygon id="d9f4" fill="white" stroke="blue" onclick="marca('d9f4')" points="20.75,20.75 37.25,20.75 45.25,12.75 12.75,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,12.779688,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente10">
+	  <polygon fill="white" stroke="blue" id="d10f5" onclick="marca('d10f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d10f1" onclick="marca('d10f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d10f2" onclick="marca('d10f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d10f3" onclick="marca('d10f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d10f4" onclick="marca('d10f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente11">
+	  <polygon fill="white" stroke="blue" id="d11f5" onclick="marca('d11f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d11f1" onclick="marca('d11f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d11f2" onclick="marca('d11f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d11f3" onclick="marca('d11f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d11f4" onclick="marca('d11f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente12">
+	  <polygon fill="white" stroke="blue" id="d12f5" onclick="marca('d12f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d12f1" onclick="marca('d12f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d12f2" onclick="marca('d12f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d12f3" onclick="marca('d12f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d12f4" onclick="marca('d12f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente13">
+	  <polygon fill="white" stroke="blue" id="d13f5" onclick="marca('d13f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d13f1" onclick="marca('d13f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d13f2" onclick="marca('d13f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d13f3" onclick="marca('d13f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d13f4" onclick="marca('d13f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente14">
+	  <polygon fill="white" stroke="blue" id="d14f5" onclick="marca('d14f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d14f1" onclick="marca('d14f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d14f2" onclick="marca('d14f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d14f3" onclick="marca('d14f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d14f4" onclick="marca('d14f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente15">
+	  <polygon fill="white" stroke="blue" id="d15f5" onclick="marca('d15f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d15f1" onclick="marca('d15f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d15f2" onclick="marca('d15f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d15f3" onclick="marca('d15f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d15f4" onclick="marca('d15f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente16">
+	  <polygon fill="white" stroke="blue" id="d16f5" onclick="marca('d16f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d16f1" onclick="marca('d16f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d16f2" onclick="marca('d16f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d16f3" onclick="marca('d16f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d16f4" onclick="marca('d16f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+
+	<br />
+	<br />
+
+	
+	<ul id="superiorInfantil">
+		<li>
+		<br /><span onclick="colocar('dente17', this);" style="cursor:pointer;visibility:hidden;" id="s33">
+			<img src="imagens/bullet_add.png" />
+		      </span>
+		      <span onclick="retirar('dente17', this);" style="cursor:pointer;" id="s34">
+			<img src="imagens/bullet_delete.png" />
+		      </span>
+		</li>
+		<li>
+			<br /><span onclick="colocar('dente18', this);" style="cursor:pointer;visibility:hidden;" id="s35">
+			<img src="imagens/bullet_add.png" />
+		      </span>
+		      <span onclick="retirar('dente18', this);" style="cursor:pointer;" id="s36">
+			<img src="imagens/bullet_delete.png" />
+		      </span>
+		</li>
+		<li>
+			<br /><span onclick="colocar('dente19', this);" style="cursor:pointer;visibility:hidden;" id="s37">
+			<img src="imagens/bullet_add.png" />
+		      </span>
+		      <span onclick="retirar('dente19', this);" style="cursor:pointer;" id="s38">
+			<img src="imagens/bullet_delete.png" />
+		      </span>
+		</li>
+		<li>		<br /><span onclick="colocar('dente20', this);" style="cursor:pointer;visibility:hidden;" id="s39">
+			<img src="imagens/bullet_add.png" />
+		      </span>
+		      <span onclick="retirar('dente20', this);" style="cursor:pointer;" id="s40">
+			<img src="imagens/bullet_delete.png" />
+		      </span></li>
+		<li>		<br /><span onclick="colocar('dente21', this);" style="cursor:pointer;visibility:hidden;" id="s41">
+			<img src="imagens/bullet_add.png" />
+		      </span>
+		      <span onclick="retirar('dente21', this);" style="cursor:pointer;" id="s42">
+			<img src="imagens/bullet_delete.png" />
+		      </span></li>
+	
+		<li class="afastamento1">		<br /><span onclick="colocar('dente22', this);" style="cursor:pointer;visibility:hidden;" id="s43">
+			<img src="imagens/bullet_add.png" />
+		      </span>
+		      <span onclick="retirar('dente22', this);" style="cursor:pointer;" id="s44">
+			<img src="imagens/bullet_delete.png" />
+		      </span></li>
+		<li>		<br /><span onclick="colocar('dente23', this);" style="cursor:pointer;visibility:hidden;" id="s45">
+			<img src="imagens/bullet_add.png" />
+		      </span>
+		      <span onclick="retirar('dente23', this);" style="cursor:pointer;" id="s46">
+			<img src="imagens/bullet_delete.png" />
+		      </span></li>
+		<li>		<br /><span onclick="colocar('dente24', this);" style="cursor:pointer;visibility:hidden;" id="s47">
+			<img src="imagens/bullet_add.png" />
+		      </span>
+		      <span onclick="retirar('dente24', this);" style="cursor:pointer;" id="s48">
+			<img src="imagens/bullet_delete.png" />
+		      </span></li>
+		<li>		<br /><span onclick="colocar('dente25', this);" style="cursor:pointer;visibility:hidden;" id="s49">
+			<img src="imagens/bullet_add.png" />
+		      </span>
+		      <span onclick="retirar('dente25', this);" style="cursor:pointer;" id="s50">
+			<img src="imagens/bullet_delete.png" />
+		      </span></li>
+		<li>		<br /><span onclick="colocar('dente26', this);" style="cursor:pointer;visibility:hidden;" id="s51">
+			<img src="imagens/bullet_add.png" />
+		      </span>
+		      <span onclick="retirar('dente26', this);" style="cursor:pointer;" id="s52">
+			<img src="imagens/bullet_delete.png" />
+		      </span></li>
+	</ul>
+
+	
+	<!--Arcada superior -->
+	<!-- Primeiro dente infantil-->
+	<svg width="101.88" height="25.828159" id="dente17">
+
+	  <polygon id="d17f5" fill="white" stroke="blue" onclick="marca('d17f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,72.779688,-7.954079)" />
+	  <polygon id="d17f1" fill="white" stroke="blue" onclick="marca('d17f1')" points="20.75,37.25 20.75,37.25 20.75,20.75 12.75,12.75 12.75,45.5 "
+	     transform="matrix(0.62615173,0,0,0.72309809,72.779688,-7.954079)" />
+	  <polygon id="d17f2" fill="white" stroke="blue" onclick="marca('d17f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,72.779688,-7.954079)" />
+	  <polygon id="d17f3" fill="white" stroke="blue" onclick="marca('d17f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,72.779688,-7.954079)" />
+	  <polygon id="d17f4" fill="white" stroke="blue" onclick="marca('d17f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,72.779688,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" x="0" id="dente18">
+	  <polygon id="d18f5" fill="white" stroke="blue" onclick="marca('d18f5')"  points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon id="d18f1" fill="white" stroke="blue" onclick="marca('d18f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon id="d18f2" fill="white" stroke="blue" onclick="marca('d18f2')"  points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon id="d18f3" fill="white" stroke="blue" onclick="marca('d18f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon id="d18f4" fill="white" stroke="blue" onclick="marca('d18f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente19">
+	  <polygon fill="white" stroke="blue" id="d19f5" onclick="marca('d19f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d19f1" onclick="marca('d19f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d19f2" onclick="marca('d19f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d19f3" onclick="marca('d19f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d19f4" onclick="marca('d19f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente20">
+	  <polygon fill="white" stroke="blue" id="d20f5" onclick="marca('d20f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d20f1" onclick="marca('d20f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d20f2" onclick="marca('d20f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d20f3" onclick="marca('d20f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d20f4" onclick="marca('d20f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente21">
+	  <polygon fill="white" stroke="blue" id="d21f5" onclick="marca('d21f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d21f1" onclick="marca('d21f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d21f2" onclick="marca('d21f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d21f3" onclick="marca('d21f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d21f4" onclick="marca('d21f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="41.876177" height="25.828159" id="dente22">
+	  <polygon id="d22f5" fill="white" stroke="blue" onclick="marca('d22f5')" points="37.25,20.75 37.25,45.5 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,12.779688,-7.954079)" />
+	  <polygon id="d22f1" fill="white" stroke="blue" onclick="marca('d22f1')" points="12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 12.75,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,12.779688,-7.954079)" />
+	  <polygon id="d22f2" fill="white" stroke="blue" onclick="marca('d22f2')" points="37.25,37.25 45.25,45.25 45.5,12.25 37.25,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,12.779688,-7.954079)" />
+	  <polygon id="d22f3" fill="white" stroke="blue" onclick="marca('d22f3')" points="45.25,45.25 12.75,45.25 20.75,37.25 37.25,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,12.779688,-7.954079)" />
+	  <polygon id="d22f4" fill="white" stroke="blue" onclick="marca('d22f4')" points="20.75,20.75 37.25,20.75 45.25,12.75 12.75,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,12.779688,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente23">
+	  <polygon fill="white" stroke="blue" id="d23f5" onclick="marca('d23f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d23f1" onclick="marca('d23f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d23f2" onclick="marca('d23f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d23f3" onclick="marca('d23f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d23f4" onclick="marca('d23f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente24">
+	  <polygon fill="white" stroke="blue" id="d24f5" onclick="marca('d24f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d24f1" onclick="marca('d24f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d24f2" onclick="marca('d24f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d24f3" onclick="marca('d24f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d24f4" onclick="marca('d24f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente25">
+	  <polygon fill="white" stroke="blue" id="d25f5" onclick="marca('d25f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d25f1" onclick="marca('d25f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d25f2" onclick="marca('d25f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d25f3" onclick="marca('d25f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d25f4" onclick="marca('d25f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159"id="dente26">
+	  <polygon fill="white" stroke="blue" id="d26f5" onclick="marca('d26f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d26f1" onclick="marca('d26f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d26f2" onclick="marca('d26f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d26f3" onclick="marca('d26f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d26f4" onclick="marca('d26f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+
+	<br /><br />
+
+	<!--Arcada superior -->
+	<!-- Primeiro dente infantil-->
+	<ul id="inferiorInfantil">
+		<li>
+			<br /><span onclick="colocar('dente27', this);" style="cursor:pointer;visibility:hidden;" id="s53">
+				<img src="imagens/bullet_add.png" />
+			     </span>
+			      <span onclick="retirar('dente27', this);" style="cursor:pointer;" id="s54"><img src="imagens/bullet_delete.png" /></span>
+		</li>
+		<li>
+			<br /><span onclick="colocar('dente28', this);" style="cursor:pointer;visibility:hidden;" id="s55">
+			<img src="imagens/bullet_add.png" />
+		      </span>
+		      <span onclick="retirar('dente28', this);" style="cursor:pointer;" id="s56">
+			<img src="imagens/bullet_delete.png" />
+		      </span>		
+		</li>
+		<li>
+			<br /><span onclick="colocar('dente29', this);" style="cursor:pointer;visibility:hidden;" id="s57">
+			<img src="imagens/bullet_add.png" />
+		      </span>
+		      <span onclick="retirar('dente29', this);" style="cursor:pointer;" id="s58">
+			<img src="imagens/bullet_delete.png" />
+		      </span>
+		</li>
+		<li>
+			<br /><span onclick="colocar('dente30', this);" style="cursor:pointer;visibility:hidden;" id="s59">
+			<img src="imagens/bullet_add.png" />
+		      </span>
+		      <span onclick="retirar('dente30', this);" style="cursor:pointer;" id="s60">
+			<img src="imagens/bullet_delete.png" />
+		      </span>
+		</li>
+		<li>
+			<br /><span onclick="colocar('dente31', this);" style="cursor:pointer;visibility:hidden;" id="s61">
+			<img src="imagens/bullet_add.png" />
+		      </span>
+		      <span onclick="retirar('dente31', this);" style="cursor:pointer;" id="s62">
+			<img src="imagens/bullet_delete.png" />
+		      </span>
+		</li>
+
+		<li class="afastamento1">
+			<br /><span onclick="colocar('dente32', this);" style="cursor:pointer;visibility:hidden;" id="s63">
+			<img src="imagens/bullet_add.png" />
+		      </span>
+		      <span onclick="retirar('dente32', this);" style="cursor:pointer;" id="s64">
+			<img src="imagens/bullet_delete.png" />
+		      </span>
+		</li>
+		<li>
+			<br /><span onclick="colocar('dente33', this);" style="cursor:pointer;visibility:hidden;" id="s65">
+			<img src="imagens/bullet_add.png" />
+		      </span>
+		      <span onclick="retirar('dente33', this);" style="cursor:pointer;" id="s66">
+			<img src="imagens/bullet_delete.png" />
+		      </span>
+		</li>
+		<li>
+			<br /><span onclick="colocar('dente34', this);" style="cursor:pointer;visibility:hidden;" id="s67">
+			<img src="imagens/bullet_add.png" />
+		      </span>
+		      <span onclick="retirar('dente34', this);" style="cursor:pointer;" id="s68">
+			<img src="imagens/bullet_delete.png" />
+		      </span>		
+		</li>
+		<li>
+			<br /><span onclick="colocar('dente35', this);" style="cursor:pointer;visibility:hidden;" id="s69">
+			<img src="imagens/bullet_add.png" />
+		      </span>
+		      <span onclick="retirar('dente35', this);" style="cursor:pointer;" id="s70">
+			<img src="imagens/bullet_delete.png" />
+		      </span>		
+		</li>
+		<li>
+			<br /><span onclick="colocar('dente36', this);" style="cursor:pointer;visibility:hidden;" id="s71">
+			<img src="imagens/bullet_add.png" />
+		      </span>
+		      <span onclick="retirar('dente36', this);" style="cursor:pointer;" id="s72">
+			<img src="imagens/bullet_delete.png" />
+		      </span>
+		</li>
+	</ul>
+	
+	<!-- Primeiro dente infantil-->
+	<svg width="101.88" height="25.828159" id="dente27">
+	  <polygon id="d27f5" fill="white" stroke="blue" onclick="marca('d27f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,72.779688,-7.954079)" />
+	  <polygon id="d27f1" fill="white" stroke="blue" onclick="marca('d27f1')" points="20.75,37.25 20.75,37.25 20.75,20.75 12.75,12.75 12.75,45.5 "
+	     transform="matrix(0.62615173,0,0,0.72309809,72.779688,-7.954079)" />
+	  <polygon id="d27f2" fill="white" stroke="blue" onclick="marca('d27f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,72.779688,-7.954079)" />
+	  <polygon id="d27f3" fill="white" stroke="blue" onclick="marca('d27f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,72.779688,-7.954079)" />
+	  <polygon id="d27f4" fill="white" stroke="blue" onclick="marca('d27f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,72.779688,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" x="0" id="dente28">
+	  <polygon id="d28f5" fill="white" stroke="blue" onclick="marca('d28f5')"  points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon id="d28f1" fill="white" stroke="blue" onclick="marca('d28f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon id="d28f2" fill="white" stroke="blue" onclick="marca('d28f2')"  points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon id="d28f3" fill="white" stroke="blue" onclick="marca('d28f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon id="d28f4" fill="white" stroke="blue" onclick="marca('d28f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente29">
+	  <polygon fill="white" stroke="blue" id="d29f5" onclick="marca('d29f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d29f1" onclick="marca('d29f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d29f2" onclick="marca('d29f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d29f3" onclick="marca('d29f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d29f4" onclick="marca('d29f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente30">
+	  <polygon fill="white" stroke="blue" id="d30f5" onclick="marca('d30f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d30f1" onclick="marca('d30f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d30f2" onclick="marca('d30f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d30f3" onclick="marca('d30f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d30f4" onclick="marca('d30f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente31">
+	  <polygon fill="white" stroke="blue" id="d31f5" onclick="marca('d31f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d31f1" onclick="marca('d31f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d31f2" onclick="marca('d31f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d31f3" onclick="marca('d31f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d31f4" onclick="marca('d31f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="41.876177" height="25.828159" id="dente32">
+	  <polygon id="d32f5" fill="white" stroke="blue" onclick="marca('d32f5')" points="37.25,20.75 37.25,45.5 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,12.779688,-7.954079)" />
+	  <polygon id="d32f1" fill="white" stroke="blue" onclick="marca('d32f1')" points="12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 12.75,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,12.779688,-7.954079)" />
+	  <polygon id="d32f2" fill="white" stroke="blue" onclick="marca('d32f2')" points="37.25,37.25 45.25,45.25 45.5,12.25 37.25,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,12.779688,-7.954079)" />
+	  <polygon id="d32f3" fill="white" stroke="blue" onclick="marca('d32f3')" points="45.25,45.25 12.75,45.25 20.75,37.25 37.25,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,12.779688,-7.954079)" />
+	  <polygon id="d32f4" fill="white" stroke="blue" onclick="marca('d32f4')" points="20.75,20.75 37.25,20.75 45.25,12.75 12.75,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,12.779688,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente33">
+	  <polygon fill="white" stroke="blue" id="d33f5" onclick="marca('d33f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d33f1" onclick="marca('d33f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d33f2" onclick="marca('d33f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d33f3" onclick="marca('d33f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d33f4" onclick="marca('d33f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente34">
+	  <polygon fill="white" stroke="blue" id="d34f5" onclick="marca('d34f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d34f1" onclick="marca('d34f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d34f2" onclick="marca('d34f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d34f3" onclick="marca('d34f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d34f4" onclick="marca('d34f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente35">
+	  <polygon fill="white" stroke="blue" id="d35f5" onclick="marca('d35f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d35f1" onclick="marca('d35f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d35f2" onclick="marca('d35f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d35f3" onclick="marca('d35f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d35f4" onclick="marca('d35f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente36">
+	  <polygon fill="white" stroke="blue" id="d36f5" onclick="marca('d36f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d36f1" onclick="marca('d36f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d36f2" onclick="marca('d36f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d36f3" onclick="marca('d36f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d36f4" onclick="marca('d36f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+
+	<br />
+
+
+
+
+
+
+	<!-- Parte inferior adulta -->
+	<ul id="inferiorAdulta">
+		<li>
+			<br />
+			<span onclick="colocar('dente37', this);" style="cursor:pointer;visibility:hidden;" id="s73" title="Colocar">
+				<img src="imagens/bullet_add.png" />
+			</span>
+			      
+
+			<span onclick="retirar('dente37', this);" style="cursor:pointer;" id="s74" title="extrair">
+				<img src="imagens/bullet_delete.png" />
+			</span>
+		</li>
+
+		<li>
+			<br />
+			<span onclick="colocar('dente38', this);" style="cursor:pointer;visibility:hidden;" id="s75">
+				<img src="imagens/bullet_add.png" />
+			</span>
+			      
+
+			<span onclick="retirar('dente38', this);" style="cursor:pointer;" id="s76">
+				<img src="imagens/bullet_delete.png" />
+			</span>
+		</li>
+
+		<li>
+			<br />
+			<span onclick="colocar('dente39', this);" style="cursor:pointer;visibility:hidden;" id="s77">
+				<img src="imagens/bullet_add.png" />
+			</span>
+			      
+
+			<span onclick="retirar('dente39', this);" style="cursor:pointer;" id="s78">
+				<img src="imagens/bullet_delete.png" />
+			</span>
+		</li>
+
+		<li>
+			<br />
+			<span onclick="colocar('dente40', this);" style="cursor:pointer;visibility:hidden;" id="s79">
+				<img src="imagens/bullet_add.png" />
+			</span>
+			      
+
+			<span onclick="retirar('dente40', this);" style="cursor:pointer;" id="s80">
+				<img src="imagens/bullet_delete.png" />
+			</span>
+		</li>
+
+		<li>
+			<br />
+			<span onclick="colocar('dente41', this);" style="cursor:pointer;visibility:hidden;" id="s81">
+				<img src="imagens/bullet_add.png" />
+			</span>
+			      
+
+			<span onclick="retirar('dente41', this);" style="cursor:pointer;" id="s82">
+				<img src="imagens/bullet_delete.png" />
+			</span>
+		</li>
+
+		<li>
+			<br />
+			<span onclick="colocar('dente42', this);" style="cursor:pointer;visibility:hidden;" id="s83">
+				<img src="imagens/bullet_add.png" />
+			</span>
+			      
+
+			<span onclick="retirar('dente42', this);" style="cursor:pointer;" id="s84">
+				<img src="imagens/bullet_delete.png" />
+			</span>
+		</li>
+
+		<li>
+			<br />
+			<span onclick="colocar('dente43', this);" style="cursor:pointer;visibility:hidden;" id="s85">
+				<img src="imagens/bullet_add.png" />
+			</span>
+			      
+
+			<span onclick="retirar('dente43', this);" style="cursor:pointer;" id="s86">
+				<img src="imagens/bullet_delete.png" />
+			</span>
+		</li>
+
+		<li>
+			<br />
+			<span onclick="colocar('dente44', this);" style="cursor:pointer;visibility:hidden;" id="s87">
+				<img src="imagens/bullet_add.png" />
+			</span>
+			      
+
+			<span onclick="retirar('dente44', this);" style="cursor:pointer;" id="s88">
+				<img src="imagens/bullet_delete.png" />
+			</span>
+		</li>
+
+	
+		<li class="afastamento1">
+			<br />
+			<span onclick="colocar('dente45', this);" style="cursor:pointer;visibility:hidden;" id="s89">
+				<img src="imagens/bullet_add.png" />
+			</span>
+			      
+
+			<span onclick="retirar('dente45', this);" style="cursor:pointer;" id="s90">
+				<img src="imagens/bullet_delete.png" />
+			</span>
+		</li>
+		<li>
+			<br />
+			<span onclick="colocar('dente46', this);" style="cursor:pointer;visibility:hidden;" id="s91">
+				<img src="imagens/bullet_add.png" />
+			</span>
+			      
+
+			<span onclick="retirar('dente46', this);" style="cursor:pointer;" id="s92">
+				<img src="imagens/bullet_delete.png" />
+			</span>
+		</li>
+		<li>
+			<br />
+			<span onclick="colocar('dente47', this);" style="cursor:pointer;visibility:hidden;" id="s93">
+				<img src="imagens/bullet_add.png" />
+			</span>
+			      
+
+			<span onclick="retirar('dente47', this);" style="cursor:pointer;" id="s94">
+				<img src="imagens/bullet_delete.png" />
+			</span>
+		</li>
+		<li>
+			<br />
+			<span onclick="colocar('dente48', this);" style="cursor:pointer;visibility:hidden;" id="s95">
+				<img src="imagens/bullet_add.png" />
+			</span>
+			      
+
+			<span onclick="retirar('dente48', this);" style="cursor:pointer;" id="s96">
+				<img src="imagens/bullet_delete.png" />
+			</span>
+		</li>
+		<li>
+			<br />
+			<span onclick="colocar('dente49', this);" style="cursor:pointer;visibility:hidden;" id="s97">
+				<img src="imagens/bullet_add.png" />
+			</span>
+			      
+
+			<span onclick="retirar('dente49', this);" style="cursor:pointer;" id="s98">
+				<img src="imagens/bullet_delete.png" />
+			</span>
+		</li>
+		<li>
+			<br />
+			<span onclick="colocar('dente50', this);" style="cursor:pointer;visibility:hidden;" id="s99">
+				<img src="imagens/bullet_add.png" />
+			</span>
+			      
+
+			<span onclick="retirar('dente50', this);" style="cursor:pointer;" id="s100">
+				<img src="imagens/bullet_delete.png" />
+			</span>
+		</li>
+
+		<li>
+			<br />
+			<span onclick="colocar('dente51', this);" style="cursor:pointer;visibility:hidden;" id="s101">
+				<img src="imagens/bullet_add.png" />
+			</span>
+			      
+
+			<span onclick="retirar('dente51', this);" style="cursor:pointer;" id="s102">
+				<img src="imagens/bullet_delete.png" />
+			</span>
+		</li>
+
+		<li>
+			<br />
+			<span onclick="colocar('dente52', this);" style="cursor:pointer;visibility:hidden;" id="s103">
+				<img src="imagens/bullet_add.png" />
+			</span>
+			      
+
+			<span onclick="retirar('dente52', this);" style="cursor:pointer;" id="s104">
+				<img src="imagens/bullet_delete.png" />
+			</span>
+		</li>
+	</ul>
+
+	<svg width="21.876177" height="25.828159" id="dente37">
+	  <polygon fill="white" stroke="blue" id="d37f5" onclick="marca('d37f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d37f1" onclick="marca('d37f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d37f2" onclick="marca('d37f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d37f3" onclick="marca('d37f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d37f4" onclick="marca('d37f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente38">
+	  <polygon fill="white" stroke="blue" id="d38f5" onclick="marca('d38f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d38f1" onclick="marca('d38f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d38f2" onclick="marca('d38f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d38f3" onclick="marca('d38f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d38f4" onclick="marca('d38f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente39">
+	  <polygon fill="white" stroke="blue" id="d39f5" onclick="marca('d39f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d39f1" onclick="marca('d39f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d39f2" onclick="marca('d39f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d39f3" onclick="marca('d39f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d39f4" onclick="marca('d39f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente40">
+	  <polygon fill="white" stroke="blue" id="d40f5" onclick="marca('d40f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d40f1" onclick="marca('d40f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d40f2" onclick="marca('d40f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d40f3" onclick="marca('d40f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d40f4" onclick="marca('d40f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente41">
+	  <polygon fill="white" stroke="blue" id="d41f5" onclick="marca('d41f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d41f1" onclick="marca('d41f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d41f2" onclick="marca('d41f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d41f3" onclick="marca('d41f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d41f4" onclick="marca('d41f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente42">
+	  <polygon fill="white" stroke="blue" id="d42f5" onclick="marca('d42f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d42f1" onclick="marca('d42f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d42f2" onclick="marca('d42f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d42f3" onclick="marca('d42f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d42f4" onclick="marca('d42f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente43">
+	  <polygon fill="white" stroke="blue" id="d43f5" onclick="marca('d43f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d43f1" onclick="marca('d43f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d43f2" onclick="marca('d43f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d43f3" onclick="marca('d43f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d43f4" onclick="marca('d43f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente44">
+	  <polygon fill="white" stroke="blue" id="d44f5" onclick="marca('d44f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d44f1" onclick="marca('d44f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d44f2" onclick="marca('d44f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d44f3" onclick="marca('d44f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d44f4" onclick="marca('d44f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="41.876177" height="25.828159" id="dente45">
+	  <polygon id="d45f5" fill="white" stroke="blue" onclick="marca('d45f5')" points="37.25,20.75 37.25,45.5 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,12.779688,-7.954079)" />
+	  <polygon id="d45f1" fill="white" stroke="blue" onclick="marca('d45f1')" points="12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 12.75,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,12.779688,-7.954079)" />
+	  <polygon id="d45f2" fill="white" stroke="blue" onclick="marca('d45f2')" points="37.25,37.25 45.25,45.25 45.5,12.25 37.25,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,12.779688,-7.954079)" />
+	  <polygon id="d45f3" fill="white" stroke="blue" onclick="marca('d45f3')" points="45.25,45.25 12.75,45.25 20.75,37.25 37.25,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,12.779688,-7.954079)" />
+	  <polygon id="d45f4" fill="white" stroke="blue" onclick="marca('d45f4')" points="20.75,20.75 37.25,20.75 45.25,12.75 12.75,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,12.779688,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente46">
+	  <polygon fill="white" stroke="blue" id="d46f5" onclick="marca('d46f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d46f1" onclick="marca('d46f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d46f2" onclick="marca('d46f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d46f3" onclick="marca('d46f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d46f4" onclick="marca('d46f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente47">
+	  <polygon fill="white" stroke="blue" id="d47f5" onclick="marca('d47f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d47f1" onclick="marca('d47f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d47f2" onclick="marca('d47f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d47f3" onclick="marca('d47f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d47f4" onclick="marca('d47f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente48">
+	  <polygon fill="white" stroke="blue" id="d48f5" onclick="marca('d48f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d48f1" onclick="marca('d48f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d48f2" onclick="marca('d48f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d48f3" onclick="marca('d48f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d48f4" onclick="marca('d48f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente49">
+	  <polygon fill="white" stroke="blue" id="d49f5" onclick="marca('d49f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d49f1" onclick="marca('d49f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d49f2" onclick="marca('d49f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d49f3" onclick="marca('d49f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d49f4" onclick="marca('d49f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente50">
+	  <polygon fill="white" stroke="blue" id="d50f5" onclick="marca('d50f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d50f1" onclick="marca('d50f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d50f2" onclick="marca('d50f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d50f3" onclick="marca('d50f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d50f4" onclick="marca('d50f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente51">
+	  <polygon fill="white" stroke="blue" id="d51f5" onclick="marca('d51f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d51f1" onclick="marca('d51f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d51f2" onclick="marca('d51f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d51f3" onclick="marca('d51f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d51f4" onclick="marca('d51f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<svg width="21.876177" height="25.828159" id="dente52">
+	  <polygon fill="white" stroke="blue" id="d52f5" onclick="marca('d52f5')" points="20.75,20.75 37.25,20.75 37.25,45.5 20.75,37.25 " 
+		transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d52f1" onclick="marca('d52f1')" points="12.75,12.75 12.75,45.5 20.75,37.25 20.75,37.25 20.75,20.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d52f2" onclick="marca('d52f2')" points="37.25,20.75 37.25,37.25 45.25,45.25 45.5,12.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d52f3" onclick="marca('d52f3')" points="37.25,37.25 45.25,45.25 12.75,45.25 20.75,37.25 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	  <polygon fill="white" stroke="blue" id="d52f4" onclick="marca('d52f4')" points="12.75,12.75 20.75,20.75 37.25,20.75 45.25,12.75 "
+	     transform="matrix(0.62615173,0,0,0.72309809,-7.2203121,-7.954079)" />
+	</svg>
+
+	<a href="#" alt="preto" onclick="acendeCaixa('black')" id="btRestaurado"></a>
+	<a href="#" alt="azul" onclick="acendeCaixa('red')" id="btCariado"></a>
+	<a href="#" alt="vermelho" onclick="acendeCaixa('blue')" id="btHigido"></a>	
+	<br />
+	<br />
+	<br />
+	<br />
+	<div id="corAtiva" style="width:420px;height:4px;border:1px solid #CCC;"></div>
+</div>
+
+
+
+
+
+
+</body>
+
+</html>

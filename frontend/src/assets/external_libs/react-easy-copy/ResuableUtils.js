@@ -32,7 +32,6 @@ export function base64StringtoFile (base64String, filename) {
   // Base64 Image to Canvas with a Crop
   export function image64toCanvasRef (imageRef, canvasRef, image64, pixelCrop) {
     const canvas = canvasRef // document.createElement('canvas');
-    debugger
     const scaleX = imageRef.naturalWidth / imageRef.width;
     const scaleY = imageRef.naturalHeight / imageRef.height;
     canvas.width = Math.ceil(pixelCrop.width * scaleX);
