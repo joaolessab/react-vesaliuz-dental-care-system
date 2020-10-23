@@ -12,7 +12,6 @@ import MomentUtils from "@date-io/moment";
 // ARQUIVOS CSS E IMAGENS DEVEM SER IMPORTADOS AQUI
 
 import '../assets/css/Finances.css';
-import '../assets/css/Responsive/Resume--Responsive.css';
 
 // ================ COMPONENTES ===============
 import Button from '@material-ui/core/Button';

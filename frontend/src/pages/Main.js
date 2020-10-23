@@ -11,6 +11,7 @@ import Resume from '../components/Resume';
 import Agenda from '../components/Agenda';
 import Patients from '../components/Patients';
 import Finances from '../components/Finances';
+import Treatments from '../components/Treatments';
 import News from '../components/News';
 import Help from '../components/Help';
 
@@ -71,6 +72,8 @@ class Main extends React.Component{
                 this.setState({appChosenView: Patients});
             if (page === "Finances")
                 this.setState({appChosenView: Finances});
+            if (page === "Treatments")
+                this.setState({appChosenView: Treatments});
             if (page === "Help")
                 this.setState({appChosenView: Help});
             if (page === "News")
@@ -92,6 +95,8 @@ class Main extends React.Component{
                 document.getElementsByClassName("icon--patients")[0].classList.add("selected");
             if (page === "Finances")
                 document.getElementsByClassName("icon--finances")[0].classList.add("selected");
+            if (page === "Treatments")
+                document.getElementsByClassName("icon--procedure")[0].classList.add("selected");
             if(page === "News")
                 document.getElementsByClassName("icon--news")[0].classList.add("selected");
             if(page === "Help")
