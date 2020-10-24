@@ -53,12 +53,10 @@ import SendIcon from '@material-ui/icons/Send';
 
 // ================ CHARTS ===============
 
-import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import SpeedDial from '@material-ui/lab/SpeedDial';
 import SpeedDialIcon from '@material-ui/lab/SpeedDialIcon';
 import SpeedDialAction from '@material-ui/lab/SpeedDialAction';
-import { AttachFile, NewReleases } from '@material-ui/icons';
 
 defaults.global.defaultFontFamily = 'Averta';
 
@@ -1075,7 +1073,7 @@ class Finances extends React.Component{
                             Salvar
                         </Button>
                     </div>                
-                </Modal>            
+                </Modal>      
             
             </div>
         );
