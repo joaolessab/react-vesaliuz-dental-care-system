@@ -125,7 +125,7 @@ class Treatments extends React.Component{
             mixedChartOpenned: true,
             
             // Transactions Items
-            transactions: this.getLocalStorageTransactions(),
+            transactions: [],
             transactionsFilterBy: {
                 "field": "date",
                 "isAscOrder": true
@@ -179,100 +179,6 @@ class Treatments extends React.Component{
         else{
             return [];
         }
-    };
-
-    getLocalStorageTransactions = () => {
-        this.insertBaseTransactions();
-
-        /* LENDO LISTA DE TRANSACTIONS DO STORAGE */
-        var newTransactions = [];
-        if (localStorage.getItem("transactionsList") !== null){
-            newTransactions = Object.assign([], JSON.parse(localStorage.getItem("transactionsList")), {});
-        }
-        
-        var newArray = _.sortBy(newTransactions, 'date').reverse();
-
-        return newArray;
-    };
-
-    insertBaseTransactions = () => {
-        localStorage.clear();
-        
-        var baseTransactions = [
-            { 
-                id: "e6929a98_2bc0-b29e-189b0cc3212ae",
-                type: 0,
-                description: "Cadeira para recepcionista",
-                price: 279.50,
-                date: moment("11/02/2020", 'DD-MM-YYYY'),
-                tags: ["Infraestrutura", "Tratamentos"],
-                observation: "Teste",
-                attaches: []
-            },
-            {
-                id: "e6929456_2bc0-b29e-456b0cc3212ae",
-                type: 1,
-                description: "Clareamento do João",
-                price: 500.00,
-                date: moment("12/02/2020", 'DD-MM-YYYY'),
-                tags: ["Infraestrutura"],
-                observation: "Teste",
-                attaches: []
-            },
-            { 
-                id: "e6334a98_2bc0-b29e-456b0cc3212ae",
-                type: 1,
-                description: "Limpeza rápida do Marcus",
-                price: 105.00,
-                date: moment("02/03/2020", 'DD-MM-YYYY'),
-                tags: ["Infraestrutura"],
-                observation: "Teste",
-                attaches: []
-            },
-            { 
-                id: "e6998798_2bc0-b29e-456b0cc3212ae",
-                type: 1,
-                description: "Clareamento do João",
-                price: 500.00,
-                date: moment("01/12/2019", 'DD-MM-YYYY'),
-                tags: ["Infraestrutura"],
-                observation: "Teste",
-                attaches: []
-            },
-            
-            { 
-                id: "e7899a98_2bc0-b29e-456b0cc3212ae",
-                type: 0,
-                description: "Lâmpadas para escritório",
-                price: 89.00,
-                date: moment("17/06/2020", 'DD-MM-YYYY'),
-                tags: ["Infraestrutura"],
-                observation: "Teste",
-                attaches: []
-            },
-            { 
-                id: "e6567a98_2bc0-b29e-456b0cc3212ae",
-                type: 1,
-                description: "Limpeza rápida do Cláudio",
-                price: 105.00,
-                date: moment("03/04/2020", 'DD-MM-YYYY'),
-                tags: ["Infraestrutura"],
-                observation: "Teste",
-                attaches: []
-            },
-            { 
-                id: "e6456a98_2bc0-b29e-456b0cc3212ae",
-                type: 0,
-                description: "Enxaguante bucal 2L",
-                price: 50.00,
-                date: moment("19/09/2020", 'DD-MM-YYYY'),
-                tags: ["Tratamentos"],
-                observation: "Teste",
-                attaches: []
-            }
-        ];
-
-        localStorage.setItem("transactionsList", JSON.stringify(baseTransactions));
     };
 
     changeBoolEvent = (evtName) => {
@@ -580,6 +486,90 @@ class Treatments extends React.Component{
         this.setState({modalCategoriasNewSelection: values});
     };
 
+    // Life Cycle Methods
+    componentDidMount(){
+        // Base Transactions
+        let baseTransactions = [
+            { 
+                id: "e6929a98_2bc0-b29e-189b0cc3212ae",
+                type: 0,
+                description: "Cadeira para recepcionista",
+                price: 279.50,
+                date: moment("11/02/2020", 'DD-MM-YYYY'),
+                tags: ["Infraestrutura", "Tratamentos"],
+                observation: "Teste",
+                attaches: []
+            },
+            {
+                id: "e6929456_2bc0-b29e-456b0cc3212ae",
+                type: 1,
+                description: "Clareamento do João",
+                price: 500.00,
+                date: moment("12/02/2020", 'DD-MM-YYYY'),
+                tags: ["Infraestrutura"],
+                observation: "Teste",
+                attaches: []
+            },
+            { 
+                id: "e6334a98_2bc0-b29e-456b0cc3212ae",
+                type: 1,
+                description: "Limpeza rápida do Marcus",
+                price: 105.00,
+                date: moment("02/03/2020", 'DD-MM-YYYY'),
+                tags: ["Infraestrutura"],
+                observation: "Teste",
+                attaches: []
+            },
+            { 
+                id: "e6998798_2bc0-b29e-456b0cc3212ae",
+                type: 1,
+                description: "Clareamento do João",
+                price: 500.00,
+                date: moment("01/12/2019", 'DD-MM-YYYY'),
+                tags: ["Infraestrutura"],
+                observation: "Teste",
+                attaches: []
+            },
+            
+            { 
+                id: "e7899a98_2bc0-b29e-456b0cc3212ae",
+                type: 0,
+                description: "Lâmpadas para escritório",
+                price: 89.00,
+                date: moment("17/06/2020", 'DD-MM-YYYY'),
+                tags: ["Infraestrutura"],
+                observation: "Teste",
+                attaches: []
+            },
+            { 
+                id: "e6567a98_2bc0-b29e-456b0cc3212ae",
+                type: 1,
+                description: "Limpeza rápida do Cláudio",
+                price: 105.00,
+                date: moment("03/04/2020", 'DD-MM-YYYY'),
+                tags: ["Infraestrutura"],
+                observation: "Teste",
+                attaches: []
+            },
+            { 
+                id: "e6456a98_2bc0-b29e-456b0cc3212ae",
+                type: 0,
+                description: "Enxaguante bucal 2L",
+                price: 50.00,
+                date: moment("19/09/2020", 'DD-MM-YYYY'),
+                tags: ["Tratamentos"],
+                observation: "Teste",
+                attaches: []
+            }
+        ];
+
+        baseTransactions = _.sortBy(baseTransactions, 'date').reverse();
+
+        this.setState({ transactions: baseTransactions}, () => {
+            console.log("Tratamentos iniciais inseridos...");
+        });
+    };
+
     // Visualização de Todo o conteúdo do HTML
     render(){
         // LISTAGEM DE PACIENTES
@@ -617,7 +607,7 @@ class Treatments extends React.Component{
                     </div>
             );
         });
-        
+
         const { classes } = this.props;
         const { hidden, open } = this.state;
 
